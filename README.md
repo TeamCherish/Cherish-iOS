@@ -20,7 +20,7 @@
 
 ## 🍒 Project
 
-* <b> SOPT 27th APPJAM, Cherish
+* <b> SOPT 27th APPJAM, Cherish </b>
 * 프로젝트 기간: 2020.12.26 ~ 2021.01.16
 * 체리쉬는 ~~~  하는 서비스입니다.
 
@@ -106,13 +106,13 @@
 
 - 클래스 이름에는 접두사를 붙이지 않습니다.
 
-⭕️ >
+ 좋은 예 >
 
   ```swift
   class CherishTVC: UITableViewCell
   ```
 
-❌ >
+ 나쁜 예 >
 
   ```swift
   struct cherishCVCInfo { }
@@ -131,7 +131,7 @@
 
 - 테이블 뷰 셀은 **TVC**, 컬렉션뷰 셀은 **CVC**로 줄여서 네이밍합니다.
 
-⭕️ >
+ 좋은 예 >
 
   ```swift
   @IBOutlet weak var wateringBtn: UIButton!
@@ -139,7 +139,7 @@
   @IBOutlet weak var cherishTV: UITableView!
   ```
 
-❌ >
+ 나쁜 예 >
 
   ```swift
   @IBOutlet weak var ScrollView: UIScrollView!
@@ -278,27 +278,9 @@ git push origin develop
 ## 🍎 iOS Developer
 
 <img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103209152-b436e680-4945-11eb-91e4-bd8622e442e2.png" width="200px" /> | <img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103209201-da5c8680-4945-11eb-9824-21c96c4f97bf.jpeg" width="200px" height = "200px" />| <img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103209210-ddf00d80-4945-11eb-85c7-3f85ffc9f96c.png" width="200px" height = "200px" />
-| :--- | ---: | :---:
-지은  | 원석 | 서현
-
-
-<img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103209152-b436e680-4945-11eb-91e4-bd8622e442e2.png" width="200px" />
-
-* [지은](https://github.com/hwangJi-dev)
-
-<br>
-
-<img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103209201-da5c8680-4945-11eb-9824-21c96c4f97bf.jpeg" width="200px" height = "200px" />
-
-* [원석](https://github.com/snowedev)
-
-<br>
-
-<img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103209210-ddf00d80-4945-11eb-85c7-3f85ffc9f96c.png" width="200px" height = "200px" />
-
-- [서현](https://github.com/seohyun-106)
+| :---: | :---: | :---:
+지은 | 원석 | 서현
 
 
 
- 
 <br>
