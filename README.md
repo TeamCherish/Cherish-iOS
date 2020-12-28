@@ -29,15 +29,17 @@
 
 
 
+<br>
 
-#### 📱 AutoLayout
-- iPhone 12 pro
-- iPhone 12 mini
-- iPhone SE2
+
+## 🍎 iOS Developer
+
+<img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103209152-b436e680-4945-11eb-91e4-bd8622e442e2.png" width="200px" /> | <img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103209201-da5c8680-4945-11eb-9824-21c96c4f97bf.jpeg" width="200px" height = "200px" />| <img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103209210-ddf00d80-4945-11eb-85c7-3f85ffc9f96c.png" width="200px" height = "200px" />
+| :---: | :---: | :---:
+[지은](https://github.com/hwangJi-dev) | [원석](https://github.com/snowedev) | [서현](https://github.com/seohyun-106)
 
 
 <br>
-
 
 ## 🛠 개발 환경 및 사용한 라이브러리 (Development Environment and Using Library)
 
@@ -48,12 +50,19 @@
 
 ### Using Library  
 | 라이브러리(Library) | 목적(Purpose) | 버전(Version) |
-|:---|:----------|----|
-| Alamofire   | 서버 통신 | 5.2.1 |
-| Kingfisher  | 이미지 처리 | 5.14.0 |
-| SnapKit  | 오토레이아웃 | 5.0.1 |
+|:---:|:----------:|:----:|
+| Alamofire   | 서버 통신 |  |
+| Kingfisher  | 이미지 처리 |  |
+| SnapKit  | 오토레이아웃 |  |
 | Lottie-iOS  | 애니메이션 처리  |  |
 | FSCalendar  | 캘린더 뷰 만들기 |  |
+| UICircularProgressRing  | 프로그레스 뷰 만들기 |  |
+
+
+### 📱 AutoLayout
+- iPhone 12 pro
+- iPhone 12 mini
+- iPhone SE2
 
 
 <br>
@@ -102,7 +111,7 @@
 
 **Class & Struct**
 
-- 클래스/구조체 이름은 UpperCamelCase를 사용합니다.
+- 클래스/구조체 이름은 **UpperCamelCase**를 사용합니다.
 
 - 클래스 이름에는 접두사를 붙이지 않습니다.
 
@@ -147,16 +156,17 @@
   @IBOutlet weak var tagcollectionview: UICollectionView!
   @IBOutlet weak var tableview: UITableView!
   ```
+<br>
 
-### 주석
+### 🏷 주석
 
 - `// MARK:` 를 사용해서 연관된 코드를 구분짓습니다.
 - `///` 를 사용해서 문서화에 사용되는 주석을 남깁니다. (ex. /// 사용자 프로필을 그려주는 뷰)
+<br>
 
+### 📎 기타
 
-### 기타
-
-- viewDidLoad() 내에는 Function만 위치시킵니다.
+- viewDidLoad() 내에는 **Function만 위치**시킵니다.
 - 중복되는 부분들은 +Extension.swift로 만들어 활용합니다.
 - 메인컬러와 같이 자주 쓰이는 컬러들은 Asset에 Color Set을 만들어서 사용합니다.
 - , 뒤에 반드시 띄어쓰기를 합니다.
@@ -174,7 +184,7 @@ if (condition){
 ```
 
 
-다음 스타일 Guide를 참고헀습니다 👉🏻[Style Guide](https://github.com/StyleShare/swift-style-guide)
+다음 스타일 Guide를 참고헀습니다. 👉🏻[Style Guide](https://github.com/StyleShare/swift-style-guide)
 
 
 <br>
@@ -269,18 +279,6 @@ git pull origin develop
 ```bash
 git push origin develop
 ```
-
-
-
-<br>
-
-
-## 🍎 iOS Developer
-
-<img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103209152-b436e680-4945-11eb-91e4-bd8622e442e2.png" width="200px" /> | <img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103209201-da5c8680-4945-11eb-9824-21c96c4f97bf.jpeg" width="200px" height = "200px" />| <img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103209210-ddf00d80-4945-11eb-85c7-3f85ffc9f96c.png" width="200px" height = "200px" />
-| :---: | :---: | :---:
-지은 | 원석 | 서현
-
 
 
 <br>
