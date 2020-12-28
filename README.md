@@ -1,11 +1,5 @@
 # Cherish-iOS
 
-탐욕집착불끈이들 일취월장 일사천리 ~ 🍎🍒
-
-# 긍정적 중독을 활용한 의지 강화 서비스, 마시멜로
-
-
-
 > <b>'서비스, 체리쉬 </b><br/>
 > 서비스 체리쉬 <br/>
 > <br>
@@ -57,6 +51,8 @@
 | Kingfisher  | 이미지 처리 | 5.14.0 |
 | SnapKit  | 오토레이아웃 | 5.0.1 |
 | Then  | 코드로 뷰 만들기 | 2.7.0 |
+| Lottie-iOS  | 애니메이션 처리  |  |
+| BEMCheckBox  | 체크박스 뷰 만들기 |  |
 
 
 <br>
@@ -110,6 +106,7 @@
 
 👉 [자세히](https://github.com/TeamCherish/Cherish-iOS/wiki/CodingConvention)
 
+<br>
 
 ### 네이밍
 
@@ -168,7 +165,7 @@
 
 
 
-다음 스타일 Guide를 참고헀음 👉 [Style Guide](https://github.com/27th-sopkathon-marshmallow/Marshmallow_iOS/wiki/Marshmallow_Coding_Convention)
+다음 스타일 Guide를 참고헀음 👉 [Style Guide](https://github.com/StyleShare/swift-style-guide)
 
 
 <br>
