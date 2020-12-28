@@ -56,7 +56,7 @@
 
 ### 📂 폴더구조
 
-* Resources
+* **Resources**
     * AppDelegate
     * SceneDelegate
     * Assets.xcassets
@@ -65,7 +65,7 @@
         * APIConstant
     * Font
 
-* Sources
+* **Sources**
     * VC
     * Class
     * Cell
@@ -73,7 +73,7 @@
         * GenericResponse
     * Extension
         
-* Info.plist
+* **Info.plist**
 
 <br>
 
