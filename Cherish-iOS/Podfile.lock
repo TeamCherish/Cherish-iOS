@@ -1,0 +1,34 @@
+PODS:
+  - Alamofire (5.4.1)
+  - FSCalendar (2.8.2)
+  - Kingfisher (5.15.8):
+    - Kingfisher/Core (= 5.15.8)
+  - Kingfisher/Core (5.15.8)
+  - lottie-ios (3.1.9)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - FSCalendar
+  - Kingfisher
+  - lottie-ios
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - FSCalendar
+    - Kingfisher
+    - lottie-ios
+    - SnapKit
+
+SPEC CHECKSUMS:
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
+  Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
+  lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: cb37903870fec63489d908dc21fbba4d0f616072
+
+COCOAPODS: 1.10.0

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,13 +16,15 @@
 		33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851C92259A5B68005BCFFD /* APIConstants.swift */; };
 		33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851C98259A5C00005BCFFD /* NetworkResult.swift */; };
 		33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851C9C259A5C25005BCFFD /* GenericResponse.swift */; };
-		33851CA0259A5C5A005BCFFD /* ClassFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851C9F259A5C5A005BCFFD /* ClassFile.swift */; };
 		33851CA3259A5C62005BCFFD /* ExtensionFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851CA2259A5C62005BCFFD /* ExtensionFile.swift */; };
 		33851CA6259A5C8A005BCFFD /* CellFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851CA5259A5C8A005BCFFD /* CellFile.swift */; };
 		33851CA9259A5C98005BCFFD /* FontFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851CA8259A5C98005BCFFD /* FontFile.swift */; };
+		33851CB3259A62F6005BCFFD /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851CB2259A62F6005BCFFD /* CircularProgressBar.swift */; };
+		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cherish_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33851C70259A5541005BCFFD /* Cherish-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cherish-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33851C73259A5541005BCFFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33851C75259A5541005BCFFD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,10 +36,12 @@
 		33851C92259A5B68005BCFFD /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		33851C98259A5C00005BCFFD /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		33851C9C259A5C25005BCFFD /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
-		33851C9F259A5C5A005BCFFD /* ClassFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassFile.swift; sourceTree = "<group>"; };
 		33851CA2259A5C62005BCFFD /* ExtensionFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFile.swift; sourceTree = "<group>"; };
 		33851CA5259A5C8A005BCFFD /* CellFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFile.swift; sourceTree = "<group>"; };
 		33851CA8259A5C98005BCFFD /* FontFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFile.swift; sourceTree = "<group>"; };
+		33851CB2259A62F6005BCFFD /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
+		DAA60C0D230FDF9D184F4B6C /* Pods-Cherish-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		F67D9DFE41871E0883A26838 /* Pods-Cherish-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.release.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +61,8 @@
 			children = (
 				33851C72259A5541005BCFFD /* Cherish-iOS */,
 				33851C71259A5541005BCFFD /* Products */,
+				E02009D7188E5585214F245E /* Pods */,
+				B229733EA498ABC825B548EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,7 +146,7 @@
 		33851C8E259A5B14005BCFFD /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				33851C9F259A5C5A005BCFFD /* ClassFile.swift */,
+				33851CB2259A62F6005BCFFD /* CircularProgressBar.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -168,6 +175,23 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		B229733EA498ABC825B548EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E02009D7188E5585214F245E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DAA60C0D230FDF9D184F4B6C /* Pods-Cherish-iOS.debug.xcconfig */,
+				F67D9DFE41871E0883A26838 /* Pods-Cherish-iOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -175,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 33851C84259A5542005BCFFD /* Build configuration list for PBXNativeTarget "Cherish-iOS" */;
 			buildPhases = (
+				015B669B81E80A7D1E57D08A /* [CP] Check Pods Manifest.lock */,
 				33851C6C259A5541005BCFFD /* Sources */,
 				33851C6D259A5541005BCFFD /* Frameworks */,
 				33851C6E259A5541005BCFFD /* Resources */,
+				C297473358F1599870225A3D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,6 +259,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		015B669B81E80A7D1E57D08A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cherish-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C297473358F1599870225A3D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		33851C6C259A5541005BCFFD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -243,8 +311,8 @@
 				33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */,
 				33851CA6259A5C8A005BCFFD /* CellFile.swift in Sources */,
 				33851C78259A5541005BCFFD /* ViewController.swift in Sources */,
+				33851CB3259A62F6005BCFFD /* CircularProgressBar.swift in Sources */,
 				33851CA3259A5C62005BCFFD /* ExtensionFile.swift in Sources */,
-				33851CA0259A5C5A005BCFFD /* ClassFile.swift in Sources */,
 				33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */,
 				33851C74259A5541005BCFFD /* AppDelegate.swift in Sources */,
 				33851C76259A5541005BCFFD /* SceneDelegate.swift in Sources */,
@@ -391,6 +459,7 @@
 		};
 		33851C85259A5542005BCFFD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAA60C0D230FDF9D184F4B6C /* Pods-Cherish-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -409,6 +478,7 @@
 		};
 		33851C86259A5542005BCFFD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F67D9DFE41871E0883A26838 /* Pods-Cherish-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
