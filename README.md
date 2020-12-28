@@ -40,7 +40,6 @@
 | SnapKit  | 오토레이아웃 |  |
 | Lottie-iOS  | 애니메이션 처리  |  |
 | FSCalendar  | 캘린더 뷰 만들기 |  |
-| UICircularProgressRing  | 프로그레스 뷰 만들기 |  |
 
 
 ### 📱 AutoLayout
