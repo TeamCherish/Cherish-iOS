@@ -1,14 +1,4 @@
 
-## 📃 목차
-
-- [Project 설명](#-🍒-project)
-- [팀원 소개](#-🍎-ios-developer)
-- [개발 환경 및 라이브러리](#-🛠-개발-환경-및-사용한-라이브러리-(development-environment-and-using-library))
-- [Coding Convention](#-📜-coding-convention )
-- [Github mangement](#-💻-github-mangement)
-
-
-<br>
 
 ## 🍒 Project
 
