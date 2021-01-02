@@ -13,11 +13,14 @@ enum Notches : Int, CaseIterable {
 }
 
 class CherishMainVC: OverlayContainerViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         makeOverlayContainerContents()
+        
+        //cherishPeople cell 클릭되었을 때 노티를 보낸걸 감지
+        NotificationCenter.default.addObserver(self, selector: #selector(scrollNotchDownAction), name: .cherishPeopleCellClicked, object: nil)
     }
     
     //MARK:- overlayContainer에 VC 구성
@@ -31,8 +34,13 @@ class CherishMainVC: OverlayContainerViewController {
         
         self.delegate = self
         
-        ///중간 노치부터 띄우기
+        //중간 노치부터 띄우기
         moveOverlay(toNotchAt: 1, animated: false)
+    }
+    
+    //MARK: - 노치를 중간으로 내려주는 액션함수
+    @objc func scrollNotchDownAction(_ notification: Notification) {
+        moveOverlay(toNotchAt: 1, animated: true)
     }
 }
 
@@ -57,7 +65,7 @@ extension CherishMainVC : OverlayContainerViewControllerDelegate {
             return availableSpace * 3/4
         }
     }
-
+    
     /// content에 scrollView가 있을 때 그 scrollView를 지정해주는 함수 
     func overlayContainerViewController(_ containerViewController: OverlayContainerViewController, scrollViewDrivingOverlay overlayViewController: UIViewController) -> UIScrollView? {
         return (overlayViewController as? DetailContentVC)?.cherishPeopleCV
@@ -88,4 +96,6 @@ extension CherishMainVC : OverlayContainerViewControllerDelegate {
             viewControllers = [mainContentContoller,backdropController,detailContentController]
         }
     }
-    }
+}
+
+

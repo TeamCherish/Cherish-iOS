@@ -9,21 +9,35 @@ import UIKit
 
 class MainContentVC: UIViewController {
 
+    @IBOutlet var dayCountLabel: UILabel!
+    @IBOutlet var plantExplainLabel: CustomLabel!
+    @IBOutlet var userNickNameLabel: CustomLabel!
+    @IBOutlet var plantImageView: UIImageView!
+    let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(changeBackgroundInfo), name: .cherishPeopleCellClicked, object: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        
+        // cherishPeopleCell이 선택되면 배경뷰의 라벨값, 식물이미지, 배경색을 바꿔준다.
+        if appDel.isCherishPeopleCellSelected == true {
+            self.userNickNameLabel.text = UserDefaults.standard.string(forKey: "selectedNickNameData")
+        }
     }
-    */
-
+    
+    
+    //MARK: - 식물 상세페이지 뷰로 이동
+    @IBAction func moveToPlantDetailView(_ sender: UIButton) {
+    }
+    
+    @objc func changeBackgroundInfo(){
+        
+        //noti 감지 후 view가 reload될 수 있도록 viewWillAppear함수를 호출해준다.
+        viewWillAppear(true)
+       
+    }
 }
