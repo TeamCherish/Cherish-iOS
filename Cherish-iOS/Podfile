@@ -11,4 +11,5 @@ target 'Cherish-iOS' do
   pod 'Kingfisher'
   pod 'SnapKit'
   pod 'FSCalendar'
+  pod 'OverlayContainer'
 end

@@ -5,6 +5,7 @@ PODS:
     - Kingfisher/Core (= 5.15.8)
   - Kingfisher/Core (5.15.8)
   - lottie-ios (3.1.9)
+  - OverlayContainer (3.5.1)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
@@ -12,6 +13,7 @@ DEPENDENCIES:
   - FSCalendar
   - Kingfisher
   - lottie-ios
+  - OverlayContainer
   - SnapKit
 
 SPEC REPOS:
@@ -20,6 +22,7 @@ SPEC REPOS:
     - FSCalendar
     - Kingfisher
     - lottie-ios
+    - OverlayContainer
     - SnapKit
 
 SPEC CHECKSUMS:
@@ -27,8 +30,9 @@ SPEC CHECKSUMS:
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
+  OverlayContainer: a95f0f555fd0dd1addba3fc45370801e5fc16e68
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: cb37903870fec63489d908dc21fbba4d0f616072
+PODFILE CHECKSUM: 14229e56f433bdef6bd70f17345dbbd967bf7210
 
 COCOAPODS: 1.10.0
