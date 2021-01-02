@@ -13,20 +13,31 @@ class MainContentVC: UIViewController {
     @IBOutlet var plantExplainLabel: CustomLabel!
     @IBOutlet var userNickNameLabel: CustomLabel!
     @IBOutlet var plantImageView: UIImageView!
+    @IBOutlet var progressbarView: ProgressBarView!
+    @IBOutlet var progressbarBackView: ProgressBarView!
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        customProgressBarView()
         NotificationCenter.default.addObserver(self, selector: #selector(changeBackgroundInfo), name: .cherishPeopleCellClicked, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
+        customProgressBarView()
+        
         // cherishPeopleCell이 선택되면 배경뷰의 라벨값, 식물이미지, 배경색을 바꿔준다.
         if appDel.isCherishPeopleCellSelected == true {
             self.userNickNameLabel.text = UserDefaults.standard.string(forKey: "selectedNickNameData")
         }
+    }
+    
+    func customProgressBarView(){
+        progressbarBackView.setBackColor(color: .white)
+        progressbarView.setBackColor(color: .white)
+        progressbarView.setProgressColor(color: .seaweed)
+        progressbarView.setProgressValue(currentValue: 73)
     }
     
     

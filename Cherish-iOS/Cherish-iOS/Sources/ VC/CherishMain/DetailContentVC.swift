@@ -32,26 +32,26 @@ class DetailContentVC: UIViewController {
     
     func setCherishPeopleData(){
         cherishPeopleData.append(contentsOf: [
-            CherishPeopleData(nickName: "남쿵둥이", plantImageName: "mainImgUser1"),
-            CherishPeopleData(nickName: "남쿵둥이", plantImageName: "mainImgUser2"),
-            CherishPeopleData(nickName: "탐욕이", plantImageName: "mainImgUser4"),
-            CherishPeopleData(nickName: "불끈이", plantImageName: "mainImgUser5"),
-            CherishPeopleData(nickName: "집착이", plantImageName: "mainImgUser1"),
-            CherishPeopleData(nickName: "탐욕이", plantImageName: "mainImgUser2"),
-            CherishPeopleData(nickName: "훌렁이", plantImageName: "mainImgUser5"),
-            CherishPeopleData(nickName: "불끈이", plantImageName: "mainImgUser4"),
-            CherishPeopleData(nickName: "매끈이", plantImageName: "mainImgUser5"),
-            CherishPeopleData(nickName: "집착이", plantImageName: "mainImgUser2"),
-            CherishPeopleData(nickName: "남쿵둥이", plantImageName: "mainImgUser1"),
-            CherishPeopleData(nickName: "남쿵둥이", plantImageName: "mainImgUser1"),
-            CherishPeopleData(nickName: "남쿵둥이", plantImageName: "mainImgUser2"),
-            CherishPeopleData(nickName: "남쿵둥이", plantImageName: "mainImgUser2"),
-            CherishPeopleData(nickName: "남쿵둥이", plantImageName: "mainImgUser5"),
-            CherishPeopleData(nickName: "남쿵둥이", plantImageName: "mainImgUser4"),
-            CherishPeopleData(nickName: "남쿵둥이", plantImageName: "mainImgUser4"),
-            CherishPeopleData(nickName: "남쿵둥이", plantImageName: "mainImgUser1"),
-            CherishPeopleData(nickName: "남쿵둥이", plantImageName: "mainImgUser2"),
-            CherishPeopleData(nickName: "남쿵둥이", plantImageName: "mainImgUser5"),
+            CherishPeopleData(nickName: "지은둥이", plantImageName: "mainImgUser1"),
+            CherishPeopleData(nickName: "원석둥이", plantImageName: "mainImgUser2"),
+            CherishPeopleData(nickName: "서현둥이", plantImageName: "mainImgUser4"),
+            CherishPeopleData(nickName: "남궁둥이", plantImageName: "mainImgUser5"),
+            CherishPeopleData(nickName: "소령둥이", plantImageName: "mainImgUser1"),
+            CherishPeopleData(nickName: "민지둥이", plantImageName: "mainImgUser2"),
+            CherishPeopleData(nickName: "수아둥이", plantImageName: "mainImgUser5"),
+            CherishPeopleData(nickName: "영은둥이", plantImageName: "mainImgUser4"),
+            CherishPeopleData(nickName: "궁권둥이", plantImageName: "mainImgUser5"),
+            CherishPeopleData(nickName: "원탁둥이", plantImageName: "mainImgUser2"),
+            CherishPeopleData(nickName: "울이둥이", plantImageName: "mainImgUser1"),
+            CherishPeopleData(nickName: "정민둥이", plantImageName: "mainImgUser1"),
+            CherishPeopleData(nickName: "훈기둥이", plantImageName: "mainImgUser2"),
+            CherishPeopleData(nickName: "나영둥이", plantImageName: "mainImgUser2"),
+            CherishPeopleData(nickName: "예진둥이", plantImageName: "mainImgUser5"),
+            CherishPeopleData(nickName: "아요둥이", plantImageName: "mainImgUser4"),
+            CherishPeopleData(nickName: "안드둥이", plantImageName: "mainImgUser4"),
+            CherishPeopleData(nickName: "디쟌둥이", plantImageName: "mainImgUser1"),
+            CherishPeopleData(nickName: "서버둥이", plantImageName: "mainImgUser2"),
+            CherishPeopleData(nickName: "기획둥이", plantImageName: "mainImgUser5"),
         ])
     }
   
@@ -96,6 +96,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             cell.cherishNickNameLabel.text = cherishPeopleData[indexPath.row - 1].nickName
             cell.cherishPlantImageView.image = UIImage(named: cherishPeopleData[indexPath.row - 1].plantImageName)
             
+            
             return cell
         }
     }
@@ -118,7 +119,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].plantImageName, forKey: "selectedPlantNameData")
             UserDefaults.standard.set(true, forKey: "selectedData")
             
-
             cherishPeopleCV.reloadData()
         }
         
