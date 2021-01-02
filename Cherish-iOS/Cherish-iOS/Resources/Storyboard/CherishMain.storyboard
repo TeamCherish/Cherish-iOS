@@ -100,29 +100,79 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="571-Dh-KLL">
-                                <rect key="frame" x="16" y="200" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="571-Dh-KLL">
+                                <rect key="frame" x="16" y="197.33333333333334" width="90" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="eOM-Vd-F2G"/>
+                                </constraints>
+                                <state key="normal" image="mainBtnWater"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVc-1z-5Ct">
+                                <rect key="frame" x="311" y="68" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WVc-1z-5Ct" secondAttribute="height" multiplier="1:1" id="1w9-c3-gzi"/>
+                                    <constraint firstAttribute="height" constant="48" id="JFV-bV-lGR"/>
+                                </constraints>
+                                <state key="normal" image="mainIcAlarm"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvI-uI-SPM">
+                                <rect key="frame" x="127" y="184" width="232" height="493"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rvI-uI-SPM" secondAttribute="height" multiplier="8:17" id="Gsy-gY-gob"/>
+                                    <constraint firstAttribute="height" constant="493" id="xRp-Hv-xPS"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="moveToPlantDetailView:" destination="y3f-7o-jg5" eventType="touchUpInside" id="JSe-K4-EwA"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgMainDandelion" translatesAutoresizingMaskIntoConstraints="NO" id="1LF-25-ssR">
+                                <rect key="frame" x="125" y="183.66666666666663" width="250" height="493"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="493" id="EYF-pn-aGE"/>
+                                    <constraint firstAttribute="width" secondItem="1LF-25-ssR" secondAttribute="height" multiplier="250:493" id="uTq-5b-4AI"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainBtnMoveDetailview" translatesAutoresizingMaskIntoConstraints="NO" id="8W2-oQ-08F">
+                                <rect key="frame" x="118" y="191.66666666666663" width="256" height="380"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8W2-oQ-08F" secondAttribute="height" multiplier="256:380" id="Ndf-vJ-hfD"/>
+                                    <constraint firstAttribute="height" constant="380" id="nIi-T0-qZr"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TmQ-US-0yO"/>
                         <color key="backgroundColor" name="blueGrey"/>
                         <constraints>
+                            <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="WVc-1z-5Ct" secondAttribute="trailing" constant="16" id="0sK-aj-JNq"/>
                             <constraint firstItem="rlN-3e-VUW" firstAttribute="centerY" secondItem="Otg-az-yW5" secondAttribute="centerY" id="82A-4s-Uj7"/>
+                            <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="8W2-oQ-08F" secondAttribute="trailing" constant="1" id="8VT-KM-ulm"/>
                             <constraint firstItem="Otg-az-yW5" firstAttribute="top" secondItem="TmQ-US-0yO" secondAttribute="top" constant="24" id="JFI-KJ-QGn"/>
                             <constraint firstItem="rlN-3e-VUW" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="trailing" id="KNM-Rh-4N8"/>
                             <constraint firstItem="MqD-Yz-UwB" firstAttribute="top" secondItem="Otg-az-yW5" secondAttribute="bottom" id="NVe-rU-BRG"/>
                             <constraint firstItem="rb3-up-wUt" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="Oab-yJ-QY5"/>
+                            <constraint firstItem="8W2-oQ-08F" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" constant="44" id="Swu-9T-rPS"/>
                             <constraint firstItem="MqD-Yz-UwB" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="XP7-Wi-NiB"/>
+                            <constraint firstItem="rvI-uI-SPM" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" constant="36.329999999999998" id="YzY-lm-gp2"/>
+                            <constraint firstItem="1LF-25-ssR" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" constant="36" id="anz-Zs-3Ru"/>
+                            <constraint firstItem="571-Dh-KLL" firstAttribute="top" secondItem="rb3-up-wUt" secondAttribute="bottom" constant="17" id="eNb-JJ-9v9"/>
+                            <constraint firstItem="WVc-1z-5Ct" firstAttribute="top" secondItem="Otg-az-yW5" secondAttribute="top" id="ep8-Ry-r09"/>
                             <constraint firstItem="Otg-az-yW5" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="16" id="gU2-9v-S28"/>
+                            <constraint firstItem="571-Dh-KLL" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="nqY-XG-32e"/>
+                            <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="1LF-25-ssR" secondAttribute="trailing" id="wYg-2z-Rbn"/>
                             <constraint firstItem="rb3-up-wUt" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" id="xGF-4Q-8bB"/>
+                            <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="rvI-uI-SPM" secondAttribute="trailing" constant="16" id="yr4-vh-OGo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dayCountLabel" destination="rlN-3e-VUW" id="mP8-In-fUH"/>
+                        <outlet property="plantExplainLabel" destination="MqD-Yz-UwB" id="lsW-qY-OCZ"/>
+                        <outlet property="plantImageView" destination="1LF-25-ssR" id="q63-xK-rvd"/>
+                        <outlet property="userNickNameLabel" destination="rb3-up-wUt" id="vAL-T6-ssD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Amh-KG-oEa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2439" y="487"/>
+            <point key="canvasLocation" x="-2439.1999999999998" y="486.94581280788179"/>
         </scene>
         <!--Detail ContentVC-->
         <scene sceneID="9yd-TY-CVV">
@@ -134,28 +184,175 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bh-Ia-bkm">
                                 <rect key="frame" x="0.0" y="44" width="375" height="60"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="modal" translatesAutoresizingMaskIntoConstraints="NO" id="N5G-ph-Yf9">
+                                        <rect key="frame" x="162.66666666666666" y="10" width="50" height="4"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="N5G-ph-Yf9" secondAttribute="height" multiplier="25:2" id="1vV-do-1Bo"/>
+                                            <constraint firstAttribute="height" constant="4" id="zu0-wx-Rvx"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 소중한 사람들" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWq-sY-NPK" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="16.000000000000007" y="30" width="104.66666666666669" height="16.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="14"/>
+                                        <color key="textColor" name="black"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                <real key="value" value="-0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhZ-mV-MRR" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="124.66666666666667" y="29.666666666666671" width="15.666666666666671" height="17"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                        <color key="textColor" name="seaweed"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                <real key="value" value="-0.20000000000000001"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQ3-qx-4ea">
+                                        <rect key="frame" x="308" y="20" width="51" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="rQ3-qx-4ea" secondAttribute="height" multiplier="51:36" id="Web-Hz-1Ql"/>
+                                            <constraint firstAttribute="height" constant="36" id="u5Y-lO-Qq6"/>
+                                        </constraints>
+                                        <state key="normal" image="invalidName"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="rQ3-qx-4ea" firstAttribute="top" secondItem="3bh-Ia-bkm" secondAttribute="top" constant="20" id="Ikv-rz-gsC"/>
+                                    <constraint firstItem="N5G-ph-Yf9" firstAttribute="top" secondItem="3bh-Ia-bkm" secondAttribute="top" constant="10" id="Kve-kp-xrz"/>
+                                    <constraint firstItem="dhZ-mV-MRR" firstAttribute="centerY" secondItem="XWq-sY-NPK" secondAttribute="centerY" id="TQh-r2-2Th"/>
+                                    <constraint firstItem="XWq-sY-NPK" firstAttribute="centerY" secondItem="rQ3-qx-4ea" secondAttribute="centerY" id="XTQ-HS-780"/>
+                                    <constraint firstItem="dhZ-mV-MRR" firstAttribute="leading" secondItem="XWq-sY-NPK" secondAttribute="trailing" constant="4" id="YFf-gd-WPn"/>
+                                    <constraint firstItem="N5G-ph-Yf9" firstAttribute="centerX" secondItem="3bh-Ia-bkm" secondAttribute="centerX" id="dDt-7a-Tes"/>
+                                    <constraint firstAttribute="trailing" secondItem="rQ3-qx-4ea" secondAttribute="trailing" constant="16" id="e1h-i3-zC0"/>
                                     <constraint firstAttribute="height" constant="60" id="kyV-7P-0El"/>
+                                    <constraint firstItem="XWq-sY-NPK" firstAttribute="leading" secondItem="3bh-Ia-bkm" secondAttribute="leading" constant="16" id="mPI-7q-Snb"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dA7-UO-PkU">
                                 <rect key="frame" x="0.0" y="104" width="375" height="674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uEB-Wd-zQh">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="uEB-Wd-zQh">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="11" minY="0.0" maxX="11" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="4L7-RV-z3B">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CherishSelectPersonCVCell" id="4L7-RV-z3B" customClass="CherishSelectPersonCVCell" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="11" y="0.0" width="69" height="91"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yuF-KZ-bnw">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="69" height="91"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ellipse373" translatesAutoresizingMaskIntoConstraints="NO" id="tUC-yK-00U">
+                                                    <rect key="frame" x="0.0" y="0.0" width="69" height="69"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="69" id="MOk-oK-iMn"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainImgUser1" translatesAutoresizingMaskIntoConstraints="NO" id="kkb-UO-WqI">
+                                                    <rect key="frame" x="5" y="5" width="59" height="59"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="59" id="7cX-VK-a6Y"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDM-bV-H4M" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="13.666666666666668" y="73" width="41.666666666666657" height="14"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                                    <color key="textColor" name="black"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                            <real key="value" value="-0.69999999999999996"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainIcUserWater" translatesAutoresizingMaskIntoConstraints="NO" id="TE1-U3-O9S">
+                                                    <rect key="frame" x="47" y="44" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="TQp-OK-wrP"/>
+                                                        <constraint firstAttribute="width" secondItem="TE1-U3-O9S" secondAttribute="height" multiplier="1:1" id="YFT-cm-r5d"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="kkb-UO-WqI" secondAttribute="trailing" constant="5" id="3gb-dn-6RH"/>
+                                                <constraint firstItem="JDM-bV-H4M" firstAttribute="centerX" secondItem="yuF-KZ-bnw" secondAttribute="centerX" id="6OA-hF-jqR"/>
+                                                <constraint firstAttribute="trailing" secondItem="TE1-U3-O9S" secondAttribute="trailing" constant="2" id="ENr-hc-j8O"/>
+                                                <constraint firstItem="JDM-bV-H4M" firstAttribute="top" secondItem="tUC-yK-00U" secondAttribute="bottom" constant="4" id="FYb-JB-c9h"/>
+                                                <constraint firstItem="TE1-U3-O9S" firstAttribute="top" secondItem="yuF-KZ-bnw" secondAttribute="top" constant="44" id="LSL-Er-yW4"/>
+                                                <constraint firstItem="tUC-yK-00U" firstAttribute="leading" secondItem="yuF-KZ-bnw" secondAttribute="leading" id="PGK-pP-rLw"/>
+                                                <constraint firstItem="tUC-yK-00U" firstAttribute="top" secondItem="yuF-KZ-bnw" secondAttribute="top" id="YYQ-MA-cGB"/>
+                                                <constraint firstItem="kkb-UO-WqI" firstAttribute="top" secondItem="yuF-KZ-bnw" secondAttribute="top" constant="5" id="aVp-sj-LWd"/>
+                                                <constraint firstAttribute="trailing" secondItem="tUC-yK-00U" secondAttribute="trailing" id="aaP-WP-abe"/>
+                                                <constraint firstItem="kkb-UO-WqI" firstAttribute="leading" secondItem="yuF-KZ-bnw" secondAttribute="leading" constant="5" id="dNR-0c-u8w"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="69" height="91"/>
+                                        <connections>
+                                            <outlet property="eclipseImageView" destination="tUC-yK-00U" id="W3n-Uv-OG5"/>
+                                            <outlet property="nickNameLabel" destination="JDM-bV-H4M" id="M5W-rG-pqy"/>
+                                            <outlet property="plantImageView" destination="kkb-UO-WqI" id="kQR-cU-jvD"/>
+                                            <outlet property="userWaterImageView" destination="TE1-U3-O9S" id="c2X-OO-JcV"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CherishPeopleCVCell" id="AVQ-9s-i0T" customClass="CherishPeopleCVCell" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="82" y="0.0" width="69" height="91"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wye-nE-hKo">
+                                            <rect key="frame" x="0.0" y="0.0" width="69" height="91"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainImgUser1" translatesAutoresizingMaskIntoConstraints="NO" id="YT7-Xw-sgv">
+                                                    <rect key="frame" x="5" y="5" width="59" height="59"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="59" id="MJb-33-Pss"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRc-ej-5rz" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="13.666666666666668" y="73" width="41.666666666666657" height="14"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                                    <color key="textColor" name="black"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                            <real key="value" value="-0.69999999999999996"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainIcUserWater" translatesAutoresizingMaskIntoConstraints="NO" id="R8W-X4-P9r">
+                                                    <rect key="frame" x="47" y="44" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="FBQ-k7-n1j"/>
+                                                        <constraint firstAttribute="width" secondItem="R8W-X4-P9r" secondAttribute="height" multiplier="1:1" id="sD3-Tj-cye"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="R8W-X4-P9r" secondAttribute="trailing" constant="2" id="1Eq-Ya-Qra"/>
+                                                <constraint firstItem="R8W-X4-P9r" firstAttribute="top" secondItem="wye-nE-hKo" secondAttribute="top" constant="44" id="5yo-fH-cJR"/>
+                                                <constraint firstItem="BRc-ej-5rz" firstAttribute="top" secondItem="YT7-Xw-sgv" secondAttribute="bottom" constant="9" id="Ito-8h-G8m"/>
+                                                <constraint firstItem="YT7-Xw-sgv" firstAttribute="top" secondItem="wye-nE-hKo" secondAttribute="top" constant="5" id="O6J-ic-qLO"/>
+                                                <constraint firstAttribute="trailing" secondItem="YT7-Xw-sgv" secondAttribute="trailing" constant="5" id="UeC-pv-n4p"/>
+                                                <constraint firstItem="BRc-ej-5rz" firstAttribute="centerX" secondItem="wye-nE-hKo" secondAttribute="centerX" id="pos-tQ-tKS"/>
+                                                <constraint firstItem="YT7-Xw-sgv" firstAttribute="leading" secondItem="wye-nE-hKo" secondAttribute="leading" constant="5" id="zkB-0e-pVf"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="69" height="91"/>
+                                        <connections>
+                                            <outlet property="cherishNickNameLabel" destination="BRc-ej-5rz" id="SVP-rp-koe"/>
+                                            <outlet property="cherishPlantImageView" destination="YT7-Xw-sgv" id="yoO-eN-ocV"/>
+                                            <outlet property="cherishUserWaterImageView" destination="R8W-X4-P9r" id="Ybf-dg-Oip"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -179,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0gv-w8-qz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1716" y="486"/>
+            <point key="canvasLocation" x="-1716" y="485.46798029556652"/>
         </scene>
         <!--BackdropVC-->
         <scene sceneID="evw-cA-bAm">
@@ -198,8 +395,23 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ellipse373" width="69" height="69"/>
+        <image name="imgMainDandelion" width="250" height="493"/>
+        <image name="invalidName" width="48.333332061767578" height="13"/>
+        <image name="mainBtnMoveDetailview" width="256" height="380"/>
+        <image name="mainBtnWater" width="90" height="40"/>
+        <image name="mainIcAlarm" width="48" height="48"/>
+        <image name="mainIcUserWater" width="20" height="20"/>
+        <image name="mainImgUser1" width="59" height="59"/>
+        <image name="modal" width="50" height="4"/>
+        <namedColor name="black">
+            <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="blueGrey">
             <color red="0.50599998235702515" green="0.53700000047683716" blue="0.70200002193450928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="seaweed">
+            <color red="0.10199999809265137" green="0.82400000095367432" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

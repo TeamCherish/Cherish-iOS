@@ -9,6 +9,8 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+   
+    var isCherishPeopleCellSelected:Bool = false
 
 
 
