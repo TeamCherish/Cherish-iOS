@@ -6,7 +6,7 @@ target 'Cherish-iOS' do
   use_frameworks!
 
   # Pods for Cherish-iOS
-  pod 'Alamofire'
+  pod 'Alamofire','~> 5.4.1'
   pod 'lottie-ios'
   pod 'Kingfisher'
   pod 'SnapKit'
