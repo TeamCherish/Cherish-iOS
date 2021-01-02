@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "scale" : "1x",
+      "filename" : "mainBtnMoveDetailview.png",
+      "idiom" : "universal"
+    },
+    {
+      "scale" : "2x",
+      "idiom" : "universal",
+      "filename" : "mainBtnMoveDetailview@2x.png"
+    },
+    {
+      "filename" : "mainBtnMoveDetailview@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
