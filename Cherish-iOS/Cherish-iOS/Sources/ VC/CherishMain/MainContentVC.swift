@@ -14,14 +14,17 @@ class MainContentVC: UIViewController {
     @IBOutlet var userNickNameLabel: CustomLabel!
     @IBOutlet var plantImageView: UIImageView!
     @IBOutlet var progressbarView: ProgressBarView!
+    @IBOutlet var flowerAnimationImageView: UIImageView!
     @IBOutlet var progressbarBackView: ProgressBarView!
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         customProgressBarView()
+        makeAnimation()
         NotificationCenter.default.addObserver(self, selector: #selector(changeBackgroundInfo), name: .cherishPeopleCellClicked, object: nil)
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -33,6 +36,17 @@ class MainContentVC: UIViewController {
         }
     }
     
+    func makeAnimation(){
+        self.flowerAnimationImageView.frame = CGRect(x: 112.33, y: 291.33, width: 56, height: 61.33)
+        
+        UIView.animate(withDuration: 1, delay: 0, options: [.repeat, .autoreverse] , animations: {
+                self.flowerAnimationImageView.frame = CGRect(x: 105, y: 290, width: 56, height: 61.33)
+            }) { (completed) in
+            }
+    }
+    
+    
+    //MARK: - 프로그레스바 커스텀
     func customProgressBarView(){
         progressbarBackView.setBackColor(color: .white)
         progressbarView.setBackColor(color: .white)

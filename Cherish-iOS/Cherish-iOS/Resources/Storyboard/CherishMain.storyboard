@@ -183,6 +183,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgGraphic" translatesAutoresizingMaskIntoConstraints="NO" id="73B-R2-O3w">
+                                <rect key="frame" x="112.33333333333331" y="273.33333333333331" width="56" height="61.333333333333314"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="73B-R2-O3w" secondAttribute="height" multiplier="51:56" id="9Ad-kC-kAq"/>
+                                    <constraint firstAttribute="width" constant="56" id="d2O-ox-LXN"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TmQ-US-0yO"/>
                         <color key="backgroundColor" name="blueGrey"/>
@@ -190,8 +197,10 @@
                             <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="WVc-1z-5Ct" secondAttribute="trailing" constant="16" id="0sK-aj-JNq"/>
                             <constraint firstItem="tC1-OL-vxp" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="30" id="1XE-MB-dFm"/>
                             <constraint firstItem="Ook-bx-AcP" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="28" id="2nf-kS-Sp8"/>
+                            <constraint firstItem="73B-R2-O3w" firstAttribute="top" secondItem="rb3-up-wUt" secondAttribute="bottom" constant="93" id="3Nu-iN-QFL"/>
                             <constraint firstItem="rlN-3e-VUW" firstAttribute="centerY" secondItem="Otg-az-yW5" secondAttribute="centerY" id="82A-4s-Uj7"/>
                             <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="8W2-oQ-08F" secondAttribute="trailing" constant="1" id="8VT-KM-ulm"/>
+                            <constraint firstItem="73B-R2-O3w" firstAttribute="leading" secondItem="Ook-bx-AcP" secondAttribute="trailing" constant="69.900000000000006" id="AUl-cL-rh5"/>
                             <constraint firstItem="6g2-qy-Jyj" firstAttribute="top" secondItem="7lJ-v4-Fdo" secondAttribute="bottom" constant="-1" id="GEW-5T-E3P"/>
                             <constraint firstItem="Otg-az-yW5" firstAttribute="top" secondItem="TmQ-US-0yO" secondAttribute="top" constant="24" id="JFI-KJ-QGn"/>
                             <constraint firstItem="7lJ-v4-Fdo" firstAttribute="top" secondItem="tC1-OL-vxp" secondAttribute="bottom" constant="6" id="Jh2-Lb-YsX"/>
@@ -217,6 +226,7 @@
                     </view>
                     <connections>
                         <outlet property="dayCountLabel" destination="rlN-3e-VUW" id="mP8-In-fUH"/>
+                        <outlet property="flowerAnimationImageView" destination="73B-R2-O3w" id="h47-qL-9hv"/>
                         <outlet property="plantExplainLabel" destination="MqD-Yz-UwB" id="lsW-qY-OCZ"/>
                         <outlet property="plantImageView" destination="1LF-25-ssR" id="q63-xK-rvd"/>
                         <outlet property="progressbarBackView" destination="Ook-bx-AcP" id="9qk-3n-XYz"/>
@@ -450,6 +460,7 @@
     </scenes>
     <resources>
         <image name="ellipse373" width="69" height="69"/>
+        <image name="imgGraphic" width="68.666664123535156" height="65"/>
         <image name="imgMainDandelion" width="250" height="493"/>
         <image name="invalidName" width="48.333332061767578" height="13"/>
         <image name="mainBtnMoveDetailview" width="256" height="380"/>
