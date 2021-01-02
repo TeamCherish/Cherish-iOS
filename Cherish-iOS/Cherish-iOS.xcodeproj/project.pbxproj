@@ -33,6 +33,9 @@
 		33E8750425A04D1E001F84FE /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8750325A04D1E001F84FE /* CustomLabel.swift */; };
 		33E8750725A04DA2001F84FE /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8750625A04DA2001F84FE /* UIColor+Additions.swift */; };
 		33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8751225A05623001F84FE /* CircularProgressBar.swift */; };
+		33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8751F25A05CE5001F84FE /* BackdropVC.swift */; };
+		33E8752325A05CFC001F84FE /* DetailContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8752225A05CFC001F84FE /* DetailContentVC.swift */; };
+		33E8752625A05D34001F84FE /* MainContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8752525A05D34001F84FE /* MainContentVC.swift */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +69,9 @@
 		33E8750325A04D1E001F84FE /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		33E8750625A04DA2001F84FE /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		33E8751225A05623001F84FE /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
+		33E8751F25A05CE5001F84FE /* BackdropVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropVC.swift; sourceTree = "<group>"; };
+		33E8752225A05CFC001F84FE /* DetailContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentVC.swift; sourceTree = "<group>"; };
+		33E8752525A05D34001F84FE /* MainContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentVC.swift; sourceTree = "<group>"; };
 		DAA60C0D230FDF9D184F4B6C /* Pods-Cherish-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F67D9DFE41871E0883A26838 /* Pods-Cherish-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.release.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,6 +232,9 @@
 			isa = PBXGroup;
 			children = (
 				33E874F625A04A56001F84FE /* CherishMainVC.swift */,
+				33E8752525A05D34001F84FE /* MainContentVC.swift */,
+				33E8751F25A05CE5001F84FE /* BackdropVC.swift */,
+				33E8752225A05CFC001F84FE /* DetailContentVC.swift */,
 			);
 			path = CherishMain;
 			sourceTree = "<group>";
@@ -397,8 +406,11 @@
 				33E874F725A04A56001F84FE /* CherishMainVC.swift in Sources */,
 				33E8750425A04D1E001F84FE /* CustomLabel.swift in Sources */,
 				33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */,
+				33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */,
+				33E8752325A05CFC001F84FE /* DetailContentVC.swift in Sources */,
 				33851C74259A5541005BCFFD /* AppDelegate.swift in Sources */,
 				33851C76259A5541005BCFFD /* SceneDelegate.swift in Sources */,
+				33E8752625A05D34001F84FE /* MainContentVC.swift in Sources */,
 				33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
