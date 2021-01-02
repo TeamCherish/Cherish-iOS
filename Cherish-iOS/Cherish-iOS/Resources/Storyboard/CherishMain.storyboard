@@ -16,8 +16,14 @@
         <array key="NotoSansCJKkr-Light.otf">
             <string>NotoSansCJKkr-Light</string>
         </array>
+        <array key="NotoSansCJKkr-Medium.otf">
+            <string>NotoSansCJKkr-Medium</string>
+        </array>
         <array key="NotoSansCJKkr-Regular.otf">
             <string>NotoSansCJKkr-Regular</string>
+        </array>
+        <array key="Roboto-Black.ttf">
+            <string>Roboto-Black</string>
         </array>
         <array key="Roboto-Bold.ttf">
             <string>Roboto-Bold</string>
@@ -132,6 +138,14 @@
                                     <constraint firstAttribute="width" secondItem="1LF-25-ssR" secondAttribute="height" multiplier="250:493" id="uTq-5b-4AI"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ook-bx-AcP" customClass="ProgressBarView" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="27.999999999999996" y="336.33333333333331" width="14.333333333333332" height="169"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="169" id="aNR-w0-3SL"/>
+                                    <constraint firstAttribute="width" secondItem="Ook-bx-AcP" secondAttribute="height" multiplier="7:82" id="cDi-Fu-aqa"/>
+                                </constraints>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainBtnMoveDetailview" translatesAutoresizingMaskIntoConstraints="NO" id="8W2-oQ-08F">
                                 <rect key="frame" x="118" y="191.66666666666663" width="256" height="380"/>
                                 <constraints>
@@ -139,26 +153,64 @@
                                     <constraint firstAttribute="height" constant="380" id="nIi-T0-qZr"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tC1-OL-vxp" customClass="ProgressBarView" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="29.999999999999996" y="338.33333333333331" width="10.333333333333332" height="165"/>
+                                <color key="backgroundColor" name="seaweed"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tC1-OL-vxp" secondAttribute="height" multiplier="10.4:165" id="72L-R5-K2N"/>
+                                    <constraint firstAttribute="height" constant="165" id="YYd-x2-ggu"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="73%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lJ-v4-Fdo" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="26" y="509.33333333333326" width="23.333333333333329" height="13"/>
+                                <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="애정도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g2-qy-Jyj" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="20" y="521.33333333333337" width="31.333333333333329" height="14"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TmQ-US-0yO"/>
                         <color key="backgroundColor" name="blueGrey"/>
                         <constraints>
                             <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="WVc-1z-5Ct" secondAttribute="trailing" constant="16" id="0sK-aj-JNq"/>
+                            <constraint firstItem="tC1-OL-vxp" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="30" id="1XE-MB-dFm"/>
+                            <constraint firstItem="Ook-bx-AcP" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="28" id="2nf-kS-Sp8"/>
                             <constraint firstItem="rlN-3e-VUW" firstAttribute="centerY" secondItem="Otg-az-yW5" secondAttribute="centerY" id="82A-4s-Uj7"/>
                             <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="8W2-oQ-08F" secondAttribute="trailing" constant="1" id="8VT-KM-ulm"/>
+                            <constraint firstItem="6g2-qy-Jyj" firstAttribute="top" secondItem="7lJ-v4-Fdo" secondAttribute="bottom" constant="-1" id="GEW-5T-E3P"/>
                             <constraint firstItem="Otg-az-yW5" firstAttribute="top" secondItem="TmQ-US-0yO" secondAttribute="top" constant="24" id="JFI-KJ-QGn"/>
+                            <constraint firstItem="7lJ-v4-Fdo" firstAttribute="top" secondItem="tC1-OL-vxp" secondAttribute="bottom" constant="6" id="Jh2-Lb-YsX"/>
                             <constraint firstItem="rlN-3e-VUW" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="trailing" id="KNM-Rh-4N8"/>
                             <constraint firstItem="MqD-Yz-UwB" firstAttribute="top" secondItem="Otg-az-yW5" secondAttribute="bottom" id="NVe-rU-BRG"/>
                             <constraint firstItem="rb3-up-wUt" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="Oab-yJ-QY5"/>
                             <constraint firstItem="8W2-oQ-08F" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" constant="44" id="Swu-9T-rPS"/>
+                            <constraint firstItem="tC1-OL-vxp" firstAttribute="top" secondItem="571-Dh-KLL" secondAttribute="bottom" constant="101" id="WYQ-md-i8v"/>
                             <constraint firstItem="MqD-Yz-UwB" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="XP7-Wi-NiB"/>
                             <constraint firstItem="rvI-uI-SPM" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" constant="36.329999999999998" id="YzY-lm-gp2"/>
                             <constraint firstItem="1LF-25-ssR" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" constant="36" id="anz-Zs-3Ru"/>
+                            <constraint firstItem="7lJ-v4-Fdo" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="26" id="cae-tb-XtH"/>
                             <constraint firstItem="571-Dh-KLL" firstAttribute="top" secondItem="rb3-up-wUt" secondAttribute="bottom" constant="17" id="eNb-JJ-9v9"/>
                             <constraint firstItem="WVc-1z-5Ct" firstAttribute="top" secondItem="Otg-az-yW5" secondAttribute="top" id="ep8-Ry-r09"/>
                             <constraint firstItem="Otg-az-yW5" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="16" id="gU2-9v-S28"/>
+                            <constraint firstItem="6g2-qy-Jyj" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="20" id="l3P-tL-9S3"/>
                             <constraint firstItem="571-Dh-KLL" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="nqY-XG-32e"/>
                             <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="1LF-25-ssR" secondAttribute="trailing" id="wYg-2z-Rbn"/>
+                            <constraint firstItem="Ook-bx-AcP" firstAttribute="top" secondItem="571-Dh-KLL" secondAttribute="bottom" constant="99" id="waq-TO-PMn"/>
                             <constraint firstItem="rb3-up-wUt" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" id="xGF-4Q-8bB"/>
                             <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="rvI-uI-SPM" secondAttribute="trailing" constant="16" id="yr4-vh-OGo"/>
                         </constraints>
@@ -167,6 +219,8 @@
                         <outlet property="dayCountLabel" destination="rlN-3e-VUW" id="mP8-In-fUH"/>
                         <outlet property="plantExplainLabel" destination="MqD-Yz-UwB" id="lsW-qY-OCZ"/>
                         <outlet property="plantImageView" destination="1LF-25-ssR" id="q63-xK-rvd"/>
+                        <outlet property="progressbarBackView" destination="Ook-bx-AcP" id="9qk-3n-XYz"/>
+                        <outlet property="progressbarView" destination="tC1-OL-vxp" id="EF5-MD-zMm"/>
                         <outlet property="userNickNameLabel" destination="rb3-up-wUt" id="vAL-T6-ssD"/>
                     </connections>
                 </viewController>

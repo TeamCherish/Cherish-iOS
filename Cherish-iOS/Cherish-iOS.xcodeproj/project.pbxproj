@@ -40,6 +40,7 @@
 		33E8754225A08CFE001F84FE /* CherishSelectPersonCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754125A08CFE001F84FE /* CherishSelectPersonCVCell.swift */; };
 		33E8754625A08E87001F84FE /* CherishPeopleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754525A08E87001F84FE /* CherishPeopleData.swift */; };
 		33E8754925A09440001F84FE /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754825A09440001F84FE /* NotificationName.swift */; };
+		33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754B25A0D272001F84FE /* ProgressBarView.swift */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		33E8754125A08CFE001F84FE /* CherishSelectPersonCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishSelectPersonCVCell.swift; sourceTree = "<group>"; };
 		33E8754525A08E87001F84FE /* CherishPeopleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishPeopleData.swift; sourceTree = "<group>"; };
 		33E8754825A09440001F84FE /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		33E8754B25A0D272001F84FE /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		DAA60C0D230FDF9D184F4B6C /* Pods-Cherish-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F67D9DFE41871E0883A26838 /* Pods-Cherish-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.release.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,6 +202,7 @@
 			children = (
 				33E8750325A04D1E001F84FE /* CustomLabel.swift */,
 				33E8751225A05623001F84FE /* CircularProgressBar.swift */,
+				33E8754B25A0D272001F84FE /* ProgressBarView.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */,
 				33E8753525A07A7F001F84FE /* CherishPeopleCVCell.swift in Sources */,
 				33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */,
+				33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */,
 				33E8754925A09440001F84FE /* NotificationName.swift in Sources */,
 				33E8752325A05CFC001F84FE /* DetailContentVC.swift in Sources */,
 				33851C74259A5541005BCFFD /* AppDelegate.swift in Sources */,
