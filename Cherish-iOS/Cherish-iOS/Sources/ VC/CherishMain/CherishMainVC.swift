@@ -6,24 +6,86 @@
 //
 
 import UIKit
+import OverlayContainer
 
-class CherishMainVC: UIViewController {
+enum Notches : Int, CaseIterable {
+    case minimum, medium, maximum
+}
+
+class CherishMainVC: OverlayContainerViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        makeOverlayContainerContents()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK:- overlayContainer에 VC 구성
+    func makeOverlayContainerContents(){
+        let cherishMainStoryboard = UIStoryboard(name: "CherishMain", bundle: nil)
+        let mainContentContoller = cherishMainStoryboard.instantiateViewController(identifier: "MainContentVC") as! MainContentVC
+        let backdropController = cherishMainStoryboard.instantiateViewController(identifier: "BackdropVC") as! BackdropVC
+        let detailContentController = cherishMainStoryboard.instantiateViewController(identifier: "DetailContentVC") as! DetailContentVC
+        
+        self.viewControllers = [mainContentContoller, backdropController, detailContentController]
+        
+        self.delegate = self
+        
+        ///중간 노치부터 띄우기
+        moveOverlay(toNotchAt: 1, animated: false)
     }
-    */
-
 }
+
+
+
+//MARK: - OverlayContainerViewControllerDelegate extension
+
+extension CherishMainVC : OverlayContainerViewControllerDelegate {
+    
+    func numberOfNotches(in containerViewController: OverlayContainerViewController) -> Int {
+        return Notches.allCases.count
+    }
+    
+    /// minimum, medium, maximum에 해당하는 각 노치 사이즈를 정하는 함수
+    func overlayContainerViewController(_ containerViewController: OverlayContainerViewController, heightForNotchAt index: Int, availableSpace: CGFloat) -> CGFloat {
+        switch Notches.allCases[index] {
+        case .minimum:
+            return availableSpace * 1/6
+        case .medium:
+            return availableSpace * 2.1/7
+        case .maximum:
+            return availableSpace * 3/4
+        }
+    }
+
+    /// content에 scrollView가 있을 때 그 scrollView를 지정해주는 함수 
+    func overlayContainerViewController(_ containerViewController: OverlayContainerViewController, scrollViewDrivingOverlay overlayViewController: UIViewController) -> UIScrollView? {
+        return (overlayViewController as? DetailContentVC)?.cherishPeopleCV
+    }
+    
+    /// 노치 handle area를 정하는 함수
+    func overlayContainerViewController(_ containerViewController: OverlayContainerViewController, shouldStartDraggingOverlay overlayViewController: UIViewController, at point: CGPoint, in coordinateSpace: UICoordinateSpace) -> Bool {
+        guard let header = (overlayViewController as? DetailContentVC)?.headerView else {
+            return false
+        }
+        let convertedPoint = coordinateSpace.convert(point, to: header)
+        return header.bounds.contains(convertedPoint)
+    }
+    
+    /// 오버레이(노치)가 움직이기 전에 액션처리 해주는 함수
+    func overlayContainerViewController(_ containerViewController: OverlayContainerViewController, willMoveOverlay overlayViewController: UIViewController, toNotchAt index: Int) {
+        let cherishMainStoryboard = UIStoryboard(name: "CherishMain", bundle: nil)
+        let mainContentContoller = cherishMainStoryboard.instantiateViewController(identifier: "MainContentVC") as! MainContentVC
+        let backdropController = cherishMainStoryboard.instantiateViewController(identifier: "BackdropVC") as! BackdropVC
+        let detailContentController = cherishMainStoryboard.instantiateViewController(identifier: "DetailContentVC") as! DetailContentVC
+        
+        switch Notches.allCases[index] {
+        case .minimum:
+            viewControllers = [backdropController,mainContentContoller,detailContentController]
+        case .medium:
+            viewControllers = [backdropController,mainContentContoller,detailContentController]
+        case .maximum:
+            viewControllers = [mainContentContoller,backdropController,detailContentController]
+        }
+    }
+    }

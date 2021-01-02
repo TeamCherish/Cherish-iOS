@@ -3,13 +3,24 @@
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Bold.otf">
+            <string>NotoSansCJKkr-Bold</string>
+        </array>
         <array key="NotoSansCJKkr-Light.otf">
             <string>NotoSansCJKkr-Light</string>
+        </array>
+        <array key="NotoSansCJKkr-Regular.otf">
+            <string>NotoSansCJKkr-Regular</string>
+        </array>
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
         </array>
     </customFonts>
     <scenes>
@@ -42,8 +53,154 @@
             </objects>
             <point key="canvasLocation" x="-1714.4000000000001" y="-208.37438423645321"/>
         </scene>
+        <!--Main ContentVC-->
+        <scene sceneID="NJ3-aK-mTL">
+            <objects>
+                <viewController storyboardIdentifier="MainContentVC" id="y3f-7o-jg5" customClass="MainContentVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="53S-aO-x9T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Otg-az-yW5" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="16" y="68" width="44" height="47"/>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlN-3e-VUW">
+                                <rect key="frame" x="60" y="68" width="23" height="47"/>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 수명이 탄탄한" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqD-Yz-UwB" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="16" y="115.00000000000001" width="209.33333333333334" height="32.666666666666671"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rb3-up-wUt" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="16" y="147.66666666666666" width="97" height="32.666666666666657"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="571-Dh-KLL">
+                                <rect key="frame" x="16" y="200" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TmQ-US-0yO"/>
+                        <color key="backgroundColor" name="blueGrey"/>
+                        <constraints>
+                            <constraint firstItem="rlN-3e-VUW" firstAttribute="centerY" secondItem="Otg-az-yW5" secondAttribute="centerY" id="82A-4s-Uj7"/>
+                            <constraint firstItem="Otg-az-yW5" firstAttribute="top" secondItem="TmQ-US-0yO" secondAttribute="top" constant="24" id="JFI-KJ-QGn"/>
+                            <constraint firstItem="rlN-3e-VUW" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="trailing" id="KNM-Rh-4N8"/>
+                            <constraint firstItem="MqD-Yz-UwB" firstAttribute="top" secondItem="Otg-az-yW5" secondAttribute="bottom" id="NVe-rU-BRG"/>
+                            <constraint firstItem="rb3-up-wUt" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="Oab-yJ-QY5"/>
+                            <constraint firstItem="MqD-Yz-UwB" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="XP7-Wi-NiB"/>
+                            <constraint firstItem="Otg-az-yW5" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="16" id="gU2-9v-S28"/>
+                            <constraint firstItem="rb3-up-wUt" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" id="xGF-4Q-8bB"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Amh-KG-oEa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2439" y="487"/>
+        </scene>
+        <!--Detail ContentVC-->
+        <scene sceneID="9yd-TY-CVV">
+            <objects>
+                <viewController storyboardIdentifier="DetailContentVC" id="7H8-ag-ZDG" customClass="DetailContentVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="haf-Ln-qeL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bh-Ia-bkm">
+                                <rect key="frame" x="0.0" y="44" width="375" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="kyV-7P-0El"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dA7-UO-PkU">
+                                <rect key="frame" x="0.0" y="104" width="375" height="674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uEB-Wd-zQh">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="4L7-RV-z3B">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yuF-KZ-bnw">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wOt-bf-rGq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3bh-Ia-bkm" firstAttribute="top" secondItem="wOt-bf-rGq" secondAttribute="top" id="6xn-WQ-CZh"/>
+                            <constraint firstItem="3bh-Ia-bkm" firstAttribute="leading" secondItem="wOt-bf-rGq" secondAttribute="leading" id="9LA-hF-J4G"/>
+                            <constraint firstItem="dA7-UO-PkU" firstAttribute="top" secondItem="3bh-Ia-bkm" secondAttribute="bottom" id="Cev-cb-kks"/>
+                            <constraint firstItem="wOt-bf-rGq" firstAttribute="bottom" secondItem="dA7-UO-PkU" secondAttribute="bottom" id="kgn-AH-fAp"/>
+                            <constraint firstItem="dA7-UO-PkU" firstAttribute="leading" secondItem="wOt-bf-rGq" secondAttribute="leading" id="nl6-fv-xL9"/>
+                            <constraint firstItem="wOt-bf-rGq" firstAttribute="trailing" secondItem="dA7-UO-PkU" secondAttribute="trailing" id="nzJ-bm-NeG"/>
+                            <constraint firstItem="wOt-bf-rGq" firstAttribute="trailing" secondItem="3bh-Ia-bkm" secondAttribute="trailing" id="ztD-pk-MqF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cherishPeopleCV" destination="dA7-UO-PkU" id="tPR-Zx-Ciu"/>
+                        <outlet property="headerView" destination="3bh-Ia-bkm" id="q4r-Fb-pvd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0gv-w8-qz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1716" y="486"/>
+        </scene>
+        <!--BackdropVC-->
+        <scene sceneID="evw-cA-bAm">
+            <objects>
+                <viewController storyboardIdentifier="BackdropVC" id="zNO-fK-QNf" customClass="BackdropVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m4Q-gp-TOX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="odb-xb-3Va"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BHk-Rk-Ahp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-991" y="486"/>
+        </scene>
     </scenes>
     <resources>
+        <namedColor name="blueGrey">
+            <color red="0.50588235294117645" green="0.53725490196078429" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
