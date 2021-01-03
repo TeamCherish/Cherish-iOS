@@ -16,23 +16,52 @@ class InputDetailVC: UIViewController {
     @IBOutlet weak var alarmTimeTextField: UITextField!
     @IBOutlet weak var stateSwitch: UISwitch!
     @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var alarmTimePicker: UIDatePicker!
     
     let datePicker = UIDatePicker()
-    let periodPicker = UIDatePicker()
+    var periodPicker = UIPickerView()
     
     let num = ["1", "2", "3"]
-    let period = ["day", "week", "'month"]
+    let period = ["day", "week", "month"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textFieldBackgroundImage()
         createPicker()
+        periodPicker.delegate = self
+        periodPicker.dataSource = self
+    }
+    
+    func textFieldBackgroundImage() {
+        nameTextField.background = UIImage(named: "box_half_add_plant_detail")
+        nameTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
+        nameTextField.layer.borderWidth = 0
+        
+        nicknameTextField.background = UIImage(named: "box_half_add_plant_detail")
+        nicknameTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
+        nicknameTextField.layer.borderWidth = 0
+        
+        birthTextField.background = UIImage(named: "box_add_plant_detail")
+        birthTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
+        birthTextField.layer.borderWidth = 0
+        
+        phoneTextField.background = UIImage(named: "box_add_plant_detail")
+        phoneTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
+        phoneTextField.layer.borderWidth = 0
+        
+        alarmPeriodTextField.background = UIImage(named: "box_add_plant_detail")
+        alarmPeriodTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
+        alarmPeriodTextField.layer.borderWidth = 0
+        
+        alarmTimeTextField.background = UIImage(named: "box_add_plant_detail")
+        alarmTimeTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
+        alarmTimeTextField.layer.borderWidth = 0
     }
     
     func createPicker() {
         // toolbar
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        
         let toolbar2 = UIToolbar()
         toolbar2.sizeToFit()
         
@@ -42,6 +71,9 @@ class InputDetailVC: UIViewController {
         
         let doneBtnPeriod = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePreseedPeriod))
         toolbar2.setItems([doneBtnPeriod], animated: true)
+        
+        // alarm time
+        alarmTimePicker.addTarget(self, action: #selector(changed), for: .valueChanged)
         
         // assign toolbar
         birthTextField.inputAccessoryView = toolbar
@@ -54,7 +86,10 @@ class InputDetailVC: UIViewController {
         // datePicker mode
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
-        periodPicker.preferredDatePickerStyle = . wheels
+        
+        alarmTimePicker.datePickerMode = .time
+        alarmTimePicker.preferredDatePickerStyle = .wheels
+        
     }
     
     @objc func donePressedBirth() {
@@ -69,6 +104,14 @@ class InputDetailVC: UIViewController {
     
     @objc func donePreseedPeriod() {
         self.view.endEditing(true)
+    }
+    
+    @objc func changed() {
+        let dateformatter = DateFormatter()
+        dateformatter.dateStyle = .none
+        dateformatter.timeStyle = .short
+        let date = dateformatter.string(from: alarmTimePicker.date)
+        alarmTimeTextField.text = date
     }
 }
 
