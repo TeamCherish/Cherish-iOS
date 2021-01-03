@@ -112,6 +112,9 @@
                                     <constraint firstAttribute="height" constant="40" id="eOM-Vd-F2G"/>
                                 </constraints>
                                 <state key="normal" image="mainBtnWater"/>
+                                <connections>
+                                    <action selector="moveToWateringPopUp:" destination="y3f-7o-jg5" eventType="touchUpInside" id="H3N-RT-NcW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVc-1z-5Ct">
                                 <rect key="frame" x="311" y="68" width="48" height="48"/>
