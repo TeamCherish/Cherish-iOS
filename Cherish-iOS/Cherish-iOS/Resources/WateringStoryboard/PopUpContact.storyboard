@@ -74,14 +74,23 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMv-mU-Fke">
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                 <state key="normal" image="contactIcnCall"/>
+                                                <connections>
+                                                    <action selector="calling:" destination="Ss9-GO-qjY" eventType="touchUpInside" id="I2U-5N-Vof"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vou-T0-bHm">
                                                 <rect key="frame" x="82" y="0.0" width="70" height="70"/>
                                                 <state key="normal" image="contactIcnKakaotalk"/>
+                                                <connections>
+                                                    <action selector="kakoTalking:" destination="Ss9-GO-qjY" eventType="touchUpInside" id="XPi-aM-Yqb"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5O0-q7-p2y">
                                                 <rect key="frame" x="164" y="0.0" width="70" height="70"/>
                                                 <state key="normal" image="contactIcnText"/>
+                                                <connections>
+                                                    <action selector="messaging:" destination="Ss9-GO-qjY" eventType="touchUpInside" id="ulU-wr-nCp"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

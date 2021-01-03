@@ -47,6 +47,8 @@
 		548DF16F25A1B4AB0081FCD1 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF16E25A1B4AB0081FCD1 /* UITextField+Extension.swift */; };
 		548DF17225A1BB6D0081FCD1 /* PopUpContact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548DF17125A1BB6D0081FCD1 /* PopUpContact.storyboard */; };
 		548DF17525A1BB7F0081FCD1 /* PopUpContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF17425A1BB7F0081FCD1 /* PopUpContactVC.swift */; };
+		548DF17B25A1EE610081FCD1 /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548DF17A25A1EE610081FCD1 /* Review.storyboard */; };
+		548DF17E25A1EE730081FCD1 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF17D25A1EE730081FCD1 /* ReviewVC.swift */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
 		92E8E39725A1B13F001F1FB4 /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */; };
 /* End PBXBuildFile section */
@@ -95,6 +97,8 @@
 		548DF16E25A1B4AB0081FCD1 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		548DF17125A1BB6D0081FCD1 /* PopUpContact.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUpContact.storyboard; sourceTree = "<group>"; };
 		548DF17425A1BB7F0081FCD1 /* PopUpContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpContactVC.swift; sourceTree = "<group>"; };
+		548DF17A25A1EE610081FCD1 /* Review.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
+		548DF17D25A1EE730081FCD1 /* ReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
 		92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddUser.storyboard; sourceTree = "<group>"; };
 		DAA60C0D230FDF9D184F4B6C /* Pods-Cherish-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F67D9DFE41871E0883A26838 /* Pods-Cherish-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.release.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -311,6 +315,7 @@
 			children = (
 				548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */,
 				548DF17125A1BB6D0081FCD1 /* PopUpContact.storyboard */,
+				548DF17A25A1EE610081FCD1 /* Review.storyboard */,
 			);
 			path = WateringStoryboard;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 			children = (
 				548DF16B25A1B4390081FCD1 /* PopUpWateringVC.swift */,
 				548DF17425A1BB7F0081FCD1 /* PopUpContactVC.swift */,
+				548DF17D25A1EE730081FCD1 /* ReviewVC.swift */,
 			);
 			path = Watering;
 			sourceTree = "<group>";
@@ -423,6 +429,7 @@
 				33E874DA25A043F1001F84FE /* Roboto-Black.ttf in Resources */,
 				548DF17225A1BB6D0081FCD1 /* PopUpContact.storyboard in Resources */,
 				33E874CE25A04361001F84FE /* NotoSansCJKkr-Medium.otf in Resources */,
+				548DF17B25A1EE610081FCD1 /* Review.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +506,7 @@
 				33E8752625A05D34001F84FE /* MainContentVC.swift in Sources */,
 				548DF16F25A1B4AB0081FCD1 /* UITextField+Extension.swift in Sources */,
 				33E8754225A08CFE001F84FE /* CherishSelectPersonCVCell.swift in Sources */,
+				548DF17E25A1EE730081FCD1 /* ReviewVC.swift in Sources */,
 				33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
