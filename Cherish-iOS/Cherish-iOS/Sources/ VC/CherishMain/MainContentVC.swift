@@ -9,21 +9,60 @@ import UIKit
 
 class MainContentVC: UIViewController {
 
+    @IBOutlet var dayCountLabel: UILabel!
+    @IBOutlet var plantExplainLabel: CustomLabel!
+    @IBOutlet var userNickNameLabel: CustomLabel!
+    @IBOutlet var plantImageView: UIImageView!
+    @IBOutlet var progressbarView: ProgressBarView!
+    @IBOutlet var flowerAnimationImageView: UIImageView!
+    @IBOutlet var progressbarBackView: ProgressBarView!
+    let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        customProgressBarView()
+        makeAnimation()
+        NotificationCenter.default.addObserver(self, selector: #selector(changeBackgroundInfo), name: .cherishPeopleCellClicked, object: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        customProgressBarView()
+        
+        // cherishPeopleCell이 선택되면 배경뷰의 라벨값, 식물이미지, 배경색을 바꿔준다.
+        if appDel.isCherishPeopleCellSelected == true {
+            self.userNickNameLabel.text = UserDefaults.standard.string(forKey: "selectedNickNameData")
+        }
     }
-    */
-
+    
+    func makeAnimation(){
+        self.flowerAnimationImageView.frame = CGRect(x: 112.33, y: 291.33, width: 56, height: 61.33)
+        
+        UIView.animate(withDuration: 1, delay: 0, options: [.repeat, .autoreverse] , animations: {
+                self.flowerAnimationImageView.frame = CGRect(x: 105, y: 290, width: 56, height: 61.33)
+            }) { (completed) in
+            }
+    }
+    
+    
+    //MARK: - 프로그레스바 커스텀
+    func customProgressBarView(){
+        progressbarBackView.setBackColor(color: .white)
+        progressbarView.setBackColor(color: .white)
+        progressbarView.setProgressColor(color: .seaweed)
+        progressbarView.setProgressValue(currentValue: 73)
+    }
+    
+    
+    //MARK: - 식물 상세페이지 뷰로 이동
+    @IBAction func moveToPlantDetailView(_ sender: UIButton) {
+    }
+    
+    @objc func changeBackgroundInfo(){
+        
+        //noti 감지 후 view가 reload될 수 있도록 viewWillAppear함수를 호출해준다.
+        viewWillAppear(true)
+       
+    }
 }

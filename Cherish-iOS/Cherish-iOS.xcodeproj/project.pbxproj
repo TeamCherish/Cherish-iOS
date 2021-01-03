@@ -14,7 +14,6 @@
 		33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851C92259A5B68005BCFFD /* APIConstants.swift */; };
 		33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851C98259A5C00005BCFFD /* NetworkResult.swift */; };
 		33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851C9C259A5C25005BCFFD /* GenericResponse.swift */; };
-		33851CA6259A5C8A005BCFFD /* CellFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851CA5259A5C8A005BCFFD /* CellFile.swift */; };
 		33E874C825A04332001F84FE /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33E874C725A04332001F84FE /* NotoSansCJKkr-Regular.otf */; };
 		33E874CB25A0434B001F84FE /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33E874CA25A0434B001F84FE /* Roboto-Regular.ttf */; };
 		33E874CE25A04361001F84FE /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33E874CD25A04361001F84FE /* NotoSansCJKkr-Medium.otf */; };
@@ -36,6 +35,12 @@
 		33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8751F25A05CE5001F84FE /* BackdropVC.swift */; };
 		33E8752325A05CFC001F84FE /* DetailContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8752225A05CFC001F84FE /* DetailContentVC.swift */; };
 		33E8752625A05D34001F84FE /* MainContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8752525A05D34001F84FE /* MainContentVC.swift */; };
+		33E8753525A07A7F001F84FE /* CherishPeopleCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8753425A07A7F001F84FE /* CherishPeopleCVCell.swift */; };
+		33E8753E25A08687001F84FE /* CherishSelectedPeopleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8753D25A08687001F84FE /* CherishSelectedPeopleData.swift */; };
+		33E8754225A08CFE001F84FE /* CherishSelectPersonCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754125A08CFE001F84FE /* CherishSelectPersonCVCell.swift */; };
+		33E8754625A08E87001F84FE /* CherishPeopleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754525A08E87001F84FE /* CherishPeopleData.swift */; };
+		33E8754925A09440001F84FE /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754825A09440001F84FE /* NotificationName.swift */; };
+		33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754B25A0D272001F84FE /* ProgressBarView.swift */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
 		924073EE25A0A87200B359FC /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924073ED25A0A87200B359FC /* AddUser.storyboard */; };
 		924073F225A0E2C200B359FC /* SelectFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924073F125A0E2C200B359FC /* SelectFriendVC.swift */; };
@@ -54,7 +59,6 @@
 		33851C92259A5B68005BCFFD /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		33851C98259A5C00005BCFFD /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		33851C9C259A5C25005BCFFD /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
-		33851CA5259A5C8A005BCFFD /* CellFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFile.swift; sourceTree = "<group>"; };
 		33E874C725A04332001F84FE /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		33E874CA25A0434B001F84FE /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		33E874CD25A04361001F84FE /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
@@ -80,6 +84,12 @@
 		924073F125A0E2C200B359FC /* SelectFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendVC.swift; sourceTree = "<group>"; };
 		924073F525A0E2EB00B359FC /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		924073F825A19B9C00B359FC /* BestPlantPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestPlantPopupVC.swift; sourceTree = "<group>"; };
+		33E8753425A07A7F001F84FE /* CherishPeopleCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishPeopleCVCell.swift; sourceTree = "<group>"; };
+		33E8753D25A08687001F84FE /* CherishSelectedPeopleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishSelectedPeopleData.swift; sourceTree = "<group>"; };
+		33E8754125A08CFE001F84FE /* CherishSelectPersonCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishSelectPersonCVCell.swift; sourceTree = "<group>"; };
+		33E8754525A08E87001F84FE /* CherishPeopleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishPeopleData.swift; sourceTree = "<group>"; };
+		33E8754825A09440001F84FE /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		33E8754B25A0D272001F84FE /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		DAA60C0D230FDF9D184F4B6C /* Pods-Cherish-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F67D9DFE41871E0883A26838 /* Pods-Cherish-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.release.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,6 +212,7 @@
 			children = (
 				33E8750325A04D1E001F84FE /* CustomLabel.swift */,
 				33E8751225A05623001F84FE /* CircularProgressBar.swift */,
+				33E8754B25A0D272001F84FE /* ProgressBarView.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -209,7 +220,7 @@
 		33851C8F259A5B18005BCFFD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				33851CA5259A5C8A005BCFFD /* CellFile.swift */,
+				33E8753325A07A63001F84FE /* CherishMain */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -217,6 +228,7 @@
 		33851C90259A5B1F005BCFFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				33E8753925A08654001F84FE /* CherishMain */,
 				33851C9C259A5C25005BCFFD /* GenericResponse.swift */,
 			);
 			path = Model;
@@ -226,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				33E8750625A04DA2001F84FE /* UIColor+Additions.swift */,
+				33E8754825A09440001F84FE /* NotificationName.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -265,6 +278,7 @@
 			path = ShowMore;
 			sourceTree = "<group>";
 		};
+
 		924073F025A0E27E00B359FC /* AddUser */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +287,24 @@
 				924073F825A19B9C00B359FC /* BestPlantPopupVC.swift */,
 			);
 			path = AddUser;
+
+		33E8753325A07A63001F84FE /* CherishMain */ = {
+			isa = PBXGroup;
+			children = (
+				33E8753425A07A7F001F84FE /* CherishPeopleCVCell.swift */,
+				33E8754125A08CFE001F84FE /* CherishSelectPersonCVCell.swift */,
+			);
+			path = CherishMain;
+			sourceTree = "<group>";
+		};
+		33E8753925A08654001F84FE /* CherishMain */ = {
+			isa = PBXGroup;
+			children = (
+				33E8753D25A08687001F84FE /* CherishSelectedPeopleData.swift */,
+				33E8754525A08E87001F84FE /* CherishPeopleData.swift */,
+			);
+			path = CherishMain;
+
 			sourceTree = "<group>";
 		};
 		B229733EA498ABC825B548EB /* Frameworks */ = {
@@ -422,19 +454,32 @@
 				33E874FE25A04A8D001F84FE /* ShowMoreVC.swift in Sources */,
 				33E874FB25A04A81001F84FE /* MyPageVC.swift in Sources */,
 				33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */,
+
 				924073F625A0E2EB00B359FC /* DetailVC.swift in Sources */,
 				33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */,
 				924073F925A19B9D00B359FC /* BestPlantPopupVC.swift in Sources */,
 				33851CA6259A5C8A005BCFFD /* CellFile.swift in Sources */,
+
+				33E8753E25A08687001F84FE /* CherishSelectedPeopleData.swift in Sources */,
+				33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */,
+				33E8754625A08E87001F84FE /* CherishPeopleData.swift in Sources */,
+
 				33E874F725A04A56001F84FE /* CherishMainVC.swift in Sources */,
 				33E8750425A04D1E001F84FE /* CustomLabel.swift in Sources */,
 				33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */,
+				33E8753525A07A7F001F84FE /* CherishPeopleCVCell.swift in Sources */,
 				33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */,
+				33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */,
+				33E8754925A09440001F84FE /* NotificationName.swift in Sources */,
 				33E8752325A05CFC001F84FE /* DetailContentVC.swift in Sources */,
 				33851C74259A5541005BCFFD /* AppDelegate.swift in Sources */,
 				33851C76259A5541005BCFFD /* SceneDelegate.swift in Sources */,
 				33E8752625A05D34001F84FE /* MainContentVC.swift in Sources */,
+
 				924073F225A0E2C200B359FC /* SelectFriendVC.swift in Sources */,
+
+				33E8754225A08CFE001F84FE /* CherishSelectPersonCVCell.swift in Sources */,
+
 				33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -576,8 +621,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
+
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -596,8 +646,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
+
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
