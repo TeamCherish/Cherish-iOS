@@ -9,7 +9,7 @@ PODS:
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 5.4.1)
   - FSCalendar
   - Kingfisher
   - lottie-ios
@@ -33,6 +33,6 @@ SPEC CHECKSUMS:
   OverlayContainer: a95f0f555fd0dd1addba3fc45370801e5fc16e68
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 14229e56f433bdef6bd70f17345dbbd967bf7210
+PODFILE CHECKSUM: 482cc255f8d628b43a17314507cc324081589de5
 
 COCOAPODS: 1.10.0

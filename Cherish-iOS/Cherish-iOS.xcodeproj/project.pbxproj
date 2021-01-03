@@ -37,6 +37,10 @@
 		33E8752325A05CFC001F84FE /* DetailContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8752225A05CFC001F84FE /* DetailContentVC.swift */; };
 		33E8752625A05D34001F84FE /* MainContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8752525A05D34001F84FE /* MainContentVC.swift */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
+		924073EE25A0A87200B359FC /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924073ED25A0A87200B359FC /* AddUser.storyboard */; };
+		924073F225A0E2C200B359FC /* SelectFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924073F125A0E2C200B359FC /* SelectFriendVC.swift */; };
+		924073F625A0E2EB00B359FC /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924073F525A0E2EB00B359FC /* DetailVC.swift */; };
+		924073F925A19B9D00B359FC /* BestPlantPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924073F825A19B9C00B359FC /* BestPlantPopupVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +76,10 @@
 		33E8751F25A05CE5001F84FE /* BackdropVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropVC.swift; sourceTree = "<group>"; };
 		33E8752225A05CFC001F84FE /* DetailContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentVC.swift; sourceTree = "<group>"; };
 		33E8752525A05D34001F84FE /* MainContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentVC.swift; sourceTree = "<group>"; };
+		924073ED25A0A87200B359FC /* AddUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddUser.storyboard; sourceTree = "<group>"; };
+		924073F125A0E2C200B359FC /* SelectFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendVC.swift; sourceTree = "<group>"; };
+		924073F525A0E2EB00B359FC /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		924073F825A19B9C00B359FC /* BestPlantPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestPlantPopupVC.swift; sourceTree = "<group>"; };
 		DAA60C0D230FDF9D184F4B6C /* Pods-Cherish-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F67D9DFE41871E0883A26838 /* Pods-Cherish-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.release.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +157,7 @@
 				33E874DC25A04569001F84FE /* MyPage.storyboard */,
 				33E874E325A047DE001F84FE /* ShowMore.storyboard */,
 				33851C7E259A5542005BCFFD /* LaunchScreen.storyboard */,
+				924073ED25A0A87200B359FC /* AddUser.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -179,6 +188,7 @@
 		33851C8D259A5B0E005BCFFD /*  VC */ = {
 			isa = PBXGroup;
 			children = (
+				924073F025A0E27E00B359FC /* AddUser */,
 				33E874EA25A04860001F84FE /* TabBar */,
 				33E874F325A049A7001F84FE /* CherishMain */,
 				33E874F425A049AE001F84FE /* MyPage */,
@@ -253,6 +263,16 @@
 				33E874FD25A04A8D001F84FE /* ShowMoreVC.swift */,
 			);
 			path = ShowMore;
+			sourceTree = "<group>";
+		};
+		924073F025A0E27E00B359FC /* AddUser */ = {
+			isa = PBXGroup;
+			children = (
+				924073F125A0E2C200B359FC /* SelectFriendVC.swift */,
+				924073F525A0E2EB00B359FC /* DetailVC.swift */,
+				924073F825A19B9C00B359FC /* BestPlantPopupVC.swift */,
+			);
+			path = AddUser;
 			sourceTree = "<group>";
 		};
 		B229733EA498ABC825B548EB /* Frameworks */ = {
@@ -336,6 +356,7 @@
 				33E874E825A04832001F84FE /* TabBar.storyboard in Resources */,
 				33E874C825A04332001F84FE /* NotoSansCJKkr-Regular.otf in Resources */,
 				33E874CB25A0434B001F84FE /* Roboto-Regular.ttf in Resources */,
+				924073EE25A0A87200B359FC /* AddUser.storyboard in Resources */,
 				33851C7D259A5542005BCFFD /* Assets.xcassets in Resources */,
 				33E874D125A0437A001F84FE /* NotoSansCJKkr-Bold.otf in Resources */,
 				33E874E425A047DE001F84FE /* ShowMore.storyboard in Resources */,
@@ -401,7 +422,9 @@
 				33E874FE25A04A8D001F84FE /* ShowMoreVC.swift in Sources */,
 				33E874FB25A04A81001F84FE /* MyPageVC.swift in Sources */,
 				33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */,
+				924073F625A0E2EB00B359FC /* DetailVC.swift in Sources */,
 				33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */,
+				924073F925A19B9D00B359FC /* BestPlantPopupVC.swift in Sources */,
 				33851CA6259A5C8A005BCFFD /* CellFile.swift in Sources */,
 				33E874F725A04A56001F84FE /* CherishMainVC.swift in Sources */,
 				33E8750425A04D1E001F84FE /* CustomLabel.swift in Sources */,
@@ -411,6 +434,7 @@
 				33851C74259A5541005BCFFD /* AppDelegate.swift in Sources */,
 				33851C76259A5541005BCFFD /* SceneDelegate.swift in Sources */,
 				33E8752625A05D34001F84FE /* MainContentVC.swift in Sources */,
+				924073F225A0E2C200B359FC /* SelectFriendVC.swift in Sources */,
 				33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,6 +577,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -572,6 +597,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
