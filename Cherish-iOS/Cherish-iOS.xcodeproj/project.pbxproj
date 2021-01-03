@@ -55,6 +55,8 @@
 		548DF17E25A1EE730081FCD1 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF17D25A1EE730081FCD1 /* ReviewVC.swift */; };
 
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
+		923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */; };
+		923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */; };
 		92E8E39725A1B13F001F1FB4 /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +98,7 @@
 		33E8754525A08E87001F84FE /* CherishPeopleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishPeopleData.swift; sourceTree = "<group>"; };
 		33E8754825A09440001F84FE /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		33E8754B25A0D272001F84FE /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+
 		548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUpWatering.storyboard; sourceTree = "<group>"; };
 		548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		548DF16B25A1B4390081FCD1 /* PopUpWateringVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWateringVC.swift; sourceTree = "<group>"; };
@@ -104,6 +107,10 @@
 		548DF17425A1BB7F0081FCD1 /* PopUpContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpContactVC.swift; sourceTree = "<group>"; };
 		548DF17A25A1EE610081FCD1 /* Review.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
 		548DF17D25A1EE730081FCD1 /* ReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
+
+		923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailVC.swift; sourceTree = "<group>"; };
+		923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendVC.swift; sourceTree = "<group>"; };
+
 		92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddUser.storyboard; sourceTree = "<group>"; };
 
 		33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlantDetail.storyboard; sourceTree = "<group>"; };
@@ -218,7 +225,10 @@
 		33851C8D259A5B0E005BCFFD /*  VC */ = {
 			isa = PBXGroup;
 			children = (
+
 				548DF16525A1B3E60081FCD1 /* Watering */,
+
+				923F8CDD25A1C2A900EA04E5 /* AddUser */,
 				33E874EA25A04860001F84FE /* TabBar */,
 				33E874F325A049A7001F84FE /* CherishMain */,
 				33EDFBB725A1B549006367A7 /* PlantDetail */,
@@ -321,6 +331,7 @@
 			sourceTree = "<group>";
 		};
 
+
 		33EDFBB725A1B549006367A7 /* PlantDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +366,17 @@
 			children = (
 			);
 			path = Watering;
+			sourceTree = "<group>";
+		};
+
+		923F8CDD25A1C2A900EA04E5 /* AddUser */ = {
+			isa = PBXGroup;
+			children = (
+				923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */,
+				923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */,
+			);
+			path = AddUser;
+
 			sourceTree = "<group>";
 		};
 		B229733EA498ABC825B548EB /* Frameworks */ = {
@@ -505,7 +527,9 @@
 			files = (
 				548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */,
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,
+				923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */,
 				33E8750725A04DA2001F84FE /* UIColor+Additions.swift in Sources */,
+				923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */,
 				33E874FE25A04A8D001F84FE /* ShowMoreVC.swift in Sources */,
 				33E874FB25A04A81001F84FE /* MyPageVC.swift in Sources */,
 				33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */,
