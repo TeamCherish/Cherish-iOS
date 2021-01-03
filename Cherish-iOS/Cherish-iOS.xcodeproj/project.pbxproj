@@ -42,6 +42,8 @@
 		33E8754925A09440001F84FE /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754825A09440001F84FE /* NotificationName.swift */; };
 		33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754B25A0D272001F84FE /* ProgressBarView.swift */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
+		923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */; };
+		923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */; };
 		92E8E39725A1B13F001F1FB4 /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,8 @@
 		33E8754525A08E87001F84FE /* CherishPeopleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishPeopleData.swift; sourceTree = "<group>"; };
 		33E8754825A09440001F84FE /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		33E8754B25A0D272001F84FE /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailVC.swift; sourceTree = "<group>"; };
+		923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendVC.swift; sourceTree = "<group>"; };
 		92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddUser.storyboard; sourceTree = "<group>"; };
 		DAA60C0D230FDF9D184F4B6C /* Pods-Cherish-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F67D9DFE41871E0883A26838 /* Pods-Cherish-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.release.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 		33851C8D259A5B0E005BCFFD /*  VC */ = {
 			isa = PBXGroup;
 			children = (
+				923F8CDD25A1C2A900EA04E5 /* AddUser */,
 				33E874EA25A04860001F84FE /* TabBar */,
 				33E874F325A049A7001F84FE /* CherishMain */,
 				33E874F425A049AE001F84FE /* MyPage */,
@@ -287,6 +292,15 @@
 				33E8754525A08E87001F84FE /* CherishPeopleData.swift */,
 			);
 			path = CherishMain;
+			sourceTree = "<group>";
+		};
+		923F8CDD25A1C2A900EA04E5 /* AddUser */ = {
+			isa = PBXGroup;
+			children = (
+				923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */,
+				923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */,
+			);
+			path = AddUser;
 			sourceTree = "<group>";
 		};
 		B229733EA498ABC825B548EB /* Frameworks */ = {
@@ -432,7 +446,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,
+				923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */,
 				33E8750725A04DA2001F84FE /* UIColor+Additions.swift in Sources */,
+				923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */,
 				33E874FE25A04A8D001F84FE /* ShowMoreVC.swift in Sources */,
 				33E874FB25A04A81001F84FE /* MyPageVC.swift in Sources */,
 				33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */,

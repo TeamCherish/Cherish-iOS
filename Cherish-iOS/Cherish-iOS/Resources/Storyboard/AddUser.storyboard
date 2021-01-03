@@ -1,30 +1,477 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DAc-nO-vXW">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Medium.otf">
+            <string>NotoSansCJKkr-Medium</string>
+        </array>
+        <array key="NotoSansCJKkr-Regular.otf">
+            <string>NotoSansCJKkr-Regular</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Select FriendVC-->
         <scene sceneID="fBU-mT-cuW">
             <objects>
-                <viewController id="6CX-b0-BOK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectFriendVC" id="6CX-b0-BOK" customClass="SelectFriendVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cUl-GW-KzX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ns-jL-vWO">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbX-5n-bQC">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="icn_back"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 등록 친구 선택" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAy-UP-29i" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="121.66666666666669" y="10" width="132" height="24"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                        <color key="textColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                <real key="value" value="-0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="UAy-UP-29i" firstAttribute="centerX" secondItem="0ns-jL-vWO" secondAttribute="centerX" id="XcG-6E-zGW"/>
+                                    <constraint firstItem="UAy-UP-29i" firstAttribute="centerY" secondItem="0ns-jL-vWO" secondAttribute="centerY" id="tZo-Ay-FIg"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="친구 검색" textAlignment="natural" minimumFontSize="17" background="search_box" translatesAutoresizingMaskIntoConstraints="NO" id="AwW-lI-9b4">
+                                <rect key="frame" x="16" y="114" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="AwW-lI-9b4" secondAttribute="height" multiplier="343:44" id="ZPE-Bg-6jg"/>
+                                    <constraint firstAttribute="height" constant="44" id="xO8-h3-1q5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_search_box" translatesAutoresizingMaskIntoConstraints="NO" id="xj7-wk-6uq">
+                                <rect key="frame" x="30" y="127" width="18" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="K0E-BF-ipA"/>
+                                    <constraint firstAttribute="width" secondItem="xj7-wk-6uq" secondAttribute="height" multiplier="1:1" id="a9Z-E5-31Z"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TIQ-j4-7j7">
+                                <rect key="frame" x="16" y="194" width="335" height="503"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="7h3-Qy-3pW">
+                                        <rect key="frame" x="0.0" y="28" width="335" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7h3-Qy-3pW" id="hIN-nb-hoJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_bg" translatesAutoresizingMaskIntoConstraints="NO" id="ygi-Rb-COg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="54" id="gwf-qR-rDS"/>
+                                                        <constraint firstAttribute="width" secondItem="ygi-Rb-COg" secondAttribute="height" multiplier="1:1" id="wv5-dA-lBe"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ed2-cH-Kfa" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="62" y="5" width="45" height="24"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                            <real key="value" value="-0.69999999999999996"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_seed" translatesAutoresizingMaskIntoConstraints="NO" id="4Dd-Jp-2S8">
+                                                    <rect key="frame" x="15" y="15" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="4Dd-Jp-2S8" secondAttribute="height" multiplier="1:1" id="8Ob-nM-ruS"/>
+                                                        <constraint firstAttribute="height" constant="25" id="eVN-Sq-gau"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PhoneNumber" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVj-tV-2J2" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="63" y="27" width="80" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="75y-N0-1Me"/>
+                                                        <constraint firstAttribute="width" secondItem="BVj-tV-2J2" secondAttribute="height" multiplier="10:3" id="LeS-SE-Pvw"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                    <color key="textColor" red="0.16470588235294117" green="0.16470588235294117" blue="0.16470588235294117" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35z-RZ-g4V">
+                                                    <rect key="frame" x="308" y="18" width="18" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="snZ-11-jtA"/>
+                                                        <constraint firstAttribute="width" secondItem="35z-RZ-g4V" secondAttribute="height" multiplier="1:1" id="yxg-xz-0M6"/>
+                                                    </constraints>
+                                                    <state key="normal" image="btn_checkbox_unselected"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4Dd-Jp-2S8" firstAttribute="leading" secondItem="hIN-nb-hoJ" secondAttribute="leading" constant="15" id="0gG-1b-FEM"/>
+                                                <constraint firstAttribute="trailing" secondItem="35z-RZ-g4V" secondAttribute="trailing" constant="9" id="K5X-el-zCo"/>
+                                                <constraint firstItem="35z-RZ-g4V" firstAttribute="top" secondItem="hIN-nb-hoJ" secondAttribute="top" constant="18" id="NNa-75-z3p"/>
+                                                <constraint firstAttribute="trailing" secondItem="BVj-tV-2J2" secondAttribute="trailing" constant="192" id="PNY-cI-YFa"/>
+                                                <constraint firstItem="ed2-cH-Kfa" firstAttribute="top" secondItem="hIN-nb-hoJ" secondAttribute="top" constant="5" id="aLA-HN-A1A"/>
+                                                <constraint firstItem="ygi-Rb-COg" firstAttribute="leading" secondItem="hIN-nb-hoJ" secondAttribute="leading" id="e25-dc-jhW"/>
+                                                <constraint firstItem="BVj-tV-2J2" firstAttribute="top" secondItem="hIN-nb-hoJ" secondAttribute="top" constant="27" id="fd8-Fg-xhE"/>
+                                                <constraint firstAttribute="trailing" secondItem="ed2-cH-Kfa" secondAttribute="trailing" constant="228" id="kVc-sw-rk3"/>
+                                                <constraint firstItem="4Dd-Jp-2S8" firstAttribute="top" secondItem="hIN-nb-hoJ" secondAttribute="top" constant="15" id="muD-MN-feY"/>
+                                                <constraint firstItem="ygi-Rb-COg" firstAttribute="top" secondItem="hIN-nb-hoJ" secondAttribute="top" id="zYn-Qn-n71"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5T-b2-Njh">
+                                <rect key="frame" x="16" y="697" width="343" height="48"/>
+                                <state key="normal" image="btn_next_unselected"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다음" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QA3-sH-7W8" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="172" y="709" width="30" height="24"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                <color key="textColor" red="0.76862745098039209" green="0.76862745098039209" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="koS-SH-exG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="j5T-b2-Njh" firstAttribute="top" secondItem="TIQ-j4-7j7" secondAttribute="bottom" id="5mH-8J-o41"/>
+                            <constraint firstItem="QA3-sH-7W8" firstAttribute="leading" secondItem="koS-SH-exG" secondAttribute="leading" constant="172" id="8bQ-lY-nLV"/>
+                            <constraint firstItem="TIQ-j4-7j7" firstAttribute="top" secondItem="AwW-lI-9b4" secondAttribute="bottom" constant="36" id="9UW-PZ-M5D"/>
+                            <constraint firstItem="0ns-jL-vWO" firstAttribute="trailing" secondItem="koS-SH-exG" secondAttribute="trailing" id="9XE-8N-rQK"/>
+                            <constraint firstItem="0ns-jL-vWO" firstAttribute="leading" secondItem="koS-SH-exG" secondAttribute="leading" id="FcP-JC-KwO"/>
+                            <constraint firstItem="xj7-wk-6uq" firstAttribute="leading" secondItem="koS-SH-exG" secondAttribute="leading" constant="30" id="InJ-ri-t3a"/>
+                            <constraint firstItem="0ns-jL-vWO" firstAttribute="top" secondItem="koS-SH-exG" secondAttribute="top" id="LNu-gt-TFe"/>
+                            <constraint firstItem="koS-SH-exG" firstAttribute="trailing" secondItem="AwW-lI-9b4" secondAttribute="trailing" constant="16" id="Lbz-Aa-rfn"/>
+                            <constraint firstItem="xj7-wk-6uq" firstAttribute="top" secondItem="0ns-jL-vWO" secondAttribute="bottom" constant="39" id="OFh-ED-lvX"/>
+                            <constraint firstItem="j5T-b2-Njh" firstAttribute="centerX" secondItem="cUl-GW-KzX" secondAttribute="centerX" id="OX8-Pj-ELc"/>
+                            <constraint firstItem="AwW-lI-9b4" firstAttribute="top" secondItem="0ns-jL-vWO" secondAttribute="bottom" constant="26" id="QuX-Xw-6lu"/>
+                            <constraint firstItem="TIQ-j4-7j7" firstAttribute="leading" secondItem="koS-SH-exG" secondAttribute="leading" constant="16" id="ba0-mp-U6e"/>
+                            <constraint firstItem="AwW-lI-9b4" firstAttribute="leading" secondItem="koS-SH-exG" secondAttribute="leading" constant="16" id="bw5-kN-AXy"/>
+                            <constraint firstItem="koS-SH-exG" firstAttribute="bottom" secondItem="0ns-jL-vWO" secondAttribute="bottom" constant="690" id="hHF-jt-g5P"/>
+                            <constraint firstItem="koS-SH-exG" firstAttribute="trailing" secondItem="TIQ-j4-7j7" secondAttribute="trailing" constant="24" id="hwK-7p-bNC"/>
+                            <constraint firstItem="koS-SH-exG" firstAttribute="bottom" secondItem="QA3-sH-7W8" secondAttribute="bottom" constant="45" id="icQ-eF-dJX"/>
+                            <constraint firstItem="koS-SH-exG" firstAttribute="bottom" secondItem="j5T-b2-Njh" secondAttribute="bottom" constant="33" id="lgX-fc-aF8"/>
+                            <constraint firstItem="koS-SH-exG" firstAttribute="trailing" secondItem="QA3-sH-7W8" secondAttribute="trailing" constant="173" id="xTH-I5-vym"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDA-wN-VqD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-620" y="-300"/>
         </scene>
+        <!--Input DetailVC-->
+        <scene sceneID="mg7-hI-jBx">
+            <objects>
+                <viewController storyboardIdentifier="InputDetailVC" id="DAc-nO-vXW" customClass="InputDetailVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OPd-NF-VB0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e35-Fc-Bwl">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZI0-yy-yAE">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ZI0-yy-yAE" secondAttribute="height" multiplier="1:1" id="hDE-nJ-Vum"/>
+                                            <constraint firstAttribute="height" constant="44" id="whC-Je-nyK"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="icn_back"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 상세 입력" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyP-Hj-Los" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="138.66666666666666" y="10" width="98" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="XyP-Hj-Los" secondAttribute="height" multiplier="49:12" id="SXg-rc-hWW"/>
+                                            <constraint firstAttribute="height" constant="24" id="Xga-js-ZlE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                        <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                <real key="value" value="-0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="XyP-Hj-Los" firstAttribute="centerY" secondItem="e35-Fc-Bwl" secondAttribute="centerY" id="ObG-mO-Kor"/>
+                                    <constraint firstItem="ZI0-yy-yAE" firstAttribute="top" secondItem="e35-Fc-Bwl" secondAttribute="top" id="Vo5-3N-Ark"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZI0-yy-yAE" secondAttribute="bottom" id="jfG-Eg-vIr"/>
+                                    <constraint firstItem="XyP-Hj-Los" firstAttribute="centerX" secondItem="e35-Fc-Bwl" secondAttribute="centerX" id="sFX-Qf-qSa"/>
+                                    <constraint firstItem="ZI0-yy-yAE" firstAttribute="leading" secondItem="e35-Fc-Bwl" secondAttribute="leading" id="t1e-Ec-zmp"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sip-5t-HyK" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="27" y="114" width="26" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Sip-5t-HyK" secondAttribute="height" multiplier="13:12" id="0nD-yU-7pn"/>
+                                    <constraint firstAttribute="height" constant="24" id="Gre-4D-x8L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물애칭" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aL1-JX-GuN" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="207" y="117" width="52" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="ODT-fQ-uYv"/>
+                                    <constraint firstAttribute="width" secondItem="aL1-JX-GuN" secondAttribute="height" multiplier="13:6" id="ZBJ-Oi-agQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="생일" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eh-tN-roC" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="29" y="203" width="26" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2eh-tN-roC" secondAttribute="height" multiplier="13:12" id="Kfh-uX-Z4g"/>
+                                    <constraint firstAttribute="height" constant="24" id="fed-00-Pc6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWL-Ip-d3K" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="29" y="287" width="52" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iWL-Ip-d3K" secondAttribute="height" multiplier="13:6" id="Xew-py-GCc"/>
+                                    <constraint firstAttribute="height" constant="24" id="fDO-OT-48c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물주기 알림주기" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkC-BL-GOc" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="29" y="373" width="95" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RkC-BL-GOc" secondAttribute="height" multiplier="95:24" id="dBd-u4-HjN"/>
+                                    <constraint firstAttribute="height" constant="24" id="mPh-kj-OMj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물주기 알람시간" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Eg-k9-vFi" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="29" y="459" width="95" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9Eg-k9-vFi" secondAttribute="height" multiplier="95:24" id="MHO-eR-QCd"/>
+                                    <constraint firstAttribute="height" constant="24" id="ZfL-k7-K0D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="남궁선규" textAlignment="natural" minimumFontSize="17" background="box_half_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="2ts-fx-9IF">
+                                <rect key="frame" x="16" y="145" width="165" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2ts-fx-9IF" secondAttribute="height" multiplier="15:4" id="TNV-Ls-wdo"/>
+                                    <constraint firstAttribute="height" constant="44" id="lJL-xN-AKp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ex.남쿵둥이" textAlignment="natural" minimumFontSize="17" background="box_half_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="xSI-Uz-kG0">
+                                <rect key="frame" x="194" y="145" width="165" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Khi-5W-kOV"/>
+                                    <constraint firstAttribute="width" secondItem="xSI-Uz-kG0" secondAttribute="height" multiplier="15:4" id="Y3Q-p0-iVz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0000/00/00" textAlignment="natural" minimumFontSize="17" background="box_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="Cho-wb-3ua">
+                                <rect key="frame" x="16" y="231" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Tir-Hn-ddN"/>
+                                    <constraint firstAttribute="width" secondItem="Cho-wb-3ua" secondAttribute="height" multiplier="343:44" id="aaK-AS-tI5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="010.1234.5678" textAlignment="natural" minimumFontSize="17" background="box_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="wLQ-co-qp2">
+                                <rect key="frame" x="16" y="315" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="7G1-gh-fG3"/>
+                                    <constraint firstAttribute="width" secondItem="wLQ-co-qp2" secondAttribute="height" multiplier="343:44" id="zqu-j5-1t6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Every 1 week" minimumFontSize="17" background="box_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="uhn-zN-3vv">
+                                <rect key="frame" x="16" y="401" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="uhn-zN-3vv" secondAttribute="height" multiplier="343:44" id="Yc9-lY-6Q1"/>
+                                    <constraint firstAttribute="height" constant="44" id="rhe-gv-J3w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00:00 AM" minimumFontSize="17" background="box_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="2Hr-uL-saD">
+                                <rect key="frame" x="16" y="487" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Fcb-E0-zuk"/>
+                                    <constraint firstAttribute="width" secondItem="2Hr-uL-saD" secondAttribute="height" multiplier="343:44" id="dm8-1Y-FC8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bB-lW-ioS">
+                                <rect key="frame" x="296" y="408" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aas-LP-IMf">
+                                <rect key="frame" x="16" y="697" width="343" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="1sB-Zr-DLq"/>
+                                    <constraint firstAttribute="width" secondItem="aas-LP-IMf" secondAttribute="height" multiplier="343:48" id="cPM-bd-LfS"/>
+                                </constraints>
+                                <state key="normal" image="btn_next_unselected"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="완료" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlM-NJ-OJ1" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="172.66666666666666" y="709" width="30" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tlM-NJ-OJ1" secondAttribute="height" multiplier="5:4" id="D6L-Kk-O5t"/>
+                                    <constraint firstAttribute="height" constant="24" id="jlt-bt-Z7z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ew4-HB-xfu">
+                                <rect key="frame" x="28" y="539" width="320" height="135"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ew4-HB-xfu" secondAttribute="height" multiplier="64:27" id="dpH-sV-l5s"/>
+                                    <constraint firstAttribute="height" constant="135" id="ilY-et-k7W"/>
+                                </constraints>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dJf-1V-FHK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dJf-1V-FHK" firstAttribute="trailing" secondItem="xSI-Uz-kG0" secondAttribute="trailing" constant="16" id="075-jh-cvc"/>
+                            <constraint firstItem="RkC-BL-GOc" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="29" id="1w2-9J-xiA"/>
+                            <constraint firstItem="RkC-BL-GOc" firstAttribute="top" secondItem="wLQ-co-qp2" secondAttribute="bottom" constant="14" id="30T-dk-Qaq"/>
+                            <constraint firstItem="e35-Fc-Bwl" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" id="37m-NF-35R"/>
+                            <constraint firstItem="2eh-tN-roC" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="29" id="3UA-LC-2eO"/>
+                            <constraint firstItem="Sip-5t-HyK" firstAttribute="top" secondItem="e35-Fc-Bwl" secondAttribute="bottom" constant="26" id="5Ip-JG-k2p"/>
+                            <constraint firstItem="9Eg-k9-vFi" firstAttribute="top" secondItem="uhn-zN-3vv" secondAttribute="bottom" constant="14" id="6VG-fv-VPO"/>
+                            <constraint firstItem="2ts-fx-9IF" firstAttribute="top" secondItem="Sip-5t-HyK" secondAttribute="bottom" constant="7" id="7pO-pK-XTm"/>
+                            <constraint firstItem="2Hr-uL-saD" firstAttribute="top" secondItem="9Eg-k9-vFi" secondAttribute="bottom" constant="4" id="9Ge-ez-Y46"/>
+                            <constraint firstItem="dJf-1V-FHK" firstAttribute="trailing" secondItem="aL1-JX-GuN" secondAttribute="trailing" constant="116" id="9U9-Vn-soN"/>
+                            <constraint firstItem="dJf-1V-FHK" firstAttribute="bottom" secondItem="tlM-NJ-OJ1" secondAttribute="bottom" constant="45" id="9lr-aO-wZq"/>
+                            <constraint firstItem="iWL-Ip-d3K" firstAttribute="top" secondItem="Cho-wb-3ua" secondAttribute="bottom" constant="12" id="AiC-fL-xu4"/>
+                            <constraint firstItem="aL1-JX-GuN" firstAttribute="top" secondItem="e35-Fc-Bwl" secondAttribute="bottom" constant="29" id="AwU-Xh-fbp"/>
+                            <constraint firstItem="e35-Fc-Bwl" firstAttribute="trailing" secondItem="dJf-1V-FHK" secondAttribute="trailing" id="B3A-Ci-vaV"/>
+                            <constraint firstItem="2Hr-uL-saD" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="16" id="DNn-QU-YnX"/>
+                            <constraint firstItem="aas-LP-IMf" firstAttribute="centerX" secondItem="OPd-NF-VB0" secondAttribute="centerX" id="EOr-44-2w0"/>
+                            <constraint firstItem="iWL-Ip-d3K" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="29" id="Enx-Wz-Fe7"/>
+                            <constraint firstItem="xSI-Uz-kG0" firstAttribute="top" secondItem="aL1-JX-GuN" secondAttribute="bottom" constant="4" id="H3M-Ub-MSJ"/>
+                            <constraint firstItem="e35-Fc-Bwl" firstAttribute="top" secondItem="dJf-1V-FHK" secondAttribute="top" id="IVq-rt-58H"/>
+                            <constraint firstItem="ew4-HB-xfu" firstAttribute="top" secondItem="2Hr-uL-saD" secondAttribute="bottom" constant="8" id="KsT-uq-svJ"/>
+                            <constraint firstItem="Sip-5t-HyK" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="27" id="Ktk-cf-te3"/>
+                            <constraint firstItem="9Eg-k9-vFi" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="29" id="MN5-Qd-mo3"/>
+                            <constraint firstItem="uhn-zN-3vv" firstAttribute="top" secondItem="RkC-BL-GOc" secondAttribute="bottom" constant="4" id="OaM-EW-JMh"/>
+                            <constraint firstItem="Cho-wb-3ua" firstAttribute="top" secondItem="2eh-tN-roC" secondAttribute="bottom" constant="4" id="Y0h-cv-OUS"/>
+                            <constraint firstItem="wLQ-co-qp2" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="16" id="ZsY-HT-Vud"/>
+                            <constraint firstItem="dJf-1V-FHK" firstAttribute="bottom" secondItem="e35-Fc-Bwl" secondAttribute="bottom" constant="690" id="aZW-oj-niL"/>
+                            <constraint firstItem="wLQ-co-qp2" firstAttribute="top" secondItem="iWL-Ip-d3K" secondAttribute="bottom" constant="4" id="c03-oj-lCb"/>
+                            <constraint firstItem="Cho-wb-3ua" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="16" id="eY9-V8-ImG"/>
+                            <constraint firstItem="ew4-HB-xfu" firstAttribute="centerX" secondItem="OPd-NF-VB0" secondAttribute="centerX" id="hNt-3O-ElW"/>
+                            <constraint firstItem="dJf-1V-FHK" firstAttribute="bottom" secondItem="aas-LP-IMf" secondAttribute="bottom" constant="33" id="heZ-ZU-wg3"/>
+                            <constraint firstItem="tlM-NJ-OJ1" firstAttribute="centerX" secondItem="OPd-NF-VB0" secondAttribute="centerX" id="hhs-yB-yNm"/>
+                            <constraint firstItem="2ts-fx-9IF" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="16" id="hk3-pV-Vhl"/>
+                            <constraint firstItem="2eh-tN-roC" firstAttribute="top" secondItem="2ts-fx-9IF" secondAttribute="bottom" constant="14" id="jRj-ff-1O2"/>
+                            <constraint firstItem="uhn-zN-3vv" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="16" id="pI8-zN-7x1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="alarmPeriodTextField" destination="uhn-zN-3vv" id="B3c-Ld-Xvg"/>
+                        <outlet property="alarmTimeTextField" destination="2Hr-uL-saD" id="mrX-Dg-NmV"/>
+                        <outlet property="birthTextField" destination="Cho-wb-3ua" id="llV-m5-8f0"/>
+                        <outlet property="nameTextField" destination="2ts-fx-9IF" id="f8x-93-w9K"/>
+                        <outlet property="nextBtn" destination="aas-LP-IMf" id="Hoe-Bt-G2P"/>
+                        <outlet property="nicknameTextField" destination="xSI-Uz-kG0" id="7m9-gC-Ejg"/>
+                        <outlet property="phoneTextField" destination="wLQ-co-qp2" id="bC0-ad-QEr"/>
+                        <outlet property="stateSwitch" destination="4bB-lW-ioS" id="vGs-TF-UWL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OKh-Ns-1fb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="242" y="-300"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="box_add_plant_detail" width="335" height="44"/>
+        <image name="box_half_add_plant_detail" width="160" height="44"/>
+        <image name="btn_checkbox_unselected" width="18" height="18"/>
+        <image name="btn_next_unselected" width="343" height="48"/>
+        <image name="icn_back" width="44" height="44"/>
+        <image name="icn_search_box" width="18" height="18"/>
+        <image name="icn_seed" width="25" height="25"/>
+        <image name="search_box" width="343" height="44"/>
+        <image name="user_bg" width="54" height="54"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
