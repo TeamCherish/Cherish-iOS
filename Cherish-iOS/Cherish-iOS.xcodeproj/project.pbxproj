@@ -42,6 +42,7 @@
 		33E8754925A09440001F84FE /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754825A09440001F84FE /* NotificationName.swift */; };
 		33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754B25A0D272001F84FE /* ProgressBarView.swift */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
+		92E8E39725A1B13F001F1FB4 /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		33E8754525A08E87001F84FE /* CherishPeopleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishPeopleData.swift; sourceTree = "<group>"; };
 		33E8754825A09440001F84FE /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		33E8754B25A0D272001F84FE /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddUser.storyboard; sourceTree = "<group>"; };
 		DAA60C0D230FDF9D184F4B6C /* Pods-Cherish-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F67D9DFE41871E0883A26838 /* Pods-Cherish-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.release.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +161,7 @@
 				33E874DC25A04569001F84FE /* MyPage.storyboard */,
 				33E874E325A047DE001F84FE /* ShowMore.storyboard */,
 				33851C7E259A5542005BCFFD /* LaunchScreen.storyboard */,
+				92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				33E874E825A04832001F84FE /* TabBar.storyboard in Resources */,
 				33E874C825A04332001F84FE /* NotoSansCJKkr-Regular.otf in Resources */,
 				33E874CB25A0434B001F84FE /* Roboto-Regular.ttf in Resources */,
+				92E8E39725A1B13F001F1FB4 /* AddUser.storyboard in Resources */,
 				33851C7D259A5542005BCFFD /* Assets.xcassets in Resources */,
 				33E874D125A0437A001F84FE /* NotoSansCJKkr-Bold.otf in Resources */,
 				33E874E425A047DE001F84FE /* ShowMore.storyboard in Resources */,
