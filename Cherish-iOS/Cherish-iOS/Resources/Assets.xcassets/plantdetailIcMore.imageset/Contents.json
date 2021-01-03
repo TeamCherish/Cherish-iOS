@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "plantdetailIcMore.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "plantdetailIcMore@2x.png"
+    },
+    {
+      "scale" : "3x",
+      "idiom" : "universal",
+      "filename" : "plantdetailIcMore@3x.png"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
