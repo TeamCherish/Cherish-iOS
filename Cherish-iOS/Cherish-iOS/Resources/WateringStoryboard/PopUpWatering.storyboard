@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Medium.otf">
+            <string>NotoSansCJKkr-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Pop Up WateringVC-->
+        <scene sceneID="Y3Z-V1-PBR">
+            <objects>
+                <viewController id="Wat-fs-REo" customClass="PopUpWateringVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zlR-Cc-162">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fnd-hs-zCo">
+                                <rect key="frame" x="49.5" y="248" width="315" height="410"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EC9-UJ-Cmr">
+                                        <rect key="frame" x="261" y="6" width="48" height="48"/>
+                                        <state key="normal" image="icnCancel"/>
+                                        <connections>
+                                            <action selector="backBtn:" destination="Wat-fs-REo" eventType="touchUpInside" id="2gR-bb-NuJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBZ-zl-X6z">
+                                        <rect key="frame" x="17.5" y="283" width="280" height="48"/>
+                                        <color key="backgroundColor" name="seaweed"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                        <state key="normal" title="물주기">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgO-R7-m0c">
+                                        <rect key="frame" x="113.5" y="348" width="88" height="31"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                        <state key="normal" title="다음에 할게요"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고민하기보다 일단 해보는거에요. 시시콜콜한 이야기도 좋아요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdA-fJ-HQx" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="67" y="214" width="181.5" height="33"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                <real key="value" value="0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEB-Ok-BMs">
+                                        <rect key="frame" x="100" y="84" width="115" height="94"/>
+                                        <color key="backgroundColor" name="seaweed"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="nEB-Ok-BMs" firstAttribute="centerX" secondItem="Fnd-hs-zCo" secondAttribute="centerX" id="0pS-2Q-ATI"/>
+                                    <constraint firstItem="CgO-R7-m0c" firstAttribute="top" secondItem="lBZ-zl-X6z" secondAttribute="bottom" constant="17" id="6MC-H9-8Gg"/>
+                                    <constraint firstItem="CgO-R7-m0c" firstAttribute="centerX" secondItem="lBZ-zl-X6z" secondAttribute="centerX" id="6du-Es-7g7"/>
+                                    <constraint firstItem="EC9-UJ-Cmr" firstAttribute="top" secondItem="Fnd-hs-zCo" secondAttribute="top" constant="6" id="CEh-zP-oUQ"/>
+                                    <constraint firstItem="nEB-Ok-BMs" firstAttribute="top" secondItem="Fnd-hs-zCo" secondAttribute="top" constant="84" id="JrK-ue-pCe"/>
+                                    <constraint firstItem="lBZ-zl-X6z" firstAttribute="height" secondItem="Fnd-hs-zCo" secondAttribute="height" multiplier="0.117073" id="VY2-bS-R0s"/>
+                                    <constraint firstItem="lBZ-zl-X6z" firstAttribute="width" secondItem="Fnd-hs-zCo" secondAttribute="width" multiplier="0.888889" id="Z6W-Ng-KM5"/>
+                                    <constraint firstItem="rdA-fJ-HQx" firstAttribute="top" secondItem="nEB-Ok-BMs" secondAttribute="bottom" constant="36" id="cCY-aM-RSd"/>
+                                    <constraint firstItem="nEB-Ok-BMs" firstAttribute="width" secondItem="Fnd-hs-zCo" secondAttribute="width" multiplier="0.365079" id="cdX-0W-TFm"/>
+                                    <constraint firstItem="lBZ-zl-X6z" firstAttribute="centerX" secondItem="Fnd-hs-zCo" secondAttribute="centerX" id="hLv-rl-Ujn"/>
+                                    <constraint firstItem="lBZ-zl-X6z" firstAttribute="top" secondItem="rdA-fJ-HQx" secondAttribute="bottom" constant="36" id="jCZ-73-gQR"/>
+                                    <constraint firstItem="rdA-fJ-HQx" firstAttribute="centerX" secondItem="Fnd-hs-zCo" secondAttribute="centerX" id="nn1-ng-YWg"/>
+                                    <constraint firstAttribute="trailing" secondItem="EC9-UJ-Cmr" secondAttribute="trailing" constant="6" id="nnS-1d-t4C"/>
+                                    <constraint firstItem="nEB-Ok-BMs" firstAttribute="height" secondItem="Fnd-hs-zCo" secondAttribute="height" multiplier="0.229268" id="sg2-ER-iFB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kCa-S0-YiW"/>
+                        <color key="backgroundColor" red="0.31669151866352646" green="0.31516160794534515" blue="0.31822142938170772" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Fnd-hs-zCo" firstAttribute="centerY" secondItem="kCa-S0-YiW" secondAttribute="centerY" id="6X8-5q-N5K"/>
+                            <constraint firstItem="Fnd-hs-zCo" firstAttribute="height" secondItem="zlR-Cc-162" secondAttribute="height" multiplier="0.457589" id="TAv-JJ-v7q"/>
+                            <constraint firstItem="Fnd-hs-zCo" firstAttribute="centerX" secondItem="kCa-S0-YiW" secondAttribute="centerX" id="gRf-W8-yX2"/>
+                            <constraint firstItem="Fnd-hs-zCo" firstAttribute="width" secondItem="zlR-Cc-162" secondAttribute="width" multiplier="0.76087" id="sOk-jl-mfw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gominLabel" destination="rdA-fJ-HQx" id="cw8-e6-1wx"/>
+                        <outlet property="laterBtn" destination="CgO-R7-m0c" id="vBk-ZM-cRb"/>
+                        <outlet property="popupWaterView" destination="Fnd-hs-zCo" id="3HY-BC-atm"/>
+                        <outlet property="wateringBtn" destination="lBZ-zl-X6z" id="QuR-ZC-Qgg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a7n-Zl-9WW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="172" y="72"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icnCancel" width="48" height="48"/>
+        <namedColor name="seaweed">
+            <color red="0.10199999809265137" green="0.82400000095367432" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
