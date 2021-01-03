@@ -57,6 +57,15 @@ class MainContentVC: UIViewController {
     
     //MARK: - 식물 상세페이지 뷰로 이동
     @IBAction func moveToPlantDetailView(_ sender: UIButton) {
+        
+    }
+    @IBAction func moveToWateringPopUp(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpWatering", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpWateringVC") as? PopUpWateringVC{
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.modalTransitionStyle = .crossDissolve
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     @objc func changeBackgroundInfo(){
