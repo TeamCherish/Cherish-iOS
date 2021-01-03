@@ -41,6 +41,12 @@
 		33E8754625A08E87001F84FE /* CherishPeopleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754525A08E87001F84FE /* CherishPeopleData.swift */; };
 		33E8754925A09440001F84FE /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754825A09440001F84FE /* NotificationName.swift */; };
 		33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754B25A0D272001F84FE /* ProgressBarView.swift */; };
+		548DF15725A1A0470081FCD1 /* PopUpWatering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */; };
+		548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */; };
+		548DF16C25A1B4390081FCD1 /* PopUpWateringVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF16B25A1B4390081FCD1 /* PopUpWateringVC.swift */; };
+		548DF16F25A1B4AB0081FCD1 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF16E25A1B4AB0081FCD1 /* UITextField+Extension.swift */; };
+		548DF17225A1BB6D0081FCD1 /* PopUpContact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548DF17125A1BB6D0081FCD1 /* PopUpContact.storyboard */; };
+		548DF17525A1BB7F0081FCD1 /* PopUpContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF17425A1BB7F0081FCD1 /* PopUpContact.swift */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
 		92E8E39725A1B13F001F1FB4 /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */; };
 /* End PBXBuildFile section */
@@ -83,6 +89,12 @@
 		33E8754525A08E87001F84FE /* CherishPeopleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishPeopleData.swift; sourceTree = "<group>"; };
 		33E8754825A09440001F84FE /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		33E8754B25A0D272001F84FE /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUpWatering.storyboard; sourceTree = "<group>"; };
+		548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		548DF16B25A1B4390081FCD1 /* PopUpWateringVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWateringVC.swift; sourceTree = "<group>"; };
+		548DF16E25A1B4AB0081FCD1 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		548DF17125A1BB6D0081FCD1 /* PopUpContact.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUpContact.storyboard; sourceTree = "<group>"; };
+		548DF17425A1BB7F0081FCD1 /* PopUpContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpContact.swift; sourceTree = "<group>"; };
 		92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddUser.storyboard; sourceTree = "<group>"; };
 		DAA60C0D230FDF9D184F4B6C /* Pods-Cherish-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F67D9DFE41871E0883A26838 /* Pods-Cherish-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.release.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +146,7 @@
 				33851C73259A5541005BCFFD /* AppDelegate.swift */,
 				33851C75259A5541005BCFFD /* SceneDelegate.swift */,
 				33851C7C259A5542005BCFFD /* Assets.xcassets */,
+				548DF15525A1A0000081FCD1 /* WateringStoryboard */,
 				33851C8A259A5AE2005BCFFD /* Storyboard */,
 				33851C8B259A5AEE005BCFFD /* APIService */,
 				33851C8C259A5AF6005BCFFD /* Font */,
@@ -192,6 +205,7 @@
 		33851C8D259A5B0E005BCFFD /*  VC */ = {
 			isa = PBXGroup;
 			children = (
+				548DF16525A1B3E60081FCD1 /* Watering */,
 				33E874EA25A04860001F84FE /* TabBar */,
 				33E874F325A049A7001F84FE /* CherishMain */,
 				33E874F425A049AE001F84FE /* MyPage */,
@@ -213,6 +227,7 @@
 		33851C8F259A5B18005BCFFD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				548DF17725A1C1480081FCD1 /* Watering */,
 				33E8753325A07A63001F84FE /* CherishMain */,
 			);
 			path = Cell;
@@ -232,6 +247,8 @@
 			children = (
 				33E8750625A04DA2001F84FE /* UIColor+Additions.swift */,
 				33E8754825A09440001F84FE /* NotificationName.swift */,
+				548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */,
+				548DF16E25A1B4AB0081FCD1 /* UITextField+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -287,6 +304,31 @@
 				33E8754525A08E87001F84FE /* CherishPeopleData.swift */,
 			);
 			path = CherishMain;
+			sourceTree = "<group>";
+		};
+		548DF15525A1A0000081FCD1 /* WateringStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */,
+				548DF17125A1BB6D0081FCD1 /* PopUpContact.storyboard */,
+			);
+			path = WateringStoryboard;
+			sourceTree = "<group>";
+		};
+		548DF16525A1B3E60081FCD1 /* Watering */ = {
+			isa = PBXGroup;
+			children = (
+				548DF16B25A1B4390081FCD1 /* PopUpWateringVC.swift */,
+				548DF17425A1BB7F0081FCD1 /* PopUpContact.swift */,
+			);
+			path = Watering;
+			sourceTree = "<group>";
+		};
+		548DF17725A1C1480081FCD1 /* Watering */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Watering;
 			sourceTree = "<group>";
 		};
 		B229733EA498ABC825B548EB /* Frameworks */ = {
@@ -374,10 +416,12 @@
 				33851C7D259A5542005BCFFD /* Assets.xcassets in Resources */,
 				33E874D125A0437A001F84FE /* NotoSansCJKkr-Bold.otf in Resources */,
 				33E874E425A047DE001F84FE /* ShowMore.storyboard in Resources */,
+				548DF15725A1A0470081FCD1 /* PopUpWatering.storyboard in Resources */,
 				33E874D725A043CF001F84FE /* Roboto-Bold.ttf in Resources */,
 				33E874DD25A04569001F84FE /* MyPage.storyboard in Resources */,
 				33E874D425A043B4001F84FE /* NotoSansCJKkr-Light.otf in Resources */,
 				33E874DA25A043F1001F84FE /* Roboto-Black.ttf in Resources */,
+				548DF17225A1BB6D0081FCD1 /* PopUpContact.storyboard in Resources */,
 				33E874CE25A04361001F84FE /* NotoSansCJKkr-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +475,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */,
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,
 				33E8750725A04DA2001F84FE /* UIColor+Additions.swift in Sources */,
 				33E874FE25A04A8D001F84FE /* ShowMoreVC.swift in Sources */,
@@ -439,6 +484,8 @@
 				33E8753E25A08687001F84FE /* CherishSelectedPeopleData.swift in Sources */,
 				33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */,
 				33E8754625A08E87001F84FE /* CherishPeopleData.swift in Sources */,
+				548DF17525A1BB7F0081FCD1 /* PopUpContact.swift in Sources */,
+				548DF16C25A1B4390081FCD1 /* PopUpWateringVC.swift in Sources */,
 				33E874F725A04A56001F84FE /* CherishMainVC.swift in Sources */,
 				33E8750425A04D1E001F84FE /* CustomLabel.swift in Sources */,
 				33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */,
@@ -450,6 +497,7 @@
 				33851C74259A5541005BCFFD /* AppDelegate.swift in Sources */,
 				33851C76259A5541005BCFFD /* SceneDelegate.swift in Sources */,
 				33E8752625A05D34001F84FE /* MainContentVC.swift in Sources */,
+				548DF16F25A1B4AB0081FCD1 /* UITextField+Extension.swift in Sources */,
 				33E8754225A08CFE001F84FE /* CherishSelectPersonCVCell.swift in Sources */,
 				33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */,
 			);
