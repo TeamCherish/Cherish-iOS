@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PopUpContact: UIViewController {
+class PopUpContactVC: UIViewController {
 
     @IBOutlet weak var popupContactView: UIView!{
         didSet{
@@ -30,4 +30,7 @@ class PopUpContact: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func backBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

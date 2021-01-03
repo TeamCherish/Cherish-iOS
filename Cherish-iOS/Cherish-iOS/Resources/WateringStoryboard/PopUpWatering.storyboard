@@ -17,7 +17,7 @@
         <!--Pop Up WateringVC-->
         <scene sceneID="Y3Z-V1-PBR">
             <objects>
-                <viewController id="Wat-fs-REo" customClass="PopUpWateringVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopUpWateringVC" id="Wat-fs-REo" customClass="PopUpWateringVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zlR-Cc-162">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,10 +35,17 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBZ-zl-X6z">
                                         <rect key="frame" x="17.5" y="283" width="280" height="48"/>
                                         <color key="backgroundColor" name="seaweed"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="lBZ-zl-X6z" secondAttribute="height" multiplier="35:6" id="8P6-bd-I5y"/>
+                                            <constraint firstAttribute="height" constant="48" id="ScM-zz-dbe"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <state key="normal" title="물주기">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="moveToContact:" destination="Wat-fs-REo" eventType="touchUpInside" id="97k-Ws-xoB"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgO-R7-m0c">
                                         <rect key="frame" x="113.5" y="348" width="88" height="31"/>
@@ -67,9 +74,8 @@
                                     <constraint firstItem="CgO-R7-m0c" firstAttribute="top" secondItem="lBZ-zl-X6z" secondAttribute="bottom" constant="17" id="6MC-H9-8Gg"/>
                                     <constraint firstItem="CgO-R7-m0c" firstAttribute="centerX" secondItem="lBZ-zl-X6z" secondAttribute="centerX" id="6du-Es-7g7"/>
                                     <constraint firstItem="EC9-UJ-Cmr" firstAttribute="top" secondItem="Fnd-hs-zCo" secondAttribute="top" constant="6" id="CEh-zP-oUQ"/>
+                                    <constraint firstAttribute="height" constant="410" id="G7l-Il-de1"/>
                                     <constraint firstItem="nEB-Ok-BMs" firstAttribute="top" secondItem="Fnd-hs-zCo" secondAttribute="top" constant="84" id="JrK-ue-pCe"/>
-                                    <constraint firstItem="lBZ-zl-X6z" firstAttribute="height" secondItem="Fnd-hs-zCo" secondAttribute="height" multiplier="0.117073" id="VY2-bS-R0s"/>
-                                    <constraint firstItem="lBZ-zl-X6z" firstAttribute="width" secondItem="Fnd-hs-zCo" secondAttribute="width" multiplier="0.888889" id="Z6W-Ng-KM5"/>
                                     <constraint firstItem="rdA-fJ-HQx" firstAttribute="top" secondItem="nEB-Ok-BMs" secondAttribute="bottom" constant="36" id="cCY-aM-RSd"/>
                                     <constraint firstItem="nEB-Ok-BMs" firstAttribute="width" secondItem="Fnd-hs-zCo" secondAttribute="width" multiplier="0.365079" id="cdX-0W-TFm"/>
                                     <constraint firstItem="lBZ-zl-X6z" firstAttribute="centerX" secondItem="Fnd-hs-zCo" secondAttribute="centerX" id="hLv-rl-Ujn"/>
@@ -77,6 +83,7 @@
                                     <constraint firstItem="rdA-fJ-HQx" firstAttribute="centerX" secondItem="Fnd-hs-zCo" secondAttribute="centerX" id="nn1-ng-YWg"/>
                                     <constraint firstAttribute="trailing" secondItem="EC9-UJ-Cmr" secondAttribute="trailing" constant="6" id="nnS-1d-t4C"/>
                                     <constraint firstItem="nEB-Ok-BMs" firstAttribute="height" secondItem="Fnd-hs-zCo" secondAttribute="height" multiplier="0.229268" id="sg2-ER-iFB"/>
+                                    <constraint firstAttribute="width" secondItem="Fnd-hs-zCo" secondAttribute="height" multiplier="63:82" id="tKt-H5-vma"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -84,9 +91,7 @@
                         <color key="backgroundColor" red="0.31669151866352646" green="0.31516160794534515" blue="0.31822142938170772" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Fnd-hs-zCo" firstAttribute="centerY" secondItem="kCa-S0-YiW" secondAttribute="centerY" id="6X8-5q-N5K"/>
-                            <constraint firstItem="Fnd-hs-zCo" firstAttribute="height" secondItem="zlR-Cc-162" secondAttribute="height" multiplier="0.457589" id="TAv-JJ-v7q"/>
                             <constraint firstItem="Fnd-hs-zCo" firstAttribute="centerX" secondItem="kCa-S0-YiW" secondAttribute="centerX" id="gRf-W8-yX2"/>
-                            <constraint firstItem="Fnd-hs-zCo" firstAttribute="width" secondItem="zlR-Cc-162" secondAttribute="width" multiplier="0.76087" id="sOk-jl-mfw"/>
                         </constraints>
                     </view>
                     <connections>

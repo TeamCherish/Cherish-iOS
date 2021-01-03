@@ -8,7 +8,7 @@
 import UIKit
 
 class PopUpWateringVC: UIViewController {
-
+    
     //MARK: -@IBOutlet
     @IBOutlet weak var popupWaterView: UIView!{
         didSet{
@@ -22,7 +22,7 @@ class PopUpWateringVC: UIViewController {
     }
     @IBOutlet weak var wateringBtn: UIButton!{
         didSet{
-            wateringBtn.makeRounded(cornerRadius: 30.0)
+            wateringBtn.makeRounded(cornerRadius: 25.0)
         }
     }
     @IBOutlet weak var laterBtn: UIButton!{
@@ -32,11 +32,22 @@ class PopUpWateringVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
     @IBAction func backBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func moveToContact(_ sender: Any) {
+        guard let pvc = self.presentingViewController else {return}
+        self.dismiss(animated: true) {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpContact", bundle: nil)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpContactVC") as? PopUpContactVC{
+                vc.modalPresentationStyle = .overCurrentContext
+                vc.modalTransitionStyle = .crossDissolve
+                pvc.self.present(vc, animated: true, completion: nil)
+            }
+        }
     }
 }
