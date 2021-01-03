@@ -41,6 +41,7 @@
 		33E8754625A08E87001F84FE /* CherishPeopleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754525A08E87001F84FE /* CherishPeopleData.swift */; };
 		33E8754925A09440001F84FE /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754825A09440001F84FE /* NotificationName.swift */; };
 		33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754B25A0D272001F84FE /* ProgressBarView.swift */; };
+		548DF15725A1A0470081FCD1 /* PopUpWatering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		33E8754525A08E87001F84FE /* CherishPeopleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishPeopleData.swift; sourceTree = "<group>"; };
 		33E8754825A09440001F84FE /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		33E8754B25A0D272001F84FE /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUpWatering.storyboard; sourceTree = "<group>"; };
 		DAA60C0D230FDF9D184F4B6C /* Pods-Cherish-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F67D9DFE41871E0883A26838 /* Pods-Cherish-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.release.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +121,7 @@
 		33851C72259A5541005BCFFD /* Cherish-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				548DF15525A1A0000081FCD1 /* WateringStoryboard */,
 				33851C88259A5AC5005BCFFD /* Resources */,
 				33851C89259A5AD6005BCFFD /* Sources */,
 				33851C81259A5542005BCFFD /* Info.plist */,
@@ -286,6 +289,14 @@
 			path = CherishMain;
 			sourceTree = "<group>";
 		};
+		548DF15525A1A0000081FCD1 /* WateringStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */,
+			);
+			path = WateringStoryboard;
+			sourceTree = "<group>";
+		};
 		B229733EA498ABC825B548EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +381,7 @@
 				33851C7D259A5542005BCFFD /* Assets.xcassets in Resources */,
 				33E874D125A0437A001F84FE /* NotoSansCJKkr-Bold.otf in Resources */,
 				33E874E425A047DE001F84FE /* ShowMore.storyboard in Resources */,
+				548DF15725A1A0470081FCD1 /* PopUpWatering.storyboard in Resources */,
 				33E874D725A043CF001F84FE /* Roboto-Bold.ttf in Resources */,
 				33E874DD25A04569001F84FE /* MyPage.storyboard in Resources */,
 				33E874D425A043B4001F84FE /* NotoSansCJKkr-Light.otf in Resources */,

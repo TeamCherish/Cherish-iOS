@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Y3Z-V1-PBR">
+            <objects>
+                <viewController id="Wat-fs-REo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zlR-Cc-162">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fnd-hs-zCo">
+                                <rect key="frame" x="49.5" y="248" width="315" height="410"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EC9-UJ-Cmr">
+                                        <rect key="frame" x="261" y="6" width="48" height="48"/>
+                                        <state key="normal" image="icnCancel"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="EC9-UJ-Cmr" firstAttribute="top" secondItem="Fnd-hs-zCo" secondAttribute="top" constant="6" id="CEh-zP-oUQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="EC9-UJ-Cmr" secondAttribute="trailing" constant="6" id="nnS-1d-t4C"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kCa-S0-YiW"/>
+                        <color key="backgroundColor" red="0.31669151866352646" green="0.31516160794534515" blue="0.31822142938170772" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Fnd-hs-zCo" firstAttribute="centerY" secondItem="kCa-S0-YiW" secondAttribute="centerY" id="6X8-5q-N5K"/>
+                            <constraint firstItem="Fnd-hs-zCo" firstAttribute="height" secondItem="zlR-Cc-162" secondAttribute="height" multiplier="0.457589" id="TAv-JJ-v7q"/>
+                            <constraint firstItem="Fnd-hs-zCo" firstAttribute="centerX" secondItem="kCa-S0-YiW" secondAttribute="centerX" id="gRf-W8-yX2"/>
+                            <constraint firstItem="Fnd-hs-zCo" firstAttribute="width" secondItem="zlR-Cc-162" secondAttribute="width" multiplier="0.76087" id="sOk-jl-mfw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a7n-Zl-9WW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="172" y="72"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icnCancel" width="48" height="48"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
