@@ -10,7 +10,7 @@ import MessageUI
 import CallKit
 
 class PopUpContactVC: UIViewController {
-    let fakeKeyword = ["여긴","키워드"]
+    let fakeKeyword = ["생일","취업고민걱정","헤어짐"]
     let callObserver = CXCallObserver()
     var didDetectOutgoingCall = false
     
@@ -175,7 +175,9 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         let label = UILabel(frame: CGRect.zero)
         label.text = fakeKeyword[indexPath.row]
         label.sizeToFit()
+        
         return CGSize(width: label.frame.width+20, height: collectionView.frame.height)
+        
     }
     
     //MARK: - Cell간의 좌우간격 지정

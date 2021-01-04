@@ -14,12 +14,18 @@ class PopUpLaterVC: UIViewController {
     //MARK: -@IBOutlet
     @IBOutlet weak var laterView: UIView!{
         didSet{
-            laterView.dropShadow(color: .brown, offSet: CGSize(width: 0, height: 4), opacity: 0.25, radius: 4)
+            laterView.dropShadow(color: .black, offSet: CGSize(width: 0, height: 4), opacity: 0.25, radius: 4)
             laterView.makeRounded(cornerRadius: 20.0)
         }
     }
     @IBOutlet weak var changeDateMonthLabel: UILabel!
     @IBOutlet weak var changeDateDayLabel: UILabel!
+    @IBOutlet weak var selectDateLabel: UILabel!{
+        didSet{
+            selectDateLabel.backgroundColor = .inputGrey
+            selectDateLabel.makeRounded(cornerRadius: 6)
+        }
+    }
     
     @IBOutlet weak var laterPickerView: UIPickerView!{
         didSet{
@@ -65,19 +71,6 @@ extension PopUpLaterVC: UIPickerViewDelegate, UIPickerViewDataSource{
         /// 11월-30일 12월-31일
         /// 구분해줘야함
         changeDateDayLabel.text = "\(test+date[row])"
+        selectDateLabel.text = "\(date[row])"
     }
-    
-    /// pickerView 내부 라벨 색, 폰트
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        var pickerLabel: UILabel? = (view as? UILabel)
-            if pickerLabel == nil {
-                pickerLabel = UILabel()
-                pickerLabel?.font = UIFont(name: "Roboto-Regular", size: 16)
-                pickerLabel?.textAlignment = .center
-                pickerLabel?.textColor = .black
-            }
-            pickerLabel?.text = String(date[row])
-            return pickerLabel!
-    }
-    
 }
