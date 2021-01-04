@@ -31,7 +31,7 @@
 | SnapKit  | 오토레이아웃 | 5.0.1 |
 | Lottie-iOS  | 애니메이션 처리  | 3.1.9 |
 | FSCalendar  | 캘린더 뷰 만들기 | 2.8.2 |
-
+| OverlayContainer  | BottomSheet애니메이션  |  |
 
 ### 📱 AutoLayout
 - iPhone 12 pro
@@ -225,73 +225,72 @@ if (condition){
 <img src="https://camo.githubusercontent.com/5af55d4c184cd61dabf0747bbf9ebc83b358eccb/68747470733a2f2f7761632d63646e2e61746c61737369616e2e636f6d2f64616d2f6a63723a62353235396363652d363234352d343966322d623839622d3938373166396565336661342f30332532302832292e7376673f63646e56657273696f6e3d393133" width="80%">  
 
    ```
-- Master
-        ├── dev (Develop)
-             ├── HomeTV(각 Local Branch)
-             ├── CherishMain    
-             └── CherishWatering@@@
+- Main
+    ├── cherishMainView(각 Local Branch)
+    ├── cherishAddView    
+    └── cherishWateringView
    ```
 **각자 자신이 맡은 기능 구현에 성공시! 브랜치 다 쓰고 병합하는 방법**
 
 - 브랜치 만듦
 
 ```bash
-git branch feature/기능이름
+git branch 기능이름
 ```
 
 - 브랜치 전환
 
 ```bash
-git checkout feature/기능이름
+git checkout 뷰이름
 ```
 
-- 코드 변경 (현재 **feature/기능이름** 브랜치)
+- 코드 변경 (현재 **뷰이름** 브랜치)
 
 ```bash
 git add .
-git commit -m "커밋 메세지" -a // 이슈보드 이름대로 커밋
+git commit -m "커밋 메세지" origin 뷰이름
 ```
 
-- 푸시 (현재 **feature/기능이름** 브랜치)
+- 푸시 (현재 **뷰이름** 브랜치)
 
 ```bash
-git push origin feature/기능이름 브랜치
+git push origin 뷰이름 브랜치
 ```
 
-- feature/기능 이름 브랜치에서 할 일 다 헀으면 **develop** 브랜치로 전환
+- 뷰이름 브랜치에서 할 일 다 했으면 **main** 브랜치로 전환
 
 ```bash
-git checkout develop
+git checkout main
 ```
 
-- 머지 (현재 **develop** 브랜치)
+- 머지 (현재 **main** 브랜치)
 
 ```bash
-git merge origin feature/기능이름
+git merge 뷰이름
 ```
 
-- 다 쓴 브랜치 삭제 (local) (현재 **develop** 브랜치)
+- 다 쓴 브랜치 삭제 (local) (현재 **main** 브랜치)
 
 ```bash
-git branch -d feature/기능이름
+git branch -d 뷰이름
 ```
 
-- 다 쓴 브랜치 삭제 (remote) (현재 **develop** 브랜치)
+- 다 쓴 브랜치 삭제 (remote) (현재 **main** 브랜치)
 
 ```bash
-git push origin :feature/기능이름
+git push origin :뷰이름
 ```
 
-- develop pull (현재 **develop** 브랜치)
+- main pull (현재 **main** 브랜치)
 
 ```bash
-git pull origin develop
+git pull or git pull origin main
 ```
 
-- develop push (현재 **develop** 브랜치)
+- main push (현재 **main** 브랜치)
 
 ```bash
-git push origin develop
+git push or git push origin main
 ```
 
 
