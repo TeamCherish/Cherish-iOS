@@ -219,12 +219,14 @@ if (condition){
 - 풀리퀘스트를 통해 코드 리뷰를 해보아요.
 
 <br>
-   ```
+
+```
 - Main
     ├── cherishMainView(각 Local Branch)
     ├── cherishAddView    
     └── cherishWateringView
-   ```
+```
+
 **각자 자신이 맡은 기능 구현에 성공시! 브랜치 다 쓰고 병합하는 방법**
 
 - 브랜치 만듦
