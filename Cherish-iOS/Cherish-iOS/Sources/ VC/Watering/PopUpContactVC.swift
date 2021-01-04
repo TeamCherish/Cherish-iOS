@@ -19,16 +19,7 @@ class PopUpContactVC: UIViewController {
             popupContactView.makeRounded(cornerRadius: 20.0)
         }
     }
-    @IBOutlet weak var contactNameLabel: CustomLabel!{
-        didSet{
-            contactNameLabel.textColor = .black
-        }
-    }
-    @IBOutlet weak var contactConversationLabel: CustomLabel!{
-        didSet{
-            contactConversationLabel.textColor = .black
-        }
-    }
+    @IBOutlet weak var contactNameLabel: CustomLabel! ///남쿵둥이와는
     @IBOutlet weak var keywordShowCollectionView: UICollectionView!{
         didSet{
             self.keywordShowCollectionView.register(KeywordCVC.nib(), forCellWithReuseIdentifier: KeywordCVC.identifier)

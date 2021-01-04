@@ -59,17 +59,14 @@ extension PopUpLaterVC: UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let boldText = "1월"
-        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15)]
-        let attributedString = NSMutableAttributedString(string:boldText, attributes:attrs)
-
-        let normalText = "Hi am normal"
-        let normalString = NSMutableAttributedString(string:normalText)
-
-        attributedString.append(normalString)
+        /// 1월-31 2월-28 3월-31일 4월-30일 5월-31일
+        /// 6월-30일 7월-31일 8월-31일 9월-30일 10월-31
+        /// 11월-30일 12월-31일
+        /// 구분해줘야함
         changeDateDayLabel.text = "\(test+date[row])"
     }
     
+    /// pickerView 내부 라벨 색, 폰트
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         var pickerLabel: UILabel? = (view as? UILabel)
             if pickerLabel == nil {

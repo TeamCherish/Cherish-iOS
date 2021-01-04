@@ -11,22 +11,8 @@ class ReviewVC: UIViewController {
     var keyword = [String]() /// 키워드 배열
     
     //MARK: -@IBOutlet
-    @IBOutlet weak var reviewNameLabel: CustomLabel!{
-        didSet{
-            reviewNameLabel.textColor = .black
-        }
-    }
-    @IBOutlet weak var reviewWhatupLabel: CustomLabel!{
-        didSet{
-            reviewWhatupLabel.textColor = .black
-        }
-    }
-    @IBOutlet weak var reviewPlzLabel: UILabel!{
-        didSet{
-            reviewPlzLabel.textColor = .black
-        }
-    }
-    
+    @IBOutlet weak var reviewNameLabel: CustomLabel! ///또령님! 남쿵둥이님과의
+    @IBOutlet weak var reviewPlzLabel: CustomLabel! ///남쿵둥이님과의 물주기를 기록해주세요
     @IBOutlet weak var keywordTextField: UITextField!{
         didSet{
             keywordTextField.delegate = self
