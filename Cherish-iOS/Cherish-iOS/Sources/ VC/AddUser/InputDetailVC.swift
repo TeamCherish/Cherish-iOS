@@ -16,6 +16,7 @@ class InputDetailVC: UIViewController {
     @IBOutlet weak var alarmTimeTextField: UITextField!
     @IBOutlet weak var stateSwitch: UISwitch!
     @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var completeLabel: CustomLabel!
     @IBOutlet weak var alarmTimePicker: UIDatePicker!
     
     let datePicker = UIDatePicker()
@@ -24,13 +25,25 @@ class InputDetailVC: UIViewController {
     let num = ["1", "2", "3"]
     let period = ["day", "week", "month"]
     
+//    let nextBtnEnabled = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        nextBtn.isEnabled = false
+//        enableNextBtn()
         textFieldBackgroundImage()
-        createPicker()
         textFieldPadding()
+        createPicker()
         periodPicker.delegate = self
         periodPicker.dataSource = self
+    }
+    
+    func enableNextBtn() {
+        nextBtn.isEnabled = false
+        let birthText = birthTextField.text
+        if birthTextField.text?.isEmpty == false {
+            nextBtn.isEnabled = true
+        }
     }
     
     func textFieldBackgroundImage() {
@@ -122,6 +135,8 @@ class InputDetailVC: UIViewController {
         dateformatter.timeStyle = .short
         let date = dateformatter.string(from: alarmTimePicker.date)
         alarmTimeTextField.text = date
+        self.nextBtn.isEnabled = true
+        self.completeLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
     }
 }
 

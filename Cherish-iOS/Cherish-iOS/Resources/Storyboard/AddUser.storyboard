@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DAc-nO-vXW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6CX-b0-BOK">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -36,7 +36,7 @@
                                         <state key="normal" image="icn_back"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 등록 친구 선택" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAy-UP-29i" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="121.66666666666669" y="10" width="132" height="24"/>
+                                        <rect key="frame" x="125.33333333333334" y="12.666666666666666" width="124.33333333333334" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -88,7 +88,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ed2-cH-Kfa" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="62" y="5" width="45" height="24"/>
+                                                    <rect key="frame" x="64.333333333333329" y="5" width="42.666666666666671" height="18.666666666666668"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -145,7 +145,7 @@
                                 <state key="normal" image="btn_next_unselected"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다음" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QA3-sH-7W8" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="172" y="709" width="30" height="24"/>
+                                <rect key="frame" x="172" y="714.33333333333337" width="30" height="18.666666666666629"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                 <color key="textColor" red="0.76862745098039209" green="0.76862745098039209" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -382,7 +382,8 @@
                                     <constraint firstAttribute="height" constant="48" id="1sB-Zr-DLq"/>
                                     <constraint firstAttribute="width" secondItem="aas-LP-IMf" secondAttribute="height" multiplier="343:48" id="cPM-bd-LfS"/>
                                 </constraints>
-                                <state key="normal" image="btn_next_unselected"/>
+                                <state key="normal" backgroundImage="btn_next_selected"/>
+                                <state key="disabled" backgroundImage="btn_next_unselected"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="완료" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlM-NJ-OJ1" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                 <rect key="frame" x="172.66666666666666" y="709" width="30" height="24"/>
@@ -451,6 +452,7 @@
                         <outlet property="alarmTimePicker" destination="ew4-HB-xfu" id="WAZ-8b-Fnf"/>
                         <outlet property="alarmTimeTextField" destination="2Hr-uL-saD" id="mrX-Dg-NmV"/>
                         <outlet property="birthTextField" destination="Cho-wb-3ua" id="llV-m5-8f0"/>
+                        <outlet property="completeLabel" destination="tlM-NJ-OJ1" id="gaO-w0-adr"/>
                         <outlet property="nameTextField" destination="2ts-fx-9IF" id="f8x-93-w9K"/>
                         <outlet property="nextBtn" destination="aas-LP-IMf" id="Hoe-Bt-G2P"/>
                         <outlet property="nicknameTextField" destination="xSI-Uz-kG0" id="7m9-gC-Ejg"/>
@@ -465,6 +467,7 @@
     </scenes>
     <resources>
         <image name="btn_checkbox_unselected" width="18" height="18"/>
+        <image name="btn_next_selected" width="343" height="48"/>
         <image name="btn_next_unselected" width="343" height="48"/>
         <image name="icn_back" width="44" height="44"/>
         <image name="icn_search_box" width="18" height="18"/>
