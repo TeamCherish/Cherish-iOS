@@ -193,7 +193,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GW2-PK-3Ih"/>
-                        <color key="backgroundColor" red="0.21614832978148563" green="0.21510413495162337" blue="0.21719252461134786" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.14117647058823529" green="0.13333333333333333" blue="0.13333333333333333" alpha="0.70235609850346647" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="AlV-dc-OEb" firstAttribute="centerX" secondItem="GW2-PK-3Ih" secondAttribute="centerX" id="a8k-0W-MK2"/>
                             <constraint firstItem="AlV-dc-OEb" firstAttribute="centerY" secondItem="GW2-PK-3Ih" secondAttribute="centerY" id="n0H-Wm-ryo"/>

@@ -14,6 +14,7 @@ class PopUpLaterVC: UIViewController {
     //MARK: -@IBOutlet
     @IBOutlet weak var laterView: UIView!{
         didSet{
+            laterView.dropShadow(color: .brown, offSet: CGSize(width: 0, height: 4), opacity: 0.25, radius: 4)
             laterView.makeRounded(cornerRadius: 20.0)
         }
     }

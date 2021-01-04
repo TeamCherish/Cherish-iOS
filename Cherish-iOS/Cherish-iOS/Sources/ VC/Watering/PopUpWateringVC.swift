@@ -12,6 +12,7 @@ class PopUpWateringVC: UIViewController {
     //MARK: -@IBOutlet
     @IBOutlet weak var popupWaterView: UIView!{
         didSet{
+            popupWaterView.dropShadow(color: UIColor.blue, offSet: CGSize(width: 0, height: 4), opacity: 0.25, radius: 4)
             popupWaterView.makeRounded(cornerRadius: 20.0)
         }
     }
@@ -32,7 +33,6 @@ class PopUpWateringVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
     
@@ -44,7 +44,7 @@ class PopUpWateringVC: UIViewController {
         self.dismiss(animated: true) {
             let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpContact", bundle: nil)
             if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpContactVC") as? PopUpContactVC{
-                vc.modalPresentationStyle = .overCurrentContext
+                vc.modalPresentationStyle = .overFullScreen ///탭바까지 Alpha값으로 덮으면서 팝업뷰
                 vc.modalTransitionStyle = .crossDissolve
                 pvc.self.present(vc, animated: true, completion: nil)
             }
@@ -55,7 +55,7 @@ class PopUpWateringVC: UIViewController {
         self.dismiss(animated: true) {
             let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpLater", bundle: nil)
             if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpLaterVC") as? PopUpLaterVC{
-                vc.modalPresentationStyle = .overCurrentContext
+                vc.modalPresentationStyle = .overFullScreen
                 vc.modalTransitionStyle = .crossDissolve
                 pvc.self.present(vc, animated: true, completion: nil)
             }

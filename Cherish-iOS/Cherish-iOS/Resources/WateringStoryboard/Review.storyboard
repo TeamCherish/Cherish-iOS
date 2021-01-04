@@ -18,7 +18,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--ReviewVC-->
+        <!--Item-->
         <scene sceneID="Z5B-C4-XEe">
             <objects>
                 <viewController storyboardIdentifier="ReviewVC" id="Dpf-Qo-M0v" customClass="ReviewVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -188,6 +188,7 @@
                             <constraint firstItem="s7d-9r-Lsf" firstAttribute="trailing" secondItem="an6-Qt-G2v" secondAttribute="trailing" id="wy0-q0-4DQ"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="e9s-cQ-Oxf"/>
                     <connections>
                         <outlet property="keywordCollectionView" destination="s7d-9r-Lsf" id="xBd-9b-KeR"/>
                         <outlet property="keywordCountingLabel" destination="kQc-CD-tUl" id="55u-KN-Agw"/>
@@ -204,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j6x-ok-Vy6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-204" y="72"/>
+            <point key="canvasLocation" x="-280" y="-42"/>
         </scene>
     </scenes>
     <resources>

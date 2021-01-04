@@ -14,6 +14,7 @@ class PopUpContactVC: UIViewController {
     let callObserver = CXCallObserver()
     var didDetectOutgoingCall = false
     
+    //MARK: -@IBOutlet
     @IBOutlet weak var popupContactView: UIView!{
         didSet{
             popupContactView.makeRounded(cornerRadius: 20.0)
@@ -27,10 +28,9 @@ class PopUpContactVC: UIViewController {
             keywordShowCollectionView.dataSource = self
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
     //MARK: - Call Material
@@ -39,11 +39,9 @@ class PopUpContactVC: UIViewController {
               UIApplication.shared.canOpenURL(url as URL) else {
             return
         }
-        
+
         callObserver.setDelegate(self, queue: nil)
-        
         didDetectOutgoingCall = false
-        
         //we only want to add the observer after the alert is displayed,
         //that's why we're using asyncAfter(deadline:)
         UIApplication.shared.open(url as URL, options: [:]) { [weak self] success in
@@ -107,7 +105,7 @@ class PopUpContactVC: UIViewController {
             messageComposer.recipients = ["01068788309"]
             messageComposer.body = ""
             messageComposer.modalPresentationStyle = .currentContext
-            //messageComposer.modalTransitionStyle = .crossDissolve
+//            messageComposer.modalTransitionStyle = .crossDissolve ///굉장히 자연스럽게 올라옴
             self.present(messageComposer, animated: true)
         }
     }
@@ -115,6 +113,7 @@ class PopUpContactVC: UIViewController {
 }
 
 //MARK: -Protocol Extension
+/// 1
 extension PopUpContactVC: CXCallObserverDelegate{
     func callObserver(_ callObserver: CXCallObserver, callChanged call: CXCall) {
         if call.isOutgoing && !didDetectOutgoingCall {
@@ -134,6 +133,11 @@ extension PopUpContactVC: MFMessageComposeViewControllerDelegate{
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         switch result {
         case MessageComposeResult.sent:
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
             print("전송 완료")
             break
         case MessageComposeResult.cancelled:
@@ -149,6 +153,7 @@ extension PopUpContactVC: MFMessageComposeViewControllerDelegate{
     }
 }
 
+///2
 extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
