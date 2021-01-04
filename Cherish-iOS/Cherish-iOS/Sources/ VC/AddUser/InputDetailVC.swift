@@ -15,9 +15,12 @@ class InputDetailVC: UIViewController {
     @IBOutlet weak var alarmPeriodTextField: UITextField!
     @IBOutlet weak var alarmTimeTextField: UITextField!
     @IBOutlet weak var stateSwitch: UISwitch!
-    @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var completeBtn: UIButton!
     @IBOutlet weak var completeLabel: CustomLabel!
     @IBOutlet weak var alarmTimePicker: UIDatePicker!
+    
+    var name: String?
+    var phoneNumber: String?
     
     let datePicker = UIDatePicker()
     var periodPicker = UIPickerView()
@@ -29,8 +32,9 @@ class InputDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextBtn.isEnabled = false
-//        enableNextBtn()
+        completeBtn.isEnabled = false
+//        enableCompleteBtn()
+        preSet()
         textFieldBackgroundImage()
         textFieldPadding()
         createPicker()
@@ -38,11 +42,28 @@ class InputDetailVC: UIViewController {
         periodPicker.dataSource = self
     }
     
-    func enableNextBtn() {
-        nextBtn.isEnabled = false
-        let birthText = birthTextField.text
+    @IBAction func closeUpToSelectVC(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func touchUpComplete(_ sender: Any) {
+        if completeBtn.isEnabled == true {
+            
+        }
+    }
+    
+    func preSet() {
+        if let name = self.name,
+           let phoneNumber = self.phoneNumber {
+            self.nameTextField.text = name
+            self.phoneTextField.text = phoneNumber
+        }
+    }
+    
+    func enableCompleteBtn() {
+        completeBtn.isEnabled = false
         if birthTextField.text?.isEmpty == false {
-            nextBtn.isEnabled = true
+            completeBtn.isEnabled = true
         }
     }
     
@@ -135,7 +156,7 @@ class InputDetailVC: UIViewController {
         dateformatter.timeStyle = .short
         let date = dateformatter.string(from: alarmTimePicker.date)
         alarmTimeTextField.text = date
-        self.nextBtn.isEnabled = true
+        self.completeBtn.isEnabled = true
         self.completeLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
     }
 }

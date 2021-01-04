@@ -12,6 +12,13 @@ class DetailContentVC: UIViewController {
     
     @IBOutlet var headerView: UIView!
     @IBOutlet var cherishPeopleCV: UICollectionView!
+
+    @IBAction func moveToSelectFriend(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(identifier: "SelectFriendVC") as? SelectFriendVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     var cherishPeopleData:[CherishPeopleData] = []
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
