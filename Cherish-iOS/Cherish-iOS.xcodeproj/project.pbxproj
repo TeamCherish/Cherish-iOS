@@ -17,6 +17,12 @@
 		33CAF85225A249DC0050DE29 /* CherishMainNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CAF85125A249DC0050DE29 /* CherishMainNC.swift */; };
 		33CAF85625A2674A0050DE29 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CAF85525A2674A0050DE29 /* CircularProgressView.swift */; };
 		33D0025825A2915B00E97811 /* KeywordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0025725A2915B00E97811 /* KeywordData.swift */; };
+		33D0026625A3036800E97811 /* PlantDetailPopUpExplainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0026525A3036800E97811 /* PlantDetailPopUpExplainVC.swift */; };
+		33D0026925A3093500E97811 /* PlantExplainCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0026825A3093500E97811 /* PlantExplainCVC.swift */; };
+		33D0026F25A30AB700E97811 /* PlantDetailExplainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0026E25A30AB700E97811 /* PlantDetailExplainData.swift */; };
+		33D0027325A30E4700E97811 /* 38217-money-growth.json in Resources */ = {isa = PBXBuildFile; fileRef = 33D0027225A30E4700E97811 /* 38217-money-growth.json */; };
+		33D0027725A3144400E97811 /* 33650-recolor-plant.json in Resources */ = {isa = PBXBuildFile; fileRef = 33D0027525A3144400E97811 /* 33650-recolor-plant.json */; };
+		33D0027825A3144400E97811 /* 29583-flower.json in Resources */ = {isa = PBXBuildFile; fileRef = 33D0027625A3144400E97811 /* 29583-flower.json */; };
 		33E874C825A04332001F84FE /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33E874C725A04332001F84FE /* NotoSansCJKkr-Regular.otf */; };
 		33E874CB25A0434B001F84FE /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33E874CA25A0434B001F84FE /* Roboto-Regular.ttf */; };
 		33E874CE25A04361001F84FE /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33E874CD25A04361001F84FE /* NotoSansCJKkr-Medium.otf */; };
@@ -38,9 +44,9 @@
 		33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8751F25A05CE5001F84FE /* BackdropVC.swift */; };
 		33E8752325A05CFC001F84FE /* DetailContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8752225A05CFC001F84FE /* DetailContentVC.swift */; };
 		33E8752625A05D34001F84FE /* MainContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8752525A05D34001F84FE /* MainContentVC.swift */; };
-		33E8753525A07A7F001F84FE /* CherishPeopleCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8753425A07A7F001F84FE /* CherishPeopleCVCell.swift */; };
+		33E8753525A07A7F001F84FE /* CherishPeopleCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8753425A07A7F001F84FE /* CherishPeopleCVC.swift */; };
 		33E8753E25A08687001F84FE /* CherishSelectedPeopleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8753D25A08687001F84FE /* CherishSelectedPeopleData.swift */; };
-		33E8754225A08CFE001F84FE /* CherishSelectPersonCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754125A08CFE001F84FE /* CherishSelectPersonCVCell.swift */; };
+		33E8754225A08CFE001F84FE /* CherishSelectPersonCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754125A08CFE001F84FE /* CherishSelectPersonCVC.swift */; };
 		33E8754625A08E87001F84FE /* CherishPeopleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754525A08E87001F84FE /* CherishPeopleData.swift */; };
 		33E8754925A09440001F84FE /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754825A09440001F84FE /* NotificationName.swift */; };
 		33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754B25A0D272001F84FE /* ProgressBarView.swift */; };
@@ -77,6 +83,12 @@
 		33CAF85125A249DC0050DE29 /* CherishMainNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishMainNC.swift; sourceTree = "<group>"; };
 		33CAF85525A2674A0050DE29 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		33D0025725A2915B00E97811 /* KeywordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordData.swift; sourceTree = "<group>"; };
+		33D0026525A3036800E97811 /* PlantDetailPopUpExplainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailPopUpExplainVC.swift; sourceTree = "<group>"; };
+		33D0026825A3093500E97811 /* PlantExplainCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantExplainCVC.swift; sourceTree = "<group>"; };
+		33D0026E25A30AB700E97811 /* PlantDetailExplainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailExplainData.swift; sourceTree = "<group>"; };
+		33D0027225A30E4700E97811 /* 38217-money-growth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "38217-money-growth.json"; sourceTree = "<group>"; };
+		33D0027525A3144400E97811 /* 33650-recolor-plant.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "33650-recolor-plant.json"; sourceTree = "<group>"; };
+		33D0027625A3144400E97811 /* 29583-flower.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "29583-flower.json"; sourceTree = "<group>"; };
 		33E874C725A04332001F84FE /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		33E874CA25A0434B001F84FE /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		33E874CD25A04361001F84FE /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
@@ -98,18 +110,15 @@
 		33E8751F25A05CE5001F84FE /* BackdropVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropVC.swift; sourceTree = "<group>"; };
 		33E8752225A05CFC001F84FE /* DetailContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentVC.swift; sourceTree = "<group>"; };
 		33E8752525A05D34001F84FE /* MainContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentVC.swift; sourceTree = "<group>"; };
-		33E8753425A07A7F001F84FE /* CherishPeopleCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishPeopleCVCell.swift; sourceTree = "<group>"; };
+		33E8753425A07A7F001F84FE /* CherishPeopleCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishPeopleCVC.swift; sourceTree = "<group>"; };
 		33E8753D25A08687001F84FE /* CherishSelectedPeopleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishSelectedPeopleData.swift; sourceTree = "<group>"; };
-		33E8754125A08CFE001F84FE /* CherishSelectPersonCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishSelectPersonCVCell.swift; sourceTree = "<group>"; };
+		33E8754125A08CFE001F84FE /* CherishSelectPersonCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishSelectPersonCVC.swift; sourceTree = "<group>"; };
 		33E8754525A08E87001F84FE /* CherishPeopleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishPeopleData.swift; sourceTree = "<group>"; };
 		33E8754825A09440001F84FE /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		33E8754B25A0D272001F84FE /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlantDetail.storyboard; sourceTree = "<group>"; };
 		33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailVC.swift; sourceTree = "<group>"; };
-
-
 		33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCVCell.swift; sourceTree = "<group>"; };
-
 		548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUpWatering.storyboard; sourceTree = "<group>"; };
 		548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		548DF16B25A1B4390081FCD1 /* PopUpWateringVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWateringVC.swift; sourceTree = "<group>"; };
@@ -176,6 +185,7 @@
 				548DF15525A1A0000081FCD1 /* WateringStoryboard */,
 				33851C8A259A5AE2005BCFFD /* Storyboard */,
 				33851C8B259A5AEE005BCFFD /* APIService */,
+				33D0027125A30E3000E97811 /* LottieAnimationFile */,
 				33851C8C259A5AF6005BCFFD /* Font */,
 			);
 			path = Resources;
@@ -298,8 +308,19 @@
 			isa = PBXGroup;
 			children = (
 				33D0025725A2915B00E97811 /* KeywordData.swift */,
+				33D0026E25A30AB700E97811 /* PlantDetailExplainData.swift */,
 			);
 			path = PlantDetail;
+			sourceTree = "<group>";
+		};
+		33D0027125A30E3000E97811 /* LottieAnimationFile */ = {
+			isa = PBXGroup;
+			children = (
+				33D0027225A30E4700E97811 /* 38217-money-growth.json */,
+				33D0027625A3144400E97811 /* 29583-flower.json */,
+				33D0027525A3144400E97811 /* 33650-recolor-plant.json */,
+			);
+			path = LottieAnimationFile;
 			sourceTree = "<group>";
 		};
 		33E874EA25A04860001F84FE /* TabBar */ = {
@@ -341,8 +362,8 @@
 		33E8753325A07A63001F84FE /* CherishMain */ = {
 			isa = PBXGroup;
 			children = (
-				33E8753425A07A7F001F84FE /* CherishPeopleCVCell.swift */,
-				33E8754125A08CFE001F84FE /* CherishSelectPersonCVCell.swift */,
+				33E8753425A07A7F001F84FE /* CherishPeopleCVC.swift */,
+				33E8754125A08CFE001F84FE /* CherishSelectPersonCVC.swift */,
 			);
 			path = CherishMain;
 			sourceTree = "<group>";
@@ -360,20 +381,20 @@
 			isa = PBXGroup;
 			children = (
 				33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */,
+				33D0026525A3036800E97811 /* PlantDetailPopUpExplainVC.swift */,
 			);
 			path = PlantDetail;
 			sourceTree = "<group>";
 		};
-
 		33FDB79E25A2900C00F1EC6F /* PlantDetail */ = {
 			isa = PBXGroup;
 			children = (
 				33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */,
+				33D0026825A3093500E97811 /* PlantExplainCVC.swift */,
 			);
 			path = PlantDetail;
 			sourceTree = "<group>";
 		};
-
 		548DF15525A1A0000081FCD1 /* WateringStoryboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33E874E025A04746001F84FE /* CherishMain.storyboard in Resources */,
+				33D0027325A30E4700E97811 /* 38217-money-growth.json in Resources */,
 				33851C80259A5542005BCFFD /* LaunchScreen.storyboard in Resources */,
 				33E874E825A04832001F84FE /* TabBar.storyboard in Resources */,
 				33E874C825A04332001F84FE /* NotoSansCJKkr-Regular.otf in Resources */,
@@ -499,9 +521,11 @@
 				33E874E425A047DE001F84FE /* ShowMore.storyboard in Resources */,
 				548DF15725A1A0470081FCD1 /* PopUpWatering.storyboard in Resources */,
 				33E874D725A043CF001F84FE /* Roboto-Bold.ttf in Resources */,
+				33D0027825A3144400E97811 /* 29583-flower.json in Resources */,
 				548DF18E25A227A00081FCD1 /* KeywordCVC.xib in Resources */,
 				33EDFBB525A1B533006367A7 /* PlantDetail.storyboard in Resources */,
 				33E874DD25A04569001F84FE /* MyPage.storyboard in Resources */,
+				33D0027725A3144400E97811 /* 33650-recolor-plant.json in Resources */,
 				33E874D425A043B4001F84FE /* NotoSansCJKkr-Light.otf in Resources */,
 				33E874DA25A043F1001F84FE /* Roboto-Black.ttf in Resources */,
 				548DF17225A1BB6D0081FCD1 /* PopUpContact.storyboard in Resources */,
@@ -573,15 +597,18 @@
 				33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */,
 				33E8754625A08E87001F84FE /* CherishPeopleData.swift in Sources */,
 				33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */,
+				33D0026F25A30AB700E97811 /* PlantDetailExplainData.swift in Sources */,
 				548DF17525A1BB7F0081FCD1 /* PopUpContactVC.swift in Sources */,
 				548DF16C25A1B4390081FCD1 /* PopUpWateringVC.swift in Sources */,
+				33D0026925A3093500E97811 /* PlantExplainCVC.swift in Sources */,
 				33D0025825A2915B00E97811 /* KeywordData.swift in Sources */,
 				33E874F725A04A56001F84FE /* CherishMainVC.swift in Sources */,
 				33CAF85625A2674A0050DE29 /* CircularProgressView.swift in Sources */,
 				33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */,
 				33E8750425A04D1E001F84FE /* CustomLabel.swift in Sources */,
 				33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */,
-				33E8753525A07A7F001F84FE /* CherishPeopleCVCell.swift in Sources */,
+				33E8753525A07A7F001F84FE /* CherishPeopleCVC.swift in Sources */,
+				33D0026625A3036800E97811 /* PlantDetailPopUpExplainVC.swift in Sources */,
 				33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */,
 				33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */,
 				33E8754925A09440001F84FE /* NotificationName.swift in Sources */,
@@ -590,7 +617,7 @@
 				33851C76259A5541005BCFFD /* SceneDelegate.swift in Sources */,
 				33E8752625A05D34001F84FE /* MainContentVC.swift in Sources */,
 				548DF16F25A1B4AB0081FCD1 /* UITextField+Extension.swift in Sources */,
-				33E8754225A08CFE001F84FE /* CherishSelectPersonCVCell.swift in Sources */,
+				33E8754225A08CFE001F84FE /* CherishSelectPersonCVC.swift in Sources */,
 				548DF17E25A1EE730081FCD1 /* ReviewVC.swift in Sources */,
 				33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */,
 			);
@@ -733,14 +760,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N8FDQCW52Q;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "wonseok.iOS.Cherish.Cherish-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "jieun.iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -754,14 +781,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N8FDQCW52Q;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "wonseok.iOS.Cherish.Cherish-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "jieun.iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

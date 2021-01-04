@@ -158,7 +158,11 @@ class PlantDetailVC: UIViewController {
     
     @IBAction func popUpPlantDetailExplainView(_ sender: UIButton) {
         
-        
+        if let vc = storyboard!.instantiateViewController(withIdentifier: "PlantDetailPopUpExplainVC") as? PlantDetailPopUpExplainVC {
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.modalTransitionStyle = .crossDissolve
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     

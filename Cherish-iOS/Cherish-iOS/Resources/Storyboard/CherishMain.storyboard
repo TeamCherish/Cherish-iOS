@@ -315,7 +315,7 @@
                                     <inset key="sectionInset" minX="11" minY="0.0" maxX="11" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CherishSelectPersonCVCell" id="4L7-RV-z3B" customClass="CherishSelectPersonCVCell" customModule="Cherish_iOS" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CherishSelectPersonCVC" id="4L7-RV-z3B" customClass="CherishSelectPersonCVC" customModule="Cherish_iOS" customModuleProvider="target">
                                         <rect key="frame" x="11" y="0.0" width="69" height="91"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yuF-KZ-bnw">
@@ -374,7 +374,7 @@
                                             <outlet property="userWaterImageView" destination="TE1-U3-O9S" id="c2X-OO-JcV"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CherishPeopleCVCell" id="AVQ-9s-i0T" customClass="CherishPeopleCVCell" customModule="Cherish_iOS" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CherishPeopleCVC" id="AVQ-9s-i0T" customClass="CherishPeopleCVC" customModule="Cherish_iOS" customModuleProvider="target">
                                         <rect key="frame" x="82" y="0.0" width="69" height="91"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wye-nE-hKo">

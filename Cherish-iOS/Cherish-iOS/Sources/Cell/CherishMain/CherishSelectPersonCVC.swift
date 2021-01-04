@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CherishSelectPersonCVCell: UICollectionViewCell {
+class CherishSelectPersonCVC: UICollectionViewCell {
     @IBOutlet var eclipseImageView: UIImageView!
     @IBOutlet var plantImageView: UIImageView!
     @IBOutlet var userWaterImageView: UIImageView!

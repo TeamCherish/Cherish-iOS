@@ -587,10 +587,134 @@
             </objects>
             <point key="canvasLocation" x="140" y="138.91625615763547"/>
         </scene>
+        <!--Plant Detail Pop Up ExplainVC-->
+        <scene sceneID="8H2-V7-brI">
+            <objects>
+                <viewController storyboardIdentifier="PlantDetailPopUpExplainVC" id="tUs-V6-FsO" customClass="PlantDetailPopUpExplainVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LPw-hL-Ewv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SfX-4B-6rL">
+                                <rect key="frame" x="30" y="206" width="315" height="410"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msc-9y-0v8">
+                                        <rect key="frame" x="261" y="6" width="48" height="48"/>
+                                        <state key="normal" image="icnCancel"/>
+                                        <connections>
+                                            <action selector="dismissPopUpExplainView:" destination="tUs-V6-FsO" eventType="touchUpInside" id="3jB-St-pvL"/>
+                                        </connections>
+                                    </button>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zxH-Ap-x8Z">
+                                        <rect key="frame" x="71" y="85" width="173" height="283"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="zxH-Ap-x8Z" secondAttribute="height" multiplier="173:283" id="HWB-Oq-VRo"/>
+                                            <constraint firstAttribute="height" constant="283" id="cnd-dZ-mMN"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KH1-A4-E7U">
+                                            <size key="itemSize" width="212" height="283"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlantExplainCVC" id="ClB-iF-bkC" customClass="PlantExplainCVC" customModule="Cherish_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="173" height="282.80000000000001"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Q4D-PG-9qw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="173" height="282.80000000000001"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82d-Y7-jyv" customClass="LottieView" customModule="Lottie">
+                                                            <rect key="frame" x="0.0" y="0.0" width="173" height="141.33333333333334"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="141.40000000000001" id="3Xd-cG-rgR"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="쑥쑥자라는 단계" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oz4-WZ-IqB" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                            <rect key="frame" x="23.333333333333336" y="184" width="126.66666666666666" height="23.333333333333343"/>
+                                                            <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
+                                                            <color key="textColor" name="black"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                                    <real key="value" value="-0.69999999999999996"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일주일에 물을 1번 씩만 줘도 잘 자라나는 식물이에요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gQ-MS-cvU" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                            <rect key="frame" x="2.6666666666666714" y="210.33333333333334" width="168" height="35"/>
+                                                            <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
+                                                            <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                                    <real key="value" value="-0.69999999999999996"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="oz4-WZ-IqB" firstAttribute="centerX" secondItem="Q4D-PG-9qw" secondAttribute="centerX" id="IaG-av-TSe"/>
+                                                        <constraint firstItem="82d-Y7-jyv" firstAttribute="top" secondItem="Q4D-PG-9qw" secondAttribute="top" id="MN8-OA-fcG"/>
+                                                        <constraint firstItem="82d-Y7-jyv" firstAttribute="leading" secondItem="Q4D-PG-9qw" secondAttribute="leading" id="Mx0-zB-gr3"/>
+                                                        <constraint firstItem="9gQ-MS-cvU" firstAttribute="top" secondItem="oz4-WZ-IqB" secondAttribute="bottom" constant="3" id="RhH-C7-Nb9"/>
+                                                        <constraint firstItem="9gQ-MS-cvU" firstAttribute="centerX" secondItem="Q4D-PG-9qw" secondAttribute="centerX" id="bRu-q6-9Fz"/>
+                                                        <constraint firstAttribute="trailing" secondItem="82d-Y7-jyv" secondAttribute="trailing" id="cj5-n8-VZS"/>
+                                                        <constraint firstItem="oz4-WZ-IqB" firstAttribute="top" secondItem="82d-Y7-jyv" secondAttribute="bottom" constant="42.600000000000001" id="kVg-uV-DH8"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="173" height="282.80000000000001"/>
+                                                <connections>
+                                                    <outlet property="plantExplainAnimationView" destination="82d-Y7-jyv" id="rnW-ag-5T1"/>
+                                                    <outlet property="plantExplainSubtitleLabel" destination="9gQ-MS-cvU" id="Bbj-DH-lw8"/>
+                                                    <outlet property="plantExplainTitleLabel" destination="oz4-WZ-IqB" id="oui-Ag-EhD"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="djg-Dc-dmI">
+                                        <rect key="frame" x="96.666666666666686" y="374" width="122" height="28"/>
+                                        <color key="pageIndicatorTintColor" name="seaweed"/>
+                                    </pageControl>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Msc-9y-0v8" secondAttribute="trailing" constant="6" id="1pT-1x-hiq"/>
+                                    <constraint firstItem="djg-Dc-dmI" firstAttribute="top" secondItem="zxH-Ap-x8Z" secondAttribute="bottom" constant="6" id="B4R-1D-YNW"/>
+                                    <constraint firstItem="djg-Dc-dmI" firstAttribute="centerX" secondItem="SfX-4B-6rL" secondAttribute="centerX" id="NLH-OB-WpG"/>
+                                    <constraint firstItem="Msc-9y-0v8" firstAttribute="top" secondItem="SfX-4B-6rL" secondAttribute="top" constant="6" id="Q7b-bd-OXl"/>
+                                    <constraint firstItem="zxH-Ap-x8Z" firstAttribute="top" secondItem="Msc-9y-0v8" secondAttribute="bottom" constant="31" id="YBC-fA-V0P"/>
+                                    <constraint firstItem="zxH-Ap-x8Z" firstAttribute="centerX" secondItem="SfX-4B-6rL" secondAttribute="centerX" id="ca5-P8-x1e"/>
+                                    <constraint firstAttribute="height" constant="410" id="g5X-Ch-ipE"/>
+                                    <constraint firstAttribute="width" secondItem="SfX-4B-6rL" secondAttribute="height" multiplier="63:82" id="zLN-YO-gbQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Oc3-Se-ejZ"/>
+                        <color key="backgroundColor" red="0.31669151870000001" green="0.31516160789999997" blue="0.31822142939999998" alpha="0.8980392157" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="SfX-4B-6rL" firstAttribute="centerY" secondItem="Oc3-Se-ejZ" secondAttribute="centerY" id="Xwp-CF-RYV"/>
+                            <constraint firstItem="SfX-4B-6rL" firstAttribute="centerX" secondItem="Oc3-Se-ejZ" secondAttribute="centerX" id="xaz-pu-a5F"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="plantExplainCV" destination="zxH-Ap-x8Z" id="lrB-V7-hIc"/>
+                        <outlet property="plantExplainPageControl" destination="djg-Dc-dmI" id="kZh-P3-dAw"/>
+                        <outlet property="popUpPlantDetailExplainView" destination="SfX-4B-6rL" id="Jqh-TD-dPw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M5v-Jq-Xa5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1960.8" y="138.91625615763547"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icnBack" width="44" height="44"/>
         <image name="icnCalendar" width="44" height="44"/>
+        <image name="icnCancel" width="48" height="48"/>
         <image name="icnInfo" width="44" height="44"/>
         <image name="icnSetting" width="44" height="44"/>
         <image name="imgPlantDetail" width="140" height="140"/>

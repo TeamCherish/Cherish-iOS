@@ -71,7 +71,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         /// 선택된 아이템 표시하는 0번째 item
         if indexPath.item == 0 {
-            let firstCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CherishSelectPersonCVCell", for: indexPath) as! CherishSelectPersonCVCell
+            let firstCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CherishSelectPersonCVC", for: indexPath) as! CherishSelectPersonCVC
             
             // 셀이 눌리지 않은 상태
             if appDel.isCherishPeopleCellSelected == false {
@@ -91,7 +91,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
         
         /// 나머지 items
         else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CherishPeopleCVCell", for: indexPath) as! CherishPeopleCVCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CherishPeopleCVC", for: indexPath) as! CherishPeopleCVC
             
             cell.cherishNickNameLabel.text = cherishPeopleData[indexPath.row - 1].nickName
             cell.cherishPlantImageView.image = UIImage(named: cherishPeopleData[indexPath.row - 1].plantImageName)

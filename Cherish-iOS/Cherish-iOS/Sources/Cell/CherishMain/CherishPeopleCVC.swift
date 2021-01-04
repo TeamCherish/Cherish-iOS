@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CherishPeopleCVCell: UICollectionViewCell {
+class CherishPeopleCVC: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
