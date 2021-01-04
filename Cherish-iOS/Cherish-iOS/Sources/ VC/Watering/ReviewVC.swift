@@ -11,22 +11,8 @@ class ReviewVC: UIViewController {
     var keyword = [String]() /// 키워드 배열
     
     //MARK: -@IBOutlet
-    @IBOutlet weak var reviewNameLabel: CustomLabel!{
-        didSet{
-            reviewNameLabel.textColor = .black
-        }
-    }
-    @IBOutlet weak var reviewWhatupLabel: CustomLabel!{
-        didSet{
-            reviewWhatupLabel.textColor = .black
-        }
-    }
-    @IBOutlet weak var reviewPlzLabel: UILabel!{
-        didSet{
-            reviewPlzLabel.textColor = .black
-        }
-    }
-    
+    @IBOutlet weak var reviewNameLabel: CustomLabel! ///또령님! 남쿵둥이님과의
+    @IBOutlet weak var reviewPlzLabel: CustomLabel! ///남쿵둥이님과의 물주기를 기록해주세요
     @IBOutlet weak var keywordTextField: UITextField!{
         didSet{
             keywordTextField.delegate = self
@@ -84,39 +70,51 @@ class ReviewVC: UIViewController {
     @IBOutlet weak var skip: UIButton!{
         didSet{
             skip.makeRounded(cornerRadius: 25.0)
-            skip.backgroundColor = .btnGrey
-            skip.tintColor = .btnGrey
+            skip.backgroundColor = .inputGrey
+            skip.tintColor = .placeholderGrey
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textViewPlaceholder()
+        
     }
     
     //MARK: -사용자 정의 함수
     func textFieldDoneBtnMake(text_field : UITextField)
     {
-        let ViewForDoneButtonOnKeyboard = UIToolbar()
+        let ViewForDoneButtonOnKeyboard:UIToolbar = UIToolbar(frame: CGRect(x:0,y:0,width: UIScreen.main.bounds.width,height: 50))
+        ViewForDoneButtonOnKeyboard.barStyle = .default
         ViewForDoneButtonOnKeyboard.sizeToFit()
-        let btnDoneOnKeyboard = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneBtnFromKeyboardClicked))
-        ViewForDoneButtonOnKeyboard.items = [btnDoneOnKeyboard]
+        /// Done 버튼 우측으로 이동
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneBtnFromKeyboardClicked))
+        let items = [flexSpace, done]
+        ViewForDoneButtonOnKeyboard.items = items
         text_field.inputAccessoryView = ViewForDoneButtonOnKeyboard
     }
     
     @objc func doneBtnFromKeyboardClicked (sender: Any) {
         print("Done Button Clicked.")
         
+        /// 키워드가 이미 3개라면 입력 금지
         if keyword.count >= 3{
             print("full")
             keywordTextField.text = ""
-            self.view.endEditing(true)
         }else{
-            keyword.append(keywordTextField.text!)
-            keywordTextField.text = ""
-            print(keyword)
-            keywordCollectionView.reloadData()
-            //Hide Keyboard by endEditing or Anything you want. self.view.endEditing(true)
+            /// 무언가를 입력했다면 키워드 추가 및 텍스트 카운팅 0으로 초기화
+            if keywordTextField.text != ""{
+                keyword.append(keywordTextField.text!)
+                keywordTextField.text = ""
+                keywordCountingLabel.text = "0/"
+                print(keyword)
+                keywordCollectionView.reloadData()
+                /// 키워드 3개가 다 입력되면 키보드 내림
+                if keyword.count >= 3 {
+                    self.view.endEditing(true)
+                }
+            }
         }
     }
 }
@@ -130,9 +128,12 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         if (range.length + range.location > currentCharacterCount){
             return false
         }
+        if keyword.count >= 3 {
+            self.view.endEditing(true)
+        }
         let newKeywordLength = currentCharacterCount + string.count - range.length
         keywordCountingLabel.text =  "\(String(newKeywordLength))"+"/"
-        return newKeywordLength <= 10
+        return newKeywordLength < 10
     }
     
     /// 메모 부분 글자수 Counting
@@ -146,7 +147,7 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         }
         let newMemoLength = currentCharacterCount + text.count - range.length
         memoCountingLabel.text =  "\(String(newMemoLength))"+"/"
-        return newMemoLength <= 100
+        return newMemoLength < 100
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

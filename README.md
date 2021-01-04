@@ -31,7 +31,7 @@
 | SnapKit  | 오토레이아웃 | 5.0.1 |
 | Lottie-iOS  | 애니메이션 처리  | 3.1.9 |
 | FSCalendar  | 캘린더 뷰 만들기 | 2.8.2 |
-
+| OverlayContainer  | BottomSheet애니메이션  |  |
 
 ### 📱 AutoLayout
 - iPhone 12 pro
@@ -67,11 +67,15 @@
 
 <br>
 
+<img width="265" alt="Sources" src="https://user-images.githubusercontent.com/63224278/103536269-89b0d480-4ed5-11eb-9202-0ed38090b499.png">
+
+<br>
+
 ### ⚙️ 폴더링 규칙
 
 - 폴더링 한 후 Sources 폴더에 있는 파일들은 각 파일 하위에 자신 스토리보드 이름에 해당하는 폴더를 만들어 관리합니다. 
 
-<img width="265" alt="Sources" src="https://user-images.githubusercontent.com/63224278/103229487-71d9cd80-4976-11eb-860d-5e2585cd58f9.png">
+<img width="265" alt="Sources" src="https://user-images.githubusercontent.com/63224278/103536203-6b4ad900-4ed5-11eb-9614-b4731aa3773a.png">
 
 - 파일 네이밍 시, 접두에 스토리보드이름을 붙여서 네이밍합니다.
     -  (ex. 스토리보드 이름이 Main, Watering이라고 가정했을 때 cell파일 생성 시 MainBlahblahCVC, WateringBlahblahTVC와 같이 네이밍합니다.)
@@ -208,90 +212,98 @@ if (condition){
 
 **아요체리** 들의  WorkFlow : **Gitflow Workflow**
 
-- Master와 Develop 브랜치
+- main 브랜치
 
-  마스터(master): 마스터 브랜치
+  메인(main): 메인 브랜치
 
-  개발(develop): 기능들의 통합 브랜치 역할❗️ 이 브랜치에서 기능별로 브랜치를 따 모든 구현이 이루어집니다.
-
-- Master에 직접적인 commit, push는 가급적 금지합니다. (X)
+  기능(cherish뷰이름): 기능별 (뷰별) 로컬 브랜치 
 
 - 커밋 메세지는 다른 사람들이 봐도 이해할 수 있게 써주세요.
 
 - 풀리퀘스트를 통해 코드 리뷰를 해보아요.
 
+<br>
 
+```
+- Main
+    ├── cherishMainView(각 Local Branch)
+    ├── cherishAddView    
+    └── cherishWateringView
+```
 
-<img src="https://camo.githubusercontent.com/5af55d4c184cd61dabf0747bbf9ebc83b358eccb/68747470733a2f2f7761632d63646e2e61746c61737369616e2e636f6d2f64616d2f6a63723a62353235396363652d363234352d343966322d623839622d3938373166396565336661342f30332532302832292e7376673f63646e56657273696f6e3d393133" width="80%">  
+<br>
 
-   ```
-- Master
-        ├── dev (Develop)
-             ├── HomeTV(각 Local Branch)
-             ├── CherishMain    
-             └── CherishWatering@@@
-   ```
 **각자 자신이 맡은 기능 구현에 성공시! 브랜치 다 쓰고 병합하는 방법**
 
 - 브랜치 만듦
 
 ```bash
-git branch feature/기능이름
+git branch 기능(or 뷰)이름
 ```
+
+- 원격 저장소에 로컬 브랜치 push
+
+```bash
+git push --set-upstream origin 브랜치이름(뷰이름)
+```
+```bash
+git push -u origin 브랜치이름(뷰이름)
+```
+
 
 - 브랜치 전환
 
 ```bash
-git checkout feature/기능이름
+git checkout 뷰이름
 ```
 
-- 코드 변경 (현재 **feature/기능이름** 브랜치)
+- 코드 변경 (현재 **뷰이름** 브랜치)
 
 ```bash
 git add .
-git commit -m "커밋 메세지" -a // 이슈보드 이름대로 커밋
+git commit -m "커밋 메세지" origin 뷰이름
 ```
 
-- 푸시 (현재 **feature/기능이름** 브랜치)
+- 푸시 (현재 **뷰이름** 브랜치)
 
 ```bash
-git push origin feature/기능이름 브랜치
+git push origin 뷰이름 브랜치
 ```
 
-- feature/기능 이름 브랜치에서 할 일 다 헀으면 **develop** 브랜치로 전환
+- 뷰이름 브랜치에서 할 일 다 했으면 **main** 브랜치로 전환
 
 ```bash
-git checkout develop
+git checkout main
 ```
 
-- 머지 (현재 **develop** 브랜치)
+- 머지 (현재 **main** 브랜치)
 
 ```bash
-git merge origin feature/기능이름
+git merge 뷰이름
 ```
 
-- 다 쓴 브랜치 삭제 (local) (현재 **develop** 브랜치)
+- 다 쓴 브랜치 삭제 (local) (현재 **main** 브랜치)
 
 ```bash
-git branch -d feature/기능이름
+git branch -d 뷰이름
 ```
 
-- 다 쓴 브랜치 삭제 (remote) (현재 **develop** 브랜치)
+- 다 쓴 브랜치 삭제 (remote) (현재 **main** 브랜치)
 
 ```bash
-git push origin :feature/기능이름
+git push origin :뷰이름
 ```
 
-- develop pull (현재 **develop** 브랜치)
+- main pull (현재 **main** 브랜치)
 
 ```bash
-git pull origin develop
+git pull or git pull origin main
 ```
 
-- develop push (현재 **develop** 브랜치)
+- main push (현재 **main** 브랜치)
 
 ```bash
-git push origin develop
+git push or git push origin main
 ```
 
 

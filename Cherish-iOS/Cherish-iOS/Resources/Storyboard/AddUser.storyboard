@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DAc-nO-vXW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PFP-tG-HjV">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -19,10 +19,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Select FriendVC-->
+        <!--SelectFriendVC-->
         <scene sceneID="fBU-mT-cuW">
             <objects>
-                <viewController storyboardIdentifier="SelectFriendVC" id="6CX-b0-BOK" customClass="SelectFriendVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectFriendVC" title="SelectFriendVC" modalPresentationStyle="fullScreen" id="6CX-b0-BOK" customClass="SelectFriendVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cUl-GW-KzX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,9 +34,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="icn_back"/>
+                                        <connections>
+                                            <action selector="touchUpClose:" destination="6CX-b0-BOK" eventType="touchUpInside" id="upb-7E-eZa"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 등록 친구 선택" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAy-UP-29i" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="121.66666666666669" y="10" width="132" height="24"/>
+                                        <rect key="frame" x="122.00000000000001" y="10" width="131.33333333333337" height="24"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -50,10 +53,12 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="UAy-UP-29i" firstAttribute="centerX" secondItem="0ns-jL-vWO" secondAttribute="centerX" id="XcG-6E-zGW"/>
+                                    <constraint firstAttribute="width" secondItem="0ns-jL-vWO" secondAttribute="height" multiplier="375:44" id="lJ5-us-BCb"/>
+                                    <constraint firstAttribute="height" constant="44" id="pe2-B6-OvQ"/>
                                     <constraint firstItem="UAy-UP-29i" firstAttribute="centerY" secondItem="0ns-jL-vWO" secondAttribute="centerY" id="tZo-Ay-FIg"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="친구 검색" textAlignment="natural" minimumFontSize="17" background="search_box" translatesAutoresizingMaskIntoConstraints="NO" id="AwW-lI-9b4">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="친구 검색" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AwW-lI-9b4">
                                 <rect key="frame" x="16" y="114" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="AwW-lI-9b4" secondAttribute="height" multiplier="343:44" id="ZPE-Bg-6jg"/>
@@ -73,7 +78,7 @@
                                 <rect key="frame" x="16" y="194" width="335" height="503"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="7h3-Qy-3pW">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FriendCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="80" id="7h3-Qy-3pW" customClass="FriendCell" customModule="Cherish_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="335" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7h3-Qy-3pW" id="hIN-nb-hoJ">
@@ -88,7 +93,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ed2-cH-Kfa" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="62" y="5" width="45" height="24"/>
+                                                    <rect key="frame" x="62.666666666666657" y="5" width="44.333333333333343" height="24"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -122,14 +127,21 @@
                                                         <constraint firstAttribute="width" secondItem="35z-RZ-g4V" secondAttribute="height" multiplier="1:1" id="yxg-xz-0M6"/>
                                                     </constraints>
                                                     <state key="normal" image="btn_checkbox_unselected"/>
+                                                    <connections>
+                                                        <action selector="radioBtnTapped:" destination="7h3-Qy-3pW" eventType="touchUpInside" id="VnE-BN-zkF"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="4Dd-Jp-2S8" firstAttribute="leading" secondItem="hIN-nb-hoJ" secondAttribute="leading" constant="15" id="0gG-1b-FEM"/>
+                                                <constraint firstAttribute="bottom" secondItem="4Dd-Jp-2S8" secondAttribute="bottom" constant="40" id="2NS-AS-HK5"/>
+                                                <constraint firstAttribute="bottom" secondItem="BVj-tV-2J2" secondAttribute="bottom" constant="29" id="8L1-lc-vrX"/>
                                                 <constraint firstAttribute="trailing" secondItem="35z-RZ-g4V" secondAttribute="trailing" constant="9" id="K5X-el-zCo"/>
                                                 <constraint firstItem="35z-RZ-g4V" firstAttribute="top" secondItem="hIN-nb-hoJ" secondAttribute="top" constant="18" id="NNa-75-z3p"/>
                                                 <constraint firstAttribute="trailing" secondItem="BVj-tV-2J2" secondAttribute="trailing" constant="192" id="PNY-cI-YFa"/>
+                                                <constraint firstAttribute="bottom" secondItem="ygi-Rb-COg" secondAttribute="bottom" constant="26" id="Zqa-cp-2gC"/>
                                                 <constraint firstItem="ed2-cH-Kfa" firstAttribute="top" secondItem="hIN-nb-hoJ" secondAttribute="top" constant="5" id="aLA-HN-A1A"/>
+                                                <constraint firstAttribute="bottom" secondItem="35z-RZ-g4V" secondAttribute="bottom" constant="44" id="bXp-Kk-71z"/>
                                                 <constraint firstItem="ygi-Rb-COg" firstAttribute="leading" secondItem="hIN-nb-hoJ" secondAttribute="leading" id="e25-dc-jhW"/>
                                                 <constraint firstItem="BVj-tV-2J2" firstAttribute="top" secondItem="hIN-nb-hoJ" secondAttribute="top" constant="27" id="fd8-Fg-xhE"/>
                                                 <constraint firstAttribute="trailing" secondItem="ed2-cH-Kfa" secondAttribute="trailing" constant="228" id="kVc-sw-rk3"/>
@@ -137,12 +149,21 @@
                                                 <constraint firstItem="ygi-Rb-COg" firstAttribute="top" secondItem="hIN-nb-hoJ" secondAttribute="top" id="zYn-Qn-n71"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="ed2-cH-Kfa" id="YW0-gI-Qyb"/>
+                                            <outlet property="phoneNumberLabel" destination="BVj-tV-2J2" id="ZVu-WJ-m1p"/>
+                                            <outlet property="radioBtn" destination="35z-RZ-g4V" id="Arv-gD-SZ7"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5T-b2-Njh">
                                 <rect key="frame" x="16" y="697" width="343" height="48"/>
-                                <state key="normal" image="btn_next_unselected"/>
+                                <state key="normal" image="btn_next_selected"/>
+                                <state key="disabled" image="btn_next_unselected"/>
+                                <connections>
+                                    <action selector="touchUpNext:" destination="6CX-b0-BOK" eventType="touchUpInside" id="ucW-gU-gA4"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다음" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QA3-sH-7W8" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                 <rect key="frame" x="172" y="709" width="30" height="24"/>
@@ -160,6 +181,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="j5T-b2-Njh" firstAttribute="top" secondItem="TIQ-j4-7j7" secondAttribute="bottom" id="5mH-8J-o41"/>
+                            <constraint firstItem="0ns-jL-vWO" firstAttribute="top" secondItem="koS-SH-exG" secondAttribute="top" id="7VL-TN-kyN"/>
                             <constraint firstItem="QA3-sH-7W8" firstAttribute="leading" secondItem="koS-SH-exG" secondAttribute="leading" constant="172" id="8bQ-lY-nLV"/>
                             <constraint firstItem="TIQ-j4-7j7" firstAttribute="top" secondItem="AwW-lI-9b4" secondAttribute="bottom" constant="36" id="9UW-PZ-M5D"/>
                             <constraint firstItem="0ns-jL-vWO" firstAttribute="trailing" secondItem="koS-SH-exG" secondAttribute="trailing" id="9XE-8N-rQK"/>
@@ -172,6 +194,8 @@
                             <constraint firstItem="AwW-lI-9b4" firstAttribute="top" secondItem="0ns-jL-vWO" secondAttribute="bottom" constant="26" id="QuX-Xw-6lu"/>
                             <constraint firstItem="TIQ-j4-7j7" firstAttribute="leading" secondItem="koS-SH-exG" secondAttribute="leading" constant="16" id="ba0-mp-U6e"/>
                             <constraint firstItem="AwW-lI-9b4" firstAttribute="leading" secondItem="koS-SH-exG" secondAttribute="leading" constant="16" id="bw5-kN-AXy"/>
+                            <constraint firstItem="0ns-jL-vWO" firstAttribute="leading" secondItem="koS-SH-exG" secondAttribute="leading" id="clc-PU-FNV"/>
+                            <constraint firstItem="0ns-jL-vWO" firstAttribute="trailing" secondItem="koS-SH-exG" secondAttribute="trailing" id="ele-yA-xHb"/>
                             <constraint firstItem="koS-SH-exG" firstAttribute="bottom" secondItem="0ns-jL-vWO" secondAttribute="bottom" constant="690" id="hHF-jt-g5P"/>
                             <constraint firstItem="koS-SH-exG" firstAttribute="trailing" secondItem="TIQ-j4-7j7" secondAttribute="trailing" constant="24" id="hwK-7p-bNC"/>
                             <constraint firstItem="koS-SH-exG" firstAttribute="bottom" secondItem="QA3-sH-7W8" secondAttribute="bottom" constant="45" id="icQ-eF-dJX"/>
@@ -179,15 +203,22 @@
                             <constraint firstItem="koS-SH-exG" firstAttribute="trailing" secondItem="QA3-sH-7W8" secondAttribute="trailing" constant="173" id="xTH-I5-vym"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="398-12-5cr"/>
+                    <connections>
+                        <outlet property="friendTableView" destination="TIQ-j4-7j7" id="Brm-1c-GWB"/>
+                        <outlet property="nextBtn" destination="j5T-b2-Njh" id="ped-YH-jeN"/>
+                        <outlet property="nextLabel" destination="QA3-sH-7W8" id="qiI-xy-DUW"/>
+                        <outlet property="searchFriendTextField" destination="AwW-lI-9b4" id="eVd-35-eoS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDA-wN-VqD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-620" y="-300"/>
+            <point key="canvasLocation" x="1264.8" y="-300"/>
         </scene>
         <!--Input DetailVC-->
         <scene sceneID="mg7-hI-jBx">
             <objects>
-                <viewController storyboardIdentifier="InputDetailVC" id="DAc-nO-vXW" customClass="InputDetailVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InputDetailVC" modalPresentationStyle="fullScreen" id="DAc-nO-vXW" customClass="InputDetailVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OPd-NF-VB0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -202,6 +233,9 @@
                                             <constraint firstAttribute="height" constant="44" id="whC-Je-nyK"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="icn_back"/>
+                                        <connections>
+                                            <action selector="closeUpToSelectVC:" destination="DAc-nO-vXW" eventType="touchUpInside" id="qAG-xJ-lUX"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 상세 입력" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyP-Hj-Los" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                         <rect key="frame" x="138.66666666666666" y="10" width="98" height="24"/>
@@ -324,6 +358,7 @@
                                     <constraint firstAttribute="width" secondItem="2ts-fx-9IF" secondAttribute="height" multiplier="15:4" id="TNV-Ls-wdo"/>
                                     <constraint firstAttribute="height" constant="44" id="lJL-xN-AKp"/>
                                 </constraints>
+                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -333,6 +368,7 @@
                                     <constraint firstAttribute="height" constant="44" id="Khi-5W-kOV"/>
                                     <constraint firstAttribute="width" secondItem="xSI-Uz-kG0" secondAttribute="height" multiplier="15:4" id="Y3Q-p0-iVz"/>
                                 </constraints>
+                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -342,6 +378,7 @@
                                     <constraint firstAttribute="height" constant="44" id="Tir-Hn-ddN"/>
                                     <constraint firstAttribute="width" secondItem="Cho-wb-3ua" secondAttribute="height" multiplier="343:44" id="aaK-AS-tI5"/>
                                 </constraints>
+                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -351,6 +388,7 @@
                                     <constraint firstAttribute="height" constant="44" id="7G1-gh-fG3"/>
                                     <constraint firstAttribute="width" secondItem="wLQ-co-qp2" secondAttribute="height" multiplier="343:44" id="zqu-j5-1t6"/>
                                 </constraints>
+                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -360,6 +398,7 @@
                                     <constraint firstAttribute="width" secondItem="uhn-zN-3vv" secondAttribute="height" multiplier="343:44" id="Yc9-lY-6Q1"/>
                                     <constraint firstAttribute="height" constant="44" id="rhe-gv-J3w"/>
                                 </constraints>
+                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -369,6 +408,7 @@
                                     <constraint firstAttribute="height" constant="44" id="Fcb-E0-zuk"/>
                                     <constraint firstAttribute="width" secondItem="2Hr-uL-saD" secondAttribute="height" multiplier="343:44" id="dm8-1Y-FC8"/>
                                 </constraints>
+                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -382,7 +422,11 @@
                                     <constraint firstAttribute="height" constant="48" id="1sB-Zr-DLq"/>
                                     <constraint firstAttribute="width" secondItem="aas-LP-IMf" secondAttribute="height" multiplier="343:48" id="cPM-bd-LfS"/>
                                 </constraints>
-                                <state key="normal" image="btn_next_unselected"/>
+                                <state key="normal" backgroundImage="btn_next_selected"/>
+                                <state key="disabled" backgroundImage="btn_next_unselected"/>
+                                <connections>
+                                    <action selector="touchUpComplete:" destination="DAc-nO-vXW" eventType="touchUpInside" id="8da-mc-OcV"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="완료" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlM-NJ-OJ1" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                 <rect key="frame" x="172.66666666666666" y="709" width="30" height="24"/>
@@ -451,8 +495,9 @@
                         <outlet property="alarmTimePicker" destination="ew4-HB-xfu" id="WAZ-8b-Fnf"/>
                         <outlet property="alarmTimeTextField" destination="2Hr-uL-saD" id="mrX-Dg-NmV"/>
                         <outlet property="birthTextField" destination="Cho-wb-3ua" id="llV-m5-8f0"/>
+                        <outlet property="completeBtn" destination="aas-LP-IMf" id="Hoe-Bt-G2P"/>
+                        <outlet property="completeLabel" destination="tlM-NJ-OJ1" id="gaO-w0-adr"/>
                         <outlet property="nameTextField" destination="2ts-fx-9IF" id="f8x-93-w9K"/>
-                        <outlet property="nextBtn" destination="aas-LP-IMf" id="Hoe-Bt-G2P"/>
                         <outlet property="nicknameTextField" destination="xSI-Uz-kG0" id="7m9-gC-Ejg"/>
                         <outlet property="phoneTextField" destination="wLQ-co-qp2" id="bC0-ad-QEr"/>
                         <outlet property="stateSwitch" destination="4bB-lW-ioS" id="vGs-TF-UWL"/>
@@ -460,16 +505,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKh-Ns-1fb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="242" y="-300"/>
+            <point key="canvasLocation" x="1962.4000000000001" y="-300"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8zp-p0-5LQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="PFP-tG-HjV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kJQ-Ym-bta">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6CX-b0-BOK" kind="relationship" relationship="rootViewController" id="8I4-DM-scQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CfY-72-t6Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="322.39999999999998" y="-300"/>
         </scene>
     </scenes>
     <resources>
         <image name="btn_checkbox_unselected" width="18" height="18"/>
+        <image name="btn_next_selected" width="343" height="48"/>
         <image name="btn_next_unselected" width="343" height="48"/>
         <image name="icn_back" width="44" height="44"/>
         <image name="icn_search_box" width="18" height="18"/>
         <image name="icn_seed" width="25" height="25"/>
-        <image name="search_box" width="343" height="44"/>
         <image name="user_bg" width="54" height="54"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

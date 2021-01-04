@@ -15,8 +15,12 @@ class InputDetailVC: UIViewController {
     @IBOutlet weak var alarmPeriodTextField: UITextField!
     @IBOutlet weak var alarmTimeTextField: UITextField!
     @IBOutlet weak var stateSwitch: UISwitch!
-    @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var completeBtn: UIButton!
+    @IBOutlet weak var completeLabel: CustomLabel!
     @IBOutlet weak var alarmTimePicker: UIDatePicker!
+    
+    var name: String?
+    var phoneNumber: String?
     
     let datePicker = UIDatePicker()
     var periodPicker = UIPickerView()
@@ -24,12 +28,43 @@ class InputDetailVC: UIViewController {
     let num = ["1", "2", "3"]
     let period = ["day", "week", "month"]
     
+//    let nextBtnEnabled = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        completeBtn.isEnabled = false
+//        enableCompleteBtn()
+        preSet()
         textFieldBackgroundImage()
+        textFieldPadding()
         createPicker()
         periodPicker.delegate = self
         periodPicker.dataSource = self
+    }
+    
+    @IBAction func closeUpToSelectVC(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func touchUpComplete(_ sender: Any) {
+        if completeBtn.isEnabled == true {
+            
+        }
+    }
+    
+    func preSet() {
+        if let name = self.name,
+           let phoneNumber = self.phoneNumber {
+            self.nameTextField.text = name
+            self.phoneTextField.text = phoneNumber
+        }
+    }
+    
+    func enableCompleteBtn() {
+        completeBtn.isEnabled = false
+        if birthTextField.text?.isEmpty == false {
+            completeBtn.isEnabled = true
+        }
     }
     
     func textFieldBackgroundImage() {
@@ -56,6 +91,15 @@ class InputDetailVC: UIViewController {
         alarmTimeTextField.background = UIImage(named: "box_add_plant_detail")
         alarmTimeTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
         alarmTimeTextField.layer.borderWidth = 0
+    }
+    
+    func textFieldPadding() {
+        nameTextField.addDetailRightPadding()
+        nicknameTextField.addDetailRightPadding()
+        birthTextField.addDetailRightPadding()
+        phoneTextField.addDetailRightPadding()
+        alarmPeriodTextField.addDetailRightPadding()
+        alarmTimeTextField.addDetailRightPadding()
     }
     
     func createPicker() {
@@ -112,6 +156,8 @@ class InputDetailVC: UIViewController {
         dateformatter.timeStyle = .short
         let date = dateformatter.string(from: alarmTimePicker.date)
         alarmTimeTextField.text = date
+        self.completeBtn.isEnabled = true
+        self.completeLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
     }
 }
 

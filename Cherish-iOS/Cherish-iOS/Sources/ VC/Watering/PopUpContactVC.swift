@@ -10,25 +10,17 @@ import MessageUI
 import CallKit
 
 class PopUpContactVC: UIViewController {
-    let fakeKeyword = ["여긴","키워드","표시공간"]
+    let fakeKeyword = ["생일","취업고민걱정","헤어짐"]
     let callObserver = CXCallObserver()
     var didDetectOutgoingCall = false
     
+    //MARK: -@IBOutlet
     @IBOutlet weak var popupContactView: UIView!{
         didSet{
             popupContactView.makeRounded(cornerRadius: 20.0)
         }
     }
-    @IBOutlet weak var contactNameLabel: CustomLabel!{
-        didSet{
-            contactNameLabel.textColor = .black
-        }
-    }
-    @IBOutlet weak var contactConversationLabel: CustomLabel!{
-        didSet{
-            contactConversationLabel.textColor = .black
-        }
-    }
+    @IBOutlet weak var contactNameLabel: CustomLabel! ///남쿵둥이와는
     @IBOutlet weak var keywordShowCollectionView: UICollectionView!{
         didSet{
             self.keywordShowCollectionView.register(KeywordCVC.nib(), forCellWithReuseIdentifier: KeywordCVC.identifier)
@@ -36,10 +28,9 @@ class PopUpContactVC: UIViewController {
             keywordShowCollectionView.dataSource = self
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
     //MARK: - Call Material
@@ -48,11 +39,9 @@ class PopUpContactVC: UIViewController {
               UIApplication.shared.canOpenURL(url as URL) else {
             return
         }
-        
+
         callObserver.setDelegate(self, queue: nil)
-        
         didDetectOutgoingCall = false
-        
         //we only want to add the observer after the alert is displayed,
         //that's why we're using asyncAfter(deadline:)
         UIApplication.shared.open(url as URL, options: [:]) { [weak self] success in
@@ -116,7 +105,7 @@ class PopUpContactVC: UIViewController {
             messageComposer.recipients = ["01068788309"]
             messageComposer.body = ""
             messageComposer.modalPresentationStyle = .currentContext
-            //messageComposer.modalTransitionStyle = .crossDissolve
+//            messageComposer.modalTransitionStyle = .crossDissolve ///굉장히 자연스럽게 올라옴
             self.present(messageComposer, animated: true)
         }
     }
@@ -124,6 +113,7 @@ class PopUpContactVC: UIViewController {
 }
 
 //MARK: -Protocol Extension
+/// 1
 extension PopUpContactVC: CXCallObserverDelegate{
     func callObserver(_ callObserver: CXCallObserver, callChanged call: CXCall) {
         if call.isOutgoing && !didDetectOutgoingCall {
@@ -143,6 +133,11 @@ extension PopUpContactVC: MFMessageComposeViewControllerDelegate{
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         switch result {
         case MessageComposeResult.sent:
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
             print("전송 완료")
             break
         case MessageComposeResult.cancelled:
@@ -158,6 +153,7 @@ extension PopUpContactVC: MFMessageComposeViewControllerDelegate{
     }
 }
 
+///2
 extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -179,7 +175,9 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         let label = UILabel(frame: CGRect.zero)
         label.text = fakeKeyword[indexPath.row]
         label.sizeToFit()
+        
         return CGSize(width: label.frame.width+20, height: collectionView.frame.height)
+        
     }
     
     //MARK: - Cell간의 좌우간격 지정

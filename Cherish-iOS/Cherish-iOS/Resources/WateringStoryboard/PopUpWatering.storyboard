@@ -51,6 +51,9 @@
                                         <rect key="frame" x="113.5" y="348" width="88" height="31"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <state key="normal" title="다음에 할게요"/>
+                                        <connections>
+                                            <action selector="moveToLater:" destination="Wat-fs-REo" eventType="touchUpInside" id="L4r-ni-eJ1"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고민하기보다 일단 해보는거에요. 시시콜콜한 이야기도 좋아요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdA-fJ-HQx" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                         <rect key="frame" x="67" y="214" width="181.5" height="33"/>
@@ -88,7 +91,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kCa-S0-YiW"/>
-                        <color key="backgroundColor" red="0.31669151866352646" green="0.31516160794534515" blue="0.31822142938170772" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.14117647058823529" green="0.13333333333333333" blue="0.13333333333333333" alpha="0.70235609850346647" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Fnd-hs-zCo" firstAttribute="centerY" secondItem="kCa-S0-YiW" secondAttribute="centerY" id="6X8-5q-N5K"/>
                             <constraint firstItem="Fnd-hs-zCo" firstAttribute="centerX" secondItem="kCa-S0-YiW" secondAttribute="centerX" id="gRf-W8-yX2"/>

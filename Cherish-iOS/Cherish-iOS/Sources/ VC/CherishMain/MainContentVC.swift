@@ -72,7 +72,7 @@ class MainContentVC: UIViewController {
     @IBAction func moveToWateringPopUp(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpWatering", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpWateringVC") as? PopUpWateringVC{
-            vc.modalPresentationStyle = .overCurrentContext
+            vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .crossDissolve
             self.present(vc, animated: true, completion: nil)
         }

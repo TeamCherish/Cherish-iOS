@@ -29,7 +29,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="무슨 대화를 해볼까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jva-EL-TPq" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                         <rect key="frame" x="59.5" y="165" width="196" height="26"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
@@ -48,7 +48,7 @@
                                         <rect key="frame" x="118" y="54" width="79" height="65"/>
                                         <color key="backgroundColor" name="seaweed"/>
                                     </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gPu-R8-DFL">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gPu-R8-DFL">
                                         <rect key="frame" x="59.5" y="203" width="196" height="29"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -100,7 +100,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이와는" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K35-6e-ZEb" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                         <rect key="frame" x="100.5" y="139" width="114.5" height="26"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
@@ -132,14 +132,13 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xcX-R7-gsG"/>
-                        <color key="backgroundColor" red="0.32738704614705977" green="0.32580546621398215" blue="0.32896862608013733" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.14117647058823529" green="0.13333333333333333" blue="0.13333333333333333" alpha="0.70235609850346647" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="WBr-l3-W7Q" firstAttribute="centerX" secondItem="xcX-R7-gsG" secondAttribute="centerX" id="2m4-0c-fhT"/>
                             <constraint firstItem="WBr-l3-W7Q" firstAttribute="centerY" secondItem="xcX-R7-gsG" secondAttribute="centerY" id="K6l-S2-91G"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="contactConversationLabel" destination="Jva-EL-TPq" id="ipZ-kh-kb8"/>
                         <outlet property="contactNameLabel" destination="K35-6e-ZEb" id="2sB-c6-ZNd"/>
                         <outlet property="keywordShowCollectionView" destination="gPu-R8-DFL" id="lOy-xK-0sT"/>
                         <outlet property="popupContactView" destination="WBr-l3-W7Q" id="fhY-4B-hBn"/>
@@ -155,6 +154,9 @@
         <image name="contactIcKakaotalk" width="70" height="70"/>
         <image name="contactIcText" width="70" height="70"/>
         <image name="icnCancel" width="48" height="48"/>
+        <namedColor name="black">
+            <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="seaweed">
             <color red="0.10199999809265137" green="0.82400000095367432" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
