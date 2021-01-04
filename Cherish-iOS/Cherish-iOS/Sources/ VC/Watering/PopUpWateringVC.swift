@@ -27,7 +27,7 @@ class PopUpWateringVC: UIViewController {
     }
     @IBOutlet weak var laterBtn: UIButton!{
         didSet{
-            laterBtn.tintColor = .veryLightGrey
+            laterBtn.setTitleColor(.textGrey, for: .normal)
         }
     }
     override func viewDidLoad() {
