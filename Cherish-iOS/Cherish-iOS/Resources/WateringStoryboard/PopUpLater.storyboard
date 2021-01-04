@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Bold.otf">
+            <string>NotoSansCJKkr-Bold</string>
+        </array>
+        <array key="NotoSansCJKkr-Regular.otf">
+            <string>NotoSansCJKkr-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Pop Up LaterVC-->
+        <scene sceneID="mlj-og-1y0">
+            <objects>
+                <viewController storyboardIdentifier="PopUpLaterVC" id="J7h-KP-Rd8" customClass="PopUpLaterVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nf0-Xa-2Hs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AlV-dc-OEb">
+                                <rect key="frame" x="25.333333333333343" y="256" width="324.33333333333326" height="310"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oc-EC-FJ3">
+                                        <rect key="frame" x="270.33333333333337" y="6" width="48" height="48"/>
+                                        <state key="normal" image="icnCancel"/>
+                                        <connections>
+                                            <action selector="backBtn:" destination="J7h-KP-Rd8" eventType="touchUpInside" id="cJS-eY-90F"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Agh-My-1Ip">
+                                        <rect key="frame" x="111.66666666666669" y="51" width="101.33333333333331" height="21"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGn-O8-kdL">
+                                                <rect key="frame" x="0.0" y="0.0" width="8.3333333333333339" height="21"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="14"/>
+                                                <color key="textColor" name="black"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3R-eJ-eSm">
+                                                <rect key="frame" x="8.333333333333341" y="0.0" width="16.333333333333329" height="21"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
+                                                <color key="textColor" name="black"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piI-Ff-sUT">
+                                                <rect key="frame" x="24.666666666666657" y="0.0" width="8.3333333333333357" height="21"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="14"/>
+                                                <color key="textColor" name="black"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일에 물주기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vQ-PW-7bY">
+                                                <rect key="frame" x="32.999999999999993" y="0.0" width="68.333333333333314" height="21"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
+                                                <color key="textColor" name="black"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일 후 물주기" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C12-b9-2FG" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="151" y="119" width="93" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="27" id="izf-7S-vLD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="18"/>
+                                        <color key="textColor" name="black"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                <real key="value" value="0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZMy-hq-1Jz">
+                                        <rect key="frame" x="66" y="110" width="85" height="45"/>
+                                        <color key="tintColor" name="black"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="85" id="FPX-dF-xU6"/>
+                                            <constraint firstAttribute="height" constant="45" id="QTt-fG-DiR"/>
+                                        </constraints>
+                                    </pickerView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4qx-gY-PYX">
+                                        <rect key="frame" x="77.666666666666686" y="183" width="169" height="38.666666666666657"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*미루기는 세번까지만 가능해요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJT-7e-TOu" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="169" height="19.333333333333332"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                                <color key="textColor" name="textGrey"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                        <real key="value" value="0.69999999999999996"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yzb-mI-25I">
+                                                <rect key="frame" x="15.666666666666671" y="19.333333333333314" width="138" height="19.333333333333329"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(현재까지 미룬 횟수 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pep-Ce-cII">
+                                                        <rect key="frame" x="0.0" y="0.0" width="110.33333333333333" height="19.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                                        <color key="textColor" name="textGrey"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="n" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BU2-Ej-CVE">
+                                                        <rect key="frame" x="110.33333333333333" y="0.0" width="8.3333333333333286" height="19.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="13"/>
+                                                        <color key="textColor" name="textGrey"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회 )" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tav-Kz-fzL">
+                                                        <rect key="frame" x="118.66666666666667" y="0.0" width="19.333333333333329" height="19.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                                        <color key="textColor" name="textGrey"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzt-qJ-2q3">
+                                        <rect key="frame" x="38.666666666666686" y="238.66666666666669" width="247" height="45"/>
+                                        <color key="backgroundColor" name="black"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="D4m-IA-L8b"/>
+                                            <constraint firstAttribute="width" secondItem="tzt-qJ-2q3" secondAttribute="height" multiplier="247:45" id="GZC-a2-yjp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="확인">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="3oc-EC-FJ3" secondAttribute="trailing" constant="6" id="1EX-hm-g5a"/>
+                                    <constraint firstItem="ZMy-hq-1Jz" firstAttribute="top" secondItem="Agh-My-1Ip" secondAttribute="bottom" constant="38" id="9gO-Gh-tzD"/>
+                                    <constraint firstItem="tzt-qJ-2q3" firstAttribute="top" secondItem="4qx-gY-PYX" secondAttribute="bottom" constant="17" id="GHF-8v-dw4"/>
+                                    <constraint firstItem="4qx-gY-PYX" firstAttribute="top" secondItem="ZMy-hq-1Jz" secondAttribute="bottom" constant="28" id="JT7-Aj-ERQ"/>
+                                    <constraint firstItem="ZMy-hq-1Jz" firstAttribute="leading" secondItem="AlV-dc-OEb" secondAttribute="leading" constant="66" id="M2I-k6-19H"/>
+                                    <constraint firstItem="Agh-My-1Ip" firstAttribute="top" secondItem="AlV-dc-OEb" secondAttribute="top" constant="51" id="MkD-eM-hVr"/>
+                                    <constraint firstItem="4qx-gY-PYX" firstAttribute="centerX" secondItem="Agh-My-1Ip" secondAttribute="centerX" id="O1J-Fh-fOd"/>
+                                    <constraint firstItem="3oc-EC-FJ3" firstAttribute="top" secondItem="AlV-dc-OEb" secondAttribute="top" constant="6" id="R49-0M-gdD"/>
+                                    <constraint firstItem="tzt-qJ-2q3" firstAttribute="centerX" secondItem="Agh-My-1Ip" secondAttribute="centerX" id="Sas-Ds-6MI"/>
+                                    <constraint firstAttribute="height" constant="310" id="Xne-TD-5im"/>
+                                    <constraint firstItem="ZMy-hq-1Jz" firstAttribute="centerY" secondItem="C12-b9-2FG" secondAttribute="centerY" id="eUV-Cn-QUw"/>
+                                    <constraint firstAttribute="width" secondItem="AlV-dc-OEb" secondAttribute="height" multiplier="311:297" id="gJW-WV-ewR"/>
+                                    <constraint firstItem="Agh-My-1Ip" firstAttribute="centerX" secondItem="AlV-dc-OEb" secondAttribute="centerX" id="qMB-Mq-4Dc"/>
+                                    <constraint firstItem="C12-b9-2FG" firstAttribute="leading" secondItem="ZMy-hq-1Jz" secondAttribute="trailing" id="yeg-bg-7De"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GW2-PK-3Ih"/>
+                        <color key="backgroundColor" red="0.21614832978148563" green="0.21510413495162337" blue="0.21719252461134786" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="AlV-dc-OEb" firstAttribute="centerX" secondItem="GW2-PK-3Ih" secondAttribute="centerX" id="a8k-0W-MK2"/>
+                            <constraint firstItem="AlV-dc-OEb" firstAttribute="centerY" secondItem="GW2-PK-3Ih" secondAttribute="centerY" id="n0H-Wm-ryo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="changeDateDayLabel" destination="piI-Ff-sUT" id="a7c-2u-Q9t"/>
+                        <outlet property="changeDateMonthLabel" destination="vGn-O8-kdL" id="Rzj-Wo-TmW"/>
+                        <outlet property="confirmBtn" destination="tzt-qJ-2q3" id="MYe-zb-eY9"/>
+                        <outlet property="laterCountingLabel" destination="BU2-Ej-CVE" id="cSj-Iq-yzO"/>
+                        <outlet property="laterPickerView" destination="ZMy-hq-1Jz" id="CFg-mI-DJ5"/>
+                        <outlet property="laterView" destination="AlV-dc-OEb" id="xH2-0W-4Dh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Vz-J0-AAr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-62.318840579710148" y="51.5625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icnCancel" width="48" height="48"/>
+        <namedColor name="black">
+            <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textGrey">
+            <color red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

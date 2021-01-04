@@ -50,4 +50,15 @@ class PopUpWateringVC: UIViewController {
             }
         }
     }
+    @IBAction func moveToLater(_ sender: Any) {
+        guard let pvc = self.presentingViewController else {return}
+        self.dismiss(animated: true) {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpLater", bundle: nil)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpLaterVC") as? PopUpLaterVC{
+                vc.modalPresentationStyle = .overCurrentContext
+                vc.modalTransitionStyle = .crossDissolve
+                pvc.self.present(vc, animated: true, completion: nil)
+            }
+        }
+    }
 }
