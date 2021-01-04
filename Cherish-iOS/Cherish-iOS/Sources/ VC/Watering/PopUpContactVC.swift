@@ -10,6 +10,7 @@ import MessageUI
 import CallKit
 
 class PopUpContactVC: UIViewController {
+    let fakeKeyword = ["여긴","키워드","표시공간"]
     let callObserver = CXCallObserver()
     var didDetectOutgoingCall = false
     
@@ -28,23 +29,30 @@ class PopUpContactVC: UIViewController {
             contactConversationLabel.textColor = .black
         }
     }
+    @IBOutlet weak var keywordShowCollectionView: UICollectionView!{
+        didSet{
+            self.keywordShowCollectionView.register(KeywordCVC.nib(), forCellWithReuseIdentifier: KeywordCVC.identifier)
+            keywordShowCollectionView.delegate = self
+            keywordShowCollectionView.dataSource = self
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
     //MARK: - Call Material
     func showCallAlert() {
         guard let url = NSURL(string: "tel://" + "01068788309"),
-            UIApplication.shared.canOpenURL(url as URL) else {
-                return
+              UIApplication.shared.canOpenURL(url as URL) else {
+            return
         }
-
+        
         callObserver.setDelegate(self, queue: nil)
-
+        
         didDetectOutgoingCall = false
-
+        
         //we only want to add the observer after the alert is displayed,
         //that's why we're using asyncAfter(deadline:)
         UIApplication.shared.open(url as URL, options: [:]) { [weak self] success in
@@ -150,3 +158,39 @@ extension PopUpContactVC: MFMessageComposeViewControllerDelegate{
     }
 }
 
+extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return fakeKeyword.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeywordCVC.identifier, for: indexPath) as? KeywordCVC else{
+            return UICollectionViewCell()
+        }
+        cell.keywordLabel.text = fakeKeyword[indexPath.row]
+        
+        return cell
+    }
+    
+    //MARK: - Cell 사이즈
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        let label = UILabel(frame: CGRect.zero)
+        label.text = fakeKeyword[indexPath.row]
+        label.sizeToFit()
+        return CGSize(width: label.frame.width+20, height: collectionView.frame.height)
+    }
+    
+    //MARK: - Cell간의 좌우간격 지정
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
+    {
+        return 5
+    }
+    
+    //MARK: - 마진
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+//    {
+//        return UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 0)
+//    }
+}
