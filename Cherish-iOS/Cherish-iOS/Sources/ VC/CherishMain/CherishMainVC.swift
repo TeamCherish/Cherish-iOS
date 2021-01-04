@@ -17,14 +17,19 @@ class CherishMainVC: OverlayContainerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        makeOverlayContainerContents()
-        
         //cherishPeople cell 클릭되었을 때 노티를 보낸걸 감지
         NotificationCenter.default.addObserver(self, selector: #selector(scrollNotchDownAction), name: .cherishPeopleCellClicked, object: nil)
+        navigationBarHidden()
+        makeOverlayContainerContents()
+    }
+    
+    
+    func navigationBarHidden() {
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     //MARK:- overlayContainer에 VC 구성
-    func makeOverlayContainerContents(){
+    func makeOverlayContainerContents() {
         let cherishMainStoryboard = UIStoryboard(name: "CherishMain", bundle: nil)
         let mainContentContoller = cherishMainStoryboard.instantiateViewController(identifier: "MainContentVC") as! MainContentVC
         let backdropController = cherishMainStoryboard.instantiateViewController(identifier: "BackdropVC") as! BackdropVC

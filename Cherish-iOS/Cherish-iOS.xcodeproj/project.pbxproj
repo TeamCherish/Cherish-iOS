@@ -14,6 +14,9 @@
 		33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851C92259A5B68005BCFFD /* APIConstants.swift */; };
 		33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851C98259A5C00005BCFFD /* NetworkResult.swift */; };
 		33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851C9C259A5C25005BCFFD /* GenericResponse.swift */; };
+		33CAF85225A249DC0050DE29 /* CherishMainNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CAF85125A249DC0050DE29 /* CherishMainNC.swift */; };
+		33CAF85625A2674A0050DE29 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CAF85525A2674A0050DE29 /* CircularProgressView.swift */; };
+		33D0025825A2915B00E97811 /* KeywordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0025725A2915B00E97811 /* KeywordData.swift */; };
 		33E874C825A04332001F84FE /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33E874C725A04332001F84FE /* NotoSansCJKkr-Regular.otf */; };
 		33E874CB25A0434B001F84FE /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33E874CA25A0434B001F84FE /* Roboto-Regular.ttf */; };
 		33E874CE25A04361001F84FE /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33E874CD25A04361001F84FE /* NotoSansCJKkr-Medium.otf */; };
@@ -41,10 +44,9 @@
 		33E8754625A08E87001F84FE /* CherishPeopleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754525A08E87001F84FE /* CherishPeopleData.swift */; };
 		33E8754925A09440001F84FE /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754825A09440001F84FE /* NotificationName.swift */; };
 		33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754B25A0D272001F84FE /* ProgressBarView.swift */; };
-
 		33EDFBB525A1B533006367A7 /* PlantDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */; };
 		33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */; };
-
+		33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */; };
 		548DF15725A1A0470081FCD1 /* PopUpWatering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */; };
 		548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */; };
 		548DF16C25A1B4390081FCD1 /* PopUpWateringVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF16B25A1B4390081FCD1 /* PopUpWateringVC.swift */; };
@@ -53,7 +55,6 @@
 		548DF17525A1BB7F0081FCD1 /* PopUpContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF17425A1BB7F0081FCD1 /* PopUpContactVC.swift */; };
 		548DF17B25A1EE610081FCD1 /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548DF17A25A1EE610081FCD1 /* Review.storyboard */; };
 		548DF17E25A1EE730081FCD1 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF17D25A1EE730081FCD1 /* ReviewVC.swift */; };
-
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
 		923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */; };
 		923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */; };
@@ -71,6 +72,9 @@
 		33851C92259A5B68005BCFFD /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		33851C98259A5C00005BCFFD /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		33851C9C259A5C25005BCFFD /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
+		33CAF85125A249DC0050DE29 /* CherishMainNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishMainNC.swift; sourceTree = "<group>"; };
+		33CAF85525A2674A0050DE29 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		33D0025725A2915B00E97811 /* KeywordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordData.swift; sourceTree = "<group>"; };
 		33E874C725A04332001F84FE /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		33E874CA25A0434B001F84FE /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		33E874CD25A04361001F84FE /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
@@ -98,7 +102,9 @@
 		33E8754525A08E87001F84FE /* CherishPeopleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishPeopleData.swift; sourceTree = "<group>"; };
 		33E8754825A09440001F84FE /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		33E8754B25A0D272001F84FE /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
-
+		33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlantDetail.storyboard; sourceTree = "<group>"; };
+		33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailVC.swift; sourceTree = "<group>"; };
+		33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCVCell.swift; sourceTree = "<group>"; };
 		548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUpWatering.storyboard; sourceTree = "<group>"; };
 		548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		548DF16B25A1B4390081FCD1 /* PopUpWateringVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWateringVC.swift; sourceTree = "<group>"; };
@@ -107,14 +113,9 @@
 		548DF17425A1BB7F0081FCD1 /* PopUpContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpContactVC.swift; sourceTree = "<group>"; };
 		548DF17A25A1EE610081FCD1 /* Review.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
 		548DF17D25A1EE730081FCD1 /* ReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
-
 		923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailVC.swift; sourceTree = "<group>"; };
 		923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendVC.swift; sourceTree = "<group>"; };
-
 		92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddUser.storyboard; sourceTree = "<group>"; };
-
-		33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlantDetail.storyboard; sourceTree = "<group>"; };
-		33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailVC.swift; sourceTree = "<group>"; };
 		DAA60C0D230FDF9D184F4B6C /* Pods-Cherish-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F67D9DFE41871E0883A26838 /* Pods-Cherish-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.release.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +181,7 @@
 				33851C8F259A5B18005BCFFD /* Cell */,
 				33851C90259A5B1F005BCFFD /* Model */,
 				33851C8E259A5B14005BCFFD /* Class */,
+				33CAF85825A267500050DE29 /* View */,
 				33851C91259A5B23005BCFFD /* Extension */,
 			);
 			path = Sources;
@@ -225,9 +227,7 @@
 		33851C8D259A5B0E005BCFFD /*  VC */ = {
 			isa = PBXGroup;
 			children = (
-
 				548DF16525A1B3E60081FCD1 /* Watering */,
-
 				923F8CDD25A1C2A900EA04E5 /* AddUser */,
 				33E874EA25A04860001F84FE /* TabBar */,
 				33E874F325A049A7001F84FE /* CherishMain */,
@@ -251,6 +251,7 @@
 		33851C8F259A5B18005BCFFD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				33FDB79E25A2900C00F1EC6F /* PlantDetail */,
 				548DF17725A1C1480081FCD1 /* Watering */,
 				33E8753325A07A63001F84FE /* CherishMain */,
 			);
@@ -260,6 +261,7 @@
 		33851C90259A5B1F005BCFFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				33D0025525A2914600E97811 /* PlantDetail */,
 				33E8753925A08654001F84FE /* CherishMain */,
 				33851C9C259A5C25005BCFFD /* GenericResponse.swift */,
 			);
@@ -277,6 +279,22 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		33CAF85825A267500050DE29 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				33CAF85525A2674A0050DE29 /* CircularProgressView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		33D0025525A2914600E97811 /* PlantDetail */ = {
+			isa = PBXGroup;
+			children = (
+				33D0025725A2915B00E97811 /* KeywordData.swift */,
+			);
+			path = PlantDetail;
+			sourceTree = "<group>";
+		};
 		33E874EA25A04860001F84FE /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +310,7 @@
 				33E8752525A05D34001F84FE /* MainContentVC.swift */,
 				33E8751F25A05CE5001F84FE /* BackdropVC.swift */,
 				33E8752225A05CFC001F84FE /* DetailContentVC.swift */,
+				33CAF85125A249DC0050DE29 /* CherishMainNC.swift */,
 			);
 			path = CherishMain;
 			sourceTree = "<group>";
@@ -330,8 +349,6 @@
 			path = CherishMain;
 			sourceTree = "<group>";
 		};
-
-
 		33EDFBB725A1B549006367A7 /* PlantDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,7 +357,14 @@
 			path = PlantDetail;
 			sourceTree = "<group>";
 		};
-
+		33FDB79E25A2900C00F1EC6F /* PlantDetail */ = {
+			isa = PBXGroup;
+			children = (
+				33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */,
+			);
+			path = PlantDetail;
+			sourceTree = "<group>";
+		};
 		548DF15525A1A0000081FCD1 /* WateringStoryboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,7 +392,6 @@
 			path = Watering;
 			sourceTree = "<group>";
 		};
-
 		923F8CDD25A1C2A900EA04E5 /* AddUser */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,7 +399,6 @@
 				923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */,
 			);
 			path = AddUser;
-
 			sourceTree = "<group>";
 		};
 		B229733EA498ABC825B548EB /* Frameworks */ = {
@@ -525,6 +547,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33CAF85225A249DC0050DE29 /* CherishMainNC.swift in Sources */,
 				548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */,
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,
 				923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */,
@@ -536,9 +559,12 @@
 				33E8753E25A08687001F84FE /* CherishSelectedPeopleData.swift in Sources */,
 				33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */,
 				33E8754625A08E87001F84FE /* CherishPeopleData.swift in Sources */,
+				33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */,
 				548DF17525A1BB7F0081FCD1 /* PopUpContactVC.swift in Sources */,
 				548DF16C25A1B4390081FCD1 /* PopUpWateringVC.swift in Sources */,
+				33D0025825A2915B00E97811 /* KeywordData.swift in Sources */,
 				33E874F725A04A56001F84FE /* CherishMainVC.swift in Sources */,
+				33CAF85625A2674A0050DE29 /* CircularProgressView.swift in Sources */,
 				33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */,
 				33E8750425A04D1E001F84FE /* CustomLabel.swift in Sources */,
 				33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */,
