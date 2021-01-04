@@ -76,21 +76,21 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMv-mU-Fke">
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                                <state key="normal" image="contactIcnCall"/>
+                                                <state key="normal" image="contactIcCall"/>
                                                 <connections>
                                                     <action selector="calling:" destination="Ss9-GO-qjY" eventType="touchUpInside" id="I2U-5N-Vof"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vou-T0-bHm">
                                                 <rect key="frame" x="82" y="0.0" width="70" height="70"/>
-                                                <state key="normal" image="contactIcnKakaotalk"/>
+                                                <state key="normal" image="contactIcKakaotalk"/>
                                                 <connections>
                                                     <action selector="kakoTalking:" destination="Ss9-GO-qjY" eventType="touchUpInside" id="XPi-aM-Yqb"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5O0-q7-p2y">
                                                 <rect key="frame" x="164" y="0.0" width="70" height="70"/>
-                                                <state key="normal" image="contactIcnText"/>
+                                                <state key="normal" image="contactIcText"/>
                                                 <connections>
                                                     <action selector="messaging:" destination="Ss9-GO-qjY" eventType="touchUpInside" id="ulU-wr-nCp"/>
                                                 </connections>
@@ -151,9 +151,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="contactIcnCall" width="70" height="70"/>
-        <image name="contactIcnKakaotalk" width="70" height="70"/>
-        <image name="contactIcnText" width="70" height="70"/>
+        <image name="contactIcCall" width="70" height="70"/>
+        <image name="contactIcKakaotalk" width="70" height="70"/>
+        <image name="contactIcText" width="70" height="70"/>
         <image name="icnCancel" width="48" height="48"/>
         <namedColor name="seaweed">
             <color red="0.10199999809265137" green="0.82400000095367432" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
