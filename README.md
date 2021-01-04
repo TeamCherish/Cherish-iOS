@@ -67,11 +67,15 @@
 
 <br>
 
+<img width="265" alt="Sources" src="https://user-images.githubusercontent.com/63224278/103536269-89b0d480-4ed5-11eb-9202-0ed38090b499.png">
+
+<br>
+
 ### ⚙️ 폴더링 규칙
 
 - 폴더링 한 후 Sources 폴더에 있는 파일들은 각 파일 하위에 자신 스토리보드 이름에 해당하는 폴더를 만들어 관리합니다. 
 
-<img width="265" alt="Sources" src="https://user-images.githubusercontent.com/63224278/103229487-71d9cd80-4976-11eb-860d-5e2585cd58f9.png">
+<img width="265" alt="Sources" src="https://user-images.githubusercontent.com/63224278/103536203-6b4ad900-4ed5-11eb-9614-b4731aa3773a.png">
 
 - 파일 네이밍 시, 접두에 스토리보드이름을 붙여서 네이밍합니다.
     -  (ex. 스토리보드 이름이 Main, Watering이라고 가정했을 때 cell파일 생성 시 MainBlahblahCVC, WateringBlahblahTVC와 같이 네이밍합니다.)
