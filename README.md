@@ -208,13 +208,11 @@ if (condition){
 
 **아요체리** 들의  WorkFlow : **Gitflow Workflow**
 
-- Master와 Develop 브랜치
+- main 브랜치
 
-  마스터(master): 마스터 브랜치
+  메인(main): 메인 브랜치
 
-  개발(develop): 기능들의 통합 브랜치 역할❗️ 이 브랜치에서 기능별로 브랜치를 따 모든 구현이 이루어집니다.
-
-- Master에 직접적인 commit, push는 가급적 금지합니다. (X)
+  기능(cherish뷰이름): 기능별 (뷰별) 로컬 브랜치 
 
 - 커밋 메세지는 다른 사람들이 봐도 이해할 수 있게 써주세요.
 
@@ -235,7 +233,7 @@ if (condition){
 - 브랜치 만듦
 
 ```bash
-git branch 기능이름
+git branch 기능(or 뷰)이름
 ```
 
 - 브랜치 전환
