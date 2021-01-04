@@ -102,7 +102,6 @@ class ReviewVC: UIViewController {
         if keyword.count >= 3{
             print("full")
             keywordTextField.text = ""
-            self.view.endEditing(true)
         }else{
             /// 무언가를 입력했다면 키워드 추가 및 텍스트 카운팅 0으로 초기화
             if keywordTextField.text != ""{
@@ -111,7 +110,10 @@ class ReviewVC: UIViewController {
                 keywordCountingLabel.text = "0/"
                 print(keyword)
                 keywordCollectionView.reloadData()
-                //Hide Keyboard by endEditing or Anything you want. self.view.endEditing(true)
+                /// 키워드 3개가 다 입력되면 키보드 내림
+                if keyword.count >= 3 {
+                    self.view.endEditing(true)
+                }
             }
         }
     }
