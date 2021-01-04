@@ -227,6 +227,8 @@ if (condition){
     └── cherishWateringView
 ```
 
+<br>
+
 **각자 자신이 맡은 기능 구현에 성공시! 브랜치 다 쓰고 병합하는 방법**
 
 - 브랜치 만듦
