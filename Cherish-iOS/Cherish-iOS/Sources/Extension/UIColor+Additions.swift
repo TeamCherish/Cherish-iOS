@@ -39,7 +39,7 @@ extension UIColor {
     }
     
     @nonobjc class var placeholderGrey: UIColor {
-        return UIColor(red: 196.0 / 255.0, green: 196.0 / 255.0, blue: 196.0 / 255.0, alpha: 1)
+        return UIColor(red: 151.0 / 255.0, green: 151.0 / 255.0, blue: 151.0 / 255.0, alpha: 1)
     }
     
     @nonobjc class var textGrey: UIColor {

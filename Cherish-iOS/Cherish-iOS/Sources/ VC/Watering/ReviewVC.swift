@@ -70,8 +70,8 @@ class ReviewVC: UIViewController {
     @IBOutlet weak var skip: UIButton!{
         didSet{
             skip.makeRounded(cornerRadius: 25.0)
-            skip.backgroundColor = .placeholderGrey
-            skip.tintColor = .textGrey
+            skip.backgroundColor = .inputGrey
+            skip.tintColor = .placeholderGrey
         }
     }
     
