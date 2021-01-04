@@ -98,16 +98,21 @@ class ReviewVC: UIViewController {
     @objc func doneBtnFromKeyboardClicked (sender: Any) {
         print("Done Button Clicked.")
         
+        /// 키워드가 이미 3개라면 입력 금지
         if keyword.count >= 3{
             print("full")
             keywordTextField.text = ""
             self.view.endEditing(true)
         }else{
-            keyword.append(keywordTextField.text!)
-            keywordTextField.text = ""
-            print(keyword)
-            keywordCollectionView.reloadData()
-            //Hide Keyboard by endEditing or Anything you want. self.view.endEditing(true)
+            /// 무언가를 입력했다면 키워드 추가 및 텍스트 카운팅 0으로 초기화
+            if keywordTextField.text != ""{
+                keyword.append(keywordTextField.text!)
+                keywordTextField.text = ""
+                keywordCountingLabel.text = "0/"
+                print(keyword)
+                keywordCollectionView.reloadData()
+                //Hide Keyboard by endEditing or Anything you want. self.view.endEditing(true)
+            }
         }
     }
 }
@@ -121,9 +126,12 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         if (range.length + range.location > currentCharacterCount){
             return false
         }
+        if keyword.count >= 3 {
+            self.view.endEditing(true)
+        }
         let newKeywordLength = currentCharacterCount + string.count - range.length
         keywordCountingLabel.text =  "\(String(newKeywordLength))"+"/"
-        return newKeywordLength <= 10
+        return newKeywordLength < 10
     }
     
     /// 메모 부분 글자수 Counting
@@ -137,7 +145,7 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         }
         let newMemoLength = currentCharacterCount + text.count - range.length
         memoCountingLabel.text =  "\(String(newMemoLength))"+"/"
-        return newMemoLength <= 100
+        return newMemoLength < 100
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
