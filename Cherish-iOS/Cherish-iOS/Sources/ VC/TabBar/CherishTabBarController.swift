@@ -24,8 +24,8 @@ class CherishTabBarController: UITabBarController {
         
         /// 메인탭
         let CherishMain = UIStoryboard.init(name: "CherishMain", bundle: nil)
-        guard let firstTab = CherishMain.instantiateViewController(identifier: "CherishMainVC")
-                as? CherishMainVC  else {
+        guard let firstTab = CherishMain.instantiateViewController(identifier: "CherishMainNC")
+                as? CherishMainNC  else {
             return
         }
         

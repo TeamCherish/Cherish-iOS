@@ -318,7 +318,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="남궁선규" textAlignment="natural" minimumFontSize="17" background="box_half_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="2ts-fx-9IF">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="남궁선규" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ts-fx-9IF">
                                 <rect key="frame" x="16" y="145" width="165" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2ts-fx-9IF" secondAttribute="height" multiplier="15:4" id="TNV-Ls-wdo"/>
@@ -327,7 +327,7 @@
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ex.남쿵둥이" textAlignment="natural" minimumFontSize="17" background="box_half_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="xSI-Uz-kG0">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ex.남쿵둥이" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xSI-Uz-kG0">
                                 <rect key="frame" x="194" y="145" width="165" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Khi-5W-kOV"/>
@@ -336,7 +336,7 @@
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0000/00/00" textAlignment="natural" minimumFontSize="17" background="box_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="Cho-wb-3ua">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0000/00/00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cho-wb-3ua">
                                 <rect key="frame" x="16" y="231" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Tir-Hn-ddN"/>
@@ -345,7 +345,7 @@
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="010.1234.5678" textAlignment="natural" minimumFontSize="17" background="box_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="wLQ-co-qp2">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="010.1234.5678" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wLQ-co-qp2">
                                 <rect key="frame" x="16" y="315" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="7G1-gh-fG3"/>
@@ -354,7 +354,7 @@
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Every 1 week" minimumFontSize="17" background="box_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="uhn-zN-3vv">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Every 1 week" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uhn-zN-3vv">
                                 <rect key="frame" x="16" y="401" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="uhn-zN-3vv" secondAttribute="height" multiplier="343:44" id="Yc9-lY-6Q1"/>
@@ -363,7 +363,7 @@
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00:00 AM" minimumFontSize="17" background="box_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="2Hr-uL-saD">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00:00 AM" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Hr-uL-saD">
                                 <rect key="frame" x="16" y="487" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Fcb-E0-zuk"/>
@@ -400,7 +400,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ew4-HB-xfu">
-                                <rect key="frame" x="28" y="539" width="320" height="135"/>
+                                <rect key="frame" x="27.666666666666657" y="539" width="320" height="135"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ew4-HB-xfu" secondAttribute="height" multiplier="64:27" id="dpH-sV-l5s"/>
                                     <constraint firstAttribute="height" constant="135" id="ilY-et-k7W"/>
@@ -448,6 +448,7 @@
                     </view>
                     <connections>
                         <outlet property="alarmPeriodTextField" destination="uhn-zN-3vv" id="B3c-Ld-Xvg"/>
+                        <outlet property="alarmTimePicker" destination="ew4-HB-xfu" id="WAZ-8b-Fnf"/>
                         <outlet property="alarmTimeTextField" destination="2Hr-uL-saD" id="mrX-Dg-NmV"/>
                         <outlet property="birthTextField" destination="Cho-wb-3ua" id="llV-m5-8f0"/>
                         <outlet property="nameTextField" destination="2ts-fx-9IF" id="f8x-93-w9K"/>
@@ -463,8 +464,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="box_add_plant_detail" width="335" height="44"/>
-        <image name="box_half_add_plant_detail" width="160" height="44"/>
         <image name="btn_checkbox_unselected" width="18" height="18"/>
         <image name="btn_next_unselected" width="343" height="48"/>
         <image name="icn_back" width="44" height="44"/>

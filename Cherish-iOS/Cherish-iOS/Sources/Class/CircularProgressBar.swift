@@ -1,11 +1,11 @@
 //
 //  CircularProgressBar.swift
-//  Cherish-iOS
+//  attendance-manager
 //
-//  Created by 황지은 on 2021/01/02.
+//  Created by Yogesh Manghnani on 02/05/18.
+//  Copyright © 2018 Yogesh Manghnani. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 
@@ -171,6 +171,7 @@ class CircularProgressBar: UIView {
     
     
     //Layout Sublayers
+
     private var layoutDone = false
     override func layoutSublayers(of layer: CALayer) {
         if !layoutDone {

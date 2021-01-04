@@ -15,7 +15,7 @@ class BackdropVC: UIViewController {
         makeOpacityView()
     }
     
-    func makeOpacityView(){
+    func makeOpacityView() {
         view = PassThroughView()
         view.backgroundColor = UIColor.init(white: 0, alpha: 0.85)
     }

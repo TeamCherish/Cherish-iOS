@@ -23,14 +23,14 @@ class DetailContentVC: UIViewController {
         setCherishPeopleData()
     }
     
-    func makeHeaderViewCornerRadius(){
+    func makeHeaderViewCornerRadius() {
         self.view.layer.cornerRadius = 30
         headerView.clipsToBounds = true
         headerView.layer.cornerRadius = 30
         headerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
-    func setCherishPeopleData(){
+    func setCherishPeopleData() {
         cherishPeopleData.append(contentsOf: [
             CherishPeopleData(nickName: "지은둥이", plantImageName: "mainImgUser1"),
             CherishPeopleData(nickName: "원석둥이", plantImageName: "mainImgUser2"),

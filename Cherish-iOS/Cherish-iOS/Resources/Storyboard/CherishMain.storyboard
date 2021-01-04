@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ACK-zb-WlM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u3d-fy-ITS">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -54,10 +54,11 @@
                         <viewLayoutGuide key="safeArea" id="m2Y-Eh-kFp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Hg4-Y9-hsT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OkC-eR-tQC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1714.4000000000001" y="-208.37438423645321"/>
+            <point key="canvasLocation" x="468" y="-236"/>
         </scene>
         <!--Main ContentVC-->
         <scene sceneID="NJ3-aK-mTL">
@@ -124,16 +125,6 @@
                                 </constraints>
                                 <state key="normal" image="mainIcAlarm"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvI-uI-SPM">
-                                <rect key="frame" x="127" y="184" width="232" height="493"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="rvI-uI-SPM" secondAttribute="height" multiplier="8:17" id="Gsy-gY-gob"/>
-                                    <constraint firstAttribute="height" constant="493" id="xRp-Hv-xPS"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="moveToPlantDetailView:" destination="y3f-7o-jg5" eventType="touchUpInside" id="JSe-K4-EwA"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgMainDandelion" translatesAutoresizingMaskIntoConstraints="NO" id="1LF-25-ssR">
                                 <rect key="frame" x="125" y="183.66666666666663" width="250" height="493"/>
                                 <constraints>
@@ -186,6 +177,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvI-uI-SPM">
+                                <rect key="frame" x="127" y="184" width="232" height="493"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rvI-uI-SPM" secondAttribute="height" multiplier="8:17" id="Gsy-gY-gob"/>
+                                    <constraint firstAttribute="height" constant="493" id="xRp-Hv-xPS"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="moveToPlantDetailView:" destination="y3f-7o-jg5" eventType="touchUpInside" id="JSe-K4-EwA"/>
+                                </connections>
+                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgGraphic" translatesAutoresizingMaskIntoConstraints="NO" id="73B-R2-O3w">
                                 <rect key="frame" x="112.33333333333331" y="273.33333333333331" width="56" height="61.333333333333314"/>
                                 <constraints>
@@ -227,6 +228,7 @@
                             <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="rvI-uI-SPM" secondAttribute="trailing" constant="16" id="yr4-vh-OGo"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Byv-ah-pKX"/>
                     <connections>
                         <outlet property="dayCountLabel" destination="rlN-3e-VUW" id="mP8-In-fUH"/>
                         <outlet property="flowerAnimationImageView" destination="73B-R2-O3w" id="h47-qL-9hv"/>
@@ -239,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Amh-KG-oEa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2439.1999999999998" y="486.94581280788179"/>
+            <point key="canvasLocation" x="-554.39999999999998" y="486.94581280788179"/>
         </scene>
         <!--Detail ContentVC-->
         <scene sceneID="9yd-TY-CVV">
@@ -443,7 +445,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0gv-w8-qz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1716" y="485.46798029556652"/>
+            <point key="canvasLocation" x="168.80000000000001" y="485.46798029556652"/>
         </scene>
         <!--BackdropVC-->
         <scene sceneID="evw-cA-bAm">
@@ -458,7 +460,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BHk-Rk-Ahp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-991" y="486"/>
+            <point key="canvasLocation" x="893.60000000000002" y="485.46798029556652"/>
+        </scene>
+        <!--Cherish MainNC-->
+        <scene sceneID="95L-ci-uJ1">
+            <objects>
+                <navigationController storyboardIdentifier="CherishMainNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="u3d-fy-ITS" customClass="CherishMainNC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rxL-hS-fik">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ACK-zb-WlM" kind="relationship" relationship="rootViewController" id="Vbd-mA-6eF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OBd-ZA-fsQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-306" y="-236"/>
         </scene>
     </scenes>
     <resources>
