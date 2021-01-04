@@ -38,12 +38,11 @@ extension UIColor {
         return UIColor(red: 245.0 / 255.0, green: 245.0 / 255.0, blue: 245.0 / 255.0, alpha: 1)
     }
     
-    @nonobjc class var btnGrey: UIColor {
-        return UIColor(red: 196.0 / 255.0, green: 196.0 / 255.0, blue: 196.0 / 255.0, alpha: 1)
-    }
-    
     @nonobjc class var placeholderGrey: UIColor {
         return UIColor(red: 196.0 / 255.0, green: 196.0 / 255.0, blue: 196.0 / 255.0, alpha: 1)
     }
     
+    @nonobjc class var textGrey: UIColor {
+        return UIColor(red: 170.0 / 255.0, green: 170.0 / 255.0, blue: 170.0 / 255.0, alpha: 1)
+    }
 }
