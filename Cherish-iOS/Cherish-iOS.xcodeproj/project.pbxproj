@@ -62,6 +62,8 @@
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
 		923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */; };
 		923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */; };
+		92B2306125A30DD40024B8A8 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2306025A30DD40024B8A8 /* FriendCell.swift */; };
+		92B2306525A30F390024B8A8 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2306425A30F390024B8A8 /* Friend.swift */; };
 		92E8E39725A1B13F001F1FB4 /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +125,8 @@
 		548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpLaterVC.swift; sourceTree = "<group>"; };
 		923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailVC.swift; sourceTree = "<group>"; };
 		923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendVC.swift; sourceTree = "<group>"; };
+		92B2306025A30DD40024B8A8 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		92B2306425A30F390024B8A8 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddUser.storyboard; sourceTree = "<group>"; };
 		DAA60C0D230FDF9D184F4B6C /* Pods-Cherish-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F67D9DFE41871E0883A26838 /* Pods-Cherish-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.release.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -259,6 +263,7 @@
 		33851C8F259A5B18005BCFFD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				92B2305F25A30DBD0024B8A8 /* AddUser */,
 				33FDB79E25A2900C00F1EC6F /* PlantDetail */,
 				548DF17725A1C1480081FCD1 /* Watering */,
 				33E8753325A07A63001F84FE /* CherishMain */,
@@ -269,6 +274,7 @@
 		33851C90259A5B1F005BCFFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				92B2306325A30F270024B8A8 /* AddUser */,
 				33D0025525A2914600E97811 /* PlantDetail */,
 				33E8753925A08654001F84FE /* CherishMain */,
 				33851C9C259A5C25005BCFFD /* GenericResponse.swift */,
@@ -409,6 +415,22 @@
 			children = (
 				923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */,
 				923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */,
+			);
+			path = AddUser;
+			sourceTree = "<group>";
+		};
+		92B2305F25A30DBD0024B8A8 /* AddUser */ = {
+			isa = PBXGroup;
+			children = (
+				92B2306025A30DD40024B8A8 /* FriendCell.swift */,
+			);
+			path = AddUser;
+			sourceTree = "<group>";
+		};
+		92B2306325A30F270024B8A8 /* AddUser */ = {
+			isa = PBXGroup;
+			children = (
+				92B2306425A30F390024B8A8 /* Friend.swift */,
 			);
 			path = AddUser;
 			sourceTree = "<group>";
@@ -575,6 +597,8 @@
 				33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */,
 				33E8754625A08E87001F84FE /* CherishPeopleData.swift in Sources */,
 				33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */,
+				92B2306125A30DD40024B8A8 /* FriendCell.swift in Sources */,
+				92B2306525A30F390024B8A8 /* Friend.swift in Sources */,
 				548DF17525A1BB7F0081FCD1 /* PopUpContactVC.swift in Sources */,
 				548DF16C25A1B4390081FCD1 /* PopUpWateringVC.swift in Sources */,
 				33D0025825A2915B00E97811 /* KeywordData.swift in Sources */,

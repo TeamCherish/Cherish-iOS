@@ -290,6 +290,9 @@
                                             <constraint firstAttribute="height" constant="36" id="u5Y-lO-Qq6"/>
                                         </constraints>
                                         <state key="normal" image="invalidName"/>
+                                        <connections>
+                                            <action selector="moveToSelectFriend:" destination="7H8-ag-ZDG" eventType="touchUpInside" id="P67-Ke-u0D"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
