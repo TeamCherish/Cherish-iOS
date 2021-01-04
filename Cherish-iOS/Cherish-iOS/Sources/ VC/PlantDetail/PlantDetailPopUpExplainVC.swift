@@ -17,6 +17,7 @@ class PlantDetailPopUpExplainVC: UIViewController {
     }
     @IBOutlet var plantExplainCV: UICollectionView!
     @IBOutlet var plantExplainPageControl: UIPageControl!
+    var scrollItem:Int?
     
     var plantExplainArray:[PlantDetailExplainData] = []
     
@@ -24,14 +25,15 @@ class PlantDetailPopUpExplainVC: UIViewController {
         super.viewDidLoad()
         makeDelegates()
         setPlantDetailExplainData()
+        setPageControlProperty()
     }
     
-    func makeDelegates(){
+    func makeDelegates() {
         plantExplainCV.delegate = self
         plantExplainCV.dataSource = self
     }
     
-    func setPlantDetailExplainData(){
+    func setPlantDetailExplainData() {
         plantExplainArray.append(contentsOf: [
             PlantDetailExplainData(animationName: "33650-recolor-plant", Title: "쑥쑥자라는 단계", SubTitle: "일주일에 물을 3번 씩만 줘도 \n 잘 자라나는 식물이에요!"),
             PlantDetailExplainData(animationName: "38217-money-growth", Title: "성장하는 단계", SubTitle: "일주일에 물을 2번 씩만 줘도 \n 잘 자라나는 식물이에요!"),
@@ -39,6 +41,13 @@ class PlantDetailPopUpExplainVC: UIViewController {
         ])
         
         plantExplainCV.reloadData()
+    }
+    
+    func setPageControlProperty() {
+        plantExplainPageControl.hidesForSinglePage = true
+        plantExplainPageControl.numberOfPages = plantExplainArray.count
+        plantExplainPageControl.pageIndicatorTintColor = UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 1.0)
+        plantExplainPageControl.currentPageIndicatorTintColor = .seaweed
     }
     
     @IBAction func dismissPopUpExplainView(_ sender: UIButton) {
@@ -73,7 +82,7 @@ extension PlantDetailPopUpExplainVC : UICollectionViewDelegate, UICollectionView
 extension UICollectionView {
     func scrollToNearestVisibleCollectionViewCell() {
         self.decelerationRate = UIScrollView.DecelerationRate.fast
-        let visibleCenterPositionOfScrollView = Float(self.contentOffset.x + (self.bounds.size.width / 2))
+        let visibleCenterPositionOfScrollView = Float(self.contentOffset.x + (self.bounds.size.width / 1.3))
         var closestCellIndex = -1
         var closestDistance: Float = .greatestFiniteMagnitude
         for i in 0..<self.visibleCells.count {
@@ -96,13 +105,27 @@ extension UICollectionView {
 //MARK: - collectionView Horizontal Scrolling Magnetic Effect 적용
 extension PlantDetailPopUpExplainVC : UIScrollViewDelegate {
     
+    /// collectionView magnetic scrolling Effect
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.plantExplainCV.scrollToNearestVisibleCollectionViewCell()
     }
 
+    /// collectionView magnetic scrolling Effect
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             self.plantExplainCV.scrollToNearestVisibleCollectionViewCell()
         }
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let page = Int(targetContentOffset.pointee.x / plantExplainCV.frame.width)
+        self.plantExplainPageControl.currentPage = page
+      }
+    
+    //MARK: - scroll animation이 끝나고 적용되는 함수
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        
+        /// scrollAnimation이 끝나고 pageControl의 현재 페이지를 animation이 끝난 상태값으로 바꿔준다.
+        plantExplainPageControl.currentPage = Int(plantExplainCV.contentOffset.x) / Int(plantExplainCV.frame.width)
     }
 }
