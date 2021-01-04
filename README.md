@@ -218,10 +218,7 @@ if (condition){
 
 - 풀리퀘스트를 통해 코드 리뷰를 해보아요.
 
-
-
-<img src="https://camo.githubusercontent.com/5af55d4c184cd61dabf0747bbf9ebc83b358eccb/68747470733a2f2f7761632d63646e2e61746c61737369616e2e636f6d2f64616d2f6a63723a62353235396363652d363234352d343966322d623839622d3938373166396565336661342f30332532302832292e7376673f63646e56657273696f6e3d393133" width="80%">  
-
+<br>
    ```
 - Main
     ├── cherishMainView(각 Local Branch)
@@ -235,6 +232,16 @@ if (condition){
 ```bash
 git branch 기능(or 뷰)이름
 ```
+
+- 원격 저장소에 로컬 브랜치 push
+
+```bash
+git push --set-upstream origin 브랜치이름(뷰이름)
+```
+```bash
+git push -u origin 브랜치이름(뷰이름)
+```
+
 
 - 브랜치 전환
 
