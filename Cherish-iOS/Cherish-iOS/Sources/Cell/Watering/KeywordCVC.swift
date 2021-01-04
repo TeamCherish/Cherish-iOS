@@ -14,7 +14,7 @@ class KeywordCVC: UICollectionViewCell {
     @IBOutlet weak var keywordView: UIView!{
         didSet{
             keywordView.makeRounded(cornerRadius: 15.0)
-            keywordView.layer.borderColor = UIColor.black.cgColor
+            keywordView.layer.borderColor = UIColor.textGrey.cgColor
             keywordView.layer.borderWidth  = 1.0
         }
     }

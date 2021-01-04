@@ -49,9 +49,10 @@
                                         <color key="backgroundColor" name="seaweed"/>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gPu-R8-DFL">
-                                        <rect key="frame" x="59.5" y="203" width="196" height="29"/>
+                                        <rect key="frame" x="49.5" y="203" width="216" height="29"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="216" id="T4U-b3-a1U"/>
                                             <constraint firstAttribute="height" constant="29" id="Y5B-c4-goO"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OYA-cX-Ar3">
@@ -112,16 +113,15 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="XPq-ec-fV6" secondAttribute="trailing" constant="6" id="1dl-Id-GPQ"/>
-                                    <constraint firstItem="gPu-R8-DFL" firstAttribute="leading" secondItem="Jva-EL-TPq" secondAttribute="leading" id="7Fy-cw-ewt"/>
                                     <constraint firstItem="Jva-EL-TPq" firstAttribute="top" secondItem="K35-6e-ZEb" secondAttribute="bottom" id="7IC-Sr-nEV"/>
                                     <constraint firstAttribute="bottom" secondItem="8bp-GL-oMS" secondAttribute="bottom" constant="53" id="Bh5-qw-gJw"/>
                                     <constraint firstAttribute="height" constant="410" id="C7P-XL-bjd"/>
-                                    <constraint firstItem="gPu-R8-DFL" firstAttribute="trailing" secondItem="Jva-EL-TPq" secondAttribute="trailing" id="IhU-Mf-OdU"/>
                                     <constraint firstItem="8bp-GL-oMS" firstAttribute="centerX" secondItem="1Z3-Od-lrA" secondAttribute="centerX" id="SgS-cK-Duz"/>
                                     <constraint firstItem="1Z3-Od-lrA" firstAttribute="height" secondItem="WBr-l3-W7Q" secondAttribute="height" multiplier="0.158537" id="W7v-U0-TLa"/>
                                     <constraint firstItem="gPu-R8-DFL" firstAttribute="top" secondItem="Jva-EL-TPq" secondAttribute="bottom" constant="12" id="YbG-eD-EN2"/>
                                     <constraint firstItem="K35-6e-ZEb" firstAttribute="top" secondItem="1Z3-Od-lrA" secondAttribute="bottom" constant="20" id="ZiJ-ws-CX5"/>
                                     <constraint firstItem="1Z3-Od-lrA" firstAttribute="width" secondItem="WBr-l3-W7Q" secondAttribute="width" multiplier="0.250794" id="alY-WF-2aL"/>
+                                    <constraint firstItem="gPu-R8-DFL" firstAttribute="centerX" secondItem="1Z3-Od-lrA" secondAttribute="centerX" id="frr-dM-AYD"/>
                                     <constraint firstItem="1Z3-Od-lrA" firstAttribute="top" secondItem="WBr-l3-W7Q" secondAttribute="top" constant="54" id="gIu-xq-6ih"/>
                                     <constraint firstItem="XPq-ec-fV6" firstAttribute="top" secondItem="WBr-l3-W7Q" secondAttribute="top" constant="6" id="jb9-e8-78L"/>
                                     <constraint firstItem="1Z3-Od-lrA" firstAttribute="centerX" secondItem="WBr-l3-W7Q" secondAttribute="centerX" id="kIW-Gy-WSg"/>

@@ -40,6 +40,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gz9-mx-hHE" secondAttribute="trailing" constant="10" id="cbU-d9-RPW"/>
                             <constraint firstItem="Gz9-mx-hHE" firstAttribute="centerY" secondItem="IM6-LR-gO7" secondAttribute="centerY" id="fRb-a1-6ke"/>
                             <constraint firstItem="Gz9-mx-hHE" firstAttribute="centerX" secondItem="IM6-LR-gO7" secondAttribute="centerX" id="omw-GA-eZY"/>
                         </constraints>

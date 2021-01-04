@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Regular.otf">
+            <string>NotoSansCJKkr-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="KeywordCanDeleteCVC" id="gTV-IL-0wX" customClass="KeywordCanDeleteCVC" customModule="Cherish_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="120" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="120" height="60"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfa-vq-44x">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="60"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZu-1n-NI4">
+                                <rect key="frame" x="31.5" y="17.5" width="57" height="25"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgW-gY-obt" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="25"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                        <color key="textColor" name="black"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                <real key="value" value="0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Jk-5Y-Nd9">
+                                        <rect key="frame" x="32" y="0.0" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="LoF-1b-2fb"/>
+                                            <constraint firstAttribute="width" secondItem="4Jk-5Y-Nd9" secondAttribute="height" multiplier="1:1" id="sCE-16-sRc"/>
+                                        </constraints>
+                                        <state key="normal" image="icnCancel"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="4Jk-5Y-Nd9" firstAttribute="centerY" secondItem="FgW-gY-obt" secondAttribute="centerY" id="T9v-pl-geD"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dZu-1n-NI4" firstAttribute="centerX" secondItem="Qfa-vq-44x" secondAttribute="centerX" id="vC9-7W-469"/>
+                            <constraint firstItem="dZu-1n-NI4" firstAttribute="centerY" secondItem="Qfa-vq-44x" secondAttribute="centerY" id="vXe-hJ-AfU"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Qfa-vq-44x" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="4ym-se-AKM"/>
+                <constraint firstAttribute="trailing" secondItem="Qfa-vq-44x" secondAttribute="trailing" id="Ozg-8n-AfW"/>
+                <constraint firstAttribute="bottom" secondItem="Qfa-vq-44x" secondAttribute="bottom" id="YRf-GT-DvN"/>
+                <constraint firstItem="Qfa-vq-44x" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="t1x-FN-VKO"/>
+            </constraints>
+            <size key="customSize" width="120" height="60"/>
+            <connections>
+                <outlet property="keywordCanDeleteView" destination="Qfa-vq-44x" id="OKy-IH-Ve5"/>
+                <outlet property="keywordDeleteBtn" destination="4Jk-5Y-Nd9" id="Dpi-uP-JzZ"/>
+                <outlet property="keywordLabel" destination="FgW-gY-obt" id="wf2-nU-acC"/>
+            </connections>
+            <point key="canvasLocation" x="84.057971014492765" y="121.20535714285714"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="icnCancel" width="48" height="48"/>
+        <namedColor name="black">
+            <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

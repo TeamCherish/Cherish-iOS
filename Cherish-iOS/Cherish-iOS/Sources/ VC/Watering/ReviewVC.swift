@@ -37,7 +37,7 @@ class ReviewVC: UIViewController {
     @IBOutlet weak var keywordCollectionView: UICollectionView!
     {
         didSet{
-            self.keywordCollectionView.register(KeywordCVC.nib(), forCellWithReuseIdentifier: KeywordCVC.identifier)
+            self.keywordCollectionView.register(KeywordCanDeleteCVC.nib(), forCellWithReuseIdentifier: KeywordCanDeleteCVC.identifier)
             keywordCollectionView.delegate = self
             keywordCollectionView.dataSource = self
         }
@@ -102,6 +102,7 @@ class ReviewVC: UIViewController {
         if keyword.count >= 3{
             print("full")
             keywordTextField.text = ""
+            nomoreKeyword(title: "", message: "키워드는 3개까지 쓸 수 있어요!")
         }else{
             /// 무언가를 입력했다면 키워드 추가 및 텍스트 카운팅 0으로 초기화
             if keywordTextField.text != ""{
@@ -117,6 +118,18 @@ class ReviewVC: UIViewController {
             }
         }
     }
+    
+    ///Alert
+    func nomoreKeyword(title: String, message: String) {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            
+            // Alert의 '확인'을 누르면 dismiss
+            let okAction = UIAlertAction(title: "확인",style: .default) { (action) in
+                self.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(okAction)
+            present(alert, animated: true)
+        }
 }
 
 //MARK: -Protocols
@@ -127,9 +140,6 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         let currentCharacterCount = textField.text?.count ?? 0
         if (range.length + range.location > currentCharacterCount){
             return false
-        }
-        if keyword.count >= 3 {
-            self.view.endEditing(true)
         }
         let newKeywordLength = currentCharacterCount + string.count - range.length
         keywordCountingLabel.text =  "\(String(newKeywordLength))"+"/"
@@ -197,7 +207,7 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeywordCVC.identifier, for: indexPath) as? KeywordCVC else{
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeywordCanDeleteCVC.identifier, for: indexPath) as? KeywordCanDeleteCVC else{
             return UICollectionViewCell()
         }
         cell.keywordLabel.text = keyword[indexPath.row]
@@ -211,7 +221,7 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         let label = UILabel(frame: CGRect.zero)
         label.text = keyword[indexPath.row]
         label.sizeToFit()
-        return CGSize(width: label.frame.width+20, height: 29)
+        return CGSize(width: label.frame.width+38, height: 29)
     }
     
     //MARK: - Cell간의 좌우간격 지정
