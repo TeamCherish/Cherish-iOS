@@ -28,6 +28,7 @@ class InputDetailVC: UIViewController {
         super.viewDidLoad()
         textFieldBackgroundImage()
         createPicker()
+        textFieldPadding()
         periodPicker.delegate = self
         periodPicker.dataSource = self
     }
@@ -56,6 +57,15 @@ class InputDetailVC: UIViewController {
         alarmTimeTextField.background = UIImage(named: "box_add_plant_detail")
         alarmTimeTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
         alarmTimeTextField.layer.borderWidth = 0
+    }
+    
+    func textFieldPadding() {
+        nameTextField.addDetailRightPadding()
+        nicknameTextField.addDetailRightPadding()
+        birthTextField.addDetailRightPadding()
+        phoneTextField.addDetailRightPadding()
+        alarmPeriodTextField.addDetailRightPadding()
+        alarmTimeTextField.addDetailRightPadding()
     }
     
     func createPicker() {
