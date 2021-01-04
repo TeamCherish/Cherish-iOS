@@ -156,6 +156,12 @@ class PlantDetailVC: UIViewController {
         ])
     }
     
+    @IBAction func popUpPlantDetailExplainView(_ sender: UIButton) {
+        
+        
+    }
+    
+    
     //MARK: - 메인뷰로 돌아가는 함수
     @IBAction func popToCherishMainVC(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)

@@ -94,6 +94,9 @@
                                     <constraint firstAttribute="height" constant="44" id="HcK-dP-VML"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="icnInfo"/>
+                                <connections>
+                                    <action selector="popUpPlantDetailExplainView:" destination="WHt-ur-unu" eventType="touchUpInside" id="6xD-Dv-E0F"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle534" translatesAutoresizingMaskIntoConstraints="NO" id="4o7-lj-n4Y">
                                 <rect key="frame" x="0.0" y="498" width="375" height="280"/>
