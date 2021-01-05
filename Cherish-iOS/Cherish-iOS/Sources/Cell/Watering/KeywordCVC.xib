@@ -17,17 +17,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="KeywordCVC" id="gTV-IL-0wX" customClass="KeywordCVC" customModule="Cherish_iOS" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="144" height="60"/>
+            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="144" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IM6-LR-gO7">
-                        <rect key="frame" x="0.0" y="0.0" width="144" height="60"/>
+                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gz9-mx-hHE" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="56" y="22.5" width="32" height="15.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="생일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gz9-mx-hHE" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="10" y="22.5" width="40" height="15.5"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -40,7 +40,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gz9-mx-hHE" secondAttribute="trailing" constant="10" id="cbU-d9-RPW"/>
+                            <constraint firstItem="Gz9-mx-hHE" firstAttribute="leading" secondItem="IM6-LR-gO7" secondAttribute="leading" constant="10" id="OYH-cB-wjQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Gz9-mx-hHE" secondAttribute="trailing" constant="10" id="cbU-d9-RPW"/>
                             <constraint firstItem="Gz9-mx-hHE" firstAttribute="centerY" secondItem="IM6-LR-gO7" secondAttribute="centerY" id="fRb-a1-6ke"/>
                             <constraint firstItem="Gz9-mx-hHE" firstAttribute="centerX" secondItem="IM6-LR-gO7" secondAttribute="centerX" id="omw-GA-eZY"/>
                         </constraints>
@@ -54,12 +55,12 @@
                 <constraint firstItem="IM6-LR-gO7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hJp-KQ-q2i"/>
                 <constraint firstItem="IM6-LR-gO7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="wT6-ki-Sfc"/>
             </constraints>
-            <size key="customSize" width="144" height="60"/>
+            <size key="customSize" width="60" height="60"/>
             <connections>
                 <outlet property="keywordLabel" destination="Gz9-mx-hHE" id="NQy-3A-wwL"/>
                 <outlet property="keywordView" destination="IM6-LR-gO7" id="1h4-Ze-gj6"/>
             </connections>
-            <point key="canvasLocation" x="197.10144927536234" y="128.57142857142856"/>
+            <point key="canvasLocation" x="142.02898550724638" y="127.90178571428571"/>
         </collectionViewCell>
     </objects>
     <resources>

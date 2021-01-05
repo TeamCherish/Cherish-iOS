@@ -10,7 +10,7 @@ import MessageUI
 import CallKit
 
 class PopUpContactVC: UIViewController {
-    let fakeKeyword = ["생일","취업고민걱정","헤어짐"]
+    let fakeKeyword = ["생일이야어","취업준비이","헤어짐"]
     let callObserver = CXCallObserver()
     var didDetectOutgoingCall = false
     

@@ -8,7 +8,9 @@
 import UIKit
 
 class ReviewVC: UIViewController {
+    var test: CGFloat?
     var keyword = [String]() /// 키워드 배열
+    
     
     //MARK: -@IBOutlet
     @IBOutlet weak var reviewNameLabel: CustomLabel! ///또령님! 남쿵둥이님과의
@@ -24,6 +26,7 @@ class ReviewVC: UIViewController {
             keywordTextField.makeRounded(cornerRadius: 8)
         }
     }
+    @IBOutlet weak var keywordTextFieldHeight: NSLayoutConstraint!
     @IBOutlet weak var keywordCountingLabel: UILabel!{
         didSet{
             keywordCountingLabel.textColor = .black
@@ -40,6 +43,7 @@ class ReviewVC: UIViewController {
             self.keywordCollectionView.register(KeywordCanDeleteCVC.nib(), forCellWithReuseIdentifier: KeywordCanDeleteCVC.identifier)
             keywordCollectionView.delegate = self
             keywordCollectionView.dataSource = self
+            keywordCollectionView.collectionViewLayout = LeftAlignedFlowLayout()
         }
     }
     @IBOutlet weak var memoTextView: UITextView!{
@@ -77,8 +81,7 @@ class ReviewVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textViewPlaceholder()
-        
+        textViewPlaceholder() /// textView Placeholder 셋팅
     }
     
     //MARK: -사용자 정의 함수
@@ -99,38 +102,38 @@ class ReviewVC: UIViewController {
         print("Done Button Clicked.")
         
         /// 키워드가 이미 3개라면 입력 금지
-        if keyword.count >= 3{
-            print("full")
+        //        if keyword.count >= 3{
+        //            print("full")
+        //            keywordTextField.text = ""
+        //            keywordCountingLabel.text = "0/"
+        //            nomoreKeyword(title: "", message: "키워드는 3개까지 쓸 수 있어요!")
+        //        }else{
+        /// 무언가를 입력했다면 키워드 추가 및 텍스트 카운팅 0으로 초기화
+        if keywordTextField.text != ""{
+            keyword.append(keywordTextField.text!)
             keywordTextField.text = ""
             keywordCountingLabel.text = "0/"
-            nomoreKeyword(title: "", message: "키워드는 3개까지 쓸 수 있어요!")
-        }else{
-            /// 무언가를 입력했다면 키워드 추가 및 텍스트 카운팅 0으로 초기화
-            if keywordTextField.text != ""{
-                keyword.append(keywordTextField.text!)
-                keywordTextField.text = ""
-                keywordCountingLabel.text = "0/"
-                print(keyword)
-                keywordCollectionView.reloadData()
-                /// 키워드 3개가 다 입력되면 키보드 내림
-                if keyword.count >= 3 {
-                    self.view.endEditing(true)
-                }
+            print(keyword)
+            keywordCollectionView.reloadData()
+            /// 키워드 3개가 다 입력되면 키보드 내림
+            if keyword.count >= 3 {
+                self.view.endEditing(true)
             }
         }
     }
+    //}
     
     ///Alert
     func nomoreKeyword(title: String, message: String) {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            
-            // Alert의 '확인'을 누르면 dismiss
-            let okAction = UIAlertAction(title: "확인",style: .default) { (action) in
-                alert.dismiss(animated: true, completion: nil)
-            }
-            alert.addAction(okAction)
-            present(alert, animated: true)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        // Alert의 '확인'을 누르면 dismiss
+        let okAction = UIAlertAction(title: "확인",style: .default) { (action) in
+            alert.dismiss(animated: true, completion: nil)
         }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
 }
 
 //MARK: -Protocols
@@ -145,6 +148,14 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         let newKeywordLength = currentCharacterCount + string.count - range.length
         keywordCountingLabel.text =  "\(String(newKeywordLength))"+"/"
         return newKeywordLength < 10
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        /// 키워드가 이미 3개인데 사용자가 입력하려한다면 막음
+        if keyword.count >= 3 {
+            nomoreKeyword(title: "", message: "키워드는 3개까지 쓸 수 있어요!")
+            self.view.endEditing(true) /// 알림창 후 키보드 내림
+        }
     }
     
     /// 메모 부분 글자수 Counting
@@ -192,15 +203,35 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+}
+
+public protocol CollectionCellAutoLayout: class {
+    var cachedSize: CGSize? { get set }
+}
+public extension CollectionCellAutoLayout where Self: UICollectionViewCell {
+    
+    func preferredLayoutAttributes(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        setNeedsLayout()
+        layoutIfNeeded()
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        var newFrame = layoutAttributes.frame
+        newFrame.size.width = CGFloat(ceilf(Float(size.width)))
+        layoutAttributes.frame = newFrame
+        cachedSize = newFrame.size
+        return layoutAttributes
+    }
 }
 
 ///2
 extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         /// 키워드 터치시 삭제
+    
         keyword.remove(at: indexPath.row)
         keywordCollectionView.reloadData()
+
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -215,14 +246,17 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         
         return cell
     }
-    
     //MARK: - Cell 사이즈
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         let label = UILabel(frame: CGRect.zero)
         label.text = keyword[indexPath.row]
         label.sizeToFit()
-        return CGSize(width: label.frame.width+38, height: 29)
+        let cellSize = label.frame.width+38
+       
+        
+        return CGSize(width: cellSize, height: 29)
+        
     }
     
     //MARK: - Cell간의 좌우간격 지정

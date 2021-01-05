@@ -67,6 +67,7 @@
 		548DF19925A2E1780081FCD1 /* PopUpLaterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */; };
 		548DF1A925A395D20081FCD1 /* KeywordCanDeleteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */; };
 		548DF1AA25A395D30081FCD1 /* KeywordCanDeleteCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548DF1A825A395D20081FCD1 /* KeywordCanDeleteCVC.xib */; };
+		548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
 		923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */; };
 		923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */; };
@@ -139,6 +140,7 @@
 		548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpLaterVC.swift; sourceTree = "<group>"; };
 		548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCanDeleteCVC.swift; sourceTree = "<group>"; };
 		548DF1A825A395D20081FCD1 /* KeywordCanDeleteCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeywordCanDeleteCVC.xib; sourceTree = "<group>"; };
+		548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewAlign.swift; sourceTree = "<group>"; };
 		923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailVC.swift; sourceTree = "<group>"; };
 		923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendVC.swift; sourceTree = "<group>"; };
 		92B2306025A30DD40024B8A8 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				33E8750325A04D1E001F84FE /* CustomLabel.swift */,
 				33E8751225A05623001F84FE /* CircularProgressBar.swift */,
 				33E8754B25A0D272001F84FE /* ProgressBarView.swift */,
+				548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */,
 				33CAF85225A249DC0050DE29 /* CherishMainNC.swift in Sources */,
 				548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */,
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,

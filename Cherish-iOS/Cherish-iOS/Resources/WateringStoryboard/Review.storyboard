@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="또령님! 남쿵둥이님과의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xox-K5-LH0" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="83" width="234" height="36"/>
+                                <rect key="frame" x="16" y="83" width="220.5" height="28"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="24"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -38,7 +38,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘 연락은 어떠셨나요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8n-GH-Tv6" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="119" width="247" height="36"/>
+                                <rect key="frame" x="16" y="111" width="234.5" height="28"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="24"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이님과의 물주기를 기록해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J55-9R-nqI" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="157" width="211" height="19.5"/>
+                                <rect key="frame" x="16" y="141" width="198.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="키워드로 표현해주세요!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="an6-Qt-G2v">
-                                <rect key="frame" x="16" y="204.5" width="382" height="44"/>
+                                <rect key="frame" x="16" y="184.5" width="382" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="an6-Qt-G2v" secondAttribute="height" multiplier="191:22" id="D55-kX-pPV"/>
                                     <constraint firstAttribute="height" constant="44" id="hrm-sw-aS9"/>
@@ -68,14 +68,14 @@
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="s7d-9r-Lsf">
-                                <rect key="frame" x="16" y="248.5" width="382" height="50"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="s7d-9r-Lsf">
+                                <rect key="frame" x="16" y="228.5" width="382" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="iCh-3z-F0E"/>
-                                    <constraint firstAttribute="width" secondItem="s7d-9r-Lsf" secondAttribute="height" multiplier="191:25" id="ySr-aB-8C2"/>
+                                    <constraint firstAttribute="height" constant="50" id="1XZ-Yq-PUe"/>
+                                    <constraint firstAttribute="width" secondItem="s7d-9r-Lsf" secondAttribute="height" multiplier="191:25" id="Ozr-px-UqQ"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yal-o3-K8R">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hAp-Jw-EKX">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -83,7 +83,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6Bj-vR-2dx">
-                                        <rect key="frame" x="0.0" y="-39" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Jtb-Za-VWS">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -93,7 +93,7 @@
                                 </cells>
                             </collectionView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2XN-3a-hYt">
-                                <rect key="frame" x="16" y="298.5" width="382" height="194"/>
+                                <rect key="frame" x="16" y="278.5" width="382" height="194"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2XN-3a-hYt" secondAttribute="height" multiplier="191:97" id="APp-UZ-8vM"/>
@@ -127,7 +127,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOf-As-pqi">
-                                <rect key="frame" x="346.5" y="216.5" width="33.5" height="20.5"/>
+                                <rect key="frame" x="346.5" y="196.5" width="33.5" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQc-CD-tUl">
                                         <rect key="frame" x="0.0" y="0.0" width="15.5" height="20.5"/>
@@ -149,7 +149,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YkA-Fc-Dmh">
-                                <rect key="frame" x="336" y="460" width="44" height="20.5"/>
+                                <rect key="frame" x="336" y="440" width="44" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSc-h5-Vnq">
                                         <rect key="frame" x="0.0" y="0.0" width="15.5" height="20.5"/>
@@ -175,16 +175,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="s7d-9r-Lsf" firstAttribute="leading" secondItem="an6-Qt-G2v" secondAttribute="leading" id="0w8-By-7Uf"/>
-                            <constraint firstItem="2XN-3a-hYt" firstAttribute="top" secondItem="s7d-9r-Lsf" secondAttribute="bottom" id="E0p-8b-jcD"/>
                             <constraint firstItem="YkA-Fc-Dmh" firstAttribute="trailing" secondItem="FOf-As-pqi" secondAttribute="trailing" id="EPK-Zw-4wk"/>
                             <constraint firstItem="cxv-gs-JyJ" firstAttribute="bottom" secondItem="0JT-KP-VIv" secondAttribute="bottom" constant="32" id="Hvr-25-6vt"/>
                             <constraint firstItem="FOf-As-pqi" firstAttribute="trailing" secondItem="an6-Qt-G2v" secondAttribute="trailing" constant="-18" id="N6Z-LW-dUt"/>
                             <constraint firstItem="J55-9R-nqI" firstAttribute="top" secondItem="v8n-GH-Tv6" secondAttribute="bottom" constant="2" id="QQf-fe-469"/>
                             <constraint firstItem="2XN-3a-hYt" firstAttribute="trailing" secondItem="an6-Qt-G2v" secondAttribute="trailing" id="R0K-Tw-Lgs"/>
                             <constraint firstItem="2XN-3a-hYt" firstAttribute="leading" secondItem="an6-Qt-G2v" secondAttribute="leading" id="RdM-yM-f4L"/>
+                            <constraint firstItem="2XN-3a-hYt" firstAttribute="top" secondItem="s7d-9r-Lsf" secondAttribute="bottom" id="RwK-2g-ETz"/>
                             <constraint firstItem="J55-9R-nqI" firstAttribute="leading" secondItem="v8n-GH-Tv6" secondAttribute="leading" id="Zf1-DR-NTn"/>
                             <constraint firstItem="an6-Qt-G2v" firstAttribute="top" secondItem="J55-9R-nqI" secondAttribute="bottom" constant="28" id="aTX-pU-ZEb"/>
                             <constraint firstItem="xox-K5-LH0" firstAttribute="top" secondItem="cxv-gs-JyJ" secondAttribute="top" constant="39" id="bGl-L2-ySd"/>
+                            <constraint firstItem="s7d-9r-Lsf" firstAttribute="top" secondItem="an6-Qt-G2v" secondAttribute="bottom" id="bNg-Kx-vy5"/>
                             <constraint firstItem="0JT-KP-VIv" firstAttribute="leading" secondItem="an6-Qt-G2v" secondAttribute="leading" id="cDU-Gx-kZ4"/>
                             <constraint firstItem="xox-K5-LH0" firstAttribute="leading" secondItem="cxv-gs-JyJ" secondAttribute="leading" constant="16" id="cvs-z2-laI"/>
                             <constraint firstItem="an6-Qt-G2v" firstAttribute="leading" secondItem="xox-K5-LH0" secondAttribute="leading" id="d40-1h-o8b"/>
@@ -194,7 +195,6 @@
                             <constraint firstItem="v8n-GH-Tv6" firstAttribute="leading" secondItem="xox-K5-LH0" secondAttribute="leading" id="mO1-V0-DVU"/>
                             <constraint firstItem="FOf-As-pqi" firstAttribute="centerY" secondItem="an6-Qt-G2v" secondAttribute="centerY" id="olb-BX-5ss"/>
                             <constraint firstItem="YkA-Fc-Dmh" firstAttribute="bottom" secondItem="2XN-3a-hYt" secondAttribute="bottom" constant="-12" id="rGa-Yo-pKG"/>
-                            <constraint firstItem="s7d-9r-Lsf" firstAttribute="top" secondItem="an6-Qt-G2v" secondAttribute="bottom" id="wLh-aH-htA"/>
                             <constraint firstItem="s7d-9r-Lsf" firstAttribute="trailing" secondItem="an6-Qt-G2v" secondAttribute="trailing" id="wy0-q0-4DQ"/>
                         </constraints>
                     </view>
@@ -204,6 +204,7 @@
                         <outlet property="keywordCountingLabel" destination="kQc-CD-tUl" id="55u-KN-Agw"/>
                         <outlet property="keywordLimitLabel" destination="Oe4-ad-cHv" id="vcG-D9-y7e"/>
                         <outlet property="keywordTextField" destination="an6-Qt-G2v" id="JG8-zU-vf0"/>
+                        <outlet property="keywordTextFieldHeight" destination="1XZ-Yq-PUe" id="LEb-8O-F5X"/>
                         <outlet property="memoCountingLabel" destination="jSc-h5-Vnq" id="DO5-SV-v0B"/>
                         <outlet property="memoLimitLabel" destination="VOR-2N-hbh" id="T5f-RN-UFP"/>
                         <outlet property="memoTextView" destination="2XN-3a-hYt" id="5oW-7l-Mte"/>

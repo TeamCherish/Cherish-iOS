@@ -49,11 +49,11 @@
                                         <color key="backgroundColor" name="seaweed"/>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gPu-R8-DFL">
-                                        <rect key="frame" x="49.5" y="203" width="216" height="29"/>
+                                        <rect key="frame" x="46" y="203" width="223" height="30"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="216" id="T4U-b3-a1U"/>
-                                            <constraint firstAttribute="height" constant="29" id="Y5B-c4-goO"/>
+                                            <constraint firstAttribute="height" constant="30" id="Y5B-c4-goO"/>
+                                            <constraint firstAttribute="width" secondItem="gPu-R8-DFL" secondAttribute="height" multiplier="216:29" id="gJ8-Ck-OUb"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OYA-cX-Ar3">
                                             <size key="itemSize" width="128" height="128"/>
@@ -63,7 +63,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="E9n-Qb-dlD">
-                                                <rect key="frame" x="0.0" y="-49.5" width="128" height="128"/>
+                                                <rect key="frame" x="0.0" y="-49" width="128" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sJX-Ez-gDw">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -127,7 +127,7 @@
                                     <constraint firstItem="1Z3-Od-lrA" firstAttribute="centerX" secondItem="WBr-l3-W7Q" secondAttribute="centerX" id="kIW-Gy-WSg"/>
                                     <constraint firstItem="K35-6e-ZEb" firstAttribute="centerX" secondItem="1Z3-Od-lrA" secondAttribute="centerX" id="m2w-1w-vHe"/>
                                     <constraint firstItem="Jva-EL-TPq" firstAttribute="centerX" secondItem="K35-6e-ZEb" secondAttribute="centerX" id="rK5-uJ-tVn"/>
-                                    <constraint firstAttribute="width" secondItem="WBr-l3-W7Q" secondAttribute="height" multiplier="63:82" id="yjs-BO-WuY"/>
+                                    <constraint firstAttribute="width" secondItem="WBr-l3-W7Q" secondAttribute="height" multiplier="315:410" id="yjs-BO-WuY"/>
                                 </constraints>
                             </view>
                         </subviews>
