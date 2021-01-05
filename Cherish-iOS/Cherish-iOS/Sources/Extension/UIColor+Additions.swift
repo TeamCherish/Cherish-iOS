@@ -12,7 +12,7 @@ extension UIColor {
     // 제플린에서 컬러셋 넘어오면 추가로 변경할게요!@!~
     
     @nonobjc class var black: UIColor {
-        return UIColor(white: 69.0 / 255.0, alpha: 1.0)
+        return UIColor(red: 69.0 / 255.0, green: 69.0 / 255.0, blue: 69.0 / 255.0, alpha: 1.0)
     }
     
     @nonobjc class var blueyGrey: UIColor {
@@ -48,5 +48,9 @@ extension UIColor {
     
     @nonobjc class var btnGrey: UIColor {
         return UIColor(red: 92.0 / 255.0, green: 92.0 / 255.0, blue: 92.0 / 255.0, alpha: 1)
+    }
+    
+    @nonobjc class var mypageBackgroundGrey: UIColor {
+        return UIColor(red: 239.0 / 255.0, green: 241.0 / 255.0, blue: 245.0 / 255.0, alpha: 1)
     }
 }
