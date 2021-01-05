@@ -8,7 +8,7 @@
 import UIKit
 
 class ReviewVC: UIViewController {
-    var test: CGFloat?
+    var place: CGFloat?
     var keyword = [String]() /// 키워드 배열
     
     
@@ -26,7 +26,6 @@ class ReviewVC: UIViewController {
             keywordTextField.makeRounded(cornerRadius: 8)
         }
     }
-    @IBOutlet weak var keywordTextFieldHeight: NSLayoutConstraint!
     @IBOutlet weak var keywordCountingLabel: UILabel!{
         didSet{
             keywordCountingLabel.textColor = .black
@@ -43,9 +42,11 @@ class ReviewVC: UIViewController {
             self.keywordCollectionView.register(KeywordCanDeleteCVC.nib(), forCellWithReuseIdentifier: KeywordCanDeleteCVC.identifier)
             keywordCollectionView.delegate = self
             keywordCollectionView.dataSource = self
+            place = keywordCollectionView.frame.width
             keywordCollectionView.collectionViewLayout = LeftAlignedFlowLayout()
         }
     }
+    @IBOutlet weak var keywordCVHeight: NSLayoutConstraint!
     @IBOutlet weak var memoTextView: UITextView!{
         didSet{
             memoTextView.delegate = self
@@ -115,13 +116,13 @@ class ReviewVC: UIViewController {
             keywordCountingLabel.text = "0/"
             print(keyword)
             keywordCollectionView.reloadData()
+            
             /// 키워드 3개가 다 입력되면 키보드 내림
             if keyword.count >= 3 {
                 self.view.endEditing(true)
             }
         }
     }
-    //}
     
     ///Alert
     func nomoreKeyword(title: String, message: String) {
@@ -206,23 +207,6 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
     
 }
 
-public protocol CollectionCellAutoLayout: class {
-    var cachedSize: CGSize? { get set }
-}
-public extension CollectionCellAutoLayout where Self: UICollectionViewCell {
-    
-    func preferredLayoutAttributes(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        setNeedsLayout()
-        layoutIfNeeded()
-        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
-        var newFrame = layoutAttributes.frame
-        newFrame.size.width = CGFloat(ceilf(Float(size.width)))
-        layoutAttributes.frame = newFrame
-        cachedSize = newFrame.size
-        return layoutAttributes
-    }
-}
-
 ///2
 extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
@@ -253,7 +237,6 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         label.text = keyword[indexPath.row]
         label.sizeToFit()
         let cellSize = label.frame.width+37
-       
         
         return CGSize(width: cellSize, height: 29)
         

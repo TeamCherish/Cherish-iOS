@@ -27,7 +27,7 @@
                                 <rect key="frame" x="30" y="206" width="315" height="410"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="무슨 대화를 해볼까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jva-EL-TPq" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="59.666666666666686" y="164.66666666666669" width="196" height="25.666666666666657"/>
+                                        <rect key="frame" x="54.666666666666686" y="171.66666666666669" width="206" height="32.666666666666657"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -49,11 +49,10 @@
                                         <color key="backgroundColor" name="seaweed"/>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gPu-R8-DFL">
-                                        <rect key="frame" x="45.666666666666671" y="202.33333333333331" width="223.66666666666663" height="30"/>
+                                        <rect key="frame" x="0.0" y="216.33333333333331" width="315" height="30"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Y5B-c4-goO"/>
-                                            <constraint firstAttribute="width" secondItem="gPu-R8-DFL" secondAttribute="height" multiplier="216:29" id="gJ8-Ck-OUb"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OYA-cX-Ar3">
                                             <size key="itemSize" width="128" height="128"/>
@@ -99,7 +98,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이와는" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K35-6e-ZEb" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="100.33333333333334" y="139" width="114.33333333333334" height="25.666666666666657"/>
+                                        <rect key="frame" x="96.666666666666657" y="139" width="121.66666666666666" height="32.666666666666657"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -113,6 +112,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="XPq-ec-fV6" secondAttribute="trailing" constant="6" id="1dl-Id-GPQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="gPu-R8-DFL" secondAttribute="trailing" id="2Ax-3t-1yd"/>
                                     <constraint firstItem="Jva-EL-TPq" firstAttribute="top" secondItem="K35-6e-ZEb" secondAttribute="bottom" id="7IC-Sr-nEV"/>
                                     <constraint firstAttribute="bottom" secondItem="8bp-GL-oMS" secondAttribute="bottom" constant="53" id="Bh5-qw-gJw"/>
                                     <constraint firstAttribute="height" constant="410" id="C7P-XL-bjd"/>
@@ -127,6 +127,7 @@
                                     <constraint firstItem="1Z3-Od-lrA" firstAttribute="centerX" secondItem="WBr-l3-W7Q" secondAttribute="centerX" id="kIW-Gy-WSg"/>
                                     <constraint firstItem="K35-6e-ZEb" firstAttribute="centerX" secondItem="1Z3-Od-lrA" secondAttribute="centerX" id="m2w-1w-vHe"/>
                                     <constraint firstItem="Jva-EL-TPq" firstAttribute="centerX" secondItem="K35-6e-ZEb" secondAttribute="centerX" id="rK5-uJ-tVn"/>
+                                    <constraint firstItem="gPu-R8-DFL" firstAttribute="leading" secondItem="WBr-l3-W7Q" secondAttribute="leading" id="sIM-ju-hKK"/>
                                     <constraint firstAttribute="width" secondItem="WBr-l3-W7Q" secondAttribute="height" multiplier="315:410" id="yjs-BO-WuY"/>
                                 </constraints>
                             </view>

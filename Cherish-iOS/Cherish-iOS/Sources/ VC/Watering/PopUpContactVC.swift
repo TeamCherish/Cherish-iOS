@@ -10,9 +10,10 @@ import MessageUI
 import CallKit
 
 class PopUpContactVC: UIViewController {
-    let fakeKeyword = ["생일이야어","취업준비이","헤어짐"]
+    let fakeKeyword = ["생일이야어","취업준비이","헤어짐이"]
     let callObserver = CXCallObserver()
     var didDetectOutgoingCall = false
+    var total: CGFloat? = 0
     
     //MARK: -@IBOutlet
     @IBOutlet weak var popupContactView: UIView!{
@@ -174,11 +175,13 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     {
         if fakeKeyword[indexPath.row].count >= 4{
             //            print(fakeKeyword[indexPath.row])
+            total? += 76
             return CGSize(width: 76, height: collectionView.frame.height)
         }else{
             let label = UILabel(frame: CGRect.zero)
             label.text = fakeKeyword[indexPath.row]
             label.sizeToFit()
+            total? += label.frame.width + 20
             return CGSize(width: label.frame.width+20, height: collectionView.frame.height)
         }
         
@@ -190,9 +193,12 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         return 9
     }
     
-//    //MARK: - 마진
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
-//    {
-//        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
-//    }
+    //MARK: - 마진
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+    {
+        let edgeInsets = (keywordShowCollectionView.frame.width  - (CGFloat(total ?? 0)) - (CGFloat(fakeKeyword.count) * 9)) / 2
+        
+        return UIEdgeInsets(top: 0, left: CGFloat(edgeInsets), bottom: 0, right: 0);
+        
+    }
 }

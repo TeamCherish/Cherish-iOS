@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -23,11 +23,11 @@
             <objects>
                 <viewController storyboardIdentifier="ReviewVC" id="Dpf-Qo-M0v" customClass="ReviewVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BEg-qs-owX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="또령님! 남쿵둥이님과의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xox-K5-LH0" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="83" width="220.5" height="28"/>
+                                <rect key="frame" x="16" y="83" width="220.66666666666666" height="28"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="24"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -38,7 +38,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘 연락은 어떠셨나요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8n-GH-Tv6" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="111" width="234.5" height="28"/>
+                                <rect key="frame" x="16.000000000000014" y="111" width="234.33333333333337" height="28"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="24"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이님과의 물주기를 기록해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J55-9R-nqI" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="141" width="198.5" height="15.5"/>
+                                <rect key="frame" x="16" y="141" width="198.66666666666666" height="15.333333333333343"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -60,20 +60,19 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="키워드로 표현해주세요!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="an6-Qt-G2v">
-                                <rect key="frame" x="16" y="184.5" width="382" height="44"/>
+                                <rect key="frame" x="16" y="184.33333333333334" width="343" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="an6-Qt-G2v" secondAttribute="height" multiplier="191:22" id="D55-kX-pPV"/>
+                                    <constraint firstAttribute="width" secondItem="an6-Qt-G2v" secondAttribute="height" multiplier="343:44" id="D55-kX-pPV"/>
                                     <constraint firstAttribute="height" constant="44" id="hrm-sw-aS9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="s7d-9r-Lsf">
-                                <rect key="frame" x="16" y="228.5" width="382" height="50"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="s7d-9r-Lsf">
+                                <rect key="frame" x="16" y="247.66666666666663" width="343" height="89.666666666666742"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="1XZ-Yq-PUe"/>
-                                    <constraint firstAttribute="width" secondItem="s7d-9r-Lsf" secondAttribute="height" multiplier="191:25" id="Ozr-px-UqQ"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="1XZ-Yq-PUe"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hAp-Jw-EKX">
                                     <size key="itemSize" width="128" height="128"/>
@@ -92,33 +91,22 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2XN-3a-hYt">
-                                <rect key="frame" x="16" y="278.5" width="382" height="194"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="2XN-3a-hYt" secondAttribute="height" multiplier="191:97" id="APp-UZ-8vM"/>
-                                    <constraint firstAttribute="height" constant="194" id="vbO-vt-Vdf"/>
-                                </constraints>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0JT-KP-VIv">
-                                <rect key="frame" x="16" y="720" width="382" height="110"/>
+                                <rect key="frame" x="16" y="636" width="343" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEV-mL-uRb">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
                                         <color key="backgroundColor" name="seaweed"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="ZAU-cO-upW"/>
-                                            <constraint firstAttribute="width" secondItem="BEV-mL-uRb" secondAttribute="height" multiplier="191:25" id="bc2-m4-HVK"/>
+                                            <constraint firstAttribute="width" secondItem="BEV-mL-uRb" secondAttribute="height" multiplier="343:50" id="bc2-m4-HVK"/>
                                         </constraints>
                                         <state key="normal" title="등록완료">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIS-1M-a0U">
-                                        <rect key="frame" x="0.0" y="60" width="382" height="50"/>
+                                        <rect key="frame" x="0.0" y="60" width="343" height="50"/>
                                         <state key="normal" title="건너뛰기"/>
                                     </button>
                                 </subviews>
@@ -127,16 +115,16 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOf-As-pqi">
-                                <rect key="frame" x="346.5" y="196.5" width="33.5" height="20.5"/>
+                                <rect key="frame" x="307.66666666666669" y="196.33333333333334" width="33.333333333333314" height="20.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQc-CD-tUl">
-                                        <rect key="frame" x="0.0" y="0.0" width="15.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="15.333333333333334" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oe4-ad-cHv" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="15.5" y="0.0" width="18" height="20.5"/>
+                                        <rect key="frame" x="15.333333333333314" y="0.0" width="18" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -148,17 +136,17 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YkA-Fc-Dmh">
-                                <rect key="frame" x="336" y="440" width="44" height="20.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YkA-Fc-Dmh">
+                                <rect key="frame" x="297.33333333333331" y="499" width="43.666666666666686" height="20.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSc-h5-Vnq">
-                                        <rect key="frame" x="0.0" y="0.0" width="15.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="15.333333333333334" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOR-2N-hbh" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="15.5" y="0.0" width="28.5" height="20.5"/>
+                                        <rect key="frame" x="15.333333333333369" y="0.0" width="28.333333333333329" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -170,22 +158,33 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2XN-3a-hYt">
+                                <rect key="frame" x="16" y="345" width="343" height="194"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2XN-3a-hYt" secondAttribute="height" multiplier="343:194" id="APp-UZ-8vM"/>
+                                    <constraint firstAttribute="height" constant="194" id="vbO-vt-Vdf"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cxv-gs-JyJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="s7d-9r-Lsf" firstAttribute="leading" secondItem="an6-Qt-G2v" secondAttribute="leading" id="0w8-By-7Uf"/>
+                            <constraint firstItem="s7d-9r-Lsf" firstAttribute="top" secondItem="an6-Qt-G2v" secondAttribute="bottom" id="69f-K9-HWh"/>
                             <constraint firstItem="YkA-Fc-Dmh" firstAttribute="trailing" secondItem="FOf-As-pqi" secondAttribute="trailing" id="EPK-Zw-4wk"/>
                             <constraint firstItem="cxv-gs-JyJ" firstAttribute="bottom" secondItem="0JT-KP-VIv" secondAttribute="bottom" constant="32" id="Hvr-25-6vt"/>
                             <constraint firstItem="FOf-As-pqi" firstAttribute="trailing" secondItem="an6-Qt-G2v" secondAttribute="trailing" constant="-18" id="N6Z-LW-dUt"/>
                             <constraint firstItem="J55-9R-nqI" firstAttribute="top" secondItem="v8n-GH-Tv6" secondAttribute="bottom" constant="2" id="QQf-fe-469"/>
                             <constraint firstItem="2XN-3a-hYt" firstAttribute="trailing" secondItem="an6-Qt-G2v" secondAttribute="trailing" id="R0K-Tw-Lgs"/>
                             <constraint firstItem="2XN-3a-hYt" firstAttribute="leading" secondItem="an6-Qt-G2v" secondAttribute="leading" id="RdM-yM-f4L"/>
-                            <constraint firstItem="2XN-3a-hYt" firstAttribute="top" secondItem="s7d-9r-Lsf" secondAttribute="bottom" id="RwK-2g-ETz"/>
+                            <constraint firstItem="2XN-3a-hYt" firstAttribute="top" secondItem="s7d-9r-Lsf" secondAttribute="bottom" id="YmO-p3-dhh"/>
                             <constraint firstItem="J55-9R-nqI" firstAttribute="leading" secondItem="v8n-GH-Tv6" secondAttribute="leading" id="Zf1-DR-NTn"/>
                             <constraint firstItem="an6-Qt-G2v" firstAttribute="top" secondItem="J55-9R-nqI" secondAttribute="bottom" constant="28" id="aTX-pU-ZEb"/>
                             <constraint firstItem="xox-K5-LH0" firstAttribute="top" secondItem="cxv-gs-JyJ" secondAttribute="top" constant="39" id="bGl-L2-ySd"/>
-                            <constraint firstItem="s7d-9r-Lsf" firstAttribute="top" secondItem="an6-Qt-G2v" secondAttribute="bottom" id="bNg-Kx-vy5"/>
                             <constraint firstItem="0JT-KP-VIv" firstAttribute="leading" secondItem="an6-Qt-G2v" secondAttribute="leading" id="cDU-Gx-kZ4"/>
                             <constraint firstItem="xox-K5-LH0" firstAttribute="leading" secondItem="cxv-gs-JyJ" secondAttribute="leading" constant="16" id="cvs-z2-laI"/>
                             <constraint firstItem="an6-Qt-G2v" firstAttribute="leading" secondItem="xox-K5-LH0" secondAttribute="leading" id="d40-1h-o8b"/>
@@ -200,11 +199,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="e9s-cQ-Oxf"/>
                     <connections>
+                        <outlet property="keywordCVHeight" destination="1XZ-Yq-PUe" id="opL-kt-d86"/>
                         <outlet property="keywordCollectionView" destination="s7d-9r-Lsf" id="xBd-9b-KeR"/>
                         <outlet property="keywordCountingLabel" destination="kQc-CD-tUl" id="55u-KN-Agw"/>
                         <outlet property="keywordLimitLabel" destination="Oe4-ad-cHv" id="vcG-D9-y7e"/>
                         <outlet property="keywordTextField" destination="an6-Qt-G2v" id="JG8-zU-vf0"/>
-                        <outlet property="keywordTextFieldHeight" destination="1XZ-Yq-PUe" id="LEb-8O-F5X"/>
                         <outlet property="memoCountingLabel" destination="jSc-h5-Vnq" id="DO5-SV-v0B"/>
                         <outlet property="memoLimitLabel" destination="VOR-2N-hbh" id="T5f-RN-UFP"/>
                         <outlet property="memoTextView" destination="2XN-3a-hYt" id="5oW-7l-Mte"/>
