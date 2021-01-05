@@ -10,7 +10,7 @@ import MessageUI
 import CallKit
 
 class PopUpContactVC: UIViewController {
-    let fakeKeyword = ["생일이야어","취업준비이","헤어짐이"]
+    let fakeKeyword = ["생일","취업준비이","헤어짐"]
     let callObserver = CXCallObserver()
     var didDetectOutgoingCall = false
     var total: CGFloat? = 0
@@ -174,8 +174,8 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         if fakeKeyword[indexPath.row].count >= 4{
-            //            print(fakeKeyword[indexPath.row])
-            total? += 76
+        
+            total? += 73
             return CGSize(width: 76, height: collectionView.frame.height)
         }else{
             let label = UILabel(frame: CGRect.zero)
@@ -196,7 +196,8 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     //MARK: - 마진
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {
-        let edgeInsets = (keywordShowCollectionView.frame.width  - (CGFloat(total ?? 0)) - (CGFloat(fakeKeyword.count) * 9)) / 2
+        // Cell 가운데 정렬
+        let edgeInsets = (keywordShowCollectionView.frame.width  - (CGFloat(total ?? 0)) - (CGFloat(fakeKeyword.count-1) * 9)) / 2
         
         return UIEdgeInsets(top: 0, left: CGFloat(edgeInsets), bottom: 0, right: 0);
         
