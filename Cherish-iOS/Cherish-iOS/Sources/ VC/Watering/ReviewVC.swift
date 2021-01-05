@@ -8,7 +8,7 @@
 import UIKit
 
 class ReviewVC: UIViewController {
-    var place: CGFloat?
+    var letterCountingforExpand: Int? = 0 /// 키워드 길이에 따른 CollectionView 확장을 위한..
     var keyword = [String]() /// 키워드 배열
     
     
@@ -42,7 +42,6 @@ class ReviewVC: UIViewController {
             self.keywordCollectionView.register(KeywordCanDeleteCVC.nib(), forCellWithReuseIdentifier: KeywordCanDeleteCVC.identifier)
             keywordCollectionView.delegate = self
             keywordCollectionView.dataSource = self
-            place = keywordCollectionView.frame.width
             keywordCollectionView.collectionViewLayout = LeftAlignedFlowLayout()
         }
     }
@@ -83,6 +82,8 @@ class ReviewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textViewPlaceholder() /// textView Placeholder 셋팅
+        //keyboardUP() /// 키보드 올릴 때 사용
+        
     }
     
     //MARK: -사용자 정의 함수
@@ -102,27 +103,55 @@ class ReviewVC: UIViewController {
     @objc func doneBtnFromKeyboardClicked (sender: Any) {
         print("Done Button Clicked.")
         
-        /// 키워드가 이미 3개라면 입력 금지
-        //        if keyword.count >= 3{
-        //            print("full")
-        //            keywordTextField.text = ""
-        //            keywordCountingLabel.text = "0/"
-        //            nomoreKeyword(title: "", message: "키워드는 3개까지 쓸 수 있어요!")
-        //        }else{
-        /// 무언가를 입력했다면 키워드 추가 및 텍스트 카운팅 0으로 초기화
+        // 뭐라도 입력해야 키워드 등록
         if keywordTextField.text != ""{
+            /// 키워드 배열에 저장
             keyword.append(keywordTextField.text!)
+            /// 텍스트 필드 초기화 및 텍스트 필드 글자수 카운팅 초기화
             keywordTextField.text = ""
             keywordCountingLabel.text = "0/"
-            print(keyword)
+            /// 키워드 길이에 따른 CollectionView 확장을 위해 글자 수 계산
+            letterCountingforExpand? += keyword.last?.count ?? 0
+            /// 컬렉션 뷰 데이터 업데이트
             keywordCollectionView.reloadData()
             
+            /// 키워드 길이에 따른 CollectionView 확장을 위한 if문
+            if letterCountingforExpand ?? 0 > 20 {
+                keywordCVHeight.constant = 100
+            }
             /// 키워드 3개가 다 입력되면 키보드 내림
             if keyword.count >= 3 {
                 self.view.endEditing(true)
             }
         }
     }
+    
+/// 키보드 올릴 때 사용
+// 기기마다 텍스트필드가 가려지기도 하고 안가려지기도 하는데 이걸 어떻게..해야하지
+//    func keyboardUP(){
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+//    }
+//    @objc
+//    func keyboardWillShow(_ sender: Notification) {
+//
+//        if keywordCVHeight.constant == 100 {
+//            UIView.animate(withDuration: 2.0, animations: {
+//                self.view.transform = CGAffineTransform(translationX: 0, y: -46)
+//            })
+//        }
+//    }
+//
+//    @objc
+//    func keyboardWillHide(_ sender: Notification) {
+//
+//        if keywordCVHeight.constant == 100 {
+//            UIView.animate(withDuration: 2.0, animations: {
+//                self.view.transform = CGAffineTransform(translationX: 0, y: 0)
+//            })
+//        }
+//    }
+    
     
     ///Alert
     func nomoreKeyword(title: String, message: String) {
@@ -147,8 +176,10 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
             return false
         }
         let newKeywordLength = currentCharacterCount + string.count - range.length
-        keywordCountingLabel.text =  "\(String(newKeywordLength))"+"/"
-        return newKeywordLength < 10
+        /// 글자 수 실시간 카운팅
+        keywordCountingLabel.text =  "\(String(newKeywordLength-1))"+"/"
+        /// 최대 글자 수 10
+        return newKeywordLength <= 10
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -169,8 +200,10 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
             return false
         }
         let newMemoLength = currentCharacterCount + text.count - range.length
-        memoCountingLabel.text =  "\(String(newMemoLength))"+"/"
-        return newMemoLength < 100
+        /// 글자 수 실시간 카운팅
+        memoCountingLabel.text =  "\(String(newMemoLength-1))"+"/"
+        /// 최대 글자 수 100자
+        return newMemoLength <= 100
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -212,10 +245,15 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         /// 키워드 터치시 삭제
-    
+        /// 키워드 길이에 따른 CollectionView 축소를 위해 글자 수 계산
+        letterCountingforExpand? -= keyword[indexPath.row].count
+
         keyword.remove(at: indexPath.row)
         keywordCollectionView.reloadData()
-
+        
+        /// 키워드는 최대 3개인데 이 곳을 거치면 키워드는 무조건 2개이고
+        /// 2개일 경우 확장 될 경우의 수 없음
+        keywordCVHeight.constant = 50
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -227,6 +265,9 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             return UICollectionViewCell()
         }
         cell.keywordLabel.text = keyword[indexPath.row]
+        let label = UILabel(frame: CGRect.zero)
+        label.text = keyword[indexPath.row]
+        label.sizeToFit()
         
         return cell
     }
@@ -236,7 +277,7 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         let label = UILabel(frame: CGRect.zero)
         label.text = keyword[indexPath.row]
         label.sizeToFit()
-        let cellSize = label.frame.width+37
+        let cellSize = label.frame.width+26
         
         return CGSize(width: cellSize, height: 29)
         
