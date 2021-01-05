@@ -252,7 +252,7 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         let label = UILabel(frame: CGRect.zero)
         label.text = keyword[indexPath.row]
         label.sizeToFit()
-        let cellSize = label.frame.width+38
+        let cellSize = label.frame.width+37
        
         
         return CGSize(width: cellSize, height: 29)

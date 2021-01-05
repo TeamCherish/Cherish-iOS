@@ -26,11 +26,11 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfa-vq-44x">
                         <rect key="frame" x="0.0" y="0.0" width="120" height="60"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZu-1n-NI4">
-                                <rect key="frame" x="31.5" y="17.5" width="57" height="25"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="dZu-1n-NI4">
+                                <rect key="frame" x="35.5" y="23" width="49" height="14"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgW-gY-obt" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="32" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="14"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -41,17 +41,14 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Jk-5Y-Nd9">
-                                        <rect key="frame" x="32" y="0.0" width="25" height="25"/>
+                                        <rect key="frame" x="35" y="0.0" width="14" height="14"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="LoF-1b-2fb"/>
-                                            <constraint firstAttribute="width" secondItem="4Jk-5Y-Nd9" secondAttribute="height" multiplier="1:1" id="sCE-16-sRc"/>
+                                            <constraint firstAttribute="width" secondItem="4Jk-5Y-Nd9" secondAttribute="height" multiplier="1:1" id="V9g-W6-RFw"/>
+                                            <constraint firstAttribute="height" constant="14" id="giz-QD-EWk"/>
                                         </constraints>
-                                        <state key="normal" image="icnCancel"/>
+                                        <state key="normal" image="x"/>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="4Jk-5Y-Nd9" firstAttribute="centerY" secondItem="FgW-gY-obt" secondAttribute="centerY" id="T9v-pl-geD"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -79,7 +76,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="icnCancel" width="48" height="48"/>
+        <image name="x" width="15" height="15"/>
         <namedColor name="black">
             <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

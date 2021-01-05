@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-// A collection view flow layout in which all items get left aligned
+/// CollectionView Cell 좌측 정렬
 class LeftAlignedFlowLayout: UICollectionViewFlowLayout {
 
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
@@ -31,3 +31,5 @@ class LeftAlignedFlowLayout: UICollectionViewFlowLayout {
         }
     }
 }
+
+
