@@ -29,7 +29,7 @@ class CherishTabBarController: UITabBarController {
             return
         }
         
-        firstTab.tabBarItem.image = UIImage(systemName: "house")
+        firstTab.tabBarItem.image = UIImage(named: "icnHomeUnselected")
         firstTab.tabBarItem.selectedImage = UIImage(named: "icnHomeSelected")
         
         /// 마이페이지탭
@@ -40,7 +40,7 @@ class CherishTabBarController: UITabBarController {
         }
         
         secondTab.tabBarItem.image = UIImage(named: "icnMypageUnselected")
-        secondTab.tabBarItem.selectedImage = UIImage(systemName: "person.fill")
+        secondTab.tabBarItem.selectedImage = UIImage(named: "icnMypageSelected")
         
         /// 더보기탭
         let ShowMore = UIStoryboard.init(name: "ShowMore", bundle: nil)
