@@ -53,4 +53,12 @@ extension UIColor {
     @nonobjc class var mypageBackgroundGrey: UIColor {
         return UIColor(red: 239.0 / 255.0, green: 241.0 / 255.0, blue: 245.0 / 255.0, alpha: 1)
     }
+    
+    @nonobjc class var WateredRed: UIColor {
+        return UIColor(red: 0 / 255.0, green: 171.0 / 255.0, blue: 162.0 / 255.0, alpha: 1)
+    }
+    
+    @nonobjc class var toWateringGreen: UIColor {
+        return UIColor(red: 247.0 / 255.0, green: 89.0 / 255.0, blue: 108.0 / 255.0, alpha: 1)
+    }
 }
