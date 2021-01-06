@@ -170,6 +170,13 @@ class PlantDetailVC: UIViewController {
     @IBAction func popToCherishMainVC(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    @IBAction func moveToCalendar(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
 }
 extension PlantDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
