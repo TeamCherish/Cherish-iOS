@@ -46,7 +46,7 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
         calendarOrigin.dataSource = self
         memoShowView.isHidden = true
         cal_Style()
-        
+        defineCalStatus()
         
     }
     @IBAction func moveToUp(_ sender: Any) {

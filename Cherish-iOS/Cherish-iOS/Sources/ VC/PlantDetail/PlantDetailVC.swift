@@ -167,12 +167,22 @@ class PlantDetailVC: UIViewController {
     
     //MARK: - 첫번째 메모 연결버튼
     @IBAction func moveToFirstMemoDetail(_ sender: UIButton) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
+            delegate?.forCalendarStatus(cal_status: false)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     
     //MARK: - 두번째 메모 연결버튼
     @IBAction func moveToSecondMemoDetail(_ sender: UIButton) {
-        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
+            delegate?.forCalendarStatus(cal_status: false)
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
     }
     
     
@@ -194,10 +204,9 @@ class PlantDetailVC: UIViewController {
     @IBAction func moveToCalendar(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
-            self.navigationController?.pushViewController(vc, animated: true)
             delegate?.forCalendarStatus(cal_status: true)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
-        
     }
 }
 extension PlantDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
