@@ -52,6 +52,7 @@ class InputDetailVC: UIViewController {
         }
     }
     
+    //MARK: - 친구 선택에서 이름, 전화번호 받아오기
     func preSet() {
         if let name = self.name,
            let phoneNumber = self.phoneNumber {
@@ -60,6 +61,7 @@ class InputDetailVC: UIViewController {
         }
     }
     
+    //MARK: - 텍스트필드 값 다 채워지면 버튼 enable
     func enableCompleteBtn() {
         completeBtn.isEnabled = false
         if birthTextField.text?.isEmpty == false {
@@ -67,6 +69,7 @@ class InputDetailVC: UIViewController {
         }
     }
     
+    //MARK: - 텍스트필드 back ground image 지정
     func textFieldBackgroundImage() {
         nameTextField.background = UIImage(named: "box_half_add_plant_detail")
         nameTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
@@ -93,6 +96,7 @@ class InputDetailVC: UIViewController {
         alarmTimeTextField.layer.borderWidth = 0
     }
     
+    //MARK: - 텍스트필드 padding값 지정
     func textFieldPadding() {
         nameTextField.addDetailRightPadding()
         nicknameTextField.addDetailRightPadding()
@@ -102,6 +106,7 @@ class InputDetailVC: UIViewController {
         alarmTimeTextField.addDetailRightPadding()
     }
     
+    //MARK: - 생일, 알림주기 텍스트필드 안에 picker 넣기
     func createPicker() {
         // toolbar
         let toolbar = UIToolbar()
@@ -161,6 +166,7 @@ class InputDetailVC: UIViewController {
     }
 }
 
+//MARK: - PickerView DataSource, Delegate
 extension InputDetailVC: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         3

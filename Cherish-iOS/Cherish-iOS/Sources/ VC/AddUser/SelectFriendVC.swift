@@ -9,15 +9,19 @@ import UIKit
 
 class SelectFriendVC: UIViewController {
 
+    //MARK: - IBOutlet
+    
     @IBOutlet weak var searchFriendTextField: UITextField!
     @IBOutlet weak var friendTableView: UITableView!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var nextLabel: UILabel!
     
+    
+    //MARK: - 변수 선언
+    
     var friendList: [Friend] = []
     var name = [String]()
     var phoneNumber = [String]()
-    
     var filteredNameData = [String]()
     var filteredPhoneNumberData = [String]()
     
@@ -36,10 +40,16 @@ class SelectFriendVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    //MARK: - VC navigation bar, tab bar 삭제
+    
     func resetSelectFriendVC() {
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
     }
+    
+    
+    //MARK: - IBAction
     
     @IBAction func touchUpClose(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -53,6 +63,7 @@ class SelectFriendVC: UIViewController {
         }
     }
     
+    
     //MARK: - 텍스트필드 값 지정 함수
     func setSearchFriendTextField() {
         searchFriendTextField.addSelectRightPadding()
@@ -61,11 +72,13 @@ class SelectFriendVC: UIViewController {
         searchFriendTextField.layer.borderWidth = 0
     }
     
+    //MARK: - radioBtn 선택되면 다음 버튼 활성화
     func enableNextBtn() {
         nextBtn.isEnabled = false
         
     }
     
+    //MARK: - TableView Cell에 데이터 뿌리기
     func setFriendData() {
         friendList.append(contentsOf: [
             Friend(name: "김웅앵", phoneNumber: "010-0000-0000"),
@@ -102,6 +115,8 @@ class SelectFriendVC: UIViewController {
     }
 }
 
+
+//MARK: - tableview dataSource, delegate
 extension SelectFriendVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if !filteredNameData.isEmpty {
