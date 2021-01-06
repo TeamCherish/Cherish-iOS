@@ -10,9 +10,10 @@ import MessageUI
 import CallKit
 
 class PopUpContactVC: UIViewController {
-    let fakeKeyword = ["생일","취업고민걱정","헤어짐"]
+    let fakeKeyword = ["생일","취업준비이","헤어짐"]
     let callObserver = CXCallObserver()
     var didDetectOutgoingCall = false
+    var total: CGFloat? = 0
     
     //MARK: -@IBOutlet
     @IBOutlet weak var popupContactView: UIView!{
@@ -39,7 +40,7 @@ class PopUpContactVC: UIViewController {
               UIApplication.shared.canOpenURL(url as URL) else {
             return
         }
-
+        
         callObserver.setDelegate(self, queue: nil)
         didDetectOutgoingCall = false
         //we only want to add the observer after the alert is displayed,
@@ -105,7 +106,7 @@ class PopUpContactVC: UIViewController {
             messageComposer.recipients = ["01068788309"]
             messageComposer.body = ""
             messageComposer.modalPresentationStyle = .currentContext
-//            messageComposer.modalTransitionStyle = .crossDissolve ///굉장히 자연스럽게 올라옴
+            //            messageComposer.modalTransitionStyle = .crossDissolve ///굉장히 자연스럽게 올라옴
             self.present(messageComposer, animated: true)
         }
     }
@@ -172,23 +173,33 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     //MARK: - Cell 사이즈
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-        let label = UILabel(frame: CGRect.zero)
-        label.text = fakeKeyword[indexPath.row]
-        label.sizeToFit()
+        if fakeKeyword[indexPath.row].count >= 4{
         
-        return CGSize(width: label.frame.width+20, height: collectionView.frame.height)
+            total? += 73
+            return CGSize(width: 76, height: collectionView.frame.height)
+        }else{
+            let label = UILabel(frame: CGRect.zero)
+            label.text = fakeKeyword[indexPath.row]
+            label.sizeToFit()
+            total? += label.frame.width + 20
+            return CGSize(width: label.frame.width+20, height: collectionView.frame.height)
+        }
         
     }
     
     //MARK: - Cell간의 좌우간격 지정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
     {
-        return 5
+        return 9
     }
     
     //MARK: - 마진
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
-//    {
-//        return UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 0)
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+    {
+        // Cell 가운데 정렬
+        let edgeInsets = (keywordShowCollectionView.frame.width  - (CGFloat(total ?? 0)) - (CGFloat(fakeKeyword.count-1) * 9)) / 2
+        
+        return UIEdgeInsets(top: 0, left: CGFloat(edgeInsets), bottom: 0, right: 0);
+        
+    }
 }
