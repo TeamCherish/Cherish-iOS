@@ -117,7 +117,7 @@ class ReviewVC: UIViewController {
             
             /// 키워드 길이에 따른 CollectionView 확장을 위한 if문
             if letterCountingforExpand ?? 0 > 20 {
-                keywordCVHeight.constant = 100
+                keywordCVHeight.constant = 88
             }
             /// 키워드 3개가 다 입력되면 키보드 내림
             if keyword.count >= 3 {

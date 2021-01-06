@@ -23,7 +23,12 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
     @IBOutlet weak var calendarOrigin: FSCalendar!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet weak var wholeCalendarHeight: NSLayoutConstraint!
+    @IBOutlet weak var topAnchorHeight: NSLayoutConstraint!
+    @IBOutlet weak var bottomAnchorHeight: NSLayoutConstraint!
+    @IBOutlet weak var toWaterLabel: UIStackView!
+    @IBOutlet weak var wateredLabel: UIStackView!
     @IBOutlet weak var memoShowView: UIView!
+    @IBOutlet weak var memoBtn: UIButton!
     
     let formatter = DateFormatter()
     let calendarCurrent = Calendar.current
@@ -46,39 +51,65 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
         calendarOrigin.dataSource = self
         memoShowView.isHidden = true
         cal_Style()
-        defineCalStatus()
-        
+        func forCalendarStatus(cal_status: Bool) {
+            calendarStatus = cal_status
+        }
+    }
+
+    
+    @IBAction func moveToBack(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     @IBAction func moveToUp(_ sender: Any) {
         if memoBtnstatus == true{
             memoBtnstatus = false
-            self.calendarOrigin.setScope(.week, animated: true)
-            UIView.animate(withDuration: 10.0,
-                               delay: 0) {
-                self.wholeCalendarHeight.constant = 180
-                }
-           
+            memoBtn.setImage(UIImage(named: "icUpCalendar"), for: .normal)
+            monthCalendar()
 //            eventCategory.isHidden = true
         }else{
             memoBtnstatus = true
-            self.calendarOrigin.setScope(.month, animated: true)
-            wholeCalendarHeight.constant = 389
+            memoBtn.setImage(UIImage(named: "icDownCalendar"), for: .normal)
+            weekCalendar()
 //            eventCategory.isHidden = false
         }
+    }
+ 
+    
+    //MARK: -사용자 정의 함수
+    func monthCalendar(){
+        self.calendarOrigin?.setScope(.week, animated: true)
+        UIView.animate(withDuration: 3.0, animations: {
+            self.topAnchorHeight.constant = 0
+            self.bottomAnchorHeight.constant = 0
+            self.wateredLabel.isHidden = true
+            self.toWaterLabel.isHidden = true
+            self.wholeCalendarHeight?.constant = 150
+//            self.wholeCalendarHeight?.constant = CGAffineTransform(scaleX: 1.0, y: 2.6)
+        })
+    }
+    func weekCalendar(){
+        self.calendarOrigin?.setScope(.month, animated: true)
+        UIView.animate(withDuration: 3.0, animations: {
+            self.topAnchorHeight.constant = 27
+            self.bottomAnchorHeight.constant = 52
+            self.wateredLabel.isHidden = false
+            self.toWaterLabel.isHidden = false
+            self.wholeCalendarHeight?.constant = 389
+        })
     }
     
     func forCalendarStatus(cal_status: Bool) {
         calendarStatus = cal_status
     }
     
-    func defineCalStatus(){
-        // 달력버튼 클릭시 .month(true), 메모 클릭시 .week(false)
-        if calendarStatus ?? false {
-            self.calendarOrigin.setScope(.month, animated: true)
-        }else{
-            self.calendarOrigin.setScope(.week, animated: true)
-        }
-    }
+//    func defineCalStatus(){
+//        // 달력버튼 클릭시 .month(true), 메모 클릭시 .week(false)
+//        if calendarStatus ?? true {
+//            monthCalendar()
+//        }else{
+//            weekCalendar()
+//        }
+//    }
     
     func cal_Style() {
         /// 캘린더 헤더 부분
@@ -87,24 +118,23 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
         calendarOrigin.locale = Locale(identifier: "ko_KR") /// 한국어로 변경
         calendarOrigin.appearance.headerDateFormat = "YYYY년 M월" /// 디폴트는 M월 YYYY년
         calendarOrigin.appearance.headerTitleFont = UIFont.systemFont(ofSize: 24)
-        //        calendar.layer.cornerRadius = 20
-        
+    
         /// 캘린터 텍스트 색
         calendarOrigin.backgroundColor = .white /// 배경색
-        calendarOrigin.appearance.weekdayTextColor = UIColor.darkGray ///요일 색
-        calendarOrigin.appearance.headerTitleColor = UIColor.black ///년도, 월 색
+        calendarOrigin.appearance.weekdayTextColor = .black///요일 색
+        calendarOrigin.appearance.headerTitleColor = .black ///년도, 월 색
         calendarOrigin.appearance.selectionColor = UIColor.lightGray // 선택 된 날의 색
         calendarOrigin.appearance.todayColor = .darkGray // 오늘 색
         calendarOrigin.appearance.todaySelectionColor = .none // 오늘 선택 색
         
-        
         // Month 폰트 설정
-        calendarOrigin.appearance.headerTitleFont = UIFont(name: "System", size: 16)
-        // day 폰트 설정
-        calendarOrigin.appearance.titleFont = UIFont(name: "System", size: 14)
+        calendarOrigin.appearance.headerTitleFont = UIFont(name: "NotoSansCJKKR-Regular", size: 16)
         
-        //        // 캘린더에 이번달 날짜만 표시하기 위함
-        //        mainCalendar.placeholderType = .none
+        // day 폰트 설정
+        calendarOrigin.appearance.titleFont = UIFont(name: "Roboto-Regualr", size: 14)
+        
+        // 캘린더에 이번달 날짜만 표시하기 위함
+//        calendarOrigin.placeholderType = .none
         
         formatter.locale = Locale(identifier: "ko_KR")
         formatter.dateFormat = "yyyy-MM-dd"
@@ -124,6 +154,12 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource{
         calendarHeight.constant = bounds.height
         self.view.layoutIfNeeded ()
     }
+    
+//    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage?{
+//        if calendarOrigin.date == "20201-01-11"{
+//            return UIImage(named: "icUpCalendar")
+//        }
+//    }
     //이벤트 표시 개수
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         

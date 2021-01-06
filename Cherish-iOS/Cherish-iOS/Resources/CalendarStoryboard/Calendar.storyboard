@@ -30,6 +30,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwA-Yw-rGB">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                         <state key="normal" image="icnBack"/>
+                                        <connections>
+                                            <action selector="moveToBack:" destination="76L-gG-wN1" eventType="touchUpInside" id="aJa-dz-Ryt"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물캘린더" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahw-pX-7ec" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                         <rect key="frame" x="150.66666666666666" y="10" width="73.666666666666657" height="24"/>
@@ -109,7 +112,6 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="b2l-ny-liI" secondAttribute="trailing" constant="18" id="Dsh-7t-hif"/>
                                             <constraint firstItem="mog-aX-yLL" firstAttribute="leading" secondItem="1oh-wq-DUp" secondAttribute="leading" id="Fh9-R2-9Uz"/>
-                                            <constraint firstAttribute="width" secondItem="1oh-wq-DUp" secondAttribute="height" multiplier="335:389" id="Iqf-wr-t18"/>
                                             <constraint firstAttribute="bottom" secondItem="mog-aX-yLL" secondAttribute="bottom" constant="52" id="XWY-ml-OJx"/>
                                             <constraint firstAttribute="bottom" secondItem="b2l-ny-liI" secondAttribute="bottom" constant="14" id="d5y-Rf-waj"/>
                                             <constraint firstAttribute="trailing" secondItem="mog-aX-yLL" secondAttribute="trailing" id="kpH-Zf-kb2"/>
@@ -165,10 +167,15 @@
                         <nil key="title"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="bottomAnchorHeight" destination="XWY-ml-OJx" id="69R-oe-lHp"/>
                         <outlet property="calendarHeight" destination="xe5-J7-FxN" id="Hiw-ao-c6B"/>
                         <outlet property="calendarOrigin" destination="mog-aX-yLL" id="Msr-lg-Kqr"/>
+                        <outlet property="memoBtn" destination="eN0-6G-uLg" id="9WM-n9-Gjh"/>
                         <outlet property="memoShowView" destination="FE6-s2-qKF" id="FLC-Wv-m9L"/>
                         <outlet property="memoView" destination="FE6-s2-qKF" id="QJm-TO-J7M"/>
+                        <outlet property="toWaterLabel" destination="b2l-ny-liI" id="7Di-sb-5wD"/>
+                        <outlet property="topAnchorHeight" destination="wd8-sE-cDi" id="fMd-Z2-VIi"/>
+                        <outlet property="wateredLabel" destination="9Zk-72-Zow" id="wTV-Z3-uJl"/>
                         <outlet property="wholeCalendarHeight" destination="oNK-Kg-0A4" id="lIF-X0-KDb"/>
                         <outlet property="wholeCalendarView" destination="1oh-wq-DUp" id="CHK-Cs-0yb"/>
                     </connections>
