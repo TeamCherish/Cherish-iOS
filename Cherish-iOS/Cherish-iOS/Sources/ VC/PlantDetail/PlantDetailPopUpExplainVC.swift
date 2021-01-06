@@ -50,6 +50,10 @@ class PlantDetailPopUpExplainVC: UIViewController {
         plantExplainPageControl.currentPageIndicatorTintColor = .seaweed
     }
     
+    
+    
+    
+    
     @IBAction func dismissPopUpExplainView(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
