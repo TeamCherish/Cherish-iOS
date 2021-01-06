@@ -278,9 +278,9 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         label.text = keyword[indexPath.row]
         label.sizeToFit()
         let cellSize = label.frame.width+26
-        
+
         return CGSize(width: cellSize, height: 29)
-        
+
     }
     
     //MARK: - Cell간의 좌우간격 지정

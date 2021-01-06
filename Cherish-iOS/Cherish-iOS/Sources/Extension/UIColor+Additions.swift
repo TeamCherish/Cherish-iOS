@@ -61,4 +61,12 @@ extension UIColor {
     @nonobjc class var toWateringGreen: UIColor {
         return UIColor(red: 247.0 / 255.0, green: 89.0 / 255.0, blue: 108.0 / 255.0, alpha: 1)
     }
+    
+    @nonobjc class var calendarKeywordText: UIColor {
+        return UIColor(red: 25.0 / 255.0, green: 183.0 / 255.0, blue: 119.0 / 255.0, alpha: 1)
+    }
+    
+    @nonobjc class var calendarKeywordBack: UIColor {
+        return UIColor(red: 221.0 / 255.0, green: 248.0 / 255.0, blue: 237.0 / 255.0, alpha: 1)
+    }
 }

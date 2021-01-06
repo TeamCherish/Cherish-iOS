@@ -9,6 +9,7 @@ import UIKit
 import FSCalendar
 
 class CalendarVC: UIViewController,SendViewControllerDelegate {
+    let fake_keyword = ["생일","취업준비중","헤어짐"]
     
     @IBOutlet weak var wholeCalendarView: UIView!{
         didSet{
@@ -29,6 +30,13 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
     @IBOutlet weak var wateredLabel: UIStackView!
     @IBOutlet weak var memoShowView: UIView!
     @IBOutlet weak var memoBtn: UIButton!
+    @IBOutlet weak var calendarKeywordCollectionView: UICollectionView!{
+        didSet{
+            self.calendarKeywordCollectionView.register(CalendarKeywordCVCell.nib(), forCellWithReuseIdentifier: CalendarKeywordCVCell.identifier)
+            calendarKeywordCollectionView.delegate = self
+            calendarKeywordCollectionView.dataSource = self
+        }
+    }
     
     let formatter = DateFormatter()
     let calendarCurrent = Calendar.current
@@ -79,7 +87,7 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
     func monthCalendar(){
         self.calendarOrigin?.setScope(.week, animated: true)
         UIView.animate(withDuration: 3.0, animations: {
-            self.topAnchorHeight.constant = 0
+//            self.calendarOrigin.headerHeight = 58
             self.bottomAnchorHeight.constant = 0
             self.wateredLabel.isHidden = true
             self.toWaterLabel.isHidden = true
@@ -90,7 +98,7 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
     func weekCalendar(){
         self.calendarOrigin?.setScope(.month, animated: true)
         UIView.animate(withDuration: 3.0, animations: {
-            self.topAnchorHeight.constant = 27
+//            self.calendarOrigin.headerHeight = 66
             self.bottomAnchorHeight.constant = 52
             self.wateredLabel.isHidden = false
             self.toWaterLabel.isHidden = false
@@ -111,9 +119,12 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
 //        }
 //    }
     
+    /// 캘린더 스타일
     func cal_Style() {
         /// 캘린더 헤더 부분
-        calendarOrigin.headerHeight = 50
+        
+        calendarOrigin.headerHeight = 66
+        calendarOrigin.weekdayHeight = 41
         calendarOrigin.appearance.headerMinimumDissolvedAlpha = 0.0 /// 헤더 좌,우측 흐릿한 글씨 삭제
         calendarOrigin.locale = Locale(identifier: "ko_KR") /// 한국어로 변경
         calendarOrigin.appearance.headerDateFormat = "YYYY년 M월" /// 디폴트는 M월 YYYY년
@@ -121,18 +132,24 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
     
         /// 캘린터 텍스트 색
         calendarOrigin.backgroundColor = .white /// 배경색
-        calendarOrigin.appearance.weekdayTextColor = .black///요일 색
+        calendarOrigin.appearance.titleTodayColor = .black/// Today 날짜 색 흰색 -> 검정
+        calendarOrigin.appearance.todayColor = .clear // Today 동그라미 색 없음
         calendarOrigin.appearance.headerTitleColor = .black ///년도, 월 색
+        calendarOrigin.appearance.weekdayTextColor = .black///요일 색
         calendarOrigin.appearance.selectionColor = UIColor.lightGray // 선택 된 날의 색
-        calendarOrigin.appearance.todayColor = .darkGray // 오늘 색
+        calendarOrigin.appearance.todayColor = .clear // 오늘 색
         calendarOrigin.appearance.todaySelectionColor = .none // 오늘 선택 색
         
+        for weekday in calendarOrigin.calendarWeekdayView.weekdayLabels{
+            weekday.tintColor = .systemBlue
+        }
+        
+        
         // Month 폰트 설정
-        calendarOrigin.appearance.headerTitleFont = UIFont(name: "NotoSansCJKKR-Regular", size: 16)
+        calendarOrigin.appearance.headerTitleFont = UIFont(name: "NotoSansCJKKR-Medium", size: 16)
         
         // day 폰트 설정
-        calendarOrigin.appearance.titleFont = UIFont(name: "Roboto-Regualr", size: 14)
-        
+        calendarOrigin.appearance.titleFont = UIFont(name: "Roboto-Regular", size: 14)
         // 캘린더에 이번달 날짜만 표시하기 위함
 //        calendarOrigin.placeholderType = .none
         
@@ -147,7 +164,8 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
     }
 }
 
-//MARK: -FSCalendar protocols
+//MARK: -Delegate & DataSource
+/// 1
 extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource{
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool){
@@ -188,3 +206,60 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource{
     }
     
 }
+
+///2
+extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        /// 키워드 터치시 삭제
+//        /// 키워드 길이에 따른 CollectionView 축소를 위해 글자 수 계산
+//        letterCountingforExpand? -= keyword[indexPath.row].count
+//
+//        keyword.remove(at: indexPath.row)
+//        keywordCollectionView.reloadData()
+//
+//        /// 키워드는 최대 3개인데 이 곳을 거치면 키워드는 무조건 2개이고
+//        /// 2개일 경우 확장 될 경우의 수 없음
+//        keywordCVHeight.constant = 50
+//    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return fake_keyword.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarKeywordCVCell.identifier, for: indexPath) as? CalendarKeywordCVCell else{
+            return UICollectionViewCell()
+        }
+        cell.calendarKeywordLabel.text = fake_keyword[indexPath.row]
+//        let label = UILabel(frame: CGRect.zero)
+//        label.text = keyword[indexPath.row]
+//        label.sizeToFit()
+
+        return cell
+    }
+//    //MARK: - Cell 사이즈
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+//    {
+//        let label = UILabel(frame: CGRect.zero)
+//        label.text = keyword[indexPath.row]
+//        label.sizeToFit()
+//        let cellSize = label.frame.width+26
+//
+//        return CGSize(width: cellSize, height: 29)
+//
+//    }
+
+    //MARK: - Cell간의 좌우간격 지정
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
+    {
+        return 5
+    }
+
+    //MARK: - 마진
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+    {
+        return UIEdgeInsets(top: 0, left: 19, bottom: 0, right: 19)
+    }
+}
+

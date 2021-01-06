@@ -174,7 +174,7 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         if fakeKeyword[indexPath.row].count >= 4{
-        
+
             total? += 73
             return CGSize(width: 76, height: collectionView.frame.height)
         }else{
@@ -184,7 +184,7 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
             total? += label.frame.width + 20
             return CGSize(width: label.frame.width+20, height: collectionView.frame.height)
         }
-        
+
     }
     
     //MARK: - Cell간의 좌우간격 지정

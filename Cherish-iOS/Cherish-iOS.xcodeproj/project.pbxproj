@@ -55,6 +55,8 @@
 		33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */; };
 		5488922125A59486003839FC /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5488922025A59486003839FC /* Calendar.storyboard */; };
 		5488922525A594CF003839FC /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5488922425A594CF003839FC /* CalendarVC.swift */; };
+		5488923625A5E962003839FC /* CalendarKeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5488923425A5E962003839FC /* CalendarKeywordCVCell.swift */; };
+		5488923725A5E962003839FC /* CalendarKeywordCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5488923525A5E962003839FC /* CalendarKeywordCVCell.xib */; };
 		548DF15725A1A0470081FCD1 /* PopUpWatering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */; };
 		548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */; };
 		548DF16C25A1B4390081FCD1 /* PopUpWateringVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF16B25A1B4390081FCD1 /* PopUpWateringVC.swift */; };
@@ -131,6 +133,8 @@
 		33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCVCell.swift; sourceTree = "<group>"; };
 		5488922025A59486003839FC /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		5488922425A594CF003839FC /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarVC.swift; path = "Cherish-iOS/Sources/View/CalendarVC.swift"; sourceTree = SOURCE_ROOT; };
+		5488923425A5E962003839FC /* CalendarKeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarKeywordCVCell.swift; sourceTree = "<group>"; };
+		5488923525A5E962003839FC /* CalendarKeywordCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarKeywordCVCell.xib; sourceTree = "<group>"; };
 		548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUpWatering.storyboard; sourceTree = "<group>"; };
 		548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		548DF16B25A1B4390081FCD1 /* PopUpWateringVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWateringVC.swift; sourceTree = "<group>"; };
@@ -291,6 +295,7 @@
 		33851C8F259A5B18005BCFFD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				5488923125A5E748003839FC /* Calendar */,
 				92B2305F25A30DBD0024B8A8 /* AddUser */,
 				33FDB79E25A2900C00F1EC6F /* PlantDetail */,
 				548DF17725A1C1480081FCD1 /* Watering */,
@@ -432,6 +437,15 @@
 			isa = PBXGroup;
 			children = (
 				5488922425A594CF003839FC /* CalendarVC.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		5488923125A5E748003839FC /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				5488923425A5E962003839FC /* CalendarKeywordCVCell.swift */,
+				5488923525A5E962003839FC /* CalendarKeywordCVCell.xib */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -579,6 +593,7 @@
 				33E874CB25A0434B001F84FE /* Roboto-Regular.ttf in Resources */,
 				92E8E39725A1B13F001F1FB4 /* AddUser.storyboard in Resources */,
 				33851C7D259A5542005BCFFD /* Assets.xcassets in Resources */,
+				5488923725A5E962003839FC /* CalendarKeywordCVCell.xib in Resources */,
 				5488922125A59486003839FC /* Calendar.storyboard in Resources */,
 				33E874D125A0437A001F84FE /* NotoSansCJKkr-Bold.otf in Resources */,
 				33E874E425A047DE001F84FE /* ShowMore.storyboard in Resources */,
@@ -668,6 +683,7 @@
 				33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */,
 				33D0026F25A30AB700E97811 /* PlantDetailExplainData.swift in Sources */,
 				92B2306125A30DD40024B8A8 /* FriendCell.swift in Sources */,
+				5488923625A5E962003839FC /* CalendarKeywordCVCell.swift in Sources */,
 				92B2306525A30F390024B8A8 /* Friend.swift in Sources */,
 				548DF17525A1BB7F0081FCD1 /* PopUpContactVC.swift in Sources */,
 				548DF16C25A1B4390081FCD1 /* PopUpWateringVC.swift in Sources */,
