@@ -156,6 +156,18 @@ class PlantDetailVC: UIViewController {
         ])
     }
     
+    //MARK: - 첫번째 메모 연결버튼
+    @IBAction func moveToFirstMemoDetail(_ sender: UIButton) {
+    }
+    
+    
+    //MARK: - 두번째 메모 연결버튼
+    @IBAction func moveToSecondMemoDetail(_ sender: UIButton) {
+        
+    }
+    
+    
+    //MARK: - 우측 상단 정보 뷰로 이동 팝업
     @IBAction func popUpPlantDetailExplainView(_ sender: UIButton) {
         
         if let vc = storyboard!.instantiateViewController(withIdentifier: "PlantDetailPopUpExplainVC") as? PlantDetailPopUpExplainVC {
