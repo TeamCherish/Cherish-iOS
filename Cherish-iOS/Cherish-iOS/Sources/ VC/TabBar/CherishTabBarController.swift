@@ -29,8 +29,8 @@ class CherishTabBarController: UITabBarController {
             return
         }
         
-        firstTab.tabBarItem.image = UIImage(named: "icnHomeUnselected")
-        firstTab.tabBarItem.selectedImage = UIImage(named: "icnHomeSelected")
+        firstTab.tabBarItem.image = UIImage(named: "icnHomeUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+        firstTab.tabBarItem.selectedImage = UIImage(named: "icnHomeSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
         
         /// 마이페이지탭
         let MyPage = UIStoryboard.init(name: "MyPage", bundle: nil)
@@ -39,8 +39,8 @@ class CherishTabBarController: UITabBarController {
             return
         }
         
-        secondTab.tabBarItem.image = UIImage(named: "icnMypageUnselected")
-        secondTab.tabBarItem.selectedImage = UIImage(named: "icnMypageSelected")
+        secondTab.tabBarItem.image = UIImage(named: "icnMypageUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+        secondTab.tabBarItem.selectedImage = UIImage(named: "icnMypageSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
         
         /// 더보기탭
         let ShowMore = UIStoryboard.init(name: "ShowMore", bundle: nil)
@@ -49,8 +49,8 @@ class CherishTabBarController: UITabBarController {
             return
         }
         
-        thirdTab.tabBarItem.image = UIImage(named: "icnMoreUnselected")
-        thirdTab.tabBarItem.selectedImage = UIImage(systemName: "ellipsis")
+        thirdTab.tabBarItem.image = UIImage(named: "icnMoreUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+        thirdTab.tabBarItem.selectedImage = UIImage(systemName: "ellipsis")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
         
         
         let tabs =  [firstTab, secondTab, thirdTab]

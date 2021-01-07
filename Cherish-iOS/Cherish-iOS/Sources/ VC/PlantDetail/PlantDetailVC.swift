@@ -150,9 +150,9 @@ class PlantDetailVC: UIViewController {
     
     func setKeywordData(){
         keywordArray.append(contentsOf: [
-            KeywordData(keyword: "생일"),
-            KeywordData(keyword: "취업준비중"),
-            KeywordData(keyword: "헤어짐")
+            KeywordData(keyword: "취업준비중이요"),
+            KeywordData(keyword: "취업준비중이요"),
+            KeywordData(keyword: "헤어짐준비중임")
         ])
     }
     

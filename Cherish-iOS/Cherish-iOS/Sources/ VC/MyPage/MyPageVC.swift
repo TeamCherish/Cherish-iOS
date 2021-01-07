@@ -7,82 +7,54 @@
 
 import UIKit
 
-class MyPageVC: UIViewController {
+class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet var mypageUserImageView: UIImageView!
-    @IBOutlet var mypageSV: UIScrollView!
-    @IBOutlet var sectionHeaderViewHeight: NSLayoutConstraint!
-    @IBOutlet var mypageTV: UITableView!
-    @IBOutlet var mypageTVHeight: NSLayoutConstraint!
     @IBOutlet var mypageNaviView: UIView!
-    @IBOutlet var sectionHeaderView: UIView!
-    var mypageSVContentOffset:CGPoint!
-    
-    @objc func panAction (_ sender : UIPanGestureRecognizer) {
-        let maxScrOffY = maxContentOffsetY(mypageSV)
-        let scrOffY = mypageSV.contentOffset.y
-        let maxTabOffY = maxContentOffsetY(mypageTV)
-        let tabOffY = mypageTV.contentOffset.y
-        let velocityY = sender.velocity(in: mypageSV).y / 100
-        
-      
-        if scrOffY - velocityY < 0 {
-            //스크롤뷰 위로 스크롤할 때 !
-            mypageSV.contentOffset.y = 0
-            mypageTV.isScrollEnabled = false
-            mypageSV.isScrollEnabled = true
-            sectionHeaderView.frame = CGRect(x: 0, y: 228, width: self.view.frame.width, height: 59)
-            self.mypageNaviView.backgroundColor = .mypageBackgroundGrey
-            changeStatusBarBackgroundColor("mypageBackground")
-        }
-        else if scrOffY - velocityY > maxScrOffY {
-            //스크롤뷰 -> 테이블뷰 넘어갈 때
-            print("hi")
-            mypageSV.isScrollEnabled = true
-            mypageTV.isScrollEnabled = true
-            mypageSV.contentOffset.y = maxScrOffY
-            sectionHeaderView.frame = CGRect(x: 0, y: 228, width: self.view.frame.width, height: 100)
-            if mypageTV.visibleCells.count > 10 {
-                mypageTV.contentOffset.y = (tabOffY - velocityY > maxTabOffY) ? maxTabOffY : tabOffY - velocityY
-            }
-            
-        }
-        else {
-            if velocityY < 0 {
-                mypageSV.contentOffset.y = scrOffY - velocityY
-            }
-            else {
-                if(tabOffY - velocityY < 0) {
-                    
-                    mypageTV.contentOffset.y = 0
-                    mypageSV.contentOffset.y = scrOffY - velocityY
-                }
-                else {
-                    sectionHeaderView.frame = CGRect(x: 0, y: 228, width: self.view.frame.width, height: 59)
-                    mypageTV.contentOffset.y = tabOffY - velocityY
-                }
-                
-                mypageTV.isScrollEnabled = false
-                
-            }
+    @IBOutlet var mypageHeaderView: PassthroughView!
+    @IBOutlet var stickyHeaderView: UIView!
+    @IBOutlet var segmentView: CustomSegmentedControl! {
+        didSet {
+            segmentView.setButtonTitles(buttonTitles: ["식물 \(14)", "연락처 \(420)"])
+            segmentView.selectorViewColor = .black
+            segmentView.selectorTextColor = .black
         }
     }
-    
-    private func maxContentOffsetY(_ scrollView: UIScrollView) -> CGFloat {
-        return scrollView.contentSize.height - scrollView.bounds.height
-    }
+    @IBOutlet var headerTopConstraint: NSLayoutConstraint!
+    @IBOutlet var headerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var mypageExternalSV: UIScrollView!
+    @IBOutlet var plantSV: UIScrollView!
+    @IBOutlet var plantSVWidth: NSLayoutConstraint!
+    @IBOutlet var contactSV: UIScrollView!
+    @IBOutlet var plantContainerTopConstraint: NSLayoutConstraint!
+    @IBOutlet var contactContainerTopConstraint: NSLayoutConstraint!
+    var changingIndex = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         changeStatusBarBackgroundColor("mypageBackground")
         setImageViewRounded()
-        setSVProperties()
-        setTVProperties()
+        setDelegates()
+        setConstraints()
+    }
+    
+    func setDelegates() {
+        mypageExternalSV.delegate = self
+        plantSV.delegate = self
+        contactSV.delegate = self
+        segmentView.delegate = self
+    }
+    
+    func setConstraints() {
+        plantSVWidth.constant = self.view.frame.width
+        plantContainerTopConstraint.constant = mypageHeaderView.frame.height
+        contactContainerTopConstraint.constant = mypageHeaderView.frame.height
+        stickyHeaderView.isExclusiveTouch = true
     }
     
     //MARK: - 상태바 백그라운드 컬러 변경
-    func changeStatusBarBackgroundColor(_ Color : String){
+    func changeStatusBarBackgroundColor(_ Color : String) {
         let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
         let statusBarColor = UIColor(named: Color)
         statusBarView.backgroundColor = statusBarColor
@@ -90,66 +62,108 @@ class MyPageVC: UIViewController {
     }
     
     //MARK: - 프로필 이미지 뷰 round 처리
-    func setImageViewRounded(){
+    func setImageViewRounded() {
         mypageUserImageView.clipsToBounds = true
         mypageUserImageView.layer.cornerRadius = mypageUserImageView.frame.height / 2
-    }
-    
-    func setSVProperties(){
-        mypageSV.isScrollEnabled = false
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panAction(_:)))
-        self.mypageSV.addGestureRecognizer(panGestureRecognizer)
-    }
-    
-    func setTVProperties(){
-        mypageTV.delegate = self
-        mypageTV.dataSource = self
-        mypageTV.isScrollEnabled = false
-        mypageTVHeight.constant = mypageSV.bounds.height - sectionHeaderViewHeight.constant
-    }
-    
-}
-
-extension MyPageVC : UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
         
-        cell.textLabel?.text = "index \(indexPath.row + 1)"
-        cell.backgroundColor = .yellow
-        return cell
+        segmentView.layer.cornerRadius = 30
+        segmentView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        stickyHeaderView.layer.cornerRadius = 30
+        stickyHeaderView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
+    
+    //MARK: - 친구 동기화 버튼 눌렀을 때 액션
+    @IBAction func touchUpToFriendsSynchronize(_ sender: UIButton) {
+        let alert = UIAlertController(title: "동기화", message: "친구 동기화가 진행됩니다", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            
+        }
+        alert.addAction(okAction)
+        present(alert, animated: false, completion: nil)
+    }
+    
 }
 
-extension MyPageVC : UIScrollViewDelegate {
+//MARK: - UIScrollViewDelegate
+extension MyPageVC: UIScrollViewDelegate {
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        changingIndex = false
+    }
+    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        
-        /// tableView가 스크롤되면 네비바, 상태바 색을 white로 변경
-        if mypageTV.contentOffset.y > 0 {
-            self.mypageNaviView.backgroundColor = .white
-            changeStatusBarBackgroundColor("white")
+        if scrollView == mypageExternalSV {
+            if !changingIndex{
+                segmentView.setIndex(index: Int(round(mypageExternalSV.contentOffset.x / mypageExternalSV.frame.size.width)))
+            }
         }
-        /// tableView가 스크롤되지않을땐 네비바, 상태바 색을 mypageBackgroundGrey로 변경
         else {
-            self.mypageNaviView.backgroundColor = .mypageBackgroundGrey
-            changeStatusBarBackgroundColor("mypageBackground")
-            print(mypageSV.contentOffset)
+            /// 스크롤 가장 상단이 되었을 때
+            
+            let d = mypageHeaderView.frame.height - stickyHeaderView.frame.height - 44
+            
+            if scrollView.contentOffset.y >= d {
+                headerTopConstraint.constant = -d
+                if scrollView == plantSV && contactSV.contentOffset.y < d {
+                    
+                    /// segment뷰가 NaviBar와 닿았을 대 NaviBar와 StatusBar의 백그라운드를 white로 변경
+                    mypageNaviView.backgroundColor = .white
+                    changeStatusBarBackgroundColor("white")
+                    stickyHeaderView.layer.cornerRadius = 0
+                    stickyHeaderView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+                    
+                    contactSV.contentOffset.y = d
+                }
+                else if scrollView == contactSV && plantSV.contentOffset.y < d {
+                    plantSV.contentOffset.y = d
+                }
+            }
+            else {
+                
+                plantSV.contentOffset.y = scrollView.contentOffset.y
+                contactSV.contentOffset.y = scrollView.contentOffset.y
+                
+                
+                /// segment뷰가 NaviBar와 닿았을 대 NaviBar와 StatusBar의 백그라운드를 mypageBackground로 변경
+                mypageNaviView.backgroundColor = .mypageBackgroundGrey
+                changeStatusBarBackgroundColor("mypageBackground")
+                
+                //stickyHeaderView의 라운드 값을 30으로 설정
+                stickyHeaderView.layer.cornerRadius = 30
+                stickyHeaderView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+                
+                
+                /// scrollView가 원래 자리로 돌아왔을 때
+                if scrollView.contentOffset.y <= 0 {
+                    
+                    
+                    headerTopConstraint.constant = 0
+                    headerHeightConstraint.constant = 321 - scrollView.contentOffset.y
+                    
+                }
+                else {
+                    headerTopConstraint.constant = -scrollView.contentOffset.y
+                    
+                }
+                
+            }
+            
         }
         
-        
-        ///현재 스크롤되는 스크롤뷰가
-        if scrollView == self.mypageSV {
-            mypageTV.isScrollEnabled = (self.mypageSV.contentOffset.y >= 200)
-        }
-        
-        if scrollView == self.mypageTV {
-            self.mypageTV.isScrollEnabled = (mypageTV.contentOffset.y > 0)
-        }
     }
+    
+}
+
+//MARK: - CustomSegmentedControlDelegate
+extension MyPageVC: CustomSegmentedControlDelegate {
+    
+    func change(to index: Int) {
+        changingIndex = true
+        let x = segmentView.selectedIndex * Int(mypageExternalSV.frame.width)
+        mypageExternalSV.setContentOffset(CGPoint(x:x, y:0), animated: true)
+        
+    }
+    
 }

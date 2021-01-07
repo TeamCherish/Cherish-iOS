@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		332CC7A925A6F41E00D0047D /* MyPageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7A725A6F41E00D0047D /* MyPageUtils.swift */; };
+		332CC7AA25A6F41E00D0047D /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7A825A6F41E00D0047D /* CustomSegmentedControl.swift */; };
+		332CC7B025A7018400D0047D /* MypagePlantTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7AF25A7018400D0047D /* MypagePlantTVC.swift */; };
+		332CC7B325A701A400D0047D /* MypageContactTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7B225A701A400D0047D /* MypageContactTVC.swift */; };
+		332CC7B625A7027D00D0047D /* MypagePlantVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7B525A7027D00D0047D /* MypagePlantVC.swift */; };
+		332CC7B925A7028A00D0047D /* MypageContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7B825A7028A00D0047D /* MypageContactVC.swift */; };
+		332CC7BD25A707BD00D0047D /* MypagePlantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7BC25A707BD00D0047D /* MypagePlantData.swift */; };
+		332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7C025A72A4800D0047D /* MypageContactData.swift */; };
 		33851C74259A5541005BCFFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851C73259A5541005BCFFD /* AppDelegate.swift */; };
 		33851C76259A5541005BCFFD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851C75259A5541005BCFFD /* SceneDelegate.swift */; };
 		33851C7D259A5542005BCFFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33851C7C259A5542005BCFFD /* Assets.xcassets */; };
@@ -79,6 +87,14 @@
 
 /* Begin PBXFileReference section */
 		3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cherish_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		332CC7A725A6F41E00D0047D /* MyPageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageUtils.swift; sourceTree = "<group>"; };
+		332CC7A825A6F41E00D0047D /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		332CC7AF25A7018400D0047D /* MypagePlantTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePlantTVC.swift; sourceTree = "<group>"; };
+		332CC7B225A701A400D0047D /* MypageContactTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageContactTVC.swift; sourceTree = "<group>"; };
+		332CC7B525A7027D00D0047D /* MypagePlantVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePlantVC.swift; sourceTree = "<group>"; };
+		332CC7B825A7028A00D0047D /* MypageContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageContactVC.swift; sourceTree = "<group>"; };
+		332CC7BC25A707BD00D0047D /* MypagePlantData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePlantData.swift; sourceTree = "<group>"; };
+		332CC7C025A72A4800D0047D /* MypageContactData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageContactData.swift; sourceTree = "<group>"; };
 		33851C70259A5541005BCFFD /* Cherish-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cherish-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33851C73259A5541005BCFFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33851C75259A5541005BCFFD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +180,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		332CC7AD25A7015100D0047D /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				332CC7AF25A7018400D0047D /* MypagePlantTVC.swift */,
+				332CC7B225A701A400D0047D /* MypageContactTVC.swift */,
+			);
+			path = Mypage;
+			sourceTree = "<group>";
+		};
+		332CC7BB25A707AF00D0047D /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				332CC7BC25A707BD00D0047D /* MypagePlantData.swift */,
+				332CC7C025A72A4800D0047D /* MypageContactData.swift */,
+			);
+			path = Mypage;
+			sourceTree = "<group>";
+		};
 		33851C67259A5541005BCFFD = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +308,8 @@
 		33851C8E259A5B14005BCFFD /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				332CC7A825A6F41E00D0047D /* CustomSegmentedControl.swift */,
+				332CC7A725A6F41E00D0047D /* MyPageUtils.swift */,
 				33E8750325A04D1E001F84FE /* CustomLabel.swift */,
 				33E8751225A05623001F84FE /* CircularProgressBar.swift */,
 				33E8754B25A0D272001F84FE /* ProgressBarView.swift */,
@@ -285,6 +321,7 @@
 		33851C8F259A5B18005BCFFD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				332CC7AD25A7015100D0047D /* Mypage */,
 				92B2305F25A30DBD0024B8A8 /* AddUser */,
 				33FDB79E25A2900C00F1EC6F /* PlantDetail */,
 				548DF17725A1C1480081FCD1 /* Watering */,
@@ -296,6 +333,7 @@
 		33851C90259A5B1F005BCFFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				332CC7BB25A707AF00D0047D /* Mypage */,
 				92B2306325A30F270024B8A8 /* AddUser */,
 				33D0025525A2914600E97811 /* PlantDetail */,
 				33E8753925A08654001F84FE /* CherishMain */,
@@ -366,6 +404,8 @@
 			isa = PBXGroup;
 			children = (
 				33E874FA25A04A81001F84FE /* MyPageVC.swift */,
+				332CC7B525A7027D00D0047D /* MypagePlantVC.swift */,
+				332CC7B825A7028A00D0047D /* MypageContactVC.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -632,6 +672,9 @@
 				548DF18D25A227A00081FCD1 /* KeywordCVC.swift in Sources */,
 				923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */,
 				33E8750725A04DA2001F84FE /* UIColor+Additions.swift in Sources */,
+				332CC7A925A6F41E00D0047D /* MyPageUtils.swift in Sources */,
+				332CC7B025A7018400D0047D /* MypagePlantTVC.swift in Sources */,
+				332CC7B625A7027D00D0047D /* MypagePlantVC.swift in Sources */,
 				923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */,
 				33E874FE25A04A8D001F84FE /* ShowMoreVC.swift in Sources */,
 				33E874FB25A04A81001F84FE /* MyPageVC.swift in Sources */,
@@ -647,9 +690,11 @@
 				92B2306525A30F390024B8A8 /* Friend.swift in Sources */,
 				548DF17525A1BB7F0081FCD1 /* PopUpContactVC.swift in Sources */,
 				548DF16C25A1B4390081FCD1 /* PopUpWateringVC.swift in Sources */,
+				332CC7AA25A6F41E00D0047D /* CustomSegmentedControl.swift in Sources */,
 				33D0026925A3093500E97811 /* PlantExplainCVC.swift in Sources */,
 				33D0025825A2915B00E97811 /* KeywordData.swift in Sources */,
 				33E874F725A04A56001F84FE /* CherishMainVC.swift in Sources */,
+				332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */,
 				33CAF85625A2674A0050DE29 /* CircularProgressView.swift in Sources */,
 				33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */,
 				33E8750425A04D1E001F84FE /* CustomLabel.swift in Sources */,
@@ -657,7 +702,9 @@
 				33E8753525A07A7F001F84FE /* CherishPeopleCVC.swift in Sources */,
 				33D0026625A3036800E97811 /* PlantDetailPopUpExplainVC.swift in Sources */,
 				33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */,
+				332CC7BD25A707BD00D0047D /* MypagePlantData.swift in Sources */,
 				33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */,
+				332CC7B925A7028A00D0047D /* MypageContactVC.swift in Sources */,
 				33E8754925A09440001F84FE /* NotificationName.swift in Sources */,
 				33E8752325A05CFC001F84FE /* DetailContentVC.swift in Sources */,
 				33851C74259A5541005BCFFD /* AppDelegate.swift in Sources */,
@@ -668,6 +715,7 @@
 				33E8754225A08CFE001F84FE /* CherishSelectPersonCVC.swift in Sources */,
 				548DF17E25A1EE730081FCD1 /* ReviewVC.swift in Sources */,
 				33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */,
+				332CC7B325A701A400D0047D /* MypageContactTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,14 +856,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N8FDQCW52Q;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "wonseok.iOS.Cherish.Cherish-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "jieun.iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -829,14 +877,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N8FDQCW52Q;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "wonseok.iOS.Cherish.Cherish-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "jieun.iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
