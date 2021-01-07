@@ -10,7 +10,7 @@ import FSCalendar
 
 class CalendarVC: UIViewController,SendViewControllerDelegate {
     let fake_keyword = ["생일","취업준비중","헤어짐"]
-    let test_text = "쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵"
+    let test_text = "오늘 남쿵이랑 연락을 했다. 바빠서 여자친구한테 소홀 해서 많이 싸우더만 이번엔 진짜 헤어진 것 같다.목소리가 너무 안좋아서 걱정됐는데 잘 챙겨줘야겠다 남궁 조금만 더 힘내서 잘 마무리하자! 체리쉬가 젤짱" /// 100글자
     
     @IBOutlet weak var wholeCalendarView: UIView!{
         didSet{
@@ -80,7 +80,7 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
             if memoTextLabelHeight != nil {
                 memoTextLabel.removeConstraint(memoTextLabelHeight) // 뷰의 확장을 위해 Height값 제거
             }
-//            memoTextLabel.heightAnchor.constraint(equalToConstant: 66).isActive = false
+            //            memoTextLabel.heightAnchor.constraint(equalToConstant: 66).isActive = false
             memoTextLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 66).isActive = true // 다시 할당
             memoTextLabel.layoutIfNeeded()
         }else{
@@ -143,15 +143,15 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
         calendarOrigin.backgroundColor = .white /// 배경색
         calendarOrigin.appearance.titleTodayColor = .black/// Today 날짜 색 흰색 -> 검정
         calendarOrigin.appearance.todayColor = .clear // Today 동그라미 색 없음
+        calendarOrigin.appearance.todaySelectionColor = .calendarSelectCircleGrey  // 오늘 선택 색
         calendarOrigin.appearance.headerTitleColor = .black ///년도, 월 색
         calendarOrigin.appearance.weekdayTextColor = .black///요일 색
         calendarOrigin.appearance.selectionColor = UIColor.lightGray // 선택 된 날의 색
-        calendarOrigin.appearance.todayColor = .clear // 오늘 색
-        calendarOrigin.appearance.todaySelectionColor = .none // 오늘 선택 색
         
-        for weekday in calendarOrigin.calendarWeekdayView.weekdayLabels{
-            weekday.tintColor = .systemBlue
-        }
+//        for weekday in calendarOrigin.daysContainer.{
+//            print(weekday.text)
+//            weekday.textColor = .systemBlue
+//        }
         
         
         // Month 폰트 설정
@@ -177,29 +177,54 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
 /// 1
 extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource{
     
+    /// Event 표시 Dot 사이즈 조정
+    func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let eventScaleFactor: CGFloat = 1.5
+        cell.eventIndicator.transform = CGAffineTransform(scaleX: eventScaleFactor, y: eventScaleFactor)
+        
+    }
+    
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool){
         calendarHeight.constant = bounds.height
         self.view.layoutIfNeeded ()
     }
     
-    //    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage?{
-    //        if calendarOrigin.date == "20201-01-11"{
-    //            return UIImage(named: "icUpCalendar")
-    //        }
-    //    }
     //이벤트 표시 개수
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        
-        if self.events.contains(date) {
-            calendar.appearance.eventDefaultColor = .WateredRed // 물 준 날 색
+        //icWateringSmallCalendar,icWateringLaterSmallCalendar
+        if self.events.contains(date){
             return 1
-        }else if self.test_events.contains(date) {
-            calendar.appearance.eventDefaultColor = .toWateringGreen // 물 주는 날 색
-            return 1
-        } else {
-            return 0
         }
+        if self.test_events.contains(date){
+            return 1
+        }
+        
+        return 0
     }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventColorFor date: Date) -> UIColor? {
+            
+            //Do some checks and return whatever color you want to.
+        if self.test_events.contains(date){
+            return UIColor.purple
+        }
+        
+        return nil
+    }
+    
+//    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]?{
+//        for one in events {
+//            if date == one{
+//                return [.toWateringGreen]
+//            }
+//        }
+//        if self.test_events.contains(date){
+//            return [UIColor.WateredRed, appearance.eventDefaultColor, UIColor.black]
+//        }
+        
+//        return nil
+//    }
+    
     // 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print(formatter.string(from: date) + " 선택됨")
@@ -219,19 +244,6 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource{
 ///2
 extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
-    //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //        /// 키워드 터치시 삭제
-    //        /// 키워드 길이에 따른 CollectionView 축소를 위해 글자 수 계산
-    //        letterCountingforExpand? -= keyword[indexPath.row].count
-    //
-    //        keyword.remove(at: indexPath.row)
-    //        keywordCollectionView.reloadData()
-    //
-    //        /// 키워드는 최대 3개인데 이 곳을 거치면 키워드는 무조건 2개이고
-    //        /// 2개일 경우 확장 될 경우의 수 없음
-    //        keywordCVHeight.constant = 50
-    //    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fake_keyword.count
     }
@@ -241,23 +253,8 @@ extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             return UICollectionViewCell()
         }
         cell.calendarKeywordLabel.text = fake_keyword[indexPath.row]
-        //        let label = UILabel(frame: CGRect.zero)
-        //        label.text = keyword[indexPath.row]
-        //        label.sizeToFit()
-        
         return cell
     }
-    //    //MARK: - Cell 사이즈
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-    //    {
-    //        let label = UILabel(frame: CGRect.zero)
-    //        label.text = keyword[indexPath.row]
-    //        label.sizeToFit()
-    //        let cellSize = label.frame.width+26
-    //
-    //        return CGSize(width: cellSize, height: 29)
-    //
-    //    }
     
     //MARK: - Cell간의 좌우간격 지정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat

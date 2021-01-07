@@ -69,4 +69,8 @@ extension UIColor {
     @nonobjc class var calendarKeywordBack: UIColor {
         return UIColor(red: 221.0 / 255.0, green: 248.0 / 255.0, blue: 237.0 / 255.0, alpha: 1)
     }
+    
+    @nonobjc class var calendarSelectCircleGrey: UIColor {
+        return UIColor(red: 98.0 / 255.0, green: 98.0 / 255.0, blue: 98.0 / 255.0, alpha: 1)
+    }
 }
