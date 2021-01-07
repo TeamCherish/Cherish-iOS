@@ -78,13 +78,16 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
             memoBtnstatus = false
             memoBtn.setImage(UIImage(named: "icUpCalendar"), for: .normal)
             monthCalendar()
-            
-//            eventCategory.isHidden = true
+            memoTextLabel.removeConstraint(memoTextLabelHeight) // 뷰의 확장을 위해 Height값 제거
+            memoTextLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 66).isActive = true // 다시 할당
+            memoTextLabel.layoutIfNeeded()
         }else{
             memoBtnstatus = true
             memoBtn.setImage(UIImage(named: "icDownCalendar"), for: .normal)
             weekCalendar()
-//            eventCategory.isHidden = false
+            memoTextLabel.removeConstraint(memoTextLabelHeight) // 뷰의 확장을 위해 Height값 제거
+            memoTextLabel.heightAnchor.constraint(equalToConstant: 66).isActive = true // 다시 할당
+            memoTextLabel.layoutIfNeeded()
         }
     }
  
