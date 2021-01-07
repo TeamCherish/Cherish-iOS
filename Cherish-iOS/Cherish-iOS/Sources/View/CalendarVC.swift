@@ -10,6 +10,7 @@ import FSCalendar
 
 class CalendarVC: UIViewController,SendViewControllerDelegate {
     let fake_keyword = ["생일","취업준비중","헤어짐"]
+    let test_text = "쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵"
     
     @IBOutlet weak var wholeCalendarView: UIView!{
         didSet{
@@ -37,6 +38,9 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
             calendarKeywordCollectionView.dataSource = self
         }
     }
+    @IBOutlet weak var memoShowViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var memoTextLabelHeight: NSLayoutConstraint!
+    @IBOutlet weak var memoTextLabel: UILabel!
     
     let formatter = DateFormatter()
     let calendarCurrent = Calendar.current
@@ -62,6 +66,7 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
         func forCalendarStatus(cal_status: Bool) {
             calendarStatus = cal_status
         }
+        memoTextLabel.text = test_text
     }
 
     
@@ -73,6 +78,7 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
             memoBtnstatus = false
             memoBtn.setImage(UIImage(named: "icUpCalendar"), for: .normal)
             monthCalendar()
+            
 //            eventCategory.isHidden = true
         }else{
             memoBtnstatus = true

@@ -68,10 +68,10 @@
                                         <rect key="frame" x="20" y="24" width="335" height="389"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mog-aX-yLL" customClass="FSCalendar">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="310"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="337"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="310" id="xe5-J7-FxN"/>
+                                                    <constraint firstAttribute="height" constant="337" id="xe5-J7-FxN"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b2l-ny-liI">
@@ -120,33 +120,36 @@
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="mog-aX-yLL" secondAttribute="bottom" constant="52" id="XWY-ml-OJx"/>
                                             <constraint firstAttribute="bottom" secondItem="b2l-ny-liI" secondAttribute="bottom" constant="14" id="d5y-Rf-waj"/>
                                             <constraint firstAttribute="trailing" secondItem="mog-aX-yLL" secondAttribute="trailing" id="kpH-Zf-kb2"/>
-                                            <constraint firstAttribute="height" constant="389" id="oNK-Kg-0A4"/>
                                             <constraint firstItem="b2l-ny-liI" firstAttribute="leading" secondItem="9Zk-72-Zow" secondAttribute="trailing" constant="14" id="udT-9o-0Nq"/>
                                             <constraint firstItem="mog-aX-yLL" firstAttribute="top" secondItem="1oh-wq-DUp" secondAttribute="top" id="wd8-sE-cDi"/>
                                             <constraint firstItem="b2l-ny-liI" firstAttribute="centerY" secondItem="9Zk-72-Zow" secondAttribute="centerY" id="yKa-pz-6V3"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FE6-s2-qKF">
-                                        <rect key="frame" x="20" y="427" width="335" height="220"/>
+                                        <rect key="frame" x="20" y="427" width="335" height="225"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eN0-6G-uLg">
-                                                <rect key="frame" x="145.66666666666666" y="176" width="44" height="44"/>
+                                                <rect key="frame" x="145.66666666666666" y="181" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="3CA-BW-lb9"/>
+                                                    <constraint firstAttribute="width" secondItem="eN0-6G-uLg" secondAttribute="height" multiplier="1:1" id="Kpr-Ri-Rcd"/>
+                                                </constraints>
                                                 <state key="normal" image="icDownCalendar"/>
                                                 <connections>
                                                     <action selector="moveToUp:" destination="76L-gG-wN1" eventType="touchUpInside" id="efs-3u-gb6"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021년 1월 6일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9f-V6-OcS">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2021년 1월 6일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9f-V6-OcS">
                                                 <rect key="frame" x="19" y="22" width="108" height="24"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="16"/>
                                                 <color key="textColor" name="black"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6d-zt-hcf">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6d-zt-hcf">
                                                 <rect key="frame" x="277" y="10" width="48" height="48"/>
                                                 <state key="normal" image="icMemoPencil"/>
                                             </button>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fiP-9t-esQ">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fiP-9t-esQ">
                                                 <rect key="frame" x="0.0" y="60" width="335" height="28"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -173,33 +176,33 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RuG-rr-8AV">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5t-Nm-AYg">
                                                 <rect key="frame" x="19" y="98" width="287" height="66"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="66" id="NLU-Ue-IiR"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="66" id="ssd-dT-9SL"/>
                                                 </constraints>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                                <string key="text">이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="p9f-V6-OcS" firstAttribute="leading" secondItem="FE6-s2-qKF" secondAttribute="leading" constant="19" id="42w-aM-O88"/>
-                                            <constraint firstItem="RuG-rr-8AV" firstAttribute="leading" secondItem="p9f-V6-OcS" secondAttribute="leading" id="6th-Z5-NMy"/>
                                             <constraint firstItem="fiP-9t-esQ" firstAttribute="top" secondItem="p9f-V6-OcS" secondAttribute="bottom" constant="14" id="9k8-CX-6Qg"/>
                                             <constraint firstItem="d6d-zt-hcf" firstAttribute="centerY" secondItem="p9f-V6-OcS" secondAttribute="centerY" id="GVa-1v-0Ln"/>
                                             <constraint firstItem="fiP-9t-esQ" firstAttribute="leading" secondItem="FE6-s2-qKF" secondAttribute="leading" id="GnA-o8-JOC"/>
-                                            <constraint firstAttribute="height" constant="220" id="LR0-26-ZDD"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="220" id="LR0-26-ZDD"/>
+                                            <constraint firstItem="eN0-6G-uLg" firstAttribute="top" secondItem="Z5t-Nm-AYg" secondAttribute="bottom" constant="17" id="Lke-re-Xyx"/>
                                             <constraint firstAttribute="bottom" secondItem="eN0-6G-uLg" secondAttribute="bottom" id="NMd-WW-0nV"/>
+                                            <constraint firstAttribute="width" constant="335" id="Upd-7O-XpK"/>
                                             <constraint firstItem="p9f-V6-OcS" firstAttribute="top" secondItem="FE6-s2-qKF" secondAttribute="top" constant="22" id="VIq-yd-akq"/>
+                                            <constraint firstItem="Z5t-Nm-AYg" firstAttribute="top" secondItem="fiP-9t-esQ" secondAttribute="bottom" constant="10" id="WcH-UY-SfU"/>
                                             <constraint firstItem="eN0-6G-uLg" firstAttribute="centerX" secondItem="FE6-s2-qKF" secondAttribute="centerX" id="cxc-xP-IyZ"/>
-                                            <constraint firstItem="RuG-rr-8AV" firstAttribute="trailing" secondItem="d6d-zt-hcf" secondAttribute="trailing" constant="-19" id="msS-ht-CMu"/>
-                                            <constraint firstItem="RuG-rr-8AV" firstAttribute="top" secondItem="fiP-9t-esQ" secondAttribute="bottom" constant="10" id="sP6-0m-ZFM"/>
-                                            <constraint firstAttribute="width" secondItem="FE6-s2-qKF" secondAttribute="height" multiplier="67:44" id="sio-E6-6A5"/>
+                                            <constraint firstItem="Z5t-Nm-AYg" firstAttribute="leading" secondItem="p9f-V6-OcS" secondAttribute="leading" id="ho8-H2-Rwi"/>
                                             <constraint firstAttribute="trailing" secondItem="fiP-9t-esQ" secondAttribute="trailing" id="u6F-jz-Kun"/>
+                                            <constraint firstItem="Z5t-Nm-AYg" firstAttribute="trailing" secondItem="d6d-zt-hcf" secondAttribute="trailing" constant="-19" id="yTt-dM-t53"/>
                                             <constraint firstAttribute="trailing" secondItem="d6d-zt-hcf" secondAttribute="trailing" constant="10" id="zVO-An-5RX"/>
                                         </constraints>
                                     </view>
@@ -208,9 +211,12 @@
                                 <constraints>
                                     <constraint firstItem="FE6-s2-qKF" firstAttribute="leading" secondItem="1oh-wq-DUp" secondAttribute="leading" id="3iW-Gl-Q1S"/>
                                     <constraint firstItem="FE6-s2-qKF" firstAttribute="trailing" secondItem="1oh-wq-DUp" secondAttribute="trailing" id="86X-8S-Z7F"/>
+                                    <constraint firstItem="1oh-wq-DUp" firstAttribute="leading" secondItem="WLz-9d-XSF" secondAttribute="leading" constant="20" id="B4l-bU-52F"/>
                                     <constraint firstItem="1oh-wq-DUp" firstAttribute="top" secondItem="WLz-9d-XSF" secondAttribute="top" constant="24" id="BJQ-u4-6St"/>
                                     <constraint firstItem="FE6-s2-qKF" firstAttribute="top" secondItem="1oh-wq-DUp" secondAttribute="bottom" constant="14" id="G0c-cb-Xc8"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FE6-s2-qKF" secondAttribute="bottom" constant="72" id="ILh-YL-HSh"/>
                                     <constraint firstItem="1oh-wq-DUp" firstAttribute="centerX" secondItem="WLz-9d-XSF" secondAttribute="centerX" id="gjR-hQ-wnk"/>
+                                    <constraint firstAttribute="trailing" secondItem="1oh-wq-DUp" secondAttribute="trailing" constant="20" id="mF5-LR-QVB"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -236,11 +242,13 @@
                         <outlet property="calendarOrigin" destination="mog-aX-yLL" id="Msr-lg-Kqr"/>
                         <outlet property="memoBtn" destination="eN0-6G-uLg" id="9WM-n9-Gjh"/>
                         <outlet property="memoShowView" destination="FE6-s2-qKF" id="FLC-Wv-m9L"/>
+                        <outlet property="memoShowViewHeight" destination="LR0-26-ZDD" id="beP-gm-mdB"/>
+                        <outlet property="memoTextLabel" destination="Z5t-Nm-AYg" id="Leu-cU-zAB"/>
+                        <outlet property="memoTextLabelHeight" destination="ssd-dT-9SL" id="guu-Le-Y6U"/>
                         <outlet property="memoView" destination="FE6-s2-qKF" id="QJm-TO-J7M"/>
                         <outlet property="toWaterLabel" destination="b2l-ny-liI" id="7Di-sb-5wD"/>
                         <outlet property="topAnchorHeight" destination="wd8-sE-cDi" id="fMd-Z2-VIi"/>
                         <outlet property="wateredLabel" destination="9Zk-72-Zow" id="wTV-Z3-uJl"/>
-                        <outlet property="wholeCalendarHeight" destination="oNK-Kg-0A4" id="lIF-X0-KDb"/>
                         <outlet property="wholeCalendarView" destination="1oh-wq-DUp" id="CHK-Cs-0yb"/>
                     </connections>
                 </viewController>
@@ -275,9 +283,6 @@
         <namedColor name="black">
             <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

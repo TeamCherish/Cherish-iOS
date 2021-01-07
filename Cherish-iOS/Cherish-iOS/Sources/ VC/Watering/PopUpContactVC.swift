@@ -70,13 +70,12 @@ class PopUpContactVC: UIViewController {
         }
     }
     
+    //MARK: -@IBAction
     @IBAction func backBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func calling(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
         showCallAlert()
-        
     }
     @IBAction func kakoTalking(_ sender: Any) {
         let kakaoTalk = "kakaotalk://"
@@ -117,12 +116,17 @@ class PopUpContactVC: UIViewController {
 /// 1
 extension PopUpContactVC: CXCallObserverDelegate{
     func callObserver(_ callObserver: CXCallObserver, callChanged call: CXCall) {
+        /// 통화를 하게 되면
         if call.isOutgoing && !didDetectOutgoingCall {
             didDetectOutgoingCall = true
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
-            if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
+            
+            guard let pvc = self.presentingViewController else {return}
+            self.dismiss(animated: true){
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
+                if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
+                    vc.modalPresentationStyle = .fullScreen
+                    pvc.present(vc, animated: true, completion: nil)
+                }
             }
             print("Call button pressed")
         }

@@ -175,9 +175,9 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         if (range.length + range.location > currentCharacterCount){
             return false
         }
-        let newKeywordLength = currentCharacterCount + string.count - range.length
+        let newKeywordLength = currentCharacterCount + string.utf16.count - range.length
         /// 글자 수 실시간 카운팅
-        keywordCountingLabel.text =  "\(String(newKeywordLength-1))"+"/"
+        keywordCountingLabel.text =  "\(String(newKeywordLength))"+"/"
         /// 최대 글자 수 10
         return newKeywordLength <= 10
     }
@@ -201,7 +201,7 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         }
         let newMemoLength = currentCharacterCount + text.count - range.length
         /// 글자 수 실시간 카운팅
-        memoCountingLabel.text =  "\(String(newMemoLength-1))"+"/"
+        memoCountingLabel.text =  "\(String(newMemoLength))"+"/"
         /// 최대 글자 수 100자
         return newMemoLength <= 100
     }
@@ -277,7 +277,7 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         let label = UILabel(frame: CGRect.zero)
         label.text = keyword[indexPath.row]
         label.sizeToFit()
-        let cellSize = label.frame.width+26
+        let cellSize = label.frame.width+23
 
         return CGSize(width: cellSize, height: 29)
 
@@ -286,6 +286,7 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     //MARK: - Cell간의 좌우간격 지정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
     {
+        //이거 왜 안먹냐
         return 5
     }
     
