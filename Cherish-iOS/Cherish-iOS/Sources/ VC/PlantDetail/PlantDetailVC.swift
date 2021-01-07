@@ -7,6 +7,12 @@
 
 import UIKit
 
+
+/// 캘린더의 상태가 무엇을 클릭하는지에 따라 달라지기 때문에 선언해놓습니다.
+protocol SendViewControllerDelegate {
+    func forCalendarStatus(cal_status: Bool)
+}
+
 class PlantDetailVC: UIViewController {
 
     @IBOutlet var plantCircularProgressView: CircularProgressView!
@@ -30,9 +36,11 @@ class PlantDetailVC: UIViewController {
     
     var isClicked:Bool = false
     var keywordArray:[KeywordData] = []
+    var delegate: SendViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate = CalendarVC()
         setControllers()
         makeCircularView()
         defineFirstPlantCardBtnStatus()
@@ -40,6 +48,7 @@ class PlantDetailVC: UIViewController {
         setKeywordData()
         makeCornerRadiusView()
         setAutoLayoutByScreenSize()
+        
     }
     
     
@@ -158,12 +167,22 @@ class PlantDetailVC: UIViewController {
     
     //MARK: - 첫번째 메모 연결버튼
     @IBAction func moveToFirstMemoDetail(_ sender: UIButton) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
+            delegate?.forCalendarStatus(cal_status: false)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     
     //MARK: - 두번째 메모 연결버튼
     @IBAction func moveToSecondMemoDetail(_ sender: UIButton) {
-        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
+            delegate?.forCalendarStatus(cal_status: false)
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
     }
     
     
@@ -181,6 +200,13 @@ class PlantDetailVC: UIViewController {
     //MARK: - 메인뷰로 돌아가는 함수
     @IBAction func popToCherishMainVC(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func moveToCalendar(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
+            delegate?.forCalendarStatus(cal_status: true)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 extension PlantDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

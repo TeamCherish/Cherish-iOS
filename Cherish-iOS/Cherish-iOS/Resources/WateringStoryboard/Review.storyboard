@@ -13,6 +13,9 @@
         <array key="NotoSansCJKkr-Bold.otf">
             <string>NotoSansCJKkr-Bold</string>
         </array>
+        <array key="NotoSansCJKkr-Medium.otf">
+            <string>NotoSansCJKkr-Medium</string>
+        </array>
         <array key="NotoSansCJKkr-Regular.otf">
             <string>NotoSansCJKkr-Regular</string>
         </array>
@@ -86,19 +89,20 @@
                                     <constraint firstAttribute="height" constant="50" id="1XZ-Yq-PUe"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hAp-Jw-EKX">
-                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="itemSize" width="115" height="41"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6Bj-vR-2dx">
-                                        <rect key="frame" x="0.0" y="-39" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="4.666666666666667" width="115" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Jtb-Za-VWS">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="115" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="115" height="41"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -112,13 +116,15 @@
                                             <constraint firstAttribute="height" constant="50" id="ZAU-cO-upW"/>
                                             <constraint firstAttribute="width" secondItem="BEV-mL-uRb" secondAttribute="height" multiplier="343:50" id="bc2-m4-HVK"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                         <state key="normal" title="등록완료">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIS-1M-a0U">
                                         <rect key="frame" x="0.0" y="60" width="343" height="50"/>
-                                        <state key="normal" title="건너뛰기"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                        <state key="normal" title="다음에할게요"/>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -215,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j6x-ok-Vy6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-280" y="-42"/>
+            <point key="canvasLocation" x="-280.80000000000001" y="-42.118226600985224"/>
         </scene>
     </scenes>
     <resources>

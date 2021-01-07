@@ -62,6 +62,9 @@
                                             <constraint firstAttribute="width" secondItem="C6U-5k-3GP" secondAttribute="height" multiplier="1:1" id="bc1-ks-cfs"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="icnCalendar"/>
+                                        <connections>
+                                            <action selector="moveToCalendar:" destination="WHt-ur-unu" eventType="touchUpInside" id="z1R-Zo-cac"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTK-B6-ZTW">
                                         <rect key="frame" x="325" y="0.0" width="44" height="44"/>

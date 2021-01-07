@@ -17,17 +17,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="KeywordCanDeleteCVC" id="gTV-IL-0wX" customClass="KeywordCanDeleteCVC" customModule="Cherish_iOS" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="73" height="48"/>
+            <rect key="frame" x="0.0" y="0.0" width="77" height="29"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="73" height="48"/>
+                <rect key="frame" x="0.0" y="0.0" width="77" height="29"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfa-vq-44x">
-                        <rect key="frame" x="0.0" y="0.0" width="73" height="48"/>
+                        <rect key="frame" x="0.0" y="0.0" width="77" height="29"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Lcr-hc-Lcc">
-                                <rect key="frame" x="11.5" y="16.5" width="50" height="15"/>
+                                <rect key="frame" x="13.5" y="7" width="50" height="15"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgW-gY-obt" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="32" height="15"/>
@@ -43,7 +43,7 @@
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Jk-5Y-Nd9">
                                         <rect key="frame" x="35" y="0.0" width="15" height="15"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="7I0-Cs-7HR"/>
+                                            <constraint firstAttribute="height" constant="15" id="3m4-8Q-lG3"/>
                                             <constraint firstAttribute="width" secondItem="4Jk-5Y-Nd9" secondAttribute="height" multiplier="1:1" id="Lt7-aX-ARn"/>
                                         </constraints>
                                         <state key="normal" image="x"/>
@@ -53,26 +53,27 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Lcr-hc-Lcc" firstAttribute="centerX" secondItem="Qfa-vq-44x" secondAttribute="centerX" id="gwR-Wi-Owe"/>
-                            <constraint firstItem="Lcr-hc-Lcc" firstAttribute="centerY" secondItem="Qfa-vq-44x" secondAttribute="centerY" id="uG6-xR-rGp"/>
+                            <constraint firstAttribute="height" constant="29" id="VMW-jm-xPG"/>
+                            <constraint firstItem="Lcr-hc-Lcc" firstAttribute="centerX" secondItem="Qfa-vq-44x" secondAttribute="centerX" id="aRB-K5-mH6"/>
+                            <constraint firstItem="Lcr-hc-Lcc" firstAttribute="centerY" secondItem="Qfa-vq-44x" secondAttribute="centerY" id="jbP-te-FoV"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="Qfa-vq-44x" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="4ym-se-AKM"/>
-                <constraint firstAttribute="trailing" secondItem="Qfa-vq-44x" secondAttribute="trailing" id="Ozg-8n-AfW"/>
-                <constraint firstAttribute="bottom" secondItem="Qfa-vq-44x" secondAttribute="bottom" id="YRf-GT-DvN"/>
-                <constraint firstItem="Qfa-vq-44x" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="t1x-FN-VKO"/>
+                <constraint firstAttribute="bottom" secondItem="Qfa-vq-44x" secondAttribute="bottom" id="JQb-UG-pnP"/>
+                <constraint firstItem="Qfa-vq-44x" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ysf-eJ-f5l"/>
+                <constraint firstItem="Qfa-vq-44x" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="owT-93-jZZ"/>
+                <constraint firstAttribute="trailing" secondItem="Qfa-vq-44x" secondAttribute="trailing" id="pFL-KH-bcX"/>
             </constraints>
-            <size key="customSize" width="73" height="48"/>
+            <size key="customSize" width="77" height="29"/>
             <connections>
                 <outlet property="keywordCanDeleteView" destination="Qfa-vq-44x" id="OKy-IH-Ve5"/>
                 <outlet property="keywordDeleteBtn" destination="4Jk-5Y-Nd9" id="Dpi-uP-JzZ"/>
                 <outlet property="keywordLabel" destination="FgW-gY-obt" id="wf2-nU-acC"/>
             </connections>
-            <point key="canvasLocation" x="48.550724637681164" y="130.58035714285714"/>
+            <point key="canvasLocation" x="51.449275362318843" y="122.87946428571428"/>
         </collectionViewCell>
     </objects>
     <resources>

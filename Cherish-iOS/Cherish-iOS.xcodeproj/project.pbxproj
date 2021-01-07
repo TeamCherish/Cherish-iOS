@@ -61,6 +61,10 @@
 		33EDFBB525A1B533006367A7 /* PlantDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */; };
 		33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */; };
 		33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */; };
+		5488922125A59486003839FC /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5488922025A59486003839FC /* Calendar.storyboard */; };
+		5488922525A594CF003839FC /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5488922425A594CF003839FC /* CalendarVC.swift */; };
+		5488923625A5E962003839FC /* CalendarKeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5488923425A5E962003839FC /* CalendarKeywordCVCell.swift */; };
+		5488923725A5E962003839FC /* CalendarKeywordCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5488923525A5E962003839FC /* CalendarKeywordCVCell.xib */; };
 		548DF15725A1A0470081FCD1 /* PopUpWatering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */; };
 		548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */; };
 		548DF16C25A1B4390081FCD1 /* PopUpWateringVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF16B25A1B4390081FCD1 /* PopUpWateringVC.swift */; };
@@ -144,6 +148,10 @@
 		33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlantDetail.storyboard; sourceTree = "<group>"; };
 		33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailVC.swift; sourceTree = "<group>"; };
 		33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCVCell.swift; sourceTree = "<group>"; };
+		5488922025A59486003839FC /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		5488922425A594CF003839FC /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarVC.swift; path = "Cherish-iOS/Sources/View/CalendarVC.swift"; sourceTree = SOURCE_ROOT; };
+		5488923425A5E962003839FC /* CalendarKeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarKeywordCVCell.swift; sourceTree = "<group>"; };
+		5488923525A5E962003839FC /* CalendarKeywordCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarKeywordCVCell.xib; sourceTree = "<group>"; };
 		548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUpWatering.storyboard; sourceTree = "<group>"; };
 		548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		548DF16B25A1B4390081FCD1 /* PopUpWateringVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWateringVC.swift; sourceTree = "<group>"; };
@@ -234,6 +242,7 @@
 				33851C73259A5541005BCFFD /* AppDelegate.swift */,
 				33851C75259A5541005BCFFD /* SceneDelegate.swift */,
 				33851C7C259A5542005BCFFD /* Assets.xcassets */,
+				5488921D25A593BC003839FC /* CalendarStoryboard */,
 				548DF15525A1A0000081FCD1 /* WateringStoryboard */,
 				33851C8A259A5AE2005BCFFD /* Storyboard */,
 				33851C8B259A5AEE005BCFFD /* APIService */,
@@ -296,6 +305,7 @@
 		33851C8D259A5B0E005BCFFD /*  VC */ = {
 			isa = PBXGroup;
 			children = (
+				5488922325A594B9003839FC /* Calendar */,
 				548DF16525A1B3E60081FCD1 /* Watering */,
 				923F8CDD25A1C2A900EA04E5 /* AddUser */,
 				33E874EA25A04860001F84FE /* TabBar */,
@@ -323,7 +333,11 @@
 		33851C8F259A5B18005BCFFD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+
 				332CC7AD25A7015100D0047D /* Mypage */,
+
+				5488923125A5E748003839FC /* Calendar */,
+
 				92B2305F25A30DBD0024B8A8 /* AddUser */,
 				33FDB79E25A2900C00F1EC6F /* PlantDetail */,
 				548DF17725A1C1480081FCD1 /* Watering */,
@@ -454,6 +468,31 @@
 				33D0026825A3093500E97811 /* PlantExplainCVC.swift */,
 			);
 			path = PlantDetail;
+			sourceTree = "<group>";
+		};
+		5488921D25A593BC003839FC /* CalendarStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				5488922025A59486003839FC /* Calendar.storyboard */,
+			);
+			path = CalendarStoryboard;
+			sourceTree = "<group>";
+		};
+		5488922325A594B9003839FC /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				5488922425A594CF003839FC /* CalendarVC.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		5488923125A5E748003839FC /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				5488923425A5E962003839FC /* CalendarKeywordCVCell.swift */,
+				5488923525A5E962003839FC /* CalendarKeywordCVCell.xib */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		548DF15525A1A0000081FCD1 /* WateringStoryboard */ = {
@@ -600,6 +639,8 @@
 				33E874CB25A0434B001F84FE /* Roboto-Regular.ttf in Resources */,
 				92E8E39725A1B13F001F1FB4 /* AddUser.storyboard in Resources */,
 				33851C7D259A5542005BCFFD /* Assets.xcassets in Resources */,
+				5488923725A5E962003839FC /* CalendarKeywordCVCell.xib in Resources */,
+				5488922125A59486003839FC /* Calendar.storyboard in Resources */,
 				33E874D125A0437A001F84FE /* NotoSansCJKkr-Bold.otf in Resources */,
 				33E874E425A047DE001F84FE /* ShowMore.storyboard in Resources */,
 				548DF15725A1A0470081FCD1 /* PopUpWatering.storyboard in Resources */,
@@ -671,6 +712,7 @@
 				548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */,
 				92DCC3AA25A7071E00160523 /* PracticeDetail.swift in Sources */,
 				33CAF85225A249DC0050DE29 /* CherishMainNC.swift in Sources */,
+				5488922525A594CF003839FC /* CalendarVC.swift in Sources */,
 				548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */,
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,
 				548DF18D25A227A00081FCD1 /* KeywordCVC.swift in Sources */,
@@ -691,6 +733,7 @@
 				33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */,
 				33D0026F25A30AB700E97811 /* PlantDetailExplainData.swift in Sources */,
 				92B2306125A30DD40024B8A8 /* FriendCell.swift in Sources */,
+				5488923625A5E962003839FC /* CalendarKeywordCVCell.swift in Sources */,
 				92B2306525A30F390024B8A8 /* Friend.swift in Sources */,
 				548DF17525A1BB7F0081FCD1 /* PopUpContactVC.swift in Sources */,
 				548DF16C25A1B4390081FCD1 /* PopUpWateringVC.swift in Sources */,
