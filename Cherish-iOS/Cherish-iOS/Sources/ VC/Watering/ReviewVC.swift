@@ -42,7 +42,7 @@ class ReviewVC: UIViewController {
             self.keywordCollectionView.register(KeywordCanDeleteCVC.nib(), forCellWithReuseIdentifier: KeywordCanDeleteCVC.identifier)
             keywordCollectionView.delegate = self
             keywordCollectionView.dataSource = self
-            keywordCollectionView.collectionViewLayout = LeftAlignedFlowLayout()
+//            keywordCollectionView.collectionViewLayout = LeftAlignedFlowLayout()
         }
     }
     @IBOutlet weak var memoTextView: UITextView!{
@@ -112,6 +112,7 @@ class ReviewVC: UIViewController {
             keywordCountingLabel.text = "0/"
             /// 키워드 길이에 따른 CollectionView 확장을 위해 글자 수 계산
             letterCountingforExpand? += keyword.last?.count ?? 0
+            print(keyword)
             /// 컬렉션 뷰 데이터 업데이트
             keywordCollectionView.reloadData()
             /// 키워드 3개가 다 입력되면 키보드 내림
@@ -251,19 +252,20 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             return UICollectionViewCell()
         }
         cell.keywordLabel.text = keyword[indexPath.row]
-        let label = UILabel(frame: CGRect.zero)
-        label.text = keyword[indexPath.row]
-        label.sizeToFit()
+//        let label = UILabel(frame: CGRect.zero)
+//        label.text = keyword[indexPath.row]
+//        label.sizeToFit()
         
         return cell
     }
+    
     //MARK: - Cell 사이즈
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         let label = UILabel(frame: CGRect.zero)
         label.text = keyword[indexPath.row]
         label.sizeToFit()
-        let cellSize = label.frame.width+23
+        let cellSize = label.frame.width+35
 
         return CGSize(width: cellSize, height: 29)
 
@@ -275,9 +277,9 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         return 7
     }
     
-    //MARK: - 마진
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
-    {
-        return UIEdgeInsets(top: 9, left: 0, bottom: 10, right: 0)
-    }
+//    //MARK: - 마진
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+//    {
+//        return UIEdgeInsets(top: 9, left: 0, bottom: 10, right: 0)
+//    }
 }
