@@ -44,7 +44,7 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
     let formatter = DateFormatter()
     let calendarCurrent = Calendar.current
     var memoBtnstatus: Bool? = true
-    var calendarStatus: Bool?
+    var calendarStatus: String?
     var expandSection = [Bool]()
     var items = [String]()
     var events = [Date]()
@@ -62,9 +62,7 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
         calendarOrigin.dataSource = self
         memoShowView.isHidden = true
         cal_Style()
-        func forCalendarStatus(cal_status: Bool) {
-            calendarStatus = cal_status
-        }
+        defineCalStatus()
         memoTextLabel.text = test_text
     }
     
@@ -76,7 +74,7 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
         if memoBtnstatus == true{
             memoBtnstatus = false
             memoBtn.setImage(UIImage(named: "icUpCalendar"), for: .normal)
-            monthCalendar()
+            weekCalendar()
             if memoTextLabelHeight != nil {
                 memoTextLabel.removeConstraint(memoTextLabelHeight) // 뷰의 확장을 위해 Height값 제거
             }
@@ -86,7 +84,7 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
         }else{
             memoBtnstatus = true
             memoBtn.setImage(UIImage(named: "icDownCalendar"), for: .normal)
-            weekCalendar()
+            monthCalendar()
             memoTextLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 66).isActive = false
             memoTextLabel.layoutIfNeeded()
         }
@@ -94,18 +92,22 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
     
     
     //MARK: -사용자 정의 함수
-    /// 월간 달력
-    func monthCalendar(){
-        self.calendarOrigin?.setScope(.week, animated: true)
-        UIView.animate(withDuration: 3.0, animations: {
-            self.categoryTopAnchor.constant = 0
-            self.categoryBotAnchor.constant = 0
-            self.wateredLabel.isHidden = true
-            self.toWaterLabel.isHidden = true
-        })
+    
+    func forCalendarStatus(cal_status: String) {
+        calendarStatus = cal_status
     }
+    
+    func defineCalStatus(){
+        // 달력버튼 클릭시 .month(true), 메모 클릭시 .week(false)
+        if calendarStatus == "calendar" {
+            monthCalendar()
+        }else{
+            weekCalendar()
+        }
+    }
+    
     /// 주간 달력
-    func weekCalendar(){
+    func monthCalendar(){
         self.calendarOrigin?.setScope(.month, animated: true)
         UIView.animate(withDuration: 3.0, animations: {
             self.categoryTopAnchor.constant = 20
@@ -115,18 +117,16 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
         })
     }
     
-    func forCalendarStatus(cal_status: Bool) {
-        calendarStatus = cal_status
+    /// 월간 달력
+    func weekCalendar(){
+        self.calendarOrigin?.setScope(.week, animated: true)
+        UIView.animate(withDuration: 3.0, animations: {
+            self.categoryTopAnchor.constant = 0
+            self.categoryBotAnchor.constant = 0
+            self.wateredLabel.isHidden = true
+            self.toWaterLabel.isHidden = true
+        })
     }
-    
-    //    func defineCalStatus(){
-    //        // 달력버튼 클릭시 .month(true), 메모 클릭시 .week(false)
-    //        if calendarStatus ?? true {
-    //            monthCalendar()
-    //        }else{
-    //            weekCalendar()
-    //        }
-    //    }
     
     /// 캘린더 스타일
     func cal_Style() {
@@ -148,10 +148,10 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
         calendarOrigin.appearance.weekdayTextColor = .black///요일 색
         calendarOrigin.appearance.selectionColor = UIColor.lightGray // 선택 된 날의 색
         
-//        for weekday in calendarOrigin.daysContainer.{
-//            print(weekday.text)
-//            weekday.textColor = .systemBlue
-//        }
+        //        for weekday in calendarOrigin.daysContainer.{
+        //            print(weekday.text)
+        //            weekday.textColor = .systemBlue
+        //        }
         
         
         // Month 폰트 설정
@@ -203,8 +203,8 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource{
     }
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventColorFor date: Date) -> UIColor? {
-            
-            //Do some checks and return whatever color you want to.
+        
+        //Do some checks and return whatever color you want to.
         if self.test_events.contains(date){
             return UIColor.purple
         }
@@ -212,18 +212,18 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource{
         return nil
     }
     
-//    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]?{
-//        for one in events {
-//            if date == one{
-//                return [.toWateringGreen]
-//            }
-//        }
-//        if self.test_events.contains(date){
-//            return [UIColor.WateredRed, appearance.eventDefaultColor, UIColor.black]
-//        }
-        
-//        return nil
-//    }
+    //    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]?{
+    //        for one in events {
+    //            if date == one{
+    //                return [.toWateringGreen]
+    //            }
+    //        }
+    //        if self.test_events.contains(date){
+    //            return [UIColor.WateredRed, appearance.eventDefaultColor, UIColor.black]
+    //        }
+    
+    //        return nil
+    //    }
     
     // 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {

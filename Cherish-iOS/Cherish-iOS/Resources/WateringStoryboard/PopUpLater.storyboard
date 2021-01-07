@@ -200,6 +200,10 @@
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PRM-bo-UL7">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="168"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="PRM-bo-UL7" secondAttribute="height" multiplier="125:56" id="2nc-qu-qjp"/>
+                                            <constraint firstAttribute="height" constant="168" id="huX-zZ-tXy"/>
+                                        </constraints>
                                     </pickerView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
