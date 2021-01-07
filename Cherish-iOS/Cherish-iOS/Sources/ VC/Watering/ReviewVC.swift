@@ -172,6 +172,12 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         let newKeywordLength = currentCharacterCount + string.utf16.count - range.length
         /// 글자 수 실시간 카운팅
         keywordCountingLabel.text =  "\(String(newKeywordLength))"+"/"
+        
+        /// 100자 채우면 101자로 표시되는거 해결
+        if newKeywordLength >= 5 {
+            keywordCountingLabel.text =  "5/"
+        }
+        
         /// 최대 글자 수 5
         return newKeywordLength <= 5
     }
@@ -193,9 +199,14 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         if (range.length + range.location > currentCharacterCount){
             return false
         }
-        let newMemoLength = currentCharacterCount + text.count - range.length
+        let newMemoLength = currentCharacterCount + text.utf16.count - range.length
         /// 글자 수 실시간 카운팅
         memoCountingLabel.text =  "\(String(newMemoLength))"+"/"
+        
+        /// 100자 채우면 101자로 표시되는거 해결
+        if newMemoLength >= 100 {
+            memoCountingLabel.text =  "100/"
+        }
         /// 최대 글자 수 100자
         return newMemoLength <= 100
     }
