@@ -61,6 +61,7 @@
 		33EDFBB525A1B533006367A7 /* PlantDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */; };
 		33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */; };
 		33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */; };
+		5478343625A76EBC0021C32B /* UIDevie+ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478343525A76EBC0021C32B /* UIDevie+ScreenSize.swift */; };
 		5488922125A59486003839FC /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5488922025A59486003839FC /* Calendar.storyboard */; };
 		5488922525A594CF003839FC /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5488922425A594CF003839FC /* CalendarVC.swift */; };
 		5488923625A5E962003839FC /* CalendarKeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5488923425A5E962003839FC /* CalendarKeywordCVCell.swift */; };
@@ -148,6 +149,7 @@
 		33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlantDetail.storyboard; sourceTree = "<group>"; };
 		33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailVC.swift; sourceTree = "<group>"; };
 		33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCVCell.swift; sourceTree = "<group>"; };
+		5478343525A76EBC0021C32B /* UIDevie+ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevie+ScreenSize.swift"; sourceTree = "<group>"; };
 		5488922025A59486003839FC /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		5488922425A594CF003839FC /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarVC.swift; path = "Cherish-iOS/Sources/View/CalendarVC.swift"; sourceTree = SOURCE_ROOT; };
 		5488923425A5E962003839FC /* CalendarKeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarKeywordCVCell.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				33E8751225A05623001F84FE /* CircularProgressBar.swift */,
 				33E8754B25A0D272001F84FE /* ProgressBarView.swift */,
 				548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */,
+				5478343525A76EBC0021C32B /* UIDevie+ScreenSize.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -333,11 +336,8 @@
 		33851C8F259A5B18005BCFFD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-
 				332CC7AD25A7015100D0047D /* Mypage */,
-
 				5488923125A5E748003839FC /* Calendar */,
-
 				92B2305F25A30DBD0024B8A8 /* AddUser */,
 				33FDB79E25A2900C00F1EC6F /* PlantDetail */,
 				548DF17725A1C1480081FCD1 /* Watering */,
@@ -761,6 +761,7 @@
 				548DF16F25A1B4AB0081FCD1 /* UITextField+Extension.swift in Sources */,
 				33E8754225A08CFE001F84FE /* CherishSelectPersonCVC.swift in Sources */,
 				548DF17E25A1EE730081FCD1 /* ReviewVC.swift in Sources */,
+				5478343625A76EBC0021C32B /* UIDevie+ScreenSize.swift in Sources */,
 				33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */,
 				332CC7B325A701A400D0047D /* MypageContactTVC.swift in Sources */,
 			);
@@ -903,14 +904,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2ZS26WP93H;
+				DEVELOPMENT_TEAM = N8FDQCW52Q;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jieun.iOS.Cherish.Cherish-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "wonseok.iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -924,14 +925,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2ZS26WP93H;
+				DEVELOPMENT_TEAM = N8FDQCW52Q;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jieun.iOS.Cherish.Cherish-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "wonseok.iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -10,7 +10,7 @@ import MessageUI
 import CallKit
 
 class PopUpContactVC: UIViewController {
-    let fakeKeyword = ["생일","취업준비이","헤어짐"]
+    let fakeKeyword = ["생일이니옹","취업준비이","헤어짐안돼"]
     let callObserver = CXCallObserver()
     var didDetectOutgoingCall = false
     var total: CGFloat? = 0
@@ -177,24 +177,20 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     //MARK: - Cell 사이즈
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-        if fakeKeyword[indexPath.row].count >= 4{
-
-            total? += 73
-            return CGSize(width: 76, height: collectionView.frame.height)
-        }else{
-            let label = UILabel(frame: CGRect.zero)
-            label.text = fakeKeyword[indexPath.row]
-            label.sizeToFit()
-            total? += label.frame.width + 20
-            return CGSize(width: label.frame.width+20, height: collectionView.frame.height)
-        }
-
+        
+        let label = UILabel(frame: CGRect.zero)
+        label.text = fakeKeyword[indexPath.row]
+        label.sizeToFit()
+        total? += label.frame.width + 10
+        return CGSize(width: label.frame.width+10, height: collectionView.frame.height)
+        
+        
     }
     
     //MARK: - Cell간의 좌우간격 지정
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
     {
-        return 9
+        return 8
     }
     
     //MARK: - 마진

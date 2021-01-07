@@ -45,7 +45,6 @@ class ReviewVC: UIViewController {
             keywordCollectionView.collectionViewLayout = LeftAlignedFlowLayout()
         }
     }
-    @IBOutlet weak var keywordCVHeight: NSLayoutConstraint!
     @IBOutlet weak var memoTextView: UITextView!{
         didSet{
             memoTextView.delegate = self
@@ -82,8 +81,9 @@ class ReviewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textViewPlaceholder() /// textView Placeholder 셋팅
-        //keyboardUP() /// 키보드 올릴 때 사용
-        
+        if UIDevice.current.isiPhoneSE2 {
+            keyboardUP() /// 키보드 올릴 때 사용
+        }
     }
     
     //MARK: -사용자 정의 함수
@@ -114,11 +114,6 @@ class ReviewVC: UIViewController {
             letterCountingforExpand? += keyword.last?.count ?? 0
             /// 컬렉션 뷰 데이터 업데이트
             keywordCollectionView.reloadData()
-            
-            /// 키워드 길이에 따른 CollectionView 확장을 위한 if문
-            if letterCountingforExpand ?? 0 > 20 {
-                keywordCVHeight.constant = 88
-            }
             /// 키워드 3개가 다 입력되면 키보드 내림
             if keyword.count >= 3 {
                 self.view.endEditing(true)
@@ -126,31 +121,29 @@ class ReviewVC: UIViewController {
         }
     }
     
-/// 키보드 올릴 때 사용
-// 기기마다 텍스트필드가 가려지기도 하고 안가려지기도 하는데 이걸 어떻게..해야하지
-//    func keyboardUP(){
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
-//    @objc
-//    func keyboardWillShow(_ sender: Notification) {
-//
-//        if keywordCVHeight.constant == 100 {
-//            UIView.animate(withDuration: 2.0, animations: {
-//                self.view.transform = CGAffineTransform(translationX: 0, y: -46)
-//            })
-//        }
-//    }
-//
-//    @objc
-//    func keyboardWillHide(_ sender: Notification) {
-//
-//        if keywordCVHeight.constant == 100 {
-//            UIView.animate(withDuration: 2.0, animations: {
-//                self.view.transform = CGAffineTransform(translationX: 0, y: 0)
-//            })
-//        }
-//    }
+    
+    // 키보드 올릴 때 사용
+    func keyboardUP(){
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc
+    func keyboardWillShow(_ sender: Notification) {
+        
+            UIView.animate(withDuration: 2.0, animations: {
+                self.view.transform = CGAffineTransform(translationX: 0, y: -26)
+            })
+    }
+
+    @objc
+    func keyboardWillHide(_ sender: Notification) {
+
+            UIView.animate(withDuration: 2.0, animations: {
+                self.view.transform = CGAffineTransform(translationX: 0, y: 0)
+            })
+    }
     
     
     ///Alert
@@ -178,8 +171,8 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         let newKeywordLength = currentCharacterCount + string.utf16.count - range.length
         /// 글자 수 실시간 카운팅
         keywordCountingLabel.text =  "\(String(newKeywordLength))"+"/"
-        /// 최대 글자 수 10
-        return newKeywordLength <= 10
+        /// 최대 글자 수 5
+        return newKeywordLength <= 5
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -245,15 +238,8 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         /// 키워드 터치시 삭제
-        /// 키워드 길이에 따른 CollectionView 축소를 위해 글자 수 계산
-        letterCountingforExpand? -= keyword[indexPath.row].count
-
         keyword.remove(at: indexPath.row)
         keywordCollectionView.reloadData()
-        
-        /// 키워드는 최대 3개인데 이 곳을 거치면 키워드는 무조건 2개이고
-        /// 2개일 경우 확장 될 경우의 수 없음
-        keywordCVHeight.constant = 50
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -284,10 +270,9 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     }
     
     //MARK: - Cell간의 좌우간격 지정
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
     {
-        //이거 왜 안먹냐
-        return 5
+        return 7
     }
     
     //MARK: - 마진

@@ -257,7 +257,7 @@ extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
     }
     
     //MARK: - Cell간의 좌우간격 지정
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
     {
         return 5
     }
