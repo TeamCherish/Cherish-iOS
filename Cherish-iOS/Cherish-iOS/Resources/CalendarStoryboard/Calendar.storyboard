@@ -115,9 +115,9 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="9Zk-72-Zow" firstAttribute="top" secondItem="mog-aX-yLL" secondAttribute="bottom" constant="20" id="1OQ-Cv-Aik"/>
                                             <constraint firstAttribute="trailing" secondItem="b2l-ny-liI" secondAttribute="trailing" constant="18" id="Dsh-7t-hif"/>
                                             <constraint firstItem="mog-aX-yLL" firstAttribute="leading" secondItem="1oh-wq-DUp" secondAttribute="leading" id="Fh9-R2-9Uz"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="mog-aX-yLL" secondAttribute="bottom" constant="52" id="XWY-ml-OJx"/>
                                             <constraint firstAttribute="bottom" secondItem="b2l-ny-liI" secondAttribute="bottom" constant="14" id="d5y-Rf-waj"/>
                                             <constraint firstAttribute="trailing" secondItem="mog-aX-yLL" secondAttribute="trailing" id="kpH-Zf-kb2"/>
                                             <constraint firstItem="b2l-ny-liI" firstAttribute="leading" secondItem="9Zk-72-Zow" secondAttribute="trailing" constant="14" id="udT-9o-0Nq"/>
@@ -236,10 +236,11 @@
                         <nil key="title"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="bottomAnchorHeight" destination="XWY-ml-OJx" id="69R-oe-lHp"/>
                         <outlet property="calendarHeight" destination="xe5-J7-FxN" id="Hiw-ao-c6B"/>
                         <outlet property="calendarKeywordCollectionView" destination="fiP-9t-esQ" id="2Pf-aU-WpR"/>
                         <outlet property="calendarOrigin" destination="mog-aX-yLL" id="Msr-lg-Kqr"/>
+                        <outlet property="categoryBotAnchor" destination="d5y-Rf-waj" id="ugQ-2P-Sne"/>
+                        <outlet property="categoryTopAnchor" destination="1OQ-Cv-Aik" id="85x-wg-QMH"/>
                         <outlet property="memoBtn" destination="eN0-6G-uLg" id="9WM-n9-Gjh"/>
                         <outlet property="memoShowView" destination="FE6-s2-qKF" id="FLC-Wv-m9L"/>
                         <outlet property="memoShowViewHeight" destination="LR0-26-ZDD" id="beP-gm-mdB"/>
@@ -247,7 +248,6 @@
                         <outlet property="memoTextLabelHeight" destination="ssd-dT-9SL" id="guu-Le-Y6U"/>
                         <outlet property="memoView" destination="FE6-s2-qKF" id="QJm-TO-J7M"/>
                         <outlet property="toWaterLabel" destination="b2l-ny-liI" id="7Di-sb-5wD"/>
-                        <outlet property="topAnchorHeight" destination="wd8-sE-cDi" id="fMd-Z2-VIi"/>
                         <outlet property="wateredLabel" destination="9Zk-72-Zow" id="wTV-Z3-uJl"/>
                         <outlet property="wholeCalendarView" destination="1oh-wq-DUp" id="CHK-Cs-0yb"/>
                     </connections>
