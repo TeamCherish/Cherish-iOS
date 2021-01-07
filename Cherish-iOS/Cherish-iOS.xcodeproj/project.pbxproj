@@ -73,7 +73,8 @@
 		923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */; };
 		92B2306125A30DD40024B8A8 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2306025A30DD40024B8A8 /* FriendCell.swift */; };
 		92B2306525A30F390024B8A8 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2306425A30F390024B8A8 /* Friend.swift */; };
-		92B2306B25A387ED0024B8A8 /* DetailPractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2306A25A387ED0024B8A8 /* DetailPractice.swift */; };
+		92DCC3AA25A7071E00160523 /* PracticeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DCC3A925A7071E00160523 /* PracticeDetail.swift */; };
+		92DCC3AE25A708C700160523 /* PracticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DCC3AD25A708C700160523 /* PracticeCell.swift */; };
 		92E8E39725A1B13F001F1FB4 /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -146,7 +147,8 @@
 		923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendVC.swift; sourceTree = "<group>"; };
 		92B2306025A30DD40024B8A8 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		92B2306425A30F390024B8A8 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
-		92B2306A25A387ED0024B8A8 /* DetailPractice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPractice.swift; sourceTree = "<group>"; };
+		92DCC3A925A7071E00160523 /* PracticeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeDetail.swift; sourceTree = "<group>"; };
+		92DCC3AD25A708C700160523 /* PracticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeCell.swift; sourceTree = "<group>"; };
 		92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddUser.storyboard; sourceTree = "<group>"; };
 		DAA60C0D230FDF9D184F4B6C /* Pods-Cherish-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F67D9DFE41871E0883A26838 /* Pods-Cherish-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.release.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -452,7 +454,7 @@
 			children = (
 				923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */,
 				923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */,
-				92B2306A25A387ED0024B8A8 /* DetailPractice.swift */,
+				92DCC3A925A7071E00160523 /* PracticeDetail.swift */,
 			);
 			path = AddUser;
 			sourceTree = "<group>";
@@ -461,6 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				92B2306025A30DD40024B8A8 /* FriendCell.swift */,
+				92DCC3AD25A708C700160523 /* PracticeCell.swift */,
 			);
 			path = AddUser;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */,
+				92DCC3AA25A7071E00160523 /* PracticeDetail.swift in Sources */,
 				33CAF85225A249DC0050DE29 /* CherishMainNC.swift in Sources */,
 				548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */,
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,
@@ -635,12 +639,12 @@
 				923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */,
 				33E874FE25A04A8D001F84FE /* ShowMoreVC.swift in Sources */,
 				33E874FB25A04A81001F84FE /* MyPageVC.swift in Sources */,
-				92B2306B25A387ED0024B8A8 /* DetailPractice.swift in Sources */,
 				33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */,
 				33E8753E25A08687001F84FE /* CherishSelectedPeopleData.swift in Sources */,
 				33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */,
 				33E8754625A08E87001F84FE /* CherishPeopleData.swift in Sources */,
 				548DF1A925A395D20081FCD1 /* KeywordCanDeleteCVC.swift in Sources */,
+				92DCC3AE25A708C700160523 /* PracticeCell.swift in Sources */,
 				33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */,
 				33D0026F25A30AB700E97811 /* PlantDetailExplainData.swift in Sources */,
 				92B2306125A30DD40024B8A8 /* FriendCell.swift in Sources */,

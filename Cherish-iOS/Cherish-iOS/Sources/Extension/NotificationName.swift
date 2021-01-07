@@ -9,4 +9,5 @@ import Foundation
 
 extension Notification.Name {
     static let cherishPeopleCellClicked = Notification.Name("cherishPeopleCellClicked")
+    static let radioBtnClicked = Notification.Name("radioBtnClicked")
 }

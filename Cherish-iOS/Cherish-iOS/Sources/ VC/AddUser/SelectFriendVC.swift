@@ -16,9 +16,7 @@ class SelectFriendVC: UIViewController {
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var nextLabel: UILabel!
     
-    
-    //MARK: - 변수 선언
-    
+//MARK: - 변수 선언
     var friendList: [Friend] = []
     var name = [String]()
     var phoneNumber = [String]()
@@ -27,6 +25,9 @@ class SelectFriendVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(activeNextBtn(_:)), name: .radioBtnClicked, object: nil)
+        
         resetSelectFriendVC()
         setSearchFriendTextField()
         enableNextBtn()
@@ -36,10 +37,16 @@ class SelectFriendVC: UIViewController {
         friendTableView.separatorStyle = .none
         friendTableView.dataSource = self
         friendTableView.delegate = self
-        searchFriendTextField.delegate = self
+//        searchFriendTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
+    @objc func activeNextBtn(_ notification: Notification) {
+        print("ㅎㅇㅎㅇ")
+        self.nextBtn.isEnabled = true
+        self.nextBtn.setImage(UIImage(named: "btn_next_selected"), for: .normal)
+        self.nextLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+    }
     
     //MARK: - VC navigation bar, tab bar 삭제
     
@@ -104,14 +111,14 @@ class SelectFriendVC: UIViewController {
     }
     
     func setPhoneNumberData() {
-        phoneNumber.append("010-0000-0000")
-        phoneNumber.append("010-0000-0001")
-        phoneNumber.append("010-0000-0002")
-        phoneNumber.append("010-0000-0003")
-        phoneNumber.append("010-0000-0004")
-        phoneNumber.append("010-0000-0005")
-        phoneNumber.append("010-0000-0006")
-        phoneNumber.append("010-0000-0007")
+        phoneNumber.append("010.0000.0000")
+        phoneNumber.append("010.1000.0001")
+        phoneNumber.append("010.2000.0002")
+        phoneNumber.append("010.3000.0003")
+        phoneNumber.append("010.4000.0004")
+        phoneNumber.append("010.5000.0005")
+        phoneNumber.append("010.6000.0006")
+        phoneNumber.append("010.7000.0007")
     }
 }
 
@@ -119,9 +126,6 @@ class SelectFriendVC: UIViewController {
 //MARK: - tableview dataSource, delegate
 extension SelectFriendVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if !filteredNameData.isEmpty {
-            return filteredNameData.count
-        }
         return friendList.count
     }
     
@@ -129,43 +133,26 @@ extension SelectFriendVC: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendCell.identifier) as? FriendCell else {
             return UITableViewCell()
         }
-        if !filteredNameData.isEmpty {
-            cell.setName(name: filteredNameData[indexPath.row])
-//            cell.setPhoneNumber(phoneNumber: filteredPhoneNumberData[indexPath.row])
-        }
-        cell.setCell(friend: friendList[indexPath.row])
+        cell.setName(name: name[indexPath.row])
+        cell.setPhoneNumber(phoneNumber: phoneNumber[indexPath.row])
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.isEmpty == false {
-            self.nextBtn.isEnabled = true
-            self.nextBtn.setImage(UIImage(named: "btn_next_selected"), for: .normal)
-            self.nextLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
-        }
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendCell.identifier) as? FriendCell else {return}
+//
+//        if cell.activeBtn == true {
+//            self.nextBtn.isEnabled = true
+//            self.nextBtn.setImage(UIImage(named: "btn_next_selected"), for: .normal)
+//            self.nextLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+//        }
+        
+//        if indexPath.isEmpty == false {
+//            cell.radioBtn.setImage(UIImage(named: "btn_checkbox_selected"), for: .normal)
+//            tableView.reloadData()
+//            self.nextBtn.isEnabled = true
+//            self.nextBtn.setImage(UIImage(named: "btn_next_selected"), for: .normal)
+//        }
+//    }
 }
 
-extension SelectFriendVC: UITextFieldDelegate {
-    func filterText(_ query: String?) {
-        guard let query = query else {
-            return
-        }
-        print("\(query)")
-        filteredNameData.removeAll()
-        filteredPhoneNumberData.removeAll()
-        
-        for string in name {
-            if string.lowercased().starts(with: query.lowercased()) {
-                filteredNameData.append(string)
-            }
-        }
-//        friendTableView.reloadData
-    }
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if let text = searchFriendTextField.text {
-            filterText(text + string)
-        }
-        return true
-    }
-}
