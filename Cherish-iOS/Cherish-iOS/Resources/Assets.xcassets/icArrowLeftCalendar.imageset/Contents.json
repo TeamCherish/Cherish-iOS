@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "icArrowLeftCalendar.png",
+      "scale" : "1x"
+    },
+    {
+      "scale" : "2x",
+      "idiom" : "universal",
+      "filename" : "icArrowLeftCalendar@2x.png"
+    },
+    {
+      "filename" : "icArrowLeftCalendar@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

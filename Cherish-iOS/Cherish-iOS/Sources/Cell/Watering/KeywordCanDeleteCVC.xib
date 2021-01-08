@@ -26,36 +26,34 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfa-vq-44x">
                         <rect key="frame" x="0.0" y="0.0" width="77" height="29"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Lcr-hc-Lcc">
-                                <rect key="frame" x="13.5" y="7" width="50" height="15"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgW-gY-obt" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="32" height="15"/>
-                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
-                                        <color key="textColor" name="black"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                                <real key="value" value="0.69999999999999996"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Jk-5Y-Nd9">
-                                        <rect key="frame" x="35" y="0.0" width="15" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="3m4-8Q-lG3"/>
-                                            <constraint firstAttribute="width" secondItem="4Jk-5Y-Nd9" secondAttribute="height" multiplier="1:1" id="Lt7-aX-ARn"/>
-                                        </constraints>
-                                        <state key="normal" image="x"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgW-gY-obt" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="10" y="5" width="32" height="19"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                <color key="textColor" name="black"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Jk-5Y-Nd9">
+                                <rect key="frame" x="49" y="7" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4Jk-5Y-Nd9" secondAttribute="height" id="Rnk-ip-K0l"/>
+                                    <constraint firstAttribute="width" constant="15" id="SAB-QW-dgn"/>
+                                </constraints>
+                                <state key="normal" image="x"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="FgW-gY-obt" secondAttribute="bottom" constant="5" id="Efu-Sr-PwM"/>
                             <constraint firstAttribute="height" constant="29" id="VMW-jm-xPG"/>
-                            <constraint firstItem="Lcr-hc-Lcc" firstAttribute="centerX" secondItem="Qfa-vq-44x" secondAttribute="centerX" id="aRB-K5-mH6"/>
-                            <constraint firstItem="Lcr-hc-Lcc" firstAttribute="centerY" secondItem="Qfa-vq-44x" secondAttribute="centerY" id="jbP-te-FoV"/>
+                            <constraint firstItem="4Jk-5Y-Nd9" firstAttribute="leading" secondItem="FgW-gY-obt" secondAttribute="trailing" constant="7" id="dpH-MF-cH1"/>
+                            <constraint firstItem="FgW-gY-obt" firstAttribute="leading" secondItem="Qfa-vq-44x" secondAttribute="leading" constant="10" id="tfe-Qr-Xsh"/>
+                            <constraint firstItem="4Jk-5Y-Nd9" firstAttribute="centerY" secondItem="FgW-gY-obt" secondAttribute="centerY" id="vOB-MJ-MSq"/>
+                            <constraint firstItem="FgW-gY-obt" firstAttribute="top" secondItem="Qfa-vq-44x" secondAttribute="top" constant="5" id="xe9-zJ-2Wq"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -69,9 +67,9 @@
             </constraints>
             <size key="customSize" width="77" height="29"/>
             <connections>
-                <outlet property="keywordCanDeleteView" destination="Qfa-vq-44x" id="OKy-IH-Ve5"/>
-                <outlet property="keywordDeleteBtn" destination="4Jk-5Y-Nd9" id="Dpi-uP-JzZ"/>
-                <outlet property="keywordLabel" destination="FgW-gY-obt" id="wf2-nU-acC"/>
+                <outlet property="keywordCanDeleteView" destination="Qfa-vq-44x" id="I77-JQ-9Fs"/>
+                <outlet property="keywordDeleteBtn" destination="4Jk-5Y-Nd9" id="Oed-aI-gwi"/>
+                <outlet property="keywordLabel" destination="FgW-gY-obt" id="k6b-pw-zQm"/>
             </connections>
             <point key="canvasLocation" x="51.449275362318843" y="122.87946428571428"/>
         </collectionViewCell>

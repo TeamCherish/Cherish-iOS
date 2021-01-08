@@ -7,12 +7,6 @@
 
 import UIKit
 
-
-/// 캘린더의 상태가 무엇을 클릭하는지에 따라 달라지기 때문에 선언해놓습니다.
-protocol SendViewControllerDelegate {
-    func forCalendarStatus(cal_status: Bool)
-}
-
 class PlantDetailVC: UIViewController {
 
     @IBOutlet var plantCircularProgressView: CircularProgressView!
@@ -36,11 +30,9 @@ class PlantDetailVC: UIViewController {
     
     var isClicked:Bool = false
     var keywordArray:[KeywordData] = []
-    var delegate: SendViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = CalendarVC()
         setControllers()
         makeCircularView()
         defineFirstPlantCardBtnStatus()
@@ -169,7 +161,8 @@ class PlantDetailVC: UIViewController {
     @IBAction func moveToFirstMemoDetail(_ sender: UIButton) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
-            delegate?.forCalendarStatus(cal_status: false)
+            vc.calendarStatus = "memo" /// 메모 클릭 시 주간모드
+            //delegate?.forCalendarStatus(cal_status: "memo")
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -179,7 +172,8 @@ class PlantDetailVC: UIViewController {
     @IBAction func moveToSecondMemoDetail(_ sender: UIButton) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
-            delegate?.forCalendarStatus(cal_status: false)
+            vc.calendarStatus = "memo" /// 메모 클릭 시 주간 모드
+            //delegate?.forCalendarStatus(cal_status: "memo")
             self.navigationController?.pushViewController(vc, animated: true)
             
         }
@@ -204,7 +198,7 @@ class PlantDetailVC: UIViewController {
     @IBAction func moveToCalendar(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
-            delegate?.forCalendarStatus(cal_status: true)
+            vc.calendarStatus = "calendar" /// 달력 클릭 시 월간 모드
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
