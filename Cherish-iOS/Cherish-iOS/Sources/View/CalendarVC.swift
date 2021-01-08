@@ -186,9 +186,9 @@ class CalendarVC: UIViewController {
         formatter.locale = Locale(identifier: "ko_KR")
         formatter.dateFormat = "yyyy-MM-dd"
         let SHB = formatter.date(from: "2021-01-06")
-        let love = formatter.date(from: "2021-01-26")
-        let test1 = formatter.date(from: "2021-01-10")
-        let test2 = formatter.date(from: "2021-01-15")
+        let love = formatter.date(from: "2021-01-10")
+        let test1 = formatter.date(from: "2021-01-15")
+        let test2 = formatter.date(from: "2021-01-26")
         events = [SHB!, love!]
         test_events = [test1!, test2!]
     }
@@ -200,8 +200,12 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
     
     /// Event 표시 Dot 사이즈 조정
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let eventScaleFactor: CGFloat = 1.5
+        let eventScaleFactor: CGFloat = 1.6
         cell.eventIndicator.transform = CGAffineTransform(scaleX: eventScaleFactor, y: eventScaleFactor)
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventOffsetFor date: Date) -> CGPoint {
+        return CGPoint(x: 0, y: 2)
     }
     
     /// Calendar 주간, 월간 원활한 크기 변화를 위해
