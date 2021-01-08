@@ -9,7 +9,7 @@
         <!--Cherish Tab Bar Controller-->
         <scene sceneID="Xkf-Zq-l0W">
             <objects>
-                <tabBarController id="Jh4-Wm-EJ3" customClass="CherishTabBarController" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="CherishTabBarController" id="Jh4-Wm-EJ3" customClass="CherishTabBarController" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yh2-K6-UwM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

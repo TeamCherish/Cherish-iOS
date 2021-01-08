@@ -1,20 +1,19 @@
 {
   "images" : [
     {
-
-      "scale" : "1x",
       "idiom" : "universal",
-      "filename" : "loginLogo.png"
+      "filename" : "line1Login.png",
+      "scale" : "1x"
     },
     {
-      "filename" : "loginLogo@2x.png",
+      "filename" : "line1Login@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "loginLogo@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "line1Login@3x.png",
+      "scale" : "3x",
+      "idiom" : "universal"
     }
   ],
   "info" : {

@@ -1,20 +1,19 @@
 {
   "images" : [
     {
-
-      "scale" : "1x",
+      "filename" : "icEmail.png",
       "idiom" : "universal",
-      "filename" : "loginLogo.png"
+      "scale" : "1x"
     },
     {
-      "filename" : "loginLogo@2x.png",
+      "filename" : "icEmail@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "loginLogo@3x.png",
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "icEmail@3x.png"
     }
   ],
   "info" : {
