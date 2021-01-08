@@ -13,13 +13,12 @@ import FSCalendar
 //}
 class CalendarVC: UIViewController {
     let fake_keyword = ["생일","취업준비중","헤어짐"]
-    let test_text = "오늘 남쿵이랑 연락을 했다. 바빠서 여자친구한테 소홀 해서 많이 싸우더만 이번엔 진짜 헤어진 것 같다.목소리가 너무 안좋아서 걱정됐는데 잘 챙겨줘야겠다." /// 100글자
+    let test_text = "오늘 남쿵이랑 연락을 했다. 바빠서 여자친구한테 소홀 해서 많이 싸우더만 이번엔 진짜 헤어진 것 같다.목소리가 너무 안좋아서 걱정됐는데 잘 챙겨줘야겠다." /// 85글자
 //    var delegate: SendViewControllerDelegate?
     let formatter = DateFormatter()
     let calendarCurrent = Calendar.current
     var memoBtnstatus: Bool? = true
     var calendarStatus: String?
-    var expandSection = [Bool]()
     var items = [String]()
     var events = [Date]()
     var test_events = [Date]()
@@ -28,6 +27,8 @@ class CalendarVC: UIViewController {
     private lazy var today: Date = {
         return Date()
     }()
+    weak var oneCon: NSLayoutConstraint? = nil
+    weak var twoCon: NSLayoutConstraint? = nil
     
     @IBOutlet weak var wholeCalendarView: UIView!{
         didSet{
@@ -46,7 +47,7 @@ class CalendarVC: UIViewController {
         }
     }
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
-    @IBOutlet weak var categoryTopAnchor: NSLayoutConstraint!
+    @IBOutlet weak var memoViewBotAnchor: NSLayoutConstraint!
     @IBOutlet weak var categoryBotAnchor: NSLayoutConstraint!
     @IBOutlet weak var toWaterLabel: UIStackView!
     @IBOutlet weak var wateredLabel: UIStackView!
@@ -65,35 +66,32 @@ class CalendarVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.expandSection = [Bool](repeating: false, count: self.items.count)
 //        self.delegate = ReviewEditVC()
         memoShowView.isHidden = true
         memoTextLabel.text = test_text
         cal_Style()
         defineCalStatus()
-    }
+        forsmallPhone()
     
+    }
     
     @IBAction func moveToBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    /// 메모 하단부 버튼
     @IBAction func moveToUp(_ sender: Any) {
+
         if memoBtnstatus == true{
             memoBtnstatus = false
             memoBtn.setImage(UIImage(named: "icUpCalendar"), for: .normal)
             weekCalendar()
-            if memoTextLabelHeight != nil {
-                memoTextLabel.removeConstraint(memoTextLabelHeight) // 뷰의 확장을 위해 Height값 제거
-            }
-            //            memoTextLabel.heightAnchor.constraint(equalToConstant: 66).isActive = false
-            memoTextLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 66).isActive = true // 다시 할당
-            memoTextLabel.layoutIfNeeded()
+            /// 확장 가능하게 우선순위 낮춤
+            memoTextLabelHeight.priority = .defaultLow
         }else{
             memoBtnstatus = true
             memoBtn.setImage(UIImage(named: "icDownCalendar"), for: .normal)
             monthCalendar()
-            memoTextLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 66).isActive = false
-            memoTextLabel.layoutIfNeeded()
         }
     }
     @IBAction func moveToEdit(_ sender: Any) {
@@ -109,11 +107,6 @@ class CalendarVC: UIViewController {
     
     
     //MARK: -사용자 정의 함수
-    
-//    func forCalendarStatus(cal_status: String) {
-//        calendarStatus = cal_status
-//    }
-    
     func defineCalStatus(){
         // 달력버튼 클릭시 .month(true), 메모 클릭시 .week(false)
         if calendarStatus == "calendar" {
@@ -123,33 +116,38 @@ class CalendarVC: UIViewController {
         }
     }
     
+    //MARK: -SE2를 위한 AutoLayout 변경
+    func forsmallPhone(){
+        if UIDevice.current.isiPhoneSE2{
+            memoShowView.removeConstraint(memoShowViewHeight)
+            memoShowView.heightAnchor.constraint(greaterThanOrEqualToConstant: 190).isActive = true
+            memoTextLabelHeight.constant = 33
+            memoViewBotAnchor.constant = 52
+        }
+    }
+    
     /// 주간 달력
     func monthCalendar(){
         self.calendarOrigin?.setScope(.month, animated: true)
-        UIView.animate(withDuration: 3.0, animations: {
-            self.categoryTopAnchor.constant = 20
-            self.categoryBotAnchor.constant = 14
-            self.wateredLabel.isHidden = false
-            self.toWaterLabel.isHidden = false
-        })
+        self.wateredLabel.isHidden = false
+        self.toWaterLabel.isHidden = false
     }
     
     /// 월간 달력
     func weekCalendar(){
         self.calendarOrigin?.setScope(.week, animated: true)
-        UIView.animate(withDuration: 3.0, animations: {
-            self.categoryTopAnchor.constant = 0
-            self.categoryBotAnchor.constant = 0
-            self.wateredLabel.isHidden = true
-            self.toWaterLabel.isHidden = true
-        })
+        self.wateredLabel.isHidden = true
+        self.toWaterLabel.isHidden = true
     }
     
     /// 캘린더 스타일
     func cal_Style() {
         /// 캘린더 헤더 부분
-        
-        calendarOrigin.headerHeight = 66
+        if UIDevice.current.isiPhoneSE2{
+            calendarOrigin.headerHeight = 44
+        }else{
+            calendarOrigin.headerHeight = 66
+        }
         calendarOrigin.weekdayHeight = 41
         calendarOrigin.appearance.headerMinimumDissolvedAlpha = 0.0 /// 헤더 좌,우측 흐릿한 글씨 삭제
         calendarOrigin.locale = Locale(identifier: "ko_KR") /// 한국어로 변경
@@ -166,7 +164,7 @@ class CalendarVC: UIViewController {
         calendarOrigin.appearance.selectionColor = .calendarSelectCircleGrey // 선택 된 날의 색
         calendarOrigin.appearance.titleWeekendColor = .black /// 주말 날짜 색
         calendarOrigin.appearance.titleDefaultColor = .black /// 기본 날짜 색
-        
+
         // Month 폰트 설정
         calendarOrigin.appearance.headerTitleFont = UIFont(name: "NotoSansCJKKR-Medium", size: 16)
         
@@ -192,7 +190,6 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
         let eventScaleFactor: CGFloat = 1.5
         cell.eventIndicator.transform = CGAffineTransform(scaleX: eventScaleFactor, y: eventScaleFactor)
-        
     }
     
     /// Calendar 주간, 월간 원활한 크기 변화를 위해
