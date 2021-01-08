@@ -9,7 +9,7 @@ import UIKit
 
 class ReviewEditVC: UIViewController,SendViewControllerDelegate{
     func deliveryKeyword(memoText: String) {
-        print(memoText)
+        memoTextView?.text = memoText
     }
     
     var edit_keyword = [String]() /// 키워드 배열
@@ -72,10 +72,6 @@ class ReviewEditVC: UIViewController,SendViewControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         textViewPlaceholder() /// textView Placeholder 셋팅
-        if UIDevice.current.isiPhoneSE2 {
-            keyboardUP() /// 키보드 올릴 때 사용
-        }
-        
     }
     
     @IBAction func moveToBack(_ sender: Any) {
@@ -115,31 +111,6 @@ class ReviewEditVC: UIViewController,SendViewControllerDelegate{
             }
         }
     }
-    
-    
-    // 키보드 올릴 때 사용
-    func keyboardUP(){
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc
-    func keyboardWillShow(_ sender: Notification) {
-        
-            UIView.animate(withDuration: 2.0, animations: {
-                self.view.transform = CGAffineTransform(translationX: 0, y: -26)
-            })
-    }
-
-    @objc
-    func keyboardWillHide(_ sender: Notification) {
-
-            UIView.animate(withDuration: 2.0, animations: {
-                self.view.transform = CGAffineTransform(translationX: 0, y: 0)
-            })
-    }
-    
     
     ///Alert
     func nomoreKeyword(title: String, message: String) {

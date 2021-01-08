@@ -10,7 +10,6 @@ import UIKit
 class ReviewVC: UIViewController {
     var keyword = [String]() /// 키워드 배열
     
-    
     //MARK: -@IBOutlet
     @IBOutlet weak var reviewNameLabel: CustomLabel! ///또령님! 남쿵둥이님과의
     @IBOutlet weak var reviewPlzLabel: CustomLabel! ///남쿵둥이님과의 물주기를 기록해주세요
@@ -127,23 +126,23 @@ class ReviewVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    
     @objc
     func keyboardWillShow(_ sender: Notification) {
-        
-            UIView.animate(withDuration: 2.0, animations: {
+        if memoTextView.isFirstResponder{
+                UIView.animate(withDuration: 2.0, animations: {
                 self.view.transform = CGAffineTransform(translationX: 0, y: -26)
             })
+        }
     }
 
     @objc
     func keyboardWillHide(_ sender: Notification) {
-
+        if memoTextView.isFirstResponder{
             UIView.animate(withDuration: 2.0, animations: {
                 self.view.transform = CGAffineTransform(translationX: 0, y: 0)
             })
+        }
     }
-    
     
     ///Alert
     func nomoreKeyword(title: String, message: String) {
