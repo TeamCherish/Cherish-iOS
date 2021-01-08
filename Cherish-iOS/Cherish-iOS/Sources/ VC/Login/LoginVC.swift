@@ -141,15 +141,20 @@ class LoginVC: UIViewController {
         cancelPwTextingBtn.isHidden = true
     }
     
-    
-    //MARK: - 로그인 버튼 눌렀을 때
-    @IBAction func touchUpToLogin(_ sender: UIButton) {
-        //로그인 동작 서버 연결
-    }
-    
 
     // 뷰의 다른 곳 탭하면 키보드 내려가게
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { self.view.endEditing(true)
+    }
+    
+    //MARK: - 로그인 버튼 눌렀을 때
+    @IBAction func touchUpToLogin(_ sender: UIButton) {
+        
+        //서버 연결 성공 시 tabBar storyboard와 연결
+        let tabBarStoyboard: UIStoryboard = UIStoryboard(name: "TabBar", bundle: nil)
+        if let tabBarVC = tabBarStoyboard.instantiateViewController(identifier: "CherishTabBarController") as? CherishTabBarController {
+            tabBarVC.modalPresentationStyle = .fullScreen
+            self.present(tabBarVC, animated: true, completion: nil)
+        }
     }
 
 }

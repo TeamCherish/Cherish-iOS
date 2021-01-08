@@ -177,6 +177,7 @@
                             <constraint firstItem="ZiG-FU-Qj0" firstAttribute="top" secondItem="GsN-1D-uwx" secondAttribute="bottom" constant="36" id="x2T-eU-6Zr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="TKt-W4-sgn"/>
                     <connections>
                         <outlet property="cancelEmailTextingBtn" destination="snS-FA-KaS" id="Sl4-bb-s9F"/>
                         <outlet property="cancelPwTextingBtn" destination="GVX-8T-DLD" id="nUD-rc-RKS"/>
@@ -190,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BcS-YV-g1Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-181.59999999999999" y="-44.334975369458128"/>
+            <point key="canvasLocation" x="760.79999999999995" y="-44.334975369458128"/>
         </scene>
     </scenes>
     <resources>
