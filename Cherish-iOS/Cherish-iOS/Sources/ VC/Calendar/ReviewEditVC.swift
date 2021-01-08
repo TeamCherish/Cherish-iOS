@@ -7,13 +7,10 @@
 
 import UIKit
 
-class ReviewEditVC: UIViewController,SendViewControllerDelegate{
-    func deliveryKeyword(memoText: String) {
-        memoTextView?.text = memoText
-    }
-    
+class ReviewEditVC: UIViewController{
+    var space: String?
     var edit_keyword = [String]() /// 키워드 배열
-    
+
     @IBOutlet weak var editMemoDateLabel: CustomLabel!
     @IBOutlet weak var keywordTextField: UITextField!{
         didSet{
@@ -71,7 +68,7 @@ class ReviewEditVC: UIViewController,SendViewControllerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textViewPlaceholder() /// textView Placeholder 셋팅
+        loadMemo()
     }
     
     @IBAction func moveToBack(_ sender: Any) {
@@ -79,6 +76,8 @@ class ReviewEditVC: UIViewController,SendViewControllerDelegate{
     }
     
     //MARK: -사용자 정의 함수
+    
+    /// 키보드 Done 버튼 생성
     func textFieldDoneBtnMake(text_field : UITextField)
     {
         let ViewForDoneButtonOnKeyboard:UIToolbar = UIToolbar(frame: CGRect(x:0,y:0,width: UIScreen.main.bounds.width,height: 50))
@@ -92,6 +91,7 @@ class ReviewEditVC: UIViewController,SendViewControllerDelegate{
         text_field.inputAccessoryView = ViewForDoneButtonOnKeyboard
     }
     
+    /// Done 버튼 클릭 시 이벤트
     @objc func doneBtnFromKeyboardClicked (sender: Any) {
         print("Done Button Clicked.")
         
@@ -112,6 +112,10 @@ class ReviewEditVC: UIViewController,SendViewControllerDelegate{
         }
     }
     
+    func loadMemo(){
+        memoTextView.text = space
+        memoCountingLabel.text = "\(String(memoTextView.text.count))"+"/"
+    }
     ///Alert
     func nomoreKeyword(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

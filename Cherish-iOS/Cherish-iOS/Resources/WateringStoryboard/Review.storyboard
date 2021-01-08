@@ -397,7 +397,7 @@
                                             <constraint firstAttribute="width" secondItem="LFt-b1-Kvi" secondAttribute="height" multiplier="335:194" id="THL-Yf-ouX"/>
                                             <constraint firstAttribute="height" constant="194" id="WWl-Aj-yj9"/>
                                         </constraints>
-                                        <color key="textColor" systemColor="labelColor"/>
+                                        <color key="textColor" name="black"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>

@@ -86,6 +86,8 @@ class ReviewVC: UIViewController {
     }
     
     //MARK: -사용자 정의 함수
+    
+    /// 키보드 Done 버튼 생성
     func textFieldDoneBtnMake(text_field : UITextField)
     {
         let ViewForDoneButtonOnKeyboard:UIToolbar = UIToolbar(frame: CGRect(x:0,y:0,width: UIScreen.main.bounds.width,height: 50))
@@ -99,6 +101,7 @@ class ReviewVC: UIViewController {
         text_field.inputAccessoryView = ViewForDoneButtonOnKeyboard
     }
     
+    /// Done 버튼 클릭 시 이벤트
     @objc func doneBtnFromKeyboardClicked (sender: Any) {
         print("Done Button Clicked.")
         
@@ -120,14 +123,16 @@ class ReviewVC: UIViewController {
     }
     
     
-    // 키보드 올릴 때 사용
+    //MARK:- 키보드 올릴 때 사용
     func keyboardUP(){
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
     @objc
     func keyboardWillShow(_ sender: Notification) {
+        /// 텍스트 뷰 입력할 때에만 키보드 올리면 됨
         if memoTextView.isFirstResponder{
                 UIView.animate(withDuration: 2.0, animations: {
                 self.view.transform = CGAffineTransform(translationX: 0, y: -26)
@@ -137,6 +142,7 @@ class ReviewVC: UIViewController {
 
     @objc
     func keyboardWillHide(_ sender: Notification) {
+        /// 텍스트 뷰 입력할 때에만 키보드 올리면 됨
         if memoTextView.isFirstResponder{
             UIView.animate(withDuration: 2.0, animations: {
                 self.view.transform = CGAffineTransform(translationX: 0, y: 0)
@@ -144,7 +150,7 @@ class ReviewVC: UIViewController {
         }
     }
     
-    ///Alert
+    //MARK:- Alert
     func nomoreKeyword(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
@@ -260,10 +266,6 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             return UICollectionViewCell()
         }
         cell.keywordLabel.text = keyword[indexPath.row]
-//        let label = UILabel(frame: CGRect.zero)
-//        label.text = keyword[indexPath.row]
-//        label.sizeToFit()
-        
         return cell
     }
     
@@ -284,10 +286,4 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     {
         return 7
     }
-    
-//    //MARK: - 마진
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
-//    {
-//        return UIEdgeInsets(top: 9, left: 0, bottom: 10, right: 0)
-//    }
 }

@@ -8,13 +8,13 @@
 import UIKit
 import FSCalendar
 
-protocol SendViewControllerDelegate {
-    func deliveryKeyword(memoText: String)
-}
+//protocol SendViewControllerDelegate {
+//    func deliveryKeyword(memoText: String)
+//}
 class CalendarVC: UIViewController {
     let fake_keyword = ["생일","취업준비중","헤어짐"]
-    let test_text = "오늘 남쿵이랑 연락을 했다. 바빠서 여자친구한테 소홀 해서 많이 싸우더만 이번엔 진짜 헤어진 것 같다.목소리가 너무 안좋아서 걱정됐는데 잘 챙겨줘야겠다 남궁 조금만 더 힘내서 잘 마무리하자! 체리쉬가 젤짱" /// 100글자
-    var delegate: SendViewControllerDelegate?
+    let test_text = "오늘 남쿵이랑 연락을 했다. 바빠서 여자친구한테 소홀 해서 많이 싸우더만 이번엔 진짜 헤어진 것 같다.목소리가 너무 안좋아서 걱정됐는데 잘 챙겨줘야겠다." /// 100글자
+//    var delegate: SendViewControllerDelegate?
     let formatter = DateFormatter()
     let calendarCurrent = Calendar.current
     var memoBtnstatus: Bool? = true
@@ -66,7 +66,7 @@ class CalendarVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.expandSection = [Bool](repeating: false, count: self.items.count)
-        self.delegate = ReviewEditVC()
+//        self.delegate = ReviewEditVC()
         memoShowView.isHidden = true
         memoTextLabel.text = test_text
         cal_Style()
@@ -99,7 +99,8 @@ class CalendarVC: UIViewController {
     @IBAction func moveToEdit(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewEditVC") as? ReviewEditVC {
-            delegate?.deliveryKeyword(memoText: memoTextLabel.text ?? "")
+//            delegate?.deliveryKeyword(memoText: memoTextLabel.text ?? "")
+            vc.space = memoTextLabel.text
             vc.edit_keyword = fake_keyword
 
             self.navigationController?.pushViewController(vc, animated: true)
