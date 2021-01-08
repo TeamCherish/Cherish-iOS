@@ -13,8 +13,9 @@ import FSCalendar
 //}
 class CalendarVC: UIViewController {
     let fake_keyword = ["생일","취업준비중","헤어짐"]
-    let test_text = "오늘 남쿵이랑 연락을 했다. 바빠서 여자친구한테 소홀 해서 많이 싸우더만 이번엔 진짜 헤어진 것 같다.목소리가 너무 안좋아서 걱정됐는데 잘 챙겨줘야겠다." /// 85글자
-//    var delegate: SendViewControllerDelegate?
+    var test_text = "오늘 남쿵이랑 연락을 했다. 바빠서 여자친구한테 소홀 해서 많이 싸우더만 이번엔 진짜 헤어진 것 같다.목소리가 너무 안좋아서 걱정됐는데 잘 챙겨줘야겠다."/// 85글자
+
+    //    var delegate: SendViewControllerDelegate?
     let formatter = DateFormatter()
     let calendarCurrent = Calendar.current
     var memoBtnstatus: Bool? = true
@@ -27,8 +28,6 @@ class CalendarVC: UIViewController {
     private lazy var today: Date = {
         return Date()
     }()
-    weak var oneCon: NSLayoutConstraint? = nil
-    weak var twoCon: NSLayoutConstraint? = nil
     
     @IBOutlet weak var wholeCalendarView: UIView!{
         didSet{
@@ -46,7 +45,9 @@ class CalendarVC: UIViewController {
             calendarOrigin.dataSource = self
         }
     }
+    
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
+    @IBOutlet weak var keywordCVHeight: NSLayoutConstraint!
     @IBOutlet weak var memoViewBotAnchor: NSLayoutConstraint!
     @IBOutlet weak var categoryBotAnchor: NSLayoutConstraint!
     @IBOutlet weak var toWaterLabel: UIStackView!
@@ -72,7 +73,6 @@ class CalendarVC: UIViewController {
         cal_Style()
         defineCalStatus()
         forsmallPhone()
-    
     }
     
     @IBAction func moveToBack(_ sender: Any) {
@@ -87,7 +87,7 @@ class CalendarVC: UIViewController {
             memoBtn.setImage(UIImage(named: "icUpCalendar"), for: .normal)
             weekCalendar()
             /// 확장 가능하게 우선순위 낮춤
-            memoTextLabelHeight.priority = .defaultLow
+//            memoTextLabelHeight.priority = .defaultLow
         }else{
             memoBtnstatus = true
             memoBtn.setImage(UIImage(named: "icDownCalendar"), for: .normal)
@@ -105,8 +105,23 @@ class CalendarVC: UIViewController {
         }
     }
     
+    @IBAction func moveToNext(_ sender: Any) {
+        self.moveCurrentPage(moveUp: true)
+    }
+    @IBAction func moveToPrev(_ sender: Any) {
+        self.moveCurrentPage(moveUp: false)
+    }
+    
     
     //MARK: -사용자 정의 함수
+    
+    /// 달력 좌우 페이지 넘기는 버튼
+    private func moveCurrentPage(moveUp: Bool) {
+        dateComponents.month = moveUp ? 1 : -1
+        self.currentPage = calendarCurrent.date(byAdding: dateComponents, to: self.currentPage ?? self.today)
+        self.calendarOrigin.setCurrentPage(self.currentPage!, animated: true)
+    }
+    
     func defineCalStatus(){
         // 달력버튼 클릭시 .month(true), 메모 클릭시 .week(false)
         if calendarStatus == "calendar" {
@@ -143,11 +158,8 @@ class CalendarVC: UIViewController {
     /// 캘린더 스타일
     func cal_Style() {
         /// 캘린더 헤더 부분
-        if UIDevice.current.isiPhoneSE2{
-            calendarOrigin.headerHeight = 44
-        }else{
-            calendarOrigin.headerHeight = 66
-        }
+
+        calendarOrigin.headerHeight = 66
         calendarOrigin.weekdayHeight = 41
         calendarOrigin.appearance.headerMinimumDissolvedAlpha = 0.0 /// 헤더 좌,우측 흐릿한 글씨 삭제
         calendarOrigin.locale = Locale(identifier: "ko_KR") /// 한국어로 변경
@@ -156,7 +168,7 @@ class CalendarVC: UIViewController {
         
         /// 캘린터 색상 관련
         calendarOrigin.backgroundColor = .white /// 배경색
-        calendarOrigin.appearance.titleTodayColor = .none/// Today 날짜에 Default 표시되는 특정색 없음
+        calendarOrigin.appearance.titleTodayColor = .seaweed/// Today 날짜에 Default 표시되는 특정색 없음
         calendarOrigin.appearance.todayColor = .clear // Today 날짜에 Default 표시되는 특정 동그라미 색 없음
         calendarOrigin.appearance.todaySelectionColor = .none  // Today 날짜를 선택하면 표시되는 동그라미 색 없음
         calendarOrigin.appearance.headerTitleColor = .black /// 2021년 1월(헤더) 색
