@@ -9,13 +9,18 @@ import UIKit
 
 class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     
+    var changingIndex = false
+    var mypagePlantCount: Int = 0
+    var mypageContactCount: Int = 0
+    
+    
     @IBOutlet var mypageUserImageView: UIImageView!
     @IBOutlet var mypageNaviView: UIView!
     @IBOutlet var mypageHeaderView: PassthroughView!
     @IBOutlet var stickyHeaderView: UIView!
     @IBOutlet var segmentView: CustomSegmentedControl! {
         didSet {
-            segmentView.setButtonTitles(buttonTitles: ["식물 \(14)", "연락처 \(420)"])
+            segmentView.setButtonTitles(buttonTitles: ["식물 \(mypagePlantCount)", "연락처 \(mypageContactCount)"])
             segmentView.selectorViewColor = .black
             segmentView.selectorTextColor = .black
         }
@@ -28,7 +33,8 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var contactSV: UIScrollView!
     @IBOutlet var plantContainerTopConstraint: NSLayoutConstraint!
     @IBOutlet var contactContainerTopConstraint: NSLayoutConstraint!
-    var changingIndex = false
+    @IBOutlet var addFloatingBtn: UIButton!
+    @IBOutlet var addFloatingBtn2: UIButton!
     
     
     override func viewDidLoad() {
@@ -37,6 +43,10 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
         setImageViewRounded()
         setDelegates()
         setConstraints()
+        makeCornerRadiusView(segmentView, 30)
+        makeCornerRadiusView(stickyHeaderView, 30)
+        addFloatingBtn.isHidden = true
+        addFloatingBtn2.isHidden = true
     }
     
     func setDelegates() {
@@ -65,23 +75,17 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     func setImageViewRounded() {
         mypageUserImageView.clipsToBounds = true
         mypageUserImageView.layer.cornerRadius = mypageUserImageView.frame.height / 2
-        
-        segmentView.layer.cornerRadius = 30
-        segmentView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        stickyHeaderView.layer.cornerRadius = 30
-        stickyHeaderView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
-    //MARK: - 친구 동기화 버튼 눌렀을 때 액션
-    @IBAction func touchUpToFriendsSynchronize(_ sender: UIButton) {
-        let alert = UIAlertController(title: "동기화", message: "친구 동기화가 진행됩니다", preferredStyle: UIAlertController.Style.alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-            
-        }
-        alert.addAction(okAction)
-        present(alert, animated: false, completion: nil)
+    func makeCornerRadiusView(_ view : UIView,_ radiusValue: Int){
+        view.layer.cornerRadius = CGFloat(radiusValue)
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
+    func setFloatingBtnOffset(_ floatingBtn: UIButton ,_ isHidden: Bool,_ x: CGFloat,_ y: CGFloat,_ width: CGFloat,_ height: CGFloat) {
+        floatingBtn.isHidden = isHidden
+        floatingBtn.frame = CGRect(x: x, y: y, width: width, height: height)
+    }
 }
 
 //MARK: - UIScrollViewDelegate
@@ -101,22 +105,40 @@ extension MyPageVC: UIScrollViewDelegate {
         }
         else {
             /// 스크롤 가장 상단이 되었을 때
-            
+            let  off = scrollView.contentOffset.y
+
             let d = mypageHeaderView.frame.height - stickyHeaderView.frame.height - 44
             
             if scrollView.contentOffset.y >= d {
                 headerTopConstraint.constant = -d
+                
+                /// segment뷰가 NaviBar와 닿았고 scrollView가 plantSV일 때
                 if scrollView == plantSV && contactSV.contentOffset.y < d {
                     
-                    /// segment뷰가 NaviBar와 닿았을 대 NaviBar와 StatusBar의 백그라운드를 white로 변경
+                    // NaviBar와 StatusBar의 백그라운드를 white로 변경
                     mypageNaviView.backgroundColor = .white
                     changeStatusBarBackgroundColor("white")
-                    stickyHeaderView.layer.cornerRadius = 0
-                    stickyHeaderView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+                    makeCornerRadiusView(stickyHeaderView,0)
+           
+                    // floatingBtn 띄우기
+                    setFloatingBtnOffset(addFloatingBtn, false, 300, off + 580, addFloatingBtn.frame.size.width, addFloatingBtn.frame.size.height)
+                    setFloatingBtnOffset(addFloatingBtn2, false, 300, off + 580, addFloatingBtn2.frame.size.width, addFloatingBtn2.frame.size.height)
+                    
                     
                     contactSV.contentOffset.y = d
                 }
+                /// segment뷰가 NaviBar와 닿았고 scrollView가 contactSV일 때
                 else if scrollView == contactSV && plantSV.contentOffset.y < d {
+                    
+                    // NaviBar와 StatusBar의 백그라운드를 white로 변경
+                    mypageNaviView.backgroundColor = .white
+                    changeStatusBarBackgroundColor("white")
+                    makeCornerRadiusView(stickyHeaderView,0)
+                    
+                    // floatingBtn 띄우기
+                    setFloatingBtnOffset(addFloatingBtn, false, 300, off + 580, addFloatingBtn.frame.size.width, addFloatingBtn.frame.size.height)
+                    setFloatingBtnOffset(addFloatingBtn2, false, 300, off + 580, addFloatingBtn2.frame.size.width, addFloatingBtn2.frame.size.height)
+                    
                     plantSV.contentOffset.y = d
                 }
             }
@@ -126,14 +148,17 @@ extension MyPageVC: UIScrollViewDelegate {
                 contactSV.contentOffset.y = scrollView.contentOffset.y
                 
                 
-                /// segment뷰가 NaviBar와 닿았을 대 NaviBar와 StatusBar의 백그라운드를 mypageBackground로 변경
+                // segment뷰가 NaviBar와 닿았을 때 NaviBar와 StatusBar의 백그라운드를 mypageBackground로 변경
                 mypageNaviView.backgroundColor = .mypageBackgroundGrey
                 changeStatusBarBackgroundColor("mypageBackground")
                 
                 //stickyHeaderView의 라운드 값을 30으로 설정
-                stickyHeaderView.layer.cornerRadius = 30
-                stickyHeaderView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+                makeCornerRadiusView(stickyHeaderView,30)
                 
+                //floatingBtn hidden!
+                setFloatingBtnOffset(addFloatingBtn, true, 305, off + 580, addFloatingBtn.frame.size.width, addFloatingBtn.frame.size.height)
+                setFloatingBtnOffset(addFloatingBtn2, true, 305, off + 580, addFloatingBtn2.frame.size.width, addFloatingBtn2.frame.size.height)
+               
                 
                 /// scrollView가 원래 자리로 돌아왔을 때
                 if scrollView.contentOffset.y <= 0 {

@@ -35,7 +35,16 @@ class HeaderButton: UIButton {
 class MyOwnTableView: UITableView {
     override var intrinsicContentSize: CGSize {
         self.layoutIfNeeded()
-        return self.contentSize
+        
+        // tableView의 contentSize의 height가 스크롤가능한 height보다 작으면
+        if self.contentSize.height < 664 {
+            
+            // contentSize를 최소 스크롤가능 길이로 리턴
+            return CGSize(width: 375, height: 664)
+        }
+        else {
+            return self.contentSize
+        }
     }
 
     override var contentSize: CGSize {

@@ -30,11 +30,6 @@ class MypagePlantVC: UIViewController {
             MypagePlantData(imageURL: "mainImgUser4", nickname: "끈끈이", plantType: "스투키 Lv.3", wateringDday: "5")
         ])
         
-        for i in 0...7 {
-            if MypagePlantArray.count < 8 {
-                MypagePlantArray.append(MypagePlantData(imageURL: "", nickname: "", plantType: "", wateringDday: ""))
-            }
-        }
         print(MypagePlantArray)
     }
 }

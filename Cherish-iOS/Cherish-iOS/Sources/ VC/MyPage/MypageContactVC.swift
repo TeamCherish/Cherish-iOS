@@ -28,12 +28,6 @@ class MypageContactVC: UIViewController {
             MypageContactData(imageURL: "mainImgUser1", friendsName: "훌렁이", friendsContact: "010.0000.0000"),
             MypageContactData(imageURL: "mainImgUser4", friendsName: "끈끈이", friendsContact: "010.0000.0000")
         ])
-        
-        for i in 0...7 {
-            if mypageContactArray.count < 8 {
-                mypageContactArray.append(MypageContactData(imageURL: "", friendsName: "", friendsContact: ""))
-            }
-        }
         print(mypageContactArray)
     }
 }
