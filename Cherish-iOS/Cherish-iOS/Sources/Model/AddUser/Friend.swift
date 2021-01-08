@@ -10,4 +10,5 @@ import UIKit
 struct Friend {
     var name: String
     var phoneNumber: String
+    var selected: Bool
 }
