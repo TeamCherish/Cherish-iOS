@@ -21,6 +21,9 @@
         <array key="Roboto-Bold.ttf">
             <string>Roboto-Bold</string>
         </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--My PageVC-->
@@ -433,25 +436,38 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qV-yR-Pka">
-                                                    <rect key="frame" x="317" y="31" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BnQ-I9-jgV">
+                                                    <rect key="frame" x="299" y="43.666666666666664" width="60" height="24.999999999999993"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="BnQ-I9-jgV" secondAttribute="height" multiplier="60:25" id="aWU-Rx-1U9"/>
+                                                        <constraint firstAttribute="height" constant="25" id="lHg-uj-rK8"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qV-yR-Pka">
+                                                    <rect key="frame" x="310" y="44.666666666666664" width="38.333333333333314" height="22.999999999999993"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="23" id="EuT-Gt-HUF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="jUT-kS-JVS" firstAttribute="leading" secondItem="i8T-CM-VDJ" secondAttribute="leading" constant="16" id="6Sg-UV-usr"/>
-                                                <constraint firstItem="3qV-yR-Pka" firstAttribute="centerY" secondItem="i8T-CM-VDJ" secondAttribute="centerY" id="Oy2-TA-ynE"/>
+                                                <constraint firstItem="3qV-yR-Pka" firstAttribute="centerY" secondItem="jUT-kS-JVS" secondAttribute="centerY" id="RO0-bF-zII"/>
                                                 <constraint firstItem="dFC-C9-JGL" firstAttribute="top" secondItem="i8T-CM-VDJ" secondAttribute="top" constant="34" id="S8J-5m-XQk"/>
+                                                <constraint firstAttribute="trailing" secondItem="BnQ-I9-jgV" secondAttribute="trailing" constant="16" id="T2g-IE-wdJ"/>
                                                 <constraint firstItem="Ua3-7u-m7j" firstAttribute="top" secondItem="dFC-C9-JGL" secondAttribute="bottom" constant="1" id="TYe-DL-IjI"/>
                                                 <constraint firstItem="Ua3-7u-m7j" firstAttribute="leading" secondItem="dFC-C9-JGL" secondAttribute="leading" id="TeT-oh-VEM"/>
                                                 <constraint firstItem="jUT-kS-JVS" firstAttribute="top" secondItem="i8T-CM-VDJ" secondAttribute="top" constant="29" id="W6a-Rs-JmT"/>
                                                 <constraint firstItem="dFC-C9-JGL" firstAttribute="leading" secondItem="jUT-kS-JVS" secondAttribute="trailing" constant="10" id="hg4-dk-K78"/>
-                                                <constraint firstAttribute="trailing" secondItem="3qV-yR-Pka" secondAttribute="trailing" constant="16" id="sjf-xW-Cgz"/>
+                                                <constraint firstItem="BnQ-I9-jgV" firstAttribute="centerY" secondItem="jUT-kS-JVS" secondAttribute="centerY" id="hqW-Ti-lAx"/>
+                                                <constraint firstItem="3qV-yR-Pka" firstAttribute="centerX" secondItem="BnQ-I9-jgV" secondAttribute="centerX" id="zA0-JB-zWf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dayCornerView" destination="BnQ-I9-jgV" id="bX2-aH-7T5"/>
                                             <outlet property="mypagePlantImageView" destination="jUT-kS-JVS" id="BTG-Ee-gQh"/>
                                             <outlet property="mypagePlantNicknameLabel" destination="dFC-C9-JGL" id="xXp-gv-CQa"/>
                                             <outlet property="mypagePlantTypeLabel" destination="Ua3-7u-m7j" id="XMT-6a-bBy"/>
@@ -476,7 +492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzA-gf-QWD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-164" y="978"/>
+            <point key="canvasLocation" x="-164" y="977.58620689655174"/>
         </scene>
         <!--Mypage ContactVC-->
         <scene sceneID="05M-EM-fG9">
