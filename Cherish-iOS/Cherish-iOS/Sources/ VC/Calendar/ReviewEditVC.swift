@@ -1,19 +1,20 @@
 //
-//  ReviewVC.swift
+//  ReviewEditVC.swift
 //  Cherish-iOS
 //
-//  Created by 이원석 on 2021/01/03.
+//  Created by 이원석 on 2021/01/08.
 //
 
 import UIKit
 
-class ReviewVC: UIViewController {
-    var keyword = [String]() /// 키워드 배열
+class ReviewEditVC: UIViewController,SendViewControllerDelegate{
+    func deliveryKeyword(memoText: String) {
+        print(memoText)
+    }
     
+    var edit_keyword = [String]() /// 키워드 배열
     
-    //MARK: -@IBOutlet
-    @IBOutlet weak var reviewNameLabel: CustomLabel! ///또령님! 남쿵둥이님과의
-    @IBOutlet weak var reviewPlzLabel: CustomLabel! ///남쿵둥이님과의 물주기를 기록해주세요
+    @IBOutlet weak var editMemoDateLabel: CustomLabel!
     @IBOutlet weak var keywordTextField: UITextField!{
         didSet{
             keywordTextField.delegate = self
@@ -30,13 +31,12 @@ class ReviewVC: UIViewController {
             keywordCountingLabel.textColor = .black
         }
     }
-    @IBOutlet weak var keywordLimitLabel: UILabel!{
+    @IBOutlet weak var keywordLimitLabel: CustomLabel!{
         didSet{
             keywordLimitLabel.textColor = .placeholderGrey
         }
     }
-    @IBOutlet weak var keywordCollectionView: UICollectionView!
-    {
+    @IBOutlet weak var keywordCollectionView: UICollectionView!{
         didSet{
             self.keywordCollectionView.register(KeywordCanDeleteCVC.nib(), forCellWithReuseIdentifier: KeywordCanDeleteCVC.identifier)
             keywordCollectionView.delegate = self
@@ -58,22 +58,14 @@ class ReviewVC: UIViewController {
             memoCountingLabel.textColor = .black
         }
     }
-    @IBOutlet weak var memoLimitLabel: UILabel!{
+    @IBOutlet weak var memoLimitLabel: CustomLabel!{
         didSet{
             memoLimitLabel.textColor = .placeholderGrey
         }
     }
-    
-    @IBOutlet weak var submit: UIButton!{
+    @IBOutlet weak var completeBtn: UIButton!{
         didSet{
-            submit.makeRounded(cornerRadius: 25.0)
-        }
-    }
-    @IBOutlet weak var skip: UIButton!{
-        didSet{
-            skip.makeRounded(cornerRadius: 25.0)
-            skip.backgroundColor = .inputGrey
-            skip.tintColor = .placeholderGrey
+            completeBtn.makeRounded(cornerRadius: 25.0)
         }
     }
     
@@ -81,9 +73,13 @@ class ReviewVC: UIViewController {
         super.viewDidLoad()
         textViewPlaceholder() /// textView Placeholder 셋팅
         if UIDevice.current.isiPhoneSE2 {
-            print("iPhoneSE2")
             keyboardUP() /// 키보드 올릴 때 사용
         }
+        
+    }
+    
+    @IBAction func moveToBack(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: -사용자 정의 함수
@@ -106,15 +102,15 @@ class ReviewVC: UIViewController {
         // 뭐라도 입력해야 키워드 등록
         if keywordTextField.text != ""{
             /// 키워드 배열에 저장
-            keyword.append(keywordTextField.text!)
+            edit_keyword.append(keywordTextField.text!)
             /// 텍스트 필드 초기화 및 텍스트 필드 글자수 카운팅 초기화
             keywordTextField.text = ""
             keywordCountingLabel.text = "0/"
-            print(keyword)
+            print(edit_keyword)
             /// 컬렉션 뷰 데이터 업데이트
             keywordCollectionView.reloadData()
             /// 키워드 3개가 다 입력되면 키보드 내림
-            if keyword.count >= 3 {
+            if edit_keyword.count >= 3 {
                 self.view.endEditing(true)
             }
         }
@@ -160,7 +156,7 @@ class ReviewVC: UIViewController {
 
 //MARK: -Protocols
 /// 1
-extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
+extension ReviewEditVC: UITextFieldDelegate,UITextViewDelegate{
     /// 키워드 부분 글자수 Counting
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentCharacterCount = textField.text?.count ?? 0
@@ -182,7 +178,7 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         /// 키워드가 이미 3개인데 사용자가 입력하려한다면 막음
-        if keyword.count >= 3 {
+        if edit_keyword.count >= 3 {
             nomoreKeyword(title: "", message: "키워드는 3개까지 쓸 수 있어요!")
             self.view.endEditing(true) /// 알림창 후 키보드 내림
         }
@@ -244,23 +240,23 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
 }
 
 ///2
-extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension ReviewEditVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         /// 키워드 터치시 삭제
-        keyword.remove(at: indexPath.row)
+        edit_keyword.remove(at: indexPath.row)
         keywordCollectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return keyword.count
+        return edit_keyword.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeywordCanDeleteCVC.identifier, for: indexPath) as? KeywordCanDeleteCVC else{
             return UICollectionViewCell()
         }
-        cell.keywordLabel.text = keyword[indexPath.row]
+        cell.keywordLabel.text = edit_keyword[indexPath.row]
 //        let label = UILabel(frame: CGRect.zero)
 //        label.text = keyword[indexPath.row]
 //        label.sizeToFit()
@@ -272,7 +268,7 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         let label = UILabel(frame: CGRect.zero)
-        label.text = keyword[indexPath.row]
+        label.text = edit_keyword[indexPath.row]
         label.sizeToFit()
         let cellSize = label.frame.width+35
 
@@ -285,10 +281,5 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     {
         return 7
     }
-    
-//    //MARK: - 마진
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
-//    {
-//        return UIEdgeInsets(top: 9, left: 0, bottom: 10, right: 0)
-//    }
+
 }

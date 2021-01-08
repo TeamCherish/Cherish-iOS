@@ -9,9 +9,9 @@ import UIKit
 
 
 /// 캘린더의 상태가 무엇을 클릭하는지에 따라 달라지기 때문에 선언해놓습니다.
-protocol SendViewControllerDelegate {
-    func forCalendarStatus(cal_status: String)
-}
+//protocol SendViewControllerDelegate {
+//    func forCalendarStatus(cal_status: String)
+//}
 
 class PlantDetailVC: UIViewController {
 
@@ -36,11 +36,11 @@ class PlantDetailVC: UIViewController {
     
     var isClicked:Bool = false
     var keywordArray:[KeywordData] = []
-    var delegate: SendViewControllerDelegate?
+//    var delegate: SendViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = CalendarVC()
+//        self.delegate = CalendarVC()
         setControllers()
         makeCircularView()
         defineFirstPlantCardBtnStatus()
@@ -170,7 +170,7 @@ class PlantDetailVC: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
             vc.calendarStatus = "memo"
-            delegate?.forCalendarStatus(cal_status: "memo")
+            //delegate?.forCalendarStatus(cal_status: "memo")
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -181,7 +181,7 @@ class PlantDetailVC: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
             vc.calendarStatus = "memo"
-            delegate?.forCalendarStatus(cal_status: "memo")
+            //delegate?.forCalendarStatus(cal_status: "memo")
             self.navigationController?.pushViewController(vc, animated: true)
             
         }
@@ -207,7 +207,7 @@ class PlantDetailVC: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
             vc.calendarStatus = "calendar"
-            delegate?.forCalendarStatus(cal_status: "calendar")
+            //delegate?.forCalendarStatus(cal_status: "calendar")
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

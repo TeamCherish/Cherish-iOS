@@ -40,7 +40,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물캘린더" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahw-pX-7ec" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="150.66666666666666" y="10" width="73.666666666666657" height="24"/>
+                                        <rect key="frame" x="153" y="12.666666666666666" width="69.333333333333314" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1oh-wq-DUp">
-                                        <rect key="frame" x="20" y="24" width="335" height="389"/>
+                                        <rect key="frame" x="20" y="24" width="335" height="385"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mog-aX-yLL" customClass="FSCalendar">
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="337"/>
@@ -75,13 +75,13 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b2l-ny-liI">
-                                                <rect key="frame" x="252" y="357" width="65" height="18"/>
+                                                <rect key="frame" x="254.66666666666671" y="357" width="62.333333333333343" height="14"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icWateringLaterCalendar" translatesAutoresizingMaskIntoConstraints="NO" id="h9B-tg-j0S">
-                                                        <rect key="frame" x="0.0" y="0.0" width="9" height="18"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="9" height="14"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물 주는 날" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cV0-FF-lLA" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="14" y="0.0" width="51" height="18"/>
+                                                        <rect key="frame" x="14.000000000000004" y="0.0" width="48.333333333333343" height="14"/>
                                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -94,13 +94,13 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9Zk-72-Zow">
-                                                <rect key="frame" x="184" y="357" width="54" height="18"/>
+                                                <rect key="frame" x="188.66666666666666" y="357" width="52" height="14"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icWateringCalendar" translatesAutoresizingMaskIntoConstraints="NO" id="bLC-hL-6rW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="9" height="18"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="9" height="14"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물 준 날" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeP-hU-oY7" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="14" y="0.0" width="40" height="18"/>
+                                                        <rect key="frame" x="14" y="0.0" width="38" height="14"/>
                                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -126,10 +126,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FE6-s2-qKF">
-                                        <rect key="frame" x="20" y="427" width="335" height="225"/>
+                                        <rect key="frame" x="20" y="423" width="335" height="220"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eN0-6G-uLg">
-                                                <rect key="frame" x="145.66666666666666" y="181" width="44" height="44"/>
+                                                <rect key="frame" x="145.66666666666666" y="176" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="3CA-BW-lb9"/>
                                                     <constraint firstAttribute="width" secondItem="eN0-6G-uLg" secondAttribute="height" multiplier="1:1" id="Kpr-Ri-Rcd"/>
@@ -140,17 +140,20 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021년 1월 6일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9f-V6-OcS">
-                                                <rect key="frame" x="19" y="22" width="108" height="24"/>
+                                                <rect key="frame" x="19" y="22" width="104" height="19"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="16"/>
                                                 <color key="textColor" name="black"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6d-zt-hcf">
-                                                <rect key="frame" x="277" y="10" width="48" height="48"/>
+                                                <rect key="frame" x="277" y="7.6666666666666288" width="48" height="48"/>
                                                 <state key="normal" image="icMemoPencil"/>
+                                                <connections>
+                                                    <action selector="moveToEdit:" destination="76L-gG-wN1" eventType="touchUpInside" id="EgD-Ix-iUj"/>
+                                                </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fiP-9t-esQ">
-                                                <rect key="frame" x="0.0" y="60" width="335" height="28"/>
+                                                <rect key="frame" x="0.0" y="55" width="335" height="28"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="aRB-n9-N4F"/>
@@ -178,7 +181,7 @@
                                                 </cells>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5t-Nm-AYg" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="19" y="98" width="287" height="66"/>
+                                                <rect key="frame" x="19" y="93" width="287" height="66"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="66" id="ssd-dT-9SL"/>
                                                 </constraints>

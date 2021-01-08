@@ -62,6 +62,7 @@
 		33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */; };
 		33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */; };
 		5478343625A76EBC0021C32B /* UIDevie+ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478343525A76EBC0021C32B /* UIDevie+ScreenSize.swift */; };
+		5478343A25A82B060021C32B /* ReviewEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478343925A82B060021C32B /* ReviewEditVC.swift */; };
 		5488922125A59486003839FC /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5488922025A59486003839FC /* Calendar.storyboard */; };
 		5488922525A594CF003839FC /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5488922425A594CF003839FC /* CalendarVC.swift */; };
 		5488923625A5E962003839FC /* CalendarKeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5488923425A5E962003839FC /* CalendarKeywordCVCell.swift */; };
@@ -150,6 +151,7 @@
 		33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailVC.swift; sourceTree = "<group>"; };
 		33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCVCell.swift; sourceTree = "<group>"; };
 		5478343525A76EBC0021C32B /* UIDevie+ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevie+ScreenSize.swift"; sourceTree = "<group>"; };
+		5478343925A82B060021C32B /* ReviewEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewEditVC.swift; sourceTree = "<group>"; };
 		5488922025A59486003839FC /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		5488922425A594CF003839FC /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarVC.swift; path = "Cherish-iOS/Sources/View/CalendarVC.swift"; sourceTree = SOURCE_ROOT; };
 		5488923425A5E962003839FC /* CalendarKeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarKeywordCVCell.swift; sourceTree = "<group>"; };
@@ -328,7 +330,6 @@
 				33E8751225A05623001F84FE /* CircularProgressBar.swift */,
 				33E8754B25A0D272001F84FE /* ProgressBarView.swift */,
 				548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */,
-				5478343525A76EBC0021C32B /* UIDevie+ScreenSize.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -361,6 +362,7 @@
 		33851C91259A5B23005BCFFD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				5478343525A76EBC0021C32B /* UIDevie+ScreenSize.swift */,
 				33E8750625A04DA2001F84FE /* UIColor+Additions.swift */,
 				33E8754825A09440001F84FE /* NotificationName.swift */,
 				548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */,
@@ -482,6 +484,7 @@
 			isa = PBXGroup;
 			children = (
 				5488922425A594CF003839FC /* CalendarVC.swift */,
+				5478343925A82B060021C32B /* ReviewEditVC.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				5488922525A594CF003839FC /* CalendarVC.swift in Sources */,
 				548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */,
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,
+				5478343A25A82B060021C32B /* ReviewEditVC.swift in Sources */,
 				548DF18D25A227A00081FCD1 /* KeywordCVC.swift in Sources */,
 				923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */,
 				33E8750725A04DA2001F84FE /* UIColor+Additions.swift in Sources */,

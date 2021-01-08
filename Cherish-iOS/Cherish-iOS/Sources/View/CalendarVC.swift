@@ -8,9 +8,26 @@
 import UIKit
 import FSCalendar
 
-class CalendarVC: UIViewController,SendViewControllerDelegate {
+protocol SendViewControllerDelegate {
+    func deliveryKeyword(memoText: String)
+}
+class CalendarVC: UIViewController {
     let fake_keyword = ["생일","취업준비중","헤어짐"]
     let test_text = "오늘 남쿵이랑 연락을 했다. 바빠서 여자친구한테 소홀 해서 많이 싸우더만 이번엔 진짜 헤어진 것 같다.목소리가 너무 안좋아서 걱정됐는데 잘 챙겨줘야겠다 남궁 조금만 더 힘내서 잘 마무리하자! 체리쉬가 젤짱" /// 100글자
+    var delegate: SendViewControllerDelegate?
+    let formatter = DateFormatter()
+    let calendarCurrent = Calendar.current
+    var memoBtnstatus: Bool? = true
+    var calendarStatus: String?
+    var expandSection = [Bool]()
+    var items = [String]()
+    var events = [Date]()
+    var test_events = [Date]()
+    var dateComponents = DateComponents()
+    private var currentPage: Date?
+    private lazy var today: Date = {
+        return Date()
+    }()
     
     @IBOutlet weak var wholeCalendarView: UIView!{
         didSet{
@@ -22,7 +39,12 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
             memoView.makeRounded(cornerRadius: 20.0)
         }
     }
-    @IBOutlet weak var calendarOrigin: FSCalendar!
+    @IBOutlet weak var calendarOrigin: FSCalendar!{
+        didSet{
+            calendarOrigin.delegate = self
+            calendarOrigin.dataSource = self
+        }
+    }
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet weak var categoryTopAnchor: NSLayoutConstraint!
     @IBOutlet weak var categoryBotAnchor: NSLayoutConstraint!
@@ -41,29 +63,14 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
     @IBOutlet weak var memoTextLabelHeight: NSLayoutConstraint!
     @IBOutlet weak var memoTextLabel: UILabel!
     
-    let formatter = DateFormatter()
-    let calendarCurrent = Calendar.current
-    var memoBtnstatus: Bool? = true
-    var calendarStatus: String?
-    var expandSection = [Bool]()
-    var items = [String]()
-    var events = [Date]()
-    var test_events = [Date]()
-    var dateComponents = DateComponents()
-    private var currentPage: Date?
-    private lazy var today: Date = {
-        return Date()
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.expandSection = [Bool](repeating: false, count: self.items.count)
-        calendarOrigin.delegate = self
-        calendarOrigin.dataSource = self
+        self.delegate = ReviewEditVC()
         memoShowView.isHidden = true
+        memoTextLabel.text = test_text
         cal_Style()
         defineCalStatus()
-        memoTextLabel.text = test_text
     }
     
     
@@ -89,13 +96,22 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
             memoTextLabel.layoutIfNeeded()
         }
     }
+    @IBAction func moveToEdit(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewEditVC") as? ReviewEditVC {
+            delegate?.deliveryKeyword(memoText: memoTextLabel.text ?? "")
+            vc.edit_keyword = fake_keyword
+
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     
     //MARK: -사용자 정의 함수
     
-    func forCalendarStatus(cal_status: String) {
-        calendarStatus = cal_status
-    }
+//    func forCalendarStatus(cal_status: String) {
+//        calendarStatus = cal_status
+//    }
     
     func defineCalStatus(){
         // 달력버튼 클릭시 .month(true), 메모 클릭시 .week(false)
