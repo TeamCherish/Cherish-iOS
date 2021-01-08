@@ -90,7 +90,10 @@
 		92B2306525A30F390024B8A8 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2306425A30F390024B8A8 /* Friend.swift */; };
 		92DCC3AA25A7071E00160523 /* PracticeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DCC3A925A7071E00160523 /* PracticeDetail.swift */; };
 		92DCC3AE25A708C700160523 /* PracticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DCC3AD25A708C700160523 /* PracticeCell.swift */; };
-		92E8E39725A1B13F001F1FB4 /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */; };
+		92DCC3DF25A8504F00160523 /* SelectFriendSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DCC3DE25A8504F00160523 /* SelectFriendSearchBar.swift */; };
+		92DCC3E525A85D1D00160523 /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */; };
+		92DCC3EA25A85D7100160523 /* SelectFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DCC3E825A85D7100160523 /* SelectFriendCell.swift */; };
+		92DCC3EB25A85D7100160523 /* SelectFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DCC3E925A85D7100160523 /* SelectFriendCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -179,6 +182,9 @@
 		92B2306425A30F390024B8A8 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		92DCC3A925A7071E00160523 /* PracticeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeDetail.swift; sourceTree = "<group>"; };
 		92DCC3AD25A708C700160523 /* PracticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeCell.swift; sourceTree = "<group>"; };
+		92DCC3DE25A8504F00160523 /* SelectFriendSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendSearchBar.swift; sourceTree = "<group>"; };
+		92DCC3E825A85D7100160523 /* SelectFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendCell.swift; sourceTree = "<group>"; };
+		92DCC3E925A85D7100160523 /* SelectFriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectFriendCell.xib; sourceTree = "<group>"; };
 		92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddUser.storyboard; sourceTree = "<group>"; };
 		DAA60C0D230FDF9D184F4B6C /* Pods-Cherish-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F67D9DFE41871E0883A26838 /* Pods-Cherish-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cherish-iOS.release.xcconfig"; path = "Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -548,6 +554,7 @@
 				923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */,
 				923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */,
 				92DCC3A925A7071E00160523 /* PracticeDetail.swift */,
+				92DCC3DE25A8504F00160523 /* SelectFriendSearchBar.swift */,
 			);
 			path = AddUser;
 			sourceTree = "<group>";
@@ -557,6 +564,8 @@
 			children = (
 				92B2306025A30DD40024B8A8 /* FriendCell.swift */,
 				92DCC3AD25A708C700160523 /* PracticeCell.swift */,
+				92DCC3E825A85D7100160523 /* SelectFriendCell.swift */,
+				92DCC3E925A85D7100160523 /* SelectFriendCell.xib */,
 			);
 			path = AddUser;
 			sourceTree = "<group>";
@@ -648,15 +657,16 @@
 				33E874E025A04746001F84FE /* CherishMain.storyboard in Resources */,
 				33D0027325A30E4700E97811 /* 38217-money-growth.json in Resources */,
 				33851C80259A5542005BCFFD /* LaunchScreen.storyboard in Resources */,
+				92DCC3EB25A85D7100160523 /* SelectFriendCell.xib in Resources */,
 				33E874E825A04832001F84FE /* TabBar.storyboard in Resources */,
 				33E874C825A04332001F84FE /* NotoSansCJKkr-Regular.otf in Resources */,
 				33E874CB25A0434B001F84FE /* Roboto-Regular.ttf in Resources */,
-				92E8E39725A1B13F001F1FB4 /* AddUser.storyboard in Resources */,
 				33851C7D259A5542005BCFFD /* Assets.xcassets in Resources */,
 				5488923725A5E962003839FC /* CalendarKeywordCVCell.xib in Resources */,
 				5488922125A59486003839FC /* Calendar.storyboard in Resources */,
 				33E874D125A0437A001F84FE /* NotoSansCJKkr-Bold.otf in Resources */,
 				33E874E425A047DE001F84FE /* ShowMore.storyboard in Resources */,
+				92DCC3E525A85D1D00160523 /* AddUser.storyboard in Resources */,
 				548DF15725A1A0470081FCD1 /* PopUpWatering.storyboard in Resources */,
 				33E874D725A043CF001F84FE /* Roboto-Bold.ttf in Resources */,
 				33D0027825A3144400E97811 /* 29583-flower.json in Resources */,
@@ -763,6 +773,7 @@
 				33E8750425A04D1E001F84FE /* CustomLabel.swift in Sources */,
 				33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */,
 				33E8753525A07A7F001F84FE /* CherishPeopleCVC.swift in Sources */,
+				92DCC3DF25A8504F00160523 /* SelectFriendSearchBar.swift in Sources */,
 				33D0026625A3036800E97811 /* PlantDetailPopUpExplainVC.swift in Sources */,
 				33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */,
 				332CC7BD25A707BD00D0047D /* MypagePlantData.swift in Sources */,
@@ -774,6 +785,7 @@
 				33851C74259A5541005BCFFD /* AppDelegate.swift in Sources */,
 				548DF19925A2E1780081FCD1 /* PopUpLaterVC.swift in Sources */,
 				33851C76259A5541005BCFFD /* SceneDelegate.swift in Sources */,
+				92DCC3EA25A85D7100160523 /* SelectFriendCell.swift in Sources */,
 				33E8752625A05D34001F84FE /* MainContentVC.swift in Sources */,
 				548DF16F25A1B4AB0081FCD1 /* UITextField+Extension.swift in Sources */,
 				33E8754225A08CFE001F84FE /* CherishSelectPersonCVC.swift in Sources */,

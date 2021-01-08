@@ -13,7 +13,6 @@ class DetailContentVC: UIViewController {
     @IBOutlet var headerView: UIView!
     @IBOutlet var cherishPeopleCV: UICollectionView!
 
-   
     var cherishPeopleData:[CherishPeopleData] = []
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -59,7 +58,7 @@ class DetailContentVC: UIViewController {
     
     @IBAction func moveToSelectFriend(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(identifier: "SelectFriendVC") as? SelectFriendVC {
+        if let vc = storyBoard.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
