@@ -139,29 +139,22 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
         calendarOrigin.appearance.headerDateFormat = "YYYY년 M월" /// 디폴트는 M월 YYYY년
         calendarOrigin.appearance.headerTitleFont = UIFont.systemFont(ofSize: 24)
         
-        /// 캘린터 텍스트 색
+        /// 캘린터 색상 관련
         calendarOrigin.backgroundColor = .white /// 배경색
-        calendarOrigin.appearance.titleTodayColor = .black/// Today 날짜 색 흰색 -> 검정
-        calendarOrigin.appearance.todayColor = .clear // Today 동그라미 색 없음
-        calendarOrigin.appearance.todaySelectionColor = .calendarSelectCircleGrey  // 오늘 선택 색
-        calendarOrigin.appearance.headerTitleColor = .black ///년도, 월 색
-        calendarOrigin.appearance.weekdayTextColor = .black///요일 색
-        calendarOrigin.appearance.selectionColor = UIColor.lightGray // 선택 된 날의 색
-        
-        //        for weekday in calendarOrigin.daysContainer.{
-        //            print(weekday.text)
-        //            weekday.textColor = .systemBlue
-        //        }
-        
+        calendarOrigin.appearance.titleTodayColor = .none/// Today 날짜에 Default 표시되는 특정색 없음
+        calendarOrigin.appearance.todayColor = .clear // Today 날짜에 Default 표시되는 특정 동그라미 색 없음
+        calendarOrigin.appearance.todaySelectionColor = .none  // Today 날짜를 선택하면 표시되는 동그라미 색 없음
+        calendarOrigin.appearance.headerTitleColor = .black /// 2021년 1월(헤더) 색
+        calendarOrigin.appearance.weekdayTextColor = .black /// 요일(월,화,수..) 색
+        calendarOrigin.appearance.selectionColor = .calendarSelectCircleGrey // 선택 된 날의 색
+        calendarOrigin.appearance.titleWeekendColor = .black /// 주말 날짜 색
+        calendarOrigin.appearance.titleDefaultColor = .black /// 기본 날짜 색
         
         // Month 폰트 설정
         calendarOrigin.appearance.headerTitleFont = UIFont(name: "NotoSansCJKKR-Medium", size: 16)
         
         // day 폰트 설정
         calendarOrigin.appearance.titleFont = UIFont(name: "Roboto-Regular", size: 14)
-        
-        // 캘린더에 이번달 날짜만 표시하기 위함
-        //        calendarOrigin.placeholderType = .none
         
         formatter.locale = Locale(identifier: "ko_KR")
         formatter.dateFormat = "yyyy-MM-dd"
@@ -185,14 +178,14 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
         
     }
     
+    /// Calendar 주간, 월간 원활한 크기 변화를 위해
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool){
         calendarHeight.constant = bounds.height
         self.view.layoutIfNeeded ()
     }
     
-    //이벤트 표시 개수
+    /// 이벤트 밑에 Dot 표시 개수
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        //icWateringSmallCalendar,icWateringLaterSmallCalendar
         if self.events.contains(date){
             return 1
         }
