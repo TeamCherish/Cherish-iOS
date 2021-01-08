@@ -159,6 +159,7 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
         
         // day 폰트 설정
         calendarOrigin.appearance.titleFont = UIFont(name: "Roboto-Regular", size: 14)
+        
         // 캘린더에 이번달 날짜만 표시하기 위함
         //        calendarOrigin.placeholderType = .none
         
@@ -175,7 +176,7 @@ class CalendarVC: UIViewController,SendViewControllerDelegate {
 
 //MARK: -Delegate & DataSource
 /// 1
-extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource{
+extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance{
     
     /// Event 표시 Dot 사이즈 조정
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
@@ -202,28 +203,31 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource{
         return 0
     }
     
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventColorFor date: Date) -> UIColor? {
-        
-        //Do some checks and return whatever color you want to.
-        if self.test_events.contains(date){
-            return UIColor.purple
+    /// 물 준 날, 물 주는 날 Default Event Dot 색상 분기처리 - FSCalendarDelegateAppearance
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]?{
+        if self.events.contains(date){
+            return [UIColor.toWateringGreen]
         }
         
+        if self.test_events.contains(date){
+            return [UIColor.WateredRed]
+        }
+
         return nil
     }
     
-    //    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]?{
-    //        for one in events {
-    //            if date == one{
-    //                return [.toWateringGreen]
-    //            }
-    //        }
-    //        if self.test_events.contains(date){
-    //            return [UIColor.WateredRed, appearance.eventDefaultColor, UIColor.black]
-    //        }
-    
-    //        return nil
-    //    }
+    /// 물 준 날, 물 주는 날 Selected Event Dot 색상 분기처리 - FSCalendarDelegateAppearance
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
+        if self.events.contains(date){
+            return [UIColor.toWateringGreen]
+        }
+        
+        if self.test_events.contains(date){
+            return [UIColor.WateredRed]
+        }
+
+        return nil
+    }
     
     // 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
