@@ -200,12 +200,12 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
     
     /// Event 표시 Dot 사이즈 조정
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let eventScaleFactor: CGFloat = 1.6
+        let eventScaleFactor: CGFloat = 1.8
         cell.eventIndicator.transform = CGAffineTransform(scaleX: eventScaleFactor, y: eventScaleFactor)
     }
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventOffsetFor date: Date) -> CGPoint {
-        return CGPoint(x: 0, y: 2)
+        return CGPoint(x: 0, y: 3)
     }
     
     /// Calendar 주간, 월간 원활한 크기 변화를 위해
