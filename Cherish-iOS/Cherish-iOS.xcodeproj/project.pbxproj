@@ -66,6 +66,9 @@
 		33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */; };
 		5478343625A76EBC0021C32B /* UIDevie+ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478343525A76EBC0021C32B /* UIDevie+ScreenSize.swift */; };
 		5478343A25A82B060021C32B /* ReviewEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478343925A82B060021C32B /* ReviewEditVC.swift */; };
+		5478344C25AB65C30021C32B /* ShowMoreTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478344A25AB65C20021C32B /* ShowMoreTVC.swift */; };
+		5478344D25AB65C30021C32B /* ShowMoreTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5478344B25AB65C20021C32B /* ShowMoreTVC.xib */; };
+		5478345225AB7D8E0021C32B /* ShowMoreNotImageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478345025AB7D8E0021C32B /* ShowMoreNotImageTVC.swift */; };
 		5488922125A59486003839FC /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5488922025A59486003839FC /* Calendar.storyboard */; };
 		5488922525A594CF003839FC /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5488922425A594CF003839FC /* CalendarVC.swift */; };
 		5488923625A5E962003839FC /* CalendarKeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5488923425A5E962003839FC /* CalendarKeywordCVCell.swift */; };
@@ -161,6 +164,9 @@
 		33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCVCell.swift; sourceTree = "<group>"; };
 		5478343525A76EBC0021C32B /* UIDevie+ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevie+ScreenSize.swift"; sourceTree = "<group>"; };
 		5478343925A82B060021C32B /* ReviewEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewEditVC.swift; sourceTree = "<group>"; };
+		5478344A25AB65C20021C32B /* ShowMoreTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreTVC.swift; sourceTree = "<group>"; };
+		5478344B25AB65C20021C32B /* ShowMoreTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowMoreTVC.xib; sourceTree = "<group>"; };
+		5478345025AB7D8E0021C32B /* ShowMoreNotImageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreNotImageTVC.swift; sourceTree = "<group>"; };
 		5488922025A59486003839FC /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		5488922425A594CF003839FC /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarVC.swift; path = "Cherish-iOS/Sources/View/CalendarVC.swift"; sourceTree = SOURCE_ROOT; };
 		5488923425A5E962003839FC /* CalendarKeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarKeywordCVCell.swift; sourceTree = "<group>"; };
@@ -359,6 +365,7 @@
 		33851C8F259A5B18005BCFFD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				5478344925AB65250021C32B /* ShowMore */,
 				332CC7AD25A7015100D0047D /* Mypage */,
 				5488923125A5E748003839FC /* Calendar */,
 				92B2305F25A30DBD0024B8A8 /* AddUser */,
@@ -493,6 +500,16 @@
 				33D0026825A3093500E97811 /* PlantExplainCVC.swift */,
 			);
 			path = PlantDetail;
+			sourceTree = "<group>";
+		};
+		5478344925AB65250021C32B /* ShowMore */ = {
+			isa = PBXGroup;
+			children = (
+				5478344A25AB65C20021C32B /* ShowMoreTVC.swift */,
+				5478344B25AB65C20021C32B /* ShowMoreTVC.xib */,
+				5478345025AB7D8E0021C32B /* ShowMoreNotImageTVC.swift */,
+			);
+			path = ShowMore;
 			sourceTree = "<group>";
 		};
 		5488921D25A593BC003839FC /* CalendarStoryboard */ = {
@@ -674,6 +691,7 @@
 				33E874E425A047DE001F84FE /* ShowMore.storyboard in Resources */,
 				92DCC3E525A85D1D00160523 /* AddUser.storyboard in Resources */,
 				548DF15725A1A0470081FCD1 /* PopUpWatering.storyboard in Resources */,
+				5478344D25AB65C30021C32B /* ShowMoreTVC.xib in Resources */,
 				33E874D725A043CF001F84FE /* Roboto-Bold.ttf in Resources */,
 				33D0027825A3144400E97811 /* 29583-flower.json in Resources */,
 				548DF18E25A227A00081FCD1 /* KeywordCVC.xib in Resources */,
@@ -745,6 +763,7 @@
 				33CAF85225A249DC0050DE29 /* CherishMainNC.swift in Sources */,
 				5488922525A594CF003839FC /* CalendarVC.swift in Sources */,
 				548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */,
+				5478345225AB7D8E0021C32B /* ShowMoreNotImageTVC.swift in Sources */,
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,
 				5478343A25A82B060021C32B /* ReviewEditVC.swift in Sources */,
 				548DF18D25A227A00081FCD1 /* KeywordCVC.swift in Sources */,
@@ -770,6 +789,7 @@
 				92B2306525A30F390024B8A8 /* Friend.swift in Sources */,
 				548DF17525A1BB7F0081FCD1 /* PopUpContactVC.swift in Sources */,
 				548DF16C25A1B4390081FCD1 /* PopUpWateringVC.swift in Sources */,
+				5478344C25AB65C30021C32B /* ShowMoreTVC.swift in Sources */,
 				332CC7AA25A6F41E00D0047D /* CustomSegmentedControl.swift in Sources */,
 				33D0026925A3093500E97811 /* PlantExplainCVC.swift in Sources */,
 				33D0025825A2915B00E97811 /* KeywordData.swift in Sources */,

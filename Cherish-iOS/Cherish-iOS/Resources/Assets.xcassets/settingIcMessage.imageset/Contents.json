@@ -1,19 +1,19 @@
 {
   "images" : [
     {
+      "filename" : "settingIcMessage.png",
       "scale" : "1x",
-      "idiom" : "universal",
-      "filename" : "icResetMypage.png"
-    },
-    {
-      "scale" : "2x",
-      "filename" : "icResetMypage@2x.png",
       "idiom" : "universal"
     },
     {
+      "filename" : "settingIcMessage@2x.png",
       "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
       "scale" : "3x",
-      "filename" : "icResetMypage@3x.png"
+      "idiom" : "universal",
+      "filename" : "settingIcMessage@3x.png"
     }
   ],
   "info" : {
