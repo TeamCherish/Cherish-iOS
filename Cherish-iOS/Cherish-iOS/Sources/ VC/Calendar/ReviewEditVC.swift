@@ -69,6 +69,7 @@ class ReviewEditVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMemo()
+        textViewPlaceholder()
     }
     
     @IBAction func moveToBack(_ sender: Any) {
@@ -231,11 +232,7 @@ extension ReviewEditVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeywordCanDeleteCVC.identifier, for: indexPath) as? KeywordCanDeleteCVC else{
             return UICollectionViewCell()
         }
-        cell.keywordLabel.text = edit_keyword[indexPath.row]
-//        let label = UILabel(frame: CGRect.zero)
-//        label.text = keyword[indexPath.row]
-//        label.sizeToFit()
-        
+        cell.keywordLabel.text = edit_keyword[indexPath.row]        
         return cell
     }
     
@@ -245,7 +242,7 @@ extension ReviewEditVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         let label = UILabel(frame: CGRect.zero)
         label.text = edit_keyword[indexPath.row]
         label.sizeToFit()
-        let cellSize = label.frame.width+35
+        let cellSize = label.frame.width+25
 
         return CGSize(width: cellSize, height: 29)
 

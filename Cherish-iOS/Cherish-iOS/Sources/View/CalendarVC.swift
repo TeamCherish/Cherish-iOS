@@ -12,7 +12,7 @@ import FSCalendar
 //    func deliveryKeyword(memoText: String)
 //}
 class CalendarVC: UIViewController {
-    let fake_keyword = ["생일","취업준비중","헤어짐"]
+    var fake_keyword = ["아요최고다","오토레아웃","잡아주실분"]
     var test_text = "오늘 남쿵이랑 연락을 했다. 바빠서 여자친구한테 소홀 해서 많이 싸우더만 이번엔 진짜 헤어진 것 같다.목소리가 너무 안좋아서 걱정됐는데 잘 챙겨줘야겠다."/// 85글자
 
     //    var delegate: SendViewControllerDelegate?
@@ -46,8 +46,10 @@ class CalendarVC: UIViewController {
         }
     }
     
+    @IBOutlet weak var keywordCVTopAnchor: NSLayoutConstraint!
+    @IBOutlet weak var keywordCVBotAnchor: NSLayoutConstraint!
+    @IBOutlet weak var memoBtnTopAnchor: NSLayoutConstraint!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
-    @IBOutlet weak var keywordCVHeight: NSLayoutConstraint!
     @IBOutlet weak var memoViewBotAnchor: NSLayoutConstraint!
     @IBOutlet weak var categoryBotAnchor: NSLayoutConstraint!
     @IBOutlet weak var toWaterLabel: UIStackView!
@@ -252,11 +254,41 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
         return nil
     }
     
-    // 날짜 선택 시 콜백 메소드
+    /// 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print(formatter.string(from: date) + " 선택됨")
+        
+        /// 이벤트가 있다면 표시
         if formatter.string(from: date) == "2021-01-06"{
             memoShowView.isHidden = false
+            
+            /// 키워드 미입력 시
+            if fake_keyword.count == 0 {
+                calendarKeywordCollectionView.isHidden = true
+                keywordCVTopAnchor.constant = 0
+            }else{
+                calendarKeywordCollectionView.isHidden = false
+                keywordCVTopAnchor.constant = 14
+            }
+
+            /// 메모 미입력 시
+            if memoTextLabel.text?.count ?? 0 < 1 {
+                keywordCVBotAnchor.constant = 0
+                memoTextLabel.isHidden = true
+            }else{
+                keywordCVBotAnchor.constant = 10
+                memoTextLabel.isHidden = false
+            }
+
+            /// 키워드,메모 미입력 시
+            if memoTextLabel.text?.count ?? 0 < 1 && fake_keyword.count == 0 {
+                memoBtnTopAnchor.constant = 22
+                memoBtn.isHidden = true
+            }else{
+                memoBtnTopAnchor.constant = 17
+                memoBtn.isHidden = false
+            }
+            
         }else{
             memoShowView.isHidden = true
         }

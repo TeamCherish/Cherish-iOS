@@ -40,7 +40,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물캘린더" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahw-pX-7ec" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="150.66666666666666" y="10" width="73.666666666666657" height="24"/>
+                                        <rect key="frame" x="153" y="12.666666666666666" width="69.333333333333314" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -95,16 +95,16 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="TGP-ny-lCB">
-                                                <rect key="frame" x="184" y="357" width="133" height="18"/>
+                                                <rect key="frame" x="188.66666666666663" y="357" width="128.33333333333337" height="18"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9Zk-72-Zow">
-                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="18"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="52" height="14"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icWateringCalendar" translatesAutoresizingMaskIntoConstraints="NO" id="bLC-hL-6rW">
-                                                                <rect key="frame" x="0.0" y="0.0" width="9" height="18"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="9" height="14"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물 준 날" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeP-hU-oY7" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                                <rect key="frame" x="14" y="0.0" width="40" height="18"/>
+                                                                <rect key="frame" x="14" y="0.0" width="38" height="14"/>
                                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -117,13 +117,13 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b2l-ny-liI">
-                                                        <rect key="frame" x="68" y="0.0" width="65" height="18"/>
+                                                        <rect key="frame" x="66.000000000000028" y="0.0" width="62.333333333333343" height="14"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icWateringLaterCalendar" translatesAutoresizingMaskIntoConstraints="NO" id="h9B-tg-j0S">
-                                                                <rect key="frame" x="0.0" y="0.0" width="9" height="18"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="9" height="14"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물 주는 날" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cV0-FF-lLA" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                                <rect key="frame" x="14" y="0.0" width="51" height="18"/>
+                                                                <rect key="frame" x="14.000000000000004" y="0.0" width="48.333333333333343" height="14"/>
                                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -157,90 +157,105 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FE6-s2-qKF">
                                         <rect key="frame" x="20" y="427" width="335" height="225"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eN0-6G-uLg">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bcA-bA-jOJ">
                                                 <rect key="frame" x="145.66666666666666" y="181" width="44" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="3CA-BW-lb9"/>
-                                                    <constraint firstAttribute="width" secondItem="eN0-6G-uLg" secondAttribute="height" multiplier="1:1" id="Kpr-Ri-Rcd"/>
-                                                </constraints>
-                                                <state key="normal" image="icDownCalendar"/>
-                                                <connections>
-                                                    <action selector="moveToUp:" destination="76L-gG-wN1" eventType="touchUpInside" id="efs-3u-gb6"/>
-                                                </connections>
-                                            </button>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eN0-6G-uLg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="3CA-BW-lb9"/>
+                                                            <constraint firstAttribute="width" secondItem="eN0-6G-uLg" secondAttribute="height" multiplier="1:1" id="Kpr-Ri-Rcd"/>
+                                                        </constraints>
+                                                        <state key="normal" image="icDownCalendar"/>
+                                                        <connections>
+                                                            <action selector="moveToUp:" destination="76L-gG-wN1" eventType="touchUpInside" id="efs-3u-gb6"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021년 1월 6일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9f-V6-OcS">
-                                                <rect key="frame" x="19" y="22" width="108" height="24"/>
+                                                <rect key="frame" x="19" y="22" width="104" height="18.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="16"/>
                                                 <color key="textColor" name="black"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6d-zt-hcf">
-                                                <rect key="frame" x="277" y="10" width="48" height="48"/>
+                                                <rect key="frame" x="277" y="7.3333333333333712" width="48" height="48"/>
                                                 <state key="normal" image="icMemoPencil"/>
                                                 <connections>
                                                     <action selector="moveToEdit:" destination="76L-gG-wN1" eventType="touchUpInside" id="EgD-Ix-iUj"/>
                                                 </connections>
                                             </button>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fiP-9t-esQ">
-                                                <rect key="frame" x="0.0" y="60" width="335" height="28"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="28" id="aRB-n9-N4F"/>
-                                                    <constraint firstAttribute="width" secondItem="fiP-9t-esQ" secondAttribute="height" multiplier="335:28" id="q37-cN-t50"/>
-                                                </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="A0h-wu-y7q">
-                                                    <size key="itemSize" width="88" height="27"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="KeywordCanDeleteCell" id="byV-FE-Rn2">
-                                                        <rect key="frame" x="0.0" y="0.66666666666666663" width="88" height="27"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uLT-DV-xbe">
-                                                            <rect key="frame" x="0.0" y="0.0" width="88" height="27"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </collectionViewCellContentView>
-                                                        <size key="customSize" width="88" height="27"/>
-                                                        <connections>
-                                                            <outlet property="calendarKeywordView" destination="uLT-DV-xbe" id="1T2-GN-gHL"/>
-                                                        </connections>
-                                                    </collectionViewCell>
-                                                </cells>
-                                            </collectionView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5t-Nm-AYg" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="19" y="98" width="287" height="66"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" priority="250" constant="66" id="ssd-dT-9SL"/>
-                                                </constraints>
-                                                <string key="text">이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵</string>
-                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
-                                                <color key="textColor" name="black"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                                        <real key="value" value="0.69999999999999996"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jXT-xv-tX7">
+                                                <rect key="frame" x="0.0" y="54.666666666666629" width="335" height="28"/>
+                                                <subviews>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fiP-9t-esQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="28"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="28" id="aRB-n9-N4F"/>
+                                                            <constraint firstAttribute="width" secondItem="fiP-9t-esQ" secondAttribute="height" multiplier="335:28" id="q37-cN-t50"/>
+                                                        </constraints>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="A0h-wu-y7q">
+                                                            <size key="itemSize" width="88" height="27"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="KeywordCanDeleteCell" id="byV-FE-Rn2">
+                                                                <rect key="frame" x="0.0" y="0.66666666666666663" width="88" height="27"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uLT-DV-xbe">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="88" height="27"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                </collectionViewCellContentView>
+                                                                <size key="customSize" width="88" height="27"/>
+                                                                <connections>
+                                                                    <outlet property="calendarKeywordView" destination="uLT-DV-xbe" id="1T2-GN-gHL"/>
+                                                                </connections>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                    </collectionView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hw3-Uv-0s2">
+                                                <rect key="frame" x="19" y="92.666666666666629" width="287" height="71.333333333333314"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5t-Nm-AYg" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="287" height="71.333333333333329"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" priority="250" constant="66" id="ssd-dT-9SL"/>
+                                                        </constraints>
+                                                        <string key="text">이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵쿵저러쿵이러쿵저러쿵이러쿵저러쿵</string>
+                                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
+                                                        <color key="textColor" name="black"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                                <real key="value" value="0.69999999999999996"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="Hw3-Uv-0s2" firstAttribute="trailing" secondItem="d6d-zt-hcf" secondAttribute="trailing" constant="-19" id="0so-WE-5Lc"/>
+                                            <constraint firstItem="jXT-xv-tX7" firstAttribute="leading" secondItem="FE6-s2-qKF" secondAttribute="leading" id="2QU-3u-L6D"/>
                                             <constraint firstItem="p9f-V6-OcS" firstAttribute="leading" secondItem="FE6-s2-qKF" secondAttribute="leading" constant="19" id="42w-aM-O88"/>
-                                            <constraint firstItem="fiP-9t-esQ" firstAttribute="top" secondItem="p9f-V6-OcS" secondAttribute="bottom" constant="14" id="9k8-CX-6Qg"/>
+                                            <constraint firstAttribute="trailing" secondItem="jXT-xv-tX7" secondAttribute="trailing" id="45A-Kp-AAp"/>
                                             <constraint firstItem="d6d-zt-hcf" firstAttribute="centerY" secondItem="p9f-V6-OcS" secondAttribute="centerY" id="GVa-1v-0Ln"/>
-                                            <constraint firstItem="fiP-9t-esQ" firstAttribute="leading" secondItem="FE6-s2-qKF" secondAttribute="leading" id="GnA-o8-JOC"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="220" id="LR0-26-ZDD"/>
-                                            <constraint firstItem="eN0-6G-uLg" firstAttribute="top" secondItem="Z5t-Nm-AYg" secondAttribute="bottom" constant="17" id="Lke-re-Xyx"/>
-                                            <constraint firstAttribute="bottom" secondItem="eN0-6G-uLg" secondAttribute="bottom" id="NMd-WW-0nV"/>
+                                            <constraint firstItem="Hw3-Uv-0s2" firstAttribute="top" secondItem="jXT-xv-tX7" secondAttribute="bottom" constant="10" id="GXd-MX-KQn"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="500" id="LR0-26-ZDD"/>
+                                            <constraint firstItem="bcA-bA-jOJ" firstAttribute="top" secondItem="Hw3-Uv-0s2" secondAttribute="bottom" constant="17" id="Nqi-OV-mX8"/>
+                                            <constraint firstItem="bcA-bA-jOJ" firstAttribute="centerX" secondItem="FE6-s2-qKF" secondAttribute="centerX" id="Tco-1D-lDz"/>
                                             <constraint firstAttribute="width" constant="335" id="Upd-7O-XpK"/>
                                             <constraint firstItem="p9f-V6-OcS" firstAttribute="top" secondItem="FE6-s2-qKF" secondAttribute="top" constant="22" id="VIq-yd-akq"/>
-                                            <constraint firstItem="Z5t-Nm-AYg" firstAttribute="top" secondItem="fiP-9t-esQ" secondAttribute="bottom" constant="10" id="WcH-UY-SfU"/>
-                                            <constraint firstItem="eN0-6G-uLg" firstAttribute="centerX" secondItem="FE6-s2-qKF" secondAttribute="centerX" id="cxc-xP-IyZ"/>
-                                            <constraint firstItem="Z5t-Nm-AYg" firstAttribute="leading" secondItem="p9f-V6-OcS" secondAttribute="leading" id="ho8-H2-Rwi"/>
-                                            <constraint firstAttribute="trailing" secondItem="fiP-9t-esQ" secondAttribute="trailing" id="u6F-jz-Kun"/>
-                                            <constraint firstItem="Z5t-Nm-AYg" firstAttribute="trailing" secondItem="d6d-zt-hcf" secondAttribute="trailing" constant="-19" id="yTt-dM-t53"/>
+                                            <constraint firstItem="jXT-xv-tX7" firstAttribute="top" secondItem="p9f-V6-OcS" secondAttribute="bottom" constant="14" id="heP-X5-pfa"/>
+                                            <constraint firstItem="Hw3-Uv-0s2" firstAttribute="leading" secondItem="p9f-V6-OcS" secondAttribute="leading" id="j29-pI-Xnk"/>
+                                            <constraint firstAttribute="bottom" secondItem="bcA-bA-jOJ" secondAttribute="bottom" id="p6r-Yl-Hd9"/>
                                             <constraint firstAttribute="trailing" secondItem="d6d-zt-hcf" secondAttribute="trailing" constant="10" id="zVO-An-5RX"/>
                                         </constraints>
                                     </view>
@@ -278,8 +293,10 @@
                         <outlet property="calendarKeywordCollectionView" destination="fiP-9t-esQ" id="2Pf-aU-WpR"/>
                         <outlet property="calendarOrigin" destination="mog-aX-yLL" id="Msr-lg-Kqr"/>
                         <outlet property="categoryBotAnchor" destination="mNl-bb-Su6" id="x22-rK-UFN"/>
-                        <outlet property="keywordCVHeight" destination="aRB-n9-N4F" id="XHz-9B-bPa"/>
+                        <outlet property="keywordCVBotAnchor" destination="GXd-MX-KQn" id="2Zc-Kg-KPW"/>
+                        <outlet property="keywordCVTopAnchor" destination="heP-X5-pfa" id="QSz-G3-gdc"/>
                         <outlet property="memoBtn" destination="eN0-6G-uLg" id="9WM-n9-Gjh"/>
+                        <outlet property="memoBtnTopAnchor" destination="Nqi-OV-mX8" id="DsK-fF-UvC"/>
                         <outlet property="memoShowView" destination="FE6-s2-qKF" id="FLC-Wv-m9L"/>
                         <outlet property="memoShowViewHeight" destination="LR0-26-ZDD" id="beP-gm-mdB"/>
                         <outlet property="memoTextLabel" destination="Z5t-Nm-AYg" id="Leu-cU-zAB"/>
