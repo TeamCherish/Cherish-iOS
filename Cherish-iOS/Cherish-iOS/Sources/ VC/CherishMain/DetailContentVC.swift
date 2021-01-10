@@ -13,12 +13,6 @@ class DetailContentVC: UIViewController {
     @IBOutlet var headerView: UIView!
     @IBOutlet var cherishPeopleCV: UICollectionView!
 
-    @IBAction func moveToSelectFriend(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(identifier: "SelectFriendVC") as? SelectFriendVC {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
     var cherishPeopleData:[CherishPeopleData] = []
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -60,6 +54,13 @@ class DetailContentVC: UIViewController {
             CherishPeopleData(nickName: "서버둥이", plantImageName: "mainImgUser2"),
             CherishPeopleData(nickName: "기획둥이", plantImageName: "mainImgUser5"),
         ])
+    }
+    
+    @IBAction func moveToSelectFriend(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
   
 }

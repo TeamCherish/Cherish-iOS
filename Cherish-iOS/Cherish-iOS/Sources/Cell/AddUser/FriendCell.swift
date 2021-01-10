@@ -10,27 +10,36 @@ import UIKit
 class FriendCell: UITableViewCell {
     static let identifier = "FriendCell"
     
-    var isActive = false
-//    var btnTapped = false
-    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var radioBtn: UIButton!
+    
+    private let checked = UIImage(named: "btn_checkbox_selected")
+    private let unchecked = UIImage(named: "btn_checkbox_unselected")
     
     var btnTapped = false
     var activeBtn = true
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
+    
+//    public func configure(_ text: String) {
+//        nameLabel.text = text
+//        phoneNumberLabel.text = text
+//    }
+    
+//    public func isSelected(_ selected: Bool) {
+//        setSelected(selected, animated: false)
+//        let image = selected ? checked : unchecked
+//        radioBtn.setBackgroundImage(UIImage(named: "btn_checkbox_selected"), for: .normal)
+//    }
 
+    //MARK: - radioBtn notification IBAction
     @IBAction func btnSelected(_ sender: UIButton) {
         if btnTapped {
             btnTapped = false
