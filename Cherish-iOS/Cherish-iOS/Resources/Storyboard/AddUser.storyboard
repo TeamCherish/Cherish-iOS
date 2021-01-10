@@ -3,11 +3,15 @@
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Light.otf">
+            <string>NotoSansCJKkr-Light</string>
+        </array>
         <array key="NotoSansCJKkr-Medium.otf">
             <string>NotoSansCJKkr-Medium</string>
         </array>
@@ -213,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDA-wN-VqD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117.5999999999999" y="-300"/>
+            <point key="canvasLocation" x="266" y="467"/>
         </scene>
         <!--Input DetailVC-->
         <scene sceneID="mg7-hI-jBx">
@@ -508,6 +512,62 @@
             <point key="canvasLocation" x="1793" y="-300"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="71b-7w-xPR">
+            <objects>
+                <viewController id="uqY-xY-2S3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v9n-1b-rIm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popup_best_palnt" translatesAutoresizingMaskIntoConstraints="NO" id="jPo-gd-AmE">
+                                <rect key="frame" x="70" y="298" width="235" height="213"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="213" id="7CW-Jy-qAj"/>
+                                    <constraint firstAttribute="width" secondItem="jPo-gd-AmE" secondAttribute="height" multiplier="235:213" id="Pz8-Km-dPx"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lottie_best_plant" translatesAutoresizingMaskIntoConstraints="NO" id="43R-OA-30D">
+                                <rect key="frame" x="170.66666666666666" y="351" width="34" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="JXb-Hh-asn"/>
+                                    <constraint firstAttribute="width" secondItem="43R-OA-30D" secondAttribute="height" multiplier="17:29" id="Ycl-Uw-c1f"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iK-Tr-46O" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="96" y="431" width="183" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="9NK-fG-xMN"/>
+                                    <constraint firstAttribute="width" secondItem="8iK-Tr-46O" secondAttribute="height" multiplier="61:14" id="pAv-Rq-PkY"/>
+                                </constraints>
+                                <string key="text">소중한 사람에게 꼭 맞는 식물을 
+분석하고 있어요!</string>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
+                                <color key="textColor" name="black"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jXo-Nd-sII"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="8iK-Tr-46O" firstAttribute="top" secondItem="43R-OA-30D" secondAttribute="bottom" constant="22" id="EFd-3j-OxV"/>
+                            <constraint firstItem="43R-OA-30D" firstAttribute="top" secondItem="jXo-Nd-sII" secondAttribute="top" constant="307" id="U23-6D-BBS"/>
+                            <constraint firstItem="jPo-gd-AmE" firstAttribute="top" secondItem="jXo-Nd-sII" secondAttribute="top" constant="254" id="hfI-7t-rmR"/>
+                            <constraint firstItem="8iK-Tr-46O" firstAttribute="centerX" secondItem="v9n-1b-rIm" secondAttribute="centerX" id="nIp-UW-wBK"/>
+                            <constraint firstItem="43R-OA-30D" firstAttribute="centerX" secondItem="v9n-1b-rIm" secondAttribute="centerX" id="uLq-OQ-aEm"/>
+                            <constraint firstItem="jPo-gd-AmE" firstAttribute="centerX" secondItem="v9n-1b-rIm" secondAttribute="centerX" id="wEU-eU-Xlz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ejW-PZ-KgS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2454" y="-300"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="fbV-qe-JFO">
             <objects>
                 <viewController id="U4Q-xe-IxR" sceneMemberID="viewController">
@@ -538,46 +598,15 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="uOL-H4-J9L"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Mkt-AC-Xb1" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="2M0-eo-O2r"/>
-                            <constraint firstItem="uOL-H4-J9L" firstAttribute="trailing" secondItem="NGw-cS-dGP" secondAttribute="trailing" constant="16" id="ZA9-oi-Nye"/>
-                            <constraint firstItem="uOL-H4-J9L" firstAttribute="bottom" secondItem="NGw-cS-dGP" secondAttribute="bottom" constant="33" id="d6E-Q1-hv1"/>
-                            <constraint firstItem="NGw-cS-dGP" firstAttribute="leading" secondItem="uOL-H4-J9L" secondAttribute="leading" constant="16" id="hhv-Sk-92D"/>
-                            <constraint firstItem="uOL-H4-J9L" firstAttribute="bottom" secondItem="Mkt-AC-Xb1" secondAttribute="bottom" constant="45" id="wtT-wn-UTh"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S4e-xn-2vt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2463" y="-300"/>
-        </scene>
-        <!--SelectFriendSearchBar-->
-        <scene sceneID="hPq-AR-aYG">
-            <objects>
-                <viewController storyboardIdentifier="SelectFriendSearchBar" title="SelectFriendSearchBar" modalPresentationStyle="fullScreen" id="4c4-J9-nWF" customClass="SelectFriendSearchBar" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qCe-J9-pfm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgt-jF-36Z">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PkQ-rQ-mSl">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ph-qV-iEy">
-                                        <rect key="frame" x="9" y="0.0" width="44" height="44"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 결과" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ch3-QC-DIj" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="155.66666666666666" y="10" width="64" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="jgj-Jj-nTU"/>
-                                            <constraint firstAttribute="width" secondItem="5ph-qV-iEy" secondAttribute="height" multiplier="1:1" id="v8l-qB-xR0"/>
+                                            <constraint firstAttribute="width" secondItem="ch3-QC-DIj" secondAttribute="height" multiplier="8:3" id="IT9-qd-XCu"/>
+                                            <constraint firstAttribute="height" constant="24" id="vNO-3a-53g"/>
                                         </constraints>
-                                        <state key="normal" image="icnBack"/>
-                                        <connections>
-                                            <action selector="closeToMain:" destination="4c4-J9-nWF" eventType="touchUpInside" id="mR4-RS-LDY"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 등록 친구 선택" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIW-3M-rMJ" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="122.00000000000001" y="10" width="131.33333333333337" height="24"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -590,13 +619,147 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="ch3-QC-DIj" firstAttribute="centerY" secondItem="PkQ-rQ-mSl" secondAttribute="centerY" id="3w3-R3-6zu"/>
+                                    <constraint firstAttribute="height" constant="44" id="d5S-gs-fE2"/>
+                                    <constraint firstAttribute="width" secondItem="PkQ-rQ-mSl" secondAttribute="height" multiplier="375:44" id="m4z-fQ-rrN"/>
+                                    <constraint firstItem="ch3-QC-DIj" firstAttribute="centerX" secondItem="PkQ-rQ-mSl" secondAttribute="centerX" id="xct-N0-u8J"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NJ-4w-ATg" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="94" y="137" width="187" height="83"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2NJ-4w-ATg" secondAttribute="height" multiplier="187:83" id="dix-oQ-xu0"/>
+                                    <constraint firstAttribute="height" constant="83" id="wi6-ta-kIy"/>
+                                </constraints>
+                                <string key="text">혼자서도 씩씩한
+따뜻한 민들레</string>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Light" family="Noto Sans CJK KR" pointSize="28"/>
+                                <color key="textColor" name="black"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_graphic" translatesAutoresizingMaskIntoConstraints="NO" id="vNJ-hM-Br7">
+                                <rect key="frame" x="27.666666666666657" y="233" width="320" height="347"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vNJ-hM-Br7" secondAttribute="height" multiplier="320:347" id="ck7-DO-oOe"/>
+                                    <constraint firstAttribute="height" constant="347" id="rmT-Za-Tac"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plant_tip_box" translatesAutoresizingMaskIntoConstraints="NO" id="hpQ-4q-TKy">
+                                <rect key="frame" x="132.66666666666666" y="564" width="110" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hpQ-4q-TKy" secondAttribute="height" multiplier="110:27" id="OG9-XG-rGR"/>
+                                    <constraint firstAttribute="height" constant="27" id="hE8-mN-59b"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeJ-TW-ozj" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="34.666666666666657" y="603" width="306" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oeJ-TW-ozj" secondAttribute="height" multiplier="153:22" id="4SS-Jy-Mhq"/>
+                                    <constraint firstAttribute="height" constant="44" id="4Sv-Km-5eh"/>
+                                </constraints>
+                                <string key="text">한달에 한번이지만 홀씨가 있어서 어디론가 정착을 
+감성적으로 주기와 관계를 연결짓는 문장이 필요하다?</string>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
+                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1달에 1번 물주기" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vQ-e9-edS" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="140.66666666666666" y="567" width="94" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="KFK-gN-FS6"/>
+                                    <constraint firstAttribute="width" secondItem="1vQ-e9-edS" secondAttribute="height" multiplier="47:10" id="TiZ-rC-Kwy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
+                                <color key="textColor" red="0.50588235294117645" green="0.53725490196078429" blue="0.70196078431372544" alpha="0.90450059499172186" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uOL-H4-J9L"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hpQ-4q-TKy" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="0Mv-gf-sa4"/>
+                            <constraint firstItem="Mkt-AC-Xb1" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="2M0-eo-O2r"/>
+                            <constraint firstItem="vNJ-hM-Br7" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="2dw-li-Q77"/>
+                            <constraint firstItem="PkQ-rQ-mSl" firstAttribute="trailing" secondItem="uOL-H4-J9L" secondAttribute="trailing" id="4JC-Ss-7Z2"/>
+                            <constraint firstItem="NGw-cS-dGP" firstAttribute="top" secondItem="oeJ-TW-ozj" secondAttribute="bottom" constant="50" id="YOw-g8-Ces"/>
+                            <constraint firstItem="uOL-H4-J9L" firstAttribute="trailing" secondItem="NGw-cS-dGP" secondAttribute="trailing" constant="16" id="ZA9-oi-Nye"/>
+                            <constraint firstItem="oeJ-TW-ozj" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="aa2-ih-fev"/>
+                            <constraint firstItem="uOL-H4-J9L" firstAttribute="bottom" secondItem="NGw-cS-dGP" secondAttribute="bottom" constant="33" id="d6E-Q1-hv1"/>
+                            <constraint firstItem="oeJ-TW-ozj" firstAttribute="top" secondItem="hpQ-4q-TKy" secondAttribute="bottom" constant="12" id="f3o-6b-loe"/>
+                            <constraint firstItem="NGw-cS-dGP" firstAttribute="leading" secondItem="uOL-H4-J9L" secondAttribute="leading" constant="16" id="hhv-Sk-92D"/>
+                            <constraint firstItem="PkQ-rQ-mSl" firstAttribute="top" secondItem="uOL-H4-J9L" secondAttribute="top" id="hlZ-5s-6vV"/>
+                            <constraint firstItem="2NJ-4w-ATg" firstAttribute="top" secondItem="PkQ-rQ-mSl" secondAttribute="bottom" constant="49" id="iPb-pr-3HZ"/>
+                            <constraint firstItem="PkQ-rQ-mSl" firstAttribute="leading" secondItem="uOL-H4-J9L" secondAttribute="leading" id="lRn-6B-5Jk"/>
+                            <constraint firstItem="1vQ-e9-edS" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="qSA-IS-qhk"/>
+                            <constraint firstItem="oeJ-TW-ozj" firstAttribute="top" secondItem="1vQ-e9-edS" secondAttribute="bottom" constant="16" id="tBM-Pk-4yZ"/>
+                            <constraint firstItem="2NJ-4w-ATg" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="uqv-mR-60N"/>
+                            <constraint firstItem="uOL-H4-J9L" firstAttribute="bottom" secondItem="Mkt-AC-Xb1" secondAttribute="bottom" constant="45" id="wtT-wn-UTh"/>
+                            <constraint firstItem="vNJ-hM-Br7" firstAttribute="top" secondItem="2NJ-4w-ATg" secondAttribute="bottom" constant="13" id="zBm-cM-JtY"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S4e-xn-2vt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3110" y="-300"/>
+        </scene>
+        <!--SelectFriendSearchBar-->
+        <scene sceneID="hPq-AR-aYG">
+            <objects>
+                <viewController storyboardIdentifier="SelectFriendSearchBar" title="SelectFriendSearchBar" modalPresentationStyle="fullScreen" id="4c4-J9-nWF" customClass="SelectFriendSearchBar" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qCe-J9-pfm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgt-jF-36Z">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 등록 친구 선택" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIW-3M-rMJ" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="122.00000000000001" y="10" width="131.33333333333337" height="24"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                        <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                <real key="value" value="-0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ph-qV-iEy">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="8XM-TH-hgT"/>
+                                            <constraint firstAttribute="width" secondItem="5ph-qV-iEy" secondAttribute="height" multiplier="1:1" id="cEy-y9-3qn"/>
+                                        </constraints>
+                                        <state key="normal" image="icnBack"/>
+                                        <connections>
+                                            <action selector="closeToMain:" destination="4c4-J9-nWF" eventType="touchUpInside" id="mR4-RS-LDY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="5ph-qV-iEy" firstAttribute="top" secondItem="Pgt-jF-36Z" secondAttribute="top" id="42Q-N6-UgG"/>
                                     <constraint firstAttribute="height" constant="44" id="GP7-HK-hAb"/>
-                                    <constraint firstAttribute="bottom" secondItem="5ph-qV-iEy" secondAttribute="bottom" id="GuN-le-qn5"/>
                                     <constraint firstItem="YIW-3M-rMJ" firstAttribute="centerX" secondItem="Pgt-jF-36Z" secondAttribute="centerX" id="WfU-yF-92F"/>
+                                    <constraint firstItem="5ph-qV-iEy" firstAttribute="leading" secondItem="Pgt-jF-36Z" secondAttribute="leading" id="kb5-g5-w8J"/>
                                     <constraint firstAttribute="width" secondItem="Pgt-jF-36Z" secondAttribute="height" multiplier="375:44" id="nWB-s4-u3p"/>
                                     <constraint firstItem="YIW-3M-rMJ" firstAttribute="centerY" secondItem="Pgt-jF-36Z" secondAttribute="centerY" id="qJu-YW-w5Q"/>
-                                    <constraint firstItem="5ph-qV-iEy" firstAttribute="leading" secondItem="Pgt-jF-36Z" secondAttribute="leading" constant="9" id="tLy-bv-Ufv"/>
-                                    <constraint firstItem="5ph-qV-iEy" firstAttribute="top" secondItem="Pgt-jF-36Z" secondAttribute="top" id="xeS-7P-4RR"/>
+                                    <constraint firstAttribute="bottom" secondItem="5ph-qV-iEy" secondAttribute="bottom" id="x6d-TS-ffQ"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRC-ne-zl0">
@@ -746,7 +909,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cea-Rh-7gk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1263.2" y="-959.11330049261085"/>
+            <point key="canvasLocation" x="1055" y="-300"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8zp-p0-5LQ">
@@ -763,7 +926,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CfY-72-t6Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="322.39999999999998" y="-300"/>
+            <point key="canvasLocation" x="-455" y="467"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bVi-bG-XgU">
@@ -780,7 +943,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pLF-f9-sXo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="320.80000000000001" y="-959.11330049261085"/>
+            <point key="canvasLocation" x="306" y="-300"/>
         </scene>
     </scenes>
     <resources>
@@ -792,7 +955,14 @@
         <image name="icn_back" width="44" height="44"/>
         <image name="icn_search_box" width="18" height="18"/>
         <image name="icn_seed" width="25" height="25"/>
+        <image name="img_graphic" width="320.33334350585938" height="347"/>
+        <image name="lottie_best_plant" width="34" height="58"/>
+        <image name="plant_tip_box" width="110" height="27"/>
+        <image name="popup_best_palnt" width="235" height="213"/>
         <image name="user_bg" width="54" height="54"/>
+        <namedColor name="black">
+            <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

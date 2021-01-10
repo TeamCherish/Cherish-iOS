@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nextBtn: UIButton!
@@ -44,15 +44,21 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     
     private let radioButton = "SelectFriendCell"
     
+    
+    //MARK: - searchBar 관련
+    var filteredData: [Friend]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
         tableView.tableFooterView = UIView()
         tableView.register(UINib(nibName: radioButton, bundle: nil), forCellReuseIdentifier: radioButton)
         resetSelectFriendVC()
         setSearchBar()
+        filteredData = friendList
 //        NotificationCenter.default.addObserver(self, selector: #selector(activeNextBtn(_:)), name: .radioBtnClicked, object: nil)
     }
     
@@ -89,8 +95,14 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         selectedFriend = index
     }
     
+    
+    //MARK: - tableView delegate, datasource
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendList.count
+        if filteredData == nil {
+            return friendList.count
+        }
+        return filteredData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,7 +114,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         cell.selectionStyle = .none
         
         // 3
-        let friend = friendList[indexPath.row]
+        let friend = filteredData[indexPath.row]
         
         // 4
         let currentIndex = indexPath.row
@@ -124,4 +136,28 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         updateSelectedIndex(indexPath.row)
     }
+    
+    
+    //MARK: - searchBar delegate
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = []
+        
+        if searchText == "" {
+            filteredData = friendList
+        }
+        else {
+            for friend in friendList {
+                if friend.name.contains(searchText) {
+                    filteredData.append(contentsOf: [
+                                            Friend(name: friend.name, phoneNumber: friend.phoneNumber, selected: friend.selected)])
+                }
+                else if friend.phoneNumber.contains(searchText) {
+                    filteredData.append(contentsOf: [Friend(name: friend.name, phoneNumber: friend.phoneNumber, selected: friend.selected)])
+                }
+            }
+        }
+        self.tableView.reloadData()
+    }
 }
+
