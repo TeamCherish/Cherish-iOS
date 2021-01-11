@@ -50,14 +50,14 @@ class CherishTabBarController: UITabBarController {
         }
         
         thirdTab.tabBarItem.image = UIImage(named: "icnMoreUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
-        thirdTab.tabBarItem.selectedImage = UIImage(systemName: "ellipsis")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+        thirdTab.tabBarItem.selectedImage = UIImage(named: "icnMoreSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
         
         
         let tabs =  [firstTab, secondTab, thirdTab]
         
-        tabBar.layer.shadowOpacity = 0.1
-        tabBar.layer.shadowOffset = CGSize(width: 0, height: -3)
-        tabBar.layer.shadowRadius = 3
+        tabBar.layer.shadowOpacity = 0
+        tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+        tabBar.barTintColor = .white
         self.setViewControllers(tabs, animated: false)
     }
 }

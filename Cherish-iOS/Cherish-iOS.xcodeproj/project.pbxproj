@@ -15,6 +15,7 @@
 		332CC7B925A7028A00D0047D /* MypageContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7B825A7028A00D0047D /* MypageContactVC.swift */; };
 		332CC7BD25A707BD00D0047D /* MypagePlantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7BC25A707BD00D0047D /* MypagePlantData.swift */; };
 		332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7C025A72A4800D0047D /* MypageContactData.swift */; };
+		3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3346B34625AB77E300EF5E14 /* AlarmVC.swift */; };
 		337A5CB525A8543600578130 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 337A5CB425A8543600578130 /* Login.storyboard */; };
 		337A5CB925A8545E00578130 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337A5CB825A8545E00578130 /* LoginVC.swift */; };
 		337A5CBD25A868C000578130 /* UIButton+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337A5CBC25A868C000578130 /* UIButton+Extention.swift */; };
@@ -113,6 +114,8 @@
 		332CC7B825A7028A00D0047D /* MypageContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageContactVC.swift; sourceTree = "<group>"; };
 		332CC7BC25A707BD00D0047D /* MypagePlantData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePlantData.swift; sourceTree = "<group>"; };
 		332CC7C025A72A4800D0047D /* MypageContactData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageContactData.swift; sourceTree = "<group>"; };
+		3346B34325AB653D00EF5E14 /* Cherish-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cherish-iOS.entitlements"; sourceTree = "<group>"; };
+		3346B34625AB77E300EF5E14 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
 		337A5CB425A8543600578130 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		337A5CB825A8545E00578130 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		337A5CBC25A868C000578130 /* UIButton+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extention.swift"; sourceTree = "<group>"; };
@@ -263,6 +266,7 @@
 		33851C72259A5541005BCFFD /* Cherish-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				3346B34325AB653D00EF5E14 /* Cherish-iOS.entitlements */,
 				33851C88259A5AC5005BCFFD /* Resources */,
 				33851C89259A5AD6005BCFFD /* Sources */,
 				33851C81259A5542005BCFFD /* Info.plist */,
@@ -448,6 +452,7 @@
 				33E8751F25A05CE5001F84FE /* BackdropVC.swift */,
 				33E8752225A05CFC001F84FE /* DetailContentVC.swift */,
 				33CAF85125A249DC0050DE29 /* CherishMainNC.swift */,
+				3346B34625AB77E300EF5E14 /* AlarmVC.swift */,
 			);
 			path = CherishMain;
 			sourceTree = "<group>";
@@ -796,6 +801,7 @@
 				5488923625A5E962003839FC /* CalendarKeywordCVCell.swift in Sources */,
 				92B2306525A30F390024B8A8 /* Friend.swift in Sources */,
 				548DF17525A1BB7F0081FCD1 /* PopUpContactVC.swift in Sources */,
+				3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */,
 				548DF16C25A1B4390081FCD1 /* PopUpWateringVC.swift in Sources */,
 				5478344C25AB65C30021C32B /* ShowMoreTVC.swift in Sources */,
 				332CC7AA25A6F41E00D0047D /* CustomSegmentedControl.swift in Sources */,
@@ -967,15 +973,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N8FDQCW52Q;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "wonseok.iOS.Cherish.Cherish-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -988,15 +995,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N8FDQCW52Q;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "wonseok.iOS.Cherish.Cherish-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
