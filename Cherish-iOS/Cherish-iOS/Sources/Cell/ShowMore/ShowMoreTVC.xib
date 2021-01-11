@@ -30,7 +30,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRA-O2-LES" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                        <rect key="frame" x="40" y="13.5" width="37" height="17.5"/>
+                        <rect key="frame" x="40" y="11" width="39.5" height="22.5"/>
                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="15"/>
                         <color key="textColor" name="black"/>
                         <nil key="highlightedColor"/>

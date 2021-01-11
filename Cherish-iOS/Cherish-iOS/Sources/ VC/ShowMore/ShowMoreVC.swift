@@ -11,6 +11,8 @@ class ShowMoreVC: UIViewController {
     let settingName = ["공지사항","문의하기","알림설정"]
     let lockName = ["Face ID 사용", "비밀번호 변경"]
     let imageIcon = ["settingIcNotice","settingIcMessage","settingIcAlarm"]
+    
+    //MARK: -@IBOutlet
     @IBOutlet weak var topNaviBar: UIView!{
         didSet{
             topNaviBar.dropShadow(color: .showmoreShadow, offSet: CGSize(width: 0, height: 1), opacity: 0.1, radius: 0)
@@ -22,18 +24,32 @@ class ShowMoreVC: UIViewController {
             showMoreTableView.delegate = self
             showMoreTableView.dataSource = self
             showMoreTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude) // 테이블 뷰 경계션 없애기
-            
-            
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         showMoreTableView.tableHeaderView = HeaderView
         showMoreTableView.register(ShowMoreTVC.nib(), forCellReuseIdentifier: ShowMoreTVC.identifier)
         // Do any additional setup after loading the view.
     }
+    @IBAction func doSynchronization(_ sender: Any) {
+        alertForm(title: "Cherish", message: "동기화가 완료 되었습니다!")
+    }
+    
+    func alertForm(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        // Alert의 '확인'을 누르면 dismiss
+        let okAction = UIAlertAction(title: "확인",style: .default) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
 }
 
+//MARK: -Delegate & DataSource
 extension ShowMoreVC: UITableViewDelegate, UITableViewDataSource{
     /// 셀 선택 시 수행할 작업
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -73,14 +89,14 @@ extension ShowMoreVC: UITableViewDelegate, UITableViewDataSource{
         if (indexPath.section == 1){
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ShowMoreTVC.identifier) as? ShowMoreTVC else{
                 return UITableViewCell()}
-//            cell.selectionStyle = .none
+            //            cell.selectionStyle = .none
             cell.setImageCell(imageName: imageIcon[indexPath.row], labelName: settingName[indexPath.row])
             
             return cell
             
         }else if (indexPath.section == 2){
             let cell = tableView.dequeueReusableCell(withIdentifier: "ShowMoreNotImageTVC", for: indexPath) as! ShowMoreNotImageTVC
-//            cell.selectionStyle = .none
+            //            cell.selectionStyle = .none
             cell.showmoreNotImageLabel.text = lockName[indexPath.row]
             
             return cell
