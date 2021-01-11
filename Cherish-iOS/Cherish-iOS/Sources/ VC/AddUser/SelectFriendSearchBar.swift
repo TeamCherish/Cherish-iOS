@@ -20,6 +20,8 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         var selected: Bool
     }
     
+    let topInset: CGFloat = 36.0
+    
     var friendList: [Friend] = [
         Friend(name: "김웅앵", phoneNumber: "010.1111.1111", selected: false),
         Friend(name: "박웅앵", phoneNumber: "010.2222.1111", selected: false),
@@ -98,7 +100,16 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     
     //MARK: - tableView delegate, datasource
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if section == 0 {
+            return 1
+        }
+        
         if filteredData == nil {
             return friendList.count
         }
@@ -106,36 +117,26 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // 1
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath)
+            return cell
+        }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: radioButton, for: indexPath) as? SelectFriendCell else { fatalError("Cell Not Found") }
-        
-        // 2
         cell.selectionStyle = .none
-        
-        // 3
         let friend = filteredData[indexPath.row]
-        
-        // 4
         let currentIndex = indexPath.row
-        
-        // 5
         let selected = currentIndex == selectedFriend
-        
-        // 6
         cell.configureName(friend.name)
         cell.configurePhone(friend.phoneNumber)
-
-        // 7
         cell.isselected(selected)
-        
-        // 8
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         updateSelectedIndex(indexPath.row)
     }
+    
+    
     
     
     //MARK: - searchBar delegate

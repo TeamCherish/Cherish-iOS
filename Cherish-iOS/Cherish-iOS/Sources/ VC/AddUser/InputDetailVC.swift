@@ -28,6 +28,8 @@ class InputDetailVC: UIViewController {
     let num = ["1", "2", "3"]
     let period = ["day", "week", "month"]
     
+    var receiveItem = ""
+    
 //    let nextBtnEnabled = false
     
     override func viewDidLoad() {
@@ -40,16 +42,41 @@ class InputDetailVC: UIViewController {
         createPicker()
         periodPicker.delegate = self
         periodPicker.dataSource = self
+        
+        nameTextField.text = receiveItem
+        phoneTextField.text = receiveItem
     }
     
     @IBAction func closeUpToSelectVC(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
+//    if nextBtn.isEnabled == true {
+//        guard let dvc = self.storyboard?.instantiateViewController(identifier: "InputDetailVC") else {
+//            return
+//        }
+//        self.present(dvc, animated: true, completion: nil)
+//    }
+    
     @IBAction func touchUpComplete(_ sender: Any) {
         if completeBtn.isEnabled == true {
-            
+            guard let loadingVC = self.storyboard?.instantiateViewController(identifier: "LoadingPopUpVC") else {
+                return
+            }
+            guard let resultVC = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") else {
+                return
+            }
+//            UIView.animate(withDuration: 1.0, animations: {
+//                self.present(loadingVC, animated: true, completion: nil)
+//            }) {finished in
+//                self.present(resultVC, animated: true, completion: nil)
+//            }
+            self.present(loadingVC, animated: true, completion: nil)
         }
+    }
+    
+    func receiveItem(_ item: String) {
+        receiveItem = item
     }
     
     //MARK: - 친구 선택에서 이름, 전화번호 받아오기

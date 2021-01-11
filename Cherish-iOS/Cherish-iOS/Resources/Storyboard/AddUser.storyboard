@@ -362,7 +362,7 @@
                                     <constraint firstAttribute="width" secondItem="2ts-fx-9IF" secondAttribute="height" multiplier="15:4" id="TNV-Ls-wdo"/>
                                     <constraint firstAttribute="height" constant="44" id="lJL-xN-AKp"/>
                                 </constraints>
-                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" name="black"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -372,7 +372,7 @@
                                     <constraint firstAttribute="height" constant="44" id="Khi-5W-kOV"/>
                                     <constraint firstAttribute="width" secondItem="xSI-Uz-kG0" secondAttribute="height" multiplier="15:4" id="Y3Q-p0-iVz"/>
                                 </constraints>
-                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" name="black"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -382,7 +382,7 @@
                                     <constraint firstAttribute="height" constant="44" id="Tir-Hn-ddN"/>
                                     <constraint firstAttribute="width" secondItem="Cho-wb-3ua" secondAttribute="height" multiplier="343:44" id="aaK-AS-tI5"/>
                                 </constraints>
-                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" name="black"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -392,7 +392,7 @@
                                     <constraint firstAttribute="height" constant="44" id="7G1-gh-fG3"/>
                                     <constraint firstAttribute="width" secondItem="wLQ-co-qp2" secondAttribute="height" multiplier="343:44" id="zqu-j5-1t6"/>
                                 </constraints>
-                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" name="black"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -402,7 +402,7 @@
                                     <constraint firstAttribute="width" secondItem="uhn-zN-3vv" secondAttribute="height" multiplier="343:44" id="Yc9-lY-6Q1"/>
                                     <constraint firstAttribute="height" constant="44" id="rhe-gv-J3w"/>
                                 </constraints>
-                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" name="black"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -412,7 +412,7 @@
                                     <constraint firstAttribute="height" constant="44" id="Fcb-E0-zuk"/>
                                     <constraint firstAttribute="width" secondItem="2Hr-uL-saD" secondAttribute="height" multiplier="343:44" id="dm8-1Y-FC8"/>
                                 </constraints>
-                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" name="black"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -511,10 +511,10 @@
             </objects>
             <point key="canvasLocation" x="1793" y="-300"/>
         </scene>
-        <!--View Controller-->
+        <!--Loading Pop UpVC-->
         <scene sceneID="71b-7w-xPR">
             <objects>
-                <viewController id="uqY-xY-2S3" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoadingPopUpVC" modalPresentationStyle="fullScreen" id="uqY-xY-2S3" customClass="LoadingPopUpVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v9n-1b-rIm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -552,7 +552,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jXo-Nd-sII"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0039215686274509803" alpha="0.32497865790562902" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="8iK-Tr-46O" firstAttribute="top" secondItem="43R-OA-30D" secondAttribute="bottom" constant="22" id="EFd-3j-OxV"/>
                             <constraint firstItem="43R-OA-30D" firstAttribute="top" secondItem="jXo-Nd-sII" secondAttribute="top" constant="307" id="U23-6D-BBS"/>
@@ -567,10 +567,10 @@
             </objects>
             <point key="canvasLocation" x="2454" y="-300"/>
         </scene>
-        <!--View Controller-->
+        <!--Plant ResultVC-->
         <scene sceneID="fbV-qe-JFO">
             <objects>
-                <viewController id="U4Q-xe-IxR" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlantResultVC" modalPresentationStyle="fullScreen" id="U4Q-xe-IxR" customClass="PlantResultVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jXI-6e-wH5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -784,8 +784,16 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                                 <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="36" id="d63-RC-Ucj">
+                                        <rect key="frame" x="0.0" y="72" width="343" height="36"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d63-RC-Ucj" id="Nqj-b4-u8p">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SelectFriendCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectFriendCell" rowHeight="80" id="apN-i6-6K8" customClass="SelectFriendCell" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="343" height="80"/>
+                                        <rect key="frame" x="0.0" y="108" width="343" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="apN-i6-6K8" id="aJC-SN-uCa">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="80"/>
@@ -909,7 +917,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cea-Rh-7gk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055" y="-300"/>
+            <point key="canvasLocation" x="1053.5999999999999" y="-300"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8zp-p0-5LQ">
