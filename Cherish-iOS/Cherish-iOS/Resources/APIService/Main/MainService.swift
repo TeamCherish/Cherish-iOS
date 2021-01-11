@@ -1,5 +1,5 @@
 //
-//  LoginService.swift
+//  MainService.swift
 //  Cherish-iOS
 //
 //  Created by 황지은 on 2021/01/11.
@@ -8,20 +8,15 @@
 import Foundation
 import Alamofire
 
-struct LoginService {
-    static let shared = LoginService()
+struct MainService {
+    static let shared = MainService()
     
-    func doLogin(email: String, password: String, completion: @escaping (NetworkResult<Any>) -> (Void)){
+    func doLogin(idx:Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
-        let url = APIConstants.loginURL
+        let url = APIConstants.mainURL + "\(idx)"
         let header: HTTPHeaders = [ "Content-Type":"application/json"]
-        let body: Parameters = [
-            "email":email,
-            "password":password
-        ]
         let dataRequest = AF.request(url,
-                                     method: .post,
-                                     parameters: body,
+                                     method: .get,
                                      encoding: JSONEncoding.default, headers: header)
         
         
@@ -42,7 +37,7 @@ struct LoginService {
     
     private func judgeData(status: Int, data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(GenericResponse<LoginData>.self, from: data) else {
+        guard let decodedData = try? decoder.decode(GenericResponse<MainData>.self, from: data) else {
             return .pathErr }
         switch status {
         case 200:
