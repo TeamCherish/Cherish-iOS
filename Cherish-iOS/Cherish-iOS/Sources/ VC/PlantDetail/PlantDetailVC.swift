@@ -40,9 +40,12 @@ class PlantDetailVC: UIViewController {
         setKeywordData()
         makeCornerRadiusView()
         setAutoLayoutByScreenSize()
-        
+        print(UserDefaults.standard.string(forKey: "selectedFriendsIdData"))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print(UserDefaults.standard.string(forKey: "selectedFriendsIdData"))
+    }
     
     //MARK: - NC,TC 속성 정의함수
     func setControllers() {

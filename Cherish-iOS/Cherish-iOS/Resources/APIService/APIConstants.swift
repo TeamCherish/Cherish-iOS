@@ -10,4 +10,5 @@ struct APIConstants {
     static let baseURL = "http://3.35.117.232:8080/"
     static let loginURL = baseURL + "login/signin"
     static let mainURL = baseURL + "cherish/"
+    static let plantDetailURL = baseURL + "cherish?CherishId="
 }

@@ -235,6 +235,7 @@
                     <connections>
                         <outlet property="dayCountLabel" destination="rlN-3e-VUW" id="mP8-In-fUH"/>
                         <outlet property="flowerAnimationImageView" destination="73B-R2-O3w" id="h47-qL-9hv"/>
+                        <outlet property="growthPercentLabel" destination="7lJ-v4-Fdo" id="GqH-Wb-S86"/>
                         <outlet property="plantExplainLabel" destination="MqD-Yz-UwB" id="lsW-qY-OCZ"/>
                         <outlet property="plantImageView" destination="1LF-25-ssR" id="q63-xK-rvd"/>
                         <outlet property="progressbarBackView" destination="Ook-bx-AcP" id="9qk-3n-XYz"/>
@@ -461,6 +462,7 @@
                     </view>
                     <connections>
                         <outlet property="cherishPeopleCV" destination="dA7-UO-PkU" id="tPR-Zx-Ciu"/>
+                        <outlet property="cherishPeopleCountLabel" destination="dhZ-mV-MRR" id="6ki-YX-Twl"/>
                         <outlet property="headerView" destination="3bh-Ia-bkm" id="q4r-Fb-pvd"/>
                     </connections>
                 </viewController>
