@@ -64,7 +64,7 @@
 		33EDFBB525A1B533006367A7 /* PlantDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */; };
 		33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */; };
 		33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */; };
-		5478343625A76EBC0021C32B /* UIDevie+ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478343525A76EBC0021C32B /* UIDevie+ScreenSize.swift */; };
+		5478343625A76EBC0021C32B /* UIDevice+ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478343525A76EBC0021C32B /* UIDevice+ScreenSize.swift */; };
 		5478343A25A82B060021C32B /* ReviewEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478343925A82B060021C32B /* ReviewEditVC.swift */; };
 		5478344C25AB65C30021C32B /* ShowMoreTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478344A25AB65C20021C32B /* ShowMoreTVC.swift */; };
 		5478344D25AB65C30021C32B /* ShowMoreTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5478344B25AB65C20021C32B /* ShowMoreTVC.xib */; };
@@ -162,7 +162,7 @@
 		33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlantDetail.storyboard; sourceTree = "<group>"; };
 		33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailVC.swift; sourceTree = "<group>"; };
 		33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCVCell.swift; sourceTree = "<group>"; };
-		5478343525A76EBC0021C32B /* UIDevie+ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevie+ScreenSize.swift"; sourceTree = "<group>"; };
+		5478343525A76EBC0021C32B /* UIDevice+ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+ScreenSize.swift"; sourceTree = "<group>"; };
 		5478343925A82B060021C32B /* ReviewEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewEditVC.swift; sourceTree = "<group>"; };
 		5478344A25AB65C20021C32B /* ShowMoreTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreTVC.swift; sourceTree = "<group>"; };
 		5478344B25AB65C20021C32B /* ShowMoreTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowMoreTVC.xib; sourceTree = "<group>"; };
@@ -391,7 +391,7 @@
 		33851C91259A5B23005BCFFD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				5478343525A76EBC0021C32B /* UIDevie+ScreenSize.swift */,
+				5478343525A76EBC0021C32B /* UIDevice+ScreenSize.swift */,
 				33E8750625A04DA2001F84FE /* UIColor+Additions.swift */,
 				33E8754825A09440001F84FE /* NotificationName.swift */,
 				548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */,
@@ -817,7 +817,7 @@
 				548DF16F25A1B4AB0081FCD1 /* UITextField+Extension.swift in Sources */,
 				33E8754225A08CFE001F84FE /* CherishSelectPersonCVC.swift in Sources */,
 				548DF17E25A1EE730081FCD1 /* ReviewVC.swift in Sources */,
-				5478343625A76EBC0021C32B /* UIDevie+ScreenSize.swift in Sources */,
+				5478343625A76EBC0021C32B /* UIDevice+ScreenSize.swift in Sources */,
 				33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */,
 				332CC7B325A701A400D0047D /* MypageContactTVC.swift in Sources */,
 			);

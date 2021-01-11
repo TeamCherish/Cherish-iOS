@@ -35,10 +35,18 @@ class ShowMoreVC: UIViewController {
 }
 
 extension ShowMoreVC: UITableViewDelegate, UITableViewDataSource{
+    /// 셀 선택 시 수행할 작업
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        /// 회색으로 선택을 표시해주고 사라지도록
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
     
+    /// 섹션 갯수
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
+    
+    /// 섹션 별 셀 갯수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 1 {
             return 3
@@ -49,6 +57,7 @@ extension ShowMoreVC: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    /// 섹션 별 셀 높이
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1 {
             return 50
@@ -59,16 +68,19 @@ extension ShowMoreVC: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    /// 섹션 별 셀 지정
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 1){
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ShowMoreTVC.identifier) as? ShowMoreTVC else{
                 return UITableViewCell()}
+//            cell.selectionStyle = .none
             cell.setImageCell(imageName: imageIcon[indexPath.row], labelName: settingName[indexPath.row])
             
             return cell
             
         }else if (indexPath.section == 2){
             let cell = tableView.dequeueReusableCell(withIdentifier: "ShowMoreNotImageTVC", for: indexPath) as! ShowMoreNotImageTVC
+//            cell.selectionStyle = .none
             cell.showmoreNotImageLabel.text = lockName[indexPath.row]
             
             return cell
@@ -77,18 +89,20 @@ extension ShowMoreVC: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    /// 섹션 헤더 높이
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 0
         }else if section == 1{
             return 8
         }else if section == 2{
-            return 42
+            return 40
         }else{
             return 0
         }
     }
     
+    /// 섹션 푸터 높이
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if section == 0 {
             return 0
@@ -98,6 +112,40 @@ extension ShowMoreVC: UITableViewDelegate, UITableViewDataSource{
             return 8
         }else{
             return 0
+        }
+    }
+    
+    /// 섹션 헤더 뷰 구성
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?{
+        if section == 1{
+            let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 8)) //set these values as necessary
+            returnedView.backgroundColor = .inputGrey
+            
+            return returnedView
+        }else if section == 2{
+            let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40)) //set these values as necessary
+            returnedView.backgroundColor = .white
+            
+            let label = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.frame.width, height: 40))
+            label.font = UIFont(name: "NotoSansCJKKR-Medium", size: 14)
+            label.textColor = .black
+            label.text = "잠금 설정"
+            returnedView.addSubview(label)
+            
+            return returnedView
+        }
+        return nil
+    }
+    
+    /// 섹션 푸터 뷰 구성
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 1 || section == 2{
+            let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 8)) //set these values as necessary
+            returnedView.backgroundColor = .inputGrey
+            
+            return returnedView
+        }else{
+            return nil
         }
     }
 }
