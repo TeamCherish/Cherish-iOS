@@ -11,9 +11,9 @@ import Alamofire
 struct WateringDayService {
     static let shared = WateringDayService()
     
-    func checkLater(CherishId: Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
+    func whenWateringDay(CherishId: Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
-        let url = APIConstants.wateringDayURL
+        let url = APIConstants.wateringDayURL + "\(CherishId)"
         let dataRequest = AF.request(url,
                                      method: .get,
                                      encoding: JSONEncoding.default)

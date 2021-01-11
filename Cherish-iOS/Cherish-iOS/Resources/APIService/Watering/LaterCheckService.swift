@@ -13,7 +13,8 @@ struct LaterCheckService {
     
     func checkLater(id: Int, postpone: Int, is_limit_postpone_number: Bool, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
-        let url = APIConstants.laterCheckURL
+        let url = APIConstants.laterCheckURL+"\(id)"
+        let header: HTTPHeaders = [ "Content-Type":"application/json"]
         let body: Parameters = [
             "id" : id,
             "postpone" : postpone,
@@ -22,7 +23,7 @@ struct LaterCheckService {
         let dataRequest = AF.request(url,
                                      method: .get,
                                      parameters: body,
-                                     encoding: JSONEncoding.default)
+                                     encoding: JSONEncoding.default, headers: header)
         
         
         dataRequest.responseData {(response) in

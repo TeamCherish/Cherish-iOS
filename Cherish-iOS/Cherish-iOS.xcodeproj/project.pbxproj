@@ -72,7 +72,6 @@
 		5478344C25AB65C30021C32B /* ShowMoreTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478344A25AB65C20021C32B /* ShowMoreTVC.swift */; };
 		5478344D25AB65C30021C32B /* ShowMoreTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5478344B25AB65C20021C32B /* ShowMoreTVC.xib */; };
 		5478345225AB7D8E0021C32B /* ShowMoreNotImageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478345025AB7D8E0021C32B /* ShowMoreNotImageTVC.swift */; };
-		5478346725AC6AA30021C32B /* WateringReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478346625AC6AA30021C32B /* WateringReviewData.swift */; };
 		5478346B25AC6DF50021C32B /* LaterCheckData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478346A25AC6DF50021C32B /* LaterCheckData.swift */; };
 		5478346F25AC72F90021C32B /* LaterCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478346E25AC72F90021C32B /* LaterCheckService.swift */; };
 		5478347225AC75950021C32B /* WateringDayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478347125AC75950021C32B /* WateringDayData.swift */; };
@@ -181,7 +180,6 @@
 		5478344A25AB65C20021C32B /* ShowMoreTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreTVC.swift; sourceTree = "<group>"; };
 		5478344B25AB65C20021C32B /* ShowMoreTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowMoreTVC.xib; sourceTree = "<group>"; };
 		5478345025AB7D8E0021C32B /* ShowMoreNotImageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreNotImageTVC.swift; sourceTree = "<group>"; };
-		5478346625AC6AA30021C32B /* WateringReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReviewData.swift; sourceTree = "<group>"; };
 		5478346A25AC6DF50021C32B /* LaterCheckData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterCheckData.swift; sourceTree = "<group>"; };
 		5478346E25AC72F90021C32B /* LaterCheckService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterCheckService.swift; sourceTree = "<group>"; };
 		5478347125AC75950021C32B /* WateringDayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringDayData.swift; sourceTree = "<group>"; };
@@ -558,7 +556,6 @@
 		5478346525AC6A690021C32B /* Watering */ = {
 			isa = PBXGroup;
 			children = (
-				5478346625AC6AA30021C32B /* WateringReviewData.swift */,
 				5478346A25AC6DF50021C32B /* LaterCheckData.swift */,
 				5478347125AC75950021C32B /* WateringDayData.swift */,
 			);
@@ -842,7 +839,6 @@
 				923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */,
 				33E874FE25A04A8D001F84FE /* ShowMoreVC.swift in Sources */,
 				33E874FB25A04A81001F84FE /* MyPageVC.swift in Sources */,
-				5478346725AC6AA30021C32B /* WateringReviewData.swift in Sources */,
 				33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */,
 				33E8753E25A08687001F84FE /* CherishSelectedPeopleData.swift in Sources */,
 				33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */,
