@@ -26,6 +26,17 @@ class ShowMoreVC: UIViewController {
             showMoreTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude) // 테이블 뷰 경계션 없애기
         }
     }
+    @IBOutlet weak var userNameLabel: CustomLabel!
+    @IBOutlet weak var userSubInfoLabel: CustomLabel!{
+        didSet{
+            userSubInfoLabel.textColor = .showmoreGrey
+        }
+    }
+    @IBOutlet weak var synchronizationLabel: CustomLabel!{
+        didSet{
+            synchronizationLabel.textColor = .showmoreGrey
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,7 +155,7 @@ extension ShowMoreVC: UITableViewDelegate, UITableViewDataSource{
             
             let label = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.frame.width, height: 40))
             label.font = UIFont(name: "NotoSansCJKKR-Medium", size: 14)
-            label.textColor = .black
+            label.textColor = .showmoreGrey
             label.text = "잠금 설정"
             returnedView.addSubview(label)
             

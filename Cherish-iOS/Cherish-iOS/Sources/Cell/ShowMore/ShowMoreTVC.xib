@@ -23,14 +23,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Azk-MM-Bek">
-                        <rect key="frame" x="6" y="10" width="24" height="24"/>
+                        <rect key="frame" x="16" y="10" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="Abc-Xg-ZxB"/>
                             <constraint firstAttribute="width" secondItem="Azk-MM-Bek" secondAttribute="height" multiplier="1:1" id="zUY-EA-yiX"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRA-O2-LES" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                        <rect key="frame" x="40" y="11" width="39.5" height="22.5"/>
+                        <rect key="frame" x="50" y="13.5" width="37" height="17.5"/>
                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="15"/>
                         <color key="textColor" name="black"/>
                         <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Azk-MM-Bek" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="a78-Lv-Mfu"/>
+                    <constraint firstItem="Azk-MM-Bek" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="a78-Lv-Mfu"/>
                     <constraint firstItem="hRA-O2-LES" firstAttribute="leading" secondItem="Azk-MM-Bek" secondAttribute="trailing" constant="10" id="k8J-bG-PbK"/>
                     <constraint firstItem="hRA-O2-LES" firstAttribute="centerY" secondItem="Azk-MM-Bek" secondAttribute="centerY" id="x2G-EZ-xYa"/>
                     <constraint firstItem="Azk-MM-Bek" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="y0W-Xv-e6D"/>
