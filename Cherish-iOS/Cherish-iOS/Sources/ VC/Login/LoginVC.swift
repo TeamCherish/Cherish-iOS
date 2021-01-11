@@ -175,7 +175,7 @@ class LoginVC: UIViewController {
             case .success(let data):
                 if let loginData = data as? LoginData {
                     UserDefaults.standard.set(loginData.userID, forKey: "userID")
-                    
+                   
                     // 로그인 성공 시
                     // 유저 idx 기반으로 메인뷰에 등록된 소중한 사람이 있는지 조회
                     MainService.shared.doLogin(idx: loginData.userID){
@@ -184,9 +184,10 @@ class LoginVC: UIViewController {
                         case .success(let data):
                             if let mainData = data as? MainData {
                                 
+                                
                                 // 등록된 소중한 사람의 수가 존재한다면
                                 if mainData.totalCherish > 0 {
-                                    
+    
                                     // 메인뷰로 이동
                                     self.goToCherishMainView()
                                 }
