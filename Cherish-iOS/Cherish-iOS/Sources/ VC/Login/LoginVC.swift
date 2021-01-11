@@ -141,22 +141,90 @@ class LoginVC: UIViewController {
         cancelPwTextingBtn.isHidden = true
     }
     
-
+    
     // 뷰의 다른 곳 탭하면 키보드 내려가게
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { self.view.endEditing(true)
     }
     
-    //MARK: - 로그인 버튼 눌렀을 때
-    @IBAction func touchUpToLogin(_ sender: UIButton) {
-        
-        //서버 연결 성공 시 tabBar storyboard와 연결
+    
+    func loginAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인",style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
+    
+    func goToCherishMainView(){
         let tabBarStoyboard: UIStoryboard = UIStoryboard(name: "TabBar", bundle: nil)
         if let tabBarVC = tabBarStoyboard.instantiateViewController(identifier: "CherishTabBarController") as? CherishTabBarController {
             tabBarVC.modalPresentationStyle = .fullScreen
             self.present(tabBarVC, animated: true, completion: nil)
         }
     }
-
+    
+    
+    //MARK: - 로그인 버튼 눌렀을 때
+    @IBAction func touchUpToLogin(_ sender: UIButton) {
+        
+        guard let emailText = loginEmailTextField.text,
+              let passwordText = loginPwTextField.text else { return }
+        
+        LoginService.shared.doLogin(email: emailText, password: passwordText){ (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                if let loginData = data as? LoginData {
+                    UserDefaults.standard.set(loginData.userID, forKey: "userID")
+                   
+                    // 로그인 성공 시
+                    // 유저 idx 기반으로 메인뷰에 등록된 소중한 사람이 있는지 조회
+                    MainService.shared.doLogin(idx: loginData.userID){
+                        (networkResult) -> (Void) in
+                        switch networkResult {
+                        case .success(let data):
+                            if let mainData = data as? MainData {
+                                
+                                
+                                // 등록된 소중한 사람의 수가 존재한다면
+                                if mainData.totalCherish > 0 {
+    
+                                    // 메인뷰로 이동
+                                    self.goToCherishMainView()
+                                }
+                                
+                                // 소중한 사람이 한명도 등록되지 않았다면
+                                else {
+                                    
+                                    //처음 서현이 뷰로 이동
+                                }
+                            }
+                        case .requestErr(let msg):
+                            if let message = msg as? String {
+                                self.loginAlert(title: "조회 실패", message: message)
+                            }
+                        case .pathErr:
+                            print("pathErr")
+                        case .serverErr:
+                            print("serverErr")
+                        case .networkFail:
+                            print("networkFail")
+                        }
+                    }
+                }
+            case .requestErr(let msg):
+                if let message = msg as? String {
+                    self.loginAlert(title: "로그인 실패", message: message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
 }
 
 //MARK: - UITextFieldDelegate
@@ -184,6 +252,4 @@ extension LoginVC: UITextFieldDelegate {
     
     @objc func keyboardWillDisappear(_ notification: NSNotification){ self.view.transform = .identity
     }
-    
-    
 }

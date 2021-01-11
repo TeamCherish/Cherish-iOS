@@ -19,6 +19,10 @@
 		337A5CB525A8543600578130 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 337A5CB425A8543600578130 /* Login.storyboard */; };
 		337A5CB925A8545E00578130 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337A5CB825A8545E00578130 /* LoginVC.swift */; };
 		337A5CBD25A868C000578130 /* UIButton+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337A5CBC25A868C000578130 /* UIButton+Extention.swift */; };
+		33805F7E25AC6209005CED0F /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33805F7D25AC6209005CED0F /* LoginService.swift */; };
+		33805F8325AC62B3005CED0F /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33805F8225AC62B3005CED0F /* LoginData.swift */; };
+		33805F8925AC739D005CED0F /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33805F8825AC739D005CED0F /* MainService.swift */; };
+		33805F8E25AC73B1005CED0F /* MainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33805F8D25AC73B1005CED0F /* MainData.swift */; };
 		33851C74259A5541005BCFFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851C73259A5541005BCFFD /* AppDelegate.swift */; };
 		33851C76259A5541005BCFFD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851C75259A5541005BCFFD /* SceneDelegate.swift */; };
 		33851C7D259A5542005BCFFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33851C7C259A5542005BCFFD /* Assets.xcassets */; };
@@ -119,6 +123,10 @@
 		337A5CB425A8543600578130 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		337A5CB825A8545E00578130 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		337A5CBC25A868C000578130 /* UIButton+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extention.swift"; sourceTree = "<group>"; };
+		33805F7D25AC6209005CED0F /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		33805F8225AC62B3005CED0F /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		33805F8825AC739D005CED0F /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
+		33805F8D25AC73B1005CED0F /* MainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainData.swift; sourceTree = "<group>"; };
 		33851C70259A5541005BCFFD /* Cherish-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cherish-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33851C73259A5541005BCFFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33851C75259A5541005BCFFD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -245,6 +253,38 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		33805F7C25AC61F8005CED0F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				33805F7D25AC6209005CED0F /* LoginService.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		33805F8125AC62A9005CED0F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				33805F8225AC62B3005CED0F /* LoginData.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		33805F8725AC7387005CED0F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				33805F8825AC739D005CED0F /* MainService.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		33805F8C25AC73A5005CED0F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				33805F8D25AC73B1005CED0F /* MainData.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		33851C67259A5541005BCFFD = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +361,8 @@
 		33851C8B259A5AEE005BCFFD /* APIService */ = {
 			isa = PBXGroup;
 			children = (
+				33805F8725AC7387005CED0F /* Main */,
+				33805F7C25AC61F8005CED0F /* Login */,
 				33851C92259A5B68005BCFFD /* APIConstants.swift */,
 				33851C98259A5C00005BCFFD /* NetworkResult.swift */,
 			);
@@ -387,6 +429,8 @@
 		33851C90259A5B1F005BCFFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				33805F8C25AC73A5005CED0F /* Main */,
+				33805F8125AC62A9005CED0F /* Login */,
 				332CC7BB25A707AF00D0047D /* Mypage */,
 				92B2306325A30F270024B8A8 /* AddUser */,
 				33D0025525A2914600E97811 /* PlantDetail */,
@@ -772,12 +816,14 @@
 				548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */,
 				92DCC3AA25A7071E00160523 /* PracticeDetail.swift in Sources */,
 				9244DF1225AB92220014FF5D /* LoadingPopUpVC.swift in Sources */,
+				33805F8325AC62B3005CED0F /* LoginData.swift in Sources */,
 				33CAF85225A249DC0050DE29 /* CherishMainNC.swift in Sources */,
 				5488922525A594CF003839FC /* CalendarVC.swift in Sources */,
 				548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */,
 				5478345225AB7D8E0021C32B /* ShowMoreNotImageTVC.swift in Sources */,
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,
 				5478343A25A82B060021C32B /* ReviewEditVC.swift in Sources */,
+				33805F8E25AC73B1005CED0F /* MainData.swift in Sources */,
 				548DF18D25A227A00081FCD1 /* KeywordCVC.swift in Sources */,
 				923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */,
 				33E8750725A04DA2001F84FE /* UIColor+Additions.swift in Sources */,
@@ -810,6 +856,7 @@
 				33E874F725A04A56001F84FE /* CherishMainVC.swift in Sources */,
 				332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */,
 				33CAF85625A2674A0050DE29 /* CircularProgressView.swift in Sources */,
+				33805F8925AC739D005CED0F /* MainService.swift in Sources */,
 				33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */,
 				33E8750425A04D1E001F84FE /* CustomLabel.swift in Sources */,
 				33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */,
@@ -830,6 +877,7 @@
 				33E8752625A05D34001F84FE /* MainContentVC.swift in Sources */,
 				548DF16F25A1B4AB0081FCD1 /* UITextField+Extension.swift in Sources */,
 				33E8754225A08CFE001F84FE /* CherishSelectPersonCVC.swift in Sources */,
+				33805F7E25AC6209005CED0F /* LoginService.swift in Sources */,
 				548DF17E25A1EE730081FCD1 /* ReviewVC.swift in Sources */,
 				5478343625A76EBC0021C32B /* UIDevice+ScreenSize.swift in Sources */,
 				33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */,
