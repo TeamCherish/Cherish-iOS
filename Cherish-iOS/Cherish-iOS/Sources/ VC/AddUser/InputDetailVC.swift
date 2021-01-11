@@ -8,6 +8,8 @@
 import UIKit
 
 class InputDetailVC: UIViewController {
+    
+    //MARK: - IBOUtlet
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nicknameTextField: UITextField!
     @IBOutlet weak var birthTextField: UITextField!
@@ -18,6 +20,9 @@ class InputDetailVC: UIViewController {
     @IBOutlet weak var completeBtn: UIButton!
     @IBOutlet weak var completeLabel: CustomLabel!
     @IBOutlet weak var alarmTimePicker: UIDatePicker!
+    
+    
+    //MARK: - 변수 지정
     
     var name: String?
     var phoneNumber: String?
@@ -30,33 +35,40 @@ class InputDetailVC: UIViewController {
     
     var receiveItem = ""
     
-//    let nextBtnEnabled = false
+    
+    //MARK: - viewDidLoad()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         completeBtn.isEnabled = false
-//        enableCompleteBtn()
-        preSet()
+        setSwitch()
         textFieldBackgroundImage()
         textFieldPadding()
         createPicker()
         periodPicker.delegate = self
         periodPicker.dataSource = self
-        
-        nameTextField.text = receiveItem
-        phoneTextField.text = receiveItem
+    }
+    
+    
+    //MARK: - IBAction
+    
+    @IBAction func switchAction(_ sender: Any) {
+        if stateSwitch.isOn == true {
+            print("알람 받음")
+            alarmPeriodTextField.placeholder = "Every 1 week"
+            alarmPeriodTextField.isEnabled = true
+        }
+        else {
+            print("알람 받지 않음")
+            alarmPeriodTextField.placeholder = ""
+            alarmPeriodTextField.text = ""
+            alarmPeriodTextField.isEnabled = false
+        }
     }
     
     @IBAction func closeUpToSelectVC(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-//    if nextBtn.isEnabled == true {
-//        guard let dvc = self.storyboard?.instantiateViewController(identifier: "InputDetailVC") else {
-//            return
-//        }
-//        self.present(dvc, animated: true, completion: nil)
-//    }
     
     @IBAction func touchUpComplete(_ sender: Any) {
         if completeBtn.isEnabled == true {
@@ -66,33 +78,44 @@ class InputDetailVC: UIViewController {
             guard let resultVC = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") else {
                 return
             }
-//            UIView.animate(withDuration: 1.0, animations: {
-//                self.present(loadingVC, animated: true, completion: nil)
-//            }) {finished in
-//                self.present(resultVC, animated: true, completion: nil)
-//            }
-            self.present(loadingVC, animated: true, completion: nil)
+            UIView.animate(withDuration: 1.0, animations: {
+                self.present(loadingVC, animated: true, completion: nil)
+            }) {finished in
+                self.present(resultVC, animated: true, completion: nil)
+            }
         }
     }
     
-    func receiveItem(_ item: String) {
-        receiveItem = item
+    
+    //MARK: - 함수 모음
+    
+    //MARK: - UISwitch Custom
+    func setSwitch() {
+        stateSwitch.tintColor = UIColor.seaweed
+        stateSwitch.onTintColor = UIColor.seaweed
+        stateSwitch.transform = CGAffineTransform(scaleX: 0.8, y: 0.74)
     }
     
-    //MARK: - 친구 선택에서 이름, 전화번호 받아오기
-    func preSet() {
-        if let name = self.name,
-           let phoneNumber = self.phoneNumber {
-            self.nameTextField.text = name
-            self.phoneTextField.text = phoneNumber
-        }
-    }
-    
-    //MARK: - 텍스트필드 값 다 채워지면 버튼 enable
+    //MARK: - 텍스트필드 값 다 채워지면 완료 버튼 enable
     func enableCompleteBtn() {
-        completeBtn.isEnabled = false
-        if birthTextField.text?.isEmpty == false {
-            completeBtn.isEnabled = true
+//        let nameEmpty = nameTextField.text?.isEmpty
+        let nicknameEmpty = nicknameTextField.text?.isEmpty
+        let birthEmpty = birthTextField.text?.isEmpty
+//        let phoneEmpty = phoneTextField.text?.isEmpty
+        let alarmPeriodEmpty = alarmPeriodTextField.text?.isEmpty
+        let alarmTimeEmpty = alarmTimeTextField.text?.isEmpty
+        
+        switch stateSwitch.isOn {
+        case true:
+            if (nicknameEmpty==false) && (birthEmpty==false) && (alarmTimeEmpty==false) && (alarmPeriodEmpty==false){
+                completeBtn.isEnabled = true
+                self.completeLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+            }
+        case false:
+            if (nicknameEmpty==false) && (birthEmpty==false) && (alarmTimeEmpty==false) {
+                completeBtn.isEnabled = true
+                self.completeLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+            }
         }
     }
     
@@ -176,10 +199,12 @@ class InputDetailVC: UIViewController {
         
         birthTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
+        enableCompleteBtn()
     }
     
     @objc func donePreseedPeriod() {
         self.view.endEditing(true)
+        enableCompleteBtn()
     }
     
     @objc func changed() {
@@ -188,8 +213,7 @@ class InputDetailVC: UIViewController {
         dateformatter.timeStyle = .short
         let date = dateformatter.string(from: alarmTimePicker.date)
         alarmTimeTextField.text = date
-        self.completeBtn.isEnabled = true
-        self.completeLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+        enableCompleteBtn()
     }
 }
 

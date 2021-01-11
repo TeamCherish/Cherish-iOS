@@ -9,6 +9,9 @@ import UIKit
 
 class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
+    
+    //MARK: - IBOutlet
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var nextLabel: UILabel!
@@ -23,15 +26,15 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     let topInset: CGFloat = 36.0
     
     var friendList: [Friend] = [
-        Friend(name: "김웅앵", phoneNumber: "010.1111.1111", selected: false),
-        Friend(name: "박웅앵", phoneNumber: "010.2222.1111", selected: false),
-        Friend(name: "이웅앵", phoneNumber: "010.3333.1111", selected: false),
-        Friend(name: "한웅앵", phoneNumber: "010.4444.1111", selected: false),
-        Friend(name: "장웅앵", phoneNumber: "010.5555.1111", selected: false),
-        Friend(name: "황웅앵", phoneNumber: "010.6666.1111", selected: false),
-        Friend(name: "황웅앵", phoneNumber: "010.7777.1111", selected: false),
-        Friend(name: "안웅앵", phoneNumber: "010.8888.1111", selected: false),
-        Friend(name: "권웅앵", phoneNumber: "010.9999.1111", selected: false)
+        Friend(name: "김웅앵", phoneNumber: "01011111111", selected: false),
+        Friend(name: "박웅앵", phoneNumber: "01022221111", selected: false),
+        Friend(name: "이웅앵", phoneNumber: "01033331111", selected: false),
+        Friend(name: "한웅앵", phoneNumber: "01044441111", selected: false),
+        Friend(name: "장웅앵", phoneNumber: "01055551111", selected: false),
+        Friend(name: "황웅앵", phoneNumber: "01066661111", selected: false),
+        Friend(name: "황웅앵", phoneNumber: "01077771111", selected: false),
+        Friend(name: "안웅앵", phoneNumber: "01088881111", selected: false),
+        Friend(name: "권웅앵", phoneNumber: "01099991111", selected: false)
     ]
     
     
@@ -86,6 +89,11 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         searchBar.setImage(UIImage(named: "icn_search_box"), for: UISearchBar.Icon.search, state: .normal)
         searchBar.layer.borderWidth = 0
         searchBar.searchBarStyle = .minimal
+        searchBar.setSearchFieldBackgroundImage(UIImage(named: "search_box"), for: .normal)
+        searchBar.sizeToFit()
+        searchBar.searchTextField.sizeToFit()
+        searchBar.searchTextField.textColor = UIColor.black
+        searchBar.searchTextField.font = UIFont.init(name: "NotoSansCJKKR-Regular", size: 14)
     }
     
     func resetSelectFriendVC() {

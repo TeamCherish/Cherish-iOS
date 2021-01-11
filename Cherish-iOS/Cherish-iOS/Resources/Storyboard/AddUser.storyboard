@@ -219,6 +219,21 @@
             </objects>
             <point key="canvasLocation" x="266" y="467"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="CXm-aR-H0V">
+            <objects>
+                <viewController id="KIw-wm-jvz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l5T-SB-K7m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="etK-8X-31O"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iFz-pd-gZ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1535" y="452"/>
+        </scene>
         <!--Input DetailVC-->
         <scene sceneID="mg7-hI-jBx">
             <objects>
@@ -419,6 +434,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bB-lW-ioS">
                                 <rect key="frame" x="296" y="408" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switchAction:" destination="DAc-nO-vXW" eventType="valueChanged" id="Bc7-Vb-HaU"/>
+                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aas-LP-IMf">
                                 <rect key="frame" x="16" y="697" width="343" height="48"/>
@@ -552,7 +570,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jXo-Nd-sII"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0039215686274509803" alpha="0.32497865790562902" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="8iK-Tr-46O" firstAttribute="top" secondItem="43R-OA-30D" secondAttribute="bottom" constant="22" id="EFd-3j-OxV"/>
                             <constraint firstItem="43R-OA-30D" firstAttribute="top" secondItem="jXo-Nd-sII" secondAttribute="top" constant="307" id="U23-6D-BBS"/>
@@ -828,11 +846,11 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="010.0000.0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMK-0w-POA" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="58.666666666666664" y="29" width="84.333333333333343" height="25"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01000000000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMK-0w-POA" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="62" y="29" width="75" height="24"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="sMK-0w-POA" secondAttribute="height" multiplier="27:8" id="RHN-Kp-qav"/>
-                                                        <constraint firstAttribute="height" constant="24" id="dMu-oA-aB5"/>
+                                                        <constraint firstAttribute="height" constant="24" id="22U-fn-hFs"/>
+                                                        <constraint firstAttribute="width" secondItem="sMK-0w-POA" secondAttribute="height" multiplier="25:8" id="yuX-qd-1fx"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                     <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -854,13 +872,11 @@
                                             <constraints>
                                                 <constraint firstItem="GcK-B0-XoS" firstAttribute="leading" secondItem="aJC-SN-uCa" secondAttribute="leading" id="020-MT-gSs"/>
                                                 <constraint firstAttribute="bottom" secondItem="jw5-We-1SX" secondAttribute="bottom" constant="40" id="31N-ZQ-MdS"/>
-                                                <constraint firstItem="sMK-0w-POA" firstAttribute="top" secondItem="vg2-2x-WGR" secondAttribute="bottom" id="I3r-He-WMA"/>
+                                                <constraint firstItem="Vbo-3K-9u4" firstAttribute="leading" secondItem="sMK-0w-POA" secondAttribute="trailing" constant="171" id="5hZ-wH-h27"/>
                                                 <constraint firstItem="Vbo-3K-9u4" firstAttribute="top" secondItem="aJC-SN-uCa" secondAttribute="top" constant="18" id="Lb2-Vz-otg"/>
+                                                <constraint firstItem="sMK-0w-POA" firstAttribute="top" secondItem="vg2-2x-WGR" secondAttribute="bottom" id="TWb-TP-WVi"/>
                                                 <constraint firstAttribute="trailing" secondItem="vg2-2x-WGR" secondAttribute="trailing" constant="237" id="Vei-0H-Dzz"/>
-                                                <constraint firstAttribute="bottom" secondItem="sMK-0w-POA" secondAttribute="bottom" constant="26" id="XpM-W1-fu5"/>
-                                                <constraint firstAttribute="trailing" secondItem="sMK-0w-POA" secondAttribute="trailing" constant="200" id="a9t-yt-8mw"/>
                                                 <constraint firstItem="GcK-B0-XoS" firstAttribute="top" secondItem="aJC-SN-uCa" secondAttribute="top" id="dBj-vs-xrX"/>
-                                                <constraint firstItem="sMK-0w-POA" firstAttribute="top" secondItem="vg2-2x-WGR" secondAttribute="bottom" id="fuj-NS-pbj"/>
                                                 <constraint firstAttribute="trailing" secondItem="Vbo-3K-9u4" secondAttribute="trailing" constant="17" id="iQi-q7-V0k"/>
                                                 <constraint firstItem="vg2-2x-WGR" firstAttribute="top" secondItem="aJC-SN-uCa" secondAttribute="top" constant="5" id="jrY-ea-erJ"/>
                                                 <constraint firstItem="jw5-We-1SX" firstAttribute="top" secondItem="aJC-SN-uCa" secondAttribute="top" constant="15" id="mzy-oi-joS"/>
