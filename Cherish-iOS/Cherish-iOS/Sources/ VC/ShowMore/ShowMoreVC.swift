@@ -13,7 +13,7 @@ class ShowMoreVC: UIViewController {
     let imageIcon = ["settingIcNotice","settingIcMessage","settingIcAlarm"]
     @IBOutlet weak var topNaviBar: UIView!{
         didSet{
-            topNaviBar.dropShadow(color: .showmoreShadow, offSet: CGSize(width: 0, height: 1), opacity: 0.7, radius: 0)
+            topNaviBar.dropShadow(color: .showmoreShadow, offSet: CGSize(width: 0, height: 1), opacity: 0.1, radius: 0)
         }
     }
     @IBOutlet weak var HeaderView: UIView!
