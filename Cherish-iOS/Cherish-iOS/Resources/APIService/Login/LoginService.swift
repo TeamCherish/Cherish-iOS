@@ -13,7 +13,7 @@ struct LoginService {
     
     func doLogin(email: String, password: String, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
-        let url = APIConstants.LoginURL
+        let url = APIConstants.loginURL
         let header: HTTPHeaders = [ "Content-Type":"application/json"]
         let body: Parameters = [
             "email":email,

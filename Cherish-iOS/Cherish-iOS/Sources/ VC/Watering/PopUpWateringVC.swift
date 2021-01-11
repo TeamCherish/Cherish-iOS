@@ -36,6 +36,18 @@ class PopUpWateringVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func goToWatering(){
+        guard let pvc = self.presentingViewController else {return}
+        self.dismiss(animated: true) {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpLater", bundle: nil)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpLaterVC") as? PopUpLaterVC{
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                pvc.self.present(vc, animated: true, completion: nil)
+            }
+        }
+    }
+    
     @IBAction func backBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -51,14 +63,15 @@ class PopUpWateringVC: UIViewController {
         }
     }
     @IBAction func moveToLater(_ sender: Any) {
-        guard let pvc = self.presentingViewController else {return}
-        self.dismiss(animated: true) {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpLater", bundle: nil)
-            if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpLaterVC") as? PopUpLaterVC{
-                vc.modalPresentationStyle = .overFullScreen
-                vc.modalTransitionStyle = .crossDissolve
-                pvc.self.present(vc, animated: true, completion: nil)
-            }
-        }
+        goToWatering()
+//        let userId = UserDefaults.standard.string(forKey: "userID")
+//        LaterCheckService.shared.checkLater(id: Int(userId)) { (networkResult) -> (Void) in
+//            switch networkResult {
+//            case .success(let data):
+//                guard let loadData = data as? LaterCheckData else{ return }
+//                
+//            }
+//        }
     }
 }
+

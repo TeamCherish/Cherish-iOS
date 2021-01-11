@@ -1,23 +1,32 @@
 //
-//  LaterCheckService.swift
+//  WateringReviewService.swift
 //  Cherish-iOS
 //
-//  Created by 이원석 on 2021/01/11.
+//  Created by 이원석 on 2021/01/12.
 //
 
 import Foundation
 import Alamofire
 
-struct LaterCheckService {
-    static let shared = LaterCheckService()
+struct WateringReviewService {
+    static let shared = WateringReviewService()
     
-    func checkLater(id: Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
+    func whenWateringDay(water_date : Date, review: String, keyword1: String, keyword2: String, keyword3: String, CherishId: Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
-        let url = APIConstants.laterCheckURL+"\(id)"
+        let url = APIConstants.wateringReviewURL
         let header: HTTPHeaders = [ "Content-Type":"application/json"]
+        let body: Parameters = [ "water_date" : water_date,
+                                 "review" : review,
+                                 "keyword1" : keyword1,
+                                 "keyword2" : keyword2,
+                                 "keyword3" : keyword3,
+                                 "CherishId" : CherishId
+                                ]
+                     
         let dataRequest = AF.request(url,
                                      method: .get,
-                                     encoding: JSONEncoding.default, headers: header)
+                                     parameters: body,
+                                     encoding: JSONEncoding.default,headers: header)
         
         
         dataRequest.responseData {(response) in
@@ -37,7 +46,7 @@ struct LaterCheckService {
     
     private func judgeData(status: Int, data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(GenericResponse<LaterCheckData>.self, from: data) else {
+        guard let decodedData = try? decoder.decode(GenericResponse<WateringReviewData>.self, from: data) else {
             return .pathErr }
         switch status {
         case 200:
