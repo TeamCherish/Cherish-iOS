@@ -73,4 +73,12 @@ extension UIColor {
     @nonobjc class var calendarSelectCircleGrey: UIColor {
         return UIColor(red: 98.0 / 255.0, green: 98.0 / 255.0, blue: 98.0 / 255.0, alpha: 1)
     }
+    
+    @nonobjc class var showmoreShadow: UIColor {
+        return UIColor(white: 21.0 / 255.0, alpha: 1)
+    }
+    
+    @nonobjc class var showmoreGrey: UIColor {
+        return UIColor(white: 134.0 / 255.0, alpha: 1)
+    }
 }
