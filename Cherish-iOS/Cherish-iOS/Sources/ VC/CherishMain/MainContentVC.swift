@@ -78,6 +78,11 @@ class MainContentVC: UIViewController {
         }
     }
     
+    @IBAction func moveToAlarmView(_ sender: UIButton) {
+        let alarmVC = self.storyboard?.instantiateViewController(identifier: "AlarmVC") as! AlarmVC
+        self.navigationController?.pushViewController(alarmVC, animated: true)
+    }
+    
     @objc func changeBackgroundInfo() {
         
         //noti 감지 후 view가 reload될 수 있도록 viewWillAppear함수를 호출해준다.
