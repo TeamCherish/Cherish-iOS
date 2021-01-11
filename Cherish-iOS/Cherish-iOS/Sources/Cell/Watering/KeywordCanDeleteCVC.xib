@@ -27,8 +27,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="77" height="29"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgW-gY-obt" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="10" y="5" width="32" height="19"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                <rect key="frame" x="10" y="5" width="29.5" height="19"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -38,7 +38,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Jk-5Y-Nd9">
-                                <rect key="frame" x="49" y="7" width="15" height="15"/>
+                                <rect key="frame" x="46.5" y="7" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="4Jk-5Y-Nd9" secondAttribute="height" id="Rnk-ip-K0l"/>
                                     <constraint firstAttribute="width" constant="15" id="SAB-QW-dgn"/>

@@ -12,9 +12,10 @@ import FSCalendar
 //    func deliveryKeyword(memoText: String)
 //}
 class CalendarVC: UIViewController {
-    let fake_keyword = ["생일","취업준비중","헤어짐"]
-    let test_text = "오늘 남쿵이랑 연락을 했다. 바빠서 여자친구한테 소홀 해서 많이 싸우더만 이번엔 진짜 헤어진 것 같다.목소리가 너무 안좋아서 걱정됐는데 잘 챙겨줘야겠다." /// 85글자
-//    var delegate: SendViewControllerDelegate?
+    var fake_keyword = ["아요최고다","오토레아웃","잡아주실분"]
+    var test_text = "오늘 남쿵이랑 연락을 했다. 바빠서 여자친구한테 소홀 해서 많이 싸우더만 이번엔 진짜 헤어진 것 같다.목소리가 너무 안좋아서 걱정됐는데 잘 챙겨줘야겠다."/// 85글자
+
+    //    var delegate: SendViewControllerDelegate?
     let formatter = DateFormatter()
     let calendarCurrent = Calendar.current
     var memoBtnstatus: Bool? = true
@@ -27,8 +28,6 @@ class CalendarVC: UIViewController {
     private lazy var today: Date = {
         return Date()
     }()
-    weak var oneCon: NSLayoutConstraint? = nil
-    weak var twoCon: NSLayoutConstraint? = nil
     
     @IBOutlet weak var wholeCalendarView: UIView!{
         didSet{
@@ -46,6 +45,10 @@ class CalendarVC: UIViewController {
             calendarOrigin.dataSource = self
         }
     }
+    
+    @IBOutlet weak var keywordCVTopAnchor: NSLayoutConstraint!
+    @IBOutlet weak var keywordCVBotAnchor: NSLayoutConstraint!
+    @IBOutlet weak var memoBtnTopAnchor: NSLayoutConstraint!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet weak var memoViewBotAnchor: NSLayoutConstraint!
     @IBOutlet weak var categoryBotAnchor: NSLayoutConstraint!
@@ -72,7 +75,6 @@ class CalendarVC: UIViewController {
         cal_Style()
         defineCalStatus()
         forsmallPhone()
-    
     }
     
     @IBAction func moveToBack(_ sender: Any) {
@@ -87,7 +89,7 @@ class CalendarVC: UIViewController {
             memoBtn.setImage(UIImage(named: "icUpCalendar"), for: .normal)
             weekCalendar()
             /// 확장 가능하게 우선순위 낮춤
-            memoTextLabelHeight.priority = .defaultLow
+//            memoTextLabelHeight.priority = .defaultLow
         }else{
             memoBtnstatus = true
             memoBtn.setImage(UIImage(named: "icDownCalendar"), for: .normal)
@@ -105,8 +107,23 @@ class CalendarVC: UIViewController {
         }
     }
     
+    @IBAction func moveToNext(_ sender: Any) {
+        self.moveCurrentPage(moveUp: true)
+    }
+    @IBAction func moveToPrev(_ sender: Any) {
+        self.moveCurrentPage(moveUp: false)
+    }
+    
     
     //MARK: -사용자 정의 함수
+    
+    /// 달력 좌우 페이지 넘기는 버튼
+    private func moveCurrentPage(moveUp: Bool) {
+        dateComponents.month = moveUp ? 1 : -1
+        self.currentPage = calendarCurrent.date(byAdding: dateComponents, to: self.currentPage ?? self.today)
+        self.calendarOrigin.setCurrentPage(self.currentPage!, animated: true)
+    }
+    
     func defineCalStatus(){
         // 달력버튼 클릭시 .month(true), 메모 클릭시 .week(false)
         if calendarStatus == "calendar" {
@@ -143,11 +160,8 @@ class CalendarVC: UIViewController {
     /// 캘린더 스타일
     func cal_Style() {
         /// 캘린더 헤더 부분
-        if UIDevice.current.isiPhoneSE2{
-            calendarOrigin.headerHeight = 44
-        }else{
-            calendarOrigin.headerHeight = 66
-        }
+
+        calendarOrigin.headerHeight = 66
         calendarOrigin.weekdayHeight = 41
         calendarOrigin.appearance.headerMinimumDissolvedAlpha = 0.0 /// 헤더 좌,우측 흐릿한 글씨 삭제
         calendarOrigin.locale = Locale(identifier: "ko_KR") /// 한국어로 변경
@@ -156,7 +170,7 @@ class CalendarVC: UIViewController {
         
         /// 캘린터 색상 관련
         calendarOrigin.backgroundColor = .white /// 배경색
-        calendarOrigin.appearance.titleTodayColor = .none/// Today 날짜에 Default 표시되는 특정색 없음
+        calendarOrigin.appearance.titleTodayColor = .seaweed/// Today 날짜에 Default 표시되는 특정색 없음
         calendarOrigin.appearance.todayColor = .clear // Today 날짜에 Default 표시되는 특정 동그라미 색 없음
         calendarOrigin.appearance.todaySelectionColor = .none  // Today 날짜를 선택하면 표시되는 동그라미 색 없음
         calendarOrigin.appearance.headerTitleColor = .black /// 2021년 1월(헤더) 색
@@ -174,9 +188,9 @@ class CalendarVC: UIViewController {
         formatter.locale = Locale(identifier: "ko_KR")
         formatter.dateFormat = "yyyy-MM-dd"
         let SHB = formatter.date(from: "2021-01-06")
-        let love = formatter.date(from: "2021-01-26")
-        let test1 = formatter.date(from: "2021-01-10")
-        let test2 = formatter.date(from: "2021-01-15")
+        let love = formatter.date(from: "2021-01-10")
+        let test1 = formatter.date(from: "2021-01-15")
+        let test2 = formatter.date(from: "2021-01-26")
         events = [SHB!, love!]
         test_events = [test1!, test2!]
     }
@@ -188,8 +202,12 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
     
     /// Event 표시 Dot 사이즈 조정
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let eventScaleFactor: CGFloat = 1.5
+        let eventScaleFactor: CGFloat = 1.8
         cell.eventIndicator.transform = CGAffineTransform(scaleX: eventScaleFactor, y: eventScaleFactor)
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventOffsetFor date: Date) -> CGPoint {
+        return CGPoint(x: 0, y: 3)
     }
     
     /// Calendar 주간, 월간 원활한 크기 변화를 위해
@@ -236,11 +254,41 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
         return nil
     }
     
-    // 날짜 선택 시 콜백 메소드
+    /// 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print(formatter.string(from: date) + " 선택됨")
+        
+        /// 이벤트가 있다면 표시
         if formatter.string(from: date) == "2021-01-06"{
             memoShowView.isHidden = false
+            
+            /// 키워드 미입력 시
+            if fake_keyword.count == 0 {
+                calendarKeywordCollectionView.isHidden = true
+                keywordCVTopAnchor.constant = 0
+            }else{
+                calendarKeywordCollectionView.isHidden = false
+                keywordCVTopAnchor.constant = 14
+            }
+
+            /// 메모 미입력 시
+            if memoTextLabel.text?.count ?? 0 < 1 {
+                keywordCVBotAnchor.constant = 0
+                memoTextLabel.isHidden = true
+            }else{
+                keywordCVBotAnchor.constant = 10
+                memoTextLabel.isHidden = false
+            }
+
+            /// 키워드,메모 미입력 시
+            if memoTextLabel.text?.count ?? 0 < 1 && fake_keyword.count == 0 {
+                memoBtnTopAnchor.constant = 22
+                memoBtn.isHidden = true
+            }else{
+                memoBtnTopAnchor.constant = 17
+                memoBtn.isHidden = false
+            }
+            
         }else{
             memoShowView.isHidden = true
         }
