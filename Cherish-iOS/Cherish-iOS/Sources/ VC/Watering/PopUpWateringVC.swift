@@ -65,7 +65,7 @@ class PopUpWateringVC: UIViewController {
     /// 다음에할게요 버튼
     @IBAction func moveToLater(_ sender: Any) {
         /// 선택한 사람에 대해서 물주기 횟수를 체크
-        LaterCheckService.shared.checkLater(id: UserDefaults.standard.integer(forKey: "selectedFriendsIdData")) { (networkResult) -> (Void) in
+        LaterService.shared.checkLater(id: UserDefaults.standard.integer(forKey: "selectedFriendsIdData")) { (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 self.goToWatering()

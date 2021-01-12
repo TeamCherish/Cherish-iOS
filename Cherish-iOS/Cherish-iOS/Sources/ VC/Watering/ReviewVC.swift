@@ -169,7 +169,7 @@ class ReviewVC: UIViewController {
     }
     
     @IBAction func submitReview(_ sender: Any) {
-
+        
         WateringReviewService.shared.wateringReview(water_date: Date(), review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: UserDefaults.standard.integer(forKey: "selectedFriendsIdData")) { (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):

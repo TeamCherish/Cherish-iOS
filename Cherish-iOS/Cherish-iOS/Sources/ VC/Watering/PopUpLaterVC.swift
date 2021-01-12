@@ -60,7 +60,7 @@ class PopUpLaterVC: UIViewController {
     }
     
     func getLaterData(){
-        LaterCheckService.shared.doLater(id: UserDefaults.standard.integer(forKey: "selectedFriendsIdData"), postpone: selectedDate, is_limit_postpone_number: UserDefaults.standard.bool(forKey: "noMinusisPossible")) { (networkResult) -> (Void) in
+        LaterService.shared.doLater(id: UserDefaults.standard.integer(forKey: "selectedFriendsIdData"), postpone: selectedDate, is_limit_postpone_number: UserDefaults.standard.bool(forKey: "noMinusisPossible")) { (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 if let dataMessage = data as? String{

@@ -1,5 +1,5 @@
 //
-//  LaterCheckService.swift
+//  LaterService.swift
 //  Cherish-iOS
 //
 //  Created by 이원석 on 2021/01/11.
@@ -8,8 +8,8 @@
 import Foundation
 import Alamofire
 
-struct LaterCheckService {
-    static let shared = LaterCheckService()
+struct LaterService {
+    static let shared = LaterService()
 
     func checkLater(id: Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
