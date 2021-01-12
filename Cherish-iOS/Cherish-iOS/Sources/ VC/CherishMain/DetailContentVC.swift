@@ -104,6 +104,13 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     firstCell.eclipseImageView.image = UIImage(named: "ellipse373")
                     firstCell.nickNameLabel.text = cherishPeopleData[0].nickname
                     
+                    if cherishPeopleData[0].dDay == 0 {
+                        firstCell.userWaterImageView.isHidden = false
+                    }
+                    else {
+                        firstCell.userWaterImageView.isHidden = true
+                    }
+                    
                     /// 이미지 url 처리
 //                    let url = URL(string: cherishPeopleData[0].thumbnailImageURL ?? "")
 //                    let imageData = try? Data(contentsOf: url!)
@@ -115,6 +122,14 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 {
                     firstCell.eclipseImageView.image = UIImage(named: "ellipse373")
                     firstCell.nickNameLabel.text = UserDefaults.standard.string(forKey:"selectedNickNameData")
+                    
+                    if UserDefaults.standard.integer(forKey: "selecteddDayData") == 0 {
+                        firstCell.userWaterImageView.isHidden = false
+                    }
+                    else {
+                        firstCell.userWaterImageView.isHidden = true
+                    }
+                    
                     
                     /// 이미지 url 처리
 //                    let url = URL(string: UserDefaults.standard.string(forKey:"selectedPlantNameData")!)
@@ -132,6 +147,13 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             
             if cherishPeopleData.count != 0 {
                 cell.cherishNickNameLabel.text = cherishPeopleData[indexPath.row - 1].nickname
+                
+                if cherishPeopleData[indexPath.row - 1].dDay == 0 {
+                    cell.cherishUserWaterImageView.isHidden = false
+                }
+                else {
+                    cell.cherishUserWaterImageView.isHidden = true
+                }
                 
                 /// 이미지 url 처리
 //                let url = URL(string: cherishPeopleData[indexPath.row - 1].thumbnailImageURL!)
@@ -163,6 +185,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             UserDefaults.standard.set(true, forKey: "selectedData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].growth, forKey: "selectedGrowthData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].dDay, forKey: "selecteddDayData")
+            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].modifier, forKey: "selectedModifierData")
             
             //선택된 친구의 인덱스 값을 저장해준다
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].id, forKey: "selectedFriendsIdData")

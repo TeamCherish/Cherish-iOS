@@ -51,13 +51,11 @@ class PlantDetailPopUpExplainVC: UIViewController {
     }
     
     
-    
-    
-    
     @IBAction func dismissPopUpExplainView(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
 }
+
 
 extension PlantDetailPopUpExplainVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     

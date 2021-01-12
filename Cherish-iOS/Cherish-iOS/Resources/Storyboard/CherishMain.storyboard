@@ -69,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Otg-az-yW5" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="15.999999999999996" y="68" width="41.666666666666657" height="47"/>
+                                <rect key="frame" x="16" y="68" width="44" height="47"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -80,13 +80,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlN-3e-VUW">
-                                <rect key="frame" x="57.666666666666657" y="68" width="23" height="47"/>
+                                <rect key="frame" x="60" y="68" width="23" height="47"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 수명이 탄탄한" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqD-Yz-UwB" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="115.00000000000001" width="222" height="41.666666666666671"/>
+                                <rect key="frame" x="16" y="115.00000000000001" width="209.33333333333334" height="32.666666666666671"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -97,7 +97,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rb3-up-wUt" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="15.999999999999993" y="156.66666666666666" width="103.33333333333331" height="41.666666666666657"/>
+                                <rect key="frame" x="16" y="147.66666666666666" width="97" height="32.666666666666657"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -108,7 +108,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="571-Dh-KLL">
-                                <rect key="frame" x="16" y="215.33333333333334" width="90" height="40"/>
+                                <rect key="frame" x="16" y="197.33333333333334" width="90" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="eOM-Vd-F2G"/>
                                 </constraints>
@@ -124,19 +124,16 @@
                                     <constraint firstAttribute="height" constant="48" id="JFV-bV-lGR"/>
                                 </constraints>
                                 <state key="normal" image="mainIcAlarm"/>
-                                <connections>
-                                    <action selector="moveToAlarmView:" destination="y3f-7o-jg5" eventType="touchUpInside" id="MHk-53-iPk"/>
-                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgMainDandelion" translatesAutoresizingMaskIntoConstraints="NO" id="1LF-25-ssR">
-                                <rect key="frame" x="125" y="192.66666666666663" width="250" height="493"/>
+                                <rect key="frame" x="125" y="183.66666666666663" width="250" height="493"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="493" id="EYF-pn-aGE"/>
                                     <constraint firstAttribute="width" secondItem="1LF-25-ssR" secondAttribute="height" multiplier="250:493" id="uTq-5b-4AI"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ook-bx-AcP" customClass="ProgressBarView" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="27.999999999999996" y="354.33333333333331" width="14.333333333333332" height="168.99999999999994"/>
+                                <rect key="frame" x="27.999999999999996" y="336.33333333333331" width="14.333333333333332" height="169"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="169" id="aNR-w0-3SL"/>
@@ -144,14 +141,14 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainBtnMoveDetailview" translatesAutoresizingMaskIntoConstraints="NO" id="8W2-oQ-08F">
-                                <rect key="frame" x="118" y="200.66666666666663" width="256" height="380"/>
+                                <rect key="frame" x="118" y="191.66666666666663" width="256" height="380"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8W2-oQ-08F" secondAttribute="height" multiplier="256:380" id="Ndf-vJ-hfD"/>
                                     <constraint firstAttribute="height" constant="380" id="nIi-T0-qZr"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tC1-OL-vxp" customClass="ProgressBarView" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="29.999999999999996" y="356.33333333333331" width="10.333333333333332" height="164.99999999999994"/>
+                                <rect key="frame" x="29.999999999999996" y="338.33333333333331" width="10.333333333333332" height="165"/>
                                 <color key="backgroundColor" name="seaweed"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tC1-OL-vxp" secondAttribute="height" multiplier="10.4:165" id="72L-R5-K2N"/>
@@ -159,7 +156,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="73%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lJ-v4-Fdo" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="26" y="527.33333333333337" width="21" height="13"/>
+                                <rect key="frame" x="26" y="509.33333333333326" width="23.333333333333329" height="13"/>
                                 <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="11"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -170,7 +167,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="애정도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g2-qy-Jyj" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="20.000000000000004" y="539.33333333333337" width="33.333333333333343" height="18"/>
+                                <rect key="frame" x="20" y="521.33333333333337" width="31.333333333333329" height="14"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -181,7 +178,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvI-uI-SPM">
-                                <rect key="frame" x="127" y="193" width="232" height="493"/>
+                                <rect key="frame" x="127" y="184" width="232" height="493"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rvI-uI-SPM" secondAttribute="height" multiplier="8:17" id="Gsy-gY-gob"/>
                                     <constraint firstAttribute="height" constant="493" id="xRp-Hv-xPS"/>
@@ -191,7 +188,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgGraphic" translatesAutoresizingMaskIntoConstraints="NO" id="73B-R2-O3w">
-                                <rect key="frame" x="112.33333333333331" y="291.33333333333331" width="56" height="61.333333333333314"/>
+                                <rect key="frame" x="112.33333333333331" y="273.33333333333331" width="56" height="61.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="73B-R2-O3w" secondAttribute="height" multiplier="51:56" id="9Ad-kC-kAq"/>
                                     <constraint firstAttribute="width" constant="56" id="d2O-ox-LXN"/>
@@ -247,21 +244,6 @@
             </objects>
             <point key="canvasLocation" x="-554.39999999999998" y="486.94581280788179"/>
         </scene>
-        <!--AlarmVC-->
-        <scene sceneID="bXr-GF-Sif">
-            <objects>
-                <viewController storyboardIdentifier="AlarmVC" id="Oxi-iY-bdl" customClass="AlarmVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Lfq-Ee-kib">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Y32-sv-QUu"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1oA-KG-mAI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-373" y="1470"/>
-        </scene>
         <!--Detail ContentVC-->
         <scene sceneID="9yd-TY-CVV">
             <objects>
@@ -281,7 +263,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 소중한 사람들" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWq-sY-NPK" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="27.666666666666671" width="111" height="21"/>
+                                        <rect key="frame" x="16.000000000000007" y="30" width="104.66666666666669" height="16.333333333333329"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="14"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -292,7 +274,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhZ-mV-MRR" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="131" y="29.666666666666671" width="15" height="17"/>
+                                        <rect key="frame" x="124.66666666666669" y="29.666666666666671" width="15" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="9cX-Kq-gGw"/>
                                             <constraint firstAttribute="width" secondItem="dhZ-mV-MRR" secondAttribute="height" multiplier="15:17" id="zsZ-XO-8g2"/>
@@ -361,7 +343,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDM-bV-H4M" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="12.333333333333332" y="73" width="44.333333333333343" height="18"/>
+                                                    <rect key="frame" x="13.666666666666668" y="73" width="41.666666666666657" height="14"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                     <color key="textColor" name="black"/>
                                                     <nil key="highlightedColor"/>
@@ -414,7 +396,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRc-ej-5rz" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="12.333333333333332" y="73" width="44.333333333333343" height="18"/>
+                                                    <rect key="frame" x="13.666666666666668" y="73" width="41.666666666666657" height="14"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                     <color key="textColor" name="black"/>
                                                     <nil key="highlightedColor"/>

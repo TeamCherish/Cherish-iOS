@@ -48,7 +48,6 @@ class PlantDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setControllers()
-        makeCircularView(0.5)
         defineFirstPlantCardBtnStatus()
         getPlantDetailData()
         makeDelegates()
@@ -77,6 +76,7 @@ class PlantDetailVC: UIViewController {
             (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
+                print(data)
                 if let plantDetailData = data as? PlantDetailData {
                     plantNicknameLabel.text = plantDetailData.nickname
                     userNameInRoundViewLabel.text = plantDetailData.name
@@ -88,10 +88,11 @@ class PlantDetailVC: UIViewController {
                     keywordArray.append(plantDetailData.keyword1)
                     keywordArray.append(plantDetailData.keyword2)
                     keywordArray.append(plantDetailData.keyword3)
-                    plantHealthStatusLabel.text = plantDetailData.statusMessage.message
+                    plantHealthStatusLabel.text = plantDetailData.statusMessage
+                    makeCircularView(Float(plantDetailData.gage))
                     
                     // 메모 데이터
-                    reviewArray = plantDetailData.reviews
+                    reviewArray = plantDetailData.review
                     
                     /// 메모 데이터가 없을 때
                     if reviewArray.count == 0 {
@@ -293,7 +294,7 @@ extension PlantDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
         let keywordCell = collectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCVCell", for: indexPath) as! KeywordCVCell
         
         if keywordArray.count != 0 {
-           keywordCell.keywordLabel.text = keywordArray[indexPath.row]
+            keywordCell.keywordLabel.text = keywordArray[indexPath.row]
         }
         
         keywordCell.layer.borderWidth = 1

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33201B1025AE2EBC001A94E4 /* PlantDetailCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33201B0F25AE2EBC001A94E4 /* PlantDetailCardData.swift */; };
 		332CC7A925A6F41E00D0047D /* MyPageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7A725A6F41E00D0047D /* MyPageUtils.swift */; };
 		332CC7AA25A6F41E00D0047D /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7A825A6F41E00D0047D /* CustomSegmentedControl.swift */; };
 		332CC7B025A7018400D0047D /* MypagePlantTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7AF25A7018400D0047D /* MypagePlantTVC.swift */; };
@@ -34,7 +35,6 @@
 		33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851C9C259A5C25005BCFFD /* GenericResponse.swift */; };
 		33CAF85225A249DC0050DE29 /* CherishMainNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CAF85125A249DC0050DE29 /* CherishMainNC.swift */; };
 		33CAF85625A2674A0050DE29 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CAF85525A2674A0050DE29 /* CircularProgressView.swift */; };
-		33D0025825A2915B00E97811 /* KeywordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0025725A2915B00E97811 /* KeywordData.swift */; };
 		33D0026625A3036800E97811 /* PlantDetailPopUpExplainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0026525A3036800E97811 /* PlantDetailPopUpExplainVC.swift */; };
 		33D0026925A3093500E97811 /* PlantExplainCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0026825A3093500E97811 /* PlantExplainCVC.swift */; };
 		33D0026F25A30AB700E97811 /* PlantDetailExplainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0026E25A30AB700E97811 /* PlantDetailExplainData.swift */; };
@@ -63,9 +63,7 @@
 		33E8752325A05CFC001F84FE /* DetailContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8752225A05CFC001F84FE /* DetailContentVC.swift */; };
 		33E8752625A05D34001F84FE /* MainContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8752525A05D34001F84FE /* MainContentVC.swift */; };
 		33E8753525A07A7F001F84FE /* CherishPeopleCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8753425A07A7F001F84FE /* CherishPeopleCVC.swift */; };
-		33E8753E25A08687001F84FE /* CherishSelectedPeopleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8753D25A08687001F84FE /* CherishSelectedPeopleData.swift */; };
 		33E8754225A08CFE001F84FE /* CherishSelectPersonCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754125A08CFE001F84FE /* CherishSelectPersonCVC.swift */; };
-		33E8754625A08E87001F84FE /* CherishPeopleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754525A08E87001F84FE /* CherishPeopleData.swift */; };
 		33E8754925A09440001F84FE /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754825A09440001F84FE /* NotificationName.swift */; };
 		33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754B25A0D272001F84FE /* ProgressBarView.swift */; };
 		33EDFBB525A1B533006367A7 /* PlantDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */; };
@@ -112,6 +110,7 @@
 
 /* Begin PBXFileReference section */
 		3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cherish_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		33201B0F25AE2EBC001A94E4 /* PlantDetailCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailCardData.swift; sourceTree = "<group>"; };
 		332CC7A725A6F41E00D0047D /* MyPageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageUtils.swift; sourceTree = "<group>"; };
 		332CC7A825A6F41E00D0047D /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		332CC7AF25A7018400D0047D /* MypagePlantTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePlantTVC.swift; sourceTree = "<group>"; };
@@ -142,7 +141,6 @@
 		33851C9C259A5C25005BCFFD /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		33CAF85125A249DC0050DE29 /* CherishMainNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishMainNC.swift; sourceTree = "<group>"; };
 		33CAF85525A2674A0050DE29 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
-		33D0025725A2915B00E97811 /* KeywordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordData.swift; sourceTree = "<group>"; };
 		33D0026525A3036800E97811 /* PlantDetailPopUpExplainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailPopUpExplainVC.swift; sourceTree = "<group>"; };
 		33D0026825A3093500E97811 /* PlantExplainCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantExplainCVC.swift; sourceTree = "<group>"; };
 		33D0026E25A30AB700E97811 /* PlantDetailExplainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailExplainData.swift; sourceTree = "<group>"; };
@@ -171,9 +169,7 @@
 		33E8752225A05CFC001F84FE /* DetailContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentVC.swift; sourceTree = "<group>"; };
 		33E8752525A05D34001F84FE /* MainContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentVC.swift; sourceTree = "<group>"; };
 		33E8753425A07A7F001F84FE /* CherishPeopleCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishPeopleCVC.swift; sourceTree = "<group>"; };
-		33E8753D25A08687001F84FE /* CherishSelectedPeopleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishSelectedPeopleData.swift; sourceTree = "<group>"; };
 		33E8754125A08CFE001F84FE /* CherishSelectPersonCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishSelectPersonCVC.swift; sourceTree = "<group>"; };
-		33E8754525A08E87001F84FE /* CherishPeopleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishPeopleData.swift; sourceTree = "<group>"; };
 		33E8754825A09440001F84FE /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		33E8754B25A0D272001F84FE /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlantDetail.storyboard; sourceTree = "<group>"; };
@@ -286,7 +282,6 @@
 			isa = PBXGroup;
 			children = (
 				33805F8D25AC73B1005CED0F /* MainData.swift */,
-				33805F9925ACE78A005CED0F /* PlantDetailData.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -440,7 +435,6 @@
 				332CC7BB25A707AF00D0047D /* Mypage */,
 				92B2306325A30F270024B8A8 /* AddUser */,
 				33D0025525A2914600E97811 /* PlantDetail */,
-				33E8753925A08654001F84FE /* CherishMain */,
 				33851C9C259A5C25005BCFFD /* GenericResponse.swift */,
 			);
 			path = Model;
@@ -470,8 +464,9 @@
 		33D0025525A2914600E97811 /* PlantDetail */ = {
 			isa = PBXGroup;
 			children = (
-				33D0025725A2915B00E97811 /* KeywordData.swift */,
+				33805F9925ACE78A005CED0F /* PlantDetailData.swift */,
 				33D0026E25A30AB700E97811 /* PlantDetailExplainData.swift */,
+				33201B0F25AE2EBC001A94E4 /* PlantDetailCardData.swift */,
 			);
 			path = PlantDetail;
 			sourceTree = "<group>";
@@ -530,15 +525,6 @@
 			children = (
 				33E8753425A07A7F001F84FE /* CherishPeopleCVC.swift */,
 				33E8754125A08CFE001F84FE /* CherishSelectPersonCVC.swift */,
-			);
-			path = CherishMain;
-			sourceTree = "<group>";
-		};
-		33E8753925A08654001F84FE /* CherishMain */ = {
-			isa = PBXGroup;
-			children = (
-				33E8753D25A08687001F84FE /* CherishSelectedPeopleData.swift */,
-				33E8754525A08E87001F84FE /* CherishPeopleData.swift */,
 			);
 			path = CherishMain;
 			sourceTree = "<group>";
@@ -841,9 +827,8 @@
 				33E874FE25A04A8D001F84FE /* ShowMoreVC.swift in Sources */,
 				33E874FB25A04A81001F84FE /* MyPageVC.swift in Sources */,
 				33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */,
-				33E8753E25A08687001F84FE /* CherishSelectedPeopleData.swift in Sources */,
 				33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */,
-				33E8754625A08E87001F84FE /* CherishPeopleData.swift in Sources */,
+				33201B1025AE2EBC001A94E4 /* PlantDetailCardData.swift in Sources */,
 				548DF1A925A395D20081FCD1 /* KeywordCanDeleteCVC.swift in Sources */,
 				92DCC3AE25A708C700160523 /* PracticeCell.swift in Sources */,
 				33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */,
@@ -858,7 +843,6 @@
 				5478344C25AB65C30021C32B /* ShowMoreTVC.swift in Sources */,
 				332CC7AA25A6F41E00D0047D /* CustomSegmentedControl.swift in Sources */,
 				33D0026925A3093500E97811 /* PlantExplainCVC.swift in Sources */,
-				33D0025825A2915B00E97811 /* KeywordData.swift in Sources */,
 				33E874F725A04A56001F84FE /* CherishMainVC.swift in Sources */,
 				332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */,
 				33CAF85625A2674A0050DE29 /* CircularProgressView.swift in Sources */,

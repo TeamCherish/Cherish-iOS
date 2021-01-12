@@ -48,17 +48,26 @@ class MainContentVC: UIViewController {
         // herishPeopleCell이 선택되지 않았을 때 첫 메인의 값을 지정해준다.
         if appDel.isCherishPeopleCellSelected == false {
             
-            MainService.shared.inquireMainView(idx: UserDefaults.standard.integer(forKey: "userID")) {
+            MainService.shared.inquireMainView(idx: UserDefaults.standard.integer(forKey: "userID")) { [self]
                 (networkResult) -> (Void) in
                 switch networkResult {
                 case .success(let data):
                     if let mainResultData = data as? MainData {
-                        self.cherishPeopleData = mainResultData.result
-                        self.userNickNameLabel.text = self.cherishPeopleData[0].nickname
-                        self.dayCountLabel.text = "\(self.cherishPeopleData[0].dDay!)"
-                        self.growthPercentLabel.text = "\(self.cherishPeopleData[0].growth!)%"
-                        self.customProgressBarView(self.cherishPeopleData[0].growth!)
-                        UserDefaults.standard.set(self.cherishPeopleData[0].id, forKey: "selectedFriendsIdData")
+                        cherishPeopleData = mainResultData.result
+                        userNickNameLabel.text = cherishPeopleData[0].nickname
+                        growthPercentLabel.text = "\(cherishPeopleData[0].growth)%"
+                        customProgressBarView(cherishPeopleData[0].growth)
+                        plantExplainLabel.text = cherishPeopleData[0].modifier
+                        
+                        // dDay 값이 0일 때는 D-day가 될 수 있도록
+                        if cherishPeopleData[0].dDay == 0 {
+                            dayCountLabel.text = "day"
+                        }
+                        else {
+                            dayCountLabel.text = "\(cherishPeopleData[0].dDay)"
+                        }
+                        
+                        UserDefaults.standard.set(cherishPeopleData[0].id, forKey: "selectedFriendsIdData")
                     }
                 case .requestErr(let msg):
                     if let message = msg as? String {
@@ -79,9 +88,16 @@ class MainContentVC: UIViewController {
     //MARK: - viewWillAppear에서 메인 데이터 바꿔주는 함수 (선택된 친구 데이터로 바꿔주기)
     func setMainDataViewWillApeear(){
         self.userNickNameLabel.text = UserDefaults.standard.string(forKey: "selectedNickNameData")
-        self.dayCountLabel.text = "\(UserDefaults.standard.integer(forKey: "selecteddDayData"))"
         customProgressBarView(UserDefaults.standard.integer(forKey: "selectedGrowthData"))
         self.growthPercentLabel.text = "\(UserDefaults.standard.integer(forKey: "selectedGrowthData"))%"
+        self.plantExplainLabel.text = UserDefaults.standard.string(forKey: "selectedModifierData")
+        
+        if UserDefaults.standard.integer(forKey: "selecteddDayData") == 0 {
+            self.dayCountLabel.text = "day"
+        }
+        else {
+            self.dayCountLabel.text = "\(UserDefaults.standard.integer(forKey: "selecteddDayData"))"
+        }
     }
     
     
@@ -131,16 +147,10 @@ class MainContentVC: UIViewController {
         }
     }
     
-    //MARK: - 알람뷰로 이동
-    @IBAction func moveToAlarmView(_ sender: UIButton) {
-        let alarmVC = self.storyboard?.instantiateViewController(identifier: "AlarmVC") as! AlarmVC
-        self.navigationController?.pushViewController(alarmVC, animated: true)
-    }
     
     @objc func changeBackgroundInfo() {
         
         //noti 감지 후 view가 reload될 수 있도록 viewWillAppear함수를 호출해준다.
         viewWillAppear(true)
-       
     }
 }
