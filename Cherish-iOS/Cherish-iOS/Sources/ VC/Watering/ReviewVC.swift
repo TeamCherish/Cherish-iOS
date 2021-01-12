@@ -163,30 +163,23 @@ class ReviewVC: UIViewController {
     }
     
     @IBAction func submitReview(_ sender: Any) {
-//        guard let review = memoTextView.text,
-//              let k1 = keyword[0],
-//              let k2 = keyword[1],
-//              let k3 = keyword[2],
-//              let CherishId = UserDefaults.standard.string(forKey: "userID") else { return }
-//
-//        WateringReviewService.shared.wateringReview(water_date: Date(), review: review, keyword1: k1, keyword2: k2, keyword3: k3, CherishId: Int(CherishId) ?? -1) { (networkResult) -> (Void) in
-//
-//            switch networkResult {
-//            case .success(let data):
-//                print("success")
-//            case .requestErr(let msg):
-//                print("requestErr")
-////                if let message = msg as? String {
-////                    self.loginAlert(title: "로그인 실패", message: message)
-////                }
-//            case .pathErr:
-//                print("pathErr")
-//            case .serverErr:
-//                print("serverErr")
-//            case .networkFail:
-//                print("networkFail")
-//            }
-//        }
+
+        WateringReviewService.shared.wateringReview(water_date: Date(), review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: UserDefaults.standard.integer(forKey: "selectedFriendsIdData")) { (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                if let checkData = data as? WateringReviewData {
+                    print(checkData.data)
+                }
+            case .requestErr(_):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
     
 }
