@@ -170,32 +170,31 @@ class ReviewVC: UIViewController {
     
     // 확인 버튼
     @IBAction func submitReview(_ sender: Any) {
-        let raw_now = Date()
-        print(raw_now)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
-        dateFormatter.locale = Locale(identifier: "ko_kr")
-        let now = dateFormatter.string(from: raw_now)
-        print(now)
-        guard let real_now = dateFormatter.date(from: now) else { return }
-        print(real_now)
-//
-//        WateringReviewService.shared.wateringReview(water_date: now, review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: 4) { (networkResult) -> (Void) in
-//            switch networkResult {
-//            case .success(let data):
-//                print(data)
-//                self.goToWateringMotion()
-//
-//            case .requestErr(_):
-//                print("requestErr")
-//            case .pathErr:
-//                print("pathErr")
-//            case .serverErr:
-//                print("serverErr")
-//            case .networkFail:
-//                print("networkFail")
-//            }
-//        }
+        let date = Date()
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateStyle = .long
+//        dateFormatter.locale = Locale(identifier: "ko_kr")
+//        let now = dateFormatter.string(from: raw_now)
+//        print(now)
+//        guard let real_now = dateFormatter.date(from: now) else { return }
+//        print(real_now)
+
+        WateringReviewService.shared.wateringReview(water_date: date, review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: 4) { (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                print(data)
+                self.goToWateringMotion()
+
+            case .requestErr(_):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
     
 }
@@ -225,7 +224,7 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         /// 키워드가 이미 3개인데 사용자가 입력하려한다면 막음
         if keyword.count >= 3 {
-            nomoreKeyword(title: "", message: "키워드는 3개까지 쓸 수 있어요!")
+            nomoreKeyword(title: "", message: "키워드는 3개까지 입력할 수 있어요!")
             self.view.endEditing(true) /// 알림창 후 키보드 내림
         }
     }
@@ -262,12 +261,12 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
     }
     
     func textViewPlaceholder() {
-        if memoTextView.text == "메모" {
+        if memoTextView.text == "메모를 입력해주세요!" {
             memoTextView.text = ""
             memoTextView.textColor = .black
         }
         else if memoTextView.text == "" {
-            memoTextView.text = "메모"
+            memoTextView.text = "메모를 입력해주세요!"
             memoTextView.textColor = .placeholderGrey
         }
     }

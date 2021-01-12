@@ -71,6 +71,7 @@
 		33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */; };
 		54425C2125ADBD9600E62BAB /* RecentKeywordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C2025ADBD9600E62BAB /* RecentKeywordData.swift */; };
 		54425C2425ADBE0700E62BAB /* RecentKeywordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C2325ADBE0700E62BAB /* RecentKeywordService.swift */; };
+		54425C2925AE32E100E62BAB /* KeywordReviewEditCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C2825AE32E100E62BAB /* KeywordReviewEditCVC.swift */; };
 		546A247025ACD32800F869E2 /* WateringReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A246F25ACD32800F869E2 /* WateringReviewService.swift */; };
 		546A247325ACD53A00F869E2 /* WateringReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A247225ACD53A00F869E2 /* WateringReviewData.swift */; };
 		546A247625ACD62F00F869E2 /* WateringMotionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A247525ACD62F00F869E2 /* WateringMotionVC.swift */; };
@@ -185,6 +186,7 @@
 		33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCVCell.swift; sourceTree = "<group>"; };
 		54425C2025ADBD9600E62BAB /* RecentKeywordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentKeywordData.swift; sourceTree = "<group>"; };
 		54425C2325ADBE0700E62BAB /* RecentKeywordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentKeywordService.swift; sourceTree = "<group>"; };
+		54425C2825AE32E100E62BAB /* KeywordReviewEditCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordReviewEditCVC.swift; sourceTree = "<group>"; };
 		546A246F25ACD32800F869E2 /* WateringReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReviewService.swift; sourceTree = "<group>"; };
 		546A247225ACD53A00F869E2 /* WateringReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReviewData.swift; sourceTree = "<group>"; };
 		546A247525ACD62F00F869E2 /* WateringMotionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringMotionVC.swift; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 				548DF18B25A227A00081FCD1 /* KeywordCVC.swift */,
 				548DF18C25A227A00081FCD1 /* KeywordCVC.xib */,
 				548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */,
+				54425C2825AE32E100E62BAB /* KeywordReviewEditCVC.swift */,
 			);
 			path = Watering;
 			sourceTree = "<group>";
@@ -876,6 +879,7 @@
 				33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */,
 				33E8753E25A08687001F84FE /* CherishSelectedPeopleData.swift in Sources */,
 				33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */,
+				54425C2925AE32E100E62BAB /* KeywordReviewEditCVC.swift in Sources */,
 				33E8754625A08E87001F84FE /* CherishPeopleData.swift in Sources */,
 				548DF1A925A395D20081FCD1 /* KeywordCanDeleteCVC.swift in Sources */,
 				92DCC3AE25A708C700160523 /* PracticeCell.swift in Sources */,

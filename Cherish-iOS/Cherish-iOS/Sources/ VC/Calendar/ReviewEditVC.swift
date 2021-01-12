@@ -229,10 +229,10 @@ extension ReviewEditVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeywordCanDeleteCVC.identifier, for: indexPath) as? KeywordCanDeleteCVC else{
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeywordReviewEditCVC.identifier, for: indexPath) as? KeywordReviewEditCVC else{
             return UICollectionViewCell()
         }
-        cell.keywordLabel.text = edit_keyword[indexPath.row]        
+        cell.eidtKeywordLabel.text = edit_keyword[indexPath.row]
         return cell
     }
     

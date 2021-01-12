@@ -227,9 +227,9 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         let label = UILabel(frame: CGRect.zero)
         label.text = keyword[indexPath.row]
         label.sizeToFit()
-        total? += label.frame.width + 20
-        return CGSize(width: label.frame.width+20, height: collectionView.frame.height)
-        
+        total? += label.frame.width + 10
+        print("totle"+"\(total)")
+        return CGSize(width: label.frame.width+10, height: collectionView.frame.height)
         
     }
     
@@ -244,7 +244,6 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     {
         // Cell 가운데 정렬
         let edgeInsets = (keywordShowCollectionView.frame.width  - (CGFloat(total ?? 0)) - (CGFloat(keyword.count-1) * 9)) / 2
-        
         return UIEdgeInsets(top: 0, left: CGFloat(edgeInsets), bottom: 0, right: 0);
         
     }
