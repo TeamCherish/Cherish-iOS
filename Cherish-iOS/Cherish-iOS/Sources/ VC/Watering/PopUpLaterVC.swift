@@ -55,7 +55,7 @@ class PopUpLaterVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func completeLatering(_ sender: Any) {
-        getLaterData()       
+        getLaterData()
         // 시드는 모션 뷰로 이동
     }
     
@@ -63,8 +63,8 @@ class PopUpLaterVC: UIViewController {
         LaterCheckService.shared.doLater(id: UserDefaults.standard.integer(forKey: "selectedFriendsIdData"), postpone: selectedDate, is_limit_postpone_number: UserDefaults.standard.bool(forKey: "noMinusisPossible")) { (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
-                if let laterResultData = data as? LaterData {
-                    print(laterResultData.message)
+                if let dataMessage = data as? String{
+                    print(dataMessage)
                 }
             case .requestErr(let msg):
                 if let message = msg as? String {

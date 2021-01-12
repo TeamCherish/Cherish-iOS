@@ -162,6 +162,12 @@ class ReviewVC: UIViewController {
         present(alert, animated: true)
     }
     
+    func goToWateringMotion(){
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "WateringMotionVC") as? WateringMotionVC else{return}
+            vc.modalPresentationStyle = .fullScreen
+            vc.present(vc, animated: true, completion: nil)
+    }
+    
     @IBAction func submitReview(_ sender: Any) {
 
         WateringReviewService.shared.wateringReview(water_date: Date(), review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: UserDefaults.standard.integer(forKey: "selectedFriendsIdData")) { (networkResult) -> (Void) in
@@ -170,6 +176,8 @@ class ReviewVC: UIViewController {
                 if let checkData = data as? WateringReviewData {
                     print(checkData.data)
                 }
+                self.goToWateringMotion()
+                
             case .requestErr(_):
                 print("requestErr")
             case .pathErr:
