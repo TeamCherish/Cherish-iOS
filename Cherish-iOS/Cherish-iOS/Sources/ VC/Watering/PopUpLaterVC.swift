@@ -43,8 +43,6 @@ class PopUpLaterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setWateringDate()
-        self.laterCountingLabel.text = UserDefaults.standard.string(forKey: "laterNumUntilNow")
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func backBtn(_ sender: Any) {
@@ -55,7 +53,7 @@ class PopUpLaterVC: UIViewController {
         // 시드는 모션 뷰로 이동
     }
     
-    /// 물 줄 날짜 셋팅
+    /// 물 줄 날짜, 미룬 횟수 셋팅
     func setWateringDate(){
         guard let originDate = UserDefaults.standard.string(forKey: "wateringDate") else { return }
         
@@ -79,10 +77,11 @@ class PopUpLaterVC: UIViewController {
         
         self.changeDateMonthLabel.text = String(int_month!)
         self.changeDateDayLabel.text = String(int_day!+1) // 1일 미루었을 때의 날짜
+        self.laterCountingLabel.text = UserDefaults.standard.string(forKey: "laterNumUntilNow")
     }
 
     
-    // 미루기 서버 통신
+    // Server-미루기
     func getLaterData(){
         //UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
         LaterService.shared.doLater(id: 5, postpone: selectedDate, is_limit_postpone_number: UserDefaults.standard.bool(forKey: "noMinusisPossible")) { (networkResult) -> (Void) in

@@ -11,9 +11,9 @@ import Alamofire
 struct RecentKeywordService {
     static let shared = RecentKeywordService()
     
-    func recentKeyword(id: Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
+    func recentKeyword(CherishId: Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
-        let url = APIConstants.recentKeywordURL + "\(id)"
+        let url = APIConstants.recentKeywordURL + "\(CherishId)"
         let header: HTTPHeaders = [ "Content-Type":"application/json"]
         let dataRequest = AF.request(url,
                                      method: .get,

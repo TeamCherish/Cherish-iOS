@@ -8,17 +8,15 @@
 // MARK: - RecentKeywordData
 struct RecentKeywordData: Codable {
     let nickname: String
-    let water: Water
+    let result: Result
 }
 
-// MARK: - Water
-struct Water: Codable {
-    let id: Int
-    let waterDate, keyword1, keyword2, keyword3: String
+// MARK: - Result
+struct Result: Codable {
+    let keyword1, keyword2, keyword3, waterDate: String
 
     enum CodingKeys: String, CodingKey {
-        case id
-        case waterDate = "water_date"
         case keyword1, keyword2, keyword3
+        case waterDate = "water_date"
     }
 }

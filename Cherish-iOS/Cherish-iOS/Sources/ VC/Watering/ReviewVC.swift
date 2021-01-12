@@ -40,7 +40,6 @@ class ReviewVC: UIViewController {
             self.keywordCollectionView.register(KeywordCanDeleteCVC.nib(), forCellWithReuseIdentifier: KeywordCanDeleteCVC.identifier)
             keywordCollectionView.delegate = self
             keywordCollectionView.dataSource = self
-//            keywordCollectionView.collectionViewLayout = LeftAlignedFlowLayout()
         }
     }
     @IBOutlet weak var memoTextView: UITextView!{
@@ -85,8 +84,8 @@ class ReviewVC: UIViewController {
         }
     }
     
-    //MARK: -사용자 정의 함수
     
+    //MARK: -사용자 정의 함수
     /// 키보드 Done 버튼 생성
     func textFieldDoneBtnMake(text_field : UITextField)
     {
@@ -162,12 +161,14 @@ class ReviewVC: UIViewController {
         present(alert, animated: true)
     }
     
+    // 리뷰 완료 후 물주기 모션으로 이동
     func goToWateringMotion(){
         guard let vc = self.storyboard?.instantiateViewController(identifier: "WateringMotionVC") as? WateringMotionVC else{return}
             vc.modalPresentationStyle = .fullScreen
             vc.present(vc, animated: true, completion: nil)
     }
     
+    // 확인 버튼
     @IBAction func submitReview(_ sender: Any) {
         
         WateringReviewService.shared.wateringReview(water_date: Date(), review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: UserDefaults.standard.integer(forKey: "selectedFriendsIdData")) { (networkResult) -> (Void) in

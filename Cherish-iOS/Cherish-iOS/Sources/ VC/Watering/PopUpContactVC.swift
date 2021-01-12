@@ -32,6 +32,10 @@ class PopUpContactVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         getRecentKeyword()
     }
     
@@ -73,19 +77,24 @@ class PopUpContactVC: UIViewController {
     
     // 최근 키워드 받아오기 및 연락 상대 이름에 따라 Label 변경
     func getRecentKeyword() {
-        RecentKeywordService.shared.recentKeyword(id: 5) { [self] (networkResult) -> (Void) in
+        RecentKeywordService.shared.recentKeyword(CherishId:4) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
+                print(data)
                 if let checkData = data as? RecentKeywordData {
-                    contactNameLabel.text = checkData.nickname
-                    keyword.append(checkData.water.keyword1)
-                    keyword.append(checkData.water.keyword2)
-                    keyword.append(checkData.water.keyword3)
-                    DispatchQueue.main.async {
-                            keywordShowCollectionView.reloadData()
+                    contactNameLabel.text = "\(checkData.nickname)"+"와(과)는"
+                    if checkData.result.keyword1 != ""{
+                        keyword.append(checkData.result.keyword1)
                     }
+                    if checkData.result.keyword2 != ""{
+                        keyword.append(checkData.result.keyword2)
+                    }
+                    if checkData.result.keyword3 != ""{
+                        keyword.append(checkData.result.keyword3)
+                    }
+                    print(keyword)
+                    keywordShowCollectionView.reloadData()
                 }
-                
             case .requestErr(_):
                 print("requestErr")
             case .pathErr:
@@ -209,8 +218,8 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         let label = UILabel(frame: CGRect.zero)
         label.text = keyword[indexPath.row]
         label.sizeToFit()
-        total? += label.frame.width + 10
-        return CGSize(width: label.frame.width+10, height: collectionView.frame.height)
+        total? += label.frame.width + 20
+        return CGSize(width: label.frame.width+20, height: collectionView.frame.height)
         
         
     }
