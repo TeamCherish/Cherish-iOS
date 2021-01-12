@@ -161,6 +161,34 @@ class ReviewVC: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+    
+    @IBAction func submitReview(_ sender: Any) {
+//        guard let review = memoTextView.text,
+//              let k1 = keyword[0],
+//              let k2 = keyword[1],
+//              let k3 = keyword[2],
+//              let CherishId = UserDefaults.standard.string(forKey: "userID") else { return }
+//
+//        WateringReviewService.shared.wateringReview(water_date: Date(), review: review, keyword1: k1, keyword2: k2, keyword3: k3, CherishId: Int(CherishId) ?? -1) { (networkResult) -> (Void) in
+//
+//            switch networkResult {
+//            case .success(let data):
+//                print("success")
+//            case .requestErr(let msg):
+//                print("requestErr")
+////                if let message = msg as? String {
+////                    self.loginAlert(title: "로그인 실패", message: message)
+////                }
+//            case .pathErr:
+//                print("pathErr")
+//            case .serverErr:
+//                print("serverErr")
+//            case .networkFail:
+//                print("networkFail")
+//            }
+//        }
+    }
+    
 }
 
 //MARK: -Protocols

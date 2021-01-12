@@ -10,6 +10,7 @@ import UIKit
 class PopUpLaterVC: UIViewController {
     let date = [1,2,3,4,5,6,7] // 미루기 최대 7일
     var test = 21
+    var selectedDate : Int!
     
     //MARK: -@IBOutlet
     @IBOutlet weak var laterView: UIView!{
@@ -42,11 +43,41 @@ class PopUpLaterVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        changeDateMonthLabel.text = UserDefaults.standard.string(forKey: "wateringDate")
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.laterCountingLabel.text = UserDefaults.standard.string(forKey: "laterNumUntilNow")
     }
     @IBAction func backBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func completeLatering(_ sender: Any) {
+        getLaterData()       
+        // 시드는 모션 뷰로 이동
+    }
+    
+    func getLaterData(){
+        LaterCheckService.shared.doLater(id: UserDefaults.standard.integer(forKey: "selectedFriendsIdData"), postpone: selectedDate, is_limit_postpone_number: UserDefaults.standard.bool(forKey: "noMinusisPossible")) { (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                if let laterResultData = data as? LaterData {
+                    print(laterResultData.message)
+                }
+            case .requestErr(let msg):
+                if let message = msg as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
 }
 
@@ -72,5 +103,6 @@ extension PopUpLaterVC: UIPickerViewDelegate, UIPickerViewDataSource{
         /// 구분해줘야함
         changeDateDayLabel.text = "\(test+date[row])"
         selectDateLabel.text = "\(date[row])"
+        selectedDate = date[row]
     }
 }

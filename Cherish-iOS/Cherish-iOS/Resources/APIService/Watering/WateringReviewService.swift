@@ -11,7 +11,7 @@ import Alamofire
 struct WateringReviewService {
     static let shared = WateringReviewService()
     
-    func whenWateringDay(water_date : Date, review: String, keyword1: String, keyword2: String, keyword3: String, CherishId: Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
+    func wateringReview(water_date : Date, review: String, keyword1: String, keyword2: String, keyword3: String, CherishId: Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
         let url = APIConstants.wateringReviewURL
         let header: HTTPHeaders = [ "Content-Type":"application/json"]

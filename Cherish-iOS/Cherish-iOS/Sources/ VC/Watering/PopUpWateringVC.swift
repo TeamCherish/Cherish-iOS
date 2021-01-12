@@ -8,7 +8,6 @@
 import UIKit
 
 class PopUpWateringVC: UIViewController {
-    
     //MARK: -@IBOutlet
     @IBOutlet weak var popupWaterView: UIView!{
         didSet{
@@ -62,16 +61,33 @@ class PopUpWateringVC: UIViewController {
             }
         }
     }
+    
+    /// 다음에할게요 버튼
     @IBAction func moveToLater(_ sender: Any) {
-        goToWatering()
-//        let userId = UserDefaults.standard.string(forKey: "userID")
-//        LaterCheckService.shared.checkLater(id: Int(userId)) { (networkResult) -> (Void) in
-//            switch networkResult {
-//            case .success(let data):
-//                guard let loadData = data as? LaterCheckData else{ return }
-//                
-//            }
-//        }
+        /// 선택한 사람에 대해서 물주기 횟수를 체크
+        LaterCheckService.shared.checkLater(id: UserDefaults.standard.integer(forKey: "selectedFriendsIdData")) { (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                self.goToWatering()
+                if let checkData = data as? LaterCheckData {
+                    UserDefaults.standard.set(checkData.cherish.waterDate, forKey: "wateringDate")
+                    UserDefaults.standard.set(checkData.cherish.postponeNumber, forKey: "laterNumUntilNow")
+                    UserDefaults.standard.set(checkData.isLimitPostponeNumber, forKey: "noMinusisPossible")
+                }
+                
+            case .requestErr(let msg):
+                if let message = msg as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
 }
+
 

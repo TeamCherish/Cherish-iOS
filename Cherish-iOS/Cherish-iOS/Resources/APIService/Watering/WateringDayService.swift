@@ -14,9 +14,11 @@ struct WateringDayService {
     func whenWateringDay(CherishId: Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
         let url = APIConstants.wateringDayURL + "\(CherishId)"
+        let header: HTTPHeaders = [ "Content-Type":"application/json"]
         let dataRequest = AF.request(url,
                                      method: .get,
-                                     encoding: JSONEncoding.default)
+                                     encoding: JSONEncoding.default,
+                                     headers: header)
         
         
         dataRequest.responseData {(response) in

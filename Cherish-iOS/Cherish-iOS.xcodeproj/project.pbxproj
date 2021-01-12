@@ -72,6 +72,7 @@
 		546A247025ACD32800F869E2 /* WateringReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A246F25ACD32800F869E2 /* WateringReviewService.swift */; };
 		546A247325ACD53A00F869E2 /* WateringReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A247225ACD53A00F869E2 /* WateringReviewData.swift */; };
 		546A247625ACD62F00F869E2 /* WateringMotionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A247525ACD62F00F869E2 /* WateringMotionVC.swift */; };
+		546A247925AD6CA700F869E2 /* LaterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A247825AD6CA700F869E2 /* LaterData.swift */; };
 		5478343625A76EBC0021C32B /* UIDevice+ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478343525A76EBC0021C32B /* UIDevice+ScreenSize.swift */; };
 		5478343A25A82B060021C32B /* ReviewEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478343925A82B060021C32B /* ReviewEditVC.swift */; };
 		5478344C25AB65C30021C32B /* ShowMoreTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478344A25AB65C20021C32B /* ShowMoreTVC.swift */; };
@@ -185,6 +186,7 @@
 		546A246F25ACD32800F869E2 /* WateringReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReviewService.swift; sourceTree = "<group>"; };
 		546A247225ACD53A00F869E2 /* WateringReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReviewData.swift; sourceTree = "<group>"; };
 		546A247525ACD62F00F869E2 /* WateringMotionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringMotionVC.swift; sourceTree = "<group>"; };
+		546A247825AD6CA700F869E2 /* LaterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterData.swift; sourceTree = "<group>"; };
 		5478343525A76EBC0021C32B /* UIDevice+ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+ScreenSize.swift"; sourceTree = "<group>"; };
 		5478343925A82B060021C32B /* ReviewEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewEditVC.swift; sourceTree = "<group>"; };
 		5478344A25AB65C20021C32B /* ShowMoreTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreTVC.swift; sourceTree = "<group>"; };
@@ -587,6 +589,7 @@
 				5478346A25AC6DF50021C32B /* LaterCheckData.swift */,
 				5478347125AC75950021C32B /* WateringDayData.swift */,
 				546A247225ACD53A00F869E2 /* WateringReviewData.swift */,
+				546A247825AD6CA700F869E2 /* LaterData.swift */,
 			);
 			path = Watering;
 			sourceTree = "<group>";
@@ -879,6 +882,7 @@
 				92DCC3AE25A708C700160523 /* PracticeCell.swift in Sources */,
 				33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */,
 				337A5CBD25A868C000578130 /* UIButton+Extention.swift in Sources */,
+				546A247925AD6CA700F869E2 /* LaterData.swift in Sources */,
 				33D0026F25A30AB700E97811 /* PlantDetailExplainData.swift in Sources */,
 				92B2306125A30DD40024B8A8 /* FriendCell.swift in Sources */,
 				5478346F25AC72F90021C32B /* LaterCheckService.swift in Sources */,
