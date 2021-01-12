@@ -35,7 +35,7 @@ class PopUpWateringVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func goToWatering(){
+    func goToLatering(){
         guard let pvc = self.presentingViewController else {return}
         self.dismiss(animated: true) {
             let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpLater", bundle: nil)
@@ -69,7 +69,7 @@ class PopUpWateringVC: UIViewController {
         LaterService.shared.checkLater(id: 5) { (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
-                self.goToWatering()
+                self.goToLatering()
                 if let checkData = data as? LaterCheckData {
                     UserDefaults.standard.set(checkData.cherish.waterDate, forKey: "wateringDate")
                     UserDefaults.standard.set(checkData.cherish.postponeNumber, forKey: "laterNumUntilNow")

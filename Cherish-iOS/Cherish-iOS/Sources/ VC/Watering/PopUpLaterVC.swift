@@ -9,7 +9,6 @@ import UIKit
 
 class PopUpLaterVC: UIViewController {
     let date = [1,2,3,4,5,6,7] // 미루기 최대 7일
-    var test = 21
     var selectedDate : Int!
     
     //MARK: -@IBOutlet
@@ -43,14 +42,11 @@ class PopUpLaterVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        changeDateMonthLabel.text = UserDefaults.standard.string(forKey: "wateringDate")
+        setWateringDate()
+        self.laterCountingLabel.text = UserDefaults.standard.string(forKey: "laterNumUntilNow")
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.laterCountingLabel.text = UserDefaults.standard.string(forKey: "laterNumUntilNow")
-    }
     @IBAction func backBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -59,6 +55,34 @@ class PopUpLaterVC: UIViewController {
         // 시드는 모션 뷰로 이동
     }
     
+    /// 물 줄 날짜 셋팅
+    func setWateringDate(){
+        guard let originDate = UserDefaults.standard.string(forKey: "wateringDate") else { return }
+        
+        let dateFormatter = DateFormatter()
+        let monthdateFormatter = DateFormatter()
+        let daydateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yy-MM-dd"
+        
+        let m = dateFormatter.date(from: originDate)
+        let d = dateFormatter.date(from: originDate)
+        
+        monthdateFormatter.dateFormat = "MM"
+        daydateFormatter.dateFormat = "dd"
+        
+        let month = monthdateFormatter.string(for: m)
+        let day = daydateFormatter.string(for: d)
+        
+        let int_day = Int(day!)
+        let int_month = Int(month!)
+        
+        self.changeDateMonthLabel.text = String(int_month!)
+        self.changeDateDayLabel.text = String(int_day!+1) // 1일 미루었을 때의 날짜
+    }
+
+    
+    // 미루기 서버 통신
     func getLaterData(){
         //UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
         LaterService.shared.doLater(id: 5, postpone: selectedDate, is_limit_postpone_number: UserDefaults.standard.bool(forKey: "noMinusisPossible")) { (networkResult) -> (Void) in
@@ -102,7 +126,25 @@ extension PopUpLaterVC: UIPickerViewDelegate, UIPickerViewDataSource{
         /// 6월-30일 7월-31일 8월-31일 9월-30일 10월-31
         /// 11월-30일 12월-31일
         /// 구분해줘야함
-        changeDateDayLabel.text = "\(test+date[row])"
+        guard let originDate = UserDefaults.standard.string(forKey: "wateringDate") else { return }
+        
+        let dateFormatter = DateFormatter()
+        let monthdateFormatter = DateFormatter()
+        let daydateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yy-MM-dd"
+        
+        //let m = dateFormatter.date(from: originDate)
+        let d = dateFormatter.date(from: originDate)
+        
+        monthdateFormatter.dateFormat = "MM"
+        daydateFormatter.dateFormat = "dd"
+        
+        //let month = monthdateFormatter.string(for: m)
+        let day = daydateFormatter.string(for: d)
+        let int_day = Int(day!)
+        //let int_month = Int(month!)
+        changeDateDayLabel.text = "\(int_day! + date[row])"
         selectDateLabel.text = "\(date[row])"
         selectedDate = date[row]
     }

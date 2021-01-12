@@ -12,6 +12,7 @@ struct APIConstants {
     static let wateringDayURL = baseURL + "search" /// 물주는 날짜 조회
     static let laterURL = baseURL + "postpone" /// 미루기
     static let laterCheckURL = baseURL + "postpone?CherishId=" /// 미루기 3회 미만인지 Check
+    static let recentKeywordURL = baseURL + "contact" // 최근 연락 키워드
     static let loginURL = baseURL + "login/signin"
     static let mainURL = baseURL + "cherish/"
 }

@@ -69,6 +69,8 @@
 		33EDFBB525A1B533006367A7 /* PlantDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */; };
 		33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */; };
 		33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */; };
+		54425C2125ADBD9600E62BAB /* RecentKeywordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C2025ADBD9600E62BAB /* RecentKeywordData.swift */; };
+		54425C2425ADBE0700E62BAB /* RecentKeywordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C2325ADBE0700E62BAB /* RecentKeywordService.swift */; };
 		546A247025ACD32800F869E2 /* WateringReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A246F25ACD32800F869E2 /* WateringReviewService.swift */; };
 		546A247325ACD53A00F869E2 /* WateringReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A247225ACD53A00F869E2 /* WateringReviewData.swift */; };
 		546A247625ACD62F00F869E2 /* WateringMotionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A247525ACD62F00F869E2 /* WateringMotionVC.swift */; };
@@ -182,6 +184,8 @@
 		33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlantDetail.storyboard; sourceTree = "<group>"; };
 		33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailVC.swift; sourceTree = "<group>"; };
 		33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCVCell.swift; sourceTree = "<group>"; };
+		54425C2025ADBD9600E62BAB /* RecentKeywordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentKeywordData.swift; sourceTree = "<group>"; };
+		54425C2325ADBE0700E62BAB /* RecentKeywordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentKeywordService.swift; sourceTree = "<group>"; };
 		546A246F25ACD32800F869E2 /* WateringReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReviewService.swift; sourceTree = "<group>"; };
 		546A247225ACD53A00F869E2 /* WateringReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReviewData.swift; sourceTree = "<group>"; };
 		546A247525ACD62F00F869E2 /* WateringMotionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringMotionVC.swift; sourceTree = "<group>"; };
@@ -587,6 +591,7 @@
 				5478346A25AC6DF50021C32B /* LaterCheckData.swift */,
 				5478347125AC75950021C32B /* WateringDayData.swift */,
 				546A247225ACD53A00F869E2 /* WateringReviewData.swift */,
+				54425C2025ADBD9600E62BAB /* RecentKeywordData.swift */,
 			);
 			path = Watering;
 			sourceTree = "<group>";
@@ -597,6 +602,7 @@
 				5478346E25AC72F90021C32B /* LaterService.swift */,
 				5478347425AC77600021C32B /* WateringDayService.swift */,
 				546A246F25ACD32800F869E2 /* WateringReviewService.swift */,
+				54425C2325ADBE0700E62BAB /* RecentKeywordService.swift */,
 			);
 			path = Watering;
 			sourceTree = "<group>";
@@ -893,6 +899,7 @@
 				33D0026925A3093500E97811 /* PlantExplainCVC.swift in Sources */,
 				33D0025825A2915B00E97811 /* KeywordData.swift in Sources */,
 				5478346B25AC6DF50021C32B /* LaterCheckData.swift in Sources */,
+				54425C2125ADBD9600E62BAB /* RecentKeywordData.swift in Sources */,
 				33E874F725A04A56001F84FE /* CherishMainVC.swift in Sources */,
 				332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */,
 				33CAF85625A2674A0050DE29 /* CircularProgressView.swift in Sources */,
@@ -918,6 +925,7 @@
 				33851C76259A5541005BCFFD /* SceneDelegate.swift in Sources */,
 				92DCC3EA25A85D7100160523 /* SelectFriendCell.swift in Sources */,
 				33E8752625A05D34001F84FE /* MainContentVC.swift in Sources */,
+				54425C2425ADBE0700E62BAB /* RecentKeywordService.swift in Sources */,
 				548DF16F25A1B4AB0081FCD1 /* UITextField+Extension.swift in Sources */,
 				33E8754225A08CFE001F84FE /* CherishSelectPersonCVC.swift in Sources */,
 				33805F7E25AC6209005CED0F /* LoginService.swift in Sources */,
