@@ -35,7 +35,7 @@ class ReviewEditVC: UIViewController{
     }
     @IBOutlet weak var keywordCollectionView: UICollectionView!{
         didSet{
-            self.keywordCollectionView.register(KeywordCanDeleteCVC.nib(), forCellWithReuseIdentifier: KeywordCanDeleteCVC.identifier)
+//            self.keywordCollectionView.register(KeywordCanDeleteCVC.nib(), forCellWithReuseIdentifier: KeywordCanDeleteCVC.identifier)
             keywordCollectionView.delegate = self
             keywordCollectionView.dataSource = self
 //            keywordCollectionView.collectionViewLayout = LeftAlignedFlowLayout()
@@ -247,11 +247,4 @@ extension ReviewEditVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         return CGSize(width: cellSize, height: 29)
 
     }
-    
-    //MARK: - Cell간의 좌우간격 지정
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
-    {
-        return 7
-    }
-
 }

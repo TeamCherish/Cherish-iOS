@@ -81,50 +81,56 @@
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="s7d-9r-Lsf">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="s7d-9r-Lsf">
                                 <rect key="frame" x="16" y="244.33333333333337" width="343" height="29"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="1XZ-Yq-PUe"/>
                                     <constraint firstAttribute="width" secondItem="s7d-9r-Lsf" secondAttribute="height" multiplier="343:29" id="ZRV-br-mZC"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hAp-Jw-EKX">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="7" minimumInteritemSpacing="7" id="hAp-Jw-EKX">
                                     <size key="itemSize" width="100" height="27"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="6Bj-vR-2dx">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="KeywordCanDeleteCVC" id="6Bj-vR-2dx" customClass="KeywordCanDeleteCVC" customModule="Cherish_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="100" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Jtb-Za-VWS">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="27"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gB1-gS-0YQ" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="5" width="32" height="17"/>
-                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
-                                                    <color key="textColor" name="black"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                                            <real key="value" value="0.69999999999999996"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Go-2I-8BL">
-                                                    <rect key="frame" x="49" y="2.6666666666666661" width="44" height="22"/>
-                                                    <state key="normal" image="x"/>
-                                                </button>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="A9E-FR-GwL">
+                                                    <rect key="frame" x="10" y="5" width="83" height="17"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gB1-gS-0YQ" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="32" height="17"/>
+                                                            <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                                            <color key="textColor" name="black"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                                    <real key="value" value="0.69999999999999996"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Go-2I-8BL">
+                                                            <rect key="frame" x="35" y="0.0" width="48" height="17"/>
+                                                            <state key="normal" image="x"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="LYL-IK-L8y"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="gB1-gS-0YQ" firstAttribute="leading" secondItem="Jtb-Za-VWS" secondAttribute="leading" constant="10" id="8Lf-GS-26x"/>
-                                                <constraint firstItem="gB1-gS-0YQ" firstAttribute="top" secondItem="Jtb-Za-VWS" secondAttribute="top" constant="5" id="G7H-Qk-shB"/>
-                                                <constraint firstItem="6Go-2I-8BL" firstAttribute="leading" secondItem="gB1-gS-0YQ" secondAttribute="trailing" constant="7" id="GQb-b4-deo"/>
-                                                <constraint firstAttribute="bottom" secondItem="gB1-gS-0YQ" secondAttribute="bottom" constant="5" id="dP9-ui-qjs"/>
-                                                <constraint firstAttribute="trailing" secondItem="6Go-2I-8BL" secondAttribute="trailing" constant="7" id="gPW-RL-6QN"/>
-                                                <constraint firstItem="6Go-2I-8BL" firstAttribute="centerY" secondItem="gB1-gS-0YQ" secondAttribute="centerY" id="nIH-uZ-8Zk"/>
+                                                <constraint firstItem="A9E-FR-GwL" firstAttribute="top" secondItem="Jtb-Za-VWS" secondAttribute="top" constant="5" id="2WU-uv-Rqe"/>
+                                                <constraint firstAttribute="trailing" secondItem="A9E-FR-GwL" secondAttribute="trailing" constant="7" id="J6X-Bb-OaX"/>
+                                                <constraint firstItem="A9E-FR-GwL" firstAttribute="leading" secondItem="Jtb-Za-VWS" secondAttribute="leading" constant="10" id="NT4-bD-4Va"/>
+                                                <constraint firstAttribute="bottom" secondItem="A9E-FR-GwL" secondAttribute="bottom" constant="5" id="che-IC-sbC"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="100" height="27"/>
@@ -263,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j6x-ok-Vy6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-280.80000000000001" y="-42.118226600985224"/>
+            <point key="canvasLocation" x="-284" y="-27"/>
         </scene>
         <!--Review EditVC-->
         <scene sceneID="jOe-Oe-DMu">
@@ -361,43 +367,49 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="4uz-hF-Lws"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g4T-Dw-SLD">
-                                            <size key="itemSize" width="100" height="27"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="7" minimumInteritemSpacing="7" id="g4T-Dw-SLD">
+                                            <size key="itemSize" width="128" height="29"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="qrb-En-8wI">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="KeywordCanDeleteCVC" id="qrb-En-8wI" customClass="KeywordCanDeleteCVC" customModule="Cherish_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="1" width="100" height="27"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rAh-bf-lDH">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROX-hd-MpN" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                            <rect key="frame" x="10" y="5" width="32" height="17"/>
-                                                            <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
-                                                            <color key="textColor" name="black"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                                                    <real key="value" value="0.69999999999999996"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F06-QN-WOh">
-                                                            <rect key="frame" x="49" y="2.6666666666666661" width="44" height="22"/>
-                                                            <state key="normal" image="x"/>
-                                                        </button>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Kf2-Gy-TY9">
+                                                            <rect key="frame" x="10" y="5" width="83" height="17"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROX-hd-MpN" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="53" height="17"/>
+                                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                                                    <color key="textColor" name="black"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                                            <real key="value" value="0.69999999999999996"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F06-QN-WOh">
+                                                                    <rect key="frame" x="56" y="0.0" width="27" height="17"/>
+                                                                    <state key="normal" image="x"/>
+                                                                </button>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="18" id="ilf-Yo-DPb"/>
+                                                            </constraints>
+                                                        </stackView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="F06-QN-WOh" secondAttribute="trailing" constant="7" id="2xC-9m-cxq"/>
-                                                        <constraint firstItem="F06-QN-WOh" firstAttribute="leading" secondItem="ROX-hd-MpN" secondAttribute="trailing" constant="7" id="4WM-9d-bgz"/>
-                                                        <constraint firstAttribute="bottom" secondItem="ROX-hd-MpN" secondAttribute="bottom" constant="5" id="9li-FO-uuQ"/>
-                                                        <constraint firstItem="F06-QN-WOh" firstAttribute="centerY" secondItem="ROX-hd-MpN" secondAttribute="centerY" id="fMM-Rd-Nhd"/>
-                                                        <constraint firstItem="ROX-hd-MpN" firstAttribute="top" secondItem="rAh-bf-lDH" secondAttribute="top" constant="5" id="irM-A8-lp7"/>
-                                                        <constraint firstItem="ROX-hd-MpN" firstAttribute="leading" secondItem="rAh-bf-lDH" secondAttribute="leading" constant="10" id="yal-GS-iqY"/>
+                                                        <constraint firstItem="Kf2-Gy-TY9" firstAttribute="top" secondItem="rAh-bf-lDH" secondAttribute="top" constant="5" id="7La-Z8-emq"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Kf2-Gy-TY9" secondAttribute="trailing" constant="7" id="Q0c-nX-fK6"/>
+                                                        <constraint firstItem="Kf2-Gy-TY9" firstAttribute="leading" secondItem="rAh-bf-lDH" secondAttribute="leading" constant="10" id="xrb-mR-rir"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Kf2-Gy-TY9" secondAttribute="bottom" constant="5" id="zhg-F9-AmD"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <size key="customSize" width="100" height="27"/>

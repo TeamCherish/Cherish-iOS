@@ -46,7 +46,7 @@ struct WateringReviewService {
     
     private func judgeData(status: Int, data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(GenericResponse<WateringReviewData>.self, from: data) else {
+        guard let decodedData = try? decoder.decode(GenericResponse<String>.self, from: data) else {
             return .pathErr }
         switch status {
         case 200:

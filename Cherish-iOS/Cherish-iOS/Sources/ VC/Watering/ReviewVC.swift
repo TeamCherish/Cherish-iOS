@@ -37,7 +37,7 @@ class ReviewVC: UIViewController {
     @IBOutlet weak var keywordCollectionView: UICollectionView!
     {
         didSet{
-            self.keywordCollectionView.register(KeywordCanDeleteCVC.nib(), forCellWithReuseIdentifier: KeywordCanDeleteCVC.identifier)
+//            self.keywordCollectionView.register(KeywordCanDeleteCVC.nib(), forCellWithReuseIdentifier: KeywordCanDeleteCVC.identifier)
             keywordCollectionView.delegate = self
             keywordCollectionView.dataSource = self
         }
@@ -84,7 +84,6 @@ class ReviewVC: UIViewController {
         }
     }
     
-    
     //MARK: -사용자 정의 함수
     /// 키보드 Done 버튼 생성
     func textFieldDoneBtnMake(text_field : UITextField)
@@ -112,6 +111,7 @@ class ReviewVC: UIViewController {
             keywordTextField.text = ""
             keywordCountingLabel.text = "0/"
             print(keyword)
+            
             /// 컬렉션 뷰 데이터 업데이트
             keywordCollectionView.reloadData()
             /// 키워드 3개가 다 입력되면 키보드 내림
@@ -170,25 +170,32 @@ class ReviewVC: UIViewController {
     
     // 확인 버튼
     @IBAction func submitReview(_ sender: Any) {
-        
-        WateringReviewService.shared.wateringReview(water_date: Date(), review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: UserDefaults.standard.integer(forKey: "selectedFriendsIdData")) { (networkResult) -> (Void) in
-            switch networkResult {
-            case .success(let data):
-                if let checkData = data as? WateringReviewData {
-                    print(checkData.data)
-                }
-                self.goToWateringMotion()
-                
-            case .requestErr(_):
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
-            }
-        }
+        let raw_now = Date()
+        print(raw_now)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.locale = Locale(identifier: "ko_kr")
+        let now = dateFormatter.string(from: raw_now)
+        print(now)
+        guard let real_now = dateFormatter.date(from: now) else { return }
+        print(real_now)
+//
+//        WateringReviewService.shared.wateringReview(water_date: now, review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: 4) { (networkResult) -> (Void) in
+//            switch networkResult {
+//            case .success(let data):
+//                print(data)
+//                self.goToWateringMotion()
+//
+//            case .requestErr(_):
+//                print("requestErr")
+//            case .pathErr:
+//                print("pathErr")
+//            case .serverErr:
+//                print("serverErr")
+//            case .networkFail:
+//                print("networkFail")
+//            }
+//        }
     }
     
 }
@@ -298,7 +305,7 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         cell.keywordLabel.text = keyword[indexPath.row]
         return cell
     }
-    
+        
     //MARK: - Cell 사이즈
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
@@ -309,11 +316,5 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
 
         return CGSize(width: cellSize, height: 29)
 
-    }
-    
-    //MARK: - Cell간의 좌우간격 지정
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
-    {
-        return 7
     }
 }

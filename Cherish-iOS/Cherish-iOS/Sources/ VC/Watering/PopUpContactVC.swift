@@ -112,8 +112,17 @@ class PopUpContactVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func calling(_ sender: Any) {
-        showCallAlert()
-    }
+//        showCallAlert()
+        guard let pvc = self.presentingViewController else {return}
+        self.dismiss(animated: true){
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
+                if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
+                    vc.modalPresentationStyle = .fullScreen
+                    pvc.present(vc, animated: true, completion: nil)
+                }
+            }
+        }
+    
     @IBAction func kakoTalking(_ sender: Any) {
         let kakaoTalk = "kakaotalk://"
         let kakaoTalkURL = NSURL(string: kakaoTalk)
