@@ -20,6 +20,7 @@ class MainContentVC: UIViewController {
     var cherishPeopleData:[ResultData] = []
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         getCherishData()
@@ -27,9 +28,8 @@ class MainContentVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(changeBackgroundInfo), name: .cherishPeopleCellClicked, object: nil)
     }
     
-    
+    //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-        
 
         // cherishPeopleCell이 선택되면 배경뷰의 라벨값, 식물이미지, 배경색을 바꿔준다.
         if appDel.isCherishPeopleCellSelected == true {
@@ -41,14 +41,7 @@ class MainContentVC: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    
-    func setMainDataViewWillApeear(){
-        self.userNickNameLabel.text = UserDefaults.standard.string(forKey: "selectedNickNameData")
-        self.dayCountLabel.text = "\(UserDefaults.standard.integer(forKey: "selecteddDayData"))"
-        customProgressBarView(UserDefaults.standard.integer(forKey: "selectedGrowthData"))
-        self.growthPercentLabel.text = "\(UserDefaults.standard.integer(forKey: "selectedGrowthData"))%"
-    }
-    
+
     //MARK: - 메인 뷰 데이터 받아오는 함수
     func getCherishData() {
         
@@ -81,6 +74,17 @@ class MainContentVC: UIViewController {
             }
         }
     }
+    
+    
+    //MARK: - viewWillAppear에서 메인 데이터 바꿔주는 함수 (선택된 친구 데이터로 바꿔주기)
+    func setMainDataViewWillApeear(){
+        self.userNickNameLabel.text = UserDefaults.standard.string(forKey: "selectedNickNameData")
+        self.dayCountLabel.text = "\(UserDefaults.standard.integer(forKey: "selecteddDayData"))"
+        customProgressBarView(UserDefaults.standard.integer(forKey: "selectedGrowthData"))
+        self.growthPercentLabel.text = "\(UserDefaults.standard.integer(forKey: "selectedGrowthData"))%"
+    }
+    
+    
     
     //MARK:- 메인뷰 애니메이션
     func makeAnimation() {

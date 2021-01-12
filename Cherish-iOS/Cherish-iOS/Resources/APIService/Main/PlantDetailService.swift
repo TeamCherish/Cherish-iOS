@@ -14,6 +14,7 @@ struct PlantDetailService {
     func inquirePlantDetailView(friendsIdx:Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
         
         let url = APIConstants.plantDetailURL + "\(friendsIdx)"
+        print(url)
         let header: HTTPHeaders = [ "Content-Type":"application/json"]
         let dataRequest = AF.request(url,
                                      method: .get,

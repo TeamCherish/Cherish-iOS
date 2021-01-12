@@ -40,14 +40,16 @@ class DetailContentVC: UIViewController {
     //MARK: - 메인뷰 데이터 받아오는 함수
     func setCherishPeopleData() {
         
-        MainService.shared.inquireMainView(idx: UserDefaults.standard.integer(forKey: "userID")) {
+        MainService.shared.inquireMainView(idx: UserDefaults.standard.integer(forKey: "userID")) { [self]
             (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 if let mainResultData = data as? MainData {
-                    self.cherishPeopleData = mainResultData.result
-                    self.cherishPeopleCountLabel.text = "\(self.cherishPeopleData.count)"
-                    self.cherishPeopleCV.reloadData()
+                    cherishPeopleData = mainResultData.result
+                    cherishPeopleCountLabel.text = "\(cherishPeopleData.count)"
+                    DispatchQueue.main.async {
+                        cherishPeopleCV.reloadData()
+                    }
                 }
             case .requestErr(let msg):
                 if let message = msg as? String {
@@ -73,19 +75,23 @@ class DetailContentVC: UIViewController {
     }
 }
 
-//MARK: - Collectionview Delegate, DataSource, DelegateFlowLayout
+//MARK: - Collectionview Extension
+
 extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    // numberOfSections
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
+    // numberOfItemsInSection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return cherishPeopleData.count + 1
         
     }
     
+    //MARK: - cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         /// 선택된 아이템 표시하는 0번째 item
         if indexPath.item == 0 {
@@ -98,7 +104,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     firstCell.eclipseImageView.image = UIImage(named: "ellipse373")
                     firstCell.nickNameLabel.text = cherishPeopleData[0].nickname
                     
-                    print(cherishPeopleData)
                     /// 이미지 url 처리
 //                    let url = URL(string: cherishPeopleData[0].thumbnailImageURL ?? "")
 //                    let imageData = try? Data(contentsOf: url!)
@@ -138,12 +143,13 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
         }
     }
     
-    
+    // sizeForItemAt
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 69, height: 91)
     }
     
     
+    //MARK: - didSelectItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
@@ -157,6 +163,8 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             UserDefaults.standard.set(true, forKey: "selectedData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].growth, forKey: "selectedGrowthData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].dDay, forKey: "selecteddDayData")
+            
+            //선택된 친구의 인덱스 값을 저장해준다
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].id, forKey: "selectedFriendsIdData")
             
             cherishPeopleCV.reloadData()
@@ -165,6 +173,5 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
         
         // 셀이 눌렸을 때 노치 사이즈 줄어들기 위해 보내는 noti
         NotificationCenter.default.post(name: .cherishPeopleCellClicked, object: nil)
-        
     }
 }

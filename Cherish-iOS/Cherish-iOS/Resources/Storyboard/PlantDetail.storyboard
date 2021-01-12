@@ -118,10 +118,9 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQn-1g-fh9" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="151" y="266" width="73" height="30"/>
+                                <rect key="frame" x="153" y="266" width="69.333333333333314" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Xkd-oq-inc"/>
-                                    <constraint firstAttribute="width" secondItem="xQn-1g-fh9" secondAttribute="height" multiplier="73:30" id="brJ-VD-fCI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
                                 <color key="textColor" name="black"/>
@@ -135,7 +134,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plantdetailBoxName" translatesAutoresizingMaskIntoConstraints="NO" id="6Yw-Kh-LTe">
                                 <rect key="frame" x="129" y="301" width="117" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="Cry-aU-wxg"/>
                                     <constraint firstAttribute="width" secondItem="6Yw-Kh-LTe" secondAttribute="height" multiplier="117:25" id="KTS-Vs-rVo"/>
                                 </constraints>
                             </imageView>
@@ -191,7 +189,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03.13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLb-2U-FtB" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="257" y="356" width="45.333333333333314" height="21"/>
+                                <rect key="frame" x="266.66666666666669" y="356" width="45.333333333333314" height="21"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -202,7 +200,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="생일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xcq-zB-nzx" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="267.66666666666669" y="378" width="24.333333333333314" height="16.333333333333314"/>
+                                <rect key="frame" x="277" y="378" width="24.333333333333314" height="16.333333333333314"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                 <color key="textColor" red="0.41960784309999999" green="0.41568627450000001" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -260,16 +258,17 @@
                                 <rect key="frame" x="16" y="566" width="343" height="54"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgb-82-BrT">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="54"/>
+                                        <rect key="frame" x="0.0" y="0.33333333333337123" width="343" height="54"/>
                                         <state key="normal" image="plantdetailIcMore"/>
                                         <connections>
                                             <action selector="moveToFirstMemoDetail:" destination="WHt-ur-unu" eventType="touchUpInside" id="zul-vI-98n"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80A-Cp-bTs" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="19" y="18.666666666666629" width="18" height="16.666666666666671"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80A-Cp-bTs" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="19" y="17.333333333333371" width="38" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="18" id="VQG-xd-rwd"/>
+                                            <constraint firstAttribute="width" secondItem="80A-Cp-bTs" secondAttribute="height" multiplier="38:20" id="852-ZM-qzQ"/>
+                                            <constraint firstAttribute="height" constant="20" id="Mwm-dk-iFk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
                                         <nil key="textColor"/>
@@ -280,26 +279,11 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMV-dS-EP8">
-                                        <rect key="frame" x="37" y="18" width="5" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="899-Sg-gNt" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="69" y="16.666666666666629" width="249" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="5" id="iPo-PI-ChW"/>
+                                            <constraint firstAttribute="height" constant="21" id="iPj-3R-UuE"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u02-CQ-2S5">
-                                        <rect key="frame" x="42" y="18.666666666666629" width="20" height="16.666666666666671"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="Guc-Iu-q3w"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디자이너들에게 치킨을 쏴야겠다 뀨뀨뀨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="899-Sg-gNt" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="74" y="16.666666666666629" width="244" height="20.666666666666671"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -313,41 +297,31 @@
                                 <color key="backgroundColor" red="0.76862745098039209" green="0.76862745098039209" blue="0.76862745098039209" alpha="0.24644156678082191" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Zgb-82-BrT" secondAttribute="trailing" id="3f0-D9-Q4N"/>
-                                    <constraint firstItem="Zgb-82-BrT" firstAttribute="top" secondItem="yEr-rW-TcY" secondAttribute="top" id="6eg-VU-fbC"/>
+                                    <constraint firstItem="899-Sg-gNt" firstAttribute="leading" secondItem="80A-Cp-bTs" secondAttribute="trailing" constant="12" id="3j2-Cg-8Dp"/>
                                     <constraint firstItem="80A-Cp-bTs" firstAttribute="leading" secondItem="yEr-rW-TcY" secondAttribute="leading" constant="19" id="7EY-Lg-T92"/>
                                     <constraint firstItem="899-Sg-gNt" firstAttribute="top" secondItem="yEr-rW-TcY" secondAttribute="top" constant="16.666666666666629" id="BXO-OC-HmM"/>
                                     <constraint firstAttribute="trailing" secondItem="899-Sg-gNt" secondAttribute="trailing" constant="25" id="Ccm-iR-Xb0"/>
-                                    <constraint firstItem="80A-Cp-bTs" firstAttribute="baseline" secondItem="u02-CQ-2S5" secondAttribute="baseline" id="Ck2-Lv-ltq"/>
-                                    <constraint firstItem="80A-Cp-bTs" firstAttribute="top" secondItem="yEr-rW-TcY" secondAttribute="top" constant="18.666666666666629" id="LQD-aR-MDB"/>
-                                    <constraint firstItem="bMV-dS-EP8" firstAttribute="leading" secondItem="80A-Cp-bTs" secondAttribute="trailing" id="LQc-ue-MLL"/>
-                                    <constraint firstItem="899-Sg-gNt" firstAttribute="leading" secondItem="u02-CQ-2S5" secondAttribute="trailing" constant="12" id="SIW-92-ORk"/>
                                     <constraint firstAttribute="height" constant="54" id="Zan-9s-BQ3"/>
                                     <constraint firstItem="Zgb-82-BrT" firstAttribute="leading" secondItem="yEr-rW-TcY" secondAttribute="leading" id="b1V-oj-7fo"/>
-                                    <constraint firstItem="bMV-dS-EP8" firstAttribute="centerY" secondItem="80A-Cp-bTs" secondAttribute="centerY" id="gfR-yr-AgK"/>
                                     <constraint firstItem="80A-Cp-bTs" firstAttribute="centerY" secondItem="Zgb-82-BrT" secondAttribute="centerY" id="tRe-1H-fBI"/>
-                                    <constraint firstAttribute="bottom" secondItem="Zgb-82-BrT" secondAttribute="bottom" id="u6a-Me-xmj"/>
-                                    <constraint firstItem="u02-CQ-2S5" firstAttribute="leading" secondItem="bMV-dS-EP8" secondAttribute="trailing" id="wl6-fV-PcY"/>
                                     <constraint firstItem="899-Sg-gNt" firstAttribute="centerY" secondItem="80A-Cp-bTs" secondAttribute="centerY" id="wsA-gJ-fg9"/>
-                                    <constraint firstItem="u02-CQ-2S5" firstAttribute="centerY" secondItem="80A-Cp-bTs" secondAttribute="centerY" id="xqO-nf-DgL"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNa-1V-c79">
                                 <rect key="frame" x="16" y="630" width="343" height="54"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZK-Pz-BPD">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="54"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="54" id="fvz-Zw-Sk9"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.33333333333337123" width="343" height="53.666666666666664"/>
                                         <state key="normal" image="plantdetailIcMore"/>
                                         <connections>
                                             <action selector="moveToSecondMemoDetail:" destination="WHt-ur-unu" eventType="touchUpInside" id="dZC-MN-6Qs"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YlA-Bj-fgu" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="19" y="18.666666666666629" width="18" height="16.666666666666671"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YlA-Bj-fgu" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="19" y="17.333333333333371" width="38" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="18" id="Pd5-H5-ZEp"/>
+                                            <constraint firstAttribute="height" constant="20" id="00t-6D-JNo"/>
+                                            <constraint firstAttribute="width" secondItem="YlA-Bj-fgu" secondAttribute="height" multiplier="38:20" id="80c-iu-huy"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
                                         <nil key="textColor"/>
@@ -358,26 +332,11 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3R-rf-sKb">
-                                        <rect key="frame" x="37" y="18" width="5" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meO-3f-sva" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="69" y="16.666666666666629" width="249" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="5" id="By3-4f-2iX"/>
+                                            <constraint firstAttribute="height" constant="21" id="Fd4-T8-MV7"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAn-qZ-BPH">
-                                        <rect key="frame" x="42" y="18.666666666666629" width="20" height="16.666666666666671"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="sIf-DH-8Pr"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디자이너들에게 치킨을 쏴야겠다 뀨뀨뀨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meO-3f-sva" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="74" y="16.666666666666629" width="244" height="20.666666666666671"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -391,20 +350,13 @@
                                 <color key="backgroundColor" red="0.76862745098039209" green="0.76862745098039209" blue="0.76862745098039209" alpha="0.24644156678082191" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="meO-3f-sva" secondAttribute="trailing" constant="25" id="7jb-sk-Cai"/>
+                                    <constraint firstItem="meO-3f-sva" firstAttribute="leading" secondItem="YlA-Bj-fgu" secondAttribute="trailing" constant="12" id="8VL-ma-Yyw"/>
                                     <constraint firstAttribute="trailing" secondItem="ZZK-Pz-BPD" secondAttribute="trailing" id="8aL-78-2WV"/>
-                                    <constraint firstItem="b3R-rf-sKb" firstAttribute="leading" secondItem="YlA-Bj-fgu" secondAttribute="trailing" id="O82-P3-XQH"/>
-                                    <constraint firstItem="ZZK-Pz-BPD" firstAttribute="top" secondItem="gNa-1V-c79" secondAttribute="top" id="PCc-lE-lOT"/>
                                     <constraint firstItem="ZZK-Pz-BPD" firstAttribute="leading" secondItem="gNa-1V-c79" secondAttribute="leading" id="Q1u-PN-Xm7"/>
-                                    <constraint firstItem="meO-3f-sva" firstAttribute="leading" secondItem="uAn-qZ-BPH" secondAttribute="trailing" constant="12" id="T5b-37-4IN"/>
-                                    <constraint firstItem="uAn-qZ-BPH" firstAttribute="centerY" secondItem="YlA-Bj-fgu" secondAttribute="centerY" id="THr-JH-37V"/>
-                                    <constraint firstItem="b3R-rf-sKb" firstAttribute="centerY" secondItem="YlA-Bj-fgu" secondAttribute="centerY" id="X0J-jm-Bbh"/>
-                                    <constraint firstItem="YlA-Bj-fgu" firstAttribute="baseline" secondItem="uAn-qZ-BPH" secondAttribute="baseline" id="crr-wG-qjo"/>
                                     <constraint firstItem="YlA-Bj-fgu" firstAttribute="leading" secondItem="gNa-1V-c79" secondAttribute="leading" constant="19" id="hU2-PE-DuU"/>
                                     <constraint firstAttribute="bottom" secondItem="ZZK-Pz-BPD" secondAttribute="bottom" id="ljR-W9-CNa"/>
                                     <constraint firstItem="meO-3f-sva" firstAttribute="centerY" secondItem="YlA-Bj-fgu" secondAttribute="centerY" id="llG-aO-dhU"/>
-                                    <constraint firstItem="uAn-qZ-BPH" firstAttribute="leading" secondItem="b3R-rf-sKb" secondAttribute="trailing" id="rNK-sl-eHJ"/>
                                     <constraint firstItem="meO-3f-sva" firstAttribute="top" secondItem="gNa-1V-c79" secondAttribute="top" constant="16.666666666666629" id="uFx-Vp-AGF"/>
-                                    <constraint firstItem="YlA-Bj-fgu" firstAttribute="top" secondItem="gNa-1V-c79" secondAttribute="top" constant="18.666666666666629" id="vsT-QD-AaK"/>
                                     <constraint firstItem="YlA-Bj-fgu" firstAttribute="centerY" secondItem="ZZK-Pz-BPD" secondAttribute="centerY" id="xRA-8M-bv5"/>
                                 </constraints>
                             </view>
@@ -535,7 +487,7 @@
                             <constraint firstItem="g3E-CR-a6Z" firstAttribute="leading" secondItem="i3Y-fi-6Rt" secondAttribute="trailing" constant="9" id="KDK-h5-vw9"/>
                             <constraint firstItem="WFT-HG-10b" firstAttribute="centerX" secondItem="i3Y-fi-6Rt" secondAttribute="centerX" id="Ka9-cl-Ur4"/>
                             <constraint firstItem="mIV-ze-TEC" firstAttribute="top" secondItem="gNa-1V-c79" secondAttribute="bottom" constant="26" id="L2b-q8-49o"/>
-                            <constraint firstItem="dLb-2U-FtB" firstAttribute="leading" secondItem="g3E-CR-a6Z" secondAttribute="trailing" constant="-0.5" id="M7Y-pr-T8k"/>
+                            <constraint firstItem="dLb-2U-FtB" firstAttribute="leading" secondItem="g3E-CR-a6Z" secondAttribute="trailing" constant="9" id="M7Y-pr-T8k"/>
                             <constraint firstItem="qwM-hX-rnr" firstAttribute="top" secondItem="6Yw-Kh-LTe" secondAttribute="bottom" constant="30" id="N2o-py-64X"/>
                             <constraint firstItem="nQd-KA-GMh" firstAttribute="bottom" secondItem="ZxN-Dj-Ydd" secondAttribute="bottom" id="OIm-mr-2ev"/>
                             <constraint firstItem="vo2-KK-pWp" firstAttribute="top" secondItem="qwM-hX-rnr" secondAttribute="bottom" constant="1" id="ORG-5e-h3S"/>
@@ -586,6 +538,9 @@
                     <connections>
                         <outlet property="backDropImageView" destination="FIf-a7-bBa" id="IBR-A2-pJo"/>
                         <outlet property="circularProgressViewTopConstant" destination="How-wb-eJY" id="rM7-WF-CJc"/>
+                        <outlet property="firstMemoBtn" destination="Zgb-82-BrT" id="1Ig-7I-ZXY"/>
+                        <outlet property="firstMemoDayLabel" destination="80A-Cp-bTs" id="jYN-jk-9U7"/>
+                        <outlet property="firstMemoTextLabel" destination="899-Sg-gNt" id="hvJ-UG-bMi"/>
                         <outlet property="firstMemoView" destination="yEr-rW-TcY" id="xkX-gk-u7c"/>
                         <outlet property="heathStatusLabel" destination="Aux-cA-Yvw" id="hgA-F2-rBT"/>
                         <outlet property="keywordCV" destination="MaY-Ug-rb5" id="R4U-gn-WL3"/>
@@ -596,11 +551,20 @@
                         <outlet property="memoTextFieldHeight" destination="Zan-9s-BQ3" id="6eV-Ke-cKc"/>
                         <outlet property="memoTitleLabel" destination="Jqa-6k-Q1S" id="Kl4-5H-GlB"/>
                         <outlet property="memoTitleLabelTopConstraint" destination="HlS-92-Ja6" id="7QY-RF-E6l"/>
+                        <outlet property="plantBirthDayLabel" destination="dLb-2U-FtB" id="NTi-K4-fyk"/>
                         <outlet property="plantCircularProgressView" destination="g3E-CR-a6Z" id="rgy-39-mlp"/>
                         <outlet property="plantDetailBtn" destination="siL-7Y-ZvF" id="AxK-8W-peB"/>
                         <outlet property="plantDetailBtnTopConstant" destination="JmV-DK-StZ" id="Wxn-38-5Eh"/>
                         <outlet property="plantHealthStatusLabel" destination="MA5-xY-cFr" id="iLf-u0-RYy"/>
+                        <outlet property="plantKindsInRoundViewLabel" destination="V5s-9O-64H" id="Mzd-ny-yxu"/>
+                        <outlet property="plantMaintainDayLabel" destination="qwM-hX-rnr" id="gxa-Xx-7MB"/>
+                        <outlet property="plantNicknameLabel" destination="xQn-1g-fh9" id="hHm-qu-tq6"/>
+                        <outlet property="plantdDayLabel" destination="i3Y-fi-6Rt" id="L2w-Jo-m85"/>
+                        <outlet property="secondMemoBtn" destination="ZZK-Pz-BPD" id="Pgl-hC-ahn"/>
+                        <outlet property="secondMemoDayLabel" destination="YlA-Bj-fgu" id="f3Y-2q-cQd"/>
+                        <outlet property="secondMemoTextLabel" destination="meO-3f-sva" id="S46-nS-Dtz"/>
                         <outlet property="secondMemoVIew" destination="gNa-1V-c79" id="xHp-Rq-xkc"/>
+                        <outlet property="userNameInRoundViewLabel" destination="iWU-BJ-jkX" id="fPS-dc-OZ7"/>
                         <outlet property="wateringBtn" destination="mIV-ze-TEC" id="UTj-O8-mkM"/>
                     </connections>
                 </viewController>
@@ -746,7 +710,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M5v-Jq-Xa5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1960.8" y="138.91625615763547"/>
+            <point key="canvasLocation" x="1935" y="137"/>
         </scene>
     </scenes>
     <resources>
