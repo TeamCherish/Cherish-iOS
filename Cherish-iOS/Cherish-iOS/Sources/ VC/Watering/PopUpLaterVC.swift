@@ -79,7 +79,7 @@ class PopUpLaterVC: UIViewController {
         self.changeDateDayLabel.text = String(int_day!+1) // 1일 미루었을 때의 날짜
         self.laterCountingLabel.text = UserDefaults.standard.string(forKey: "laterNumUntilNow")
     }
-
+    
     
     // Server-미루기
     func getLaterData(){

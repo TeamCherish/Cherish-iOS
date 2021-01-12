@@ -10,7 +10,7 @@ import UIKit
 class ReviewEditVC: UIViewController{
     var space: String?
     var edit_keyword = [String]() /// 키워드 배열
-
+    
     @IBOutlet weak var editMemoDateLabel: CustomLabel!
     @IBOutlet weak var keywordTextField: UITextField!{
         didSet{
@@ -35,10 +35,8 @@ class ReviewEditVC: UIViewController{
     }
     @IBOutlet weak var keywordCollectionView: UICollectionView!{
         didSet{
-//            self.keywordCollectionView.register(KeywordCanDeleteCVC.nib(), forCellWithReuseIdentifier: KeywordCanDeleteCVC.identifier)
             keywordCollectionView.delegate = self
             keywordCollectionView.dataSource = self
-//            keywordCollectionView.collectionViewLayout = LeftAlignedFlowLayout()
         }
     }
     @IBOutlet weak var memoTextView: UITextView!{
@@ -243,8 +241,7 @@ extension ReviewEditVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         label.text = edit_keyword[indexPath.row]
         label.sizeToFit()
         let cellSize = label.frame.width+25
-
+        
         return CGSize(width: cellSize, height: 29)
-
     }
 }

@@ -37,7 +37,6 @@ class ReviewVC: UIViewController {
     @IBOutlet weak var keywordCollectionView: UICollectionView!
     {
         didSet{
-//            self.keywordCollectionView.register(KeywordCanDeleteCVC.nib(), forCellWithReuseIdentifier: KeywordCanDeleteCVC.identifier)
             keywordCollectionView.delegate = self
             keywordCollectionView.dataSource = self
         }
@@ -124,7 +123,6 @@ class ReviewVC: UIViewController {
     
     //MARK:- 키보드 올릴 때 사용
     func keyboardUP(){
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -133,12 +131,12 @@ class ReviewVC: UIViewController {
     func keyboardWillShow(_ sender: Notification) {
         /// 텍스트 뷰 입력할 때에만 키보드 올리면 됨
         if memoTextView.isFirstResponder{
-                UIView.animate(withDuration: 2.0, animations: {
+            UIView.animate(withDuration: 2.0, animations: {
                 self.view.transform = CGAffineTransform(translationX: 0, y: -26)
             })
         }
     }
-
+    
     @objc
     func keyboardWillHide(_ sender: Notification) {
         /// 텍스트 뷰 입력할 때에만 키보드 올리면 됨
@@ -164,27 +162,27 @@ class ReviewVC: UIViewController {
     // 리뷰 완료 후 물주기 모션으로 이동
     func goToWateringMotion(){
         guard let vc = self.storyboard?.instantiateViewController(identifier: "WateringMotionVC") as? WateringMotionVC else{return}
-            vc.modalPresentationStyle = .fullScreen
-            vc.present(vc, animated: true, completion: nil)
+        vc.modalPresentationStyle = .fullScreen
+        vc.present(vc, animated: true, completion: nil)
     }
     
-    // 확인 버튼
+    // 등록완료
     @IBAction func submitReview(_ sender: Any) {
         let date = Date()
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateStyle = .long
-//        dateFormatter.locale = Locale(identifier: "ko_kr")
-//        let now = dateFormatter.string(from: raw_now)
-//        print(now)
-//        guard let real_now = dateFormatter.date(from: now) else { return }
-//        print(real_now)
-
+        //        let dateFormatter = DateFormatter()
+        //        dateFormatter.dateStyle = .long
+        //        dateFormatter.locale = Locale(identifier: "ko_kr")
+        //        let now = dateFormatter.string(from: raw_now)
+        //        print(now)
+        //        guard let real_now = dateFormatter.date(from: now) else { return }
+        //        print(real_now)
+        
         WateringReviewService.shared.wateringReview(water_date: date, review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: 4) { (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 print(data)
                 self.goToWateringMotion()
-
+                
             case .requestErr(_):
                 print("requestErr")
             case .pathErr:
@@ -304,7 +302,7 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         cell.keywordLabel.text = keyword[indexPath.row]
         return cell
     }
-        
+    
     //MARK: - Cell 사이즈
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
@@ -312,8 +310,8 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         label.text = keyword[indexPath.row]
         label.sizeToFit()
         let cellSize = label.frame.width+25
-
+        
         return CGSize(width: cellSize, height: 29)
-
+        
     }
 }

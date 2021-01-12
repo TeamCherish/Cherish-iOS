@@ -35,6 +35,7 @@ class PopUpWateringVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    /// 다음에 할게요 선택시 1~7일 선택 팝업으로 이동
     func goToLatering(){
         guard let pvc = self.presentingViewController else {return}
         self.dismiss(animated: true) {
@@ -50,6 +51,8 @@ class PopUpWateringVC: UIViewController {
     @IBAction func backBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    /// 물주기 버튼
     @IBAction func moveToContact(_ sender: Any) {
         guard let pvc = self.presentingViewController else {return}
         self.dismiss(animated: true) {
