@@ -92,7 +92,7 @@ class PlantDetailVC: UIViewController {
                     makeCircularView(Float(plantDetailData.gage))
                     
                     // 메모 데이터
-                    reviewArray = plantDetailData.review
+                    reviewArray = plantDetailData.reviews
                     
                     /// 메모 데이터가 없을 때
                     if reviewArray.count == 0 {
@@ -101,12 +101,15 @@ class PlantDetailVC: UIViewController {
                         secondMemoBtn.isHidden = true
                         firstMemoBtn.isEnabled = false
                         secondMemoBtn.isEnabled = false
+                        firstMemoTextLabel.text = "이 날의 기록이 없어요!"
+                        secondMemoTextLabel.text = "이 날의 기록이 없어요!"
                     }
                     /// 메모 데이터가 하나일 때
                     else if reviewArray.count == 1 {
                         // 첫번째 메모데이터를 할당
                         firstMemoDayLabel.text = reviewArray[0].waterDate
                         firstMemoTextLabel.text = reviewArray[0].review
+                        secondMemoTextLabel.text = "이 날의 기록이 없어요!"
                         
                         // 캘린더로 이동할 수 있는 두번째 메모버튼을 숨기고, 누를 수 없게 한다
                         secondMemoBtn.isHidden = true

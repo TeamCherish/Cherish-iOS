@@ -389,9 +389,7 @@
 		33851C8B259A5AEE005BCFFD /* APIService */ = {
 			isa = PBXGroup;
 			children = (
-
 				9214410025ACE5B000853E53 /* AddUser */,
-
 				5478346D25AC72C40021C32B /* Watering */,
 				33805F8725AC7387005CED0F /* Main */,
 				33805F7C25AC61F8005CED0F /* Login */,
@@ -893,11 +891,8 @@
 				33E874FB25A04A81001F84FE /* MyPageVC.swift in Sources */,
 				33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */,
 				33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */,
-
 				33201B1025AE2EBC001A94E4 /* PlantDetailCardData.swift in Sources */,
-
 				54425C2925AE32E100E62BAB /* KeywordReviewEditCVC.swift in Sources */,
-				33E8754625A08E87001F84FE /* CherishPeopleData.swift in Sources */,
 				548DF1A925A395D20081FCD1 /* KeywordCanDeleteCVC.swift in Sources */,
 				92DCC3AE25A708C700160523 /* PracticeCell.swift in Sources */,
 				33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */,
@@ -916,9 +911,6 @@
 				5478344C25AB65C30021C32B /* ShowMoreTVC.swift in Sources */,
 				332CC7AA25A6F41E00D0047D /* CustomSegmentedControl.swift in Sources */,
 				33D0026925A3093500E97811 /* PlantExplainCVC.swift in Sources */,
-
-
-				33D0025825A2915B00E97811 /* KeywordData.swift in Sources */,
 				5478346B25AC6DF50021C32B /* LaterCheckData.swift in Sources */,
 				54425C2125ADBD9600E62BAB /* RecentKeywordData.swift in Sources */,
 				33E874F725A04A56001F84FE /* CherishMainVC.swift in Sources */,
@@ -954,7 +946,6 @@
 				33805F7E25AC6209005CED0F /* LoginService.swift in Sources */,
 				548DF17E25A1EE730081FCD1 /* ReviewVC.swift in Sources */,
 				5478343625A76EBC0021C32B /* UIDevice+ScreenSize.swift in Sources */,
-
 				33805F9A25ACE78A005CED0F /* PlantDetailData.swift in Sources */,
 				546A247625ACD62F00F869E2 /* WateringMotionVC.swift in Sources */,
 				33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */,
@@ -1100,14 +1091,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N8FDQCW52Q;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "wonseok.Cherish.Cherish-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1122,14 +1113,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N8FDQCW52Q;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "wonseok.Cherish.Cherish-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
