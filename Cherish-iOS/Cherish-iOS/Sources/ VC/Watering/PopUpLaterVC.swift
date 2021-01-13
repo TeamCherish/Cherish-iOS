@@ -133,18 +133,33 @@ extension PopUpLaterVC: UIPickerViewDelegate, UIPickerViewDataSource{
         
         dateFormatter.dateFormat = "yy-MM-dd"
         
-        //let m = dateFormatter.date(from: originDate)
+        let m = dateFormatter.date(from: originDate)
         let d = dateFormatter.date(from: originDate)
         
         monthdateFormatter.dateFormat = "MM"
         daydateFormatter.dateFormat = "dd"
         
-        //let month = monthdateFormatter.string(for: m)
+        let month = monthdateFormatter.string(for: m)
         let day = daydateFormatter.string(for: d)
         let int_day = Int(day!)
-        //let int_month = Int(month!)
+        let int_month = Int(month!)
+                
         changeDateDayLabel.text = "\(int_day! + date[row])"
         selectDateLabel.text = "\(date[row])"
+        
+        if int_month == 1 || int_month == 3 || int_month == 5 || int_month == 7 || int_month == 8 || int_month == 10 || int_month == 12 {
+            if int_day! + date[row] > 31{
+                changeDateMonthLabel.text = "\(int_month!+1)"
+            }
+        }else if int_month == 2{
+            if int_day! + date[row] > 28{
+                changeDateMonthLabel.text = "\(int_month!+1)"
+            }
+        }else{
+            if int_day! + date[row] > 30{
+                changeDateMonthLabel.text = "\(int_month!+1)"
+            }
+        }
         selectedDate = date[row]
     }
 }

@@ -82,6 +82,7 @@ class PopUpContactVC: UIViewController {
             case .success(let data):
                 print(data)
                 if let checkData = data as? RecentKeywordData {
+                    UserDefaults.standard.set(checkData.nickname, forKey: "wateringNickName")
                     contactNameLabel.text = "\(checkData.nickname)"+"와(과)는"
                     if checkData.result.keyword1 != ""{
                         keyword.append(checkData.result.keyword1)

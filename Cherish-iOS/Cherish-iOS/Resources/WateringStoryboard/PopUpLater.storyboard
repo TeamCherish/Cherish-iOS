@@ -36,10 +36,10 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Agh-My-1Ip">
-                                        <rect key="frame" x="105" y="51" width="101.33333333333331" height="21"/>
+                                        <rect key="frame" x="107" y="51" width="97" height="16.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGn-O8-kdL" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="8.3333333333333339" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="8" height="16.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="14"/>
                                                 <color key="textColor" name="black"/>
                                                 <nil key="highlightedColor"/>
@@ -50,7 +50,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3R-eJ-eSm" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="8.333333333333341" y="0.0" width="16.333333333333329" height="21"/>
+                                                <rect key="frame" x="7.9999999999999982" y="0.0" width="16.333333333333329" height="16.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                                 <color key="textColor" name="black"/>
                                                 <nil key="highlightedColor"/>
@@ -61,7 +61,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piI-Ff-sUT" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="24.666666666666657" y="0.0" width="8.3333333333333357" height="21"/>
+                                                <rect key="frame" x="24.333333333333343" y="0.0" width="8" height="16.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="14"/>
                                                 <color key="textColor" name="black"/>
                                                 <nil key="highlightedColor"/>
@@ -72,7 +72,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일에 물주기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vQ-PW-7bY" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="32.999999999999993" y="0.0" width="68.333333333333314" height="21"/>
+                                                <rect key="frame" x="32.33333333333335" y="0.0" width="64.666666666666686" height="16.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                                 <color key="textColor" name="black"/>
                                                 <nil key="highlightedColor"/>
@@ -85,10 +85,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4qx-gY-PYX">
-                                        <rect key="frame" x="33.000000000000014" y="170" width="245.33333333333337" height="38.666666666666657"/>
+                                        <rect key="frame" x="38.333333333333329" y="165.33333333333331" width="234.66666666666669" height="30.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*미루기가 3번을 넘어가면 애정도가 줄어요😭" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJT-7e-TOu" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="245.33333333333334" height="19.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="234.66666666666666" height="15.333333333333334"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
                                                 <color key="textColor" name="textGrey"/>
                                                 <nil key="highlightedColor"/>
@@ -99,10 +99,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yzb-mI-25I">
-                                                <rect key="frame" x="53.666666666666671" y="19.333333333333314" width="138" height="19.333333333333329"/>
+                                                <rect key="frame" x="52.333333333333343" y="15.333333333333314" width="130" height="15.333333333333336"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(현재까지 미룬 횟수 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pep-Ce-cII" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="110.33333333333333" height="19.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="104.33333333333333" height="15.333333333333334"/>
                                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
                                                         <color key="textColor" name="textGrey"/>
                                                         <nil key="highlightedColor"/>
@@ -113,7 +113,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="n" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BU2-Ej-CVE" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="110.33333333333333" y="0.0" width="8.3333333333333286" height="19.333333333333332"/>
+                                                        <rect key="frame" x="104.33333333333333" y="0.0" width="7.3333333333333286" height="15.333333333333334"/>
                                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="13"/>
                                                         <color key="textColor" name="textGrey"/>
                                                         <nil key="highlightedColor"/>
@@ -124,7 +124,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회 )" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tav-Kz-fzL" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="118.66666666666667" y="0.0" width="19.333333333333329" height="19.333333333333332"/>
+                                                        <rect key="frame" x="111.66666666666667" y="0.0" width="18.333333333333329" height="15.333333333333334"/>
                                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
                                                         <color key="textColor" name="textGrey"/>
                                                         <nil key="highlightedColor"/>
@@ -139,7 +139,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzt-qJ-2q3">
-                                        <rect key="frame" x="32" y="225.66666666666663" width="247" height="45"/>
+                                        <rect key="frame" x="32" y="213" width="247" height="45"/>
                                         <color key="backgroundColor" name="black"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="D4m-IA-L8b"/>
@@ -159,10 +159,10 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="AGr-Gt-BvZ">
-                                        <rect key="frame" x="77.666666666666671" y="110" width="155.66666666666663" height="27"/>
+                                        <rect key="frame" x="80" y="105.33333333333331" width="151" height="27"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2H-QV-g1R">
-                                                <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="27"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="n2H-QV-g1R" secondAttribute="height" multiplier="79:39" id="poX-rp-eMz"/>
                                                 </constraints>
@@ -171,7 +171,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일 후 물주기" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C12-b9-2FG" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="62.666666666666671" y="0.0" width="93.000000000000014" height="27"/>
+                                                <rect key="frame" x="63" y="0.0" width="88" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="27" id="izf-7S-vLD"/>
                                                 </constraints>

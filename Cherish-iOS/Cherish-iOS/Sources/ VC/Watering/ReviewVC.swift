@@ -11,8 +11,8 @@ class ReviewVC: UIViewController {
     var keyword = [String]() /// 키워드 배열
     
     //MARK: -@IBOutlet
-    @IBOutlet weak var reviewNameLabel: CustomLabel! ///또령님! 남쿵둥이님과의
-    @IBOutlet weak var reviewPlzLabel: CustomLabel! ///남쿵둥이님과의 물주기를 기록해주세요
+    @IBOutlet weak var reviewNameLabel: CustomLabel! ///또령님! 남쿵둥이님과(와)의
+    @IBOutlet weak var reviewPlzLabel: CustomLabel! ///남쿵둥이님과(와)의 물주기를 기록해주세요
     @IBOutlet weak var keywordTextField: UITextField!{
         didSet{
             keywordTextField.delegate = self
@@ -81,6 +81,7 @@ class ReviewVC: UIViewController {
             print("iPhoneSE2")
             keyboardUP() /// 키보드 올릴 때 사용
         }
+        setNamingLabel()
     }
     
     //MARK: -사용자 정의 함수
@@ -164,6 +165,11 @@ class ReviewVC: UIViewController {
         guard let vc = self.storyboard?.instantiateViewController(identifier: "WateringMotionVC") as? WateringMotionVC else{return}
         vc.modalPresentationStyle = .fullScreen
         vc.present(vc, animated: true, completion: nil)
+    }
+    
+    func setNamingLabel(){
+        reviewNameLabel.text = "\(UserDefaults.standard.string(forKey: "userID")!)"+"님! "+"\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과(와)의"
+        reviewPlzLabel.text = "\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과(와)의 물주기를 기록해주세요"
     }
     
     // 등록완료
