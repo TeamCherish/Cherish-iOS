@@ -27,7 +27,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     
     var friendList: [Friend] = [
         Friend(name: "김웅앵", phoneNumber: "01011111111", selected: false),
-        Friend(name: "박웅앵", phoneNumber: "01022221111", selected: false),
+        Friend(name: "김박웅앵", phoneNumber: "01022221111", selected: false),
         Friend(name: "이웅앵", phoneNumber: "01033331111", selected: false),
         Friend(name: "한웅앵", phoneNumber: "01044441111", selected: false),
         Friend(name: "장웅앵", phoneNumber: "01055551111", selected: false),
@@ -49,9 +49,13 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     
     private let radioButton = "SelectFriendCell"
     
-    
     //MARK: - searchBar 관련
     var filteredData: [Friend]!
+    
+    var nameTextFrom: String = ""
+    var phoneNumFrom: String = ""
+    
+    let vc = InputDetailVC()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,10 +146,11 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         updateSelectedIndex(indexPath.row)
+//        self.vc.nameTextField.text = ""
+//        self.vc.phoneTextField.text = ""
+//        self.vc.nameTextField.text = friendList[indexPath.row].name
+//        self.vc.phoneTextField.text = friendList[indexPath.row].phoneNumber
     }
-    
-    
-    
     
     //MARK: - searchBar delegate
     

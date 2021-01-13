@@ -86,6 +86,13 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
         floatingBtn.isHidden = isHidden
         floatingBtn.frame = CGRect(x: x, y: y, width: width, height: height)
     }
+    
+    @IBAction func moveToMyPageSearch(_ sender: Any) {
+        let myPageSearchVC = self.storyboard?.instantiateViewController(identifier: "MyPageSearchVC") as! MyPageSearchVC
+        if self.addFloatingBtn2.isHidden == false {
+            self.navigationController?.pushViewController(myPageSearchVC, animated: true)
+        }
+    }
 }
 
 //MARK: - UIScrollViewDelegate

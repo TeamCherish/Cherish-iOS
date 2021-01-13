@@ -35,6 +35,7 @@ class InputDetailVC: UIViewController {
     
     var receiveItem = ""
     
+    var cycle_date = 0
     
     //MARK: - viewDidLoad()
     
@@ -47,6 +48,8 @@ class InputDetailVC: UIViewController {
         createPicker()
         periodPicker.delegate = self
         periodPicker.dataSource = self
+        nameTextField.text = ""
+        phoneTextField.text = ""
     }
     
     
@@ -71,6 +74,29 @@ class InputDetailVC: UIViewController {
     }
     
     @IBAction func touchUpComplete(_ sender: Any) {
+        guard let nameText = nameTextField.text,
+              let nicknameText = nicknameTextField.text,
+              let birthText = birthTextField.text,
+              let phonenumberText = phoneTextField.text,
+              let periodText = alarmPeriodTextField.text,
+              let timeText = alarmPeriodTextField.text else { return }
+        let alarmState = stateSwitch.isOn
+
+        AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: timeText, water_notice_: alarmState, UserId: 6){ (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(_):
+                print("성공")
+            case .requestErr(_):
+                print("필요한 내용이 모두 입력되지 않았습니다")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+
         if completeBtn.isEnabled == true {
             guard let loadingVC = self.storyboard?.instantiateViewController(identifier: "LoadingPopUpVC") else {
                 return
@@ -218,6 +244,7 @@ class InputDetailVC: UIViewController {
 }
 
 //MARK: - PickerView DataSource, Delegate
+    ///pickerView 여러개에 대해 각각 datasource 수정ㅎ려면 어떡해야돼??
 extension InputDetailVC: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         3
@@ -250,6 +277,23 @@ extension InputDetailVC: UIPickerViewDelegate {
         
         let realNum = num[selectedNum]
         let realPeriod = period[selectedPeriod]
+        
+        switch realPeriod {
+        case "day":
+            if realNum == "1" {self.cycle_date = 1}
+            else if realNum == "2" {self.cycle_date = 2}
+            else if realNum == "3" {self.cycle_date = 3}
+        case "week":
+            if realNum == "1" {self.cycle_date = 7}
+            else if realNum == "2" {self.cycle_date = 14}
+            else if realNum == "3" {self.cycle_date = 21}
+        case "month":
+            if realNum == "1" {self.cycle_date = 30}
+            else if realNum == "2" {self.cycle_date = 60}
+            else if realNum == "3" {self.cycle_date = 90}
+        default:
+            self.cycle_date = 0
+        }
         
         let fullData = "every "+realNum+" "+realPeriod
         self.alarmPeriodTextField.text = fullData

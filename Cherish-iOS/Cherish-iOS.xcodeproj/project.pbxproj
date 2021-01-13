@@ -94,10 +94,13 @@
 		548DF1AA25A395D30081FCD1 /* KeywordCanDeleteCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548DF1A825A395D20081FCD1 /* KeywordCanDeleteCVC.xib */; };
 		548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
+		921440FD25ACC56F00853E53 /* MyPageSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921440FC25ACC56F00853E53 /* MyPageSearchVC.swift */; };
+		9214410225ACE7BD00853E53 /* AddUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9214410125ACE7BD00853E53 /* AddUserService.swift */; };
 		923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */; };
 		923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */; };
 		9244DF0C25AB90F00014FF5D /* PlantResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */; };
 		9244DF1225AB92220014FF5D /* LoadingPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */; };
+		92B0F9D925AEB15400AA411A /* AddUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0F9D825AEB15400AA411A /* AddUserData.swift */; };
 		92B2306125A30DD40024B8A8 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2306025A30DD40024B8A8 /* FriendCell.swift */; };
 		92B2306525A30F390024B8A8 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2306425A30F390024B8A8 /* Friend.swift */; };
 		92DCC3AA25A7071E00160523 /* PracticeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DCC3A925A7071E00160523 /* PracticeDetail.swift */; };
@@ -199,10 +202,13 @@
 		548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCanDeleteCVC.swift; sourceTree = "<group>"; };
 		548DF1A825A395D20081FCD1 /* KeywordCanDeleteCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeywordCanDeleteCVC.xib; sourceTree = "<group>"; };
 		548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewAlign.swift; sourceTree = "<group>"; };
+		921440FC25ACC56F00853E53 /* MyPageSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSearchVC.swift; sourceTree = "<group>"; };
+		9214410125ACE7BD00853E53 /* AddUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserService.swift; sourceTree = "<group>"; };
 		923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailVC.swift; sourceTree = "<group>"; };
 		923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendVC.swift; sourceTree = "<group>"; };
 		9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantResultVC.swift; sourceTree = "<group>"; };
 		9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPopUpVC.swift; sourceTree = "<group>"; };
+		92B0F9D825AEB15400AA411A /* AddUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserData.swift; sourceTree = "<group>"; };
 		92B2306025A30DD40024B8A8 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		92B2306425A30F390024B8A8 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		92DCC3A925A7071E00160523 /* PracticeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeDetail.swift; sourceTree = "<group>"; };
@@ -361,6 +367,7 @@
 		33851C8B259A5AEE005BCFFD /* APIService */ = {
 			isa = PBXGroup;
 			children = (
+				9214410025ACE5B000853E53 /* AddUser */,
 				33805F8725AC7387005CED0F /* Main */,
 				33805F7C25AC61F8005CED0F /* Login */,
 				33851C92259A5B68005BCFFD /* APIConstants.swift */,
@@ -507,6 +514,7 @@
 				33E874FA25A04A81001F84FE /* MyPageVC.swift */,
 				332CC7B525A7027D00D0047D /* MypagePlantVC.swift */,
 				332CC7B825A7028A00D0047D /* MypageContactVC.swift */,
+				921440FC25ACC56F00853E53 /* MyPageSearchVC.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -624,6 +632,14 @@
 			path = Watering;
 			sourceTree = "<group>";
 		};
+		9214410025ACE5B000853E53 /* AddUser */ = {
+			isa = PBXGroup;
+			children = (
+				9214410125ACE7BD00853E53 /* AddUserService.swift */,
+			);
+			path = AddUser;
+			sourceTree = "<group>";
+		};
 		923F8CDD25A1C2A900EA04E5 /* AddUser */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +668,7 @@
 			isa = PBXGroup;
 			children = (
 				92B2306425A30F390024B8A8 /* Friend.swift */,
+				92B0F9D825AEB15400AA411A /* AddUserData.swift */,
 			);
 			path = AddUser;
 			sourceTree = "<group>";
@@ -831,6 +848,7 @@
 				9244DF0C25AB90F00014FF5D /* PlantResultVC.swift in Sources */,
 				332CC7B025A7018400D0047D /* MypagePlantTVC.swift in Sources */,
 				332CC7B625A7027D00D0047D /* MypagePlantVC.swift in Sources */,
+				9214410225ACE7BD00853E53 /* AddUserService.swift in Sources */,
 				923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */,
 				33E874FE25A04A8D001F84FE /* ShowMoreVC.swift in Sources */,
 				33E874FB25A04A81001F84FE /* MyPageVC.swift in Sources */,
@@ -846,9 +864,11 @@
 				92B2306125A30DD40024B8A8 /* FriendCell.swift in Sources */,
 				5488923625A5E962003839FC /* CalendarKeywordCVCell.swift in Sources */,
 				92B2306525A30F390024B8A8 /* Friend.swift in Sources */,
+				921440FD25ACC56F00853E53 /* MyPageSearchVC.swift in Sources */,
 				548DF17525A1BB7F0081FCD1 /* PopUpContactVC.swift in Sources */,
 				3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */,
 				548DF16C25A1B4390081FCD1 /* PopUpWateringVC.swift in Sources */,
+				92B0F9D925AEB15400AA411A /* AddUserData.swift in Sources */,
 				5478344C25AB65C30021C32B /* ShowMoreTVC.swift in Sources */,
 				332CC7AA25A6F41E00D0047D /* CustomSegmentedControl.swift in Sources */,
 				33D0026925A3093500E97811 /* PlantExplainCVC.swift in Sources */,

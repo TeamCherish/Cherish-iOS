@@ -419,7 +419,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="남궁선규" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ts-fx-9IF">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="남궁선규" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ts-fx-9IF">
                                 <rect key="frame" x="16" y="145" width="165" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2ts-fx-9IF" secondAttribute="height" multiplier="15:4" id="TNV-Ls-wdo"/>
@@ -449,7 +449,7 @@
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="010.1234.5678" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wLQ-co-qp2">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="010.1234.5678" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wLQ-co-qp2">
                                 <rect key="frame" x="16" y="315" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="7G1-gh-fG3"/>
@@ -981,7 +981,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cea-Rh-7gk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1053.5999999999999" y="-300"/>
+            <point key="canvasLocation" x="1105" y="-300"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8zp-p0-5LQ">
