@@ -1,18 +1,18 @@
 {
   "images" : [
     {
-      "scale" : "1x",
       "idiom" : "universal",
-      "filename" : "ellipse373.png"
+      "filename" : "ellipse377.png",
+      "scale" : "1x"
     },
     {
-      "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "ellipse373@2x.png"
+      "idiom" : "universal",
+      "filename" : "ellipse377@2x.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "ellipse373@3x.png",
+      "filename" : "ellipse377@3x.png",
       "scale" : "3x"
     }
   ],

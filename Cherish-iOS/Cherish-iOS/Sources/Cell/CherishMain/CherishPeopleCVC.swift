@@ -9,27 +9,12 @@ import UIKit
 
 class CherishPeopleCVC: UICollectionViewCell {
     
-    override var isSelected: Bool {
-        didSet {
-            if isSelected {
-                backgroundColor = .blueyGrey
-                cherishPlantAlphaView.isHidden = false
-            } else {
-                cherishPlantAlphaView.isHidden = true
-                backgroundColor = .white
-            }
-        }
-    }
-    
-    
     @IBOutlet var cherishPlantImageView: UIImageView!
-    @IBOutlet var cherishPlantAlphaView: UIView!
     @IBOutlet var cherishUserWaterImageView: UIImageView!
     @IBOutlet var cherishNickNameLabel: UILabel!
     
     override func awakeFromNib() {
         makeShadow()
-        makeRoundView()
     }
     
     func makeShadow(){
@@ -38,7 +23,4 @@ class CherishPeopleCVC: UICollectionViewCell {
         cherishUserWaterImageView.layer.shadowOpacity = 0.15
     }
     
-    func makeRoundView() {
-        cherishPlantAlphaView.layer.cornerRadius = self.frame.width / 2
-    }
 }

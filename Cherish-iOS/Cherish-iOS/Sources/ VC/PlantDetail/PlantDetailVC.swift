@@ -43,7 +43,7 @@ class PlantDetailVC: UIViewController {
     var isClicked:Bool = false
     var reviewArray:[Review] = []
     var keywordArray:[String] = []
-    var friendsPlantIdx:Int = UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
+    var friendsPlantIdx:Int = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,7 @@ class PlantDetailVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
+        friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
     }
     
     //MARK: - NC,TC 속성 정의함수
@@ -146,8 +146,16 @@ class PlantDetailVC: UIViewController {
     
     //MARK: - 원형 progressBar 생성함수
     func makeCircularView(_ value : Float ) {
+        
         plantCircularProgressView.trackColor = UIColor(red: 217/255, green: 217/255, blue: 217/255, alpha: 1.0)
-        plantCircularProgressView.progressColor = .seaweed
+        
+        
+        if value <= 0.5 {
+            plantCircularProgressView.progressColor = .pinkSub
+        }
+        else {
+            plantCircularProgressView.progressColor = .seaweed
+        }
         plantCircularProgressView.setProgressWithAnimation(duration: 1.0, value: value)
         
     }

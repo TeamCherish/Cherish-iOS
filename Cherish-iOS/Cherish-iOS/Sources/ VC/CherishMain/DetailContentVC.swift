@@ -15,18 +15,25 @@ class DetailContentVC: UIViewController {
     @IBOutlet var headerView: UIView!
     @IBOutlet var cherishPeopleCountLabel: CustomLabel!
     @IBOutlet var cherishPeopleCV: UICollectionView!
+    var selectedIndexPath : IndexPath?
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    var cherishPeopleData:[ResultData] = []
-    var cellSelectedData:[MainSelectedData] = []
+    var cherishPeopleData:[ResultData] = [] {
+        didSet {
+            cherishPeopleCV.reloadData()
+            cherishPeopleCV.delegate = self
+            cherishPeopleCV.dataSource = self
+            cherishPeopleCV.selectItem(at: IndexPath(item: 1, section: 0), animated: true, scrollPosition: .top)
+            collectionView(self.cherishPeopleCV, didSelectItemAt: IndexPath(item: 1, section: 0))
+        }
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setCherishPeopleData()
-        cherishPeopleCV.delegate = self
-        cherishPeopleCV.dataSource = self
         makeHeaderViewCornerRadius()
+        cherishPeopleCV.allowsMultipleSelection = false
     }
     
     
@@ -112,9 +119,9 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     }
                     
                     /// 이미지 url 처리
-//                    let url = URL(string: cherishPeopleData[0].thumbnailImageURL ?? "")
-//                    let imageData = try? Data(contentsOf: url!)
-//                    firstCell.plantImageView.image = UIImage(data: imageData!)
+                    //                    let url = URL(string: cherishPeopleData[0].thumbnailImageURL ?? "")
+                    //                    let imageData = try? Data(contentsOf: url!)
+                    //                    firstCell.plantImageView.image = UIImage(data: imageData!)
                 }
                 
                 // 셀이 한번 이상 눌린 상태
@@ -132,9 +139,9 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     }
                     
                     /// 이미지 url 처리
-//                    let url = URL(string: UserDefaults.standard.string(forKey:"selectedPlantNameData")!)
-//                    let imageData = try? Data(contentsOf: url!)
-//                    firstCell.plantImageView.image = UIImage(data: imageData!)
+                    //                    let url = URL(string: UserDefaults.standard.string(forKey:"selectedPlantNameData")!)
+                    //                    let imageData = try? Data(contentsOf: url!)
+                    //                    firstCell.plantImageView.image = UIImage(data: imageData!)
                     
                 }
             }
@@ -148,8 +155,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             
             if cherishPeopleData.count != 0 {
                 
-                print("hihihihihhi",cellSelectedData)
-                
                 cell.cherishNickNameLabel.text = cherishPeopleData[indexPath.row - 1].nickname
                 
                 
@@ -162,11 +167,19 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     cell.cherishUserWaterImageView.isHidden = true
                 }
                 
+                
                 /// 이미지 url 처리
-//                let url = URL(string: cherishPeopleData[indexPath.row - 1].thumbnailImageURL!)
-//                let imageData = try? Data(contentsOf: url!)
-//                cell.cherishPlantImageView.image = UIImage(data: imageData!)
-              
+                //                let url = URL(string: cherishPeopleData[indexPath.row - 1].thumbnailImageURL!)
+                //                let imageData = try? Data(contentsOf: url!)
+                //                cell.cherishPlantImageView.image = UIImage(data: imageData!)
+                
+                if indexPath == selectedIndexPath {
+                    cell.cherishPlantImageView.alpha = 0.5
+                } else {
+                    cell.cherishPlantImageView.alpha = 1
+                }
+                return cell
+                
             }
             
             return cell
@@ -190,7 +203,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             
             // 셀이 눌릴 때마다 UserDefaults에 값을 새로 저장해준다
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].nickname, forKey: "selectedNickNameData")
-//            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].thumbnailImageURL!, forKey: "selectedPlantNameData")
+            //            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].thumbnailImageURL!, forKey: "selectedPlantNameData")
             UserDefaults.standard.set(true, forKey: "selectedData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].growth, forKey: "selectedGrowthData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].dDay, forKey: "selecteddDayData")
@@ -201,7 +214,13 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].id, forKey: "selectedFriendIdData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].phone, forKey: "selectedFriendPhoneData")
             print(UserDefaults.standard.string(forKey: "selectedFriendPhoneData")!)
-      
+            
+            UIView.performWithoutAnimation {
+                selectedIndexPath = indexPath
+                cherishPeopleCV.reloadData()
+                cherishPeopleCV.reloadItems(at: [IndexPath(item: 0, section: 0)])
+            }
+            
         }
         
         

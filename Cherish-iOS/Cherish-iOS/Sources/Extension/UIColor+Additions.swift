@@ -85,4 +85,29 @@ extension UIColor {
     @nonobjc class var pinkSub: UIColor {
         return UIColor(red: 247/255, green: 89/255, blue: 108/255, alpha: 1.0)
     }
+    
+    //민들레 배경색
+    @nonobjc class var dandelionBg: UIColor {
+        return UIColor(red: 146/255, green: 154/255, blue: 201/255, alpha: 1.0)
+    }
+    
+    //선인장 배경색
+    @nonobjc class var cactusBg: UIColor {
+        return UIColor(red: 158/255, green: 200/255, blue: 236/255, alpha: 1.0)
+    }
+    
+    //스투키 배경색
+    @nonobjc class var stuckyBg: UIColor {
+        return UIColor(red: 154/255, green: 183/255, blue: 222/255, alpha: 1.0)
+    }
+    
+    //아메리칸블루 배경색
+    @nonobjc class var americanBlueBg: UIColor {
+        return UIColor(red: 252/255, green: 208/255, blue: 98/255, alpha: 1.0)
+    }
+    
+    //로즈마리 배경색
+    @nonobjc class var rosemaryBg: UIColor {
+        return UIColor(red: 199/255, green: 177/255, blue: 216/255, alpha: 1.0)
+    }
 }

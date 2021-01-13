@@ -354,13 +354,12 @@
                                                         <constraint firstAttribute="height" constant="59" id="7cX-VK-a6Y"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDM-bV-H4M" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="10.666666666666664" y="73" width="48" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDM-bV-H4M" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="34.666666666666664" y="73" width="0.0" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="DfY-Q1-ROr"/>
-                                                        <constraint firstAttribute="width" secondItem="JDM-bV-H4M" secondAttribute="height" multiplier="24:9" id="lI5-Jm-3De"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="12"/>
                                                     <color key="textColor" name="black"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
@@ -411,13 +410,12 @@
                                                         <constraint firstAttribute="height" constant="59" id="MJb-33-Pss"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRc-ej-5rz" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="10.666666666666664" y="73" width="48" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRc-ej-5rz" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="34.666666666666664" y="73" width="0.0" height="18"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="BRc-ej-5rz" secondAttribute="height" multiplier="24:9" id="hhs-Mx-x6f"/>
                                                         <constraint firstAttribute="height" constant="18" id="p4o-tN-1Tm"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="12"/>
                                                     <color key="textColor" name="black"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
@@ -433,21 +431,13 @@
                                                         <constraint firstAttribute="width" secondItem="R8W-X4-P9r" secondAttribute="height" multiplier="1:1" id="sD3-Tj-cye"/>
                                                     </constraints>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5SZ-FJ-jQ5">
-                                                    <rect key="frame" x="5" y="5" width="59" height="59"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="R8W-X4-P9r" secondAttribute="trailing" constant="2" id="1Eq-Ya-Qra"/>
                                                 <constraint firstItem="R8W-X4-P9r" firstAttribute="top" secondItem="wye-nE-hKo" secondAttribute="top" constant="44" id="5yo-fH-cJR"/>
                                                 <constraint firstItem="BRc-ej-5rz" firstAttribute="top" secondItem="YT7-Xw-sgv" secondAttribute="bottom" constant="9" id="Ito-8h-G8m"/>
-                                                <constraint firstItem="5SZ-FJ-jQ5" firstAttribute="height" secondItem="YT7-Xw-sgv" secondAttribute="height" id="KX5-tg-4UP"/>
                                                 <constraint firstItem="YT7-Xw-sgv" firstAttribute="top" secondItem="wye-nE-hKo" secondAttribute="top" constant="5" id="O6J-ic-qLO"/>
-                                                <constraint firstItem="5SZ-FJ-jQ5" firstAttribute="top" secondItem="wye-nE-hKo" secondAttribute="top" constant="5" id="TX1-9q-T6g"/>
                                                 <constraint firstAttribute="trailing" secondItem="YT7-Xw-sgv" secondAttribute="trailing" constant="5" id="UeC-pv-n4p"/>
-                                                <constraint firstItem="5SZ-FJ-jQ5" firstAttribute="width" secondItem="YT7-Xw-sgv" secondAttribute="width" id="bvI-oy-Im6"/>
-                                                <constraint firstItem="5SZ-FJ-jQ5" firstAttribute="leading" secondItem="YT7-Xw-sgv" secondAttribute="leading" id="lzr-K3-68w"/>
                                                 <constraint firstItem="BRc-ej-5rz" firstAttribute="centerX" secondItem="wye-nE-hKo" secondAttribute="centerX" id="pos-tQ-tKS"/>
                                                 <constraint firstItem="YT7-Xw-sgv" firstAttribute="leading" secondItem="wye-nE-hKo" secondAttribute="leading" constant="5" id="zkB-0e-pVf"/>
                                             </constraints>
@@ -455,7 +445,6 @@
                                         <size key="customSize" width="69" height="91"/>
                                         <connections>
                                             <outlet property="cherishNickNameLabel" destination="BRc-ej-5rz" id="SVP-rp-koe"/>
-                                            <outlet property="cherishPlantAlphaView" destination="5SZ-FJ-jQ5" id="Kbb-YJ-a1b"/>
                                             <outlet property="cherishPlantImageView" destination="YT7-Xw-sgv" id="yoO-eN-ocV"/>
                                             <outlet property="cherishUserWaterImageView" destination="R8W-X4-P9r" id="Ybf-dg-Oip"/>
                                         </connections>
