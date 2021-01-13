@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>169077856027-v023o7kd0u8kdb2eubm4qa239olm5hm7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.169077856027-v023o7kd0u8kdb2eubm4qa239olm5hm7</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>169077856027-seb72tpfeee6i1fsnugn6vpgf956difl.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCKWe9J9Twh2xc4fAPSkpWRNuruR3GzKRU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>169077856027</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>iOS.Cherish.Cherish-iOS</string>
+	<key>PROJECT_ID</key>
+	<string>cherish-e6ec2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cherish-e6ec2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:169077856027:ios:9f7eb4e1ca7a47a0f425be</string>
+</dict>
+</plist>

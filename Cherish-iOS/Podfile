@@ -12,4 +12,6 @@ target 'Cherish-iOS' do
   pod 'SnapKit'
   pod 'FSCalendar'
   pod 'OverlayContainer'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
 end

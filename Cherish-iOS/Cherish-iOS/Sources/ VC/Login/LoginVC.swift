@@ -237,6 +237,7 @@ class LoginVC: UIViewController {
             case .success(let data):
                 if let loginData = data as? LoginData {
                     UserDefaults.standard.set(loginData.userID, forKey: "userID")
+                    UserDefaults.standard.set(loginData.userNickname, forKey: "UserNickname")
                     
                     // 로그인 성공 시
                     // 유저 idx 기반으로 메인뷰에 등록된 소중한 사람이 있는지 조회

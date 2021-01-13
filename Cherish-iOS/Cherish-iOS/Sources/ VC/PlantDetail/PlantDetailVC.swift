@@ -84,7 +84,7 @@ class PlantDetailVC: UIViewController {
                     plantdDayLabel.text = "D-\(plantDetailData.dDay)"
                     plantMaintainDayLabel.text = "\(plantDetailData.duration)일째"
                     plantBirthDayLabel.text = plantDetailData.birth
-                    memoTitleLabel.text = "\(plantDetailData.nickname)와 함께했던 이야기"
+                    memoTitleLabel.text = "\(plantDetailData.nickname)와(과) 함께했던 이야기"
                     keywordArray.append(plantDetailData.keyword1)
                     keywordArray.append(plantDetailData.keyword2)
                     keywordArray.append(plantDetailData.keyword3)
@@ -101,7 +101,11 @@ class PlantDetailVC: UIViewController {
                         secondMemoBtn.isHidden = true
                         firstMemoBtn.isEnabled = false
                         secondMemoBtn.isEnabled = false
-                        firstMemoTextLabel.text = "이 날의 기록이 없어요!"
+                        let attributedText = NSMutableAttributedString(string: "이 날의 기록이 없어요!", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)])
+
+                        attributedText.append(NSAttributedString(string: "9/17", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.blue]))
+                        
+                        firstMemoTextLabel.attributedText = attributedText
                         secondMemoTextLabel.text = "이 날의 기록이 없어요!"
                     }
                     /// 메모 데이터가 하나일 때

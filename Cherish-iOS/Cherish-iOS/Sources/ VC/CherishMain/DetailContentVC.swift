@@ -49,14 +49,7 @@ class DetailContentVC: UIViewController {
                 if let mainResultData = data as? MainData {
                     cherishPeopleData = mainResultData.result
                     cherishPeopleCountLabel.text = "\(cherishPeopleData.count)"
-                    for _ in 0...cherishPeopleData.count - 1 {
-                        cellSelectedData.append(contentsOf: [
-                            MainSelectedData(cellSelected: false)
-                        ])
-                    }
-                    DispatchQueue.main.async {
-                        cherishPeopleCV.reloadData()
-                    }
+                    self.cherishPeopleCV.reloadData()
                 }
             case .requestErr(let msg):
                 if let message = msg as? String {
@@ -143,6 +136,10 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     //                    let url = URL(string: UserDefaults.standard.string(forKey:"selectedPlantNameData")!)
                     //                    let imageData = try? Data(contentsOf: url!)
                     //                    firstCell.plantImageView.image = UIImage(data: imageData!)
+//                    let url = URL(string: UserDefaults.standard.string(forKey:"selectedPlantNameData")!)
+//                    let imageData = try? Data(contentsOf: url!)
+//                    firstCell.plantImageView.image = UIImage(data: imageData!)
+                    
                 }
             }
             
@@ -154,8 +151,13 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CherishPeopleCVC", for: indexPath) as! CherishPeopleCVC
             
             if cherishPeopleData.count != 0 {
+                
+                print("hihihihihhi",cellSelectedData)
+                
                 cell.cherishNickNameLabel.text = cherishPeopleData[indexPath.row - 1].nickname
                 
+                
+                /// dDay 값이 0일 때만 물아이콘 나타나게
                 if cherishPeopleData[indexPath.row - 1].dDay == 0 {
                     cell.cherishUserWaterImageView.image = UIImage(named: "mainIcUserWater")
                     cell.cherishUserWaterImageView.isHidden = false
@@ -198,19 +200,12 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].dDay, forKey: "selecteddDayData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].modifier, forKey: "selectedModifierData")
             
-            //선택된 친구의 인덱스 값을 저장해준다
-            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].id, forKey: "selectedFriendsIdData")
             
-            // cell 선택상태 false로 초기화
-            for i in 0...cellSelectedData.count - 1 {
-                cellSelectedData[i].cellSelected = false
-            }
-            
-            // 눌린 인덱스만 true로 할당
-            cellSelectedData[indexPath.row - 1].cellSelected = true
-            
-            
-            cherishPeopleCV.reloadData()
+            //선택된 친구의 인덱스 값과 전화번호를 저장해준다
+            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].id, forKey: "selectedFriendIdData")
+            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].phone, forKey: "selectedFriendPhoneData")
+            print(UserDefaults.standard.string(forKey: "selectedFriendPhoneData")!)
+      
         }
         
         
