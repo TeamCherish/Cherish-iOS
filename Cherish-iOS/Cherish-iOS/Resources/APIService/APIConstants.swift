@@ -18,4 +18,5 @@ struct APIConstants {
     static let addURL = baseURL + "cherish"
     static let plantDetailURL = baseURL + "cherish?CherishId="
     static let plantDetailCardURL = baseURL + "plantDetail/"
+    static let calendarURL = baseURL + "calendar/"
 }

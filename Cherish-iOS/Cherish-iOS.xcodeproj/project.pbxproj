@@ -74,6 +74,10 @@
 		54425C2125ADBD9600E62BAB /* RecentKeywordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C2025ADBD9600E62BAB /* RecentKeywordData.swift */; };
 		54425C2425ADBE0700E62BAB /* RecentKeywordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C2325ADBE0700E62BAB /* RecentKeywordService.swift */; };
 		54425C2925AE32E100E62BAB /* KeywordReviewEditCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C2825AE32E100E62BAB /* KeywordReviewEditCVC.swift */; };
+		54425C3525AF51CB00E62BAB /* CalendarSeeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C3425AF51CB00E62BAB /* CalendarSeeData.swift */; };
+		54425C3A25AF520A00E62BAB /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C3925AF520A00E62BAB /* CalendarService.swift */; };
+		54425C3D25AF58BF00E62BAB /* FetchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C3C25AF58BF00E62BAB /* FetchCalendar.swift */; };
+		54425C4025AF5EBA00E62BAB /* CalendarKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C3F25AF5EBA00E62BAB /* CalendarKeyword.swift */; };
 		546A247025ACD32800F869E2 /* WateringReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A246F25ACD32800F869E2 /* WateringReviewService.swift */; };
 		546A247325ACD53A00F869E2 /* WateringReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A247225ACD53A00F869E2 /* WateringReviewData.swift */; };
 		546A247625ACD62F00F869E2 /* WateringMotionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A247525ACD62F00F869E2 /* WateringMotionVC.swift */; };
@@ -192,6 +196,10 @@
 		54425C2025ADBD9600E62BAB /* RecentKeywordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentKeywordData.swift; sourceTree = "<group>"; };
 		54425C2325ADBE0700E62BAB /* RecentKeywordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentKeywordService.swift; sourceTree = "<group>"; };
 		54425C2825AE32E100E62BAB /* KeywordReviewEditCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordReviewEditCVC.swift; sourceTree = "<group>"; };
+		54425C3425AF51CB00E62BAB /* CalendarSeeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSeeData.swift; sourceTree = "<group>"; };
+		54425C3925AF520A00E62BAB /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
+		54425C3C25AF58BF00E62BAB /* FetchCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCalendar.swift; sourceTree = "<group>"; };
+		54425C3F25AF5EBA00E62BAB /* CalendarKeyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarKeyword.swift; sourceTree = "<group>"; };
 		546A246F25ACD32800F869E2 /* WateringReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReviewService.swift; sourceTree = "<group>"; };
 		546A247225ACD53A00F869E2 /* WateringReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReviewData.swift; sourceTree = "<group>"; };
 		546A247525ACD62F00F869E2 /* WateringMotionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringMotionVC.swift; sourceTree = "<group>"; };
@@ -388,6 +396,7 @@
 		33851C8B259A5AEE005BCFFD /* APIService */ = {
 			isa = PBXGroup;
 			children = (
+				54425C3825AF51F200E62BAB /* Calendar */,
 				9214410025ACE5B000853E53 /* AddUser */,
 				5478346D25AC72C40021C32B /* Watering */,
 				33805F8725AC7387005CED0F /* Main */,
@@ -458,6 +467,7 @@
 		33851C90259A5B1F005BCFFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				54425C3325AF519E00E62BAB /* Calendar */,
 				92B0F9E025AEE40600AA411A /* Contact */,
 				5478346525AC6A690021C32B /* Watering */,
 				33805F8C25AC73A5005CED0F /* Main */,
@@ -576,6 +586,24 @@
 				33D0026825A3093500E97811 /* PlantExplainCVC.swift */,
 			);
 			path = PlantDetail;
+			sourceTree = "<group>";
+		};
+		54425C3325AF519E00E62BAB /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				54425C3425AF51CB00E62BAB /* CalendarSeeData.swift */,
+				54425C3C25AF58BF00E62BAB /* FetchCalendar.swift */,
+				54425C3F25AF5EBA00E62BAB /* CalendarKeyword.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		54425C3825AF51F200E62BAB /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				54425C3925AF520A00E62BAB /* CalendarService.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		5478344925AB65250021C32B /* ShowMore */ = {
@@ -889,6 +917,7 @@
 				332CC7A925A6F41E00D0047D /* MyPageUtils.swift in Sources */,
 				9244DF0C25AB90F00014FF5D /* PlantResultVC.swift in Sources */,
 				332CC7B025A7018400D0047D /* MypagePlantTVC.swift in Sources */,
+				54425C3A25AF520A00E62BAB /* CalendarService.swift in Sources */,
 				332CC7B625A7027D00D0047D /* MypagePlantVC.swift in Sources */,
 				9214410225ACE7BD00853E53 /* AddUserService.swift in Sources */,
 				923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */,
@@ -901,6 +930,7 @@
 				548DF1A925A395D20081FCD1 /* KeywordCanDeleteCVC.swift in Sources */,
 				33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */,
 				337A5CBD25A868C000578130 /* UIButton+Extention.swift in Sources */,
+				54425C4025AF5EBA00E62BAB /* CalendarKeyword.swift in Sources */,
 				33D0026F25A30AB700E97811 /* PlantDetailExplainData.swift in Sources */,
 				5478346F25AC72F90021C32B /* LaterService.swift in Sources */,
 				5488923625A5E962003839FC /* CalendarKeywordCVCell.swift in Sources */,
@@ -934,12 +964,14 @@
 				332CC7BD25A707BD00D0047D /* MypagePlantData.swift in Sources */,
 				33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */,
 				332CC7B925A7028A00D0047D /* MypageContactVC.swift in Sources */,
+				54425C3525AF51CB00E62BAB /* CalendarSeeData.swift in Sources */,
 				546A247025ACD32800F869E2 /* WateringReviewService.swift in Sources */,
 				33E8754925A09440001F84FE /* NotificationName.swift in Sources */,
 				337A5CB925A8545E00578130 /* LoginVC.swift in Sources */,
 				33E8752325A05CFC001F84FE /* DetailContentVC.swift in Sources */,
 				33851C74259A5541005BCFFD /* AppDelegate.swift in Sources */,
 				548DF19925A2E1780081FCD1 /* PopUpLaterVC.swift in Sources */,
+				54425C3D25AF58BF00E62BAB /* FetchCalendar.swift in Sources */,
 				33851C76259A5541005BCFFD /* SceneDelegate.swift in Sources */,
 				92DCC3EA25A85D7100160523 /* SelectFriendCell.swift in Sources */,
 				33E8752625A05D34001F84FE /* MainContentVC.swift in Sources */,

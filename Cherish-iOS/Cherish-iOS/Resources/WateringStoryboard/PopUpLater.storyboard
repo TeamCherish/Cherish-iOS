@@ -45,7 +45,7 @@
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                                        <real key="value" value="0.69999999999999996"/>
+                                                        <real key="value" value="-0.20000000000000001"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
@@ -56,7 +56,7 @@
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                                        <real key="value" value="0.69999999999999996"/>
+                                                        <real key="value" value="-0.69999999999999996"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
@@ -67,7 +67,7 @@
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                                        <real key="value" value="0.69999999999999996"/>
+                                                        <real key="value" value="-0.20000000000000001"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
@@ -78,28 +78,28 @@
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                                        <real key="value" value="0.69999999999999996"/>
+                                                        <real key="value" value="-0.69999999999999996"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4qx-gY-PYX">
-                                        <rect key="frame" x="38.333333333333329" y="165.33333333333331" width="234.66666666666669" height="30.666666666666657"/>
+                                        <rect key="frame" x="46.666666666666671" y="165.33333333333331" width="217.66666666666663" height="30.666666666666657"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*미루기가 3번을 넘어가면 애정도가 줄어요😭" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJT-7e-TOu" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="234.66666666666666" height="15.333333333333334"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*미루기가 3번을 넘어가면 애정도가 줄어요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJT-7e-TOu" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="217.66666666666666" height="15.333333333333334"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
                                                 <color key="textColor" name="textGrey"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                                        <real key="value" value="0.69999999999999996"/>
+                                                        <real key="value" value="-0.69999999999999996"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yzb-mI-25I">
-                                                <rect key="frame" x="52.333333333333343" y="15.333333333333314" width="130" height="15.333333333333336"/>
+                                                <rect key="frame" x="44" y="15.333333333333314" width="130" height="15.333333333333336"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(현재까지 미룬 횟수 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pep-Ce-cII" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="104.33333333333333" height="15.333333333333334"/>
@@ -108,7 +108,7 @@
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                                                <real key="value" value="0.69999999999999996"/>
+                                                                <real key="value" value="-0.69999999999999996"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
@@ -119,7 +119,7 @@
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                                                <real key="value" value="0.69999999999999996"/>
+                                                                <real key="value" value="-0.20000000000000001"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
@@ -130,7 +130,7 @@
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                                                <real key="value" value="0.69999999999999996"/>
+                                                                <real key="value" value="-0.69999999999999996"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
@@ -180,7 +180,7 @@
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                                        <real key="value" value="0.69999999999999996"/>
+                                                        <real key="value" value="-0.69999999999999996"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
