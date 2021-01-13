@@ -84,7 +84,7 @@ class PlantDetailVC: UIViewController {
                     plantdDayLabel.text = "D-\(plantDetailData.dDay)"
                     plantMaintainDayLabel.text = "\(plantDetailData.duration)일째"
                     plantBirthDayLabel.text = plantDetailData.birth
-                    memoTitleLabel.text = "\(plantDetailData.nickname)와 함께했던 이야기"
+                    memoTitleLabel.text = "\(plantDetailData.nickname)와(과) 함께했던 이야기"
                     keywordArray.append(plantDetailData.keyword1)
                     keywordArray.append(plantDetailData.keyword2)
                     keywordArray.append(plantDetailData.keyword3)
