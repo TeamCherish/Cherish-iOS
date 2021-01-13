@@ -18,6 +18,7 @@ class DetailContentVC: UIViewController {
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var cherishPeopleData:[ResultData] = []
+    var cellSelectedData:[MainSelectedData] = []
     
     
     override func viewDidLoad() {
@@ -47,6 +48,11 @@ class DetailContentVC: UIViewController {
                 if let mainResultData = data as? MainData {
                     cherishPeopleData = mainResultData.result
                     cherishPeopleCountLabel.text = "\(cherishPeopleData.count)"
+                    for _ in 0...cherishPeopleData.count - 1 {
+                        cellSelectedData.append(contentsOf: [
+                            MainSelectedData(cellSelected: false)
+                        ])
+                    }
                     DispatchQueue.main.async {
                         cherishPeopleCV.reloadData()
                     }
@@ -105,6 +111,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     firstCell.nickNameLabel.text = cherishPeopleData[0].nickname
                     
                     if cherishPeopleData[0].dDay == 0 {
+                        firstCell.userWaterImageView.image = UIImage(named: "mainIcUserWater")
                         firstCell.userWaterImageView.isHidden = false
                     }
                     else {
@@ -124,12 +131,12 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     firstCell.nickNameLabel.text = UserDefaults.standard.string(forKey:"selectedNickNameData")
                     
                     if UserDefaults.standard.integer(forKey: "selecteddDayData") == 0 {
+                        firstCell.userWaterImageView.image = UIImage(named: "mainIcUserWater")
                         firstCell.userWaterImageView.isHidden = false
                     }
                     else {
                         firstCell.userWaterImageView.isHidden = true
                     }
-                    
                     
                     /// 이미지 url 처리
 //                    let url = URL(string: UserDefaults.standard.string(forKey:"selectedPlantNameData")!)
@@ -149,6 +156,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 cell.cherishNickNameLabel.text = cherishPeopleData[indexPath.row - 1].nickname
                 
                 if cherishPeopleData[indexPath.row - 1].dDay == 0 {
+                    cell.cherishUserWaterImageView.image = UIImage(named: "mainIcUserWater")
                     cell.cherishUserWaterImageView.isHidden = false
                 }
                 else {
@@ -159,6 +167,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
 //                let url = URL(string: cherishPeopleData[indexPath.row - 1].thumbnailImageURL!)
 //                let imageData = try? Data(contentsOf: url!)
 //                cell.cherishPlantImageView.image = UIImage(data: imageData!)
+              
             }
             
             return cell
@@ -176,6 +185,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
         
         
         if indexPath.item > 0 {
+            
             // appDelegate에 전역변수를 생성해주고, 한번 셀이 눌린 후로는 그 값을 true로 바꿔준다
             appDel.isCherishPeopleCellSelected = true
             
@@ -189,6 +199,15 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             
             //선택된 친구의 인덱스 값을 저장해준다
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].id, forKey: "selectedFriendsIdData")
+            
+            // cell 선택상태 false로 초기화
+            for i in 0...cellSelectedData.count - 1 {
+                cellSelectedData[i].cellSelected = false
+            }
+            
+            // 눌린 인덱스만 true로 할당
+            cellSelectedData[indexPath.row - 1].cellSelected = true
+            
             
             cherishPeopleCV.reloadData()
         }
