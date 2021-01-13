@@ -41,8 +41,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김웅앵" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXD-cr-LM3" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                         <rect key="frame" x="62" y="5" width="45" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="24" id="Fi5-s7-kny"/>
-                            <constraint firstAttribute="width" secondItem="yXD-cr-LM3" secondAttribute="height" multiplier="15:8" id="y9I-ws-PMz"/>
+                            <constraint firstAttribute="height" constant="24" id="Xfb-Xn-mbn"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                         <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -53,18 +52,18 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="010.0000.0000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldB-Uz-Zap" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                        <rect key="frame" x="63" y="27" width="81" height="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="010.0000.0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldB-Uz-Zap" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                        <rect key="frame" x="62" y="29" width="81" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="24" id="03C-He-SvJ"/>
-                            <constraint firstAttribute="width" secondItem="ldB-Uz-Zap" secondAttribute="height" multiplier="27:8" id="DWA-8U-5W4"/>
+                            <constraint firstAttribute="height" constant="24" id="78O-3b-KOY"/>
+                            <constraint firstAttribute="width" secondItem="ldB-Uz-Zap" secondAttribute="height" multiplier="27:8" id="c26-Uh-UjN"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                         <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                <real key="value" value="-0.40000000000000002"/>
+                                <real key="value" value="-0.20000000000000001"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
@@ -80,14 +79,14 @@
                     <constraint firstAttribute="bottom" secondItem="be5-F9-NvS" secondAttribute="bottom" constant="26" id="1gp-hu-wzN"/>
                     <constraint firstItem="Wrq-lb-83t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="5lD-Ff-r87"/>
                     <constraint firstAttribute="bottom" secondItem="Wrq-lb-83t" secondAttribute="bottom" constant="40" id="71c-pK-tbE"/>
-                    <constraint firstAttribute="bottom" secondItem="ldB-Uz-Zap" secondAttribute="bottom" constant="29" id="8id-7O-gcO"/>
                     <constraint firstItem="be5-F9-NvS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HT6-er-YwL"/>
-                    <constraint firstItem="yXD-cr-LM3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="PoL-ni-7Um"/>
-                    <constraint firstAttribute="trailing" secondItem="yXD-cr-LM3" secondAttribute="trailing" constant="228" id="SP3-Ka-s4Q"/>
+                    <constraint firstItem="ldB-Uz-Zap" firstAttribute="top" secondItem="yXD-cr-LM3" secondAttribute="bottom" id="QDU-aJ-iEX"/>
                     <constraint firstItem="2bR-HU-xdP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="Tn3-3k-r8e"/>
+                    <constraint firstItem="ldB-Uz-Zap" firstAttribute="leading" secondItem="yXD-cr-LM3" secondAttribute="leading" id="YSh-fN-3wr"/>
                     <constraint firstAttribute="trailing" secondItem="2bR-HU-xdP" secondAttribute="trailing" constant="9" id="juG-2I-nL5"/>
-                    <constraint firstAttribute="trailing" secondItem="ldB-Uz-Zap" secondAttribute="trailing" constant="191" id="lvY-qf-C47"/>
+                    <constraint firstItem="yXD-cr-LM3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="uIh-5b-Zc6"/>
                     <constraint firstItem="Wrq-lb-83t" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="usP-KU-Zf5"/>
+                    <constraint firstItem="yXD-cr-LM3" firstAttribute="leading" secondItem="be5-F9-NvS" secondAttribute="trailing" constant="8" id="v8B-Qc-1ty"/>
                     <constraint firstAttribute="bottom" secondItem="2bR-HU-xdP" secondAttribute="bottom" constant="44" id="wx7-r4-EjO"/>
                     <constraint firstItem="be5-F9-NvS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xGM-n3-RBg"/>
                 </constraints>
