@@ -174,31 +174,30 @@ class ReviewVC: UIViewController {
     
     // 등록완료
     @IBAction func submitReview(_ sender: Any) {
-        let date = Date()
-        //        let dateFormatter = DateFormatter()
-        //        dateFormatter.dateStyle = .long
-        //        dateFormatter.locale = Locale(identifier: "ko_kr")
-        //        let now = dateFormatter.string(from: raw_now)
-        //        print(now)
-        //        guard let real_now = dateFormatter.date(from: now) else { return }
-        //        print(real_now)
+        guard let raw_now = UserDefaults.standard.string(forKey: "wateringDate") else { return }
+        let dateFormatter = DateFormatter()
+        print(raw_now)
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        guard let now = dateFormatter.date(from: raw_now) else { return }
+        print(now)
+//        let real_now = dateFormatter.string(from: now!)
         
-        WateringReviewService.shared.wateringReview(water_date: date, review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: UserDefaults.standard.integer(forKey: "selectedFriendsIdData")) { (networkResult) -> (Void) in
-            switch networkResult {
-            case .success(let data):
-                print(data)
-                self.goToWateringMotion()
-                
-            case .requestErr(_):
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
-            }
-        }
+//        WateringReviewService.shared.wateringReview(water_date: now, review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: UserDefaults.standard.integer(forKey: "selectedFriendsIdData")) { (networkResult) -> (Void) in
+//            switch networkResult {
+//            case .success(let data):
+//                print(data)
+//                self.goToWateringMotion()
+//                
+//            case .requestErr(_):
+//                print("requestErr")
+//            case .pathErr:
+//                print("pathErr")
+//            case .serverErr:
+//                print("serverErr")
+//            case .networkFail:
+//                print("networkFail")
+//            }
+//        }
     }
     
 }
