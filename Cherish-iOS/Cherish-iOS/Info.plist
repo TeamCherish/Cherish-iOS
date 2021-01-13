@@ -32,7 +32,9 @@
 		<true/>
 	</dict>
 	<key>NSContactsUsageDescription</key>
-	<string>다음 작업을 위해 Cherish가 사용자의\n연락처와 메모에 접근하는 것을 허용합니다\n* Cherish에 휴대폰의 연락처를 동기화</string>
+	<string>다음 작업을 위해 Cherish가
+사용자의 연락처에 접근하는 것을 허용합니다.
+*Cherish에 휴대폰의 연락처를 동기화</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Black.ttf</string>
