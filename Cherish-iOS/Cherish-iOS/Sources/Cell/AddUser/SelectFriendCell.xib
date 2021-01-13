@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -41,6 +41,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김웅앵" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXD-cr-LM3" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                         <rect key="frame" x="62" y="5" width="45" height="24"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="24" id="Xfb-Xn-mbn"/>
                             <constraint firstAttribute="height" constant="24" id="iaS-vU-n7W"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
@@ -55,14 +56,16 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="010.0000.0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldB-Uz-Zap" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                         <rect key="frame" x="62" y="29" width="81" height="24"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="24" id="78O-3b-KOY"/>
                             <constraint firstAttribute="height" constant="24" id="OWi-CI-n0G"/>
+                            <constraint firstAttribute="width" secondItem="ldB-Uz-Zap" secondAttribute="height" multiplier="27:8" id="c26-Uh-UjN"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                         <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                <real key="value" value="-0.40000000000000002"/>
+                                <real key="value" value="-0.20000000000000001"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
@@ -78,14 +81,14 @@
                     <constraint firstAttribute="bottom" secondItem="be5-F9-NvS" secondAttribute="bottom" constant="26" id="1gp-hu-wzN"/>
                     <constraint firstItem="Wrq-lb-83t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="5lD-Ff-r87"/>
                     <constraint firstAttribute="bottom" secondItem="Wrq-lb-83t" secondAttribute="bottom" constant="40" id="71c-pK-tbE"/>
-                    <constraint firstItem="ldB-Uz-Zap" firstAttribute="leading" secondItem="yXD-cr-LM3" secondAttribute="leading" id="FDL-vn-koy"/>
                     <constraint firstItem="be5-F9-NvS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HT6-er-YwL"/>
-                    <constraint firstItem="ldB-Uz-Zap" firstAttribute="top" secondItem="yXD-cr-LM3" secondAttribute="bottom" id="Qmn-cM-99N"/>
+                    <constraint firstItem="ldB-Uz-Zap" firstAttribute="top" secondItem="yXD-cr-LM3" secondAttribute="bottom" id="QDU-aJ-iEX"/>
                     <constraint firstItem="2bR-HU-xdP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="Tn3-3k-r8e"/>
-                    <constraint firstItem="yXD-cr-LM3" firstAttribute="leading" secondItem="be5-F9-NvS" secondAttribute="trailing" constant="8" id="a76-mp-YRR"/>
-                    <constraint firstItem="yXD-cr-LM3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="iJ8-Zs-UcV"/>
+                    <constraint firstItem="ldB-Uz-Zap" firstAttribute="leading" secondItem="yXD-cr-LM3" secondAttribute="leading" id="YSh-fN-3wr"/>
                     <constraint firstAttribute="trailing" secondItem="2bR-HU-xdP" secondAttribute="trailing" constant="9" id="juG-2I-nL5"/>
+                    <constraint firstItem="yXD-cr-LM3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="uIh-5b-Zc6"/>
                     <constraint firstItem="Wrq-lb-83t" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="usP-KU-Zf5"/>
+                    <constraint firstItem="yXD-cr-LM3" firstAttribute="leading" secondItem="be5-F9-NvS" secondAttribute="trailing" constant="8" id="v8B-Qc-1ty"/>
                     <constraint firstAttribute="bottom" secondItem="2bR-HU-xdP" secondAttribute="bottom" constant="44" id="wx7-r4-EjO"/>
                     <constraint firstItem="be5-F9-NvS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xGM-n3-RBg"/>
                 </constraints>

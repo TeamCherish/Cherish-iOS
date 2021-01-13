@@ -113,10 +113,7 @@
 		9244DF1225AB92220014FF5D /* LoadingPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */; };
 		92B0F9D925AEB15400AA411A /* AddUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0F9D825AEB15400AA411A /* AddUserData.swift */; };
 		92B0F9E225AEE41600AA411A /* FetchedContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0F9E125AEE41600AA411A /* FetchedContact.swift */; };
-		92B2306125A30DD40024B8A8 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2306025A30DD40024B8A8 /* FriendCell.swift */; };
 		92B2306525A30F390024B8A8 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2306425A30F390024B8A8 /* Friend.swift */; };
-		92DCC3AA25A7071E00160523 /* PracticeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DCC3A925A7071E00160523 /* PracticeDetail.swift */; };
-		92DCC3AE25A708C700160523 /* PracticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DCC3AD25A708C700160523 /* PracticeCell.swift */; };
 		92DCC3DF25A8504F00160523 /* SelectFriendSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DCC3DE25A8504F00160523 /* SelectFriendSearchBar.swift */; };
 		92DCC3E525A85D1D00160523 /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */; };
 		92DCC3EA25A85D7100160523 /* SelectFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DCC3E825A85D7100160523 /* SelectFriendCell.swift */; };
@@ -233,10 +230,7 @@
 		9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPopUpVC.swift; sourceTree = "<group>"; };
 		92B0F9D825AEB15400AA411A /* AddUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserData.swift; sourceTree = "<group>"; };
 		92B0F9E125AEE41600AA411A /* FetchedContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedContact.swift; sourceTree = "<group>"; };
-		92B2306025A30DD40024B8A8 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		92B2306425A30F390024B8A8 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
-		92DCC3A925A7071E00160523 /* PracticeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeDetail.swift; sourceTree = "<group>"; };
-		92DCC3AD25A708C700160523 /* PracticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeCell.swift; sourceTree = "<group>"; };
 		92DCC3DE25A8504F00160523 /* SelectFriendSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendSearchBar.swift; sourceTree = "<group>"; };
 		92DCC3E825A85D7100160523 /* SelectFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendCell.swift; sourceTree = "<group>"; };
 		92DCC3E925A85D7100160523 /* SelectFriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectFriendCell.xib; sourceTree = "<group>"; };
@@ -689,7 +683,6 @@
 			children = (
 				923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */,
 				923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */,
-				92DCC3A925A7071E00160523 /* PracticeDetail.swift */,
 				92DCC3DE25A8504F00160523 /* SelectFriendSearchBar.swift */,
 				9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */,
 				9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */,
@@ -708,8 +701,6 @@
 		92B2305F25A30DBD0024B8A8 /* AddUser */ = {
 			isa = PBXGroup;
 			children = (
-				92B2306025A30DD40024B8A8 /* FriendCell.swift */,
-				92DCC3AD25A708C700160523 /* PracticeCell.swift */,
 				92DCC3E825A85D7100160523 /* SelectFriendCell.swift */,
 				92DCC3E925A85D7100160523 /* SelectFriendCell.xib */,
 			);
@@ -883,7 +874,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */,
-				92DCC3AA25A7071E00160523 /* PracticeDetail.swift in Sources */,
 				9244DF1225AB92220014FF5D /* LoadingPopUpVC.swift in Sources */,
 				33805F8325AC62B3005CED0F /* LoginData.swift in Sources */,
 				33CAF85225A249DC0050DE29 /* CherishMainNC.swift in Sources */,
@@ -909,11 +899,9 @@
 				33201B1025AE2EBC001A94E4 /* PlantDetailCardData.swift in Sources */,
 				54425C2925AE32E100E62BAB /* KeywordReviewEditCVC.swift in Sources */,
 				548DF1A925A395D20081FCD1 /* KeywordCanDeleteCVC.swift in Sources */,
-				92DCC3AE25A708C700160523 /* PracticeCell.swift in Sources */,
 				33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */,
 				337A5CBD25A868C000578130 /* UIButton+Extention.swift in Sources */,
 				33D0026F25A30AB700E97811 /* PlantDetailExplainData.swift in Sources */,
-				92B2306125A30DD40024B8A8 /* FriendCell.swift in Sources */,
 				5478346F25AC72F90021C32B /* LaterService.swift in Sources */,
 				5488923625A5E962003839FC /* CalendarKeywordCVCell.swift in Sources */,
 				92B2306525A30F390024B8A8 /* Friend.swift in Sources */,

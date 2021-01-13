@@ -51,6 +51,7 @@ class InputDetailVC: UIViewController {
         createPicker()
         periodPicker.delegate = self
         periodPicker.dataSource = self
+        setTextField()
     }
     
     
@@ -116,13 +117,12 @@ class InputDetailVC: UIViewController {
     
     //MARK: - 함수 모음
     
-    func setLabel() {
+    func setTextField() {
         if let givenName = self.givenName,
            let givenPhoneNumber = self.givenPhoneNumber {
             self.nameTextField.text = givenName
             self.phoneTextField.text = givenPhoneNumber
         }
-    
     }
     
     //MARK: - UISwitch Custom

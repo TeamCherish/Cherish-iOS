@@ -9,7 +9,6 @@ import UIKit
 
 class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
-    
     //MARK: - IBOutlet
     
     @IBOutlet weak var tableView: UITableView!
