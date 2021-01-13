@@ -17,14 +17,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var nextLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
-    let topInset: CGFloat = 36.0
-    
-    
-    
-    var friendList: [Friend] = [
-    ]
-    
+    var friendList: [Friend] = []
     
     private var selectedFriend: Int? {
         didSet {
@@ -84,7 +77,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
             self.present(dvc, animated: true, completion: nil)
         }
     }
-    
+        
     func getContacts() {
         if let data = UserDefaults.standard.value(forKey: "userContacts") as? Data {
             let contacts = try? PropertyListDecoder().decode([Friend].self, from: data)
@@ -159,6 +152,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         //        self.vc.phoneTextField.text = ""
         //        self.vc.nameTextField.text = friendList[indexPath.row].name
         //        self.vc.phoneTextField.text = friendList[indexPath.row].phoneNumber
+        
     }
     
     //MARK: - searchBar delegate
