@@ -167,14 +167,14 @@ class ReviewVC: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .coverVertical
         
-            UIView.animate(withDuration: 5.0, animations: {
-                self.dismiss(animated: true){
-                    pvc.present(vc, animated: true, completion: nil)
-                }
-            }) {finished in
-                vc.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true){
+                pvc.present(vc, animated: true, completion: nil)
             }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                // Do whatever you want
+                vc.dismiss(animated: true, completion: nil)
+            }
     }
     
     func setNamingLabel(){
@@ -184,6 +184,8 @@ class ReviewVC: UIViewController {
     
     // 등록완료
     @IBAction func submitReview(_ sender: Any) {
+        
+        ///키워드 nil값 대체
         if keyword.count == 2 {
             keyword.append("")
         }else if keyword.count == 1 {
