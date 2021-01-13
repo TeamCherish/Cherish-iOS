@@ -11,7 +11,7 @@ struct PlantDetailData: Codable {
     let name, nickname, birth: String
     let duration, dDay: Int
     let plantName, plantThumbnailImageURL, statusMessage: String
-    let gage: Int
+    let gage: Float
     let reviews: [Review]
     let keyword1, keyword2, keyword3: String
 
