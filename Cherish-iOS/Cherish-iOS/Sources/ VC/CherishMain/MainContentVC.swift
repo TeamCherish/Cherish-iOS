@@ -67,7 +67,8 @@ class MainContentVC: UIViewController {
                             dayCountLabel.text = "\(cherishPeopleData[0].dDay)"
                         }
                         
-                        UserDefaults.standard.set(cherishPeopleData[0].id, forKey: "selectedFriendsIdData")
+                        UserDefaults.standard.set(cherishPeopleData[0].id, forKey: "selectedFriendIdData")
+                        UserDefaults.standard.set(cherishPeopleData[0].phone, forKey: "selectedFriendPhoneData")
                     }
                 case .requestErr(let msg):
                     if let message = msg as? String {
@@ -151,6 +152,6 @@ class MainContentVC: UIViewController {
     @objc func changeBackgroundInfo() {
         
         //noti 감지 후 view가 reload될 수 있도록 viewWillAppear함수를 호출해준다.
-        viewWillAppear(true)
+        viewWillAppear(false)
     }
 }
