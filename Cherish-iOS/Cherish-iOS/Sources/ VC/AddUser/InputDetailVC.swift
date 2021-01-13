@@ -48,8 +48,6 @@ class InputDetailVC: UIViewController {
         createPicker()
         periodPicker.delegate = self
         periodPicker.dataSource = self
-        nameTextField.text = ""
-        phoneTextField.text = ""
     }
     
     
