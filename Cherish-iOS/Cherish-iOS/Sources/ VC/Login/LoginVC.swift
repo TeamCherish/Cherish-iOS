@@ -32,7 +32,6 @@ class LoginVC: UIViewController {
         textFieldEditingCheck()
         setButtonTextKerns(-0.7)
         fetchContacts()
-        makeCherishContacts()
         keyboardObserver()
     }
     
@@ -154,6 +153,62 @@ class LoginVC: UIViewController {
     }
     
     
+    //MARK: - 연락처 동기화
+    private func fetchContacts() {
+        /// 1. The CNContactStore object contains the user’s contacts store database
+        let store = CNContactStore()
+        store.requestAccess(for: .contacts) { (granted, error) in
+            if let error = error {
+                print("failed to request access", error)
+                return
+            }
+            if granted {
+                /// 2. a CNContactFetchRequest object is created containing the name and telephone keys .
+                let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey]
+                let request = CNContactFetchRequest(keysToFetch: keys as [CNKeyDescriptor])
+                do {
+                    // 3. All contacts are fetched with the request, the corresponding keys are assigned to the property of the FetchContact object and added to the contacts array.
+                    try store.enumerateContacts(with: request, usingBlock: { [self] (contact, stopPointer) in
+                        deviceContacts.append(FetchedContact(fristName: contact.givenName, lastName: contact.familyName, telephone: contact.phoneNumbers.first?.value.stringValue ?? ""))
+                    })
+                } catch let error {
+                    print("Failed to enumerate contact", error)
+                }
+            } else {
+                print("access denied")
+            }
+        }
+    }
+    
+    func makeCherishContacts() {
+        
+        switch CNContactStore.authorizationStatus(for: .contacts) {
+        case .authorized:
+            // 이름 합치기
+            for i in 0...deviceContacts.count - 1 {
+                fetchedName.append((deviceContacts[i].lastName)+(deviceContacts[i].fristName))
+                deviceContacts[i].telephone = deviceContacts[i].telephone.components(separatedBy: ["-","/","/"]).joined()
+                
+                self.cherishContacts.append(contentsOf: [
+                    Friend(name: fetchedName[i], phoneNumber: deviceContacts[i].telephone, selected: false)
+                ])
+            }
+            
+            print(cherishContacts)
+            
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(cherishContacts), forKey: "userContacts")
+            
+        case .notDetermined:
+            print("notDetermined")
+        case .restricted:
+            print("restricted")
+        case .denied:
+            print("denied")
+        }
+        
+    }
+    
+    
     func loginAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인",style: .default)
@@ -185,7 +240,7 @@ class LoginVC: UIViewController {
                     
                     // 로그인 성공 시
                     // 유저 idx 기반으로 메인뷰에 등록된 소중한 사람이 있는지 조회
-                    MainService.shared.inquireMainView(idx: loginData.userID){
+                    MainService.shared.inquireMainView(idx: loginData.userID){ [self]
                         (networkResult) -> (Void) in
                         switch networkResult {
                         case .success(let data):
@@ -196,12 +251,13 @@ class LoginVC: UIViewController {
                                 if mainData.totalCherish > 0 {
                                     
                                     // 메인뷰로 이동
-                                    self.goToCherishMainView()
+                                    goToCherishMainView()
+                                    makeCherishContacts()
                                 }
                                 
                                 // 소중한 사람이 한명도 등록되지 않았다면
                                 else {
-                                    
+                                    makeCherishContacts()
                                     //처음 서현이 뷰로 이동
                                 }
                             }
@@ -230,50 +286,6 @@ class LoginVC: UIViewController {
                 print("networkFail")
             }
         }
-    }
-    
-    
-    private func fetchContacts() {
-        /// 1. The CNContactStore object contains the user’s contacts store database
-        let store = CNContactStore()
-        store.requestAccess(for: .contacts) { (granted, error) in
-            if let error = error {
-                print("failed to request access", error)
-                return
-            }
-            if granted {
-                /// 2. a CNContactFetchRequest object is created containing the name and telephone keys .
-                let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey]
-                let request = CNContactFetchRequest(keysToFetch: keys as [CNKeyDescriptor])
-                do {
-                    // 3. All contacts are fetched with the request, the corresponding keys are assigned to the property of the FetchContact object and added to the contacts array.
-                    try store.enumerateContacts(with: request, usingBlock: { [self] (contact, stopPointer) in
-                        deviceContacts.append(FetchedContact(fristName: contact.givenName, lastName: contact.familyName, telephone: contact.phoneNumbers.first?.value.stringValue ?? ""))
-                    })
-                } catch let error {
-                    print("Failed to enumerate contact", error)
-                }
-            } else {
-                print("access denied")
-            }
-        }
-    }
-    
-    func makeCherishContacts() {
-        
-        // 이름 합치기
-        for i in 0...deviceContacts.count - 1 {
-            fetchedName.append((deviceContacts[i].lastName)+(deviceContacts[i].fristName))
-            deviceContacts[i].telephone = deviceContacts[i].telephone.components(separatedBy: ["-","/","/"]).joined()
-            
-            self.cherishContacts.append(contentsOf: [
-                Friend(name: fetchedName[i], phoneNumber: deviceContacts[i].telephone, selected: false)
-            ])
-        }
-        
-        print(cherishContacts)
-        
-        UserDefaults.standard.set(try? PropertyListEncoder().encode(cherishContacts), forKey: "userContacts")
     }
 }
 
