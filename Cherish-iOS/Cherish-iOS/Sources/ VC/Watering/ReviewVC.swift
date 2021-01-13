@@ -183,7 +183,7 @@ class ReviewVC: UIViewController {
         //        guard let real_now = dateFormatter.date(from: now) else { return }
         //        print(real_now)
         
-        WateringReviewService.shared.wateringReview(water_date: date, review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: 4) { (networkResult) -> (Void) in
+        WateringReviewService.shared.wateringReview(water_date: date, review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: UserDefaults.standard.integer(forKey: "selectedFriendsIdData")) { (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 print(data)
