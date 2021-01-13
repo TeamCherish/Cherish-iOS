@@ -77,7 +77,7 @@ class PopUpContactVC: UIViewController {
     
     // 최근 키워드 받아오기 및 연락 상대 이름에 따라 Label 변경
     func getRecentKeyword() {
-        RecentKeywordService.shared.recentKeyword(CherishId:4) { [self] (networkResult) -> (Void) in
+        RecentKeywordService.shared.recentKeyword(CherishId:UserDefaults.standard.integer(forKey: "selectedFriendsIdData")) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 print(data)
