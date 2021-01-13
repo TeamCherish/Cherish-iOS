@@ -178,7 +178,7 @@ class LoginVC: UIViewController {
                    
                     // 로그인 성공 시
                     // 유저 idx 기반으로 메인뷰에 등록된 소중한 사람이 있는지 조회
-                    MainService.shared.doLogin(idx: loginData.userID){
+                    MainService.shared.inquireMainView(idx: loginData.userID){
                         (networkResult) -> (Void) in
                         switch networkResult {
                         case .success(let data):

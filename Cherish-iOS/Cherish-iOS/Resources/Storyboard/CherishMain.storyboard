@@ -124,9 +124,6 @@
                                     <constraint firstAttribute="height" constant="48" id="JFV-bV-lGR"/>
                                 </constraints>
                                 <state key="normal" image="mainIcAlarm"/>
-                                <connections>
-                                    <action selector="moveToAlarmView:" destination="y3f-7o-jg5" eventType="touchUpInside" id="MHk-53-iPk"/>
-                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgMainDandelion" translatesAutoresizingMaskIntoConstraints="NO" id="1LF-25-ssR">
                                 <rect key="frame" x="125" y="183.66666666666663" width="250" height="493"/>
@@ -235,6 +232,7 @@
                     <connections>
                         <outlet property="dayCountLabel" destination="rlN-3e-VUW" id="mP8-In-fUH"/>
                         <outlet property="flowerAnimationImageView" destination="73B-R2-O3w" id="h47-qL-9hv"/>
+                        <outlet property="growthPercentLabel" destination="7lJ-v4-Fdo" id="GqH-Wb-S86"/>
                         <outlet property="plantExplainLabel" destination="MqD-Yz-UwB" id="lsW-qY-OCZ"/>
                         <outlet property="plantImageView" destination="1LF-25-ssR" id="q63-xK-rvd"/>
                         <outlet property="progressbarBackView" destination="Ook-bx-AcP" id="9qk-3n-XYz"/>
@@ -245,21 +243,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Amh-KG-oEa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-554.39999999999998" y="486.94581280788179"/>
-        </scene>
-        <!--AlarmVC-->
-        <scene sceneID="bXr-GF-Sif">
-            <objects>
-                <viewController storyboardIdentifier="AlarmVC" id="Oxi-iY-bdl" customClass="AlarmVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Lfq-Ee-kib">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Y32-sv-QUu"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1oA-KG-mAI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-373" y="1470"/>
         </scene>
         <!--Detail ContentVC-->
         <scene sceneID="9yd-TY-CVV">
@@ -290,8 +273,12 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhZ-mV-MRR" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="124.66666666666667" y="29.666666666666671" width="15.666666666666671" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhZ-mV-MRR" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="124.66666666666669" y="29.666666666666671" width="15" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="9cX-Kq-gGw"/>
+                                            <constraint firstAttribute="width" secondItem="dhZ-mV-MRR" secondAttribute="height" multiplier="15:17" id="zsZ-XO-8g2"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
                                         <color key="textColor" name="seaweed"/>
                                         <nil key="highlightedColor"/>
@@ -343,7 +330,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="69" height="91"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ellipse373" translatesAutoresizingMaskIntoConstraints="NO" id="tUC-yK-00U">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tUC-yK-00U">
                                                     <rect key="frame" x="0.0" y="0.0" width="69" height="69"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="69" id="MOk-oK-iMn"/>
@@ -355,8 +342,12 @@
                                                         <constraint firstAttribute="height" constant="59" id="7cX-VK-a6Y"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDM-bV-H4M" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="13.666666666666668" y="73" width="41.666666666666657" height="14"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDM-bV-H4M" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="10.666666666666664" y="73" width="48" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="DfY-Q1-ROr"/>
+                                                        <constraint firstAttribute="width" secondItem="JDM-bV-H4M" secondAttribute="height" multiplier="24:9" id="lI5-Jm-3De"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                     <color key="textColor" name="black"/>
                                                     <nil key="highlightedColor"/>
@@ -366,7 +357,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainIcUserWater" translatesAutoresizingMaskIntoConstraints="NO" id="TE1-U3-O9S">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TE1-U3-O9S">
                                                     <rect key="frame" x="47" y="44" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="TQp-OK-wrP"/>
@@ -408,8 +399,12 @@
                                                         <constraint firstAttribute="height" constant="59" id="MJb-33-Pss"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRc-ej-5rz" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="13.666666666666668" y="73" width="41.666666666666657" height="14"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRc-ej-5rz" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="10.666666666666664" y="73" width="48" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="BRc-ej-5rz" secondAttribute="height" multiplier="24:9" id="hhs-Mx-x6f"/>
+                                                        <constraint firstAttribute="height" constant="18" id="p4o-tN-1Tm"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                     <color key="textColor" name="black"/>
                                                     <nil key="highlightedColor"/>
@@ -419,7 +414,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainIcUserWater" translatesAutoresizingMaskIntoConstraints="NO" id="R8W-X4-P9r">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R8W-X4-P9r">
                                                     <rect key="frame" x="47" y="44" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="FBQ-k7-n1j"/>
@@ -461,6 +456,7 @@
                     </view>
                     <connections>
                         <outlet property="cherishPeopleCV" destination="dA7-UO-PkU" id="tPR-Zx-Ciu"/>
+                        <outlet property="cherishPeopleCountLabel" destination="dhZ-mV-MRR" id="6ki-YX-Twl"/>
                         <outlet property="headerView" destination="3bh-Ia-bkm" id="q4r-Fb-pvd"/>
                     </connections>
                 </viewController>
@@ -502,14 +498,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ellipse373" width="69" height="69"/>
         <image name="imgGraphic" width="68.666664123535156" height="65"/>
         <image name="imgMainDandelion" width="250" height="493"/>
         <image name="invalidName" width="48.333332061767578" height="13"/>
         <image name="mainBtnMoveDetailview" width="256" height="380"/>
         <image name="mainBtnWater" width="90" height="40"/>
         <image name="mainIcAlarm" width="48" height="48"/>
-        <image name="mainIcUserWater" width="20" height="20"/>
         <image name="mainImgUser1" width="59" height="59"/>
         <image name="modal" width="50" height="4"/>
         <namedColor name="black">

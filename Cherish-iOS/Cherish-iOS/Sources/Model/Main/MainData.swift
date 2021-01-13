@@ -13,16 +13,15 @@ struct MainData: Codable {
 }
 
 // MARK: - Result
-struct ResultData: Codable {
-    let id: Int
-    let dDay: Int?
-    let nickname: String?
-    let growth: Int?
-    let thumbnailImageURL: String?
-    let imageURL: String?
+struct ResultData: Codable{
+    let id, dDay: Int
+    let nickname: String
+    let growth: Int
+    let thumbnailImageURL, modifier: String
 
     enum CodingKeys: String, CodingKey {
         case id, dDay, nickname, growth
-        case thumbnailImageURL,imageURL
+        case thumbnailImageURL = "thumbnail_image_url"
+        case modifier
     }
 }

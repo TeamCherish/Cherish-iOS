@@ -1,19 +1,20 @@
 //
-//  MainService.swift
+//  PlantDetailService.swift
 //  Cherish-iOS
 //
-//  Created by 황지은 on 2021/01/11.
+//  Created by 황지은 on 2021/01/12.
 //
 
 import Foundation
 import Alamofire
 
-struct MainService {
-    static let shared = MainService()
+struct PlantDetailService {
+    static let shared = PlantDetailService()
     
-    func inquireMainView(idx:Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
-       
-        let url = APIConstants.mainURL + "\(idx)"
+    func inquirePlantDetailView(friendsIdx:Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
+        
+        let url = APIConstants.plantDetailURL + "\(friendsIdx)"
+        print(url)
         let header: HTTPHeaders = [ "Content-Type":"application/json"]
         let dataRequest = AF.request(url,
                                      method: .get,
@@ -37,7 +38,7 @@ struct MainService {
     
     private func judgeData(status: Int, data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(GenericResponse<MainData>.self, from: data) else {
+        guard let decodedData = try? decoder.decode(GenericResponse<PlantDetailData>.self, from: data) else {
             return .pathErr }
         switch status {
         case 200:
@@ -48,6 +49,9 @@ struct MainService {
         case 500:
             return .serverErr
         default:
-            return .networkFail }
+            return .networkFail
+        }
     }
 }
+
+

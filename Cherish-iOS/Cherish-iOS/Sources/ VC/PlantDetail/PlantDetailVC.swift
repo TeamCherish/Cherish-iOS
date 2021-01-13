@@ -12,12 +12,24 @@ class PlantDetailVC: UIViewController {
     @IBOutlet var plantCircularProgressView: CircularProgressView!
     @IBOutlet var backDropImageView: UIImageView!
     @IBOutlet var plantDetailBtn: UIButton!
+    @IBOutlet var plantNicknameLabel: CustomLabel!
+    @IBOutlet var userNameInRoundViewLabel: CustomLabel!
+    @IBOutlet var plantKindsInRoundViewLabel: CustomLabel!
+    @IBOutlet var plantdDayLabel: CustomLabel!
+    @IBOutlet var plantMaintainDayLabel: CustomLabel!
+    @IBOutlet var plantBirthDayLabel: CustomLabel!
     @IBOutlet var plantHealthStatusLabel: CustomLabel!
     @IBOutlet var heathStatusLabel: UILabel!
     @IBOutlet var memoTitleLabel: CustomLabel!
     @IBOutlet var keywordCV: UICollectionView!
     @IBOutlet var firstMemoView: UIView!
     @IBOutlet var secondMemoVIew: UIView!
+    @IBOutlet var firstMemoDayLabel: CustomLabel!
+    @IBOutlet var secondMemoDayLabel: CustomLabel!
+    @IBOutlet var firstMemoTextLabel: CustomLabel!
+    @IBOutlet var secondMemoTextLabel: CustomLabel!
+    @IBOutlet var firstMemoBtn: UIButton!
+    @IBOutlet var secondMemoBtn: UIButton!
     @IBOutlet var memoCardImageView: UIImageView!
     @IBOutlet var wateringBtn: UIButton!
     @IBOutlet var circularProgressViewTopConstant: NSLayoutConstraint!
@@ -29,20 +41,23 @@ class PlantDetailVC: UIViewController {
     @IBOutlet var keywordCVBottomConstraint: NSLayoutConstraint!
     
     var isClicked:Bool = false
-    var keywordArray:[KeywordData] = []
+    var reviewArray:[Review] = []
+    var keywordArray:[String] = []
+    var friendsPlantIdx:Int = UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setControllers()
-        makeCircularView()
         defineFirstPlantCardBtnStatus()
+        getPlantDetailData()
         makeDelegates()
-        setKeywordData()
         makeCornerRadiusView()
         setAutoLayoutByScreenSize()
-        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
+    }
     
     //MARK: - NC,TC 속성 정의함수
     func setControllers() {
@@ -50,16 +65,83 @@ class PlantDetailVC: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
-    func makeDelegates(){
+    func makeDelegates() {
         keywordCV.delegate = self
         keywordCV.dataSource = self
     }
     
+    //MARK: - 식물상세뷰 데이터 받아오는 함수
+    func getPlantDetailData() {
+        PlantDetailService.shared.inquirePlantDetailView(friendsIdx: friendsPlantIdx) { [self]
+            (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                print(data)
+                if let plantDetailData = data as? PlantDetailData {
+                    plantNicknameLabel.text = plantDetailData.nickname
+                    userNameInRoundViewLabel.text = plantDetailData.name
+                    plantKindsInRoundViewLabel.text = plantDetailData.plantName
+                    plantdDayLabel.text = "D-\(plantDetailData.dDay)"
+                    plantMaintainDayLabel.text = "\(plantDetailData.duration)일째"
+                    plantBirthDayLabel.text = plantDetailData.birth
+                    memoTitleLabel.text = "\(plantDetailData.nickname)와 함께했던 이야기"
+                    keywordArray.append(plantDetailData.keyword1)
+                    keywordArray.append(plantDetailData.keyword2)
+                    keywordArray.append(plantDetailData.keyword3)
+                    plantHealthStatusLabel.text = plantDetailData.statusMessage
+                    makeCircularView(Float(plantDetailData.gage))
+                    
+                    // 메모 데이터
+                    reviewArray = plantDetailData.review
+                    
+                    /// 메모 데이터가 없을 때
+                    if reviewArray.count == 0 {
+                        // 캘린더로 이동할 수 있는 버튼을 숨기고, 누를 수 없게 한다
+                        firstMemoBtn.isHidden = true
+                        secondMemoBtn.isHidden = true
+                        firstMemoBtn.isEnabled = false
+                        secondMemoBtn.isEnabled = false
+                    }
+                    /// 메모 데이터가 하나일 때
+                    else if reviewArray.count == 1 {
+                        // 첫번째 메모데이터를 할당
+                        firstMemoDayLabel.text = reviewArray[0].waterDate
+                        firstMemoTextLabel.text = reviewArray[0].review
+                        
+                        // 캘린더로 이동할 수 있는 두번째 메모버튼을 숨기고, 누를 수 없게 한다
+                        secondMemoBtn.isHidden = true
+                        secondMemoBtn.isEnabled = false
+                    }
+                    /// 메모 데이터가 두개일 때
+                    else {
+                        // 첫번째 메모데이터를 할당
+                        firstMemoDayLabel.text = reviewArray[0].waterDate
+                        firstMemoTextLabel.text = reviewArray[0].review
+                        // 두번째 메모데이터를 할당
+                        secondMemoDayLabel.text = reviewArray[1].waterDate
+                        secondMemoTextLabel.text = reviewArray[1].review
+                    }
+                    keywordCV.reloadData()
+                }
+            case .requestErr(let msg):
+                if let message = msg as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
     //MARK: - 원형 progressBar 생성함수
-    func makeCircularView() {
+    func makeCircularView(_ value : Float ) {
         plantCircularProgressView.trackColor = UIColor(red: 217/255, green: 217/255, blue: 217/255, alpha: 1.0)
         plantCircularProgressView.progressColor = .seaweed
-        plantCircularProgressView.setProgressWithAnimation(duration: 1.0, value: 0.5)
+        plantCircularProgressView.setProgressWithAnimation(duration: 1.0, value: value)
         
     }
     
@@ -125,7 +207,6 @@ class PlantDetailVC: UIViewController {
         
         /// iPhone12 mini size 보다 클 때
         else if screenWidth >= 375 && screenHeight >= 812 {
-            print("iPhone 12 mini")
             backDropImageView.frame.size = CGSize(width: 140, height: 140)
             plantDetailBtn.frame.size = CGSize(width: 140, height: 140)
             plantCircularProgressView.frame.size = CGSize(width: 160, height: 160)
@@ -149,13 +230,6 @@ class PlantDetailVC: UIViewController {
         }
     }
     
-    func setKeywordData(){
-        keywordArray.append(contentsOf: [
-            KeywordData(keyword: "취업준비중이요"),
-            KeywordData(keyword: "취업준비중이요"),
-            KeywordData(keyword: "헤어짐준비중임")
-        ])
-    }
     
     //MARK: - 첫번째 메모 연결버튼
     @IBAction func moveToFirstMemoDetail(_ sender: UIButton) {
@@ -195,6 +269,9 @@ class PlantDetailVC: UIViewController {
     @IBAction func popToCherishMainVC(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    
+    //MARK: - 캘린더뷰로 이동하는 함수
     @IBAction func moveToCalendar(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
@@ -203,6 +280,8 @@ class PlantDetailVC: UIViewController {
         }
     }
 }
+
+//MARK: - Extension : CollectionView
 extension PlantDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
@@ -214,7 +293,9 @@ extension PlantDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
         
         let keywordCell = collectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCVCell", for: indexPath) as! KeywordCVCell
         
-        keywordCell.keywordLabel.text = keywordArray[indexPath.row].keyword
+        if keywordArray.count != 0 {
+            keywordCell.keywordLabel.text = keywordArray[indexPath.row]
+        }
         
         keywordCell.layer.borderWidth = 1
         keywordCell.layer.borderColor = CGColor(red: 69/255, green: 69/255, blue: 69/255, alpha: 1.0)

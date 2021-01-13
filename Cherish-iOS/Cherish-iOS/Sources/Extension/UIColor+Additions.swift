@@ -81,4 +81,8 @@ extension UIColor {
     @nonobjc class var showmoreGrey: UIColor {
         return UIColor(white: 134.0 / 255.0, alpha: 1)
     }
+    
+    @nonobjc class var pinkSub: UIColor {
+        return UIColor(red: 247/255, green: 89/255, blue: 108/255, alpha: 1.0)
+    }
 }
