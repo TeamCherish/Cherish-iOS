@@ -37,6 +37,9 @@ class InputDetailVC: UIViewController {
     
     var cycle_date = 0
     
+    var givenName: String?
+    var givenPhoneNumber: String?
+    
     //MARK: - viewDidLoad()
     
     override func viewDidLoad() {
@@ -112,6 +115,15 @@ class InputDetailVC: UIViewController {
     
     
     //MARK: - 함수 모음
+    
+    func setLabel() {
+        if let givenName = self.givenName,
+           let givenPhoneNumber = self.givenPhoneNumber {
+            self.nameTextField.text = givenName
+            self.phoneTextField.text = givenPhoneNumber
+        }
+    
+    }
     
     //MARK: - UISwitch Custom
     func setSwitch() {
