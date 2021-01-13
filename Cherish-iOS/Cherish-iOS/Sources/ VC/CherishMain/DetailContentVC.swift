@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Contacts
 import Alamofire
 import Kingfisher
 import OverlayContainer
@@ -119,9 +120,9 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     }
                     
                     /// 이미지 url 처리
-//                    let url = URL(string: cherishPeopleData[0].thumbnailImageURL ?? "")
-//                    let imageData = try? Data(contentsOf: url!)
-//                    firstCell.plantImageView.image = UIImage(data: imageData!)
+                    //                    let url = URL(string: cherishPeopleData[0].thumbnailImageURL ?? "")
+                    //                    let imageData = try? Data(contentsOf: url!)
+                    //                    firstCell.plantImageView.image = UIImage(data: imageData!)
                 }
                 
                 // 셀이 한번 이상 눌린 상태
@@ -139,9 +140,9 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     }
                     
                     /// 이미지 url 처리
-//                    let url = URL(string: UserDefaults.standard.string(forKey:"selectedPlantNameData")!)
-//                    let imageData = try? Data(contentsOf: url!)
-//                    firstCell.plantImageView.image = UIImage(data: imageData!)
+                    //                    let url = URL(string: UserDefaults.standard.string(forKey:"selectedPlantNameData")!)
+                    //                    let imageData = try? Data(contentsOf: url!)
+                    //                    firstCell.plantImageView.image = UIImage(data: imageData!)
                 }
             }
             
@@ -164,10 +165,10 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 }
                 
                 /// 이미지 url 처리
-//                let url = URL(string: cherishPeopleData[indexPath.row - 1].thumbnailImageURL!)
-//                let imageData = try? Data(contentsOf: url!)
-//                cell.cherishPlantImageView.image = UIImage(data: imageData!)
-              
+                //                let url = URL(string: cherishPeopleData[indexPath.row - 1].thumbnailImageURL!)
+                //                let imageData = try? Data(contentsOf: url!)
+                //                cell.cherishPlantImageView.image = UIImage(data: imageData!)
+                
             }
             
             return cell
@@ -191,7 +192,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             
             // 셀이 눌릴 때마다 UserDefaults에 값을 새로 저장해준다
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].nickname, forKey: "selectedNickNameData")
-//            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].thumbnailImageURL!, forKey: "selectedPlantNameData")
+            //            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].thumbnailImageURL!, forKey: "selectedPlantNameData")
             UserDefaults.standard.set(true, forKey: "selectedData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].growth, forKey: "selectedGrowthData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].dDay, forKey: "selecteddDayData")
