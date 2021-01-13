@@ -42,7 +42,7 @@ class PopUpContactVC: UIViewController {
     
     //MARK: - Call Material
     func showCallAlert() {
-        guard let url = NSURL(string: "tel://" + "01068788309"),
+        guard let url = NSURL(string: "tel://" + UserDefaults.standard.string(forKey: "selectedFriendPhoneData")!),
               UIApplication.shared.canOpenURL(url as URL) else {
             return
         }
@@ -78,8 +78,8 @@ class PopUpContactVC: UIViewController {
     
     // 최근 키워드 받아오기 및 연락 상대 이름에 따라 Label 변경
     func getRecentKeyword() {
-        //UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
-        RecentKeywordService.shared.recentKeyword(CherishId:42) { [self] (networkResult) -> (Void) in
+        print(UserDefaults.standard.integer(forKey: "selectedFriendIdData"))
+        RecentKeywordService.shared.recentKeyword(CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData")) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 print(data)
@@ -109,21 +109,14 @@ class PopUpContactVC: UIViewController {
             }
         }
     }
+
     
     //MARK: -@IBAction
     @IBAction func backBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func calling(_ sender: Any) {
-        //        showCallAlert()
-        guard let pvc = self.presentingViewController else {return}
-        self.dismiss(animated: true){
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
-            if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
-                vc.modalPresentationStyle = .fullScreen
-                pvc.present(vc, animated: true, completion: nil)
-            }
-        }
+        showCallAlert()
     }
     
     @IBAction func kakoTalking(_ sender: Any) {
@@ -151,7 +144,7 @@ class PopUpContactVC: UIViewController {
         let messageComposer = MFMessageComposeViewController()
         messageComposer.messageComposeDelegate = self
         if MFMessageComposeViewController.canSendText(){
-            messageComposer.recipients = ["01068788309"]
+            messageComposer.recipients = [UserDefaults.standard.string(forKey: "selectedFriendPhoneData")!]
             messageComposer.body = ""
             messageComposer.modalPresentationStyle = .currentContext
             self.present(messageComposer, animated: true)
@@ -230,8 +223,8 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         let label = UILabel(frame: CGRect.zero)
         label.text = keyword[indexPath.row]
         label.sizeToFit()
-        total? += label.frame.width + 10
-        return CGSize(width: label.frame.width+10, height: collectionView.frame.height)
+        total? += label.frame.width + 15
+        return CGSize(width: label.frame.width+15, height: collectionView.frame.height)
         
     }
     

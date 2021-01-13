@@ -526,7 +526,7 @@
         <!--Watering MotionVC-->
         <scene sceneID="9Ns-le-RzV">
             <objects>
-                <viewController id="lIY-1d-hvK" customClass="WateringMotionVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WateringMotionVC" id="lIY-1d-hvK" customClass="WateringMotionVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y4f-Sf-LqH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
