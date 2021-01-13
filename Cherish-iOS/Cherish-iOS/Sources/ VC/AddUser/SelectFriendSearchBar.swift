@@ -9,7 +9,6 @@ import UIKit
 
 class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
-    
     //MARK: - IBOutlet
     
     @IBOutlet weak var tableView: UITableView!
@@ -17,26 +16,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var nextLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    struct Friend {
-        var name: String
-        var phoneNumber: String
-        var selected: Bool
-    }
-    
-    let topInset: CGFloat = 36.0
-    
-    var friendList: [Friend] = [
-        Friend(name: "김웅앵", phoneNumber: "01011111111", selected: false),
-        Friend(name: "김박웅앵", phoneNumber: "01022221111", selected: false),
-        Friend(name: "이웅앵", phoneNumber: "01033331111", selected: false),
-        Friend(name: "한웅앵", phoneNumber: "01044441111", selected: false),
-        Friend(name: "장웅앵", phoneNumber: "01055551111", selected: false),
-        Friend(name: "황웅앵", phoneNumber: "01066661111", selected: false),
-        Friend(name: "황웅앵", phoneNumber: "01077771111", selected: false),
-        Friend(name: "안웅앵", phoneNumber: "01088881111", selected: false),
-        Friend(name: "권웅앵", phoneNumber: "01099991111", selected: false)
-    ]
-    
+    var friendList: [Friend] = []
     
     private var selectedFriend: Int? {
         didSet {
@@ -57,6 +37,10 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     
     let vc = InputDetailVC()
     
+    var fetchedName: [String] = []
+    var fetchedPhoneNumber: [String] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
@@ -67,15 +51,20 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         tableView.register(UINib(nibName: radioButton, bundle: nil), forCellReuseIdentifier: radioButton)
         resetSelectFriendVC()
         setSearchBar()
+        getContacts()
         filteredData = friendList
-//        NotificationCenter.default.addObserver(self, selector: #selector(activeNextBtn(_:)), name: .radioBtnClicked, object: nil)
+        //Array
+        
+        //        NotificationCenter.default.addObserver(self, selector: #selector(activeNextBtn(_:)), name: .radioBtnClicked, object: nil)
     }
     
-//    @objc func activeNextBtn(_ notification: Notification) {
-//        self.nextBtn.isEnabled = true
-//        self.nextBtn.setImage(UIImage(named: "btn_next_selected"), for: .normal)
-//        self.nextLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
-//    }
+    
+    
+    //    @objc func activeNextBtn(_ notification: Notification) {
+    //        self.nextBtn.isEnabled = true
+    //        self.nextBtn.setImage(UIImage(named: "btn_next_selected"), for: .normal)
+    //        self.nextLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+    //    }
     @IBAction func closeToMain(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -87,6 +76,17 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
             self.present(dvc, animated: true, completion: nil)
         }
     }
+        
+    func getContacts() {
+        if let data = UserDefaults.standard.value(forKey: "userContacts") as? Data {
+            let contacts = try? PropertyListDecoder().decode([Friend].self, from: data)
+
+            friendList = contacts!
+            print(friendList)
+            
+        }
+    }
+    
     
     func setSearchBar() {
         searchBar.placeholder = "친구 검색"
@@ -146,10 +146,12 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         updateSelectedIndex(indexPath.row)
-//        self.vc.nameTextField.text = ""
-//        self.vc.phoneTextField.text = ""
-//        self.vc.nameTextField.text = friendList[indexPath.row].name
-//        self.vc.phoneTextField.text = friendList[indexPath.row].phoneNumber
+        // 1차 세미나
+        //        self.vc.nameTextField.text = ""
+        //        self.vc.phoneTextField.text = ""
+        //        self.vc.nameTextField.text = friendList[indexPath.row].name
+        //        self.vc.phoneTextField.text = friendList[indexPath.row].phoneNumber
+        
     }
     
     //MARK: - searchBar delegate

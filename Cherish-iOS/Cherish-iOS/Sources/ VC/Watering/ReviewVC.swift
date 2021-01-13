@@ -168,27 +168,19 @@ class ReviewVC: UIViewController {
     }
     
     func setNamingLabel(){
-        reviewNameLabel.text = "\(UserDefaults.standard.string(forKey: "userID")!)"+"님! "+"\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과(와)의"
-        reviewPlzLabel.text = "\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과(와)의 물주기를 기록해주세요"
+        reviewNameLabel.text = "\(UserDefaults.standard.string(forKey: "userID")!)"+"님! "+"\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의"
+        reviewPlzLabel.text = "\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의 물주기를 기록해주세요"
     }
     
     // 등록완료
     @IBAction func submitReview(_ sender: Any) {
-        let date = Date()
-        //        let dateFormatter = DateFormatter()
-        //        dateFormatter.dateStyle = .long
-        //        dateFormatter.locale = Locale(identifier: "ko_kr")
-        //        let now = dateFormatter.string(from: raw_now)
-        //        print(now)
-        //        guard let real_now = dateFormatter.date(from: now) else { return }
-        //        print(real_now)
-        
-        WateringReviewService.shared.wateringReview(water_date: date, review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: 4) { (networkResult) -> (Void) in
+    
+        WateringReviewService.shared.wateringReview(review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: UserDefaults.standard.integer(forKey: "selectedFriendsIdData")) { (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 print(data)
                 self.goToWateringMotion()
-                
+
             case .requestErr(_):
                 print("requestErr")
             case .pathErr:

@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Friend {
+struct Friend: Codable {
     var name: String
     var phoneNumber: String
     var selected: Bool

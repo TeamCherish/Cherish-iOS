@@ -32,6 +32,7 @@ class PopUpContactVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        getRecentKeyword()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,13 +78,14 @@ class PopUpContactVC: UIViewController {
     
     // 최근 키워드 받아오기 및 연락 상대 이름에 따라 Label 변경
     func getRecentKeyword() {
-        RecentKeywordService.shared.recentKeyword(CherishId:4) { [self] (networkResult) -> (Void) in
+        //UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
+        RecentKeywordService.shared.recentKeyword(CherishId:42) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 print(data)
                 if let checkData = data as? RecentKeywordData {
                     UserDefaults.standard.set(checkData.nickname, forKey: "wateringNickName")
-                    contactNameLabel.text = "\(checkData.nickname)"+"와(과)는"
+                    contactNameLabel.text = "\(checkData.nickname)"+"와/과"
                     if checkData.result.keyword1 != ""{
                         keyword.append(checkData.result.keyword1)
                     }

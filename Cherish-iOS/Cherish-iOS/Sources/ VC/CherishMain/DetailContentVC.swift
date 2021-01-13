@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Contacts
 import Alamofire
 import Kingfisher
 import OverlayContainer
@@ -142,6 +143,11 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     //                    let url = URL(string: UserDefaults.standard.string(forKey:"selectedPlantNameData")!)
                     //                    let imageData = try? Data(contentsOf: url!)
                     //                    firstCell.plantImageView.image = UIImage(data: imageData!)
+
+//                    let url = URL(string: UserDefaults.standard.string(forKey:"selectedPlantNameData")!)
+//                    let imageData = try? Data(contentsOf: url!)
+//                    firstCell.plantImageView.image = UIImage(data: imageData!)
+
                     
                 }
             }
@@ -173,6 +179,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 //                let imageData = try? Data(contentsOf: url!)
                 //                cell.cherishPlantImageView.image = UIImage(data: imageData!)
                 
+
                 if indexPath == selectedIndexPath {
                     cell.cherishPlantImageView.alpha = 0.5
                 } else {
@@ -180,6 +187,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 }
                 return cell
                 
+
             }
             
             return cell
