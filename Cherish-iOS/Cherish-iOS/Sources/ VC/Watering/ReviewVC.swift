@@ -11,8 +11,8 @@ class ReviewVC: UIViewController {
     var keyword = [String]() /// 키워드 배열
     
     //MARK: -@IBOutlet
-    @IBOutlet weak var reviewNameLabel: CustomLabel! ///또령님! 남쿵둥이님과의
-    @IBOutlet weak var reviewPlzLabel: CustomLabel! ///남쿵둥이님과의 물주기를 기록해주세요
+    @IBOutlet weak var reviewNameLabel: CustomLabel! ///또령님! 남쿵둥이님과(와)의
+    @IBOutlet weak var reviewPlzLabel: CustomLabel! ///남쿵둥이님과(와)의 물주기를 기록해주세요
     @IBOutlet weak var keywordTextField: UITextField!{
         didSet{
             keywordTextField.delegate = self
@@ -37,10 +37,8 @@ class ReviewVC: UIViewController {
     @IBOutlet weak var keywordCollectionView: UICollectionView!
     {
         didSet{
-            self.keywordCollectionView.register(KeywordCanDeleteCVC.nib(), forCellWithReuseIdentifier: KeywordCanDeleteCVC.identifier)
             keywordCollectionView.delegate = self
             keywordCollectionView.dataSource = self
-//            keywordCollectionView.collectionViewLayout = LeftAlignedFlowLayout()
         }
     }
     @IBOutlet weak var memoTextView: UITextView!{
@@ -83,10 +81,10 @@ class ReviewVC: UIViewController {
             print("iPhoneSE2")
             keyboardUP() /// 키보드 올릴 때 사용
         }
+        setNamingLabel()
     }
     
     //MARK: -사용자 정의 함수
-    
     /// 키보드 Done 버튼 생성
     func textFieldDoneBtnMake(text_field : UITextField)
     {
@@ -113,6 +111,7 @@ class ReviewVC: UIViewController {
             keywordTextField.text = ""
             keywordCountingLabel.text = "0/"
             print(keyword)
+            
             /// 컬렉션 뷰 데이터 업데이트
             keywordCollectionView.reloadData()
             /// 키워드 3개가 다 입력되면 키보드 내림
@@ -125,7 +124,6 @@ class ReviewVC: UIViewController {
     
     //MARK:- 키보드 올릴 때 사용
     func keyboardUP(){
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -134,12 +132,12 @@ class ReviewVC: UIViewController {
     func keyboardWillShow(_ sender: Notification) {
         /// 텍스트 뷰 입력할 때에만 키보드 올리면 됨
         if memoTextView.isFirstResponder{
-                UIView.animate(withDuration: 2.0, animations: {
+            UIView.animate(withDuration: 2.0, animations: {
                 self.view.transform = CGAffineTransform(translationX: 0, y: -26)
             })
         }
     }
-
+    
     @objc
     func keyboardWillHide(_ sender: Notification) {
         /// 텍스트 뷰 입력할 때에만 키보드 올리면 됨
@@ -161,6 +159,48 @@ class ReviewVC: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+    
+    // 리뷰 완료 후 물주기 모션으로 이동
+    func goToWateringMotion(){
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "WateringMotionVC") as? WateringMotionVC else{return}
+        vc.modalPresentationStyle = .fullScreen
+        vc.present(vc, animated: true, completion: nil)
+    }
+    
+    func setNamingLabel(){
+        reviewNameLabel.text = "\(UserDefaults.standard.string(forKey: "userID")!)"+"님! "+"\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과(와)의"
+        reviewPlzLabel.text = "\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과(와)의 물주기를 기록해주세요"
+    }
+    
+    // 등록완료
+    @IBAction func submitReview(_ sender: Any) {
+        let date = Date()
+        //        let dateFormatter = DateFormatter()
+        //        dateFormatter.dateStyle = .long
+        //        dateFormatter.locale = Locale(identifier: "ko_kr")
+        //        let now = dateFormatter.string(from: raw_now)
+        //        print(now)
+        //        guard let real_now = dateFormatter.date(from: now) else { return }
+        //        print(real_now)
+        
+        WateringReviewService.shared.wateringReview(water_date: date, review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: 4) { (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                print(data)
+                self.goToWateringMotion()
+                
+            case .requestErr(_):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
 }
 
 //MARK: -Protocols
@@ -188,7 +228,7 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         /// 키워드가 이미 3개인데 사용자가 입력하려한다면 막음
         if keyword.count >= 3 {
-            nomoreKeyword(title: "", message: "키워드는 3개까지 쓸 수 있어요!")
+            nomoreKeyword(title: "", message: "키워드는 3개까지 입력할 수 있어요!")
             self.view.endEditing(true) /// 알림창 후 키보드 내림
         }
     }
@@ -225,12 +265,12 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
     }
     
     func textViewPlaceholder() {
-        if memoTextView.text == "메모" {
+        if memoTextView.text == "메모를 입력해주세요!" {
             memoTextView.text = ""
             memoTextView.textColor = .black
         }
         else if memoTextView.text == "" {
-            memoTextView.text = "메모"
+            memoTextView.text = "메모를 입력해주세요!"
             memoTextView.textColor = .placeholderGrey
         }
     }
@@ -276,14 +316,8 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         label.text = keyword[indexPath.row]
         label.sizeToFit()
         let cellSize = label.frame.width+25
-
+        
         return CGSize(width: cellSize, height: 29)
-
-    }
-    
-    //MARK: - Cell간의 좌우간격 지정
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
-    {
-        return 7
+        
     }
 }

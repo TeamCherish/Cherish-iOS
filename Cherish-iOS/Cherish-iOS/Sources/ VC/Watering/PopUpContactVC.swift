@@ -10,7 +10,7 @@ import MessageUI
 import CallKit
 
 class PopUpContactVC: UIViewController {
-    let fakeKeyword = ["생일이니옹","취업준비이","헤어짐안돼"]
+    var keyword = [String]()
     let callObserver = CXCallObserver()
     var didDetectOutgoingCall = false
     var total: CGFloat? = 0
@@ -32,6 +32,11 @@ class PopUpContactVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getRecentKeyword()
     }
     
     //MARK: - Call Material
@@ -70,13 +75,55 @@ class PopUpContactVC: UIViewController {
         }
     }
     
+    // 최근 키워드 받아오기 및 연락 상대 이름에 따라 Label 변경
+    func getRecentKeyword() {
+        RecentKeywordService.shared.recentKeyword(CherishId:4) { [self] (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                print(data)
+                if let checkData = data as? RecentKeywordData {
+                    UserDefaults.standard.set(checkData.nickname, forKey: "wateringNickName")
+                    contactNameLabel.text = "\(checkData.nickname)"+"와(과)는"
+                    if checkData.result.keyword1 != ""{
+                        keyword.append(checkData.result.keyword1)
+                    }
+                    if checkData.result.keyword2 != ""{
+                        keyword.append(checkData.result.keyword2)
+                    }
+                    if checkData.result.keyword3 != ""{
+                        keyword.append(checkData.result.keyword3)
+                    }
+                    print(keyword)
+                    keywordShowCollectionView.reloadData()
+                }
+            case .requestErr(_):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
     //MARK: -@IBAction
     @IBAction func backBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func calling(_ sender: Any) {
-        showCallAlert()
+        //        showCallAlert()
+        guard let pvc = self.presentingViewController else {return}
+        self.dismiss(animated: true){
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
+                vc.modalPresentationStyle = .fullScreen
+                pvc.present(vc, animated: true, completion: nil)
+            }
+        }
     }
+    
     @IBAction func kakoTalking(_ sender: Any) {
         let kakaoTalk = "kakaotalk://"
         let kakaoTalkURL = NSURL(string: kakaoTalk)
@@ -105,7 +152,6 @@ class PopUpContactVC: UIViewController {
             messageComposer.recipients = ["01068788309"]
             messageComposer.body = ""
             messageComposer.modalPresentationStyle = .currentContext
-            //            messageComposer.modalTransitionStyle = .crossDissolve ///굉장히 자연스럽게 올라옴
             self.present(messageComposer, animated: true)
         }
     }
@@ -133,6 +179,7 @@ extension PopUpContactVC: CXCallObserverDelegate{
     }
 }
 
+/// 2
 extension PopUpContactVC: MFMessageComposeViewControllerDelegate{
     /// 메시지 전송 결과
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
@@ -158,18 +205,18 @@ extension PopUpContactVC: MFMessageComposeViewControllerDelegate{
     }
 }
 
-///2
+/// 3
 extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fakeKeyword.count
+        return keyword.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeywordCVC.identifier, for: indexPath) as? KeywordCVC else{
             return UICollectionViewCell()
         }
-        cell.keywordLabel.text = fakeKeyword[indexPath.row]
+        cell.keywordLabel.text = keyword[indexPath.row]
         
         return cell
     }
@@ -179,11 +226,10 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     {
         
         let label = UILabel(frame: CGRect.zero)
-        label.text = fakeKeyword[indexPath.row]
+        label.text = keyword[indexPath.row]
         label.sizeToFit()
         total? += label.frame.width + 10
         return CGSize(width: label.frame.width+10, height: collectionView.frame.height)
-        
         
     }
     
@@ -197,8 +243,7 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {
         // Cell 가운데 정렬
-        let edgeInsets = (keywordShowCollectionView.frame.width  - (CGFloat(total ?? 0)) - (CGFloat(fakeKeyword.count-1) * 9)) / 2
-        
+        let edgeInsets = (keywordShowCollectionView.frame.width  - (CGFloat(total ?? 0)) - (CGFloat(keyword.count-1) * 9)) / 2
         return UIEdgeInsets(top: 0, left: CGFloat(edgeInsets), bottom: 0, right: 0);
         
     }

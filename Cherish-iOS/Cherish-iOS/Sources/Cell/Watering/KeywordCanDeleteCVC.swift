@@ -23,11 +23,4 @@ class KeywordCanDeleteCVC: UICollectionViewCell {
             keywordDeleteBtn.tintColor = .textGrey
         }
     }
-    static func nib() -> UINib {
-        return UINib(nibName: "KeywordCanDeleteCVC", bundle: nil)
-    }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
 }

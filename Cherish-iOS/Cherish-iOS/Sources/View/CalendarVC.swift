@@ -324,7 +324,7 @@ extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
     //MARK: - 마진
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {
-        return UIEdgeInsets(top: 0, left: 19, bottom: 0, right: 19)
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }
 }
 

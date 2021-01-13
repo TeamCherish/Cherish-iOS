@@ -9,7 +9,7 @@ import UIKit
 
 class PopUpLaterVC: UIViewController {
     let date = [1,2,3,4,5,6,7] // 미루기 최대 7일
-    var test = 21
+    var selectedDate : Int!
     
     //MARK: -@IBOutlet
     @IBOutlet weak var laterView: UIView!{
@@ -42,11 +42,66 @@ class PopUpLaterVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setWateringDate()
     }
+    
     @IBAction func backBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func completeLatering(_ sender: Any) {
+        getLaterData()
+        // 시드는 모션 뷰로 이동
+    }
+    
+    /// 물 줄 날짜, 미룬 횟수 셋팅
+    func setWateringDate(){
+        guard let originDate = UserDefaults.standard.string(forKey: "wateringDate") else { return }
+        
+        let dateFormatter = DateFormatter()
+        let monthdateFormatter = DateFormatter()
+        let daydateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yy-MM-dd"
+        
+        let m = dateFormatter.date(from: originDate)
+        let d = dateFormatter.date(from: originDate)
+        
+        monthdateFormatter.dateFormat = "MM"
+        daydateFormatter.dateFormat = "dd"
+        
+        let month = monthdateFormatter.string(for: m)
+        let day = daydateFormatter.string(for: d)
+        
+        let int_day = Int(day!)
+        let int_month = Int(month!)
+        
+        self.changeDateMonthLabel.text = String(int_month!)
+        self.changeDateDayLabel.text = String(int_day!+1) // 1일 미루었을 때의 날짜
+        self.laterCountingLabel.text = UserDefaults.standard.string(forKey: "laterNumUntilNow")
+    }
+    
+    
+    // Server-미루기
+    func getLaterData(){
+        //UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
+        LaterService.shared.doLater(id: 5, postpone: selectedDate, is_limit_postpone_number: UserDefaults.standard.bool(forKey: "noMinusisPossible")) { (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                if let dataMessage = data as? String{
+                    print(dataMessage)
+                }
+            case .requestErr(let msg):
+                if let message = msg as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
 }
 
@@ -70,7 +125,41 @@ extension PopUpLaterVC: UIPickerViewDelegate, UIPickerViewDataSource{
         /// 6월-30일 7월-31일 8월-31일 9월-30일 10월-31
         /// 11월-30일 12월-31일
         /// 구분해줘야함
-        changeDateDayLabel.text = "\(test+date[row])"
+        guard let originDate = UserDefaults.standard.string(forKey: "wateringDate") else { return }
+        
+        let dateFormatter = DateFormatter()
+        let monthdateFormatter = DateFormatter()
+        let daydateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yy-MM-dd"
+        
+        let m = dateFormatter.date(from: originDate)
+        let d = dateFormatter.date(from: originDate)
+        
+        monthdateFormatter.dateFormat = "MM"
+        daydateFormatter.dateFormat = "dd"
+        
+        let month = monthdateFormatter.string(for: m)
+        let day = daydateFormatter.string(for: d)
+        let int_day = Int(day!)
+        let int_month = Int(month!)
+                
+        changeDateDayLabel.text = "\(int_day! + date[row])"
         selectDateLabel.text = "\(date[row])"
+        
+        if int_month == 1 || int_month == 3 || int_month == 5 || int_month == 7 || int_month == 8 || int_month == 10 || int_month == 12 {
+            if int_day! + date[row] > 31{
+                changeDateMonthLabel.text = "\(int_month!+1)"
+            }
+        }else if int_month == 2{
+            if int_day! + date[row] > 28{
+                changeDateMonthLabel.text = "\(int_month!+1)"
+            }
+        }else{
+            if int_day! + date[row] > 30{
+                changeDateMonthLabel.text = "\(int_month!+1)"
+            }
+        }
+        selectedDate = date[row]
     }
 }

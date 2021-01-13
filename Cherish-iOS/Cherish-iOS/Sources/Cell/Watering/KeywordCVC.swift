@@ -23,8 +23,6 @@ class KeywordCVC: UICollectionViewCell {
             keywordLabel.textColor = .black
         }
     }
-    
-
 
     static func nib() -> UINib {
         return UINib(nibName: "KeywordCVC", bundle: nil)
