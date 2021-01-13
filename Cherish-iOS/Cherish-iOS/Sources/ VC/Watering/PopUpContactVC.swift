@@ -24,7 +24,6 @@ class PopUpContactVC: UIViewController {
     @IBOutlet weak var contactNameLabel: CustomLabel! ///남쿵둥이와는
     @IBOutlet weak var keywordShowCollectionView: UICollectionView!{
         didSet{
-            self.keywordShowCollectionView.register(KeywordCVC.nib(), forCellWithReuseIdentifier: KeywordCVC.identifier)
             keywordShowCollectionView.delegate = self
             keywordShowCollectionView.dataSource = self
         }
@@ -212,34 +211,32 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
             return UICollectionViewCell()
         }
         cell.keywordLabel.text = keyword[indexPath.row]
-        
         return cell
     }
     
     //MARK: - Cell 사이즈
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-        
         let label = UILabel(frame: CGRect.zero)
         label.text = keyword[indexPath.row]
         label.sizeToFit()
-        total? += label.frame.width + 15
-        return CGSize(width: label.frame.width+15, height: collectionView.frame.height)
-        
+        total? += label.frame.width+5
+        return CGSize(width: label.frame.width+5, height: collectionView.frame.height)
     }
-    
+
     //MARK: - Cell간의 좌우간격 지정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
     {
-        return 8
+        return 7
     }
-    
+
     //MARK: - 마진
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {
+    
         // Cell 가운데 정렬
-        let edgeInsets = (keywordShowCollectionView.frame.width  - (CGFloat(total ?? 0)) - (CGFloat(keyword.count-1) * 9)) / 2
+        let edgeInsets = (keywordShowCollectionView.frame.width  - (CGFloat(total ?? 0)) - (CGFloat(keyword.count-1) * 7)) / 2
         return UIEdgeInsets(top: 0, left: CGFloat(edgeInsets), bottom: 0, right: 0);
-        
+
     }
 }

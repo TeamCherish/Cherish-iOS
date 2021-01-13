@@ -61,8 +61,6 @@ class CalendarVC: UIViewController {
     @IBOutlet weak var calendarKeywordCollectionView: UICollectionView!{
         didSet{
             self.calendarKeywordCollectionView.register(CalendarKeywordCVCell.nib(), forCellWithReuseIdentifier: CalendarKeywordCVCell.identifier)
-            calendarKeywordCollectionView.delegate = self
-            calendarKeywordCollectionView.dataSource = self
         }
     }
     @IBOutlet weak var memoShowViewHeight: NSLayoutConstraint!
@@ -76,6 +74,10 @@ class CalendarVC: UIViewController {
         cal_Style()
         defineCalStatus()
         forsmallPhone()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         getCalendarData()
     }
     
@@ -190,9 +192,9 @@ class CalendarVC: UIViewController {
     }
     
     func getCalendarData() {
-        let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "yyyy-MM-dd"
         
+        
+        formatter.dateFormat = "yyyy-MM-dd"
         UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
         CalendarService.shared.calendarLoad(id: 3, completion: { [self] (networkResult) -> (Void) in
             switch networkResult {
@@ -200,14 +202,17 @@ class CalendarVC: UIViewController {
                 if let calendarResult = data as? CalendarSeeData{
                     for i in 0...calendarResult.water.count-1{
                         fetchCalendar.append(contentsOf: [
-                            FetchCalendar(review: calendarResult.water[i].review, waterDate: calendarResult.water[i].waterDate, keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
+                            FetchCalendar(waterDate: calendarResult.water[i].waterDate, review: calendarResult.water[i].review, keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
                         ])
                         keyword.append(contentsOf: [
                             CalendarKeyword(keyword1: fetchCalendar[i].keyword1, keyword2: fetchCalendar[i].keyword2, keyword3: fetchCalendar[i].keyword3)
                         ])
-                        watering_Events.append(dateformatter.date(from: calendarResult.water[i].waterDate)!)
+                        print(calendarResult.water[i].waterDate)
+                        watering_Events.append(formatter.date(from: calendarResult.water[i].waterDate)!)
+                        print(watering_Events)
                     }
-                    futurewatering_Events.append(dateformatter.date(from: calendarResult.futureWaterDate)!)
+                    futurewatering_Events.append(formatter.date(from: calendarResult.futureWaterDate)!)
+                    print(futurewatering_Events)
                 }
                 print(keyword)
             case .requestErr(_):
@@ -298,6 +303,8 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
                 memoShowView.isHidden = false
                 memoTextLabel.text = fetchCalendar[i].review
                 n = i
+                calendarKeywordCollectionView.delegate = self
+                calendarKeywordCollectionView.dataSource = self
                 break
             }else{
                 memoShowView.isHidden = true

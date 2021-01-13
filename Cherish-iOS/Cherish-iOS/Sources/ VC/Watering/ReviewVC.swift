@@ -171,6 +171,7 @@ class ReviewVC: UIViewController {
                 pvc.present(vc, animated: true, completion: nil)
             }
         
+        /// 5초 후에 메인 화면으로 돌아감
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 // Do whatever you want
                 vc.dismiss(animated: true, completion: nil)
