@@ -11,12 +11,11 @@ import Alamofire
 struct WateringReviewService {
     static let shared = WateringReviewService()
     
-    func wateringReview(water_date : Date, review: String, keyword1: String, keyword2: String, keyword3: String, CherishId: Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
+    func wateringReview(review: String, keyword1: String, keyword2: String, keyword3: String, CherishId: Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
         let url = APIConstants.wateringReviewURL
         let header: HTTPHeaders = [ "Content-Type":"application/json"]
-        let body: Parameters = [ "water_date" : water_date,
-                                 "review" : review,
+        let body: Parameters = [ "review" : review,
                                  "keyword1" : keyword1,
                                  "keyword2" : keyword2,
                                  "keyword3" : keyword3,

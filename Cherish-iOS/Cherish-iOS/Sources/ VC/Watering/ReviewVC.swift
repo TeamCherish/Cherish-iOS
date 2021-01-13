@@ -168,36 +168,29 @@ class ReviewVC: UIViewController {
     }
     
     func setNamingLabel(){
-        reviewNameLabel.text = "\(UserDefaults.standard.string(forKey: "userID")!)"+"님! "+"\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과(와)의"
-        reviewPlzLabel.text = "\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과(와)의 물주기를 기록해주세요"
+        reviewNameLabel.text = "\(UserDefaults.standard.string(forKey: "userID")!)"+"님! "+"\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의"
+        reviewPlzLabel.text = "\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의 물주기를 기록해주세요"
     }
     
     // 등록완료
     @IBAction func submitReview(_ sender: Any) {
-        guard let raw_now = UserDefaults.standard.string(forKey: "wateringDate") else { return }
-        let dateFormatter = DateFormatter()
-        print(raw_now)
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        guard let now = dateFormatter.date(from: raw_now) else { return }
-        print(now)
-//        let real_now = dateFormatter.string(from: now!)
-        
-//        WateringReviewService.shared.wateringReview(water_date: now, review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: UserDefaults.standard.integer(forKey: "selectedFriendsIdData")) { (networkResult) -> (Void) in
-//            switch networkResult {
-//            case .success(let data):
-//                print(data)
-//                self.goToWateringMotion()
-//                
-//            case .requestErr(_):
-//                print("requestErr")
-//            case .pathErr:
-//                print("pathErr")
-//            case .serverErr:
-//                print("serverErr")
-//            case .networkFail:
-//                print("networkFail")
-//            }
-//        }
+    
+        WateringReviewService.shared.wateringReview(review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: UserDefaults.standard.integer(forKey: "selectedFriendsIdData")) { (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                print(data)
+                self.goToWateringMotion()
+
+            case .requestErr(_):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
     
 }

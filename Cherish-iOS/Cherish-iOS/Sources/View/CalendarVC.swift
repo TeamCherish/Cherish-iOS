@@ -12,17 +12,19 @@ import FSCalendar
 //    func deliveryKeyword(memoText: String)
 //}
 class CalendarVC: UIViewController {
-    var fake_keyword = ["아요최고다","오토레아웃","잡아주실분"]
-    var test_text = "오늘 남쿵이랑 연락을 했다. 바빠서 여자친구한테 소홀 해서 많이 싸우더만 이번엔 진짜 헤어진 것 같다.목소리가 너무 안좋아서 걱정됐는데 잘 챙겨줘야겠다."/// 85글자
-
+    var keyword : [CalendarKeyword] = []
+    var review: [String] = []// 85글자
+    var fetchCalendar : [FetchCalendar] = []
+    var n : Int = 0
+    
     //    var delegate: SendViewControllerDelegate?
     let formatter = DateFormatter()
     let calendarCurrent = Calendar.current
     var memoBtnstatus: Bool? = true
     var calendarStatus: String?
     var items = [String]()
-    var events = [Date]()
-    var test_events = [Date]()
+    var watering_Events = [Date]()
+    var futurewatering_Events = [Date]()
     var dateComponents = DateComponents()
     private var currentPage: Date?
     private lazy var today: Date = {
@@ -71,10 +73,10 @@ class CalendarVC: UIViewController {
         super.viewDidLoad()
 //        self.delegate = ReviewEditVC()
         memoShowView.isHidden = true
-        memoTextLabel.text = test_text
         cal_Style()
         defineCalStatus()
         forsmallPhone()
+        getCalendarData()
     }
     
     @IBAction func moveToBack(_ sender: Any) {
@@ -101,7 +103,7 @@ class CalendarVC: UIViewController {
         if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewEditVC") as? ReviewEditVC {
 //            delegate?.deliveryKeyword(memoText: memoTextLabel.text ?? "")
             vc.space = memoTextLabel.text
-            vc.edit_keyword = fake_keyword
+//            vc.edit_keyword = keyword[n]
 
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -185,20 +187,53 @@ class CalendarVC: UIViewController {
         // day 폰트 설정
         calendarOrigin.appearance.titleFont = UIFont(name: "Roboto-Regular", size: 14)
         
-        formatter.locale = Locale(identifier: "ko_KR")
-        formatter.dateFormat = "yyyy-MM-dd"
-        let SHB = formatter.date(from: "2021-01-06")
-        let love = formatter.date(from: "2021-01-10")
-        let test1 = formatter.date(from: "2021-01-15")
-        let test2 = formatter.date(from: "2021-01-26")
-        events = [SHB!, love!]
-        test_events = [test1!, test2!]
     }
+    
+    func getCalendarData() {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "yyyy-MM-dd"
+        
+        UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
+        CalendarService.shared.calendarLoad(id: 3, completion: { [self] (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                if let calendarResult = data as? CalendarSeeData{
+                    for i in 0...calendarResult.water.count-1{
+                        fetchCalendar.append(contentsOf: [
+                            FetchCalendar(review: calendarResult.water[i].review, waterDate: calendarResult.water[i].waterDate, keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
+                        ])
+                        keyword.append(contentsOf: [
+                            CalendarKeyword(keyword1: fetchCalendar[i].keyword1, keyword2: fetchCalendar[i].keyword2, keyword3: fetchCalendar[i].keyword3)
+                        ])
+                        watering_Events.append(dateformatter.date(from: calendarResult.water[i].waterDate)!)
+                    }
+                    futurewatering_Events.append(dateformatter.date(from: calendarResult.futureWaterDate)!)
+                }
+                print(keyword)
+            case .requestErr(_):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        })
+    }
+    
+//    func test(){
+//        for i in 0...calendarResult.water.count-1{
+//            keyword.append(contentsOf: [
+//                CalendarKeyword(keyword1: fetchCalendar[i].keyword1, keyword2: fetchCalendar[i].keyword2, keyword3: fetchCalendar[i].keyword3)
+//            ])
+//        }
+//    }
 }
 
 //MARK: -Delegate & DataSource
 /// 1
-extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance{
+extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     /// Event 표시 Dot 사이즈 조정
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
@@ -218,10 +253,10 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
     
     /// 이벤트 밑에 Dot 표시 개수
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        if self.events.contains(date){
+        if self.watering_Events.contains(date){
             return 1
         }
-        if self.test_events.contains(date){
+        if self.futurewatering_Events.contains(date){
             return 1
         }
         
@@ -230,11 +265,11 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
     
     /// 물 준 날, 물 주는 날 Default Event Dot 색상 분기처리 - FSCalendarDelegateAppearance
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]?{
-        if self.events.contains(date){
+        if self.watering_Events.contains(date){
             return [UIColor.toWateringGreen]
         }
         
-        if self.test_events.contains(date){
+        if self.futurewatering_Events.contains(date){
             return [UIColor.WateredRed]
         }
 
@@ -243,11 +278,11 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
     
     /// 물 준 날, 물 주는 날 Selected Event Dot 색상 분기처리 - FSCalendarDelegateAppearance
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
-        if self.events.contains(date){
+        if self.watering_Events.contains(date){
             return [UIColor.toWateringGreen]
         }
         
-        if self.test_events.contains(date){
+        if self.futurewatering_Events.contains(date){
             return [UIColor.WateredRed]
         }
 
@@ -257,22 +292,27 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
     /// 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print(formatter.string(from: date) + " 선택됨")
-        
         /// 이벤트가 있다면 표시
-        if formatter.string(from: date) == "2021-01-06"{
-            memoShowView.isHidden = false
-            
+        for i in 0...fetchCalendar.count-1 {
+            if formatter.string(from: date) == fetchCalendar[i].waterDate {
+                memoShowView.isHidden = false
+                memoTextLabel.text = fetchCalendar[i].review
+                n = i
+                break
+            }else{
+                memoShowView.isHidden = true
+            }
+        }
             /// 키워드 미입력 시
-            if fake_keyword.count == 0 {
+            if fetchCalendar[n].keyword1 == "" && fetchCalendar[n].keyword2 == "" && fetchCalendar[n].keyword3 == ""{
                 calendarKeywordCollectionView.isHidden = true
                 keywordCVTopAnchor.constant = 0
             }else{
                 calendarKeywordCollectionView.isHidden = false
                 keywordCVTopAnchor.constant = 14
             }
-
             /// 메모 미입력 시
-            if memoTextLabel.text?.count ?? 0 < 1 {
+            if fetchCalendar[n].review.count < 1 {
                 keywordCVBotAnchor.constant = 0
                 memoTextLabel.isHidden = true
             }else{
@@ -281,7 +321,7 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
             }
 
             /// 키워드,메모 미입력 시
-            if memoTextLabel.text?.count ?? 0 < 1 && fake_keyword.count == 0 {
+            if fetchCalendar[n].review.count < 1 && fetchCalendar[n].keyword1 == "" && fetchCalendar[n].keyword2 == "" && fetchCalendar[n].keyword3 == "" {
                 memoBtnTopAnchor.constant = 22
                 memoBtn.isHidden = true
             }else{
@@ -289,29 +329,44 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
                 memoBtn.isHidden = false
             }
             
-        }else{
-            memoShowView.isHidden = true
-        }
     }
     // 날짜 선택 해제 시 콜백 메소드
     public func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print(formatter.string(from: date) + " 해제됨")
     }
     
-}
-
-///2
-extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-    
+//}
+//
+/////2
+//extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fake_keyword.count
+        var kc = keyword.count
+        print("이거다이거다이거다"+"\(n)")
+        if keyword[n].keyword1 == ""{
+            kc -= 1
+        }
+        if keyword[n].keyword2 == ""{
+            kc -= 1
+        }
+        if keyword[n].keyword3 == ""{
+            kc -= 1
+        }
+        return kc
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarKeywordCVCell.identifier, for: indexPath) as? CalendarKeywordCVCell else{
             return UICollectionViewCell()
         }
-        cell.calendarKeywordLabel.text = fake_keyword[indexPath.row]
+        if keyword[n].keyword1 != ""{
+            cell.calendarKeywordLabel.text = keyword[n].keyword1
+        }
+        if keyword[n].keyword2 != ""{
+            cell.calendarKeywordLabel.text = keyword[n].keyword2
+        }
+        if keyword[n].keyword3 != ""{
+            cell.calendarKeywordLabel.text = keyword[n].keyword1
+        }
         return cell
     }
     
