@@ -24,8 +24,11 @@ class CalendarKeywordCVCell: UICollectionViewCell {
     static func nib() -> UINib {
         return UINib(nibName: "CalendarKeywordCVCell", bundle: nil)
     }
-    override func awakeFromNib() {
-        super.awakeFromNib()
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
 
 }

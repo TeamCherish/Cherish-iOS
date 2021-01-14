@@ -103,7 +103,6 @@
 		548DF17B25A1EE610081FCD1 /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548DF17A25A1EE610081FCD1 /* Review.storyboard */; };
 		548DF17E25A1EE730081FCD1 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF17D25A1EE730081FCD1 /* ReviewVC.swift */; };
 		548DF18D25A227A00081FCD1 /* KeywordCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF18B25A227A00081FCD1 /* KeywordCVC.swift */; };
-		548DF18E25A227A00081FCD1 /* KeywordCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548DF18C25A227A00081FCD1 /* KeywordCVC.xib */; };
 		548DF19625A2E1620081FCD1 /* PopUpLater.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548DF19525A2E1620081FCD1 /* PopUpLater.storyboard */; };
 		548DF19925A2E1780081FCD1 /* PopUpLaterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */; };
 		548DF1A925A395D20081FCD1 /* KeywordCanDeleteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */; };
@@ -225,7 +224,6 @@
 		548DF17A25A1EE610081FCD1 /* Review.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
 		548DF17D25A1EE730081FCD1 /* ReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
 		548DF18B25A227A00081FCD1 /* KeywordCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCVC.swift; sourceTree = "<group>"; };
-		548DF18C25A227A00081FCD1 /* KeywordCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeywordCVC.xib; sourceTree = "<group>"; };
 		548DF19525A2E1620081FCD1 /* PopUpLater.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUpLater.storyboard; sourceTree = "<group>"; };
 		548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpLaterVC.swift; sourceTree = "<group>"; };
 		548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCanDeleteCVC.swift; sourceTree = "<group>"; };
@@ -691,7 +689,6 @@
 			isa = PBXGroup;
 			children = (
 				548DF18B25A227A00081FCD1 /* KeywordCVC.swift */,
-				548DF18C25A227A00081FCD1 /* KeywordCVC.xib */,
 				548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */,
 				54425C2825AE32E100E62BAB /* KeywordReviewEditCVC.swift */,
 			);
@@ -838,7 +835,6 @@
 				5478344D25AB65C30021C32B /* ShowMoreTVC.xib in Resources */,
 				33E874D725A043CF001F84FE /* Roboto-Bold.ttf in Resources */,
 				33D0027825A3144400E97811 /* 29583-flower.json in Resources */,
-				548DF18E25A227A00081FCD1 /* KeywordCVC.xib in Resources */,
 				33EDFBB525A1B533006367A7 /* PlantDetail.storyboard in Resources */,
 				337A5CB525A8543600578130 /* Login.storyboard in Resources */,
 				33E874DD25A04569001F84FE /* MyPage.storyboard in Resources */,

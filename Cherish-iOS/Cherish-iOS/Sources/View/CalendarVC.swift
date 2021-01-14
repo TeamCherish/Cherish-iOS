@@ -8,9 +8,7 @@
 import UIKit
 import FSCalendar
 
-//protocol SendViewControllerDelegate {
-//    func deliveryKeyword(memoText: String)
-//}
+
 class CalendarVC: UIViewController {
     var keyword : [CalendarKeyword] = []
     var review: [String] = []// 85글자
@@ -57,12 +55,11 @@ class CalendarVC: UIViewController {
     @IBOutlet weak var toWaterLabel: UIStackView!
     @IBOutlet weak var wateredLabel: UIStackView!
     @IBOutlet weak var memoShowView: UIView!
+    @IBOutlet weak var memoDateLabel: UILabel!
     @IBOutlet weak var memoBtn: UIButton!
     @IBOutlet weak var calendarKeywordCollectionView: UICollectionView!{
         didSet{
             self.calendarKeywordCollectionView.register(CalendarKeywordCVCell.nib(), forCellWithReuseIdentifier: CalendarKeywordCVCell.identifier)
-            calendarKeywordCollectionView.delegate = self
-            calendarKeywordCollectionView.dataSource = self
         }
     }
     @IBOutlet weak var memoShowViewHeight: NSLayoutConstraint!
@@ -71,12 +68,20 @@ class CalendarVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.delegate = ReviewEditVC()
+        //        self.delegate = ReviewEditVC()
         memoShowView.isHidden = true
         cal_Style()
         defineCalStatus()
         forsmallPhone()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         getCalendarData()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        calendarOrigin.reloadData()
     }
     
     @IBAction func moveToBack(_ sender: Any) {
@@ -85,13 +90,13 @@ class CalendarVC: UIViewController {
     
     /// 메모 하단부 버튼
     @IBAction func moveToUp(_ sender: Any) {
-
+        
         if memoBtnstatus == true{
             memoBtnstatus = false
             memoBtn.setImage(UIImage(named: "icUpCalendar"), for: .normal)
             weekCalendar()
             /// 확장 가능하게 우선순위 낮춤
-//            memoTextLabelHeight.priority = .defaultLow
+            //            memoTextLabelHeight.priority = .defaultLow
         }else{
             memoBtnstatus = true
             memoBtn.setImage(UIImage(named: "icDownCalendar"), for: .normal)
@@ -101,10 +106,10 @@ class CalendarVC: UIViewController {
     @IBAction func moveToEdit(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewEditVC") as? ReviewEditVC {
-//            delegate?.deliveryKeyword(memoText: memoTextLabel.text ?? "")
+            //            delegate?.deliveryKeyword(memoText: memoTextLabel.text ?? "")
             vc.space = memoTextLabel.text
-//            vc.edit_keyword = keyword[n]
-
+            //            vc.edit_keyword = keyword[n]
+            
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -162,7 +167,7 @@ class CalendarVC: UIViewController {
     /// 캘린더 스타일
     func cal_Style() {
         /// 캘린더 헤더 부분
-
+        
         calendarOrigin.headerHeight = 66
         calendarOrigin.weekdayHeight = 41
         calendarOrigin.appearance.headerMinimumDissolvedAlpha = 0.0 /// 헤더 좌,우측 흐릿한 글씨 삭제
@@ -180,7 +185,7 @@ class CalendarVC: UIViewController {
         calendarOrigin.appearance.selectionColor = .calendarSelectCircleGrey // 선택 된 날의 색
         calendarOrigin.appearance.titleWeekendColor = .black /// 주말 날짜 색
         calendarOrigin.appearance.titleDefaultColor = .black /// 기본 날짜 색
-
+        
         // Month 폰트 설정
         calendarOrigin.appearance.headerTitleFont = UIFont(name: "NotoSansCJKKR-Medium", size: 16)
         
@@ -190,9 +195,8 @@ class CalendarVC: UIViewController {
     }
     
     func getCalendarData() {
-        let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "yyyy-MM-dd"
-        
+        formatter.locale = Locale(identifier: "ko")
+        formatter.dateFormat = "yyyy-MM-dd"
         UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
         CalendarService.shared.calendarLoad(id: 3, completion: { [self] (networkResult) -> (Void) in
             switch networkResult {
@@ -200,14 +204,17 @@ class CalendarVC: UIViewController {
                 if let calendarResult = data as? CalendarSeeData{
                     for i in 0...calendarResult.water.count-1{
                         fetchCalendar.append(contentsOf: [
-                            FetchCalendar(review: calendarResult.water[i].review, waterDate: calendarResult.water[i].waterDate, keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
+                            FetchCalendar(waterDate: calendarResult.water[i].waterDate, review: calendarResult.water[i].review, keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
                         ])
                         keyword.append(contentsOf: [
                             CalendarKeyword(keyword1: fetchCalendar[i].keyword1, keyword2: fetchCalendar[i].keyword2, keyword3: fetchCalendar[i].keyword3)
                         ])
-                        watering_Events.append(dateformatter.date(from: calendarResult.water[i].waterDate)!)
+                        print(calendarResult.water[i].waterDate)
+                        watering_Events.append(formatter.date(from: calendarResult.water[i].waterDate)!)
+                        print(watering_Events)
                     }
-                    futurewatering_Events.append(dateformatter.date(from: calendarResult.futureWaterDate)!)
+                    futurewatering_Events.append(formatter.date(from: calendarResult.futureWaterDate)!)
+                    print(futurewatering_Events)
                 }
                 print(keyword)
             case .requestErr(_):
@@ -221,14 +228,6 @@ class CalendarVC: UIViewController {
             }
         })
     }
-    
-//    func test(){
-//        for i in 0...calendarResult.water.count-1{
-//            keyword.append(contentsOf: [
-//                CalendarKeyword(keyword1: fetchCalendar[i].keyword1, keyword2: fetchCalendar[i].keyword2, keyword3: fetchCalendar[i].keyword3)
-//            ])
-//        }
-//    }
 }
 
 //MARK: -Delegate & DataSource
@@ -272,7 +271,7 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
         if self.futurewatering_Events.contains(date){
             return [UIColor.WateredRed]
         }
-
+        
         return nil
     }
     
@@ -285,63 +284,70 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
         if self.futurewatering_Events.contains(date){
             return [UIColor.WateredRed]
         }
-
+        
         return nil
     }
     
+    
     /// 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        formatter.dateFormat = "yyyy-MM-dd"
         print(formatter.string(from: date) + " 선택됨")
         /// 이벤트가 있다면 표시
         for i in 0...fetchCalendar.count-1 {
             if formatter.string(from: date) == fetchCalendar[i].waterDate {
                 memoShowView.isHidden = false
+                formatter.locale = Locale(identifier: "ko")
+                formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
+                memoDateLabel.text = formatter.string(from: date)
                 memoTextLabel.text = fetchCalendar[i].review
                 n = i
+                calendarKeywordCollectionView.delegate = self
+                calendarKeywordCollectionView.dataSource = self
                 break
             }else{
                 memoShowView.isHidden = true
             }
         }
-            /// 키워드 미입력 시
-            if fetchCalendar[n].keyword1 == "" && fetchCalendar[n].keyword2 == "" && fetchCalendar[n].keyword3 == ""{
-                calendarKeywordCollectionView.isHidden = true
-                keywordCVTopAnchor.constant = 0
-            }else{
-                calendarKeywordCollectionView.isHidden = false
-                keywordCVTopAnchor.constant = 14
-            }
-            /// 메모 미입력 시
-            if fetchCalendar[n].review.count < 1 {
-                keywordCVBotAnchor.constant = 0
-                memoTextLabel.isHidden = true
-            }else{
-                keywordCVBotAnchor.constant = 10
-                memoTextLabel.isHidden = false
-            }
-
-            /// 키워드,메모 미입력 시
-            if fetchCalendar[n].review.count < 1 && fetchCalendar[n].keyword1 == "" && fetchCalendar[n].keyword2 == "" && fetchCalendar[n].keyword3 == "" {
-                memoBtnTopAnchor.constant = 22
-                memoBtn.isHidden = true
-            }else{
-                memoBtnTopAnchor.constant = 17
-                memoBtn.isHidden = false
-            }
-            
+        
+        /// 키워드 미입력 시
+        if fetchCalendar[n].keyword1 == "" && fetchCalendar[n].keyword2 == "" && fetchCalendar[n].keyword3 == ""{
+            calendarKeywordCollectionView.isHidden = true
+            keywordCVTopAnchor.constant = 0
+        }else{
+            calendarKeywordCollectionView.isHidden = false
+            keywordCVTopAnchor.constant = 14
+        }
+        /// 메모 미입력 시
+        if fetchCalendar[n].review.count < 1 {
+            keywordCVBotAnchor.constant = 0
+            memoTextLabel.isHidden = true
+        }else{
+            keywordCVBotAnchor.constant = 10
+            memoTextLabel.isHidden = false
+        }
+        
+        /// 키워드,메모 미입력 시
+        if fetchCalendar[n].review.count < 1 && fetchCalendar[n].keyword1 == "" && fetchCalendar[n].keyword2 == "" && fetchCalendar[n].keyword3 == "" {
+            memoBtnTopAnchor.constant = 22
+            memoBtn.isHidden = true
+        }else{
+            memoBtnTopAnchor.constant = 17
+            memoBtn.isHidden = false
+        }
+        
     }
     // 날짜 선택 해제 시 콜백 메소드
     public func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print(formatter.string(from: date) + " 해제됨")
     }
     
-//}
-//
-/////2
-//extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    //}
+    //
+    /////2
+    //extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var kc = keyword.count
-        print("이거다이거다이거다"+"\(n)")
         if keyword[n].keyword1 == ""{
             kc -= 1
         }

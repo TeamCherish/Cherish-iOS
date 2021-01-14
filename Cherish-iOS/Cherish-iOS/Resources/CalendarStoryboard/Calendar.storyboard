@@ -297,6 +297,7 @@
                         <outlet property="keywordCVTopAnchor" destination="heP-X5-pfa" id="QSz-G3-gdc"/>
                         <outlet property="memoBtn" destination="eN0-6G-uLg" id="9WM-n9-Gjh"/>
                         <outlet property="memoBtnTopAnchor" destination="Nqi-OV-mX8" id="DsK-fF-UvC"/>
+                        <outlet property="memoDateLabel" destination="p9f-V6-OcS" id="F1I-ez-Pg5"/>
                         <outlet property="memoShowView" destination="FE6-s2-qKF" id="FLC-Wv-m9L"/>
                         <outlet property="memoShowViewHeight" destination="LR0-26-ZDD" id="beP-gm-mdB"/>
                         <outlet property="memoTextLabel" destination="Z5t-Nm-AYg" id="Leu-cU-zAB"/>
