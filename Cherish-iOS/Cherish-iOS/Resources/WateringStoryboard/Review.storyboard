@@ -303,18 +303,12 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eL-zd-UH5">
-                                        <rect key="frame" x="325" y="0.0" width="44" height="44"/>
-                                        <state key="normal" image="icDeleteCalendarEdit"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="nOU-7R-Ckl" firstAttribute="centerX" secondItem="pwR-Q8-D1a" secondAttribute="centerX" id="W5V-Kh-FiL"/>
-                                    <constraint firstAttribute="trailing" secondItem="0eL-zd-UH5" secondAttribute="trailing" constant="6" id="ano-WQ-AI6"/>
                                     <constraint firstAttribute="bottom" secondItem="WHx-Q9-Wyx" secondAttribute="bottom" id="byk-Ir-Jsa"/>
                                     <constraint firstAttribute="height" constant="44" id="pv2-pZ-lqE"/>
-                                    <constraint firstItem="0eL-zd-UH5" firstAttribute="centerY" secondItem="nOU-7R-Ckl" secondAttribute="centerY" id="r0R-oA-Xa8"/>
                                     <constraint firstItem="WHx-Q9-Wyx" firstAttribute="top" secondItem="pwR-Q8-D1a" secondAttribute="top" id="r43-MI-t2Q"/>
                                     <constraint firstItem="WHx-Q9-Wyx" firstAttribute="leading" secondItem="pwR-Q8-D1a" secondAttribute="leading" id="xh5-0o-dI2"/>
                                     <constraint firstItem="nOU-7R-Ckl" firstAttribute="centerY" secondItem="pwR-Q8-D1a" secondAttribute="centerY" id="zXW-Vk-qZL"/>
@@ -603,7 +597,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icDeleteCalendarEdit" width="44" height="44"/>
         <image name="icnBack" width="44" height="44"/>
         <image name="x" width="15" height="15"/>
         <namedColor name="black">

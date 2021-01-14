@@ -14,7 +14,9 @@ class CalendarVC: UIViewController {
     var review: [String] = []// 85글자
     var fetchCalendar : [FetchCalendar] = []
     var n : Int = 0
-    
+    var memoToCalendarDate: String?
+    var memoToCalendarDateTemp: Date?
+    var keywordForCV : [String] = []
     //    var delegate: SendViewControllerDelegate?
     let formatter = DateFormatter()
     let calendarCurrent = Calendar.current
@@ -170,16 +172,22 @@ class CalendarVC: UIViewController {
     
     /// 메모->캘린더 이동시 해당 메모가 작성된 날짜 및 메모를 불러오기
     func memoMode() {
-        calendarOrigin.select(formatter.date(from: "2021-01-01"), scrollToDate: true)
-        for i in 0...fetchCalendar.count-1 {
-            memoShowView.isHidden = false
-            formatter.locale = Locale(identifier: "ko")
-            formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
-//            memoDateLabel.text = formatter.string(from: "2021-01-01")
-            memoTextLabel.text = fetchCalendar[i].review
-            n = i
-            calendarKeywordCollectionView.delegate = self
-            calendarKeywordCollectionView.dataSource = self
+        calendarOrigin.reloadData()
+        print("메캘메캘메캘메캘"+"\(memoToCalendarDate ?? "2020-12-26")")
+        calendarOrigin.select(formatter.date(from: memoToCalendarDate ?? "2020-12-26"), scrollToDate: true)
+        for i in 0...(fetchCalendar.count - 1) {
+            if memoToCalendarDate == fetchCalendar[i].waterDate{
+                memoShowView.isHidden = false
+                formatter.dateFormat = "yyyy-MM-dd"
+                memoToCalendarDateTemp = formatter.date(from: fetchCalendar[i].waterDate)
+                print("메캘메캘메캘메캘"+"\(memoToCalendarDateTemp)!")
+                formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
+                memoDateLabel.text = formatter.string(from: memoToCalendarDateTemp!)
+                memoTextLabel.text = fetchCalendar[i].review
+                n = i
+                calendarKeywordCollectionView.delegate = self
+                calendarKeywordCollectionView.dataSource = self
+            }
         }
     }
     
@@ -217,7 +225,7 @@ class CalendarVC: UIViewController {
         formatter.locale = Locale(identifier: "ko")
         formatter.dateFormat = "yyyy-MM-dd"
         UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
-        CalendarService.shared.calendarLoad(id: 3, completion: { [self] (networkResult) -> (Void) in
+        CalendarService.shared.calendarLoad(id: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), completion: { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 if let calendarResult = data as? CalendarSeeData{
@@ -226,9 +234,8 @@ class CalendarVC: UIViewController {
                             FetchCalendar(waterDate: calendarResult.water[i].waterDate, review: calendarResult.water[i].review, keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
                         ])
                         keyword.append(contentsOf: [
-                            CalendarKeyword(keyword1: fetchCalendar[i].keyword1, keyword2: fetchCalendar[i].keyword2, keyword3: fetchCalendar[i].keyword3)
+                            CalendarKeyword(keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
                         ])
-                        print(calendarResult.water[i].waterDate)
                         watering_Events.append(formatter.date(from: calendarResult.water[i].waterDate)!)
                         print(watering_Events)
                     }
@@ -329,6 +336,9 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
                 memoShowView.isHidden = true
             }
         }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
+//
+//        }
         
         /// 키워드 미입력 시
         if fetchCalendar[n].keyword1 == "" && fetchCalendar[n].keyword2 == "" && fetchCalendar[n].keyword3 == ""{
@@ -367,32 +377,24 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
     /////2
     //extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        var kc = keyword.count
-        if keyword[n].keyword1 == ""{
-            kc -= 1
+        if keyword[n].keyword1 != ""{
+            keywordForCV.append(keyword[n].keyword1)
         }
-        if keyword[n].keyword2 == ""{
-            kc -= 1
+        if keyword[n].keyword2 != ""{
+            keywordForCV.append(keyword[n].keyword2)
         }
-        if keyword[n].keyword3 == ""{
-            kc -= 1
+        if keyword[n].keyword3 != ""{
+            keywordForCV.append(keyword[n].keyword3)
         }
-        return kc
+        return keywordForCV.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarKeywordCVCell.identifier, for: indexPath) as? CalendarKeywordCVCell else{
             return UICollectionViewCell()
         }
-        if keyword[n].keyword1 != ""{
-            cell.calendarKeywordLabel.text = keyword[n].keyword1
-        }
-        if keyword[n].keyword2 != ""{
-            cell.calendarKeywordLabel.text = keyword[n].keyword2
-        }
-        if keyword[n].keyword3 != ""{
-            cell.calendarKeywordLabel.text = keyword[n].keyword1
-        }
+       
+        cell.calendarKeywordLabel.text = keywordForCV[indexPath.row]
         return cell
     }
     
