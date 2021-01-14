@@ -18,6 +18,7 @@ class PlantResultVC: UIViewController {
     var resultPlantImgUrl: String?
     var resultPeriod: String?
     var explanation: String?
+    let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +28,8 @@ class PlantResultVC: UIViewController {
     }
 
     @IBAction func startToMain(_ sender: Any) {
+        appDel.isCherishAdded = true
         self.navigationController?.popToRootViewController(animated: true)
-        
     }
     
     @objc func setPlantLabel() {

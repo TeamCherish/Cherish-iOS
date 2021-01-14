@@ -21,14 +21,17 @@ class DetailContentVC: UIViewController {
     
     var cherishPeopleData:[ResultData] = [] {
         didSet {
+            
             cherishPeopleCV.reloadData()
             cherishPeopleCV.delegate = self
             cherishPeopleCV.dataSource = self
-            cherishPeopleCV.selectItem(at: IndexPath(item: 1, section: 0), animated: true, scrollPosition: .top)
-            collectionView(self.cherishPeopleCV, didSelectItemAt: IndexPath(item: 1, section: 0))
+            
+            if appDel.isCherishAdded == false {
+                cherishPeopleCV.selectItem(at: IndexPath(item: 1, section: 0), animated: true, scrollPosition: .top)
+                collectionView(self.cherishPeopleCV, didSelectItemAt: IndexPath(item: 1, section: 0))
+            }
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

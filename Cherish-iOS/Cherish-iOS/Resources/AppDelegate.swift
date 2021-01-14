@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var isCherishPeopleCellSelected:Bool = false
+    var isCherishAdded:Bool = false
     let gcmMessageIDKey = "gcm.message_id"
     
     func application(_ application: UIApplication,
