@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3317777825B042C200CC1030 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3317777725B042C200CC1030 /* UIImage+Extension.swift */; };
 		3317778025B0569C00CC1030 /* real_min.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3317777F25B0569C00CC1030 /* real_min.gif */; };
+		3317778625B0916800CC1030 /* MypageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3317778525B0916800CC1030 /* MypageService.swift */; };
+		3317778B25B0921500CC1030 /* MypageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3317778A25B0921500CC1030 /* MypageData.swift */; };
+		3317778F25B0B7D900CC1030 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3317778D25B0AAC200CC1030 /* Roboto-Medium.ttf */; };
 		33201B1025AE2EBC001A94E4 /* PlantDetailCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33201B0F25AE2EBC001A94E4 /* PlantDetailCardData.swift */; };
 		33201B1525AE419F001A94E4 /* MainSelectedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33201B1425AE419F001A94E4 /* MainSelectedData.swift */; };
 		33201B2225AF3F23001A94E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33201B2125AF3F23001A94E4 /* GoogleService-Info.plist */; };
@@ -128,6 +131,9 @@
 /* Begin PBXFileReference section */
 		3317777725B042C200CC1030 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		3317777F25B0569C00CC1030 /* real_min.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = real_min.gif; sourceTree = "<group>"; };
+		3317778525B0916800CC1030 /* MypageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageService.swift; sourceTree = "<group>"; };
+		3317778A25B0921500CC1030 /* MypageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageData.swift; sourceTree = "<group>"; };
+		3317778D25B0AAC200CC1030 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cherish_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33201B0F25AE2EBC001A94E4 /* PlantDetailCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailCardData.swift; sourceTree = "<group>"; };
 		33201B1425AE419F001A94E4 /* MainSelectedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSelectedData.swift; sourceTree = "<group>"; };
@@ -269,6 +275,14 @@
 			path = Gif;
 			sourceTree = "<group>";
 		};
+		3317778425B0915B00CC1030 /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				3317778525B0916800CC1030 /* MypageService.swift */,
+			);
+			path = Mypage;
+			sourceTree = "<group>";
+		};
 		332CC7AD25A7015100D0047D /* Mypage */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +297,7 @@
 			children = (
 				332CC7BC25A707BD00D0047D /* MypagePlantData.swift */,
 				332CC7C025A72A4800D0047D /* MypageContactData.swift */,
+				3317778A25B0921500CC1030 /* MypageData.swift */,
 			);
 			path = Mypage;
 			sourceTree = "<group>";
@@ -407,6 +422,7 @@
 		33851C8B259A5AEE005BCFFD /* APIService */ = {
 			isa = PBXGroup;
 			children = (
+				3317778425B0915B00CC1030 /* Mypage */,
 				54425C3825AF51F200E62BAB /* Calendar */,
 				9214410025ACE5B000853E53 /* AddUser */,
 				5478346D25AC72C40021C32B /* Watering */,
@@ -422,6 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				33E874D925A043F1001F84FE /* Roboto-Black.ttf */,
+				3317778D25B0AAC200CC1030 /* Roboto-Medium.ttf */,
 				33E874D625A043CF001F84FE /* Roboto-Bold.ttf */,
 				33E874D325A043B4001F84FE /* NotoSansCJKkr-Light.otf */,
 				33E874D025A0437A001F84FE /* NotoSansCJKkr-Bold.otf */,
@@ -851,6 +868,7 @@
 				33D0027825A3144400E97811 /* 29583-flower.json in Resources */,
 				33EDFBB525A1B533006367A7 /* PlantDetail.storyboard in Resources */,
 				337A5CB525A8543600578130 /* Login.storyboard in Resources */,
+				3317778F25B0B7D900CC1030 /* Roboto-Medium.ttf in Resources */,
 				33E874DD25A04569001F84FE /* MyPage.storyboard in Resources */,
 				33D0027725A3144400E97811 /* 33650-recolor-plant.json in Resources */,
 				33E874D425A043B4001F84FE /* NotoSansCJKkr-Light.otf in Resources */,
@@ -912,6 +930,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3317778B25B0921500CC1030 /* MypageData.swift in Sources */,
 				548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */,
 				9244DF1225AB92220014FF5D /* LoadingPopUpVC.swift in Sources */,
 				33805F8325AC62B3005CED0F /* LoginData.swift in Sources */,
@@ -967,6 +986,7 @@
 				33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */,
 				33201B1525AE419F001A94E4 /* MainSelectedData.swift in Sources */,
 				33E8753525A07A7F001F84FE /* CherishPeopleCVC.swift in Sources */,
+				3317778625B0916800CC1030 /* MypageService.swift in Sources */,
 				5478347225AC75950021C32B /* WateringDayData.swift in Sources */,
 				92DCC3DF25A8504F00160523 /* SelectFriendSearchBar.swift in Sources */,
 				33D0026625A3036800E97811 /* PlantDetailPopUpExplainVC.swift in Sources */,

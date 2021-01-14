@@ -48,7 +48,9 @@ class MainContentVC: UIViewController {
         // herishPeopleCell이 선택되지 않았을 때 첫 메인의 값을 지정해준다.
         if appDel.isCherishPeopleCellSelected == false {
             
-            MainService.shared.inquireMainView(idx: UserDefaults.standard.integer(forKey: "userID")) { [self]
+            let cherishMainUserIdx: Int = UserDefaults.standard.integer(forKey: "userID")
+            
+            MainService.shared.inquireMainView(idx:cherishMainUserIdx) { [self]
                 (networkResult) -> (Void) in
                 switch networkResult {
                 case .success(let data):
@@ -130,8 +132,8 @@ class MainContentVC: UIViewController {
         self.growthPercentLabel.text = "\(UserDefaults.standard.integer(forKey: "selectedGrowthData"))%"
         self.plantExplainLabel.text = UserDefaults.standard.string(forKey: "selectedModifierData")
         
-        var selectedGif = UserDefaults.standard.string(forKey: "selectedGif")
-        var selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
+        let selectedGif = UserDefaults.standard.string(forKey: "selectedGif")
+        let selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
         
         // gif 데이터가 있을 때
         if selectedGif != "없지롱" {

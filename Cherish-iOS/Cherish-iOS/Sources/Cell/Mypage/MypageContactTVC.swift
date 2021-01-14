@@ -24,8 +24,7 @@ class MypageContactTVC: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setProperties(_ imageURL:String, _ friendsName:String,_ friendsContactNumber:String){
-        friendsImageView.image = UIImage(named: imageURL)
+    func setProperties(_ friendsName:String,_ friendsContactNumber:String){
         friendsNameLabel.text = friendsName
         friendsContactNumberLabel.text = friendsContactNumber
     }

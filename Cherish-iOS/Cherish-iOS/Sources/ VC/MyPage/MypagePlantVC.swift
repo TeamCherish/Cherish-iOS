@@ -8,10 +8,10 @@
 import UIKit
 
 class MypagePlantVC: UIViewController {
-
+    
     
     @IBOutlet var mypageTV: MyOwnTableView!
-    var MypagePlantArray: [MypagePlantData] = []
+    var mypagePlantArray: [MypagefriendsData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,27 +24,47 @@ class MypagePlantVC: UIViewController {
     
     func setPlantData(){
         
-        MypagePlantArray.append(contentsOf: [
-            MypagePlantData(imageURL: "mainImgUser2", nickname: "남궁둥이", plantType: "스투키 Lv.3", wateringDday: "10"),
-            MypagePlantData(imageURL: "mainImgUser1", nickname: "훌렁이", plantType: "민들레 Lv.2", wateringDday: "1"),
-            MypagePlantData(imageURL: "mainImgUser4", nickname: "끈끈이", plantType: "스투키 Lv.3", wateringDday: "5")
-        ])
-        
-        print(MypagePlantArray)
+        let myPageUserIdx = UserDefaults.standard.integer(forKey: "userID")
+        MypageService.shared.inquireMypageView(idx: myPageUserIdx) { [self]
+            (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                if let mypageData = data as? MypageData {
+                    mypagePlantArray = mypageData.result
+                    DispatchQueue.main.async {
+                        mypageTV.reloadData()
+                    }
+                }
+            case .requestErr(let msg):
+                print(msg)
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
 }
 
 extension MypagePlantVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MypagePlantArray.count
+        return mypagePlantArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MypagePlantTVC") as! MypagePlantTVC
         
-        cell.setProperties(MypagePlantArray[indexPath.row].imageURL, MypagePlantArray[indexPath.row].nickname, MypagePlantArray[indexPath.row].plantType, MypagePlantArray[indexPath.row].wateringDday)
-        
+        if mypagePlantArray.count != 0 {
+            
+            /// 이미지 url 처리
+            let url = URL(string: mypagePlantArray[indexPath.row].thumbnailImageURL ?? "")
+            let imageData = try? Data(contentsOf: url!)
+            
+            cell.setProperties(imageData!, mypagePlantArray[indexPath.row].nickname, mypagePlantArray[indexPath.row].name, mypagePlantArray[indexPath.row].dDay)
+        }
         return cell
     }
     

@@ -37,6 +37,7 @@
 *Cherish에 휴대폰의 연락처를 동기화</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Roboto-Medium.ttf</string>
 		<string>Roboto-Black.ttf</string>
 		<string>Roboto-Bold.ttf</string>
 		<string>NotoSansCJKkr-Bold.otf</string>

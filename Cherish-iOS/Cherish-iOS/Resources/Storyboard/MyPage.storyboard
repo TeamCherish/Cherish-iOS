@@ -21,8 +21,8 @@
         <array key="Roboto-Bold.ttf">
             <string>Roboto-Bold</string>
         </array>
-        <array key="Roboto-Regular.ttf">
-            <string>Roboto-Regular</string>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
         </array>
     </customFonts>
     <scenes>
@@ -37,15 +37,18 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle617" translatesAutoresizingMaskIntoConstraints="NO" id="q4w-K3-8S9">
                                 <rect key="frame" x="0.0" y="-33" width="375" height="811"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgMypageUser" translatesAutoresizingMaskIntoConstraints="NO" id="NaW-Jf-7Wp">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cherish_iOS" translatesAutoresizingMaskIntoConstraints="NO" id="NaW-Jf-7Wp">
                                 <rect key="frame" x="16" y="108" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NaW-Jf-7Wp" secondAttribute="height" multiplier="1:1" id="4OE-4T-RD5"/>
                                     <constraint firstAttribute="height" constant="70" id="Lfc-1w-UxL"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남궁선규의 체리쉬가든" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4K-ji-FV5">
-                                <rect key="frame" x="100" y="133.66666666666666" width="143" height="18.666666666666657"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4K-ji-FV5">
+                                <rect key="frame" x="100" y="131" width="0.0" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="d4p-2v-8FA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="16"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -57,7 +60,7 @@
                                     <constraint firstAttribute="height" constant="80" id="vgj-cB-yws"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0i3-De-jVj" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0i3-De-jVj" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                 <rect key="frame" x="57" y="223" width="31" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="GNi-7L-qqi"/>
@@ -72,7 +75,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxx-eO-QPF" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxx-eO-QPF" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                 <rect key="frame" x="287" y="223" width="31" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="AJy-Xx-ASu"/>
@@ -88,7 +91,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물주기 횟수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGC-BI-MRQ" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="45" y="245" width="55.333333333333343" height="14"/>
+                                <rect key="frame" x="43.333333333333343" y="245" width="58.666666666666657" height="18"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -99,7 +102,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미룬 횟수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlE-ff-1z3" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="164" y="245" width="45" height="14"/>
+                                <rect key="frame" x="162.66666666666666" y="245" width="47.666666666666657" height="18"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -110,7 +113,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성장 완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOa-5s-oh6" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="280" y="245" width="45" height="14"/>
+                                <rect key="frame" x="278.66666666666669" y="245" width="47.666666666666686" height="18"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -134,7 +137,7 @@
                                     <constraint firstAttribute="width" secondItem="guD-sI-dRD" secondAttribute="height" multiplier="1:32" id="roL-ig-vsp"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvX-zY-5lf" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvX-zY-5lf" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                 <rect key="frame" x="171" y="223" width="31" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="BdE-eA-qEe"/>
@@ -152,6 +155,13 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J62-KC-YUe">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A09-RA-BMz">
+                                        <rect key="frame" x="0.0" y="606" width="750" height="128"/>
+                                        <color key="backgroundColor" name="white"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="XHz-c7-815"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNO-4j-HgU">
                                         <rect key="frame" x="0.0" y="0.0" width="750" height="734"/>
                                         <subviews>
@@ -170,18 +180,8 @@
                                                                             <segue destination="ekY-xp-mKN" kind="embed" id="iJe-pB-0t7"/>
                                                                         </connections>
                                                                     </containerView>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fou-I1-LZ2">
-                                                                        <rect key="frame" x="305" y="660" width="54" height="54"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" secondItem="fou-I1-LZ2" secondAttribute="height" multiplier="1:1" id="Paa-fw-KDE"/>
-                                                                            <constraint firstAttribute="height" constant="54" id="tgw-sF-D9P"/>
-                                                                        </constraints>
-                                                                        <state key="normal" image="btnAddMypage"/>
-                                                                    </button>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="bottom" secondItem="fou-I1-LZ2" secondAttribute="bottom" constant="20" id="7xN-Fc-mfz"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="fou-I1-LZ2" secondAttribute="trailing" constant="16" id="Jf9-oo-6am"/>
                                                                     <constraint firstAttribute="bottom" secondItem="1aO-A7-8M1" secondAttribute="bottom" id="Srb-GQ-B0D"/>
                                                                     <constraint firstAttribute="trailing" secondItem="1aO-A7-8M1" secondAttribute="trailing" id="UXj-eZ-0Fu"/>
                                                                     <constraint firstItem="1aO-A7-8M1" firstAttribute="leading" secondItem="el4-DI-rD5" secondAttribute="leading" id="mI8-Oz-YiJ"/>
@@ -211,23 +211,10 @@
                                                                             <segue destination="wRA-sZ-8LX" kind="embed" id="061-LC-2Qi"/>
                                                                         </connections>
                                                                     </containerView>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUx-ce-KAB">
-                                                                        <rect key="frame" x="305" y="660" width="54" height="54"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="54" id="fEO-LJ-x8m"/>
-                                                                            <constraint firstAttribute="width" secondItem="EUx-ce-KAB" secondAttribute="height" multiplier="1:1" id="qdY-53-K7w"/>
-                                                                        </constraints>
-                                                                        <state key="normal" image="btnAddMypage"/>
-                                                                        <connections>
-                                                                            <action selector="moveToMyPageSearch:" destination="6rt-Gh-njX" eventType="touchUpInside" id="S3a-Gf-pSk"/>
-                                                                        </connections>
-                                                                    </button>
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="mw0-au-exa" secondAttribute="trailing" id="SO3-CL-may"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="EUx-ce-KAB" secondAttribute="trailing" constant="16" id="ZnV-Zr-mIR"/>
                                                                     <constraint firstItem="mw0-au-exa" firstAttribute="leading" secondItem="0g7-As-wcI" secondAttribute="leading" id="aD4-2G-vy8"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="EUx-ce-KAB" secondAttribute="bottom" constant="20" id="fwa-UY-PMr"/>
                                                                     <constraint firstItem="mw0-au-exa" firstAttribute="top" secondItem="0g7-As-wcI" secondAttribute="top" id="pXU-6w-J05"/>
                                                                     <constraint firstAttribute="bottom" secondItem="mw0-au-exa" secondAttribute="bottom" id="tIm-8m-aDo"/>
                                                                 </constraints>
@@ -256,8 +243,11 @@
                                 <constraints>
                                     <constraint firstItem="cNO-4j-HgU" firstAttribute="top" secondItem="J62-KC-YUe" secondAttribute="top" id="GM2-xJ-unf"/>
                                     <constraint firstAttribute="trailing" secondItem="cNO-4j-HgU" secondAttribute="trailing" id="ICS-PK-V3V"/>
+                                    <constraint firstItem="A09-RA-BMz" firstAttribute="leading" secondItem="J62-KC-YUe" secondAttribute="leading" id="OPy-E1-LFQ"/>
                                     <constraint firstAttribute="bottom" secondItem="cNO-4j-HgU" secondAttribute="bottom" id="Sen-bf-OUl"/>
                                     <constraint firstItem="cNO-4j-HgU" firstAttribute="width" secondItem="J62-KC-YUe" secondAttribute="width" multiplier="2" priority="250" id="UrR-uh-hli"/>
+                                    <constraint firstAttribute="trailing" secondItem="A09-RA-BMz" secondAttribute="trailing" id="XSL-66-MIe"/>
+                                    <constraint firstAttribute="bottom" secondItem="A09-RA-BMz" secondAttribute="bottom" id="lGK-Ej-YAv"/>
                                     <constraint firstItem="cNO-4j-HgU" firstAttribute="leading" secondItem="J62-KC-YUe" secondAttribute="leading" id="nLy-MW-tgU"/>
                                     <constraint firstItem="cNO-4j-HgU" firstAttribute="height" secondItem="J62-KC-YUe" secondAttribute="height" id="xT8-qT-jfD"/>
                                 </constraints>
@@ -299,7 +289,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5w-6F-Gca" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="16.000000000000004" y="12.666666666666666" width="63.333333333333343" height="18.666666666666671"/>
+                                        <rect key="frame" x="15.999999999999996" y="10" width="62.666666666666657" height="24"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -327,6 +317,17 @@
                                     <constraint firstItem="D5w-6F-Gca" firstAttribute="leading" secondItem="2NA-sO-jaz" secondAttribute="leading" constant="16" id="wHF-9J-o8H"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fou-I1-LZ2">
+                                <rect key="frame" x="305" y="704" width="54" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fou-I1-LZ2" secondAttribute="height" multiplier="1:1" id="Paa-fw-KDE"/>
+                                    <constraint firstAttribute="height" constant="54" id="tgw-sF-D9P"/>
+                                </constraints>
+                                <state key="normal" image="btnAddMypage"/>
+                                <connections>
+                                    <action selector="moveToMyPageSearch:" destination="6rt-Gh-njX" eventType="touchUpInside" id="ePP-34-yJ1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ece-Lp-UXD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -344,6 +345,7 @@
                             <constraint firstItem="Y4K-ji-FV5" firstAttribute="centerY" secondItem="NaW-Jf-7Wp" secondAttribute="centerY" id="G83-Jv-Ksb"/>
                             <constraint firstItem="cxx-eO-QPF" firstAttribute="centerY" secondItem="0i3-De-jVj" secondAttribute="centerY" id="HKI-S8-9om"/>
                             <constraint firstItem="BGC-BI-MRQ" firstAttribute="centerX" secondItem="0i3-De-jVj" secondAttribute="centerX" id="Jz2-Ne-a6P"/>
+                            <constraint firstItem="Ece-Lp-UXD" firstAttribute="trailing" secondItem="fou-I1-LZ2" secondAttribute="trailing" constant="16" id="M8W-lc-86Y"/>
                             <constraint firstItem="0i3-De-jVj" firstAttribute="top" secondItem="Qr3-RV-D0C" secondAttribute="top" constant="20" id="OfF-lX-hae"/>
                             <constraint firstItem="hvX-zY-5lf" firstAttribute="leading" secondItem="hab-ew-hbd" secondAttribute="trailing" constant="41" id="P7s-LB-no6"/>
                             <constraint firstItem="Qr3-RV-D0C" firstAttribute="leading" secondItem="NaW-Jf-7Wp" secondAttribute="leading" id="Wcf-4g-MdH"/>
@@ -365,13 +367,14 @@
                             <constraint firstItem="hab-ew-hbd" firstAttribute="centerY" secondItem="Qr3-RV-D0C" secondAttribute="centerY" id="rF5-Wi-jht"/>
                             <constraint firstItem="q4w-K3-8S9" firstAttribute="leading" secondItem="Ece-Lp-UXD" secondAttribute="leading" id="rY4-vg-gx4"/>
                             <constraint firstItem="Qr3-RV-D0C" firstAttribute="top" secondItem="NaW-Jf-7Wp" secondAttribute="bottom" constant="25" id="sP0-CT-2lT"/>
+                            <constraint firstItem="Ece-Lp-UXD" firstAttribute="bottom" secondItem="fou-I1-LZ2" secondAttribute="bottom" constant="20" id="vQr-dg-bOz"/>
                             <constraint firstItem="Ece-Lp-UXD" firstAttribute="bottom" secondItem="q4w-K3-8S9" secondAttribute="bottom" id="viX-Tm-ZWW"/>
                             <constraint firstItem="J62-KC-YUe" firstAttribute="trailing" secondItem="Ece-Lp-UXD" secondAttribute="trailing" id="wht-fj-Fj0"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="tc5-ag-03l"/>
                     <connections>
                         <outlet property="addFloatingBtn" destination="fou-I1-LZ2" id="Bj3-RR-cVJ"/>
-                        <outlet property="addFloatingBtn2" destination="EUx-ce-KAB" id="6Rr-VN-Wx6"/>
                         <outlet property="contactContainerTopConstraint" destination="pXU-6w-J05" id="KvZ-TE-c3U"/>
                         <outlet property="contactSV" destination="x7s-KS-7AA" id="acY-cl-1Du"/>
                         <outlet property="headerHeightConstraint" destination="dYN-TA-dwo" id="DDn-hK-Stm"/>
@@ -385,11 +388,15 @@
                         <outlet property="plantSVWidth" destination="7lB-M2-ohR" id="Wyd-nK-31a"/>
                         <outlet property="segmentView" destination="so3-vw-4Pg" id="1Ks-NO-a0h"/>
                         <outlet property="stickyHeaderView" destination="lvE-8p-xnh" id="wsR-li-a34"/>
+                        <outlet property="userGrowCompleteCountLabel" destination="cxx-eO-QPF" id="TMu-z5-AW7"/>
+                        <outlet property="userNicknameLabel" destination="Y4K-ji-FV5" id="uUS-ck-lwP"/>
+                        <outlet property="userWateringCountLabel" destination="0i3-De-jVj" id="Rfj-lp-1f8"/>
+                        <outlet property="userWateringPostponeCountLabel" destination="hvX-zY-5lf" id="1oj-rY-9e1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ksi-9M-4B7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="213.59999999999999" y="162.5615763546798"/>
+            <point key="canvasLocation" x="1156" y="162.5615763546798"/>
         </scene>
         <!--My Page SearchVC-->
         <scene sceneID="e8X-W1-1DP">
@@ -407,10 +414,11 @@
                         <viewLayoutGuide key="safeArea" id="6yZ-Yc-a37"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ynQ-D1-jC0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dCn-C6-dwy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1053.5999999999999" y="162.5615763546798"/>
+            <point key="canvasLocation" x="1996" y="162.5615763546798"/>
         </scene>
         <!--Mypage PlantVC-->
         <scene sceneID="Upa-Au-Bqg">
@@ -439,7 +447,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFC-C9-JGL" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="80" y="34" width="55.666666666666657" height="18.666666666666671"/>
+                                                    <rect key="frame" x="80" y="34" width="59" height="24"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                                     <color key="textColor" name="black"/>
                                                     <nil key="highlightedColor"/>
@@ -450,7 +458,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스투키 Lv.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ua3-7u-m7j" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="80" y="53.666666666666664" width="56.333333333333343" height="13.999999999999993"/>
+                                                    <rect key="frame" x="80" y="59" width="57.666666666666657" height="18"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                     <color key="textColor" red="0.16470588235294117" green="0.16470588235294117" blue="0.16470588235294117" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -467,14 +475,19 @@
                                                         <constraint firstAttribute="height" constant="25" id="lHg-uj-rK8"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qV-yR-Pka">
-                                                    <rect key="frame" x="310" y="44.666666666666664" width="38.333333333333314" height="22.999999999999993"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qV-yR-Pka" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="311" y="44.666666666666664" width="36" height="22.999999999999993"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="EuT-Gt-HUF"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                            <real key="value" value="-0.20000000000000001"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -495,7 +508,7 @@
                                             <outlet property="mypagePlantImageView" destination="jUT-kS-JVS" id="BTG-Ee-gQh"/>
                                             <outlet property="mypagePlantNicknameLabel" destination="dFC-C9-JGL" id="xXp-gv-CQa"/>
                                             <outlet property="mypagePlantTypeLabel" destination="Ua3-7u-m7j" id="XMT-6a-bBy"/>
-                                            <outlet property="mypagePlantWateringDdayLabel" destination="3qV-yR-Pka" id="tf2-5d-Om2"/>
+                                            <outlet property="mypagePlantWateringDdayLabel" destination="3qV-yR-Pka" id="HlU-xx-Zow"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -516,7 +529,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzA-gf-QWD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-164" y="977.58620689655174"/>
+            <point key="canvasLocation" x="636" y="977"/>
         </scene>
         <!--Mypage ContactVC-->
         <scene sceneID="05M-EM-fG9">
@@ -545,7 +558,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김웅앵" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8SQ-IB-mvm" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="80" y="34" width="41.666666666666657" height="18.666666666666671"/>
+                                                    <rect key="frame" x="80" y="34" width="44.333333333333343" height="24"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                                     <color key="textColor" name="black"/>
                                                     <nil key="highlightedColor"/>
@@ -556,7 +569,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="010.6769.2189" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BK1-HO-Mec" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="80" y="53.666666666666664" width="80" height="13.999999999999993"/>
+                                                    <rect key="frame" x="80" y="59" width="80" height="18"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                     <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -566,11 +579,20 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_seed" translatesAutoresizingMaskIntoConstraints="NO" id="y9L-Ga-103">
+                                                    <rect key="frame" x="30.666666666666671" y="43.666666666666664" width="25" height="24.999999999999993"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="y9L-Ga-103" secondAttribute="height" multiplier="1:1" id="7gj-1F-VcP"/>
+                                                        <constraint firstAttribute="height" constant="25" id="zEZ-CS-yc0"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="y9L-Ga-103" firstAttribute="centerY" secondItem="rhf-Pw-Cyv" secondAttribute="centerY" id="PPU-X9-zHq"/>
                                                 <constraint firstItem="8SQ-IB-mvm" firstAttribute="leading" secondItem="rhf-Pw-Cyv" secondAttribute="trailing" constant="10" id="Tzn-at-qnU"/>
                                                 <constraint firstItem="BK1-HO-Mec" firstAttribute="top" secondItem="8SQ-IB-mvm" secondAttribute="bottom" constant="1" id="UOy-g2-RgD"/>
                                                 <constraint firstAttribute="bottom" secondItem="rhf-Pw-Cyv" secondAttribute="bottom" id="XtS-S3-nr3"/>
+                                                <constraint firstItem="y9L-Ga-103" firstAttribute="centerX" secondItem="rhf-Pw-Cyv" secondAttribute="centerX" id="Z02-QO-mAq"/>
                                                 <constraint firstItem="BK1-HO-Mec" firstAttribute="leading" secondItem="8SQ-IB-mvm" secondAttribute="leading" id="dkp-sR-iR1"/>
                                                 <constraint firstItem="8SQ-IB-mvm" firstAttribute="top" secondItem="I63-c6-9vB" secondAttribute="top" constant="34" id="eZn-eV-Gz1"/>
                                                 <constraint firstItem="rhf-Pw-Cyv" firstAttribute="top" secondItem="I63-c6-9vB" secondAttribute="top" constant="29" id="iul-do-d1Q"/>
@@ -602,13 +624,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5p8-13-aVr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="665" y="1006"/>
+            <point key="canvasLocation" x="1612" y="1006"/>
         </scene>
     </scenes>
     <resources>
         <image name="btnAddMypage" width="54" height="54"/>
+        <image name="cherish_iOS" width="1278" height="1128"/>
         <image name="icn_search_box" width="18" height="18"/>
-        <image name="imgMypageUser" width="70" height="70"/>
+        <image name="icn_seed" width="25" height="25"/>
         <image name="mainImgUser5" width="59" height="59"/>
         <image name="mypageBox" width="343" height="80"/>
         <image name="mypageBoxStroke" width="1" height="32"/>
@@ -619,6 +642,9 @@
         </namedColor>
         <namedColor name="mypageBackground">
             <color red="0.93699997663497925" green="0.94499999284744263" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -14,9 +14,10 @@ struct APIConstants {
     static let laterCheckURL = baseURL + "postpone?CherishId=" /// 미루기 3회 미만인지 Check
     static let recentKeywordURL = baseURL + "contact/" // 최근 연락 키워드
     static let loginURL = baseURL + "login/signin"
-    static let mainURL = baseURL + "cherish/" 
+    static let mainURL = baseURL + "cherish/" ///체리쉬 메인
     static let addURL = baseURL + "cherish"
     static let plantDetailURL = baseURL + "cherish?CherishId="
     static let plantDetailCardURL = baseURL + "plantDetail/"
     static let calendarURL = baseURL + "calendar/"
+    static let mypageURL = baseURL + "user/" ///마이페이지
 }

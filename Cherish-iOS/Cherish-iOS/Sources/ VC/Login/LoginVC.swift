@@ -180,9 +180,11 @@ class LoginVC: UIViewController {
         }
     }
     
+    //MARK: - 체리쉬 앱 연락처 동기화 후 이름 형식 맞게 파싱한 데이터 저장함수
     func makeCherishContacts() {
         
         switch CNContactStore.authorizationStatus(for: .contacts) {
+       /// 권한을 허용했을 때
         case .authorized:
             // 이름 합치기
             for i in 0...deviceContacts.count - 1 {
