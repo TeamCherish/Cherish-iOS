@@ -78,6 +78,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
 //
 
             guard let dvc = self.storyboard?.instantiateViewController(identifier: "InputDetailVC") as? InputDetailVC else {return}
+            print("이게 먼저야")
             dvc.givenName = friendList[index].name
             dvc.givenPhoneNumber = friendList[index].phoneNumber
             

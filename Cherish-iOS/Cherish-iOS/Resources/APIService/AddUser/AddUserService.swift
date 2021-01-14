@@ -12,8 +12,6 @@ struct AddUserService {
     static let shared = AddUserService()
     
     func addUser(name: String, nickname: String, birth: String, phone: String, cycle_date: Int, notice_time: String, water_notice_: Bool, UserId: Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
-        
-        ///유저 아이디 어디서 받아와?
        
         let url = APIConstants.addURL
         let header: HTTPHeaders = [ "Content-Type":"application/json"]

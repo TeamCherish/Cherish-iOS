@@ -21,24 +21,21 @@ class PlantResultVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLabel()
+        setPlantLabel()
+        NotificationCenter.default.addObserver(self, selector: #selector(setPlantLabel), name: .sendPlantResult, object: nil)
         // Do any additional setup after loading the view.
     }
 
-    
     @IBAction func startToMain(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    func setLabel() {
+    @objc func setPlantLabel() {
         if let modifier = self.modifier,
-           let resultPlantImgUrl = self.resultPlantImgUrl,
-           let resultPeriod = self.resultPeriod,
            let explanation = self.explanation {
             self.modifierLabel.text = modifier
-            self.resultPeriodLabel.text = resultPeriod
             self.explanationLabel.text = explanation
         }
+        viewWillAppear(false)
     }
-
 }

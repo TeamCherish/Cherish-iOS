@@ -77,40 +77,34 @@ class InputDetailVC: UIViewController {
               let nicknameText = nicknameTextField.text,
               let birthText = birthTextField.text,
               let phonenumberText = phoneTextField.text,
-              let timeText = alarmPeriodTextField.text else { return }
+              let timeText = alarmTimeTextField.text,
+              let periodText = alarmPeriodTextField.text else { return }
         let alarmState = stateSwitch.isOn
         
+        print("하잉")
+        
         if completeBtn.isEnabled == true {
-            guard let loadingVC = self.storyboard?.instantiateViewController(identifier: "LoadingPopUpVC") as? LoadingPopUpVC else { return }
+//            guard let loadingVC = self.storyboard?.instantiateViewController(identifier: "LoadingPopUpVC") as? LoadingPopUpVC else { return }
             guard let resultVC = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else { return }
-            self.navigationController?.pushViewController(resultVC, animated: true)
-//            UIView.animate(withDuration: 1.0, animations: {
-//                self.present(resultVC, animated: true, completion: nil)
-//            }) {finished in
-//                self.present(resultVC, animated: true, completion: nil)
-//            }
-            print(nameText)
-            print(nicknameText)
-            print(birthText)
-            print(phonenumberText)
-            print(cycle_date)
-            print(timeText)
-            print(alarmState)
-            print(UserDefaults.standard.integer(forKey: "userID"))
-            
-            AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: timeText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")){ (networkResult) -> (Void) in
+
+            AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: periodText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")) { (networkResult) -> (Void) in
                 switch networkResult {
                 case .success(let data):
-                    if let resultData = data as? Plant {
-                        print(resultData.explanation)
-                        print(resultData.modifier)
-                        resultVC.modifier = resultData.modifier
-                        resultVC.explanation = resultData.explanation
+
+                    if let resultData = data as? AddUserData {
+                        
+                        resultVC.modifier = resultData.plant.modifier
+                        resultVC.explanation = resultData.plant.explanation
+                        
+                        DispatchQueue.main.async {
+                            resultVC.modifier = resultData.plant.modifier
+                            resultVC.explanation = resultData.plant.explanation
+                            NotificationCenter.default.post(name: .sendPlantResult, object: nil)
+                        }
+                        resultVC.resultPeriodLabel.text = self.resultPeriod
                     }
-                    resultVC.resultPeriodLabel.text = self.resultPeriod
-                    print("성공")
                 case .requestErr(_):
-                    print("필요한 내용이 모두 입력되지 않았습니다")
+                    print("requesetErr")
                 case .pathErr:
                     print("pathErr")
                 case .serverErr:
@@ -119,6 +113,7 @@ class InputDetailVC: UIViewController {
                     print("networkFail")
                 }
             }
+            self.navigationController?.pushViewController(resultVC, animated: true)
         }
     }
     
@@ -128,6 +123,7 @@ class InputDetailVC: UIViewController {
     func setTextField() {
         if let name = self.givenName,
            let phoneNumber = self.givenPhoneNumber {
+            print("맞지??")
             self.nameTextField.text = name
             self.phoneTextField.text = phoneNumber
         }
