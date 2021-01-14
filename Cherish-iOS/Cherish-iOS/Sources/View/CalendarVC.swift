@@ -57,6 +57,7 @@ class CalendarVC: UIViewController {
     @IBOutlet weak var toWaterLabel: UIStackView!
     @IBOutlet weak var wateredLabel: UIStackView!
     @IBOutlet weak var memoShowView: UIView!
+    @IBOutlet weak var memoDateLabel: UILabel!
     @IBOutlet weak var memoBtn: UIButton!
     @IBOutlet weak var calendarKeywordCollectionView: UICollectionView!{
         didSet{
@@ -192,8 +193,7 @@ class CalendarVC: UIViewController {
     }
     
     func getCalendarData() {
-        
-        
+        formatter.locale = Locale(identifier: "ko")
         formatter.dateFormat = "yyyy-MM-dd"
         UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
         CalendarService.shared.calendarLoad(id: 3, completion: { [self] (networkResult) -> (Void) in
@@ -226,14 +226,6 @@ class CalendarVC: UIViewController {
             }
         })
     }
-    
-//    func test(){
-//        for i in 0...calendarResult.water.count-1{
-//            keyword.append(contentsOf: [
-//                CalendarKeyword(keyword1: fetchCalendar[i].keyword1, keyword2: fetchCalendar[i].keyword2, keyword3: fetchCalendar[i].keyword3)
-//            ])
-//        }
-//    }
 }
 
 //MARK: -Delegate & DataSource
@@ -296,11 +288,15 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
     
     /// 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        formatter.dateFormat = "yyyy-MM-dd"
         print(formatter.string(from: date) + " 선택됨")
         /// 이벤트가 있다면 표시
         for i in 0...fetchCalendar.count-1 {
             if formatter.string(from: date) == fetchCalendar[i].waterDate {
                 memoShowView.isHidden = false
+                formatter.locale = Locale(identifier: "ko")
+                formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
+                memoDateLabel.text = formatter.string(from: date)
                 memoTextLabel.text = fetchCalendar[i].review
                 n = i
                 calendarKeywordCollectionView.delegate = self
