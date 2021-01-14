@@ -345,34 +345,34 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
             }
         }
         
-        /// 키워드 미입력 시
-        if keywordForCV.count == 0 {
-            print("keyword mip")
-            calendarKeywordCollectionView.isHidden = true
-            keywordCVTopAnchor.constant = 0
-        }else{
-            calendarKeywordCollectionView.isHidden = false
-            keywordCVTopAnchor.constant = 14
-        }
-        /// 메모 미입력 시
-        if fetchCalendar[n].review.count < 1 || fetchCalendar[n].review == "" {
-            print("memo mip")
-            keywordCVBotAnchor.constant = 0
-            memoTextLabel.isHidden = true
-        }else{
-            keywordCVBotAnchor.constant = 10
-            memoTextLabel.isHidden = false
-        }
-        
-        /// 키워드,메모 미입력 시
-        if (fetchCalendar[n].review.count < 1 || fetchCalendar[n].review == "") && keywordForCV.count == 0  {
-            print("keword,memo mip")
-            memoBtnTopAnchor.constant = 22
-            memoBtn.isHidden = true
-        }else{
-            memoBtnTopAnchor.constant = 17
-            memoBtn.isHidden = false
-        }
+//        /// 키워드 미입력 시
+//        if keywordForCV.count == 0 {
+//            print("keyword mip")
+//            calendarKeywordCollectionView.isHidden = true
+//            keywordCVTopAnchor.constant = 0
+//        }else{
+//            calendarKeywordCollectionView.isHidden = false
+//            keywordCVTopAnchor.constant = 14
+//        }
+//        /// 메모 미입력 시
+//        if fetchCalendar[n].review.count < 1 || fetchCalendar[n].review == "" {
+//            print("memo mip")
+//            keywordCVBotAnchor.constant = 0
+//            memoTextLabel.isHidden = true
+//        }else{
+//            keywordCVBotAnchor.constant = 10
+//            memoTextLabel.isHidden = false
+//        }
+//        
+//        /// 키워드,메모 미입력 시
+//        if (fetchCalendar[n].review.count < 1 || fetchCalendar[n].review == "") && keywordForCV.count == 0  {
+//            print("keword,memo mip")
+//            memoBtnTopAnchor.constant = 22
+//            memoBtn.isHidden = true
+//        }else{
+//            memoBtnTopAnchor.constant = 17
+//            memoBtn.isHidden = false
+//        }
         
     }
     // 날짜 선택 해제 시 콜백 메소드

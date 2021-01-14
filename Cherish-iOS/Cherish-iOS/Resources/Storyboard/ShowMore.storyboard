@@ -35,7 +35,7 @@
                                     <constraint firstAttribute="height" constant="416" id="Tsr-Gx-wB6"/>
                                 </constraints>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="OfT-on-jkW">
-                                    <rect key="frame" x="0.0" y="99.666667938232422" width="375" height="105"/>
+                                    <rect key="frame" x="0.0" y="100.33333206176758" width="375" height="104.99999999999997"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgMypageUser" translatesAutoresizingMaskIntoConstraints="NO" id="pct-RI-rUm">
@@ -46,10 +46,10 @@
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="OW1-Hq-Swt">
-                                            <rect key="frame" x="95.000000000000014" y="36.333333333333343" width="161.33333333333337" height="32.666666666666657"/>
+                                            <rect key="frame" x="95" y="31.666666666666671" width="171" height="42"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남궁선규" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mm1-Gj-m5C" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="48.666666666666664" height="16.333333333333332"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="51.666666666666664" height="21"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="14"/>
                                                     <color key="textColor" name="black"/>
                                                     <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="namgoongsunkyu@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5Q-n3-woT" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="16.333333333333329" width="161.33333333333334" height="16.333333333333329"/>
+                                                    <rect key="frame" x="0.0" y="20.999999999999996" width="171" height="21.000000000000004"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                     <color key="textColor" name="textGrey"/>
                                                     <nil key="highlightedColor"/>
@@ -83,14 +83,14 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShowMoreNotImageTVC" id="BsT-RL-bE6" customClass="ShowMoreNotImageTVC" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BsT-RL-bE6" id="wmm-S9-KlR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itL-6W-dKB" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="16.000000000000004" y="12.666666666666666" width="39.333333333333343" height="18.666666666666671"/>
+                                                    <rect key="frame" x="16" y="10.333333333333336" width="42" height="24"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                                     <color key="textColor" name="black"/>
                                                     <nil key="highlightedColor"/>
@@ -100,10 +100,18 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ol-b1-NrC">
+                                                    <rect key="frame" x="331" y="0.0" width="44" height="44.333333333333336"/>
+                                                    <state key="normal" image="icBtnMore"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="itL-6W-dKB" firstAttribute="leading" secondItem="wmm-S9-KlR" secondAttribute="leading" constant="16" id="8rc-R6-HfJ"/>
                                                 <constraint firstItem="itL-6W-dKB" firstAttribute="centerY" secondItem="wmm-S9-KlR" secondAttribute="centerY" id="JZ5-8P-2s3"/>
+                                                <constraint firstItem="9ol-b1-NrC" firstAttribute="top" secondItem="wmm-S9-KlR" secondAttribute="top" id="KS7-Qy-LCq"/>
+                                                <constraint firstAttribute="trailing" secondItem="9ol-b1-NrC" secondAttribute="trailing" id="LN9-9O-faW"/>
+                                                <constraint firstItem="9ol-b1-NrC" firstAttribute="centerY" secondItem="wmm-S9-KlR" secondAttribute="centerY" id="ORy-sc-cGn"/>
+                                                <constraint firstAttribute="bottom" secondItem="9ol-b1-NrC" secondAttribute="bottom" id="Y9Y-xV-97H"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -116,7 +124,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="더보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqi-cG-oaJ" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="15.999999999999996" y="12.666666666666666" width="41.666666666666657" height="18.666666666666671"/>
+                                        <rect key="frame" x="16.000000000000004" y="10" width="44.333333333333343" height="24"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -126,26 +134,20 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXx-Ai-wy8">
-                                        <rect key="frame" x="325" y="0.0" width="44" height="44"/>
-                                        <state key="normal" image="icnSetting"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Kll-bl-abO"/>
                                     <constraint firstAttribute="width" secondItem="8nj-yf-X3q" secondAttribute="height" multiplier="375:44" id="OJL-I9-77g"/>
-                                    <constraint firstAttribute="trailing" secondItem="UXx-Ai-wy8" secondAttribute="trailing" constant="6" id="atO-5e-xXI"/>
                                     <constraint firstItem="Cqi-cG-oaJ" firstAttribute="leading" secondItem="8nj-yf-X3q" secondAttribute="leading" constant="16" id="fBs-6O-EIJ"/>
                                     <constraint firstItem="Cqi-cG-oaJ" firstAttribute="centerY" secondItem="8nj-yf-X3q" secondAttribute="centerY" id="gBw-yu-cI6"/>
-                                    <constraint firstItem="UXx-Ai-wy8" firstAttribute="centerY" secondItem="Cqi-cG-oaJ" secondAttribute="centerY" id="x0a-kx-hfI"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eq2-Os-9OL">
                                 <rect key="frame" x="0.0" y="504" width="375" height="308"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="친구 동기화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWS-y4-NIO" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="20" width="69.333333333333329" height="17.666666666666671"/>
+                                        <rect key="frame" x="16" y="20" width="73.333333333333329" height="22.333333333333329"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="15"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -156,7 +158,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최근 동기화 2020.03.02 19:36" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHm-gV-s42" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="162" y="22" width="152" height="14"/>
+                                        <rect key="frame" x="160" y="22.333333333333371" width="154" height="18"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                         <color key="textColor" name="textGrey"/>
                                         <nil key="highlightedColor"/>
@@ -167,14 +169,14 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8a-2q-wDe">
-                                        <rect key="frame" x="315" y="7" width="44" height="44"/>
+                                        <rect key="frame" x="315" y="9.3333333333333712" width="44" height="44"/>
                                         <state key="normal" image="icResetMypage"/>
                                         <connections>
                                             <action selector="doSynchronization:" destination="6Jt-e1-zMf" eventType="touchUpInside" id="Ryl-zt-7nF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aat-dO-9Ze">
-                                        <rect key="frame" x="16" y="57.666666666666629" width="56" height="31"/>
+                                        <rect key="frame" x="16" y="62.333333333333371" width="59" height="36"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <state key="normal" title="로그아웃">
                                             <color key="titleColor" name="pinkSub"/>
@@ -229,8 +231,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icBtnMore" width="44" height="44"/>
         <image name="icResetMypage" width="44" height="44"/>
-        <image name="icnSetting" width="44" height="44"/>
         <image name="imgMypageUser" width="70" height="70"/>
         <namedColor name="black">
             <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
