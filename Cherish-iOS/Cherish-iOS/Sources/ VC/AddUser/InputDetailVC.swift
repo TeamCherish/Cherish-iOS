@@ -69,7 +69,7 @@ class InputDetailVC: UIViewController {
     }
     
     @IBAction func closeUpToSelectVC(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func touchUpComplete(_ sender: Any) {
