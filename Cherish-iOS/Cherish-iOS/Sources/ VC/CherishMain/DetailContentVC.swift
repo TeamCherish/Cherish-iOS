@@ -41,7 +41,9 @@ class DetailContentVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setCherishPeopleData()
+        if appDel.isCherishAdded == true {
+            setCherishPeopleData()
+        }
     }
     
     
@@ -127,9 +129,9 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     }
                     
                     /// 이미지 url 처리
-                                        let url = URL(string: cherishPeopleData[0].thumbnailImageURL ?? "")
-                                        let imageData = try? Data(contentsOf: url!)
-                                        firstCell.plantImageView.image = UIImage(data: imageData!)
+                    let url = URL(string: cherishPeopleData[0].thumbnailImageURL ?? "")
+                    let imageData = try? Data(contentsOf: url!)
+                    firstCell.plantImageView.image = UIImage(data: imageData!)
                 }
                 
                 // 셀이 한번 이상 눌린 상태
@@ -148,9 +150,9 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     }
                     
                     /// 이미지 url 처리
-                                        let url = URL(string: UserDefaults.standard.string(forKey:"selectedPlantNameData")!)
-                                        let imageData = try? Data(contentsOf: url!)
-                                        firstCell.plantImageView.image = UIImage(data: imageData!)
+                    let url = URL(string: UserDefaults.standard.string(forKey:"selectedPlantNameData")!)
+                    let imageData = try? Data(contentsOf: url!)
+                    firstCell.plantImageView.image = UIImage(data: imageData!)
                     
                 }
             }
@@ -179,10 +181,10 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 
                 /// 이미지 url 처리
                 let url = URL(string: cherishPeopleData[indexPath.row - 1].thumbnailImageURL)
-                                let imageData = try? Data(contentsOf: url!)
-                                cell.cherishPlantImageView.image = UIImage(data: imageData!)
+                let imageData = try? Data(contentsOf: url!)
+                cell.cherishPlantImageView.image = UIImage(data: imageData!)
                 
-
+                
                 if indexPath == selectedIndexPath {
                     cell.cherishPlantImageView.alpha = 0.5
                 } else {
@@ -190,7 +192,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 }
                 return cell
                 
-
+                
             }
             
             return cell
