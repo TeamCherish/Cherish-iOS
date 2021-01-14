@@ -7,14 +7,15 @@
 
 import UIKit
 
-class MainContentVC: UIViewController {
 
+class MainContentVC: UIViewController {
+    
     @IBOutlet var dayCountLabel: UILabel!
     @IBOutlet var plantExplainLabel: CustomLabel!
     @IBOutlet var userNickNameLabel: CustomLabel!
+    @IBOutlet var plantGifView: UIImageView!
     @IBOutlet var plantImageView: UIImageView!
     @IBOutlet var progressbarView: ProgressBarView!
-    @IBOutlet var flowerAnimationImageView: UIImageView!
     @IBOutlet var progressbarBackView: ProgressBarView!
     @IBOutlet var growthPercentLabel: CustomLabel!
     var cherishPeopleData:[ResultData] = []
@@ -24,13 +25,12 @@ class MainContentVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getCherishData()
-        makeAnimation()
         NotificationCenter.default.addObserver(self, selector: #selector(changeBackgroundInfo), name: .cherishPeopleCellClicked, object: nil)
     }
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-
+        
         // cherishPeopleCell이 선택되면 배경뷰의 라벨값, 식물이미지, 배경색을 바꿔준다.
         if appDel.isCherishPeopleCellSelected == true {
             setMainDataViewWillApeear()
@@ -41,7 +41,7 @@ class MainContentVC: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-
+    
     //MARK: - 메인 뷰 데이터 받아오는 함수
     func getCherishData() {
         
@@ -58,13 +58,50 @@ class MainContentVC: UIViewController {
                         growthPercentLabel.text = "\(cherishPeopleData[0].growth)%"
                         customProgressBarView(cherishPeopleData[0].growth)
                         plantExplainLabel.text = cherishPeopleData[0].modifier
+    
+                        /// gif 데이터가 있을 때
+                        if cherishPeopleData[0].gif != "없지롱" {
+                            plantImageView.isHidden = true
+                            plantGifView.isHidden = false
+                            plantGifView.loadGif(name: "real_min")
+                            self.view.backgroundColor = .dandelionBg
+                        }
+                        /// gif 데이터가 없을 때
+                        // 식물 그래픽 이미지로 대체
+                        else {
+                            plantGifView.isHidden = true
+                            plantImageView.isHidden = false
+                            if cherishPeopleData[0].plantName == "민들레" {
+                                plantImageView.image = UIImage(named: "mainImgMin")
+                                self.view.backgroundColor = .dandelionBg
+                            }
+                            else if cherishPeopleData[0].plantName == "단모환" {
+                                plantImageView.image = UIImage(named: "mainImgSun")
+                                self.view.backgroundColor = .cactusBg
+                            }
+                            else if cherishPeopleData[0].plantName == "스투키" {
+                                plantImageView.image = UIImage(named: "mainImgStuki")
+                                self.view.backgroundColor = .stuckyBg
+                            }
+                            else if cherishPeopleData[0].plantName == "아메리칸블루" {
+                                plantImageView.image = UIImage(named: "mainImgAmericanblue")
+                                self.view.backgroundColor = .americanBlueBg
+                            }
+                            else if cherishPeopleData[0].plantName == "로즈마리" {
+                                plantImageView.image = UIImage(named: "mainImgRosemary")
+                                self.view.backgroundColor = .rosemaryBg
+                            }
+                        }
                         
-                        // dDay 값이 0일 때는 D-day가 될 수 있도록
+                        /// dDay 값 파싱 -,+,0
                         if cherishPeopleData[0].dDay == 0 {
-                            dayCountLabel.text = "day"
+                            dayCountLabel.text = "D-day"
+                        }
+                        else if cherishPeopleData[0].dDay < 0 {
+                            dayCountLabel.text = "D+\(-cherishPeopleData[0].dDay)"
                         }
                         else {
-                            dayCountLabel.text = "\(cherishPeopleData[0].dDay)"
+                            dayCountLabel.text = "D-\(cherishPeopleData[0].dDay)"
                         }
                         
                         UserDefaults.standard.set(cherishPeopleData[0].id, forKey: "selectedFriendIdData")
@@ -93,25 +130,70 @@ class MainContentVC: UIViewController {
         self.growthPercentLabel.text = "\(UserDefaults.standard.integer(forKey: "selectedGrowthData"))%"
         self.plantExplainLabel.text = UserDefaults.standard.string(forKey: "selectedModifierData")
         
+        var selectedGif = UserDefaults.standard.string(forKey: "selectedGif")
+        var selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
+        
+        // gif 데이터가 있을 때
+        if selectedGif != "없지롱" {
+            plantImageView.isHidden = true
+            plantGifView.isHidden = false
+            plantGifView.loadGif(name: "real_min")
+            self.view.backgroundColor = .dandelionBg
+        }
+        // gif 데이터가 없을 때
+        // 식물 그래픽 이미지로 대체
+        else {
+            plantImageView.isHidden = false
+            plantGifView.isHidden = true
+            
+            if selectedPlantName == "민들레" {
+                plantImageView.image = UIImage(named: "mainImgMin")
+                self.view.backgroundColor = .dandelionBg
+            }
+            else if selectedPlantName == "단모환" {
+                plantImageView.image = UIImage(named: "mainImgSun")
+                self.view.backgroundColor = .cactusBg
+            }
+            else if selectedPlantName == "스투키" {
+                plantImageView.image = UIImage(named: "mainImgStuki")
+                self.view.backgroundColor = .stuckyBg
+            }
+            else if selectedPlantName == "아메리칸블루" {
+                plantImageView.image = UIImage(named: "mainImgAmericanblue")
+                self.view.backgroundColor = .americanBlueBg
+            }
+            else if selectedPlantName == "로즈마리" {
+                plantImageView.image = UIImage(named: "mainImgRosemary")
+                self.view.backgroundColor = .rosemaryBg
+            }
+        }
+        
+        
+        
+        
+        /// dDay 값 파싱 -,+,0
         if UserDefaults.standard.integer(forKey: "selecteddDayData") == 0 {
-            self.dayCountLabel.text = "day"
+            self.dayCountLabel.text = "D-day"
+        }
+        else if UserDefaults.standard.integer(forKey: "selecteddDayData") < 0 {
+            self.dayCountLabel.text = "D+\(-UserDefaults.standard.integer(forKey: "selecteddDayData"))"
         }
         else {
-            self.dayCountLabel.text = "\(UserDefaults.standard.integer(forKey: "selecteddDayData"))"
+            self.dayCountLabel.text = "D-\(UserDefaults.standard.integer(forKey: "selecteddDayData"))"
         }
     }
     
-    
-    
-    //MARK:- 메인뷰 애니메이션
-    func makeAnimation() {
-        self.flowerAnimationImageView.frame = CGRect(x: 112.33, y: 291.33, width: 56, height: 61.33)
-        
-        UIView.animate(withDuration: 1, delay: 0, options: [.repeat, .autoreverse] , animations: {
-                self.flowerAnimationImageView.frame = CGRect(x: 105, y: 290, width: 56, height: 61.33)
-            }) { (completed) in
-            }
-    }
+//
+//
+//    //MARK:- 메인뷰 애니메이션
+//    func makeAnimation() {
+//        self.flowerAnimationImageView.frame = CGRect(x: 112.33, y: 291.33, width: 56, height: 61.33)
+//
+//        UIView.animate(withDuration: 1, delay: 0, options: [.repeat, .autoreverse] , animations: {
+//            self.flowerAnimationImageView.frame = CGRect(x: 105, y: 290, width: 56, height: 61.33)
+//        }) { (completed) in
+//        }
+//    }
     
     
     //MARK: - 프로그레스바 커스텀
@@ -123,7 +205,7 @@ class MainContentVC: UIViewController {
             progressbarView.setProgressColor(color: .pinkSub)
         }
         else {
-           progressbarView.setProgressColor(color: .seaweed)
+            progressbarView.setProgressColor(color: .seaweed)
         }
         progressbarView.setProgressValue(currentValue: CGFloat(value))
     }
@@ -150,7 +232,7 @@ class MainContentVC: UIViewController {
     
     
     @objc func changeBackgroundInfo() {
-
+        
         //noti 감지 후 view가 reload될 수 있도록 viewWillAppear함수를 호출해준다.
         viewWillAppear(false)
     }

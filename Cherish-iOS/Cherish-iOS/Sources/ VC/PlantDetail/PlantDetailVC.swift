@@ -83,9 +83,7 @@ class PlantDetailVC: UIViewController {
                     plantNicknameLabel.text = plantDetailData.nickname
                     userNameInRoundViewLabel.text = plantDetailData.name
                     plantKindsInRoundViewLabel.text = plantDetailData.plantName
-                    
-                    roundDetailBoxWidth.constant = CGFloat((userNameInRoundViewLabel.text!.count + plantKindsInRoundViewLabel.text!.count) * 11 + 50)
-                    
+                
                     
                     plantdDayLabel.text = "D-\(plantDetailData.dDay)"
                     plantMaintainDayLabel.text = "\(plantDetailData.duration)일째"

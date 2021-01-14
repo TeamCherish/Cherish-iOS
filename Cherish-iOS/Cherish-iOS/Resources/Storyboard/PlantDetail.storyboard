@@ -135,7 +135,6 @@
                                 <rect key="frame" x="129" y="301" width="117" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6Yw-Kh-LTe" secondAttribute="height" multiplier="117:25" id="3XL-eg-fwX"/>
-                                    <constraint firstAttribute="width" constant="117" id="haU-Qk-W6J"/>
                                     <constraint firstAttribute="height" constant="25" id="kjV-fX-AwQ"/>
                                 </constraints>
                             </imageView>
@@ -404,7 +403,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남궁선규" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWU-BJ-jkX" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="142" y="304.66666666666669" width="41.666666666666657" height="18"/>
+                                <rect key="frame" x="142" y="304.66666666666669" width="44.333333333333343" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="Mm1-2X-vex"/>
                                 </constraints>
@@ -417,9 +416,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="스투키" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5s-9O-64H" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="198.66666666666666" y="304.66666666666669" width="31.333333333333343" height="18"/>
+                                <rect key="frame" x="201.33333333333334" y="304.66666666666669" width="33.333333333333343" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="NVg-H7-NIE"/>
                                 </constraints>
@@ -445,7 +443,7 @@
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kbJ-uO-gGc">
-                                <rect key="frame" x="194.33333333333334" y="304" width="1" height="19"/>
+                                <rect key="frame" x="193.33333333333334" y="304" width="1" height="19"/>
                                 <color key="backgroundColor" name="seaweed"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="SMs-XF-Rat"/>
@@ -572,7 +570,6 @@
                         <outlet property="plantMaintainDayLabel" destination="qwM-hX-rnr" id="gxa-Xx-7MB"/>
                         <outlet property="plantNicknameLabel" destination="xQn-1g-fh9" id="hHm-qu-tq6"/>
                         <outlet property="plantdDayLabel" destination="i3Y-fi-6Rt" id="L2w-Jo-m85"/>
-                        <outlet property="roundDetailBoxWidth" destination="haU-Qk-W6J" id="UjO-kK-dKB"/>
                         <outlet property="secondMemoBtn" destination="ZZK-Pz-BPD" id="Pgl-hC-ahn"/>
                         <outlet property="secondMemoDayLabel" destination="YlA-Bj-fgu" id="f3Y-2q-cQd"/>
                         <outlet property="secondMemoTextLabel" destination="meO-3f-sva" id="S46-nS-Dtz"/>
@@ -660,7 +657,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일주일에 물을 1번 씩만 줘도잘 자라나는 식물이에요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gQ-MS-cvU" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                            <rect key="frame" x="-0.3333333333333286" y="216.66666666666666" width="173.66666666666663" height="44.666666666666657"/>
+                                                            <rect key="frame" x="-77.333333333333329" y="216.66666666666666" width="327.66666666666669" height="22.333333333333343"/>
                                                             <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
                                                             <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>

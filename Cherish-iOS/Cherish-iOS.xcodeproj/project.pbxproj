@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3317777825B042C200CC1030 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3317777725B042C200CC1030 /* UIImage+Extension.swift */; };
+		3317778025B0569C00CC1030 /* real_min.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3317777F25B0569C00CC1030 /* real_min.gif */; };
 		33201B1025AE2EBC001A94E4 /* PlantDetailCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33201B0F25AE2EBC001A94E4 /* PlantDetailCardData.swift */; };
 		33201B1525AE419F001A94E4 /* MainSelectedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33201B1425AE419F001A94E4 /* MainSelectedData.swift */; };
 		33201B2225AF3F23001A94E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33201B2125AF3F23001A94E4 /* GoogleService-Info.plist */; };
@@ -124,6 +126,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3317777725B042C200CC1030 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		3317777F25B0569C00CC1030 /* real_min.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = real_min.gif; sourceTree = "<group>"; };
 		3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cherish_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33201B0F25AE2EBC001A94E4 /* PlantDetailCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailCardData.swift; sourceTree = "<group>"; };
 		33201B1425AE419F001A94E4 /* MainSelectedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSelectedData.swift; sourceTree = "<group>"; };
@@ -257,6 +261,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3317777D25B0568600CC1030 /* Gif */ = {
+			isa = PBXGroup;
+			children = (
+				3317777F25B0569C00CC1030 /* real_min.gif */,
+			);
+			path = Gif;
+			sourceTree = "<group>";
+		};
 		332CC7AD25A7015100D0047D /* Mypage */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +370,7 @@
 				33851C8A259A5AE2005BCFFD /* Storyboard */,
 				33851C8B259A5AEE005BCFFD /* APIService */,
 				33D0027125A30E3000E97811 /* LottieAnimationFile */,
+				3317777D25B0568600CC1030 /* Gif */,
 				33851C8C259A5AF6005BCFFD /* Font */,
 			);
 			path = Resources;
@@ -487,6 +500,7 @@
 				548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */,
 				548DF16E25A1B4AB0081FCD1 /* UITextField+Extension.swift */,
 				337A5CBC25A868C000578130 /* UIButton+Extention.swift */,
+				3317777725B042C200CC1030 /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -843,6 +857,7 @@
 				33E874DA25A043F1001F84FE /* Roboto-Black.ttf in Resources */,
 				548DF19625A2E1620081FCD1 /* PopUpLater.storyboard in Resources */,
 				548DF17225A1BB6D0081FCD1 /* PopUpContact.storyboard in Resources */,
+				3317778025B0569C00CC1030 /* real_min.gif in Resources */,
 				33E874CE25A04361001F84FE /* NotoSansCJKkr-Medium.otf in Resources */,
 				548DF17B25A1EE610081FCD1 /* Review.storyboard in Resources */,
 			);
@@ -956,6 +971,7 @@
 				92DCC3DF25A8504F00160523 /* SelectFriendSearchBar.swift in Sources */,
 				33D0026625A3036800E97811 /* PlantDetailPopUpExplainVC.swift in Sources */,
 				546A247325ACD53A00F869E2 /* WateringReviewData.swift in Sources */,
+				3317777825B042C200CC1030 /* UIImage+Extension.swift in Sources */,
 				33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */,
 				332CC7BD25A707BD00D0047D /* MypagePlantData.swift in Sources */,
 				33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */,

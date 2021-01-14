@@ -17,11 +17,13 @@ struct ResultData: Codable{
     let id, dDay: Int
     let nickname, phone: String
     let growth: Int
-    let thumbnailImageURL, modifier: String
+    let thumbnailImageURL, modifier, gif, plantName: String
 
     enum CodingKeys: String, CodingKey {
         case id, dDay, nickname, phone, growth
         case thumbnailImageURL = "thumbnail_image_url"
         case modifier
+        case gif
+        case plantName
     }
 }
