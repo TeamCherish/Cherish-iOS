@@ -43,7 +43,7 @@ class ProgressBarView: UIView {
         let backgroundRect = CGRect(x: 0.0, y: 0.0, width: Double(frame.size.width), height: Double(frame.size.height))
         backgroundImage = UIView(frame: backgroundRect)
         backgroundImage.clipsToBounds = true
-        backgroundImage.backgroundColor = UIColor.yellow
+        backgroundImage.backgroundColor = UIColor.clear
         addSubview(backgroundImage)
 
         //level of progress
