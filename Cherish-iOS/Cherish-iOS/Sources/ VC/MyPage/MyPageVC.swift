@@ -18,6 +18,10 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var mypageNaviView: UIView!
     @IBOutlet var mypageHeaderView: PassthroughView!
     @IBOutlet var stickyHeaderView: UIView!
+    @IBOutlet var userNicknameLabel: UILabel!
+    @IBOutlet var userWateringCountLabel: CustomLabel!
+    @IBOutlet var userWateringPostponeCountLabel: CustomLabel!
+    @IBOutlet var userGrowCompleteCountLabel: CustomLabel!
     @IBOutlet var segmentView: CustomSegmentedControl! {
         didSet {
             segmentView.setButtonTitles(buttonTitles: ["식물 \(mypagePlantCount)", "연락처 \(mypageContactCount)"])
@@ -34,19 +38,19 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var plantContainerTopConstraint: NSLayoutConstraint!
     @IBOutlet var contactContainerTopConstraint: NSLayoutConstraint!
     @IBOutlet var addFloatingBtn: UIButton!
-    @IBOutlet var addFloatingBtn2: UIButton!
     
+    var contactArray:[Friend] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         changeStatusBarBackgroundColor("mypageBackground")
         setImageViewRounded()
+        getMypageData()
         setDelegates()
         setConstraints()
         makeCornerRadiusView(segmentView, 30)
         makeCornerRadiusView(stickyHeaderView, 30)
         addFloatingBtn.isHidden = true
-        addFloatingBtn2.isHidden = true
     }
     
     func setDelegates() {
@@ -87,11 +91,49 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
         floatingBtn.frame = CGRect(x: x, y: y, width: width, height: height)
     }
     
+    //MARK: - 마이페이지 식물 데이터 구성하는 함수
+    func getMypageData() {
+        let myPageUserIdx = UserDefaults.standard.integer(forKey: "userID")
+        MypageService.shared.inquireMypageView(idx: myPageUserIdx) { [self]
+            (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                if let mypageData = data as? MypageData {
+                    userNicknameLabel.text = "\(mypageData.userNickname)의 체리쉬가든"
+                    userWateringCountLabel.text = "\(mypageData.waterCount)"
+                    userWateringPostponeCountLabel.text = "\(mypageData.postponeCount)"
+                    userGrowCompleteCountLabel.text = "\(mypageData.completeCount)"
+                    mypagePlantCount = mypageData.result.count
+                    
+                    // Userdefaults에 저장된 contact 가져오기
+                    if let data = UserDefaults.standard.value(forKey: "userContacts") as? Data {
+                        let contacts = try? PropertyListDecoder().decode([Friend].self, from: data)
+                        
+                        contactArray = contacts!
+                    }
+                    mypageContactCount = contactArray.count
+                    segmentView.setButtonTitles(buttonTitles: ["식물 \(mypagePlantCount)", "연락처 \(mypageContactCount)"])
+                }
+            case .requestErr(let msg):
+                print(msg)
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+            
+        }
+    }
+    
+    //MARK: - 마이페이지 검색뷰로 이동
     @IBAction func moveToMyPageSearch(_ sender: Any) {
         let myPageSearchVC = self.storyboard?.instantiateViewController(identifier: "MyPageSearchVC") as! MyPageSearchVC
-        if self.addFloatingBtn2.isHidden == false {
-            self.navigationController?.pushViewController(myPageSearchVC, animated: true)
-        }
+        
+        myPageSearchVC.modalTransitionStyle = .flipHorizontal
+        myPageSearchVC.modalPresentationStyle = .fullScreen
+        self.present(myPageSearchVC, animated: false, completion: nil)
     }
 }
 
@@ -113,7 +155,7 @@ extension MyPageVC: UIScrollViewDelegate {
         else {
             /// 스크롤 가장 상단이 되었을 때
             let  off = scrollView.contentOffset.y
-
+            
             let d = mypageHeaderView.frame.height - stickyHeaderView.frame.height - 44
             
             if scrollView.contentOffset.y >= d {
@@ -126,10 +168,9 @@ extension MyPageVC: UIScrollViewDelegate {
                     mypageNaviView.backgroundColor = .white
                     changeStatusBarBackgroundColor("white")
                     makeCornerRadiusView(stickyHeaderView,0)
-           
+                    
                     // floatingBtn 띄우기
                     setFloatingBtnOffset(addFloatingBtn, false, 300, off + 580, addFloatingBtn.frame.size.width, addFloatingBtn.frame.size.height)
-                    setFloatingBtnOffset(addFloatingBtn2, false, 300, off + 580, addFloatingBtn2.frame.size.width, addFloatingBtn2.frame.size.height)
                     
                     
                     contactSV.contentOffset.y = d
@@ -144,7 +185,7 @@ extension MyPageVC: UIScrollViewDelegate {
                     
                     // floatingBtn 띄우기
                     setFloatingBtnOffset(addFloatingBtn, false, 300, off + 580, addFloatingBtn.frame.size.width, addFloatingBtn.frame.size.height)
-                    setFloatingBtnOffset(addFloatingBtn2, false, 300, off + 580, addFloatingBtn2.frame.size.width, addFloatingBtn2.frame.size.height)
+
                     
                     plantSV.contentOffset.y = d
                 }
@@ -164,8 +205,7 @@ extension MyPageVC: UIScrollViewDelegate {
                 
                 //floatingBtn hidden!
                 setFloatingBtnOffset(addFloatingBtn, true, 305, off + 580, addFloatingBtn.frame.size.width, addFloatingBtn.frame.size.height)
-                setFloatingBtnOffset(addFloatingBtn2, true, 305, off + 580, addFloatingBtn2.frame.size.width, addFloatingBtn2.frame.size.height)
-               
+                
                 
                 /// scrollView가 원래 자리로 돌아왔을 때
                 if scrollView.contentOffset.y <= 0 {

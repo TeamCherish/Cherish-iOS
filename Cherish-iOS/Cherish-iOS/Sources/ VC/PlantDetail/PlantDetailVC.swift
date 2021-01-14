@@ -39,7 +39,6 @@ class PlantDetailVC: UIViewController {
     @IBOutlet var memoTextFieldHeight: NSLayoutConstraint!
     @IBOutlet var keywordCVTopConstraint: NSLayoutConstraint!
     @IBOutlet var keywordCVBottomConstraint: NSLayoutConstraint!
-    @IBOutlet var roundDetailBoxWidth: NSLayoutConstraint!
     
     var isClicked:Bool = false
     var reviewArray:[Review] = []
@@ -58,7 +57,6 @@ class PlantDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
-        roundDetailBoxWidth.constant = CGFloat((userNameInRoundViewLabel.text!.count + plantKindsInRoundViewLabel.text!.count) * 11 + 30)
     }
     
     //MARK: - NC,TC 속성 정의함수
@@ -83,9 +81,7 @@ class PlantDetailVC: UIViewController {
                     plantNicknameLabel.text = plantDetailData.nickname
                     userNameInRoundViewLabel.text = plantDetailData.name
                     plantKindsInRoundViewLabel.text = plantDetailData.plantName
-                    
-                    roundDetailBoxWidth.constant = CGFloat((userNameInRoundViewLabel.text!.count + plantKindsInRoundViewLabel.text!.count) * 11 + 50)
-                    
+                
                     
                     plantdDayLabel.text = "D-\(plantDetailData.dDay)"
                     plantMaintainDayLabel.text = "\(plantDetailData.duration)일째"

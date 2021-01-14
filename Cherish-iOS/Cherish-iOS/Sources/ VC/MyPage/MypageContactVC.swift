@@ -10,25 +10,24 @@ import UIKit
 class MypageContactVC: UIViewController {
 
     @IBOutlet var mypageContactTV: MyOwnTableView!
-    var mypageContactArray: [MypageContactData] = []
+    var mypageContactArray: [Friend] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.translatesAutoresizingMaskIntoConstraints = false
+        setContactData()
         mypageContactTV.delegate = self
         mypageContactTV.dataSource = self
         mypageContactTV.separatorStyle = .none
-        setPlantData()
     }
     
-    func setPlantData(){
-        
-        mypageContactArray.append(contentsOf: [
-            MypageContactData(imageURL: "mainImgUser2", friendsName: "남궁둥이", friendsContact: "010.0000.0000"),
-            MypageContactData(imageURL: "mainImgUser1", friendsName: "훌렁이", friendsContact: "010.0000.0000"),
-            MypageContactData(imageURL: "mainImgUser4", friendsName: "끈끈이", friendsContact: "010.0000.0000")
-        ])
-        print(mypageContactArray)
+    func setContactData(){
+        if let data = UserDefaults.standard.value(forKey: "userContacts") as? Data {
+            let contacts = try? PropertyListDecoder().decode([Friend].self, from: data)
+
+            mypageContactArray = contacts!
+            print(mypageContactArray)
+        }
     }
 }
 
@@ -41,7 +40,7 @@ extension MypageContactVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MypageContactTVC") as! MypageContactTVC
         
-        cell.setProperties(mypageContactArray[indexPath.row].imageURL, mypageContactArray[indexPath.row].friendsName, mypageContactArray[indexPath.row].friendsContact)
+        cell.setProperties(mypageContactArray[indexPath.row].name, mypageContactArray[indexPath.row].phoneNumber)
         
         return cell
     }

@@ -131,7 +131,8 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     firstCell.eclipseImageView.image = UIImage(named: "ellipse373")
                     firstCell.nickNameLabel.text = UserDefaults.standard.string(forKey:"selectedNickNameData")
                     
-                    if UserDefaults.standard.integer(forKey: "selecteddDayData") == 0 {
+                    /// dDay 값이 1 이하일 때 물아이콘 나타나게
+                    if UserDefaults.standard.integer(forKey: "selecteddDayData") < 1 {
                         firstCell.userWaterImageView.image = UIImage(named: "mainIcUserWater")
                         firstCell.userWaterImageView.isHidden = false
                     }
@@ -159,8 +160,8 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 cell.cherishNickNameLabel.text = cherishPeopleData[indexPath.row - 1].nickname
                 
                 
-                /// dDay 값이 0일 때만 물아이콘 나타나게
-                if cherishPeopleData[indexPath.row - 1].dDay == 0 {
+                /// dDay 값이 1 이하일 때 물아이콘 나타나게
+                if cherishPeopleData[indexPath.row - 1].dDay < 1 {
                     cell.cherishUserWaterImageView.image = UIImage(named: "mainIcUserWater")
                     cell.cherishUserWaterImageView.isHidden = false
                 }
@@ -211,6 +212,8 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].growth, forKey: "selectedGrowthData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].dDay, forKey: "selecteddDayData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].modifier, forKey: "selectedModifierData")
+            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].plantName, forKey: "selectedPlantName")
+            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].gif, forKey: "selectedGif")
             
             
             //선택된 친구의 인덱스 값과 전화번호를 저장해준다
