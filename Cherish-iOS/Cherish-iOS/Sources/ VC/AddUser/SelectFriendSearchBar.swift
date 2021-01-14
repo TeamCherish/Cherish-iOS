@@ -151,7 +151,11 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         //        self.vc.phoneTextField.text = ""
         //        self.vc.nameTextField.text = friendList[indexPath.row].name
         //        self.vc.phoneTextField.text = friendList[indexPath.row].phoneNumber
-        
+        guard let dvc = self.storyboard?.instantiateViewController(identifier: "InputDetailVC") as? InputDetailVC else {
+            return
+        }
+        dvc.name = self.friendList[indexPath.row].name
+        dvc.phoneNumber = self.friendList[indexPath.row].phoneNumber
     }
     
     //MARK: - searchBar delegate
