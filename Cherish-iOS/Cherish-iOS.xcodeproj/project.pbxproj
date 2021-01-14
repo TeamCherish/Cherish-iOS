@@ -121,6 +121,7 @@
 		9244DF1225AB92220014FF5D /* LoadingPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */; };
 		92B0F9D925AEB15400AA411A /* AddUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0F9D825AEB15400AA411A /* AddUserData.swift */; };
 		92B0F9E225AEE41600AA411A /* FetchedContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0F9E125AEE41600AA411A /* FetchedContact.swift */; };
+		92B0FA2C25B0F6A900AA411A /* NoPlantVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0FA2B25B0F6A800AA411A /* NoPlantVC.swift */; };
 		92B2306525A30F390024B8A8 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2306425A30F390024B8A8 /* Friend.swift */; };
 		92DCC3DF25A8504F00160523 /* SelectFriendSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DCC3DE25A8504F00160523 /* SelectFriendSearchBar.swift */; };
 		92DCC3E525A85D1D00160523 /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */; };
@@ -246,6 +247,7 @@
 		9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPopUpVC.swift; sourceTree = "<group>"; };
 		92B0F9D825AEB15400AA411A /* AddUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserData.swift; sourceTree = "<group>"; };
 		92B0F9E125AEE41600AA411A /* FetchedContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedContact.swift; sourceTree = "<group>"; };
+		92B0FA2B25B0F6A800AA411A /* NoPlantVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPlantVC.swift; sourceTree = "<group>"; };
 		92B2306425A30F390024B8A8 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		92DCC3DE25A8504F00160523 /* SelectFriendSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendSearchBar.swift; sourceTree = "<group>"; };
 		92DCC3E825A85D7100160523 /* SelectFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendCell.swift; sourceTree = "<group>"; };
@@ -742,6 +744,7 @@
 				92DCC3DE25A8504F00160523 /* SelectFriendSearchBar.swift */,
 				9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */,
 				9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */,
+				92B0FA2B25B0F6A800AA411A /* NoPlantVC.swift */,
 			);
 			path = AddUser;
 			sourceTree = "<group>";
@@ -985,6 +988,7 @@
 				33E8750425A04D1E001F84FE /* CustomLabel.swift in Sources */,
 				33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */,
 				33201B1525AE419F001A94E4 /* MainSelectedData.swift in Sources */,
+				92B0FA2C25B0F6A900AA411A /* NoPlantVC.swift in Sources */,
 				33E8753525A07A7F001F84FE /* CherishPeopleCVC.swift in Sources */,
 				3317778625B0916800CC1030 /* MypageService.swift in Sources */,
 				5478347225AC75950021C32B /* WateringDayData.swift in Sources */,

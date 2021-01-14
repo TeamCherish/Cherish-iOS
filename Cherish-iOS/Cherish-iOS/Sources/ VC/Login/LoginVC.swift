@@ -227,6 +227,13 @@ class LoginVC: UIViewController {
         }
     }
     
+    func goToNoPlantView() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(identifier: "NoPlantVC") as? NoPlantVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     
     //MARK: - 로그인 버튼 눌렀을 때
     @IBAction func touchUpToLogin(_ sender: UIButton) {
@@ -263,6 +270,7 @@ class LoginVC: UIViewController {
                                 else {
                                     makeCherishContacts()
                                     //처음 서현이 뷰로 이동
+                                    goToNoPlantView()
                                 }
                             }
                         case .requestErr(let msg):
