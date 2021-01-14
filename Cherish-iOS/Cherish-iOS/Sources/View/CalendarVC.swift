@@ -180,14 +180,14 @@ class CalendarVC: UIViewController {
     /// 메모->캘린더 이동시 해당 메모가 작성된 날짜 및 메모를 불러오기
     func memoMode() {
         calendarOrigin.reloadData()
-        print("메캘메캘메캘메캘"+"\(memoToCalendarDate ?? "2020-12-26")")
+//        print("메캘메캘메캘메캘"+"\(memoToCalendarDate ?? "2020-12-26")")
         calendarOrigin.select(formatter.date(from: memoToCalendarDate ?? "2020-12-26"), scrollToDate: true)
         for i in 0...(fetchCalendar.count - 1) {
             if memoToCalendarDate == fetchCalendar[i].waterDate{
                 memoShowView.isHidden = false
                 formatter.dateFormat = "yyyy-MM-dd"
                 memoToCalendarDateTemp = formatter.date(from: fetchCalendar[i].waterDate)
-                print("메캘메캘메캘메캘"+"\(memoToCalendarDateTemp)!")
+//                print("메캘메캘메캘메캘"+"\(memoToCalendarDateTemp)!")
                 formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
                 memoDateLabel.text = formatter.string(from: memoToCalendarDateTemp!)
                 memoTextLabel.text = fetchCalendar[i].review
@@ -336,6 +336,7 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
                 memoDateLabel.text = formatter.string(from: date)
                 memoTextLabel.text = fetchCalendar[i].review
                 n = i
+                keywordForCV = []
                 calendarKeywordCollectionView.delegate = self
                 calendarKeywordCollectionView.dataSource = self
                 break
