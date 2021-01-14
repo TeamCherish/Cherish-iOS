@@ -194,7 +194,7 @@ class LoginVC: UIViewController {
                 ])
             }
             
-            print(cherishContacts)
+            
             
             UserDefaults.standard.set(try? PropertyListEncoder().encode(cherishContacts), forKey: "userContacts")
             
@@ -237,6 +237,7 @@ class LoginVC: UIViewController {
             case .success(let data):
                 if let loginData = data as? LoginData {
                     UserDefaults.standard.set(loginData.userID, forKey: "userID")
+                    print(UserDefaults.standard.integer(forKey: "userID"))
                     UserDefaults.standard.set(loginData.userNickname, forKey: "UserNickname")
                     
                     // 로그인 성공 시

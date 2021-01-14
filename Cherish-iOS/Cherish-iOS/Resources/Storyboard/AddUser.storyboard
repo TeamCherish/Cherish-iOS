@@ -463,10 +463,13 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGw-cS-dGP">
                                 <rect key="frame" x="16" y="697" width="343" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="CPw-7U-BPG"/>
-                                    <constraint firstAttribute="width" secondItem="NGw-cS-dGP" secondAttribute="height" multiplier="343:48" id="pnU-gD-dZG"/>
+                                    <constraint firstAttribute="width" secondItem="NGw-cS-dGP" secondAttribute="height" multiplier="343:48" id="2fZ-MH-s3O"/>
+                                    <constraint firstAttribute="height" constant="48" id="oLz-xa-mlb"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="btn_final_selected"/>
+                                <connections>
+                                    <action selector="startToMain:" destination="U4Q-xe-IxR" eventType="touchUpInside" id="4JB-Ul-JOF"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작하기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkt-AC-Xb1" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                 <rect key="frame" x="158" y="709" width="59" height="24"/>
@@ -511,11 +514,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NJ-4w-ATg" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="94" y="137" width="187" height="83"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="2NJ-4w-ATg" secondAttribute="height" multiplier="187:83" id="dix-oQ-xu0"/>
-                                    <constraint firstAttribute="height" constant="83" id="wi6-ta-kIy"/>
-                                </constraints>
+                                <rect key="frame" x="94.333333333333329" y="137" width="186.66666666666669" height="83"/>
                                 <string key="text">혼자서도 씩씩한
 따뜻한 민들레</string>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Light" family="Noto Sans CJK KR" pointSize="28"/>
@@ -530,22 +529,21 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_graphic" translatesAutoresizingMaskIntoConstraints="NO" id="vNJ-hM-Br7">
                                 <rect key="frame" x="27.666666666666657" y="233" width="320" height="347"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="vNJ-hM-Br7" secondAttribute="height" multiplier="320:347" id="ck7-DO-oOe"/>
-                                    <constraint firstAttribute="height" constant="347" id="rmT-Za-Tac"/>
+                                    <constraint firstAttribute="width" secondItem="vNJ-hM-Br7" secondAttribute="height" multiplier="320:347" id="31k-GZ-R37"/>
+                                    <constraint firstAttribute="height" constant="347" id="wsT-Sx-vwM"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plant_tip_box" translatesAutoresizingMaskIntoConstraints="NO" id="hpQ-4q-TKy">
                                 <rect key="frame" x="132.66666666666666" y="564" width="110" height="27"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="hpQ-4q-TKy" secondAttribute="height" multiplier="110:27" id="OG9-XG-rGR"/>
-                                    <constraint firstAttribute="height" constant="27" id="hE8-mN-59b"/>
+                                    <constraint firstAttribute="width" secondItem="hpQ-4q-TKy" secondAttribute="height" multiplier="110:27" id="FjF-CS-8tK"/>
+                                    <constraint firstAttribute="height" constant="27" id="oJJ-PJ-Bg3"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeJ-TW-ozj" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                 <rect key="frame" x="34.666666666666657" y="603" width="306" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="oeJ-TW-ozj" secondAttribute="height" multiplier="153:22" id="4SS-Jy-Mhq"/>
-                                    <constraint firstAttribute="height" constant="44" id="4Sv-Km-5eh"/>
+                                    <constraint firstAttribute="height" constant="44" id="h8j-i6-bue"/>
                                 </constraints>
                                 <string key="text">한달에 한번이지만 홀씨가 있어서 어디론가 정착을 
 감성적으로 주기와 관계를 연결짓는 문장이 필요하다?</string>
@@ -559,10 +557,10 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1달에 1번 물주기" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vQ-e9-edS" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="140.66666666666666" y="567" width="94" height="20"/>
+                                <rect key="frame" x="141" y="567" width="93" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="KFK-gN-FS6"/>
-                                    <constraint firstAttribute="width" secondItem="1vQ-e9-edS" secondAttribute="height" multiplier="47:10" id="TiZ-rC-Kwy"/>
+                                    <constraint firstAttribute="width" secondItem="1vQ-e9-edS" secondAttribute="height" multiplier="93:20" id="OwX-yF-nGX"/>
+                                    <constraint firstAttribute="height" constant="20" id="oXh-Ru-Ybv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
                                 <color key="textColor" red="0.50588235294117645" green="0.53725490196078429" blue="0.70196078431372544" alpha="0.90450059499172186" colorSpace="calibratedRGB"/>
@@ -577,26 +575,31 @@
                         <viewLayoutGuide key="safeArea" id="uOL-H4-J9L"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="hpQ-4q-TKy" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="0Mv-gf-sa4"/>
+                            <constraint firstItem="hpQ-4q-TKy" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="03l-ha-3W1"/>
+                            <constraint firstItem="1vQ-e9-edS" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="1Tu-al-VQP"/>
                             <constraint firstItem="Mkt-AC-Xb1" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="2M0-eo-O2r"/>
-                            <constraint firstItem="vNJ-hM-Br7" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="2dw-li-Q77"/>
                             <constraint firstItem="PkQ-rQ-mSl" firstAttribute="trailing" secondItem="uOL-H4-J9L" secondAttribute="trailing" id="4JC-Ss-7Z2"/>
-                            <constraint firstItem="NGw-cS-dGP" firstAttribute="top" secondItem="oeJ-TW-ozj" secondAttribute="bottom" constant="50" id="YOw-g8-Ces"/>
-                            <constraint firstItem="uOL-H4-J9L" firstAttribute="trailing" secondItem="NGw-cS-dGP" secondAttribute="trailing" constant="16" id="ZA9-oi-Nye"/>
-                            <constraint firstItem="oeJ-TW-ozj" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="aa2-ih-fev"/>
-                            <constraint firstItem="uOL-H4-J9L" firstAttribute="bottom" secondItem="NGw-cS-dGP" secondAttribute="bottom" constant="33" id="d6E-Q1-hv1"/>
-                            <constraint firstItem="oeJ-TW-ozj" firstAttribute="top" secondItem="hpQ-4q-TKy" secondAttribute="bottom" constant="12" id="f3o-6b-loe"/>
-                            <constraint firstItem="NGw-cS-dGP" firstAttribute="leading" secondItem="uOL-H4-J9L" secondAttribute="leading" constant="16" id="hhv-Sk-92D"/>
+                            <constraint firstItem="oeJ-TW-ozj" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="6QW-r4-c3T"/>
+                            <constraint firstItem="NGw-cS-dGP" firstAttribute="top" secondItem="oeJ-TW-ozj" secondAttribute="bottom" constant="50" id="K4g-Kc-thA"/>
+                            <constraint firstItem="2NJ-4w-ATg" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="LFB-rC-sHD"/>
+                            <constraint firstItem="2NJ-4w-ATg" firstAttribute="top" secondItem="PkQ-rQ-mSl" secondAttribute="bottom" constant="49" id="N75-oy-v8C"/>
+                            <constraint firstItem="uOL-H4-J9L" firstAttribute="bottom" secondItem="NGw-cS-dGP" secondAttribute="bottom" constant="33" id="NZs-Qc-7m1"/>
+                            <constraint firstItem="oeJ-TW-ozj" firstAttribute="top" secondItem="1vQ-e9-edS" secondAttribute="bottom" constant="16" id="Viy-39-IUt"/>
+                            <constraint firstItem="vNJ-hM-Br7" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="dU0-DD-BX7"/>
+                            <constraint firstItem="vNJ-hM-Br7" firstAttribute="top" secondItem="2NJ-4w-ATg" secondAttribute="bottom" constant="13" id="ewG-1p-RMx"/>
+                            <constraint firstItem="NGw-cS-dGP" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="ghP-35-6Be"/>
                             <constraint firstItem="PkQ-rQ-mSl" firstAttribute="top" secondItem="uOL-H4-J9L" secondAttribute="top" id="hlZ-5s-6vV"/>
-                            <constraint firstItem="2NJ-4w-ATg" firstAttribute="top" secondItem="PkQ-rQ-mSl" secondAttribute="bottom" constant="49" id="iPb-pr-3HZ"/>
                             <constraint firstItem="PkQ-rQ-mSl" firstAttribute="leading" secondItem="uOL-H4-J9L" secondAttribute="leading" id="lRn-6B-5Jk"/>
-                            <constraint firstItem="1vQ-e9-edS" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="qSA-IS-qhk"/>
-                            <constraint firstItem="oeJ-TW-ozj" firstAttribute="top" secondItem="1vQ-e9-edS" secondAttribute="bottom" constant="16" id="tBM-Pk-4yZ"/>
-                            <constraint firstItem="2NJ-4w-ATg" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="uqv-mR-60N"/>
+                            <constraint firstItem="oeJ-TW-ozj" firstAttribute="top" secondItem="hpQ-4q-TKy" secondAttribute="bottom" constant="12" id="vg8-pa-Q2V"/>
                             <constraint firstItem="uOL-H4-J9L" firstAttribute="bottom" secondItem="Mkt-AC-Xb1" secondAttribute="bottom" constant="45" id="wtT-wn-UTh"/>
-                            <constraint firstItem="vNJ-hM-Br7" firstAttribute="top" secondItem="2NJ-4w-ATg" secondAttribute="bottom" constant="13" id="zBm-cM-JtY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="explanationLabel" destination="oeJ-TW-ozj" id="DwT-rG-8X1"/>
+                        <outlet property="modifierLabel" destination="2NJ-4w-ATg" id="T9W-H9-Mbv"/>
+                        <outlet property="resultPeriodLabel" destination="1vQ-e9-edS" id="ao7-9x-c2r"/>
+                        <outlet property="resultPlantImgView" destination="vNJ-hM-Br7" id="bkS-Yh-bGQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S4e-xn-2vt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

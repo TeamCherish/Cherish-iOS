@@ -216,7 +216,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             //선택된 친구의 인덱스 값과 전화번호를 저장해준다
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].id, forKey: "selectedFriendIdData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].phone, forKey: "selectedFriendPhoneData")
-            print(UserDefaults.standard.string(forKey: "selectedFriendPhoneData")!)
             
             UIView.performWithoutAnimation {
                 selectedIndexPath = indexPath

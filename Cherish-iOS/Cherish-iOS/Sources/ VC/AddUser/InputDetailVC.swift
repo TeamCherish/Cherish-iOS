@@ -24,34 +24,31 @@ class InputDetailVC: UIViewController {
     
     //MARK: - 변수 지정
     
-    var name: String?
-    var phoneNumber: String?
+//    var name: String?
+//    var phoneNumber: String?
     
     let datePicker = UIDatePicker()
     var periodPicker = UIPickerView()
-    
     let num = ["1", "2", "3"]
     let period = ["day", "week", "month"]
-    
     var receiveItem = ""
-    
     var cycle_date = 0
-    
     var givenName: String?
     var givenPhoneNumber: String?
+    var resultPeriod: String?
     
     //MARK: - viewDidLoad()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         completeBtn.isEnabled = false
+        setTextField()
         setSwitch()
         textFieldBackgroundImage()
         textFieldPadding()
         createPicker()
         periodPicker.delegate = self
         periodPicker.dataSource = self
-        setTextField()
     }
     
     
@@ -80,37 +77,43 @@ class InputDetailVC: UIViewController {
               let nicknameText = nicknameTextField.text,
               let birthText = birthTextField.text,
               let phonenumberText = phoneTextField.text,
-              let periodText = alarmPeriodTextField.text,
-              let timeText = alarmPeriodTextField.text else { return }
+              let timeText = alarmTimeTextField.text,
+              let periodText = alarmPeriodTextField.text else { return }
         let alarmState = stateSwitch.isOn
-
-        AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: timeText, water_notice_: alarmState, UserId: 6){ (networkResult) -> (Void) in
-            switch networkResult {
-            case .success(_):
-                print("성공")
-            case .requestErr(_):
-                print("필요한 내용이 모두 입력되지 않았습니다")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
-            }
-        }
-
+        
+        print("하잉")
+        
         if completeBtn.isEnabled == true {
-            guard let loadingVC = self.storyboard?.instantiateViewController(identifier: "LoadingPopUpVC") else {
-                return
+//            guard let loadingVC = self.storyboard?.instantiateViewController(identifier: "LoadingPopUpVC") as? LoadingPopUpVC else { return }
+            guard let resultVC = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else { return }
+
+            AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: periodText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")) { (networkResult) -> (Void) in
+                switch networkResult {
+                case .success(let data):
+
+                    if let resultData = data as? AddUserData {
+                        
+                        resultVC.modifier = resultData.plant.modifier
+                        resultVC.explanation = resultData.plant.explanation
+                        
+                        DispatchQueue.main.async {
+                            resultVC.modifier = resultData.plant.modifier
+                            resultVC.explanation = resultData.plant.explanation
+                            NotificationCenter.default.post(name: .sendPlantResult, object: nil)
+                        }
+                        resultVC.resultPeriodLabel.text = self.resultPeriod
+                    }
+                case .requestErr(_):
+                    print("requesetErr")
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
             }
-            guard let resultVC = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") else {
-                return
-            }
-            UIView.animate(withDuration: 1.0, animations: {
-                self.present(loadingVC, animated: true, completion: nil)
-            }) {finished in
-                self.present(resultVC, animated: true, completion: nil)
-            }
+            self.navigationController?.pushViewController(resultVC, animated: true)
         }
     }
     
@@ -118,10 +121,11 @@ class InputDetailVC: UIViewController {
     //MARK: - 함수 모음
     
     func setTextField() {
-        if let givenName = self.givenName,
-           let givenPhoneNumber = self.givenPhoneNumber {
-            self.nameTextField.text = givenName
-            self.phoneTextField.text = givenPhoneNumber
+        if let name = self.givenName,
+           let phoneNumber = self.givenPhoneNumber {
+            print("맞지??")
+            self.nameTextField.text = name
+            self.phoneTextField.text = phoneNumber
         }
     }
     
@@ -134,21 +138,21 @@ class InputDetailVC: UIViewController {
     
     //MARK: - 텍스트필드 값 다 채워지면 완료 버튼 enable
     func enableCompleteBtn() {
-//        let nameEmpty = nameTextField.text?.isEmpty
+        let nameEmpty = nameTextField.text?.isEmpty
         let nicknameEmpty = nicknameTextField.text?.isEmpty
         let birthEmpty = birthTextField.text?.isEmpty
-//        let phoneEmpty = phoneTextField.text?.isEmpty
+        let phoneEmpty = phoneTextField.text?.isEmpty
         let alarmPeriodEmpty = alarmPeriodTextField.text?.isEmpty
         let alarmTimeEmpty = alarmTimeTextField.text?.isEmpty
         
         switch stateSwitch.isOn {
         case true:
-            if (nicknameEmpty==false) && (birthEmpty==false) && (alarmTimeEmpty==false) && (alarmPeriodEmpty==false){
+            if (nameEmpty==false) && (nicknameEmpty==false) && (birthEmpty==false) && (phoneEmpty==false) && (alarmTimeEmpty==false) && (alarmPeriodEmpty==false){
                 completeBtn.isEnabled = true
                 self.completeLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
             }
         case false:
-            if (nicknameEmpty==false) && (birthEmpty==false) && (alarmTimeEmpty==false) {
+            if (nameEmpty==false) && (nicknameEmpty==false) && (birthEmpty==false) && (phoneEmpty==false) && (alarmTimeEmpty==false) {
                 completeBtn.isEnabled = true
                 self.completeLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
             }
@@ -254,7 +258,7 @@ class InputDetailVC: UIViewController {
 }
 
 //MARK: - PickerView DataSource, Delegate
-    ///pickerView 여러개에 대해 각각 datasource 수정ㅎ려면 어떡해야돼??
+    ///pickerView 여러개에 대해 각각 datasource 수정ㅎ려면 어떡해야돼?? -> 분기처리
 extension InputDetailVC: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         3
@@ -290,17 +294,44 @@ extension InputDetailVC: UIPickerViewDelegate {
         
         switch realPeriod {
         case "day":
-            if realNum == "1" {self.cycle_date = 1}
-            else if realNum == "2" {self.cycle_date = 2}
-            else if realNum == "3" {self.cycle_date = 3}
+            if realNum == "1" {
+                self.cycle_date = 1
+                self.resultPeriod = "1일에 1번 물주기"
+            }
+            else if realNum == "2" {
+                self.cycle_date = 2
+                self.resultPeriod = "2일에 1번 물주기"
+            }
+            else if realNum == "3" {
+                self.cycle_date = 3
+                self.resultPeriod = "3일에 1번 물주기"
+            }
         case "week":
-            if realNum == "1" {self.cycle_date = 7}
-            else if realNum == "2" {self.cycle_date = 14}
-            else if realNum == "3" {self.cycle_date = 21}
+            if realNum == "1" {
+                self.cycle_date = 7
+                self.resultPeriod = "1주에 1번 물주기"
+            }
+            else if realNum == "2" {
+                self.cycle_date = 14
+                self.resultPeriod = "2주에 1번 물주기"
+            }
+            else if realNum == "3" {
+                self.cycle_date = 21
+                self.resultPeriod = "3주에 1번 물주기"
+            }
         case "month":
-            if realNum == "1" {self.cycle_date = 30}
-            else if realNum == "2" {self.cycle_date = 60}
-            else if realNum == "3" {self.cycle_date = 90}
+            if realNum == "1" {
+                self.cycle_date = 30
+                self.resultPeriod = "1달에 1번 물주기"
+            }
+            else if realNum == "2" {
+                self.cycle_date = 60
+                self.resultPeriod = "2달에 1번 물주기"
+            }
+            else if realNum == "3" {
+                self.cycle_date = 90
+                self.resultPeriod = "3달에 1번 물주기"
+            }
         default:
             self.cycle_date = 0
         }

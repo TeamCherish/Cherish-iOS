@@ -13,4 +13,5 @@ extension Notification.Name {
     static let notchMinimum = Notification.Name("notchMinimum")
     static let notchMedium = Notification.Name("notchMedium")
     static let notchMaximum = Notification.Name("notchMaximum")
+    static let sendPlantResult = Notification.Name("sendPlantResult")
 }

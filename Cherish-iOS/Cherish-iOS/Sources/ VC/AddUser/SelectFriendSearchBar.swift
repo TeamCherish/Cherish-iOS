@@ -18,6 +18,8 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     
     var friendList: [Friend] = []
     
+    var index: Int = 0
+    
     private var selectedFriend: Int? {
         didSet {
             tableView.reloadData()
@@ -35,7 +37,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     var nameTextFrom: String = ""
     var phoneNumFrom: String = ""
     
-    let vc = InputDetailVC()
+//    let vc = InputDetailVC()
     
     var fetchedName: [String] = []
     var fetchedPhoneNumber: [String] = []
@@ -70,10 +72,18 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     }
     @IBAction func touchUpNextBtn(_ sender: Any) {
         if nextBtn.isEnabled == true {
-            guard let dvc = self.storyboard?.instantiateViewController(identifier: "InputDetailVC") else {
-                return
-            }
-            self.present(dvc, animated: true, completion: nil)
+//            guard let dvc = self.storyboard?.instantiateViewController(identifier: "InputDetailVC") else {
+//                return
+//            }
+//
+
+            guard let dvc = self.storyboard?.instantiateViewController(identifier: "InputDetailVC") as? InputDetailVC else {return}
+            print("이게 먼저야")
+            dvc.givenName = friendList[index].name
+            dvc.givenPhoneNumber = friendList[index].phoneNumber
+            
+            dvc.modalPresentationStyle = .fullScreen
+            self.navigationController?.pushViewController(dvc, animated: true)
         }
     }
         
@@ -82,7 +92,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
             let contacts = try? PropertyListDecoder().decode([Friend].self, from: data)
 
             friendList = contacts!
-            print(friendList)
+//            print(friendList)
             
         }
     }
@@ -131,6 +141,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath)
+            cell.selectionStyle = .none
             return cell
         }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: radioButton, for: indexPath) as? SelectFriendCell else { fatalError("Cell Not Found") }
@@ -146,16 +157,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         updateSelectedIndex(indexPath.row)
-        // 1차 세미나
-        //        self.vc.nameTextField.text = ""
-        //        self.vc.phoneTextField.text = ""
-        //        self.vc.nameTextField.text = friendList[indexPath.row].name
-        //        self.vc.phoneTextField.text = friendList[indexPath.row].phoneNumber
-        guard let dvc = self.storyboard?.instantiateViewController(identifier: "InputDetailVC") as? InputDetailVC else {
-            return
-        }
-        dvc.name = self.friendList[indexPath.row].name
-        dvc.phoneNumber = self.friendList[indexPath.row].phoneNumber
+        index = indexPath.row
     }
     
     //MARK: - searchBar delegate
