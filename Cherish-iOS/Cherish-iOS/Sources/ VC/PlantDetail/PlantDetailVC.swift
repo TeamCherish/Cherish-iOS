@@ -181,13 +181,26 @@ class PlantDetailVC: UIViewController {
                         let sec_month = monthdateFormatter.string(for: sec_m)
                         let sec_day = daydateFormatter.string(for: sec_d)
                         
-                        // 첫번째 메모데이터를 할당
+                        // 첫번째 메모 날짜 및 메모데이터를 할당
                         firstMemoDayLabel.text = month! + "/" + day!
-                        firstMemoTextLabel.text = reviewArray[0].review
-                        // 두번째 메모데이터를 할당
+                        if reviewArray[0].review == "" {
+                            
+                            firstMemoTextLabel.text = "메모를 입력하지 않았어요!"
+                        }
+                        else {
+                            
+                            firstMemoTextLabel.text = "\(reviewArray[0].review)"
+                        }
+                        // 두번째 메모 날짜 및 메모데이터를 할당
                         secondMemoDayLabel.text = sec_month! + "/" + sec_day!
-                        secondMemoTextLabel.text = reviewArray[1].review
-                        
+                        if reviewArray[1].review == "" {
+                            
+                            secondMemoTextLabel.text = "메모를 입력하지 않았어요!"
+                        }
+                        else {
+                            
+                            secondMemoTextLabel.text = "\(reviewArray[1].review)"
+                        }
                     }
                     keywordCV.reloadData()
                 }
@@ -317,8 +330,6 @@ class PlantDetailVC: UIViewController {
                 vc.memoToCalendarDate = reviewArray[0].waterDate
                 print(reviewArray[0].waterDate)
             }
-            /// 메모 클릭 시 주간모드
-            //delegate?.forCalendarStatus(cal_status: "memo")
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -333,8 +344,6 @@ class PlantDetailVC: UIViewController {
                 vc.memoToCalendarDate = reviewArray[1].waterDate
                 print("두번째 메모 연결버튼"+reviewArray[1].waterDate)
             }
-            /// 메모 클릭 시 주간 모드
-            //delegate?.forCalendarStatus(cal_status: "memo")
             self.navigationController?.pushViewController(vc, animated: true)
             
         }

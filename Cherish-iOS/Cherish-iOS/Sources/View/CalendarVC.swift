@@ -16,6 +16,8 @@ class CalendarVC: UIViewController {
     var n : Int = 0
     var memoToCalendarDate: String?
     var memoToCalendarDateTemp: Date?
+    var memoToEditDate: String?
+    var memoToEditDateTemp: Date?
     var keywordForCV : [String] = []
     //    var delegate: SendViewControllerDelegate?
     let formatter = DateFormatter()
@@ -101,8 +103,6 @@ class CalendarVC: UIViewController {
             memoBtnstatus = false
             memoBtn.setImage(UIImage(named: "icUpCalendar"), for: .normal)
             weekCalendar()
-            /// 확장 가능하게 우선순위 낮춤
-            //            memoTextLabelHeight.priority = .defaultLow
         }else{
             memoBtnstatus = true
             memoBtn.setImage(UIImage(named: "icDownCalendar"), for: .normal)
@@ -114,8 +114,13 @@ class CalendarVC: UIViewController {
         if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewEditVC") as? ReviewEditVC {
             //            delegate?.deliveryKeyword(memoText: memoTextLabel.text ?? "")
             vc.space = memoTextLabel.text
-            //            vc.edit_keyword = keyword[n]
-            
+            vc.edit_keyword = keywordForCV
+            vc.dateForServer = memoToCalendarDate
+            formatter.dateFormat = "yyyy-MM-dd"
+            memoToEditDateTemp = formatter.date(from: memoToCalendarDate!)
+            formatter.dateFormat = "yyyy년 MM월 dd일"
+            memoToEditDate = formatter.string(from: memoToEditDateTemp!)
+            vc.edit_date = memoToEditDate
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -143,6 +148,8 @@ class CalendarVC: UIViewController {
             monthCalendar()
         }else{
             weekCalendar()
+            memoBtnstatus = false
+            memoBtn.setImage(UIImage(named: "icUpCalendar"), for: .normal)
         }
     }
     
@@ -336,12 +343,10 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
                 memoShowView.isHidden = true
             }
         }
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
-//
-//        }
         
         /// 키워드 미입력 시
-        if fetchCalendar[n].keyword1 == "" && fetchCalendar[n].keyword2 == "" && fetchCalendar[n].keyword3 == ""{
+        if keywordForCV.count == 0 {
+            print("keyword mip")
             calendarKeywordCollectionView.isHidden = true
             keywordCVTopAnchor.constant = 0
         }else{
@@ -350,6 +355,7 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
         }
         /// 메모 미입력 시
         if fetchCalendar[n].review.count < 1 || fetchCalendar[n].review == "" {
+            print("memo mip")
             keywordCVBotAnchor.constant = 0
             memoTextLabel.isHidden = true
         }else{
@@ -358,7 +364,8 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
         }
         
         /// 키워드,메모 미입력 시
-        if fetchCalendar[n].review.count < 1 && fetchCalendar[n].keyword1 == "" && fetchCalendar[n].keyword2 == "" && fetchCalendar[n].keyword3 == "" {
+        if (fetchCalendar[n].review.count < 1 || fetchCalendar[n].review == "") && keywordForCV.count == 0  {
+            print("keword,memo mip")
             memoBtnTopAnchor.constant = 22
             memoBtn.isHidden = true
         }else{
@@ -393,7 +400,7 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarKeywordCVCell.identifier, for: indexPath) as? CalendarKeywordCVCell else{
             return UICollectionViewCell()
         }
-       
+        
         cell.calendarKeywordLabel.text = keywordForCV[indexPath.row]
         return cell
     }

@@ -466,6 +466,9 @@
                                                 <real key="value" value="-0.69999999999999996"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="completeEdit:" destination="e1i-d9-1B3" eventType="touchUpInside" id="Dbm-Mx-ClD"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>

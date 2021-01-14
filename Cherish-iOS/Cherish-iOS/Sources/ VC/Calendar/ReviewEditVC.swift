@@ -10,6 +10,8 @@ import UIKit
 class ReviewEditVC: UIViewController{
     var space: String?
     var edit_keyword = [String]() /// 키워드 배열
+    var edit_date : String?
+    var dateForServer : String?
     
     @IBOutlet weak var editMemoDateLabel: CustomLabel!
     @IBOutlet weak var keywordTextField: UITextField!{
@@ -114,6 +116,7 @@ class ReviewEditVC: UIViewController{
     func loadMemo(){
         memoTextView.text = space
         memoCountingLabel.text = "\(String(memoTextView.text.count))"+"/"
+        editMemoDateLabel.text = edit_date
     }
     ///Alert
     func nomoreKeyword(title: String, message: String) {
@@ -125,6 +128,30 @@ class ReviewEditVC: UIViewController{
         }
         alert.addAction(okAction)
         present(alert, animated: true)
+    }
+    
+    func loginAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인",style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+
+    @IBAction func completeEdit(_ sender: Any) {
+        CalendarService.shared.reviewEdit(CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), water_date: dateForServer!, review: memoTextView.text, keyword1: edit_keyword[0], keyword2: edit_keyword[1], keyword3: edit_keyword[2]) { (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(_):
+                print("success")
+            case .requestErr(_):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
 }
 
