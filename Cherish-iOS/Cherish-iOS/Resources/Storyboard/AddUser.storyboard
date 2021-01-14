@@ -439,9 +439,10 @@
                         <viewLayoutGuide key="safeArea" id="jXo-Nd-sII"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="43R-OA-30D" firstAttribute="top" secondItem="jXo-Nd-sII" secondAttribute="top" constant="307" id="BJ9-6S-kgf"/>
-                            <constraint firstItem="8iK-Tr-46O" firstAttribute="top" secondItem="43R-OA-30D" secondAttribute="bottom" constant="22" id="EFd-3j-OxV"/>
-                            <constraint firstItem="jPo-gd-AmE" firstAttribute="top" secondItem="jXo-Nd-sII" secondAttribute="top" constant="254" id="hfI-7t-rmR"/>
+                            <constraint firstItem="43R-OA-30D" firstAttribute="top" secondItem="jXo-Nd-sII" secondAttribute="top" constant="307" id="Aeo-w4-zf0"/>
+                            <constraint firstItem="jXo-Nd-sII" firstAttribute="bottom" secondItem="8iK-Tr-46O" secondAttribute="bottom" constant="305" id="LgL-Ld-2AF"/>
+                            <constraint firstItem="8iK-Tr-46O" firstAttribute="top" secondItem="43R-OA-30D" secondAttribute="bottom" constant="22" id="MA4-bc-Xtu"/>
+                            <constraint firstItem="jXo-Nd-sII" firstAttribute="bottom" secondItem="jPo-gd-AmE" secondAttribute="bottom" constant="267" id="flM-QZ-XMS"/>
                             <constraint firstItem="8iK-Tr-46O" firstAttribute="centerX" secondItem="v9n-1b-rIm" secondAttribute="centerX" id="nIp-UW-wBK"/>
                             <constraint firstItem="43R-OA-30D" firstAttribute="centerX" secondItem="v9n-1b-rIm" secondAttribute="centerX" id="uLq-OQ-aEm"/>
                             <constraint firstItem="jPo-gd-AmE" firstAttribute="centerX" secondItem="v9n-1b-rIm" secondAttribute="centerX" id="wEU-eU-Xlz"/>
