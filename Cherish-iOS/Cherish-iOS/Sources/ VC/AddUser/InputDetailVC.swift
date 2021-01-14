@@ -81,10 +81,8 @@ class InputDetailVC: UIViewController {
               let periodText = alarmPeriodTextField.text else { return }
         let alarmState = stateSwitch.isOn
         
-        print("하잉")
-        
         if completeBtn.isEnabled == true {
-//            guard let loadingVC = self.storyboard?.instantiateViewController(identifier: "LoadingPopUpVC") as? LoadingPopUpVC else { return }
+            guard let loadingVC = self.storyboard?.instantiateViewController(identifier: "LoadingPopUpVC") as? LoadingPopUpVC else { return }
             guard let resultVC = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else { return }
 
             AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: periodText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")) { (networkResult) -> (Void) in
@@ -101,7 +99,7 @@ class InputDetailVC: UIViewController {
                             resultVC.explanation = resultData.plant.explanation
                             NotificationCenter.default.post(name: .sendPlantResult, object: nil)
                         }
-                        resultVC.resultPeriodLabel.text = self.resultPeriod
+//                        resultVC.resultPeriodLabel.text = self.resultPeriod
                     }
                 case .requestErr(_):
                     print("requesetErr")
@@ -113,7 +111,7 @@ class InputDetailVC: UIViewController {
                     print("networkFail")
                 }
             }
-            self.navigationController?.pushViewController(resultVC, animated: true)
+            self.navigationController?.pushViewController(loadingVC, animated: true)
         }
     }
     
@@ -123,7 +121,6 @@ class InputDetailVC: UIViewController {
     func setTextField() {
         if let name = self.givenName,
            let phoneNumber = self.givenPhoneNumber {
-            print("맞지??")
             self.nameTextField.text = name
             self.phoneTextField.text = phoneNumber
         }
@@ -296,41 +293,41 @@ extension InputDetailVC: UIPickerViewDelegate {
         case "day":
             if realNum == "1" {
                 self.cycle_date = 1
-                self.resultPeriod = "1일에 1번 물주기"
+//                self.resultPeriod = "1일에 1번 물주기"
             }
             else if realNum == "2" {
                 self.cycle_date = 2
-                self.resultPeriod = "2일에 1번 물주기"
+//                self.resultPeriod = "2일에 1번 물주기"
             }
             else if realNum == "3" {
                 self.cycle_date = 3
-                self.resultPeriod = "3일에 1번 물주기"
+//                self.resultPeriod = "3일에 1번 물주기"
             }
         case "week":
             if realNum == "1" {
                 self.cycle_date = 7
-                self.resultPeriod = "1주에 1번 물주기"
+//                self.resultPeriod = "1주에 1번 물주기"
             }
             else if realNum == "2" {
                 self.cycle_date = 14
-                self.resultPeriod = "2주에 1번 물주기"
+//                self.resultPeriod = "2주에 1번 물주기"
             }
             else if realNum == "3" {
                 self.cycle_date = 21
-                self.resultPeriod = "3주에 1번 물주기"
+//                self.resultPeriod = "3주에 1번 물주기"
             }
         case "month":
             if realNum == "1" {
                 self.cycle_date = 30
-                self.resultPeriod = "1달에 1번 물주기"
+//                self.resultPeriod = "1달에 1번 물주기"
             }
             else if realNum == "2" {
                 self.cycle_date = 60
-                self.resultPeriod = "2달에 1번 물주기"
+//                self.resultPeriod = "2달에 1번 물주기"
             }
             else if realNum == "3" {
                 self.cycle_date = 90
-                self.resultPeriod = "3달에 1번 물주기"
+//                self.resultPeriod = "3달에 1번 물주기"
             }
         default:
             self.cycle_date = 0
