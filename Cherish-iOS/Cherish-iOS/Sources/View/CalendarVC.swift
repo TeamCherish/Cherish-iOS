@@ -236,7 +236,7 @@ class CalendarVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 if let calendarResult = data as? CalendarSeeData{
-                    for i in 0...calendarResult.water.count-1{
+                    for i in 0...calendarResult.water.count-1 {
                         fetchCalendar.append(contentsOf: [
                             FetchCalendar(waterDate: calendarResult.water[i].waterDate, review: calendarResult.water[i].review, keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
                         ])

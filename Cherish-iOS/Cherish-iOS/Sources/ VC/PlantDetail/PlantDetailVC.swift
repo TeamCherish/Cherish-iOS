@@ -137,17 +137,18 @@ class PlantDetailVC: UIViewController {
                         // 첫번째 메모데이터를 할당
                         firstMemoDayLabel.text = month! + "/" + day!
                         
-                        //멤
+                        //첫번째 메모데이터가 없을 때
                         if reviewArray[0].review == "" {
                             
                             firstMemoTextLabel.text = "메모를 입력하지 않았어요!"
                         }
+                        //첫번째 메모데이터가 있을 때
                         else {
                             
                             firstMemoTextLabel.text = "\(reviewArray[0].review)"
                         }
                         
-                        
+                        //메모데이터가 하나이니까 두번째 메모는 없다
                         secondMemoDayLabel.text = "‼️📝"
                         secondMemoTextLabel.text = "메모를 입력하지 않았어요!"
                         
