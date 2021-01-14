@@ -8,5 +8,7 @@
 import UIKit
 
 class KeywordCVCell: UICollectionViewCell {
-    @IBOutlet var keywordLabel: UILabel!
+    @IBOutlet var keywordLabel: UILabel! 
+    
+    
 }

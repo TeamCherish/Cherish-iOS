@@ -8,7 +8,7 @@
 import UIKit
 
 class PlantDetailVC: UIViewController {
-
+    
     @IBOutlet var plantCircularProgressView: CircularProgressView!
     @IBOutlet var backDropImageView: UIImageView!
     @IBOutlet var plantDetailBtn: UIButton!
@@ -39,11 +39,12 @@ class PlantDetailVC: UIViewController {
     @IBOutlet var memoTextFieldHeight: NSLayoutConstraint!
     @IBOutlet var keywordCVTopConstraint: NSLayoutConstraint!
     @IBOutlet var keywordCVBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var roundDetailBoxWidth: NSLayoutConstraint!
     
     var isClicked:Bool = false
     var reviewArray:[Review] = []
     var keywordArray:[String] = []
-    var friendsPlantIdx:Int = UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
+    var friendsPlantIdx:Int = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,8 @@ class PlantDetailVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
+        friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+        roundDetailBoxWidth.constant = CGFloat((userNameInRoundViewLabel.text!.count + plantKindsInRoundViewLabel.text!.count) * 11 + 30)
     }
     
     //MARK: - NC,TC 속성 정의함수
@@ -81,13 +83,23 @@ class PlantDetailVC: UIViewController {
                     plantNicknameLabel.text = plantDetailData.nickname
                     userNameInRoundViewLabel.text = plantDetailData.name
                     plantKindsInRoundViewLabel.text = plantDetailData.plantName
+                    
+                    roundDetailBoxWidth.constant = CGFloat((userNameInRoundViewLabel.text!.count + plantKindsInRoundViewLabel.text!.count) * 11 + 50)
+                    
+                    
                     plantdDayLabel.text = "D-\(plantDetailData.dDay)"
                     plantMaintainDayLabel.text = "\(plantDetailData.duration)일째"
                     plantBirthDayLabel.text = plantDetailData.birth
                     memoTitleLabel.text = "\(plantDetailData.nickname)와(과) 함께했던 이야기"
+                    
                     keywordArray.append(plantDetailData.keyword1)
                     keywordArray.append(plantDetailData.keyword2)
                     keywordArray.append(plantDetailData.keyword3)
+                    
+                    // keywordArray 요소 중 null값을 필터링
+                    keywordArray = keywordArray.filter(){$0 != ""}
+                    
+                    
                     plantHealthStatusLabel.text = plantDetailData.statusMessage
                     makeCircularView(Float(plantDetailData.gage))
                     
@@ -101,19 +113,31 @@ class PlantDetailVC: UIViewController {
                         secondMemoBtn.isHidden = true
                         firstMemoBtn.isEnabled = false
                         secondMemoBtn.isEnabled = false
-                        let attributedText = NSMutableAttributedString(string: "이 날의 기록이 없어요!", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)])
-
-                        attributedText.append(NSAttributedString(string: "9/17", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.blue]))
                         
-                        firstMemoTextLabel.attributedText = attributedText
-                        secondMemoTextLabel.text = "이 날의 기록이 없어요!"
+                        firstMemoTextLabel.text = "메모를 입력하지 않았어요!"
+                        secondMemoTextLabel.text = "메모를 입력하지 않았어요!"
+                        
+                        firstMemoDayLabel.text = "‼️📝"
+                        secondMemoDayLabel.text = "‼️📝"
                     }
                     /// 메모 데이터가 하나일 때
                     else if reviewArray.count == 1 {
                         // 첫번째 메모데이터를 할당
                         firstMemoDayLabel.text = reviewArray[0].waterDate
-                        firstMemoTextLabel.text = reviewArray[0].review
-                        secondMemoTextLabel.text = "이 날의 기록이 없어요!"
+                        
+                        //멤
+                        if reviewArray[0].review == "" {
+                            
+                            firstMemoTextLabel.text = "메모를 입력하지 않았어요!"
+                        }
+                        else {
+                            
+                            firstMemoTextLabel.text = "\(reviewArray[0].review)"
+                        }
+                        
+                        
+                        secondMemoDayLabel.text = "‼️📝"
+                        secondMemoTextLabel.text = "메모를 입력하지 않았어요!"
                         
                         // 캘린더로 이동할 수 있는 두번째 메모버튼을 숨기고, 누를 수 없게 한다
                         secondMemoBtn.isHidden = true
@@ -146,8 +170,16 @@ class PlantDetailVC: UIViewController {
     
     //MARK: - 원형 progressBar 생성함수
     func makeCircularView(_ value : Float ) {
+        
         plantCircularProgressView.trackColor = UIColor(red: 217/255, green: 217/255, blue: 217/255, alpha: 1.0)
-        plantCircularProgressView.progressColor = .seaweed
+        
+        
+        if value <= 0.5 {
+            plantCircularProgressView.progressColor = .pinkSub
+        }
+        else {
+            plantCircularProgressView.progressColor = .seaweed
+        }
         plantCircularProgressView.setProgressWithAnimation(duration: 1.0, value: value)
         
     }
@@ -238,11 +270,14 @@ class PlantDetailVC: UIViewController {
     }
     
     
+    
     //MARK: - 첫번째 메모 연결버튼
     @IBAction func moveToFirstMemoDetail(_ sender: UIButton) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
-            vc.calendarStatus = "memo" /// 메모 클릭 시 주간모드
+            vc.calendarStatus = "memo"
+            
+            /// 메모 클릭 시 주간모드
             //delegate?.forCalendarStatus(cal_status: "memo")
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -253,7 +288,9 @@ class PlantDetailVC: UIViewController {
     @IBAction func moveToSecondMemoDetail(_ sender: UIButton) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
-            vc.calendarStatus = "memo" /// 메모 클릭 시 주간 모드
+            vc.calendarStatus = "memo"
+            
+            /// 메모 클릭 시 주간 모드
             //delegate?.forCalendarStatus(cal_status: "memo")
             self.navigationController?.pushViewController(vc, animated: true)
             
@@ -282,7 +319,9 @@ class PlantDetailVC: UIViewController {
     @IBAction func moveToCalendar(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
-            vc.calendarStatus = "calendar" /// 달력 클릭 시 월간 모드
+            vc.calendarStatus = "calendar"
+            
+            /// 달력 클릭 시 월간 모드
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -305,7 +344,7 @@ extension PlantDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
         }
         
         keywordCell.layer.borderWidth = 1
-        keywordCell.layer.borderColor = CGColor(red: 69/255, green: 69/255, blue: 69/255, alpha: 1.0)
+        keywordCell.layer.borderColor = CGColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
         keywordCell.layer.cornerRadius = 15
         
         

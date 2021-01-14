@@ -87,18 +87,16 @@ extension CherishMainVC : OverlayContainerViewControllerDelegate {
     
     /// 오버레이(노치)가 움직이기 전에 액션처리 해주는 함수
     func overlayContainerViewController(_ containerViewController: OverlayContainerViewController, willMoveOverlay overlayViewController: UIViewController, toNotchAt index: Int) {
-        let cherishMainStoryboard = UIStoryboard(name: "CherishMain", bundle: nil)
-        let mainContentContoller = cherishMainStoryboard.instantiateViewController(identifier: "MainContentVC") as! MainContentVC
-        let backdropController = cherishMainStoryboard.instantiateViewController(identifier: "BackdropVC") as! BackdropVC
-        let detailContentController = cherishMainStoryboard.instantiateViewController(identifier: "DetailContentVC") as! DetailContentVC
-        
+     
         switch Notches.allCases[index] {
         case .minimum:
-            viewControllers = [backdropController,mainContentContoller,detailContentController]
+            NotificationCenter.default.post(name: .notchMinimum, object: nil)
+
         case .medium:
-            viewControllers = [backdropController,mainContentContoller,detailContentController]
+            NotificationCenter.default.post(name: .notchMedium, object: nil)
+
         case .maximum:
-            viewControllers = [mainContentContoller,backdropController,detailContentController]
+            NotificationCenter.default.post(name: .notchMaximum, object: nil)
         }
     }
 }
