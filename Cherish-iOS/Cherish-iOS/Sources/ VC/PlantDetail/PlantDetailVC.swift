@@ -122,8 +122,24 @@ class PlantDetailVC: UIViewController {
                     }
                     /// 메모 데이터가 하나일 때
                     else if reviewArray.count == 1 {
+                        // 2020-01-01 -> 01/01로 파싱
+                        let dateFormatter = DateFormatter()
+                        let monthdateFormatter = DateFormatter()
+                        let daydateFormatter = DateFormatter()
+                        
+                        dateFormatter.dateFormat = "yyyy-MM-dd"
+                        
+                        let m = dateFormatter.date(from: reviewArray[0].waterDate)
+                        let d = dateFormatter.date(from: reviewArray[0].waterDate)
+                        
+                        monthdateFormatter.dateFormat = "MM"
+                        daydateFormatter.dateFormat = "dd"
+                        
+                        let month = monthdateFormatter.string(for: m)
+                        let day = daydateFormatter.string(for: d)
+                        
                         // 첫번째 메모데이터를 할당
-                        firstMemoDayLabel.text = reviewArray[0].waterDate
+                        firstMemoDayLabel.text = month! + "/" + day!
                         
                         //멤
                         if reviewArray[0].review == "" {
@@ -145,12 +161,46 @@ class PlantDetailVC: UIViewController {
                     }
                     /// 메모 데이터가 두개일 때
                     else {
-                        // 첫번째 메모데이터를 할당
-                        firstMemoDayLabel.text = reviewArray[0].waterDate
-                        firstMemoTextLabel.text = reviewArray[0].review
-                        // 두번째 메모데이터를 할당
-                        secondMemoDayLabel.text = reviewArray[1].waterDate
-                        secondMemoTextLabel.text = reviewArray[1].review
+                        // 2020-01-01 -> 01/01로 파싱
+                        let dateFormatter = DateFormatter()
+                        let monthdateFormatter = DateFormatter()
+                        let daydateFormatter = DateFormatter()
+                        
+                        dateFormatter.dateFormat = "yyyy-MM-dd"
+                        
+                        let m = dateFormatter.date(from: reviewArray[0].waterDate)
+                        let d = dateFormatter.date(from: reviewArray[0].waterDate)
+                        let sec_m = dateFormatter.date(from: reviewArray[1].waterDate)
+                        let sec_d = dateFormatter.date(from: reviewArray[1].waterDate)
+                        
+                        monthdateFormatter.dateFormat = "MM"
+                        daydateFormatter.dateFormat = "dd"
+                        
+                        let month = monthdateFormatter.string(for: m)
+                        let day = daydateFormatter.string(for: d)
+                        let sec_month = monthdateFormatter.string(for: sec_m)
+                        let sec_day = daydateFormatter.string(for: sec_d)
+                        
+                        // 첫번째 메모 날짜 및 메모데이터를 할당
+                        firstMemoDayLabel.text = month! + "/" + day!
+                        if reviewArray[0].review == "" {
+                            
+                            firstMemoTextLabel.text = "메모를 입력하지 않았어요!"
+                        }
+                        else {
+                            
+                            firstMemoTextLabel.text = "\(reviewArray[0].review)"
+                        }
+                        // 두번째 메모 날짜 및 메모데이터를 할당
+                        secondMemoDayLabel.text = sec_month! + "/" + sec_day!
+                        if reviewArray[1].review == "" {
+                            
+                            secondMemoTextLabel.text = "메모를 입력하지 않았어요!"
+                        }
+                        else {
+                            
+                            secondMemoTextLabel.text = "\(reviewArray[1].review)"
+                        }
                     }
                     keywordCV.reloadData()
                 }
@@ -276,9 +326,10 @@ class PlantDetailVC: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
             vc.calendarStatus = "memo"
-            
-            /// 메모 클릭 시 주간모드
-            //delegate?.forCalendarStatus(cal_status: "memo")
+            if reviewArray.count >= 1 {
+                vc.memoToCalendarDate = reviewArray[0].waterDate
+                print(reviewArray[0].waterDate)
+            }
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -289,9 +340,10 @@ class PlantDetailVC: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "CalendarVC") as? CalendarVC {
             vc.calendarStatus = "memo"
-            
-            /// 메모 클릭 시 주간 모드
-            //delegate?.forCalendarStatus(cal_status: "memo")
+            if reviewArray.count >= 2 {
+                vc.memoToCalendarDate = reviewArray[1].waterDate
+                print("두번째 메모 연결버튼"+reviewArray[1].waterDate)
+            }
             self.navigationController?.pushViewController(vc, animated: true)
             
         }

@@ -15,11 +15,6 @@ class PopUpWateringVC: UIViewController {
             popupWaterView.makeRounded(cornerRadius: 20.0)
         }
     }
-    @IBOutlet weak var gominLabel: CustomLabel!{
-        didSet{
-            gominLabel.textColor = .alphaGrey
-        }
-    }
     @IBOutlet weak var wateringBtn: UIButton!{
         didSet{
             wateringBtn.makeRounded(cornerRadius: 25.0)

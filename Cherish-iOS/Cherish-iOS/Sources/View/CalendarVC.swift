@@ -14,7 +14,11 @@ class CalendarVC: UIViewController {
     var review: [String] = []// 85글자
     var fetchCalendar : [FetchCalendar] = []
     var n : Int = 0
-    
+    var memoToCalendarDate: String?
+    var memoToCalendarDateTemp: Date?
+    var memoToEditDate: String?
+    var memoToEditDateTemp: Date?
+    var keywordForCV : [String] = []
     //    var delegate: SendViewControllerDelegate?
     let formatter = DateFormatter()
     let calendarCurrent = Calendar.current
@@ -82,6 +86,10 @@ class CalendarVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         calendarOrigin.reloadData()
+        
+        if calendarStatus == "memo"{
+            memoMode()
+        }
     }
     
     @IBAction func moveToBack(_ sender: Any) {
@@ -95,8 +103,6 @@ class CalendarVC: UIViewController {
             memoBtnstatus = false
             memoBtn.setImage(UIImage(named: "icUpCalendar"), for: .normal)
             weekCalendar()
-            /// 확장 가능하게 우선순위 낮춤
-            //            memoTextLabelHeight.priority = .defaultLow
         }else{
             memoBtnstatus = true
             memoBtn.setImage(UIImage(named: "icDownCalendar"), for: .normal)
@@ -108,8 +114,13 @@ class CalendarVC: UIViewController {
         if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewEditVC") as? ReviewEditVC {
             //            delegate?.deliveryKeyword(memoText: memoTextLabel.text ?? "")
             vc.space = memoTextLabel.text
-            //            vc.edit_keyword = keyword[n]
-            
+            vc.edit_keyword = keywordForCV
+            vc.dateForServer = memoToCalendarDate
+            formatter.dateFormat = "yyyy-MM-dd"
+            memoToEditDateTemp = formatter.date(from: memoToCalendarDate!)
+            formatter.dateFormat = "yyyy년 MM월 dd일"
+            memoToEditDate = formatter.string(from: memoToEditDateTemp!)
+            vc.edit_date = memoToEditDate
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -137,6 +148,8 @@ class CalendarVC: UIViewController {
             monthCalendar()
         }else{
             weekCalendar()
+            memoBtnstatus = false
+            memoBtn.setImage(UIImage(named: "icUpCalendar"), for: .normal)
         }
     }
     
@@ -162,6 +175,27 @@ class CalendarVC: UIViewController {
         self.calendarOrigin?.setScope(.week, animated: true)
         self.wateredLabel.isHidden = true
         self.toWaterLabel.isHidden = true
+    }
+    
+    /// 메모->캘린더 이동시 해당 메모가 작성된 날짜 및 메모를 불러오기
+    func memoMode() {
+        calendarOrigin.reloadData()
+        print("메캘메캘메캘메캘"+"\(memoToCalendarDate ?? "2020-12-26")")
+        calendarOrigin.select(formatter.date(from: memoToCalendarDate ?? "2020-12-26"), scrollToDate: true)
+        for i in 0...(fetchCalendar.count - 1) {
+            if memoToCalendarDate == fetchCalendar[i].waterDate{
+                memoShowView.isHidden = false
+                formatter.dateFormat = "yyyy-MM-dd"
+                memoToCalendarDateTemp = formatter.date(from: fetchCalendar[i].waterDate)
+                print("메캘메캘메캘메캘"+"\(memoToCalendarDateTemp)!")
+                formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
+                memoDateLabel.text = formatter.string(from: memoToCalendarDateTemp!)
+                memoTextLabel.text = fetchCalendar[i].review
+                n = i
+                calendarKeywordCollectionView.delegate = self
+                calendarKeywordCollectionView.dataSource = self
+            }
+        }
     }
     
     /// 캘린더 스타일
@@ -198,7 +232,7 @@ class CalendarVC: UIViewController {
         formatter.locale = Locale(identifier: "ko")
         formatter.dateFormat = "yyyy-MM-dd"
         UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
-        CalendarService.shared.calendarLoad(id: 3, completion: { [self] (networkResult) -> (Void) in
+        CalendarService.shared.calendarLoad(id: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), completion: { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 if let calendarResult = data as? CalendarSeeData{
@@ -207,9 +241,8 @@ class CalendarVC: UIViewController {
                             FetchCalendar(waterDate: calendarResult.water[i].waterDate, review: calendarResult.water[i].review, keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
                         ])
                         keyword.append(contentsOf: [
-                            CalendarKeyword(keyword1: fetchCalendar[i].keyword1, keyword2: fetchCalendar[i].keyword2, keyword3: fetchCalendar[i].keyword3)
+                            CalendarKeyword(keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
                         ])
-                        print(calendarResult.water[i].waterDate)
                         watering_Events.append(formatter.date(from: calendarResult.water[i].waterDate)!)
                         print(watering_Events)
                     }
@@ -289,6 +322,7 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
     }
     
     
+    
     /// 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         formatter.dateFormat = "yyyy-MM-dd"
@@ -311,7 +345,8 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
         }
         
         /// 키워드 미입력 시
-        if fetchCalendar[n].keyword1 == "" && fetchCalendar[n].keyword2 == "" && fetchCalendar[n].keyword3 == ""{
+        if keywordForCV.count == 0 {
+            print("keyword mip")
             calendarKeywordCollectionView.isHidden = true
             keywordCVTopAnchor.constant = 0
         }else{
@@ -319,7 +354,8 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
             keywordCVTopAnchor.constant = 14
         }
         /// 메모 미입력 시
-        if fetchCalendar[n].review.count < 1 {
+        if fetchCalendar[n].review.count < 1 || fetchCalendar[n].review == "" {
+            print("memo mip")
             keywordCVBotAnchor.constant = 0
             memoTextLabel.isHidden = true
         }else{
@@ -328,7 +364,8 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
         }
         
         /// 키워드,메모 미입력 시
-        if fetchCalendar[n].review.count < 1 && fetchCalendar[n].keyword1 == "" && fetchCalendar[n].keyword2 == "" && fetchCalendar[n].keyword3 == "" {
+        if (fetchCalendar[n].review.count < 1 || fetchCalendar[n].review == "") && keywordForCV.count == 0  {
+            print("keword,memo mip")
             memoBtnTopAnchor.constant = 22
             memoBtn.isHidden = true
         }else{
@@ -347,32 +384,24 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
     /////2
     //extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        var kc = keyword.count
-        if keyword[n].keyword1 == ""{
-            kc -= 1
+        if keyword[n].keyword1 != ""{
+            keywordForCV.append(keyword[n].keyword1)
         }
-        if keyword[n].keyword2 == ""{
-            kc -= 1
+        if keyword[n].keyword2 != ""{
+            keywordForCV.append(keyword[n].keyword2)
         }
-        if keyword[n].keyword3 == ""{
-            kc -= 1
+        if keyword[n].keyword3 != ""{
+            keywordForCV.append(keyword[n].keyword3)
         }
-        return kc
+        return keywordForCV.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarKeywordCVCell.identifier, for: indexPath) as? CalendarKeywordCVCell else{
             return UICollectionViewCell()
         }
-        if keyword[n].keyword1 != ""{
-            cell.calendarKeywordLabel.text = keyword[n].keyword1
-        }
-        if keyword[n].keyword2 != ""{
-            cell.calendarKeywordLabel.text = keyword[n].keyword2
-        }
-        if keyword[n].keyword3 != ""{
-            cell.calendarKeywordLabel.text = keyword[n].keyword1
-        }
+        
+        cell.calendarKeywordLabel.text = keywordForCV[indexPath.row]
         return cell
     }
     

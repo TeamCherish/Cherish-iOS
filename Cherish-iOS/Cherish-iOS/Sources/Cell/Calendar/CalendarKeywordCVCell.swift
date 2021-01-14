@@ -30,5 +30,4 @@ class CalendarKeywordCVCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
     }
-
 }
