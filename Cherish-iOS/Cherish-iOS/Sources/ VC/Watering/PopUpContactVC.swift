@@ -220,7 +220,7 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         let label = UILabel(frame: CGRect.zero)
         label.text = keyword[indexPath.row]
         label.sizeToFit()
-        total? += label.frame.width+20
+        total? += label.frame.width
         return CGSize(width: label.frame.width, height: collectionView.frame.height)
     }
 
