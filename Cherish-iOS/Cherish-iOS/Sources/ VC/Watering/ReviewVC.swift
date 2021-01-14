@@ -8,7 +8,7 @@
 import UIKit
 
 class ReviewVC: UIViewController {
-    var keyword = [String]() /// 키워드 배열
+    var keyword : [String] = [] /// 키워드 배열
     
     //MARK: -@IBOutlet
     @IBOutlet weak var reviewNameLabel: CustomLabel! ///또령님! 남쿵둥이님과(와)의
@@ -162,25 +162,47 @@ class ReviewVC: UIViewController {
     
     // 리뷰 완료 후 물주기 모션으로 이동
     func goToWateringMotion(){
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "WateringMotionVC") as? WateringMotionVC else{return}
+        guard let pvc = self.presentingViewController else {return}
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "WateringMotionVC") else{return}
         vc.modalPresentationStyle = .fullScreen
-        vc.present(vc, animated: true, completion: nil)
+        vc.modalTransitionStyle = .coverVertical
+        
+        self.dismiss(animated: true){
+                pvc.present(vc, animated: true, completion: nil)
+            }
+        
+        /// 5초 후에 메인 화면으로 돌아감
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                // Do whatever you want
+                vc.dismiss(animated: true, completion: nil)
+            }
     }
     
     func setNamingLabel(){
-        reviewNameLabel.text = "\(UserDefaults.standard.string(forKey: "userID")!)"+"님! "+"\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의"
+        reviewNameLabel.text = "\(UserDefaults.standard.string(forKey: "UserNickname")!)"+"님! "+"\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의"
         reviewPlzLabel.text = "\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의 물주기를 기록해주세요"
     }
     
     // 등록완료
     @IBAction func submitReview(_ sender: Any) {
-    
-        WateringReviewService.shared.wateringReview(review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: UserDefaults.standard.integer(forKey: "selectedFriendsIdData")) { (networkResult) -> (Void) in
+        
+        ///키워드 nil값 대체
+        if keyword.count == 2 {
+            keyword.append("")
+        }else if keyword.count == 1 {
+            keyword.append("")
+            keyword.append("")
+        }else if keyword.count == 0 {
+            keyword.append("")
+            keyword.append("")
+            keyword.append("")
+        }
+        WateringReviewService.shared.wateringReview(review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData")) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 print(data)
-                self.goToWateringMotion()
-
+                goToWateringMotion()
+                
             case .requestErr(_):
                 print("requestErr")
             case .pathErr:

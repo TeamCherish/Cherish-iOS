@@ -8,6 +8,7 @@
 import Foundation
 
 struct FetchCalendar {
-    var review, waterDate, keyword1, keyword2: String
+    var waterDate: String
+    var review, keyword1, keyword2: String
     var keyword3: String
 }

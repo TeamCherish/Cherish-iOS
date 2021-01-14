@@ -23,7 +23,7 @@ struct WateringReviewService {
                                 ]
                      
         let dataRequest = AF.request(url,
-                                     method: .get,
+                                     method: .post,
                                      parameters: body,
                                      encoding: JSONEncoding.default,headers: header)
         
