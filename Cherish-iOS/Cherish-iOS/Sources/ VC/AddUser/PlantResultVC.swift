@@ -28,6 +28,7 @@ class PlantResultVC: UIViewController {
 
     @IBAction func startToMain(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
+        
     }
     
     @objc func setPlantLabel() {

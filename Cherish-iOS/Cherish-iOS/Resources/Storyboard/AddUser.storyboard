@@ -514,7 +514,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NJ-4w-ATg" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="94.333333333333329" y="137" width="186.66666666666669" height="83"/>
+                                <rect key="frame" x="99.000000000000014" y="137" width="177.33333333333337" height="65.333333333333314"/>
                                 <string key="text">혼자서도 씩씩한
 따뜻한 민들레</string>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Light" family="Noto Sans CJK KR" pointSize="28"/>
@@ -527,7 +527,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_graphic" translatesAutoresizingMaskIntoConstraints="NO" id="vNJ-hM-Br7">
-                                <rect key="frame" x="27.666666666666657" y="233" width="320" height="347"/>
+                                <rect key="frame" x="27.666666666666657" y="215.33333333333337" width="320" height="347"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vNJ-hM-Br7" secondAttribute="height" multiplier="320:347" id="31k-GZ-R37"/>
                                     <constraint firstAttribute="height" constant="347" id="wsT-Sx-vwM"/>
@@ -541,7 +541,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeJ-TW-ozj" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="34.666666666666657" y="603" width="306" height="44"/>
+                                <rect key="frame" x="40.666666666666657" y="603" width="293.66666666666674" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="h8j-i6-bue"/>
                                 </constraints>

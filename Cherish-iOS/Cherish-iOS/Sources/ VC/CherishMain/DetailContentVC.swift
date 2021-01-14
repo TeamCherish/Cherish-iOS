@@ -37,6 +37,10 @@ class DetailContentVC: UIViewController {
         cherishPeopleCV.allowsMultipleSelection = false
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setCherishPeopleData()
+    }
+    
     
     //MARK: - 헤더 뷰 라운드로 만드는 함수
     func makeHeaderViewCornerRadius() {
