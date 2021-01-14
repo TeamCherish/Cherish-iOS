@@ -174,6 +174,9 @@
                                                 <real key="value" value="-0.69999999999999996"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="submitLater:" destination="Dpf-Qo-M0v" eventType="touchUpInside" id="e6z-sM-ojl"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

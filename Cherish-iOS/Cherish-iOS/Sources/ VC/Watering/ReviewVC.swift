@@ -215,6 +215,25 @@ class ReviewVC: UIViewController {
         }
     }
     
+    @IBAction func submitLater(_ sender: Any) {
+        keyword = ["","",""]
+        WateringReviewService.shared.wateringReview(review: "", keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData")) { [self] (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                print(data)
+                goToWateringMotion()
+                
+            case .requestErr(_):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
 }
 
 //MARK: -Protocols

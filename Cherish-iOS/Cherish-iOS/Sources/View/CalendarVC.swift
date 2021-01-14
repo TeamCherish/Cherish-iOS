@@ -82,6 +82,10 @@ class CalendarVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         calendarOrigin.reloadData()
+        
+        if calendarStatus == "memo"{
+            memoMode()
+        }
     }
     
     @IBAction func moveToBack(_ sender: Any) {
@@ -162,6 +166,21 @@ class CalendarVC: UIViewController {
         self.calendarOrigin?.setScope(.week, animated: true)
         self.wateredLabel.isHidden = true
         self.toWaterLabel.isHidden = true
+    }
+    
+    /// 메모->캘린더 이동시 해당 메모가 작성된 날짜 및 메모를 불러오기
+    func memoMode() {
+        calendarOrigin.select(formatter.date(from: "2021-01-01"), scrollToDate: true)
+        for i in 0...fetchCalendar.count-1 {
+            memoShowView.isHidden = false
+            formatter.locale = Locale(identifier: "ko")
+            formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
+//            memoDateLabel.text = formatter.string(from: "2021-01-01")
+            memoTextLabel.text = fetchCalendar[i].review
+            n = i
+            calendarKeywordCollectionView.delegate = self
+            calendarKeywordCollectionView.dataSource = self
+        }
     }
     
     /// 캘린더 스타일
@@ -289,6 +308,7 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
     }
     
     
+    
     /// 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         formatter.dateFormat = "yyyy-MM-dd"
@@ -319,7 +339,7 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
             keywordCVTopAnchor.constant = 14
         }
         /// 메모 미입력 시
-        if fetchCalendar[n].review.count < 1 {
+        if fetchCalendar[n].review.count < 1 || fetchCalendar[n].review == "" {
             keywordCVBotAnchor.constant = 0
             memoTextLabel.isHidden = true
         }else{
