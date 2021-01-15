@@ -13,7 +13,7 @@ struct PlantDetailCardService {
     
     func inquirePlantDetailCardView(plantIdx:Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
         
-        let url = APIConstants.plantDetailURL + "\(plantIdx)"
+        let url = APIConstants.plantDetailCardURL + "\(plantIdx)"
         print(url)
         let header: HTTPHeaders = [ "Content-Type":"application/json"]
         let dataRequest = AF.request(url,
@@ -43,6 +43,7 @@ struct PlantDetailCardService {
         switch status {
         case 200:
             print("성공")
+            print(decodedData.data)
             return .success(decodedData.data)
         case 400..<500:
             return .requestErr(decodedData.message)

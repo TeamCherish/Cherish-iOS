@@ -41,6 +41,7 @@ class PlantDetailVC: UIViewController {
     @IBOutlet var keywordCVBottomConstraint: NSLayoutConstraint!
     
     var isClicked:Bool = false
+    var plantId:Int = 0
     var reviewArray:[Review] = []
     var keywordArray:[String] = []
     var friendsPlantIdx:Int = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
@@ -87,6 +88,8 @@ class PlantDetailVC: UIViewController {
                     userNameInRoundViewLabel.text = plantDetailData.name
                     plantKindsInRoundViewLabel.text = plantDetailData.plantName
                     
+                    plantId = plantDetailData.plantId
+                    
                     let url = URL(string: plantDetailData.plantThumbnailImageURL ?? "")
                     let imageData = try? Data(contentsOf: url!)
                     plantDetailBtn.setImage(UIImage(data: imageData!), for: .normal)
@@ -102,8 +105,9 @@ class PlantDetailVC: UIViewController {
                     
                     // keywordArray 요소 중 null값을 필터링
                     keywordArray = keywordArray.filter(){$0 != ""}
-                    keywordArray.append("키워드 없음")
-                    
+                    if keywordArray.count == 0 {
+                        keywordArray.append("키워드 없음")
+                    }
                     plantHealthStatusLabel.text = plantDetailData.statusMessage
                     makeCircularView(Float(plantDetailData.gage))
                     
@@ -359,6 +363,7 @@ class PlantDetailVC: UIViewController {
     @IBAction func popUpPlantDetailExplainView(_ sender: UIButton) {
         
         if let vc = storyboard!.instantiateViewController(withIdentifier: "PlantDetailPopUpExplainVC") as? PlantDetailPopUpExplainVC {
+            vc.plantId = plantId
             vc.modalPresentationStyle = .overCurrentContext
             vc.modalTransitionStyle = .crossDissolve
             self.present(vc, animated: true, completion: nil)
