@@ -11,6 +11,7 @@ class MypagePlantVC: UIViewController {
     
     
     @IBOutlet var mypageTV: MyOwnTableView!
+    
     var mypagePlantArray: [MypagefriendsData] = []
     
     override func viewDidLoad() {
@@ -23,7 +24,6 @@ class MypagePlantVC: UIViewController {
     }
     
     func setPlantData(){
-        
         let myPageUserIdx = UserDefaults.standard.integer(forKey: "userID")
         MypageService.shared.inquireMypageView(idx: myPageUserIdx) { [self]
             (networkResult) -> (Void) in
@@ -31,6 +31,9 @@ class MypagePlantVC: UIViewController {
             case .success(let data):
                 if let mypageData = data as? MypageData {
                     mypagePlantArray = mypageData.result
+                    // UserDefault에 넣기
+                    UserDefaults.standard.set(mypageData.totalCherish, forKey: "totalCherish")
+                    UserDefaults.standard.set(mypageData.result, forKey: "cherishResult")
                     DispatchQueue.main.async {
                         mypageTV.reloadData()
                     }

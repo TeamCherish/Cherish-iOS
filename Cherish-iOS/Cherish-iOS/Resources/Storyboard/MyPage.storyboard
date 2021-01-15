@@ -94,7 +94,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물주기 횟수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGC-BI-MRQ" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="45" y="245" width="55.333333333333343" height="14"/>
+                                <rect key="frame" x="43.333333333333343" y="245" width="58.666666666666657" height="18"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -105,7 +105,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미룬 횟수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlE-ff-1z3" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="164" y="245" width="45" height="14"/>
+                                <rect key="frame" x="162.66666666666666" y="245" width="47.666666666666657" height="18"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -116,7 +116,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성장 완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOa-5s-oh6" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="280" y="245" width="45" height="14"/>
+                                <rect key="frame" x="278.66666666666669" y="245" width="47.666666666666686" height="18"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -292,7 +292,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5w-6F-Gca" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="16.000000000000004" y="12.666666666666666" width="63.333333333333343" height="18.666666666666671"/>
+                                        <rect key="frame" x="15.999999999999996" y="10" width="62.666666666666657" height="24"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -398,10 +398,10 @@
             </objects>
             <point key="canvasLocation" x="1156" y="162.5615763546798"/>
         </scene>
-        <!--Mypage PlantVC-->
+        <!--My Page Search PlantVC-->
         <scene sceneID="K0q-Tw-Aej">
             <objects>
-                <viewController id="evd-wj-37N" customClass="MypagePlantVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="evd-wj-37N" customClass="MyPageSearchPlantVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6b0-PD-oap">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -435,7 +435,7 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="76" id="5Bw-Yp-USx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="76" id="5Bw-Yp-USx" customClass="MyPageSearchPlantHeaderCell" customModule="Cherish_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="85" width="375" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Bw-Yp-USx" id="A92-En-cyX">
@@ -516,8 +516,11 @@
                                                 <constraint firstItem="u1e-FG-sf1" firstAttribute="top" secondItem="A92-En-cyX" secondAttribute="top" constant="11" id="w89-vn-YaT"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="plantNumber" destination="u1e-FG-sf1" id="TCP-ak-MRv"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="SPn-yi-m4x">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="SPn-yi-m4x" customClass="SearchPlantCell" customModule="Cherish_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="161" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SPn-yi-m4x" id="Uo2-Nd-IWQ">
@@ -532,7 +535,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAc-ZI-3ZO" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="81" y="5" width="42.666666666666657" height="24"/>
+                                                    <rect key="frame" x="81" y="5" width="45.333333333333343" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="elQ-RD-mPa"/>
                                                     </constraints>
@@ -546,7 +549,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스투키 Lv.3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQC-AT-nqL" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="81" y="25" width="56.333333333333343" height="18"/>
+                                                    <rect key="frame" x="81" y="25" width="57.666666666666657" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="ecN-Ur-MzS"/>
                                                     </constraints>
@@ -559,17 +562,52 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oef-RG-XBC">
+                                                    <rect key="frame" x="299" y="15" width="60" height="25"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6o-LH-nnx" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                            <rect key="frame" x="12" y="4" width="36" height="17"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="17" id="HwL-nZ-wrt"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                                    <real key="value" value="-0.69999999999999996"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="oef-RG-XBC" secondAttribute="height" multiplier="12:5" id="gCO-bu-Mj9"/>
+                                                        <constraint firstItem="m6o-LH-nnx" firstAttribute="leading" secondItem="oef-RG-XBC" secondAttribute="leading" constant="12" id="rWM-TA-Y3X"/>
+                                                        <constraint firstAttribute="height" constant="25" id="tm9-a4-JMl"/>
+                                                        <constraint firstItem="m6o-LH-nnx" firstAttribute="top" secondItem="oef-RG-XBC" secondAttribute="top" constant="4" id="yFK-Lj-vin"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="xtq-8d-3dN" firstAttribute="top" secondItem="Uo2-Nd-IWQ" secondAttribute="top" id="0vb-pC-SUu"/>
                                                 <constraint firstAttribute="bottom" secondItem="yQC-AT-nqL" secondAttribute="bottom" constant="37" id="DTY-z9-rJf"/>
                                                 <constraint firstAttribute="bottom" secondItem="xtq-8d-3dN" secondAttribute="bottom" constant="26" id="KMh-EJ-Xyg"/>
+                                                <constraint firstItem="oef-RG-XBC" firstAttribute="top" secondItem="Uo2-Nd-IWQ" secondAttribute="top" constant="15" id="Maf-3I-4CN"/>
                                                 <constraint firstItem="xtq-8d-3dN" firstAttribute="leading" secondItem="Uo2-Nd-IWQ" secondAttribute="leading" constant="16" id="Y4P-hy-3eC"/>
                                                 <constraint firstItem="WAc-ZI-3ZO" firstAttribute="leading" secondItem="xtq-8d-3dN" secondAttribute="trailing" constant="11" id="aMB-CU-Fhj"/>
+                                                <constraint firstAttribute="trailing" secondItem="oef-RG-XBC" secondAttribute="trailing" constant="16" id="lTY-mV-gYD"/>
                                                 <constraint firstItem="WAc-ZI-3ZO" firstAttribute="top" secondItem="Uo2-Nd-IWQ" secondAttribute="top" constant="5" id="sNq-8n-4LQ"/>
                                                 <constraint firstItem="yQC-AT-nqL" firstAttribute="leading" secondItem="xtq-8d-3dN" secondAttribute="trailing" constant="11" id="w4O-JV-ndZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dayCornerView" destination="oef-RG-XBC" id="yey-gc-pJW"/>
+                                            <outlet property="myPlantImageView" destination="xtq-8d-3dN" id="jvP-0r-ynn"/>
+                                            <outlet property="myPlantInfoLabel" destination="yQC-AT-nqL" id="ecu-Ti-X98"/>
+                                            <outlet property="myPlantNameLabel" destination="WAc-ZI-3ZO" id="zm5-6O-rnx"/>
+                                            <outlet property="plantDay" destination="m6o-LH-nnx" id="6VY-le-Koa"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -583,6 +621,11 @@
                             <constraint firstItem="6yF-NS-WA1" firstAttribute="bottom" secondItem="Rzr-y6-g61" secondAttribute="bottom" id="b3w-Cq-v01"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="plantCompleteBtn" destination="9Bi-hV-H06" id="Hr7-P6-fCs"/>
+                        <outlet property="plantSearchBar" destination="9NK-GL-Etu" id="BY4-o7-LuK"/>
+                        <outlet property="plantTableView" destination="Rzr-y6-g61" id="O3a-pc-t6o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VSK-SM-miG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -601,7 +644,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="omD-fi-hGY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2839" y="163"/>
+            <point key="canvasLocation" x="2783" y="163"/>
         </scene>
         <!--Mypage PlantVC-->
         <scene sceneID="Upa-Au-Bqg">
@@ -630,7 +673,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFC-C9-JGL" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="80" y="34" width="55.666666666666657" height="18.666666666666671"/>
+                                                    <rect key="frame" x="80" y="34" width="59" height="24"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                                     <color key="textColor" name="black"/>
                                                     <nil key="highlightedColor"/>
@@ -641,7 +684,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스투키 Lv.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ua3-7u-m7j" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="80" y="53.666666666666664" width="56.333333333333343" height="13.999999999999993"/>
+                                                    <rect key="frame" x="80" y="59" width="57.666666666666657" height="18"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                     <color key="textColor" red="0.16470588235294117" green="0.16470588235294117" blue="0.16470588235294117" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -659,7 +702,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qV-yR-Pka" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="310" y="44.666666666666664" width="38.333333333333314" height="22.999999999999993"/>
+                                                    <rect key="frame" x="311" y="44.666666666666664" width="36" height="22.999999999999993"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="EuT-Gt-HUF"/>
                                                     </constraints>
@@ -712,7 +755,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzA-gf-QWD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="636" y="977"/>
+            <point key="canvasLocation" x="798" y="977"/>
         </scene>
         <!--Mypage ContactVC-->
         <scene sceneID="05M-EM-fG9">
@@ -741,7 +784,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김웅앵" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8SQ-IB-mvm" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="80" y="34" width="41.666666666666657" height="18.666666666666671"/>
+                                                    <rect key="frame" x="80" y="34" width="44.333333333333343" height="24"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                                     <color key="textColor" name="black"/>
                                                     <nil key="highlightedColor"/>
@@ -752,7 +795,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="010.6769.2189" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BK1-HO-Mec" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="80" y="53.666666666666664" width="80" height="13.999999999999993"/>
+                                                    <rect key="frame" x="80" y="59" width="80" height="18"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                     <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -807,7 +850,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5p8-13-aVr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1612" y="1006"/>
+            <point key="canvasLocation" x="1474" y="1006"/>
         </scene>
     </scenes>
     <resources>
