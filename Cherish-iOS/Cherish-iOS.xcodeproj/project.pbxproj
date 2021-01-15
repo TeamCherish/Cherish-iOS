@@ -113,12 +113,13 @@
 		548DF1A925A395D20081FCD1 /* KeywordCanDeleteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */; };
 		548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
-		921440FD25ACC56F00853E53 /* MyPageSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921440FC25ACC56F00853E53 /* MyPageSearchVC.swift */; };
 		9214410225ACE7BD00853E53 /* AddUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9214410125ACE7BD00853E53 /* AddUserService.swift */; };
 		923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */; };
 		923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */; };
 		9244DF0C25AB90F00014FF5D /* PlantResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */; };
 		9244DF1225AB92220014FF5D /* LoadingPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */; };
+		92824D7925B145DB003D7678 /* MyPageSearchPlantVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824D7825B145DB003D7678 /* MyPageSearchPlantVC.swift */; };
+		92824D7D25B145FA003D7678 /* MyPageSearchContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824D7C25B145FA003D7678 /* MyPageSearchContactVC.swift */; };
 		92B0F9D925AEB15400AA411A /* AddUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0F9D825AEB15400AA411A /* AddUserData.swift */; };
 		92B0F9E225AEE41600AA411A /* FetchedContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0F9E125AEE41600AA411A /* FetchedContact.swift */; };
 		92B0FA2C25B0F6A900AA411A /* NoPlantVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0FA2B25B0F6A800AA411A /* NoPlantVC.swift */; };
@@ -239,12 +240,13 @@
 		548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpLaterVC.swift; sourceTree = "<group>"; };
 		548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCanDeleteCVC.swift; sourceTree = "<group>"; };
 		548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewAlign.swift; sourceTree = "<group>"; };
-		921440FC25ACC56F00853E53 /* MyPageSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSearchVC.swift; sourceTree = "<group>"; };
 		9214410125ACE7BD00853E53 /* AddUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserService.swift; sourceTree = "<group>"; };
 		923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailVC.swift; sourceTree = "<group>"; };
 		923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendVC.swift; sourceTree = "<group>"; };
 		9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantResultVC.swift; sourceTree = "<group>"; };
 		9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPopUpVC.swift; sourceTree = "<group>"; };
+		92824D7825B145DB003D7678 /* MyPageSearchPlantVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSearchPlantVC.swift; sourceTree = "<group>"; };
+		92824D7C25B145FA003D7678 /* MyPageSearchContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSearchContactVC.swift; sourceTree = "<group>"; };
 		92B0F9D825AEB15400AA411A /* AddUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserData.swift; sourceTree = "<group>"; };
 		92B0F9E125AEE41600AA411A /* FetchedContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedContact.swift; sourceTree = "<group>"; };
 		92B0FA2B25B0F6A800AA411A /* NoPlantVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPlantVC.swift; sourceTree = "<group>"; };
@@ -579,7 +581,8 @@
 				33E874FA25A04A81001F84FE /* MyPageVC.swift */,
 				332CC7B525A7027D00D0047D /* MypagePlantVC.swift */,
 				332CC7B825A7028A00D0047D /* MypageContactVC.swift */,
-				921440FC25ACC56F00853E53 /* MyPageSearchVC.swift */,
+				92824D7825B145DB003D7678 /* MyPageSearchPlantVC.swift */,
+				92824D7C25B145FA003D7678 /* MyPageSearchContactVC.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -935,6 +938,7 @@
 			files = (
 				3317778B25B0921500CC1030 /* MypageData.swift in Sources */,
 				548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */,
+				92824D7D25B145FA003D7678 /* MyPageSearchContactVC.swift in Sources */,
 				9244DF1225AB92220014FF5D /* LoadingPopUpVC.swift in Sources */,
 				33805F8325AC62B3005CED0F /* LoginData.swift in Sources */,
 				33CAF85225A249DC0050DE29 /* CherishMainNC.swift in Sources */,
@@ -948,6 +952,7 @@
 				923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */,
 				33E8750725A04DA2001F84FE /* UIColor+Additions.swift in Sources */,
 				332CC7A925A6F41E00D0047D /* MyPageUtils.swift in Sources */,
+				92824D7925B145DB003D7678 /* MyPageSearchPlantVC.swift in Sources */,
 				9244DF0C25AB90F00014FF5D /* PlantResultVC.swift in Sources */,
 				332CC7B025A7018400D0047D /* MypagePlantTVC.swift in Sources */,
 				54425C3A25AF520A00E62BAB /* CalendarService.swift in Sources */,
@@ -968,7 +973,6 @@
 				5478346F25AC72F90021C32B /* LaterService.swift in Sources */,
 				5488923625A5E962003839FC /* CalendarKeywordCVCell.swift in Sources */,
 				92B2306525A30F390024B8A8 /* Friend.swift in Sources */,
-				921440FD25ACC56F00853E53 /* MyPageSearchVC.swift in Sources */,
 				548DF17525A1BB7F0081FCD1 /* PopUpContactVC.swift in Sources */,
 				5478347525AC77600021C32B /* WateringDayService.swift in Sources */,
 				3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */,
