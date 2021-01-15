@@ -17,7 +17,7 @@ struct ResultData: Codable{
     let id, dDay: Int
     let nickname, phone: String
     let growth: Int
-    let thumbnailImageURL, modifier, gif, plantName: String
+    let thumbnailImageURL, modifier, gif, plantName, main_bg: String
 
     enum CodingKeys: String, CodingKey {
         case id, dDay, nickname, phone, growth
@@ -25,5 +25,6 @@ struct ResultData: Codable{
         case modifier
         case gif
         case plantName
+        case main_bg
     }
 }
