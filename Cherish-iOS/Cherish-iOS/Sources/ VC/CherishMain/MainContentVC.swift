@@ -266,12 +266,12 @@ class LoadingHUD: NSObject {
             let h = UIScreen.main.bounds.height
             popupView.frame = CGRect(x:0, y: 0, width: 80, height: 80)
             popupView.center = window.center
-            popupView.layer.cornerRadius = 20
+            popupView.layer.cornerRadius = popupView.layer.frame.height / 2
             backgroundView.frame = CGRect(x: 0, y: 0, width: window.frame.maxX, height: window.frame.maxY)
             // 윈도우의 크기에 맞춰 설정
             backgroundView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
             popupView.backgroundColor = UIColor.white
-            popupImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 58)
+            popupImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 65)
             popupImageView.center = window.center
             popupImageView.image = LoadingHUD.getAnimationImage()
             popupImageView.animationDuration = 4.0
