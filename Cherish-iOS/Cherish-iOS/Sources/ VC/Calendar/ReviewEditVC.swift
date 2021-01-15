@@ -138,9 +138,20 @@ class ReviewEditVC: UIViewController{
     }
 
     @IBAction func completeEdit(_ sender: Any) {
+        if edit_keyword.count == 0 {
+            edit_keyword = ["","",""]
+        }
+        if edit_keyword.count == 1 {
+            edit_keyword.append("")
+            edit_keyword.append("")
+        }
+        if edit_keyword.count == 2 {
+            edit_keyword.append("")
+        }
         CalendarService.shared.reviewEdit(CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), water_date: dateForServer!, review: memoTextView.text, keyword1: edit_keyword[0], keyword2: edit_keyword[1], keyword3: edit_keyword[2]) { (networkResult) -> (Void) in
             switch networkResult {
             case .success(_):
+                self.navigationController?.popViewController(animated: true)
                 print("success")
             case .requestErr(_):
                 print("requestErr")

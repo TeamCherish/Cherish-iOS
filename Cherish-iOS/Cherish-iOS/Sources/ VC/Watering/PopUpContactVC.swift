@@ -179,10 +179,15 @@ extension PopUpContactVC: MFMessageComposeViewControllerDelegate{
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         switch result {
         case MessageComposeResult.sent:
+            guard let pvc = self.presentingViewController else {return}
             let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
-            if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
+            controller.dismiss(animated: true){
+                self.dismiss(animated: true){
+                    if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
+                        vc.modalPresentationStyle = .fullScreen
+                        pvc.present(vc, animated: true, completion: nil)
+                    }
+                }
             }
             print("전송 완료")
             break
@@ -220,8 +225,8 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         let label = UILabel(frame: CGRect.zero)
         label.text = keyword[indexPath.row]
         label.sizeToFit()
-        total? += label.frame.width+5
-        return CGSize(width: label.frame.width+5, height: collectionView.frame.height)
+        total? += label.frame.width
+        return CGSize(width: label.frame.width, height: collectionView.frame.height)
     }
 
     //MARK: - Cell간의 좌우간격 지정
@@ -233,10 +238,8 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     //MARK: - 마진
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {
-    
         // Cell 가운데 정렬
         let edgeInsets = (keywordShowCollectionView.frame.width  - (CGFloat(total ?? 0)) - (CGFloat(keyword.count-1) * 7)) / 2
         return UIEdgeInsets(top: 0, left: CGFloat(edgeInsets), bottom: 0, right: 0);
-
     }
 }
