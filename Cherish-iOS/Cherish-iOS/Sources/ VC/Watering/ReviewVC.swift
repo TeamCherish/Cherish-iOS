@@ -205,6 +205,7 @@ class ReviewVC: UIViewController {
                // goToWateringMotion()
                 appDel.isWateringComplete = true
                 self.dismiss(animated: true, completion: nil)
+                
             case .requestErr(_):
                 print("requestErr")
             case .pathErr:

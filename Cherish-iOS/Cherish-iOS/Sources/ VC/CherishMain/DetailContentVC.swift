@@ -43,9 +43,14 @@ class DetailContentVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if appDel.isCherishAdded == true || appDel.isWateringPostponed == true {
+        //이 거 때 문 이 다
+        if appDel.isCherishAdded == true || appDel.isWateringPostponed == true  {
             setCherishPeopleData()
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: .postPostponed, object: nil)
     }
     
     //MARK: - 헤더 뷰 라운드로 만드는 함수
@@ -70,7 +75,6 @@ class DetailContentVC: UIViewController {
                 }
             case .requestErr(let msg):
                 if let message = msg as? String {
-                    print(message)
                 }
             case .pathErr:
                 print("pathErr")
