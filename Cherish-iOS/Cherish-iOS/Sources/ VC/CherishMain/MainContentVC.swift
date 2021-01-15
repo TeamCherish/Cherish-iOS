@@ -97,10 +97,10 @@ class MainContentVC: UIViewController {
                 if appDel.isWateringComplete == true {
                     plantImageView.isHidden = true
                     plantGifView.isHidden = false
-                    DispatchQueue.main.async(execute: {() -> Void in
+                   
                         self.plantGifView.image = UIImage.gif(name: "min_watering_ios")!
-                    })
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.05) {
                         self.plantGifView.image = UIImage.gif(name: "real_min")!
                     }
                     

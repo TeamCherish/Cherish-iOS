@@ -3,26 +3,27 @@
 //  Cherish-iOS
 //
 //  Created by 장서현 on 2021/01/15.
-//
+
 
 import UIKit
 
-class MyPageSearchPlantVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class MyPageSearchPlantVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    @IBOutlet weak var plantSearchBar: UISearchBar!
-    @IBOutlet weak var plantCompleteBtn: UIButton!
     @IBOutlet weak var plantTableView: UITableView!
     
+
     var myCherishPlant: [MypagefriendsData] = []
-    
-//    var myCherishPlant = UserDefaults.standard.array(forKey: "cherishResult")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        plantCompleteBtn.isHidden = true
-//        myCherishPlant = UserDefaults.standard.array(forKey: "cherishResult")!
-        // Do any additional setup after loading the view.
+        myCherishPlant = UserDefaults.standard.value(forKey: "cherishResult") as! [MypagefriendsData]
+        plantTableView.delegate = self
+        plantTableView.dataSource = self
+    }
+    
+    @IBAction func backToMyPage(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,7 +42,14 @@ class MyPageSearchPlantVC: UIViewController, UITableViewDelegate, UITableViewDat
             cell.selectionStyle = .none
             return cell
         }
-        let cell = plantTableView.dequeueReusableCell(withIdentifier: "SearchPlantCell", for: indexPath)
+        
+        guard let cell = plantTableView.dequeueReusableCell(withIdentifier: "SearchPlantCell", for: indexPath) as? SearchPlantCell else { return UITableViewCell() }
+
+        if myCherishPlant.count != 0 {
+            let url = URL(string: myCherishPlant[indexPath.row].thumbnailImageURL ?? "")
+            let imageData = (try? Data(contentsOf: url!))!
+            cell.setCellProperty(imageData, myCherishPlant[indexPath.row].nickname, myCherishPlant[indexPath.row].name, myCherishPlant[indexPath.row].dDay)
+        }
         cell.selectionStyle = .none
         return cell
     }

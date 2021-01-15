@@ -34,8 +34,8 @@ class CherishTabBarController: UITabBarController {
         
         /// 마이페이지탭
         let MyPage = UIStoryboard.init(name: "MyPage", bundle: nil)
-        guard let secondTab = MyPage.instantiateViewController(identifier: "MyPageVC")
-                as? MyPageVC  else {
+        guard let secondTab = MyPage.instantiateViewController(identifier: "MypageNC")
+                as? MypageNC  else {
             return
         }
         

@@ -256,6 +256,7 @@ class CalendarVC: UIViewController {
                             keyword.append(contentsOf: [
                                 CalendarKeyword(keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
                             ])
+                            print(calendarResult.water[i].waterDate)
                             watering_Events.append(formatter.date(from: calendarResult.water[i].waterDate)!)
                             //print(watering_Events)
                         }
@@ -292,7 +293,6 @@ class CalendarVC: UIViewController {
     func memoHeightMode(idx: Int){
         /// 키워드 미입력 시
         if keywordForCV.count == 0 {
-            print("keyword mip")
             calendarKeywordCollectionView.isHidden = true
             keywordCVTopAnchor.constant = 0
         }else{
@@ -301,7 +301,6 @@ class CalendarVC: UIViewController {
         }
         /// 메모 미입력 시
         if fetchCalendar[idx].review.count < 1 || fetchCalendar[idx].review == "" {
-            print("memo mip")
             keywordCVBotAnchor.constant = 0
             memoTextLabel.isHidden = true
         }else{
@@ -311,7 +310,6 @@ class CalendarVC: UIViewController {
         
         /// 키워드,메모 미입력 시
         if (fetchCalendar[idx].review.count < 1 || fetchCalendar[idx].review == "") && keywordForCV.count == 0  {
-            print("keword,memo mip")
             memoBtnTopAnchor.constant = 22
             memoBtn.isHidden = true
         }else{

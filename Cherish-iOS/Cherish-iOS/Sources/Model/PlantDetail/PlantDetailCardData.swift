@@ -16,23 +16,25 @@ struct PlantDetailCardData: Codable {
 // MARK: - PlantDetail
 struct PlantDetail: Codable {
     let levelName, plantDetailDescription: String
-    let imageURL: String
+    let imageURL, image: String
 
     enum CodingKeys: String, CodingKey {
         case levelName = "level_name"
         case plantDetailDescription = "description"
         case imageURL = "image_url"
+        case image
     }
 }
 
 // MARK: - PlantResponse
 struct PlantResponse: Codable {
     let modifier, explanation, flowerMeaning: String
-    let imageURL: String
+    let image, imageURL: String
 
     enum CodingKeys: String, CodingKey {
         case modifier, explanation
         case flowerMeaning = "flower_meaning"
+        case image
         case imageURL = "image_url"
     }
 }

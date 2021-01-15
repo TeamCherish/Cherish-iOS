@@ -41,6 +41,9 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     
     var contactArray:[Friend] = []
     
+    // 식물 아이디 배열
+    open var myPlantID: [Int] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         changeStatusBarBackgroundColor("mypageBackground")
@@ -113,11 +116,24 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
                     userGrowCompleteCountLabel.text = "\(mypageData.completeCount)"
                     mypagePlantCount = mypageData.result.count
                     
+                    // 소중이들 아이디 정수 배열 만들기
+                    for i in 0...mypagePlantCount-1 {
+                        myPlantID.append(mypageData.result[i].id)
+                    }
+                    
+                    UserDefaults.standard.set(myPlantID, forKey: "myCherishID")
+
+                    print("1: my page main임 ㅎㅇㅎㅇ")
+                    print(myPlantID)
+                    UserDefaults.standard.set(myPlantID, forKey: "plantIDArray")
+                    
+
                     // Userdefaults에 저장된 contact 가져오기
                     if let data = UserDefaults.standard.value(forKey: "userContacts") as? Data {
                         let contacts = try? PropertyListDecoder().decode([Friend].self, from: data)
                         
                         contactArray = contacts!
+                        
                     }
                     mypageContactCount = contactArray.count
                     segmentView.setButtonTitles(buttonTitles: ["식물 \(mypagePlantCount)", "연락처 \(mypageContactCount)"])
@@ -131,8 +147,20 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
             case .networkFail:
                 print("networkFail")
             }
-            
         }
+    }
+    
+    // 검색뷰로 이동
+    @IBAction func moveToSearchPlant(_ sender: Any) {
+        guard let dvc = self.storyboard?.instantiateViewController(identifier: "MyPageSearchPlantVC") as? MyPageSearchPlantVC else {return}
+        dvc.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(dvc, animated: true)
+    }
+    @IBAction func moveToAddUser(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
+        
+        guard let dvc = storyBoard.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar else {return}
+        self.navigationController?.pushViewController(dvc, animated: true)
     }
 }
 

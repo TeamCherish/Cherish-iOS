@@ -31,7 +31,6 @@ class PopUpContactVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        getRecentKeyword()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -225,8 +224,8 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         let label = UILabel(frame: CGRect.zero)
         label.text = keyword[indexPath.row]
         label.sizeToFit()
-        total? += label.frame.width
-        return CGSize(width: label.frame.width, height: collectionView.frame.height)
+        total? += label.frame.width+15
+        return CGSize(width: label.frame.width+15, height: collectionView.frame.height)
     }
 
     //MARK: - Cell간의 좌우간격 지정

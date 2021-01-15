@@ -37,11 +37,6 @@ class SearchPlantCell: UITableViewCell {
         dayCornerView.layer.cornerRadius = 13
     }
     
-//    func setProperties(_ imageData:Data, _ nickname:String,_ plantType:String,_ wateringDay:Int){
-//        mypagePlantImageView.image = UIImage(data: imageData)
-//        mypagePlantNicknameLabel.text = nickname
-//        mypagePlantTypeLabel.text = plantType
-    
     func setCellProperty(_ imageData: Data, _ nickname: String, _ plantType: String, _ wateringDay: Int) {
         if wateringDay == 0 {
             self.plantDay.text = "D-day"

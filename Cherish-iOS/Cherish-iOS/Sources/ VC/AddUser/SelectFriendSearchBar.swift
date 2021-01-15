@@ -177,5 +177,14 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         }
         self.tableView.reloadData()
     }
+    
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.searchTextField.resignFirstResponder()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.searchBar.endEditing(true)
+    }
 }
 

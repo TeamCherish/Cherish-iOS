@@ -31,6 +31,9 @@ class InputDetailVC: UIViewController {
     var periodPicker = UIPickerView()
     let num = ["1", "2", "3"]
     let period = ["day", "week", "month"]
+    var year: [Int] = []
+    var month: [String] = []
+    var day: [String] = []
     var receiveItem = ""
     var cycle_date = 0
     var givenName: String?
@@ -41,6 +44,7 @@ class InputDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBirthPickerData()
         completeBtn.isEnabled = false
         setTextField()
         setSwitch()
@@ -84,6 +88,15 @@ class InputDetailVC: UIViewController {
         if completeBtn.isEnabled == true {
             guard let loadingVC = self.storyboard?.instantiateViewController(identifier: "LoadingPopUpVC") as? LoadingPopUpVC else { return }
             guard let resultVC = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else { return }
+//
+//            print(nameText)
+//            print(nicknameText)
+//            print(birthText)
+//            print(phonenumberText)
+//            print(cycle_date)
+//            print(periodText)
+//            print(alarmState)
+//            print(UserDefaults.standard.integer(forKey: "userID"))
 
             AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: periodText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")) {
                 
@@ -91,7 +104,7 @@ class InputDetailVC: UIViewController {
                 print(UserDefaults.standard.integer(forKey: "userID"))
                 switch networkResult {
                 case .success(let data):
-
+                    print("들어와져?")
                     if let resultData = data as? AddUserData {
                         UserDefaults.standard.set(resultData.plant.modifier, forKey: "resultModifier")
                         UserDefaults.standard.set(resultData.plant.explanation , forKey: "resultExplanation")
@@ -128,6 +141,28 @@ class InputDetailVC: UIViewController {
         stateSwitch.tintColor = UIColor.seaweed
         stateSwitch.onTintColor = UIColor.seaweed
         stateSwitch.transform = CGAffineTransform(scaleX: 0.8, y: 0.74)
+    }
+    
+    func setBirthPickerData() {
+        var firstMonth = 1
+        for i in 0...11 {
+            month[i] = (String(firstMonth) + "월")
+            firstMonth = firstMonth+1
+        }
+        var firstYear = 1910
+        while(firstYear<=2021) {
+            var i = 0
+            year[i] = firstYear
+            firstYear = firstYear+1
+            i = i+1
+        }
+        var firstDay = 1
+        while(firstDay<=31){
+            var i = 0
+            day[i] = (String(firstDay)+"일")
+            firstDay = firstDay + 1
+            i = i+1
+        }
     }
     
     //MARK: - 텍스트필드 값 다 채워지면 완료 버튼 enable
@@ -252,8 +287,9 @@ class InputDetailVC: UIViewController {
 }
 
 //MARK: - PickerView DataSource, Delegate
-    ///pickerView 여러개에 대해 각각 datasource 수정ㅎ려면 어떡해야돼?? -> 분기처리
+    ///pickerView 여러개에 대해 각각 datasource 수정ㅎ려면 어떡해야돼??
 extension InputDetailVC: UIPickerViewDataSource {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         3
     }
@@ -281,6 +317,7 @@ extension InputDetailVC: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedNum = pickerView.selectedRow(inComponent: 1)
+        
         let selectedPeriod = pickerView.selectedRow(inComponent: 2)
         
         let realNum = num[selectedNum]

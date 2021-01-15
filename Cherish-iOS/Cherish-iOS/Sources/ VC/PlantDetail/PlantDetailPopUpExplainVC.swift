@@ -45,10 +45,8 @@ class PlantDetailPopUpExplainVC: UIViewController {
                     if let detailCardData = data as? PlantDetailCardData {
                         print("통신이 됩니닷")
                         plantExplain = detailCardData.plantResponse
-                        
                         // 4개 카드 중 3개 정보 받는 array
                         plantStepExplainArray = detailCardData.plantDetail
-                        
                         plantExplainCV.reloadData()
                     }
                 case .requestErr(let msg):
@@ -93,22 +91,51 @@ extension PlantDetailPopUpExplainVC : UICollectionViewDelegate, UICollectionView
             if indexPath.item == 0 {
                 plantExplainCell.plantExplainTitleLabel.text = plantExplain[0].modifier
                 plantExplainCell.plantExplainSubtitleLabel.text = plantExplain[0].explanation
-                plantExplainCell.plantImageView.image = UIImage(named: "imgMinLevel3")
+                
+                let first_url = URL(string: plantExplain[0].image )
+                let first_imageData = try? Data(contentsOf: first_url!)
+                plantExplainCell.flowerMeaningImageView.image = UIImage(data: first_imageData!)
+                
+                let url = URL(string: plantExplain[0].imageURL )
+                let imageData = try? Data(contentsOf: url!)
+                plantExplainCell.plantImageView.image = UIImage(data: imageData!)
+//                plantExplainCell.plantImageView.image = UIImage(named: "imgMinLevel3")
             }
             else if indexPath.item == 1 {
-                plantExplainCell.plantExplainTitleLabel.text = plantStepExplainArray[0].levelName
+                plantExplainCell.plantExplainTitleLabel.text = "1단계"
                 plantExplainCell.plantExplainSubtitleLabel.text = plantStepExplainArray[0].plantDetailDescription
-                plantExplainCell.plantImageView.image = UIImage(named: "imgMinLevel1")
+                
+                let step1 = URL(string: plantStepExplainArray[0].image )
+                let step1_imageData = try? Data(contentsOf: step1!)
+                plantExplainCell.flowerMeaningImageView.image = UIImage(data: step1_imageData!)
+                
+                let url = URL(string: plantStepExplainArray[0].imageURL )
+                let imageData = try? Data(contentsOf: url!)
+                plantExplainCell.plantImageView.image = UIImage(data: imageData!)
             }
             else if indexPath.item == 2 {
-                plantExplainCell.plantExplainTitleLabel.text = plantStepExplainArray[1].levelName
+                plantExplainCell.plantExplainTitleLabel.text = "2단계"
                 plantExplainCell.plantExplainSubtitleLabel.text = plantStepExplainArray[1].plantDetailDescription
-                plantExplainCell.plantImageView.image = UIImage(named: "imgMinLeve2")
+                
+                let step2 = URL(string: plantStepExplainArray[1].image )
+                let step2_imageData = try? Data(contentsOf: step2!)
+                plantExplainCell.flowerMeaningImageView.image = UIImage(data: step2_imageData!)
+                
+                let url = URL(string: plantStepExplainArray[1].imageURL )
+                let imageData = try? Data(contentsOf: url!)
+                plantExplainCell.plantImageView.image = UIImage(data: imageData!)
             }
             else {
-                plantExplainCell.plantExplainTitleLabel.text = plantStepExplainArray[2].levelName
-                plantExplainCell.plantExplainSubtitleLabel.text = plantStepExplainArray[2].plantDetailDescription
-                plantExplainCell.plantImageView.image = UIImage(named: "imgMinLeve3")
+                plantExplainCell.plantExplainTitleLabel.text = "3단계"
+                plantExplainCell.plantExplainSubtitleLabel.text = plantStepExplainArray[1].plantDetailDescription
+                
+                let step3 = URL(string: plantStepExplainArray[2].image )
+                let step3_imageData = try? Data(contentsOf: step3!)
+                plantExplainCell.flowerMeaningImageView.image = UIImage(data: step3_imageData!)
+                
+                let url = URL(string: plantStepExplainArray[2].imageURL )
+                let imageData = try? Data(contentsOf: url!)
+                plantExplainCell.plantImageView.image = UIImage(data: imageData!)
             }
         }
         
