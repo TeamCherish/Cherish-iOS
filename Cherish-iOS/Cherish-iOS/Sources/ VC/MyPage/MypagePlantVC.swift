@@ -90,10 +90,8 @@ extension MypagePlantVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        plantIsSelected = true
-        
+        plantIsSelected = true 
 //        let vc = MyPageVC()
-        
         print("2: my plant임 ㅎㅇㅎㅇ")
 //        print(vc.myPlantID)
         

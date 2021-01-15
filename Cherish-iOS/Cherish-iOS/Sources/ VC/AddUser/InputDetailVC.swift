@@ -44,7 +44,7 @@ class InputDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setBirthPickerData()
+//        setBirthPickerData()
         completeBtn.isEnabled = false
         setTextField()
         setSwitch()
@@ -53,8 +53,8 @@ class InputDetailVC: UIViewController {
         createPicker()
         periodPicker.delegate = self
         periodPicker.dataSource = self
+        nicknameTextField.delegate = self
     }
-    
     
     //MARK: - IBAction
     
@@ -369,5 +369,16 @@ extension InputDetailVC: UIPickerViewDelegate {
         
         let fullData = "every "+realNum+" "+realPeriod
         self.alarmPeriodTextField.text = fullData
+    }
+}
+
+extension InputDetailVC: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.nicknameTextField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.nicknameTextField.endEditing(true)
     }
 }
