@@ -24,7 +24,7 @@ class PlantExplainCVC: UICollectionViewCell {
         self.plantExplainTitleLabel.text = ""
         self.plantExplainSubtitleLabel.text = ""
         self.plantImageView.image = UIImage()
-        self.flowerMeaningImageView = UIImageView()
+        self.flowerMeaningImageView.image = UIImage()
     }
     
 }

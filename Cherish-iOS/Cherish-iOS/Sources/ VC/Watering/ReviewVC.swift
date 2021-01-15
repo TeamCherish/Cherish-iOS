@@ -169,19 +169,36 @@ class ReviewVC: UIViewController {
         vc.modalTransitionStyle = .coverVertical
         
         self.dismiss(animated: true){
-                pvc.present(vc, animated: true, completion: nil)
-            }
+            pvc.present(vc, animated: true, completion: nil)
+        }
         
         /// 5초 후에 메인 화면으로 돌아감
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                // Do whatever you want
-                vc.dismiss(animated: true, completion: nil)
-            }
+            // Do whatever you want
+            vc.dismiss(animated: true, completion: nil)
+        }
     }
     
     func setNamingLabel(){
         reviewNameLabel.text = "\(UserDefaults.standard.string(forKey: "UserNickname")!)"+"님! "+"\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의"
         reviewPlzLabel.text = "\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의 물주기를 기록해주세요"
+    }
+    
+    
+    /// 아무것도 안썼을 때 보더만 있는 버튼
+    func setBtnNotText(){
+        submit.backgroundColor = .white
+        submit.layer.borderColor = UIColor.seaweed.cgColor
+        submit.layer.borderWidth  = 1.0
+        submit.titleLabel?.text = "등록완료"
+        submit.titleLabel?.textColor = .seaweed
+    }
+    
+    /// 무언가를 썼을 때 채워진 버튼
+    func setBtnYesText(){
+        submit.backgroundColor = .seaweed
+        submit.titleLabel?.text = "등록완료"
+        submit.titleLabel?.textColor = .white
     }
     
     // 등록완료
@@ -202,7 +219,7 @@ class ReviewVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 print(data)
-               // goToWateringMotion()
+                // goToWateringMotion()
                 appDel.isWateringComplete = true
                 self.dismiss(animated: true, completion: nil)
             case .requestErr(_):
@@ -285,6 +302,7 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         if newMemoLength >= 100 {
             memoCountingLabel.text =  "100/"
         }
+        
         /// 최대 글자 수 100자
         return newMemoLength <= 100
     }
@@ -320,7 +338,6 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
 }
 
 ///2
