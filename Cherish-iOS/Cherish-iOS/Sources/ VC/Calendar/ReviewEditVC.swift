@@ -154,6 +154,7 @@ class ReviewEditVC: UIViewController{
 
             switch networkResult {
             case .success(_):
+            
                 self.navigationController?.popViewController(animated: true)
                 print("success")
             case .requestErr(_):

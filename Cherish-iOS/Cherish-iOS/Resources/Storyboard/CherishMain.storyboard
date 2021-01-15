@@ -318,7 +318,7 @@
                                     <constraint firstItem="XWq-sY-NPK" firstAttribute="leading" secondItem="3bh-Ia-bkm" secondAttribute="leading" constant="16" id="mPI-7q-Snb"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dA7-UO-PkU">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dA7-UO-PkU">
                                 <rect key="frame" x="0.0" y="104" width="375" height="674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="uEB-Wd-zQh">
@@ -341,7 +341,7 @@
                                                         <constraint firstAttribute="height" constant="69" id="MOk-oK-iMn"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainImgUser1" translatesAutoresizingMaskIntoConstraints="NO" id="kkb-UO-WqI">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kkb-UO-WqI">
                                                     <rect key="frame" x="5" y="5" width="59" height="59"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="59" id="7cX-VK-a6Y"/>
@@ -398,7 +398,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="69" height="91"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainImgUser1" translatesAutoresizingMaskIntoConstraints="NO" id="YT7-Xw-sgv">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YT7-Xw-sgv">
                                                     <rect key="frame" x="5" y="5" width="59" height="59"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="YT7-Xw-sgv" secondAttribute="height" multiplier="1:1" id="KOM-rs-3cv"/>
@@ -507,7 +507,6 @@
         <image name="mainBtnMoveDetailview" width="256" height="380"/>
         <image name="mainBtnWater" width="90" height="40"/>
         <image name="mainIcAlarm" width="48" height="48"/>
-        <image name="mainImgUser1" width="59" height="59"/>
         <image name="modal" width="50" height="4"/>
         <namedColor name="black">
             <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
