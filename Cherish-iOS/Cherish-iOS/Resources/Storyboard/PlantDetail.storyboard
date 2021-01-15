@@ -442,10 +442,10 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YBf-wR-Gwr">
-                                <rect key="frame" x="129" y="301" width="117" height="25"/>
+                                <rect key="frame" x="130.66666666666666" y="301" width="114" height="25"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="uYa-OR-Q18">
-                                        <rect key="frame" x="13" y="3.6666666666666856" width="91" height="18"/>
+                                        <rect key="frame" x="13" y="3.6666666666666856" width="88" height="18"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남궁선규" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWU-BJ-jkX" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="18"/>
@@ -462,14 +462,14 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kbJ-uO-gGc">
-                                                <rect key="frame" x="48.666666666666657" y="0.0" width="1" height="18"/>
+                                                <rect key="frame" x="48.666666666666686" y="0.0" width="1" height="18"/>
                                                 <color key="backgroundColor" name="seaweed"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="1" id="SMs-XF-Rat"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="스투키" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5s-9O-64H" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="56.666666666666657" y="0.0" width="34.333333333333343" height="18"/>
+                                                <rect key="frame" x="56.666666666666693" y="0.0" width="31.333333333333336" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="NVg-H7-NIE"/>
                                                 </constraints>
@@ -490,7 +490,6 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
-                                    <constraint firstItem="uYa-OR-Q18" firstAttribute="width" relation="greaterThanOrEqual" secondItem="YBf-wR-Gwr" secondAttribute="width" multiplier="0.792023" priority="250" id="6Pg-An-IMB"/>
                                     <constraint firstAttribute="height" constant="25" id="7nP-t2-DCC"/>
                                     <constraint firstItem="uYa-OR-Q18" firstAttribute="leading" secondItem="YBf-wR-Gwr" secondAttribute="leading" constant="13" id="k02-nK-pFP"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" priority="250" constant="117" id="rC6-Tm-cfM"/>

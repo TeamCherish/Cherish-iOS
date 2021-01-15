@@ -100,7 +100,7 @@ class MainContentVC: UIViewController {
                    
                         self.plantGifView.image = UIImage.gif(name: "min_watering_ios")!
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.05) {
                         self.plantGifView.image = UIImage.gif(name: "real_min")!
                     }
                     
