@@ -56,7 +56,12 @@ class PlantDetailVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        LoadingHUD.show()
         friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        LoadingHUD.hide()
     }
     
     //MARK: - NC,TC 속성 정의함수
@@ -97,7 +102,7 @@ class PlantDetailVC: UIViewController {
                     
                     // keywordArray 요소 중 null값을 필터링
                     keywordArray = keywordArray.filter(){$0 != ""}
-                    
+                    keywordArray.append("키워드 없음")
                     
                     plantHealthStatusLabel.text = plantDetailData.statusMessage
                     makeCircularView(Float(plantDetailData.gage))
@@ -392,14 +397,29 @@ extension PlantDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
         let keywordCell = collectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCVCell", for: indexPath) as! KeywordCVCell
         
         if keywordArray.count != 0 {
+            
+            if keywordArray.count == 1 {
+                keywordCell.keywordLabel.textColor = .pinkSub
+                keywordCell.layer.borderColor = CGColor(red: 247/255, green: 89/255, blue: 108/255, alpha: 1.0)
+            }
+            else {
+                keywordCell.keywordLabel.textColor = .black
+                keywordCell.layer.borderColor = CGColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
+            }
             keywordCell.keywordLabel.text = keywordArray[indexPath.row]
         }
         
         keywordCell.layer.borderWidth = 1
-        keywordCell.layer.borderColor = CGColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
         keywordCell.layer.cornerRadius = 15
         
         
         return keywordCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if keywordArray.count == 1 {
+            return CGSize(width: 44, height: 29)
+        }
+        return CGSize(width: 44, height: 29)
     }
 }

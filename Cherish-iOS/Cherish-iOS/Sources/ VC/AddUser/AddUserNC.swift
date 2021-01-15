@@ -1,13 +1,13 @@
 //
-//  NoPlantVC.swift
+//  AddUserNC.swift
 //  Cherish-iOS
 //
-//  Created by 장서현 on 2021/01/15.
+//  Created by 황지은 on 2021/01/15.
 //
 
 import UIKit
 
-class NoPlantVC: UIViewController {
+class AddUserNC: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,13 +15,7 @@ class NoPlantVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func touchUpToAddNC(_ sender: UIButton) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-    
+
     /*
     // MARK: - Navigation
 

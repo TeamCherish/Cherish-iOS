@@ -230,6 +230,7 @@ class LoginVC: UIViewController {
     func goToNoPlantView() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
         if let vc = storyBoard.instantiateViewController(identifier: "NoPlantVC") as? NoPlantVC {
+            
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -320,7 +321,7 @@ extension LoginVC: UITextFieldDelegate {
     
     @objc func keyboardWillShow(_ notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue { UIView.animate(withDuration: 0.3, animations: {
-                                                                                                                                            self.view.transform = CGAffineTransform(translationX: 0, y: -10) }) }
+                                                                                                                                            self.view.transform = CGAffineTransform(translationX: 0, y: -50) }) }
         
     }
     

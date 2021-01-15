@@ -17,6 +17,7 @@ class PlantDetailPopUpExplainVC: UIViewController {
     }
     @IBOutlet var plantExplainCV: UICollectionView!
     @IBOutlet var plantExplainPageControl: UIPageControl!
+    var plantId:Int?
     var scrollItem:Int?
     
     var plantExplainArray:[PlantDetailExplainData] = []

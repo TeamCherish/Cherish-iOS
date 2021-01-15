@@ -44,7 +44,6 @@ class MainContentVC: UIViewController {
         print(appDel.isWateringComplete)
         
         LoadingHUD.show()
-        print("viewWillAppear")
         // cherishPeopleCell이 선택되거나
         // 물주기를 미루면 배경뷰의 라벨값, 식물이미지, 배경색을 바꿔준다.
         if appDel.isWateringPostponed == true {
@@ -127,6 +126,7 @@ class MainContentVC: UIViewController {
                             plantImageViewTopConstraint.constant = 104
                             
                             //MARK: - 식물별 이미지 할당
+                            
                             if cherishPeopleData[0].plantName == "민들레" {
                                 plantImageView.image = UIImage(named: "mainImgMin")
                                 self.view.backgroundColor = .dandelionBg
