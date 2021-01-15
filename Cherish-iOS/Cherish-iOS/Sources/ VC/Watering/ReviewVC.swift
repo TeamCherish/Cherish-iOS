@@ -204,7 +204,7 @@ class ReviewVC: UIViewController {
             case .success(let data):
                 print(data)
                 appDel.isWateringComplete = true
-                goToWateringMotion()
+               // goToWateringMotion()
                 
             case .requestErr(_):
                 print("requestErr")

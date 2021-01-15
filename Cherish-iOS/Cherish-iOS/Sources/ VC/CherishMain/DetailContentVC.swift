@@ -48,6 +48,10 @@ class DetailContentVC: UIViewController {
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: .postPostponed, object: nil)
+    }
+    
     //MARK: - 헤더 뷰 라운드로 만드는 함수
     func makeHeaderViewCornerRadius() {
         self.view.layer.cornerRadius = 30

@@ -38,6 +38,10 @@ class MainContentVC: UIViewController {
         
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: .cherishPeopleCellClicked, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .postPostponed, object: nil)
+    }
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
