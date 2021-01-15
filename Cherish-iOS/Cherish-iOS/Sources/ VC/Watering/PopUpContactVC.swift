@@ -179,10 +179,15 @@ extension PopUpContactVC: MFMessageComposeViewControllerDelegate{
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         switch result {
         case MessageComposeResult.sent:
+            guard let pvc = self.presentingViewController else {return}
             let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
-            if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
+            controller.dismiss(animated: true){
+                self.dismiss(animated: true){
+                    if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
+                        vc.modalPresentationStyle = .fullScreen
+                        pvc.present(vc, animated: true, completion: nil)
+                    }
+                }
             }
             print("전송 완료")
             break

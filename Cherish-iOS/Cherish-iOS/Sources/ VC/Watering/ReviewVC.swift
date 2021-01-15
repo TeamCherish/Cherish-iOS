@@ -9,12 +9,12 @@ import UIKit
 
 class ReviewVC: UIViewController {
     var keyword : [String] = [] /// 키워드 배열
-    let keywordMaxLength = 5
-    let memoMaxLength = 100
+    let keywordMaxLength = 5 /// 키워드 글자 제한
+    let memoMaxLength = 100 /// 메모 글자 제한
     
     //MARK: -@IBOutlet
-    @IBOutlet weak var reviewNameLabel: CustomLabel! ///또령님! 남쿵둥이님과(와)의
-    @IBOutlet weak var reviewPlzLabel: CustomLabel! ///남쿵둥이님과(와)의 물주기를 기록해주세요
+    @IBOutlet weak var reviewNameLabel: CustomLabel! /// 또령님! 남쿵둥이님과/와의
+    @IBOutlet weak var reviewPlzLabel: CustomLabel! /// 남쿵둥이님과/와의 물주기를 기록해주세요
     @IBOutlet weak var keywordTextField: UITextField!{
         didSet{
             keywordTextField.delegate = self
@@ -84,7 +84,27 @@ class ReviewVC: UIViewController {
             keyboardUP() /// 키보드 올릴 때 사용
         }
         setNamingLabel()
-        NotificationCenter.default.addObserver(self,selector: #selector(textDidChange(_:)),name: UITextField.textDidChangeNotification,object: textField)
+        textCopyBug()
+    }
+    
+    //MARK:- Alert
+    func nomoreKeyword(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        // Alert의 '확인'을 누르면 dismiss
+        let okAction = UIAlertAction(title: "확인",style: .default) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
+    /// 리뷰 안쓰고 등록완료 할 시 Alert
+    func reviewAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인",style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
     
     //MARK: -사용자 정의 함수
@@ -131,6 +151,11 @@ class ReviewVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    func textCopyBug(){
+        NotificationCenter.default.addObserver(self,selector: #selector(textDidChange(_:)),name: UITextField.textDidChangeNotification,object: keywordTextField)
+        NotificationCenter.default.addObserver(self,selector: #selector(textDidChange(_:)),name: UITextField.textDidChangeNotification,object: memoTextView)
+    }
+    
     @objc
     func keyboardWillShow(_ sender: Notification) {
         /// 텍스트 뷰 입력할 때에만 키보드 올리면 됨
@@ -156,38 +181,31 @@ class ReviewVC: UIViewController {
             if let text = textField.text {
                 // 초과되는 텍스트 제거
                 if text.count >= keywordMaxLength {
+                    print("키워드글자초과키워드글자초과키워드글자초과키워드글자초과")
                     let index = text.index(text.startIndex, offsetBy: keywordMaxLength)
                     let newString = text[text.startIndex..<index]
-                    textField.text = String(newString)
+                    keywordTextField.text = String(newString)
                 }
             }
         }
-    }
-    
-    //MARK:- Alert
-    func nomoreKeyword(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        // Alert의 '확인'을 누르면 dismiss
-        let okAction = UIAlertAction(title: "확인",style: .default) { (action) in
-            alert.dismiss(animated: true, completion: nil)
+        if let textView = notification.object as? UITextView {
+            if let text = textView.text {
+                // 초과되는 텍스트 제거
+                print("메모글자초과메모글자초과메모글자초과메모글자초과메모글자초과")
+                if text.count >= memoMaxLength {
+                    let index = text.index(text.startIndex, offsetBy: memoMaxLength)
+                    let newString = text[text.startIndex..<index]
+                    memoTextView.text = String(newString)
+                }
+            }
         }
-        alert.addAction(okAction)
-        present(alert, animated: true)
     }
     
     /// View 상단 네이밍 라벨 셋팅
     func setNamingLabel(){
         reviewNameLabel.text = "\(UserDefaults.standard.string(forKey: "UserNickname")!)"+"님! "+"\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의"
         reviewPlzLabel.text = "\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의 물주기를 기록해주세요"
-    }
-    
-    /// 리뷰 안쓰고 등록완료 할 시 Alert
-    func reviewAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인",style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true)
     }
     
     // 리뷰 등록 완료(애정도 +2)
@@ -262,15 +280,13 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         /// 글자 수 실시간 카운팅
         keywordCountingLabel.text =  "\(String(newKeywordLength))"+"/"
         
-        /// 5자 채우면 6자로 표시되는거 해결
+        /// 한글에서 5자 채우면 6자로 표시되는거 해결
         if newKeywordLength >= keywordMaxLength {
             keywordCountingLabel.text =  "5/"
         }
         
-        
         /// 최대 글자 수 5
         return newKeywordLength <= keywordMaxLength
-        
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -294,7 +310,7 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         /// 글자 수 실시간 카운팅
         memoCountingLabel.text =  "\(String(newMemoLength))"+"/"
         
-        /// 100자 채우면 101자로 표시되는거 해결
+        /// 한글에서 100자 채우면 101자로 표시되는거 해결
         if newMemoLength >= 100 {
             memoCountingLabel.text =  "100/"
         }
