@@ -84,11 +84,20 @@ class InputDetailVC: UIViewController {
         if completeBtn.isEnabled == true {
             guard let loadingVC = self.storyboard?.instantiateViewController(identifier: "LoadingPopUpVC") as? LoadingPopUpVC else { return }
             guard let resultVC = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else { return }
+            
+            print(nameText)
+            print(nicknameText)
+            print(birthText)
+            print(phonenumberText)
+            print(cycle_date)
+            print(periodText)
+            print(alarmState)
+            print(UserDefaults.standard.integer(forKey: "userID"))
 
             AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: periodText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")) { (networkResult) -> (Void) in
                 switch networkResult {
                 case .success(let data):
-
+                    print("들어와져?")
                     if let resultData = data as? AddUserData {
                         UserDefaults.standard.set(resultData.plant.modifier, forKey: "resultModifier")
                         UserDefaults.standard.set(resultData.plant.explanation , forKey: "resultExplanation")

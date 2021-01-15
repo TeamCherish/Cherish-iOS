@@ -41,6 +41,9 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     
     var contactArray:[Friend] = []
     
+    // 식물 아이디 배열
+    var myPlantID: [Int] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         changeStatusBarBackgroundColor("mypageBackground")
@@ -105,11 +108,30 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
                     userGrowCompleteCountLabel.text = "\(mypageData.completeCount)"
                     mypagePlantCount = mypageData.result.count
                     
+                    print("여기여기여기여기*****************")
+                    
+                    print(mypagePlantCount)
+                    
+                    // 소중이들 아이디 정수 배열 만들고 UserDefaults에 넣기
+                    // 해당 값과 일치하는 식물카드 뷰로 이동한다
+                    
+//                    for i in 0...mypagePlantCount-1 {
+//                        myPlantID[i] = 0
+//                    }
+                    
+                    for i in 0...mypagePlantCount-1 {
+                        print("\(i): " + "\(mypageData.result[i].id)")
+//                        myPlantID[i] = mypageData.result[i].id
+                    }
+
+//                    UserDefaults.standard.set(myPlantID, forKey: "plantIDArray")
+
                     // Userdefaults에 저장된 contact 가져오기
                     if let data = UserDefaults.standard.value(forKey: "userContacts") as? Data {
                         let contacts = try? PropertyListDecoder().decode([Friend].self, from: data)
                         
                         contactArray = contacts!
+                        
                     }
                     mypageContactCount = contactArray.count
                     segmentView.setButtonTitles(buttonTitles: ["식물 \(mypagePlantCount)", "연락처 \(mypageContactCount)"])
@@ -125,6 +147,14 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
             }
             
         }
+    }
+    
+    // 검색뷰로 이동
+    @IBAction func moveToSearchPlant(_ sender: Any) {
+        guard let dvc = self.storyboard?.instantiateViewController(identifier: "MyPageSearchPlantVC") as? MyPageSearchPlantVC else {return}
+        dvc.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(dvc, animated: true)
+//        self.present(dvc, animated: true, completion: nil)
     }
 }
 

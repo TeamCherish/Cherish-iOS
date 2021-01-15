@@ -196,8 +196,6 @@ class LoginVC: UIViewController {
                 ])
             }
             
-            
-            
             UserDefaults.standard.set(try? PropertyListEncoder().encode(cherishContacts), forKey: "userContacts")
             
         case .notDetermined:
