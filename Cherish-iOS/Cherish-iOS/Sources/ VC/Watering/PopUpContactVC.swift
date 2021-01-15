@@ -238,10 +238,8 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     //MARK: - 마진
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {
-    
         // Cell 가운데 정렬
         let edgeInsets = (keywordShowCollectionView.frame.width  - (CGFloat(total ?? 0)) - (CGFloat(keyword.count-1) * 7)) / 2
         return UIEdgeInsets(top: 0, left: CGFloat(edgeInsets), bottom: 0, right: 0);
-
     }
 }
