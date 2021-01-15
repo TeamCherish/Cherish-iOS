@@ -34,14 +34,26 @@ class PlantResultVC: UIViewController {
     
     func setPlantLabel() {
         print("hi")
-//        print(self.modifier) // nil
-//        if let modifier = self.modifier,
-//           let explanation = self.explanation {
-//            self.modifierLabel.text = modifier
-//            self.explanationLabel.text = explanation
-//            print(self.modifierLabel.text)
-//        }
+        
+        let font = UIFont(name: "Noto Sans CJK KR Bold", size: 28)
+        
         self.modifierLabel.text = UserDefaults.standard.string(forKey: "resultModifier")
+        
+        
+        //label에 있는 Text를 NSMutableAttributedString으로 만들어준다.
+        let attributedStr = NSMutableAttributedString(string: self.modifierLabel.text!)
+
+        
+        let modifierArr = self.modifierLabel.text?.components(separatedBy: "\n")
+        
+        let modifierBold = modifierArr![1]
+
+        //위에서 만든 attributedStr에 addAttribute메소드를 통해 Attribute를 적용. kCTFontAttributeName은 value로 폰트크기와 폰트를 받을 수 있음
+        attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: font, range: (self.modifierLabel.text as! NSString).range(of: modifierBold))
+
+        //최종적으로 내 label에 속성을 적용
+        self.modifierLabel.attributedText = attributedStr
+        
         self.explanationLabel.text = UserDefaults.standard.string(forKey: "resultExplanation")
         viewWillAppear(false)
     }

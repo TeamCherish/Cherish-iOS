@@ -14,7 +14,9 @@ class MypagePlantVC: UIViewController {
     
     var mypagePlantArray: [MypagefriendsData] = []
     
-    var myplantID: [Int] = []
+    var myCherishId: [Int] = []
+    
+    var plantIsSelected = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +24,6 @@ class MypagePlantVC: UIViewController {
         mypageTV.delegate = self
         mypageTV.dataSource = self
         mypageTV.separatorStyle = .none
-        
-//        myplantID = UserDefaults.standard.array(forKey: "plantIDArray")
     
         setPlantData()
     }
@@ -42,9 +42,6 @@ class MypagePlantVC: UIViewController {
                     UserDefaults.standard.set(mypageData.totalCherish, forKey: "totalCherish")
 
                     UserDefaults.standard.set(try? PropertyListEncoder().encode(mypageData.result), forKey: "cherishResult")
-                    
-                    //plantid
-
                     
                     DispatchQueue.main.async {
                         mypageTV.reloadData()
@@ -89,11 +86,26 @@ extension MypagePlantVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let data = UserDefaults.standard.value(forKey: "userContacts") as? Data {
-//            let contacts = try? PropertyListDecoder().decode([Friend].self, from: data)
-//
-//            contactArray = contacts!
-//        }
+        plantIsSelected = true
         
+        let vc = MyPageVC()
+        
+        print("2: my plant임 ㅎㅇㅎㅇ")
+        print(vc.myPlantID)
+        
+        // plantIsSelected 값 UserDefaults에 넣기
+        UserDefaults.standard.set(plantIsSelected, forKey: "plantIsSelected")
+        print(UserDefaults.standard.bool(forKey: "plantIsSelected"))
+        
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "PlantDetail", bundle: nil)
+//
+//        guard let dvc = storyBoard.instantiateViewController(identifier: "PlantDetailVC") as? PlantDetailVC else { return }
+//
+//        self.navigationController?.pushViewController(dvc, animated: true)
+        
+        /*
+         네비게이션으로 detail뷰를 띄운다
+         근데 myPlantID[indexPath.row] 값을 같이 보내준다 -> userDefault에 넣어버려,,,
+         */
     }
 }

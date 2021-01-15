@@ -522,10 +522,8 @@
                                     <constraint firstItem="ch3-QC-DIj" firstAttribute="centerX" secondItem="PkQ-rQ-mSl" secondAttribute="centerX" id="xct-N0-u8J"/>
                                 </constraints>
                             </view>
-
-=======
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NJ-4w-ATg" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="94.333333333333329" y="137" width="186.66666666666669" height="83"/>
+                                <rect key="frame" x="99.000000000000014" y="137" width="177.33333333333337" height="65.333333333333314"/>
                                 <string key="text">혼자서도 씩씩한
 따뜻한 민들레</string>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Light" family="Noto Sans CJK KR" pointSize="28"/>
@@ -538,8 +536,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeJ-TW-ozj" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="28.666666666666657" y="618" width="317.66666666666674" height="44"/>
-
+                                <rect key="frame" x="28.666666666666657" y="600.33333333333337" width="317.66666666666674" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ArN-Su-VaL"/>
                                 </constraints>
@@ -555,7 +552,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="final _img_min" translatesAutoresizingMaskIntoConstraints="NO" id="yzy-LD-K9Q">
-                                <rect key="frame" x="55" y="263" width="265" height="274"/>
+                                <rect key="frame" x="55" y="245.33333333333337" width="265" height="274"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="yzy-LD-K9Q" secondAttribute="height" multiplier="265:274" id="fu9-tI-FjC"/>
                                     <constraint firstAttribute="height" constant="274" id="msz-hn-pjh"/>
@@ -563,14 +560,13 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plant_tip_box-1" translatesAutoresizingMaskIntoConstraints="NO" id="Msu-Ba-Cq7">
-                                <rect key="frame" x="104.66666666666669" y="564" width="166" height="27"/>
+                                <rect key="frame" x="104.66666666666669" y="546.33333333333337" width="166" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="y6p-Lo-UmX"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인연에서의 행복" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vQ-e9-edS" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="164.33333333333334" y="567" width="88.666666666666657" height="21"/>
-
+                                <rect key="frame" x="164.33333333333334" y="549.33333333333337" width="88.666666666666657" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="med-wL-oH8"/>
                                 </constraints>
@@ -584,7 +580,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꽃말 | " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9e6-7s-bND" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="121" y="567" width="36" height="21"/>
+                                <rect key="frame" x="121" y="549.33333333333337" width="36" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="lNb-v9-tOS"/>
                                 </constraints>
