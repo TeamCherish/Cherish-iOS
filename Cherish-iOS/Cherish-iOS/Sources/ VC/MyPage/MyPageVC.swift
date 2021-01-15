@@ -53,6 +53,14 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
         addFloatingBtn.isHidden = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        LoadingHUD.show()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        LoadingHUD.hide()
+    }
+    
     func setDelegates() {
         mypageExternalSV.delegate = self
         plantSV.delegate = self

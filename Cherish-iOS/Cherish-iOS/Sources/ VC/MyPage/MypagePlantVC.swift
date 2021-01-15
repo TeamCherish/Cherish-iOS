@@ -33,7 +33,7 @@ class MypagePlantVC: UIViewController {
                     mypagePlantArray = mypageData.result
                     // UserDefault에 넣기
                     UserDefaults.standard.set(mypageData.totalCherish, forKey: "totalCherish")
-                    UserDefaults.standard.set(mypageData.result, forKey: "cherishResult")
+                    
                     DispatchQueue.main.async {
                         mypageTV.reloadData()
                     }

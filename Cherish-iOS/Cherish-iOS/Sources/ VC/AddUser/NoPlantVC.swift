@@ -15,7 +15,13 @@ class NoPlantVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func touchUpToAddNC(_ sender: UIButton) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

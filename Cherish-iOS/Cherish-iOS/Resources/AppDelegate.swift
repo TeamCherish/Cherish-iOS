@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var isCherishPeopleCellSelected:Bool = false
+    var isWateringComplete:Bool = false
+    var isWateringPostponed:Bool = false
     var isCherishAdded:Bool = false
     let gcmMessageIDKey = "gcm.message_id"
     

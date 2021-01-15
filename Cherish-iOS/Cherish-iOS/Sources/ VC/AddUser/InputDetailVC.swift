@@ -85,7 +85,10 @@ class InputDetailVC: UIViewController {
             guard let loadingVC = self.storyboard?.instantiateViewController(identifier: "LoadingPopUpVC") as? LoadingPopUpVC else { return }
             guard let resultVC = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else { return }
 
-            AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: periodText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")) { (networkResult) -> (Void) in
+            AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: periodText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")) {
+                
+                (networkResult) -> (Void) in
+                print(UserDefaults.standard.integer(forKey: "userID"))
                 switch networkResult {
                 case .success(let data):
 

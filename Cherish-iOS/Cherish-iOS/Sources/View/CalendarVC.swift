@@ -240,6 +240,7 @@ class CalendarVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 if let calendarResult = data as? CalendarSeeData{
+
                     /// 물주기 한번도 안했을 때
                     if calendarResult.water.count == 0 {
                         wasWatering = false
@@ -260,9 +261,21 @@ class CalendarVC: UIViewController {
                         }
                         futurewatering_Events.append(formatter.date(from: calendarResult.futureWaterDate)!)
                         //print(futurewatering_Events)
+
+                    for i in 0...calendarResult.water.count-1 {
+                        fetchCalendar.append(contentsOf: [
+                            FetchCalendar(waterDate: calendarResult.water[i].waterDate, review: calendarResult.water[i].review, keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
+                        ])
+                        keyword.append(contentsOf: [
+                            CalendarKeyword(keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
+                        ])
+                        watering_Events.append(formatter.date(from: calendarResult.water[i].waterDate)!)
+                        print(watering_Events)
+
                     }
                 }
                 print(keyword)
+                }
             case .requestErr(_):
                 print("requestErr")
             case .pathErr:

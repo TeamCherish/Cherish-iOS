@@ -41,6 +41,7 @@ class PlantDetailVC: UIViewController {
     @IBOutlet var keywordCVBottomConstraint: NSLayoutConstraint!
     
     var isClicked:Bool = false
+    var plantId:Int = 0
     var reviewArray:[Review] = []
     var keywordArray:[String] = []
     var friendsPlantIdx:Int = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
@@ -56,7 +57,12 @@ class PlantDetailVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        LoadingHUD.show()
         friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        LoadingHUD.hide()
     }
     
     //MARK: - NC,TC 속성 정의함수
@@ -81,7 +87,12 @@ class PlantDetailVC: UIViewController {
                     plantNicknameLabel.text = plantDetailData.nickname
                     userNameInRoundViewLabel.text = plantDetailData.name
                     plantKindsInRoundViewLabel.text = plantDetailData.plantName
-                
+                    
+                    plantId = plantDetailData.plantId
+                    
+                    let url = URL(string: plantDetailData.plantThumbnailImageURL ?? "")
+                    let imageData = try? Data(contentsOf: url!)
+                    plantDetailBtn.setImage(UIImage(data: imageData!), for: .normal)
                     
                     plantdDayLabel.text = "D-\(plantDetailData.dDay)"
                     plantMaintainDayLabel.text = "\(plantDetailData.duration)일째"
@@ -94,8 +105,9 @@ class PlantDetailVC: UIViewController {
                     
                     // keywordArray 요소 중 null값을 필터링
                     keywordArray = keywordArray.filter(){$0 != ""}
-                    
-                    
+                    if keywordArray.count == 0 {
+                        keywordArray.append("키워드 없음")
+                    }
                     plantHealthStatusLabel.text = plantDetailData.statusMessage
                     makeCircularView(Float(plantDetailData.gage))
                     
@@ -137,17 +149,18 @@ class PlantDetailVC: UIViewController {
                         // 첫번째 메모데이터를 할당
                         firstMemoDayLabel.text = month! + "/" + day!
                         
-                        //멤
+                        //첫번째 메모데이터가 없을 때
                         if reviewArray[0].review == "" {
                             
                             firstMemoTextLabel.text = "메모를 입력하지 않았어요!"
                         }
+                        //첫번째 메모데이터가 있을 때
                         else {
                             
                             firstMemoTextLabel.text = "\(reviewArray[0].review)"
                         }
                         
-                        
+                        //메모데이터가 하나이니까 두번째 메모는 없다
                         secondMemoDayLabel.text = "‼️📝"
                         secondMemoTextLabel.text = "메모를 입력하지 않았어요!"
                         
@@ -350,6 +363,7 @@ class PlantDetailVC: UIViewController {
     @IBAction func popUpPlantDetailExplainView(_ sender: UIButton) {
         
         if let vc = storyboard!.instantiateViewController(withIdentifier: "PlantDetailPopUpExplainVC") as? PlantDetailPopUpExplainVC {
+            vc.plantId = plantId
             vc.modalPresentationStyle = .overCurrentContext
             vc.modalTransitionStyle = .crossDissolve
             self.present(vc, animated: true, completion: nil)
@@ -388,14 +402,29 @@ extension PlantDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
         let keywordCell = collectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCVCell", for: indexPath) as! KeywordCVCell
         
         if keywordArray.count != 0 {
+            
+            if keywordArray.count == 1 {
+                keywordCell.keywordLabel.textColor = .pinkSub
+                keywordCell.layer.borderColor = CGColor(red: 247/255, green: 89/255, blue: 108/255, alpha: 1.0)
+            }
+            else {
+                keywordCell.keywordLabel.textColor = .black
+                keywordCell.layer.borderColor = CGColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
+            }
             keywordCell.keywordLabel.text = keywordArray[indexPath.row]
         }
         
         keywordCell.layer.borderWidth = 1
-        keywordCell.layer.borderColor = CGColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
         keywordCell.layer.cornerRadius = 15
         
         
         return keywordCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if keywordArray.count == 1 {
+            return CGSize(width: 44, height: 29)
+        }
+        return CGSize(width: 44, height: 29)
     }
 }

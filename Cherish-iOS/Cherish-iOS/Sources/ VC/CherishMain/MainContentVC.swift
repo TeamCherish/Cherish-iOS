@@ -18,36 +18,74 @@ class MainContentVC: UIViewController {
     @IBOutlet var progressbarView: ProgressBarView!
     @IBOutlet var progressbarBackView: ProgressBarView!
     @IBOutlet var growthPercentLabel: CustomLabel!
+    @IBOutlet var plantImageViewTopConstraint: NSLayoutConstraint!
     var cherishPeopleData:[ResultData] = []
+    var isFirstLoad:Int = 0
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let backgroundWhiteView = UIView()
     
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        backgroundWhiteView.frame = CGRect(x: 0, y: 0, width: self.view.frame.maxX, height: self.view.frame.maxY)
+        backgroundWhiteView.backgroundColor = .white
+        isFirstLoad += 1
         getCherishData()
-        NotificationCenter.default.addObserver(self, selector: #selector(changeBackgroundInfo), name: .cherishPeopleCellClicked, object: nil)
+        print("viewDidLoad")
+        //noti 감지 후 view가 reload될 수 있도록 viewWillAppear함수를 호출해준다.
+        NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .cherishPeopleCellClicked, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .postPostponed, object: nil)
+        
     }
+    
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
+        print(appDel.isWateringComplete)
         
-        // cherishPeopleCell이 선택되면 배경뷰의 라벨값, 식물이미지, 배경색을 바꿔준다.
-        if appDel.isCherishPeopleCellSelected == true {
-            setMainDataViewWillApeear()
+        LoadingHUD.show()
+        // cherishPeopleCell이 선택되거나
+        // 물주기를 미루면 배경뷰의 라벨값, 식물이미지, 배경색을 바꿔준다.
+        if appDel.isWateringPostponed == true {
+            print("isWateringPostponed")
+            getCherishData()
+            appDel.isWateringPostponed = false
         }
         
-        // 식물상세페이지로 네비게이션 연결 후 탭바가 사라지기 때문에
-        // popViewController 액션으로 다시 메인뷰로 돌아왔을 때 탭바가 나타나야 한다.
-        self.tabBarController?.tabBar.isHidden = false
+        
+        // cherishPeopleCell이 선택되면 배경뷰의 라벨값, 식물이미지, 배경색을 바꿔준다.
+        if appDel.isCherishPeopleCellSelected == true || appDel.isWateringComplete == true {
+            print("hhh???????")
+            setMainDataViewWillApeear()
+            appDel.isCherishPeopleCellSelected = false
+            LoadingHUD.hide()
+        }
+        
+        if isFirstLoad > 0 {
+            
+            if appDel.isCherishAdded == true {
+                print("isCherishAdded")
+                getCherishData()
+                appDel.isCherishAdded = false
+            }
+            
+            // 식물상세페이지로 네비게이션 연결 후 탭바가 사라지기 때문에
+            // popViewController 액션으로 다시 메인뷰로 돌아왔을 때 탭바가 나타나야 한다.
+            self.tabBarController?.tabBar.isHidden = false
+            
+        }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        backgroundWhiteView.isHidden = true
+        LoadingHUD.hide()
     }
     
     
     //MARK: - 메인 뷰 데이터 받아오는 함수
     func getCherishData() {
         
-        // herishPeopleCell이 선택되지 않았을 때 첫 메인의 값을 지정해준다.
-        if appDel.isCherishPeopleCellSelected == false {
-            
+        // cherishPeopleCell이 선택되지 않았을 때 첫 메인의 값을 지정해준다.
+        if appDel.isCherishPeopleCellSelected == false || appDel.isWateringPostponed == true || appDel.isWateringComplete == true {
             let cherishMainUserIdx: Int = UserDefaults.standard.integer(forKey: "userID")
             
             MainService.shared.inquireMainView(idx:cherishMainUserIdx) { [self]
@@ -60,19 +98,35 @@ class MainContentVC: UIViewController {
                         growthPercentLabel.text = "\(cherishPeopleData[0].growth)%"
                         customProgressBarView(cherishPeopleData[0].growth)
                         plantExplainLabel.text = cherishPeopleData[0].modifier
-    
+                        
                         /// gif 데이터가 있을 때
                         if cherishPeopleData[0].gif != "없지롱" {
-                            plantImageView.isHidden = true
-                            plantGifView.isHidden = false
-                            plantGifView.loadGif(name: "real_min")
-                            self.view.backgroundColor = .dandelionBg
+                            
+                            //물주기가 완료되었을 때만 물주기 모션 그래픽
+                            if appDel.isWateringComplete == true {
+                                plantImageView.isHidden = true
+                                plantGifView.isHidden = false
+                                plantGifView.image = UIImage.gif(name: "min_watering_ios")!
+                                appDel.isWateringComplete = false
+                            }
+                            else {
+                                plantImageView.isHidden = true
+                                plantGifView.isHidden = false
+                                plantGifView.image = UIImage.gif(name: "real_min")!
+                                self.view.backgroundColor = .dandelionBg
+                            }
                         }
                         /// gif 데이터가 없을 때
                         // 식물 그래픽 이미지로 대체
                         else {
                             plantGifView.isHidden = true
                             plantImageView.isHidden = false
+                            
+                            //Topconstant 기본값 104
+                            plantImageViewTopConstraint.constant = 104
+                            
+                            //MARK: - 식물별 이미지 할당
+                            
                             if cherishPeopleData[0].plantName == "민들레" {
                                 plantImageView.image = UIImage(named: "mainImgMin")
                                 self.view.backgroundColor = .dandelionBg
@@ -86,6 +140,7 @@ class MainContentVC: UIViewController {
                                 self.view.backgroundColor = .stuckyBg
                             }
                             else if cherishPeopleData[0].plantName == "아메리칸블루" {
+                                plantImageViewTopConstraint.constant = 134
                                 plantImageView.image = UIImage(named: "mainImgAmericanblue")
                                 self.view.backgroundColor = .americanBlueBg
                             }
@@ -137,10 +192,20 @@ class MainContentVC: UIViewController {
         
         // gif 데이터가 있을 때
         if selectedGif != "없지롱" {
-            plantImageView.isHidden = true
-            plantGifView.isHidden = false
-            plantGifView.loadGif(name: "real_min")
-            self.view.backgroundColor = .dandelionBg
+            
+            //물주기가 완료되었을 때만 물주기 모션 그래픽
+            if appDel.isWateringComplete == true {
+                plantImageView.isHidden = true
+                plantGifView.isHidden = false
+                plantGifView.image = UIImage.gif(name: "min_watering_ios")!
+                appDel.isWateringComplete = false
+            }
+            else {
+                plantImageView.isHidden = true
+                plantGifView.isHidden = false
+                plantGifView.image = UIImage.gif(name: "real_min")!
+                self.view.backgroundColor = .dandelionBg
+            }
         }
         // gif 데이터가 없을 때
         // 식물 그래픽 이미지로 대체
@@ -148,6 +213,10 @@ class MainContentVC: UIViewController {
             plantImageView.isHidden = false
             plantGifView.isHidden = true
             
+            //Topconstant 기본값 104
+            plantImageViewTopConstraint.constant = 104
+            
+            //MARK: - 선택된 친구 데이터의 식물별 이미지 할당
             if selectedPlantName == "민들레" {
                 plantImageView.image = UIImage(named: "mainImgMin")
                 self.view.backgroundColor = .dandelionBg
@@ -161,6 +230,7 @@ class MainContentVC: UIViewController {
                 self.view.backgroundColor = .stuckyBg
             }
             else if selectedPlantName == "아메리칸블루" {
+                plantImageViewTopConstraint.constant = 134
                 plantImageView.image = UIImage(named: "mainImgAmericanblue")
                 self.view.backgroundColor = .americanBlueBg
             }
@@ -170,10 +240,7 @@ class MainContentVC: UIViewController {
             }
         }
         
-        
-        
-        
-        /// dDay 값 파싱 -,+,0
+        //MARK: - 선택된 친구 데이터의 dDay 값 파싱 -,+,0
         if UserDefaults.standard.integer(forKey: "selecteddDayData") == 0 {
             self.dayCountLabel.text = "D-day"
         }
@@ -185,17 +252,6 @@ class MainContentVC: UIViewController {
         }
     }
     
-//
-//
-//    //MARK:- 메인뷰 애니메이션
-//    func makeAnimation() {
-//        self.flowerAnimationImageView.frame = CGRect(x: 112.33, y: 291.33, width: 56, height: 61.33)
-//
-//        UIView.animate(withDuration: 1, delay: 0, options: [.repeat, .autoreverse] , animations: {
-//            self.flowerAnimationImageView.frame = CGRect(x: 105, y: 290, width: 56, height: 61.33)
-//        }) { (completed) in
-//        }
-//    }
     
     
     //MARK: - 프로그레스바 커스텀
@@ -231,11 +287,62 @@ class MainContentVC: UIViewController {
             self.present(vc, animated: true, completion: nil)
         }
     }
+}
+
+class LoadingHUD: NSObject {
+    private static let sharedInstance = LoadingHUD()
+    private var backgroundView: UIView?
+    private var popupView: UIView?
+    private var popupImageView: UIImageView?
     
+    class func show() {
+        if let window = UIApplication.shared.keyWindow {
+            let backgroundView = UIView()
+            let popupView = UIView()
+            let popupImageView = UIImageView()
+            let w = UIScreen.main.bounds.width
+            let h = UIScreen.main.bounds.height
+            popupView.frame = CGRect(x:0, y: 0, width: 80, height: 80)
+            popupView.center = window.center
+            popupView.layer.cornerRadius = 20
+            backgroundView.frame = CGRect(x: 0, y: 0, width: window.frame.maxX, height: window.frame.maxY)
+            // 윈도우의 크기에 맞춰 설정
+            backgroundView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+            popupView.backgroundColor = UIColor.white
+            popupImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 58)
+            popupImageView.center = window.center
+            popupImageView.image = LoadingHUD.getAnimationImage()
+            popupImageView.animationDuration = 4.0
+            popupImageView.animationRepeatCount = 0
+            
+            window.addSubview(backgroundView)
+            window.addSubview(popupView)
+            window.addSubview(popupImageView)
+            sharedInstance.popupImageView?.removeFromSuperview()
+            sharedInstance.popupView?.removeFromSuperview()
+            sharedInstance.backgroundView?.removeFromSuperview()
+            sharedInstance.popupView = popupView
+            sharedInstance.backgroundView = backgroundView
+            sharedInstance.popupImageView = popupImageView
+        }
+    }
     
-    @objc func changeBackgroundInfo() {
+    class func hide() {
+        if let popupView = sharedInstance.popupView {
+            popupView.removeFromSuperview()
+        }
+        if let backgroundView = sharedInstance.backgroundView {
+            backgroundView.removeFromSuperview()
+        }
+        if let popupImageView = sharedInstance.popupImageView {
+            popupImageView.stopAnimating()
+            popupImageView.removeFromSuperview()
+        }
+    }
+    
+    private class func getAnimationImage() -> UIImage {
+        let animationArray: UIImage = UIImage.gif(asset: "loading")!
         
-        //noti 감지 후 view가 reload될 수 있도록 viewWillAppear함수를 호출해준다.
-        viewWillAppear(false)
+        return animationArray
     }
 }
