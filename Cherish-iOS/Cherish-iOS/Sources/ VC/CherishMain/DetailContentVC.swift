@@ -69,6 +69,8 @@ class DetailContentVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 if let mainResultData = data as? MainData {
+                    
+                    
                     cherishPeopleData = mainResultData.result
                     cherishPeopleCountLabel.text = "\(cherishPeopleData.count)"
                     self.cherishPeopleCV.reloadData()
@@ -112,6 +114,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
         
     }
     
+    
     //MARK: - cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         /// 선택된 아이템 표시하는 0번째 item
@@ -120,9 +123,29 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             
             if cherishPeopleData.count != 0 {
                 
+                var plantName = UserDefaults.standard.string( forKey: "selectedPlantName")
+                
                 // 셀이 눌리지 않은 상태
                 if appDel.isCherishPeopleCellSelected == false {
-                    firstCell.eclipseImageView.image = UIImage(named: "ellipse373")
+                    
+                    if plantName == "민들레" {
+                        firstCell.eclipseImageView.image = UIImage(named: "ellipse373")
+                    }
+                    else if plantName == "로즈마리" {
+                        print("jjo?a")
+                        firstCell.eclipseImageView.image = UIImage(named: "ellipse375")
+                    }
+                    else if plantName == "단모환" {
+                        firstCell.eclipseImageView.image = UIImage(named: "ellipse377")
+                    }
+                    else if plantName == "스투키" {
+                        firstCell.eclipseImageView.image = UIImage(named: "ellipse374")
+                    }
+                    //아메리칸블루
+                    else {
+                        firstCell.eclipseImageView.image = UIImage(named: "ellipse376")
+                    }
+                    
                     firstCell.nickNameLabel.text = cherishPeopleData[0].nickname
                     
                     if cherishPeopleData[0].dDay == 0 {
@@ -142,7 +165,25 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 // 셀이 한번 이상 눌린 상태
                 else
                 {
-                    firstCell.eclipseImageView.image = UIImage(named: "ellipse373")
+                    print(plantName)
+                    if plantName == "민들레" {
+                        firstCell.eclipseImageView.image = UIImage(named: "ellipse373")
+                    }
+                    else if plantName == "로즈마리" {
+                        print("jjo?")
+                        firstCell.eclipseImageView.image = UIImage(named: "ellipse375")
+                    }
+                    else if plantName == "단모환" {
+                        firstCell.eclipseImageView.image = UIImage(named: "ellipse377")
+                    }
+                    else if plantName == "스투키" {
+                        firstCell.eclipseImageView.image = UIImage(named: "ellipse374")
+                    }
+                    //아메리칸블루
+                    else {
+                        firstCell.eclipseImageView.image = UIImage(named: "ellipse376")
+                    }
+                    
                     firstCell.nickNameLabel.text = UserDefaults.standard.string(forKey:"selectedNickNameData")
                     
                     /// dDay 값이 1 이하일 때 물아이콘 나타나게
@@ -186,8 +227,13 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 
                 /// 이미지 url 처리
                 let url = URL(string: cherishPeopleData[indexPath.row - 1].thumbnailImageURL)
-                let imageData = try? Data(contentsOf: url!)
-                cell.cherishPlantImageView.image = UIImage(data: imageData!)
+                DispatchQueue.global(qos: .default).async(execute: {() -> Void in
+                    let imageData = try? Data(contentsOf: url!)
+                    DispatchQueue.main.async(execute: {() -> Void in
+                        cell.cherishPlantImageView.image = UIImage(data: imageData!)
+                    })
+                })
+
                 
                 
                 if indexPath == selectedIndexPath {
@@ -218,7 +264,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             
             // appDelegate에 전역변수를 생성해주고, 한번 셀이 눌린 후로는 그 값을 true로 바꿔준다
             appDel.isCherishPeopleCellSelected = true
-            
+            print(indexPath.row - 1)
             // 셀이 눌릴 때마다 UserDefaults에 값을 새로 저장해준다
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].nickname, forKey: "selectedNickNameData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].thumbnailImageURL, forKey: "selectedPlantNameData")
@@ -228,8 +274,9 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].modifier, forKey: "selectedModifierData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].plantName, forKey: "selectedPlantName")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].gif, forKey: "selectedGif")
-            
-            
+            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].main_bg, forKey: "selectedMainBg")
+
+
             //선택된 친구의 인덱스 값과 전화번호를 저장해준다
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].id, forKey: "selectedFriendIdData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].phone, forKey: "selectedFriendPhoneData")
@@ -241,8 +288,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             }
             
         }
-        
-        
         // 셀이 눌렸을 때 노치 사이즈 줄어들기 위해 보내는 noti
         NotificationCenter.default.post(name: .cherishPeopleCellClicked, object: nil)
     }

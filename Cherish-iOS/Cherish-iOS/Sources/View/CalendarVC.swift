@@ -256,6 +256,7 @@ class CalendarVC: UIViewController {
                             keyword.append(contentsOf: [
                                 CalendarKeyword(keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
                             ])
+                            print(calendarResult.water[i].waterDate)
                             watering_Events.append(formatter.date(from: calendarResult.water[i].waterDate)!)
                             //print(watering_Events)
                         }
