@@ -73,6 +73,7 @@ class ReviewVC: UIViewController {
             skip.tintColor = .placeholderGrey
         }
     }
+    let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -201,7 +202,9 @@ class ReviewVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 print(data)
-                goToWateringMotion()
+               // goToWateringMotion()
+                appDel.isWateringComplete = true
+                self.dismiss(animated: true, completion: nil)
                 
             case .requestErr(_):
                 print("requestErr")

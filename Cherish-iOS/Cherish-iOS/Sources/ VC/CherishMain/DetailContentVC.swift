@@ -21,7 +21,6 @@ class DetailContentVC: UIViewController {
     
     var cherishPeopleData:[ResultData] = [] {
         didSet {
-            
             cherishPeopleCV.reloadData()
             cherishPeopleCV.delegate = self
             cherishPeopleCV.dataSource = self
@@ -38,14 +37,21 @@ class DetailContentVC: UIViewController {
         setCherishPeopleData()
         makeHeaderViewCornerRadius()
         cherishPeopleCV.allowsMultipleSelection = false
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .postPostponed, object: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if appDel.isCherishAdded == true {
+        //이 거 때 문 이 다
+        if appDel.isCherishAdded == true || appDel.isWateringPostponed == true  {
             setCherishPeopleData()
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: .postPostponed, object: nil)
+    }
     
     //MARK: - 헤더 뷰 라운드로 만드는 함수
     func makeHeaderViewCornerRadius() {
@@ -69,7 +75,6 @@ class DetailContentVC: UIViewController {
                 }
             case .requestErr(let msg):
                 if let message = msg as? String {
-                    print(message)
                 }
             case .pathErr:
                 print("pathErr")

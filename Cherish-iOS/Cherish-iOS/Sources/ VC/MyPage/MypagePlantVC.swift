@@ -38,9 +38,13 @@ class MypagePlantVC: UIViewController {
                     mypagePlantArray = mypageData.result
                     
                     // UserDefault에 넣기
+
+                    UserDefaults.standard.set(mypageData.totalCherish, forKey: "totalCherish")
+
                     UserDefaults.standard.set(try? PropertyListEncoder().encode(mypageData.result), forKey: "cherishResult")
                     
                     //plantid
+
                     
                     DispatchQueue.main.async {
                         mypageTV.reloadData()

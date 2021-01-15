@@ -94,7 +94,10 @@ class InputDetailVC: UIViewController {
             print(alarmState)
             print(UserDefaults.standard.integer(forKey: "userID"))
 
-            AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: periodText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")) { (networkResult) -> (Void) in
+            AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: periodText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")) {
+                
+                (networkResult) -> (Void) in
+                print(UserDefaults.standard.integer(forKey: "userID"))
                 switch networkResult {
                 case .success(let data):
                     print("들어와져?")

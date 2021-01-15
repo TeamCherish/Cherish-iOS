@@ -7,15 +7,16 @@
 
 import Foundation
 
-// MARK: - DataClass
+// MARK: - PlantDetailCardData
 struct PlantDetailCardData: Codable {
-    let plantResult: PlantResult
-    let plantDetail: [PlantCard]
+    let plantResponse: [PlantResponse]
+    let plantDetail: [PlantDetail]
 }
 
 // MARK: - PlantDetail
-struct PlantCard: Codable {
-    let levelName, plantDetailDescription, imageURL: String
+struct PlantDetail: Codable {
+    let levelName, plantDetailDescription: String
+    let imageURL: String
 
     enum CodingKeys: String, CodingKey {
         case levelName = "level_name"
@@ -24,13 +25,15 @@ struct PlantCard: Codable {
     }
 }
 
-// MARK: - PlantResult
-struct PlantResult: Codable {
-    let modifier, flowerMeaning, explanation: String
+// MARK: - PlantResponse
+struct PlantResponse: Codable {
+    let modifier, explanation, flowerMeaning: String
+    let imageURL: String
 
     enum CodingKeys: String, CodingKey {
-        case modifier
+        case modifier, explanation
         case flowerMeaning = "flower_meaning"
-        case explanation
+        case imageURL = "image_url"
     }
 }
+

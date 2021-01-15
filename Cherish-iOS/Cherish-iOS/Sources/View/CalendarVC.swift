@@ -10,16 +10,16 @@ import FSCalendar
 
 
 class CalendarVC: UIViewController {
-    var keyword : [CalendarKeyword] = []
-    var review: [String] = []// 85글자
     var fetchCalendar : [FetchCalendar] = []
+    var keyword : [CalendarKeyword] = []
+    var review: [String] = []
+    var wasWatering : Bool = false
     var n : Int = 0
     var memoToCalendarDate: String?
     var memoToCalendarDateTemp: Date?
     var memoToEditDate: String?
     var memoToEditDateTemp: Date?
     var keywordForCV : [String] = []
-    //    var delegate: SendViewControllerDelegate?
     let formatter = DateFormatter()
     let calendarCurrent = Calendar.current
     var memoBtnstatus: Bool? = true
@@ -33,6 +33,7 @@ class CalendarVC: UIViewController {
         return Date()
     }()
     
+    //MARK: -@IBOutlet
     @IBOutlet weak var wholeCalendarView: UIView!{
         didSet{
             wholeCalendarView.makeRounded(cornerRadius: 20.0)
@@ -72,7 +73,6 @@ class CalendarVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        self.delegate = ReviewEditVC()
         memoShowView.isHidden = true
         cal_Style()
         defineCalStatus()
@@ -83,6 +83,7 @@ class CalendarVC: UIViewController {
         super.viewWillAppear(true)
         getCalendarData()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         calendarOrigin.reloadData()
@@ -109,10 +110,11 @@ class CalendarVC: UIViewController {
             monthCalendar()
         }
     }
+    
+    /// 메모 수정 버튼
     @IBAction func moveToEdit(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewEditVC") as? ReviewEditVC {
-            //            delegate?.deliveryKeyword(memoText: memoTextLabel.text ?? "")
             vc.space = memoTextLabel.text
             vc.edit_keyword = keywordForCV
             vc.dateForServer = memoToCalendarDate
@@ -125,6 +127,7 @@ class CalendarVC: UIViewController {
         }
     }
     
+    /// 달력에 < > 버튼
     @IBAction func moveToNext(_ sender: Any) {
         self.moveCurrentPage(moveUp: true)
     }
@@ -177,17 +180,17 @@ class CalendarVC: UIViewController {
         self.toWaterLabel.isHidden = true
     }
     
-    /// 메모->캘린더 이동시 해당 메모가 작성된 날짜 및 메모를 불러오기
+    /// 식물 상세보기 메모 버튼->캘린더 이동시 해당 메모가 작성된 날짜 및 메모를 불러오기
     func memoMode() {
         calendarOrigin.reloadData()
-        print("메캘메캘메캘메캘"+"\(memoToCalendarDate ?? "2020-12-26")")
+        //        print("메캘메캘메캘메캘"+"\(memoToCalendarDate ?? "2020-12-26")")
         calendarOrigin.select(formatter.date(from: memoToCalendarDate ?? "2020-12-26"), scrollToDate: true)
         for i in 0...(fetchCalendar.count - 1) {
             if memoToCalendarDate == fetchCalendar[i].waterDate{
                 memoShowView.isHidden = false
                 formatter.dateFormat = "yyyy-MM-dd"
                 memoToCalendarDateTemp = formatter.date(from: fetchCalendar[i].waterDate)
-                print("메캘메캘메캘메캘"+"\(memoToCalendarDateTemp)!")
+                //                print("메캘메캘메캘메캘"+"\(memoToCalendarDateTemp)!")
                 formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
                 memoDateLabel.text = formatter.string(from: memoToCalendarDateTemp!)
                 memoTextLabel.text = fetchCalendar[i].review
@@ -228,6 +231,7 @@ class CalendarVC: UIViewController {
         
     }
     
+    /// 캘린더 서버 통신
     func getCalendarData() {
         formatter.locale = Locale(identifier: "ko")
         formatter.dateFormat = "yyyy-MM-dd"
@@ -236,7 +240,29 @@ class CalendarVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 if let calendarResult = data as? CalendarSeeData{
-                    for i in 0...calendarResult.water.count-1{
+
+                    /// 물주기 한번도 안했을 때
+                    if calendarResult.water.count == 0 {
+                        wasWatering = false
+                        futurewatering_Events.append(formatter.date(from: calendarResult.futureWaterDate)!)
+                        //print(futurewatering_Events)
+                    }else{
+                        /// 물준 이력이 있을 때
+                        wasWatering = true
+                        for i in 0...calendarResult.water.count-1{
+                            fetchCalendar.append(contentsOf: [
+                                FetchCalendar(waterDate: calendarResult.water[i].waterDate, review: calendarResult.water[i].review, keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
+                            ])
+                            keyword.append(contentsOf: [
+                                CalendarKeyword(keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
+                            ])
+                            watering_Events.append(formatter.date(from: calendarResult.water[i].waterDate)!)
+                            //print(watering_Events)
+                        }
+                        futurewatering_Events.append(formatter.date(from: calendarResult.futureWaterDate)!)
+                        //print(futurewatering_Events)
+
+                    for i in 0...calendarResult.water.count-1 {
                         fetchCalendar.append(contentsOf: [
                             FetchCalendar(waterDate: calendarResult.water[i].waterDate, review: calendarResult.water[i].review, keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
                         ])
@@ -245,11 +271,11 @@ class CalendarVC: UIViewController {
                         ])
                         watering_Events.append(formatter.date(from: calendarResult.water[i].waterDate)!)
                         print(watering_Events)
+
                     }
-                    futurewatering_Events.append(formatter.date(from: calendarResult.futureWaterDate)!)
-                    print(futurewatering_Events)
                 }
                 print(keyword)
+                }
             case .requestErr(_):
                 print("requestErr")
             case .pathErr:
@@ -260,6 +286,35 @@ class CalendarVC: UIViewController {
                 print("networkFail")
             }
         })
+    }
+    
+    /// 키워드, 리뷰의 입력 여부에 따른 메모 뷰 크기 조정
+    func memoHeightMode(idx: Int){
+        /// 키워드 미입력 시
+        if keywordForCV.count == 0 {
+            calendarKeywordCollectionView.isHidden = true
+            keywordCVTopAnchor.constant = 0
+        }else{
+            calendarKeywordCollectionView.isHidden = false
+            keywordCVTopAnchor.constant = 14
+        }
+        /// 메모 미입력 시
+        if fetchCalendar[idx].review.count < 1 || fetchCalendar[idx].review == "" {
+            keywordCVBotAnchor.constant = 0
+            memoTextLabel.isHidden = true
+        }else{
+            keywordCVBotAnchor.constant = 10
+            memoTextLabel.isHidden = false
+        }
+        
+        /// 키워드,메모 미입력 시
+        if (fetchCalendar[idx].review.count < 1 || fetchCalendar[idx].review == "") && keywordForCV.count == 0  {
+            memoBtnTopAnchor.constant = 22
+            memoBtn.isHidden = true
+        }else{
+            memoBtnTopAnchor.constant = 17
+            memoBtn.isHidden = false
+        }
     }
 }
 
@@ -327,72 +382,51 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         formatter.dateFormat = "yyyy-MM-dd"
         print(formatter.string(from: date) + " 선택됨")
-        /// 이벤트가 있다면 표시
-        for i in 0...fetchCalendar.count-1 {
-            if formatter.string(from: date) == fetchCalendar[i].waterDate {
-                memoShowView.isHidden = false
-                formatter.locale = Locale(identifier: "ko")
-                formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
-                memoDateLabel.text = formatter.string(from: date)
-                memoTextLabel.text = fetchCalendar[i].review
-                n = i
-                calendarKeywordCollectionView.delegate = self
-                calendarKeywordCollectionView.dataSource = self
-                break
-            }else{
-                memoShowView.isHidden = true
+        /// 물 준 적이 있고, 이벤트가 있다면 표시
+        if wasWatering {
+            for i in 0...fetchCalendar.count-1 {
+                if formatter.string(from: date) == fetchCalendar[i].waterDate {
+                    memoShowView.isHidden = false
+                    formatter.locale = Locale(identifier: "ko")
+                    formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
+                    memoDateLabel.text = formatter.string(from: date)
+                    memoTextLabel.text = fetchCalendar[i].review
+                    n = i
+                    calendarKeywordCollectionView.reloadData()
+                    calendarKeywordCollectionView.delegate = self
+                    calendarKeywordCollectionView.dataSource = self
+                    break
+                }else{
+                    memoShowView.isHidden = true
+                }
             }
-        }
-        
-        /// 키워드 미입력 시
-        if keywordForCV.count == 0 {
-            print("keyword mip")
-            calendarKeywordCollectionView.isHidden = true
-            keywordCVTopAnchor.constant = 0
         }else{
-            calendarKeywordCollectionView.isHidden = false
-            keywordCVTopAnchor.constant = 14
+            memoShowView.isHidden = true
         }
-        /// 메모 미입력 시
-        if fetchCalendar[n].review.count < 1 || fetchCalendar[n].review == "" {
-            print("memo mip")
-            keywordCVBotAnchor.constant = 0
-            memoTextLabel.isHidden = true
-        }else{
-            keywordCVBotAnchor.constant = 10
-            memoTextLabel.isHidden = false
-        }
-        
-        /// 키워드,메모 미입력 시
-        if (fetchCalendar[n].review.count < 1 || fetchCalendar[n].review == "") && keywordForCV.count == 0  {
-            print("keword,memo mip")
-            memoBtnTopAnchor.constant = 22
-            memoBtn.isHidden = true
-        }else{
-            memoBtnTopAnchor.constant = 17
-            memoBtn.isHidden = false
-        }
-        
     }
     // 날짜 선택 해제 시 콜백 메소드
     public func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        keywordForCV = []
         print(formatter.string(from: date) + " 해제됨")
     }
     
-    //}
-    //
-    /////2
+    ///2
     //extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if keyword[n].keyword1 != ""{
-            keywordForCV.append(keyword[n].keyword1)
+        
+        if wasWatering {
+            if keyword[n].keyword1 != ""{
+                keywordForCV.append(keyword[n].keyword1)
+            }
+            if keyword[n].keyword2 != ""{
+                keywordForCV.append(keyword[n].keyword2)
+            }
+            if keyword[n].keyword3 != ""{
+                keywordForCV.append(keyword[n].keyword3)
+            }
+            memoHeightMode(idx: n)
         }
-        if keyword[n].keyword2 != ""{
-            keywordForCV.append(keyword[n].keyword2)
-        }
-        if keyword[n].keyword3 != ""{
-            keywordForCV.append(keyword[n].keyword3)
-        }
+        
         return keywordForCV.count
     }
     

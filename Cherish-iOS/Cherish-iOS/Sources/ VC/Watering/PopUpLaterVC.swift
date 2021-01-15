@@ -9,7 +9,8 @@ import UIKit
 
 class PopUpLaterVC: UIViewController {
     let date = [1,2,3,4,5,6,7] // 미루기 최대 7일
-    var selectedDate : Int!
+    var selectedDate : Int?
+    let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     //MARK: -@IBOutlet
     @IBOutlet weak var laterView: UIView!{
@@ -45,14 +46,8 @@ class PopUpLaterVC: UIViewController {
         setWateringDate()
     }
     
-    @IBAction func backBtn(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    @IBAction func completeLatering(_ sender: Any) {
-        getLaterData()
-        // 시드는 모션 뷰로 이동
-    }
     
+
     /// 물 줄 날짜, 미룬 횟수 셋팅
     func setWateringDate(){
         guard let originDate = UserDefaults.standard.string(forKey: "wateringDate") else { return }
@@ -83,12 +78,20 @@ class PopUpLaterVC: UIViewController {
     
     // Server-미루기
     func getLaterData(){
-        LaterService.shared.doLater(id: UserDefaults.standard.integer(forKey: "selectedFriendsIdData"), postpone: selectedDate, is_limit_postpone_number: UserDefaults.standard.bool(forKey: "noMinusisPossible")) { (networkResult) -> (Void) in
+        print(UserDefaults.standard.integer(forKey: "selectedFriendIdData"))
+        LaterService.shared.doLater(id: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), postpone: selectedDate ?? 1, is_limit_postpone_number: UserDefaults.standard.bool(forKey: "noMinusisPossible")) { (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 if let dataMessage = data as? String{
                     print(dataMessage)
                 }
+
+                self.dismiss(animated: true, completion: nil)
+                self.appDel.isWateringPostponed = true
+                //메인뷰에 모달이 dismiss되었음을 알려주는 Noti
+                NotificationCenter.default.post(name: .postPostponed, object: nil)
+                
+
             case .requestErr(let msg):
                 if let message = msg as? String {
                     print(message)
@@ -102,6 +105,16 @@ class PopUpLaterVC: UIViewController {
             }
         }
     }
+    
+    @IBAction func backBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func completeLatering(_ sender: Any) {
+        getLaterData()
+        // 시드는 모션 뷰로 이동
+    }
+    
+    
 }
 
 //MARK: -Protocols

@@ -41,7 +41,7 @@ struct MainService {
             return .pathErr }
         switch status {
         case 200:
-            print("성공")
+            print("메인뷰 조회 성공")
             return .success(decodedData.data)
         case 400..<500:
             return .requestErr(decodedData.message)
