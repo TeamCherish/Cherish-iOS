@@ -88,24 +88,27 @@ extension MypagePlantVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         plantIsSelected = true
         
-        let vc = MyPageVC()
+//        let vc = MyPageVC()
         
         print("2: my plant임 ㅎㅇㅎㅇ")
-        print(vc.myPlantID)
+//        print(vc.myPlantID)
+        
+        var myCherish: [Int] = UserDefaults.standard.array(forKey: "plantIDArray")! as? [Int] ?? [Int]()
+        print(myCherish)
+        
+        var keyId = myCherish[indexPath.row]
+        
+        UserDefaults.standard.set(keyId, forKey: "selectedCherish")
         
         // plantIsSelected 값 UserDefaults에 넣기
         UserDefaults.standard.set(plantIsSelected, forKey: "plantIsSelected")
         print(UserDefaults.standard.bool(forKey: "plantIsSelected"))
+        print(UserDefaults.standard.integer(forKey: "selectedCherish"))
         
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "PlantDetail", bundle: nil)
-//
-//        guard let dvc = storyBoard.instantiateViewController(identifier: "PlantDetailVC") as? PlantDetailVC else { return }
-//
-//        self.navigationController?.pushViewController(dvc, animated: true)
-        
-        /*
-         네비게이션으로 detail뷰를 띄운다
-         근데 myPlantID[indexPath.row] 값을 같이 보내준다 -> userDefault에 넣어버려,,,
-         */
+        let storyBoard: UIStoryboard = UIStoryboard(name: "PlantDetail", bundle: nil)
+
+        guard let dvc = storyBoard.instantiateViewController(identifier: "PlantDetailVC") as? PlantDetailVC else { return }
+
+        self.navigationController?.pushViewController(dvc, animated: true)
     }
 }

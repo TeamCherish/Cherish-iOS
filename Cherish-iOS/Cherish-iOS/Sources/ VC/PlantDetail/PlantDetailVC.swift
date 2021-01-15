@@ -55,8 +55,9 @@ class PlantDetailVC: UIViewController {
         defineFirstPlantCardBtnStatus()
 
         myCherishIsSelected = UserDefaults.standard.bool(forKey: "plantIsSelected")
+        var myCherishIdx = UserDefaults.standard.integer(forKey: "selectedCherish")
         if myCherishIsSelected == true {
-//            getPlantDataFromMyPage(cherishId: myCherishIdx)
+            getPlantDataFromMyPage(cherishId: myCherishIdx)
         }
         else {
             getPlantDetailData()

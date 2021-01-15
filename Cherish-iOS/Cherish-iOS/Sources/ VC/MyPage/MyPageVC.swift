@@ -120,8 +120,13 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
                     for i in 0...mypagePlantCount-1 {
                         myPlantID.append(mypageData.result[i].id)
                     }
+                    
+                    UserDefaults.standard.set(myPlantID, forKey: "myCherishID")
+
                     print("1: my page main임 ㅎㅇㅎㅇ")
                     print(myPlantID)
+                    UserDefaults.standard.set(myPlantID, forKey: "plantIDArray")
+                    
 
                     // Userdefaults에 저장된 contact 가져오기
                     if let data = UserDefaults.standard.value(forKey: "userContacts") as? Data {
