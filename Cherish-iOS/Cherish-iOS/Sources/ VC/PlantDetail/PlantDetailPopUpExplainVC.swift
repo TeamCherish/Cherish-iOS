@@ -17,9 +17,11 @@ class PlantDetailPopUpExplainVC: UIViewController {
     }
     @IBOutlet var plantExplainCV: UICollectionView!
     @IBOutlet var plantExplainPageControl: UIPageControl!
+    var plantId:Int?
     var scrollItem:Int?
     
-    var plantExplainArray:[PlantDetailExplainData] = []
+    var plantStepExplainArray:[PlantDetail] = []
+    var plantExplain:[PlantResponse] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,18 +36,38 @@ class PlantDetailPopUpExplainVC: UIViewController {
     }
     
     func setPlantDetailExplainData() {
-        plantExplainArray.append(contentsOf: [
-            PlantDetailExplainData(animationName: "33650-recolor-plant", Title: "쑥쑥자라는 단계", SubTitle: "일주일에 물을 3번 씩만 줘도 \n 잘 자라나는 식물이에요!"),
-            PlantDetailExplainData(animationName: "38217-money-growth", Title: "성장하는 단계", SubTitle: "일주일에 물을 2번 씩만 줘도 \n 잘 자라나는 식물이에요!"),
-            PlantDetailExplainData(animationName: "29583-flower", Title: "성장완료 단계", SubTitle: "일주일에 물을 1번 씩만 줘도 \n 잘 자라나는 식물이에요!")
-        ])
-        
-        plantExplainCV.reloadData()
+        if let plantId = self.plantId {
+            print(plantId)
+            PlantDetailCardService.shared.inquirePlantDetailCardView(plantIdx: plantId){ [self]
+                (networkResult) -> (Void) in
+                switch networkResult {
+                case .success(let data):
+                    if let detailCardData = data as? PlantDetailCardData {
+                        print("통신이 됩니닷")
+                        plantExplain = detailCardData.plantResponse
+                        
+                        // 4개 카드 중 3개 정보 받는 array
+                        plantStepExplainArray = detailCardData.plantDetail
+                        
+                        plantExplainCV.reloadData()
+                    }
+                case .requestErr(let msg):
+                    print(msg)
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+                
+            }
+        }
     }
     
     func setPageControlProperty() {
         plantExplainPageControl.hidesForSinglePage = true
-        plantExplainPageControl.numberOfPages = plantExplainArray.count
+        plantExplainPageControl.numberOfPages = 4
         plantExplainPageControl.pageIndicatorTintColor = UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 1.0)
         plantExplainPageControl.currentPageIndicatorTintColor = .seaweed
     }
@@ -60,22 +82,41 @@ class PlantDetailPopUpExplainVC: UIViewController {
 extension PlantDetailPopUpExplainVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return plantExplainArray.count
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let plantExplainCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlantExplainCVC", for: indexPath) as! PlantExplainCVC
         
-        plantExplainCell.makeLottieAnimation(animationName: plantExplainArray[indexPath.row].animationName)
-        plantExplainCell.plantExplainTitleLabel.text = plantExplainArray[indexPath.row].Title
-        plantExplainCell.plantExplainSubtitleLabel.text = plantExplainArray[indexPath.row].SubTitle
-        
+        if plantExplain.count != 0 {
+            
+            if indexPath.item == 0 {
+                plantExplainCell.plantExplainTitleLabel.text = plantExplain[0].modifier
+                plantExplainCell.plantExplainSubtitleLabel.text = plantExplain[0].explanation
+                plantExplainCell.plantImageView.image = UIImage(named: "imgMinLevel3")
+            }
+            else if indexPath.item == 1 {
+                plantExplainCell.plantExplainTitleLabel.text = plantStepExplainArray[0].levelName
+                plantExplainCell.plantExplainSubtitleLabel.text = plantStepExplainArray[0].plantDetailDescription
+                plantExplainCell.plantImageView.image = UIImage(named: "imgMinLevel1")
+            }
+            else if indexPath.item == 2 {
+                plantExplainCell.plantExplainTitleLabel.text = plantStepExplainArray[1].levelName
+                plantExplainCell.plantExplainSubtitleLabel.text = plantStepExplainArray[1].plantDetailDescription
+                plantExplainCell.plantImageView.image = UIImage(named: "imgMinLeve2")
+            }
+            else {
+                plantExplainCell.plantExplainTitleLabel.text = plantStepExplainArray[2].levelName
+                plantExplainCell.plantExplainSubtitleLabel.text = plantStepExplainArray[2].plantDetailDescription
+                plantExplainCell.plantImageView.image = UIImage(named: "imgMinLeve3")
+            }
+        }
         
         return plantExplainCell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 173, height: 283)
+        return CGSize(width: 260, height: 283)
     }
     
     
@@ -84,7 +125,7 @@ extension PlantDetailPopUpExplainVC : UICollectionViewDelegate, UICollectionView
 extension UICollectionView {
     func scrollToNearestVisibleCollectionViewCell() {
         self.decelerationRate = UIScrollView.DecelerationRate.fast
-        let visibleCenterPositionOfScrollView = Float(self.contentOffset.x + (self.bounds.size.width / 1.3))
+        let visibleCenterPositionOfScrollView = Float(self.contentOffset.x + (self.bounds.size.width / 1.5))
         var closestCellIndex = -1
         var closestDistance: Float = .greatestFiniteMagnitude
         for i in 0..<self.visibleCells.count {

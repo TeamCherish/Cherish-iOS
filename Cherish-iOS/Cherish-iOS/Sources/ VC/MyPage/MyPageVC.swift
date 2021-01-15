@@ -53,6 +53,14 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
         addFloatingBtn.isHidden = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        LoadingHUD.show()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        LoadingHUD.hide()
+    }
+    
     func setDelegates() {
         mypageExternalSV.delegate = self
         plantSV.delegate = self
@@ -125,15 +133,6 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
             }
             
         }
-    }
-    
-    //MARK: - 마이페이지 검색뷰로 이동
-    @IBAction func moveToMyPageSearch(_ sender: Any) {
-        let myPageSearchVC = self.storyboard?.instantiateViewController(identifier: "MyPageSearchVC") as! MyPageSearchVC
-        
-        myPageSearchVC.modalTransitionStyle = .flipHorizontal
-        myPageSearchVC.modalPresentationStyle = .fullScreen
-        self.present(myPageSearchVC, animated: false, completion: nil)
     }
 }
 

@@ -15,6 +15,8 @@
 		33201B1025AE2EBC001A94E4 /* PlantDetailCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33201B0F25AE2EBC001A94E4 /* PlantDetailCardData.swift */; };
 		33201B1525AE419F001A94E4 /* MainSelectedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33201B1425AE419F001A94E4 /* MainSelectedData.swift */; };
 		33201B2225AF3F23001A94E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33201B2125AF3F23001A94E4 /* GoogleService-Info.plist */; };
+		332AFC4A25B1102E00689594 /* min_watering_ios.gif in Resources */ = {isa = PBXBuildFile; fileRef = 332AFC4825B1102E00689594 /* min_watering_ios.gif */; };
+		332AFC4B25B1102E00689594 /* min_bad_iOS.gif in Resources */ = {isa = PBXBuildFile; fileRef = 332AFC4925B1102E00689594 /* min_bad_iOS.gif */; };
 		332CC7A925A6F41E00D0047D /* MyPageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7A725A6F41E00D0047D /* MyPageUtils.swift */; };
 		332CC7AA25A6F41E00D0047D /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7A825A6F41E00D0047D /* CustomSegmentedControl.swift */; };
 		332CC7B025A7018400D0047D /* MypagePlantTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7AF25A7018400D0047D /* MypagePlantTVC.swift */; };
@@ -73,6 +75,9 @@
 		33E8754225A08CFE001F84FE /* CherishSelectPersonCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754125A08CFE001F84FE /* CherishSelectPersonCVC.swift */; };
 		33E8754925A09440001F84FE /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754825A09440001F84FE /* NotificationName.swift */; };
 		33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8754B25A0D272001F84FE /* ProgressBarView.swift */; };
+		33EAA2EC25B15D4E00E75F95 /* AddUserNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAA2EB25B15D4E00E75F95 /* AddUserNC.swift */; };
+		33EAA2EF25B17D3D00E75F95 /* PlantDetailCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAA2EE25B17D3D00E75F95 /* PlantDetailCardService.swift */; };
+		33EAA2F325B180C000E75F95 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAA2F225B180C000E75F95 /* SplashVC.swift */; };
 		33EDFBB525A1B533006367A7 /* PlantDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */; };
 		33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */; };
 		33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */; };
@@ -113,14 +118,19 @@
 		548DF1A925A395D20081FCD1 /* KeywordCanDeleteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */; };
 		548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
-		921440FD25ACC56F00853E53 /* MyPageSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921440FC25ACC56F00853E53 /* MyPageSearchVC.swift */; };
 		9214410225ACE7BD00853E53 /* AddUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9214410125ACE7BD00853E53 /* AddUserService.swift */; };
 		923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */; };
 		923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */; };
 		9244DF0C25AB90F00014FF5D /* PlantResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */; };
 		9244DF1225AB92220014FF5D /* LoadingPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */; };
+		92824D7925B145DB003D7678 /* MyPageSearchPlantVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824D7825B145DB003D7678 /* MyPageSearchPlantVC.swift */; };
+		92824D7D25B145FA003D7678 /* MyPageSearchContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824D7C25B145FA003D7678 /* MyPageSearchContactVC.swift */; };
+		92824D9425B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824D9325B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift */; };
+		92824D9C25B16E94003D7678 /* SearchPlantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824D9A25B16E94003D7678 /* SearchPlantCell.swift */; };
+		92824D9D25B16E94003D7678 /* SearchPlantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92824D9B25B16E94003D7678 /* SearchPlantCell.xib */; };
 		92B0F9D925AEB15400AA411A /* AddUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0F9D825AEB15400AA411A /* AddUserData.swift */; };
 		92B0F9E225AEE41600AA411A /* FetchedContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0F9E125AEE41600AA411A /* FetchedContact.swift */; };
+		92B0FA2C25B0F6A900AA411A /* NoPlantVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0FA2B25B0F6A800AA411A /* NoPlantVC.swift */; };
 		92B2306525A30F390024B8A8 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2306425A30F390024B8A8 /* Friend.swift */; };
 		92DCC3DF25A8504F00160523 /* SelectFriendSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DCC3DE25A8504F00160523 /* SelectFriendSearchBar.swift */; };
 		92DCC3E525A85D1D00160523 /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */; };
@@ -138,6 +148,8 @@
 		33201B0F25AE2EBC001A94E4 /* PlantDetailCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailCardData.swift; sourceTree = "<group>"; };
 		33201B1425AE419F001A94E4 /* MainSelectedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSelectedData.swift; sourceTree = "<group>"; };
 		33201B2125AF3F23001A94E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		332AFC4825B1102E00689594 /* min_watering_ios.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = min_watering_ios.gif; sourceTree = "<group>"; };
+		332AFC4925B1102E00689594 /* min_bad_iOS.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = min_bad_iOS.gif; sourceTree = "<group>"; };
 		332CC7A725A6F41E00D0047D /* MyPageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageUtils.swift; sourceTree = "<group>"; };
 		332CC7A825A6F41E00D0047D /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		332CC7AF25A7018400D0047D /* MypagePlantTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePlantTVC.swift; sourceTree = "<group>"; };
@@ -199,6 +211,9 @@
 		33E8754125A08CFE001F84FE /* CherishSelectPersonCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishSelectPersonCVC.swift; sourceTree = "<group>"; };
 		33E8754825A09440001F84FE /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		33E8754B25A0D272001F84FE /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		33EAA2EB25B15D4E00E75F95 /* AddUserNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserNC.swift; sourceTree = "<group>"; };
+		33EAA2EE25B17D3D00E75F95 /* PlantDetailCardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailCardService.swift; sourceTree = "<group>"; };
+		33EAA2F225B180C000E75F95 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlantDetail.storyboard; sourceTree = "<group>"; };
 		33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailVC.swift; sourceTree = "<group>"; };
 		33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCVCell.swift; sourceTree = "<group>"; };
@@ -238,14 +253,19 @@
 		548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpLaterVC.swift; sourceTree = "<group>"; };
 		548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCanDeleteCVC.swift; sourceTree = "<group>"; };
 		548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewAlign.swift; sourceTree = "<group>"; };
-		921440FC25ACC56F00853E53 /* MyPageSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSearchVC.swift; sourceTree = "<group>"; };
 		9214410125ACE7BD00853E53 /* AddUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserService.swift; sourceTree = "<group>"; };
 		923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailVC.swift; sourceTree = "<group>"; };
 		923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendVC.swift; sourceTree = "<group>"; };
 		9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantResultVC.swift; sourceTree = "<group>"; };
 		9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPopUpVC.swift; sourceTree = "<group>"; };
+		92824D7825B145DB003D7678 /* MyPageSearchPlantVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSearchPlantVC.swift; sourceTree = "<group>"; };
+		92824D7C25B145FA003D7678 /* MyPageSearchContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSearchContactVC.swift; sourceTree = "<group>"; };
+		92824D9325B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSearchPlantHeaderCell.swift; sourceTree = "<group>"; };
+		92824D9A25B16E94003D7678 /* SearchPlantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlantCell.swift; sourceTree = "<group>"; };
+		92824D9B25B16E94003D7678 /* SearchPlantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPlantCell.xib; sourceTree = "<group>"; };
 		92B0F9D825AEB15400AA411A /* AddUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserData.swift; sourceTree = "<group>"; };
 		92B0F9E125AEE41600AA411A /* FetchedContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedContact.swift; sourceTree = "<group>"; };
+		92B0FA2B25B0F6A800AA411A /* NoPlantVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPlantVC.swift; sourceTree = "<group>"; };
 		92B2306425A30F390024B8A8 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		92DCC3DE25A8504F00160523 /* SelectFriendSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendSearchBar.swift; sourceTree = "<group>"; };
 		92DCC3E825A85D7100160523 /* SelectFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendCell.swift; sourceTree = "<group>"; };
@@ -270,6 +290,8 @@
 		3317777D25B0568600CC1030 /* Gif */ = {
 			isa = PBXGroup;
 			children = (
+				332AFC4925B1102E00689594 /* min_bad_iOS.gif */,
+				332AFC4825B1102E00689594 /* min_watering_ios.gif */,
 				3317777F25B0569C00CC1030 /* real_min.gif */,
 			);
 			path = Gif;
@@ -288,6 +310,9 @@
 			children = (
 				332CC7AF25A7018400D0047D /* MypagePlantTVC.swift */,
 				332CC7B225A701A400D0047D /* MypageContactTVC.swift */,
+				92824D9325B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift */,
+				92824D9A25B16E94003D7678 /* SearchPlantCell.swift */,
+				92824D9B25B16E94003D7678 /* SearchPlantCell.xib */,
 			);
 			path = Mypage;
 			sourceTree = "<group>";
@@ -331,6 +356,7 @@
 			children = (
 				33805F8825AC739D005CED0F /* MainService.swift */,
 				33805F9625ACE24E005CED0F /* PlantDetailService.swift */,
+				33EAA2EE25B17D3D00E75F95 /* PlantDetailCardService.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -422,14 +448,14 @@
 		33851C8B259A5AEE005BCFFD /* APIService */ = {
 			isa = PBXGroup;
 			children = (
+				33851C92259A5B68005BCFFD /* APIConstants.swift */,
+				33851C98259A5C00005BCFFD /* NetworkResult.swift */,
 				3317778425B0915B00CC1030 /* Mypage */,
 				54425C3825AF51F200E62BAB /* Calendar */,
 				9214410025ACE5B000853E53 /* AddUser */,
 				5478346D25AC72C40021C32B /* Watering */,
 				33805F8725AC7387005CED0F /* Main */,
 				33805F7C25AC61F8005CED0F /* Login */,
-				33851C92259A5B68005BCFFD /* APIConstants.swift */,
-				33851C98259A5C00005BCFFD /* NetworkResult.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -452,6 +478,7 @@
 		33851C8D259A5B0E005BCFFD /*  VC */ = {
 			isa = PBXGroup;
 			children = (
+				33EAA2F225B180C000E75F95 /* SplashVC.swift */,
 				337A5CB725A8544D00578130 /* Login */,
 				5488922325A594B9003839FC /* Calendar */,
 				548DF16525A1B3E60081FCD1 /* Watering */,
@@ -577,7 +604,8 @@
 				33E874FA25A04A81001F84FE /* MyPageVC.swift */,
 				332CC7B525A7027D00D0047D /* MypagePlantVC.swift */,
 				332CC7B825A7028A00D0047D /* MypageContactVC.swift */,
-				921440FC25ACC56F00853E53 /* MyPageSearchVC.swift */,
+				92824D7825B145DB003D7678 /* MyPageSearchPlantVC.swift */,
+				92824D7C25B145FA003D7678 /* MyPageSearchContactVC.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -742,6 +770,8 @@
 				92DCC3DE25A8504F00160523 /* SelectFriendSearchBar.swift */,
 				9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */,
 				9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */,
+				92B0FA2B25B0F6A800AA411A /* NoPlantVC.swift */,
+				33EAA2EB25B15D4E00E75F95 /* AddUserNC.swift */,
 			);
 			path = AddUser;
 			sourceTree = "<group>";
@@ -849,11 +879,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				33E874E025A04746001F84FE /* CherishMain.storyboard in Resources */,
+				332AFC4A25B1102E00689594 /* min_watering_ios.gif in Resources */,
 				33D0027325A30E4700E97811 /* 38217-money-growth.json in Resources */,
 				33851C80259A5542005BCFFD /* LaunchScreen.storyboard in Resources */,
 				92DCC3EB25A85D7100160523 /* SelectFriendCell.xib in Resources */,
 				33201B2225AF3F23001A94E4 /* GoogleService-Info.plist in Resources */,
 				33E874E825A04832001F84FE /* TabBar.storyboard in Resources */,
+				332AFC4B25B1102E00689594 /* min_bad_iOS.gif in Resources */,
 				33E874C825A04332001F84FE /* NotoSansCJKkr-Regular.otf in Resources */,
 				33E874CB25A0434B001F84FE /* Roboto-Regular.ttf in Resources */,
 				33851C7D259A5542005BCFFD /* Assets.xcassets in Resources */,
@@ -868,6 +900,7 @@
 				33D0027825A3144400E97811 /* 29583-flower.json in Resources */,
 				33EDFBB525A1B533006367A7 /* PlantDetail.storyboard in Resources */,
 				337A5CB525A8543600578130 /* Login.storyboard in Resources */,
+				92824D9D25B16E94003D7678 /* SearchPlantCell.xib in Resources */,
 				3317778F25B0B7D900CC1030 /* Roboto-Medium.ttf in Resources */,
 				33E874DD25A04569001F84FE /* MyPage.storyboard in Resources */,
 				33D0027725A3144400E97811 /* 33650-recolor-plant.json in Resources */,
@@ -932,9 +965,11 @@
 			files = (
 				3317778B25B0921500CC1030 /* MypageData.swift in Sources */,
 				548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */,
+				92824D7D25B145FA003D7678 /* MyPageSearchContactVC.swift in Sources */,
 				9244DF1225AB92220014FF5D /* LoadingPopUpVC.swift in Sources */,
 				33805F8325AC62B3005CED0F /* LoginData.swift in Sources */,
 				33CAF85225A249DC0050DE29 /* CherishMainNC.swift in Sources */,
+				33EAA2F325B180C000E75F95 /* SplashVC.swift in Sources */,
 				5488922525A594CF003839FC /* CalendarVC.swift in Sources */,
 				548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */,
 				5478345225AB7D8E0021C32B /* ShowMoreNotImageTVC.swift in Sources */,
@@ -945,6 +980,7 @@
 				923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */,
 				33E8750725A04DA2001F84FE /* UIColor+Additions.swift in Sources */,
 				332CC7A925A6F41E00D0047D /* MyPageUtils.swift in Sources */,
+				92824D7925B145DB003D7678 /* MyPageSearchPlantVC.swift in Sources */,
 				9244DF0C25AB90F00014FF5D /* PlantResultVC.swift in Sources */,
 				332CC7B025A7018400D0047D /* MypagePlantTVC.swift in Sources */,
 				54425C3A25AF520A00E62BAB /* CalendarService.swift in Sources */,
@@ -961,11 +997,11 @@
 				33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */,
 				337A5CBD25A868C000578130 /* UIButton+Extention.swift in Sources */,
 				54425C4025AF5EBA00E62BAB /* CalendarKeyword.swift in Sources */,
+				92824D9425B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift in Sources */,
 				33D0026F25A30AB700E97811 /* PlantDetailExplainData.swift in Sources */,
 				5478346F25AC72F90021C32B /* LaterService.swift in Sources */,
 				5488923625A5E962003839FC /* CalendarKeywordCVCell.swift in Sources */,
 				92B2306525A30F390024B8A8 /* Friend.swift in Sources */,
-				921440FD25ACC56F00853E53 /* MyPageSearchVC.swift in Sources */,
 				548DF17525A1BB7F0081FCD1 /* PopUpContactVC.swift in Sources */,
 				5478347525AC77600021C32B /* WateringDayService.swift in Sources */,
 				3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */,
@@ -981,10 +1017,12 @@
 				92B0F9E225AEE41600AA411A /* FetchedContact.swift in Sources */,
 				33CAF85625A2674A0050DE29 /* CircularProgressView.swift in Sources */,
 				33805F8925AC739D005CED0F /* MainService.swift in Sources */,
+				92824D9C25B16E94003D7678 /* SearchPlantCell.swift in Sources */,
 				33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */,
 				33E8750425A04D1E001F84FE /* CustomLabel.swift in Sources */,
 				33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */,
 				33201B1525AE419F001A94E4 /* MainSelectedData.swift in Sources */,
+				92B0FA2C25B0F6A900AA411A /* NoPlantVC.swift in Sources */,
 				33E8753525A07A7F001F84FE /* CherishPeopleCVC.swift in Sources */,
 				3317778625B0916800CC1030 /* MypageService.swift in Sources */,
 				5478347225AC75950021C32B /* WateringDayData.swift in Sources */,
@@ -1000,6 +1038,7 @@
 				546A247025ACD32800F869E2 /* WateringReviewService.swift in Sources */,
 				33E8754925A09440001F84FE /* NotificationName.swift in Sources */,
 				337A5CB925A8545E00578130 /* LoginVC.swift in Sources */,
+				33EAA2EC25B15D4E00E75F95 /* AddUserNC.swift in Sources */,
 				33E8752325A05CFC001F84FE /* DetailContentVC.swift in Sources */,
 				33851C74259A5541005BCFFD /* AppDelegate.swift in Sources */,
 				548DF19925A2E1780081FCD1 /* PopUpLaterVC.swift in Sources */,
@@ -1013,6 +1052,7 @@
 				33805F9725ACE24E005CED0F /* PlantDetailService.swift in Sources */,
 				33805F7E25AC6209005CED0F /* LoginService.swift in Sources */,
 				548DF17E25A1EE730081FCD1 /* ReviewVC.swift in Sources */,
+				33EAA2EF25B17D3D00E75F95 /* PlantDetailCardService.swift in Sources */,
 				5478343625A76EBC0021C32B /* UIDevice+ScreenSize.swift in Sources */,
 				33805F9A25ACE78A005CED0F /* PlantDetailData.swift in Sources */,
 				546A247625ACD62F00F869E2 /* WateringMotionVC.swift in Sources */,

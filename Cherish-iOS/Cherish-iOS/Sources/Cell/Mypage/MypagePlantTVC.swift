@@ -40,7 +40,6 @@ class MypagePlantTVC: UITableViewCell {
         mypagePlantNicknameLabel.text = nickname
         mypagePlantTypeLabel.text = plantType
         
-        
         /// dDay 값 파싱 -,+,0
         // dDay가 0일 때
         if wateringDay == 0 {
