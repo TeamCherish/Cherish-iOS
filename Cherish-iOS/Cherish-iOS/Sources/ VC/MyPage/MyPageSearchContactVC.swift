@@ -1,13 +1,13 @@
 //
-//  MyPageSearchVC.swift
+//  MyPageSearchContactVC.swift
 //  Cherish-iOS
 //
-//  Created by 장서현 on 2021/01/12.
+//  Created by 장서현 on 2021/01/15.
 //
 
 import UIKit
 
-class MyPageSearchVC: UIViewController {
+class MyPageSearchContactVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

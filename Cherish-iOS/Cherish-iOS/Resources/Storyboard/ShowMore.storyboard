@@ -35,7 +35,7 @@
                                     <constraint firstAttribute="height" constant="416" id="Tsr-Gx-wB6"/>
                                 </constraints>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="OfT-on-jkW">
-                                    <rect key="frame" x="0.0" y="99.666667938232422" width="375" height="105"/>
+                                    <rect key="frame" x="0.0" y="100.33333206176758" width="375" height="104.99999999999997"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgMypageUser" translatesAutoresizingMaskIntoConstraints="NO" id="pct-RI-rUm">
@@ -83,14 +83,14 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShowMoreNotImageTVC" id="BsT-RL-bE6" customClass="ShowMoreNotImageTVC" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BsT-RL-bE6" id="wmm-S9-KlR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itL-6W-dKB" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="16.000000000000004" y="12.666666666666666" width="39.333333333333343" height="18.666666666666671"/>
+                                                    <rect key="frame" x="16.000000000000004" y="13.000000000000002" width="39.333333333333343" height="18.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                                     <color key="textColor" name="black"/>
                                                     <nil key="highlightedColor"/>
@@ -100,10 +100,18 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ol-b1-NrC">
+                                                    <rect key="frame" x="331" y="0.0" width="44" height="44.333333333333336"/>
+                                                    <state key="normal" image="icBtnMore"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="itL-6W-dKB" firstAttribute="leading" secondItem="wmm-S9-KlR" secondAttribute="leading" constant="16" id="8rc-R6-HfJ"/>
                                                 <constraint firstItem="itL-6W-dKB" firstAttribute="centerY" secondItem="wmm-S9-KlR" secondAttribute="centerY" id="JZ5-8P-2s3"/>
+                                                <constraint firstItem="9ol-b1-NrC" firstAttribute="top" secondItem="wmm-S9-KlR" secondAttribute="top" id="KS7-Qy-LCq"/>
+                                                <constraint firstAttribute="trailing" secondItem="9ol-b1-NrC" secondAttribute="trailing" id="LN9-9O-faW"/>
+                                                <constraint firstItem="9ol-b1-NrC" firstAttribute="centerY" secondItem="wmm-S9-KlR" secondAttribute="centerY" id="ORy-sc-cGn"/>
+                                                <constraint firstAttribute="bottom" secondItem="9ol-b1-NrC" secondAttribute="bottom" id="Y9Y-xV-97H"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -126,19 +134,13 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXx-Ai-wy8">
-                                        <rect key="frame" x="325" y="0.0" width="44" height="44"/>
-                                        <state key="normal" image="icnSetting"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Kll-bl-abO"/>
                                     <constraint firstAttribute="width" secondItem="8nj-yf-X3q" secondAttribute="height" multiplier="375:44" id="OJL-I9-77g"/>
-                                    <constraint firstAttribute="trailing" secondItem="UXx-Ai-wy8" secondAttribute="trailing" constant="6" id="atO-5e-xXI"/>
                                     <constraint firstItem="Cqi-cG-oaJ" firstAttribute="leading" secondItem="8nj-yf-X3q" secondAttribute="leading" constant="16" id="fBs-6O-EIJ"/>
                                     <constraint firstItem="Cqi-cG-oaJ" firstAttribute="centerY" secondItem="8nj-yf-X3q" secondAttribute="centerY" id="gBw-yu-cI6"/>
-                                    <constraint firstItem="UXx-Ai-wy8" firstAttribute="centerY" secondItem="Cqi-cG-oaJ" secondAttribute="centerY" id="x0a-kx-hfI"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eq2-Os-9OL">
@@ -229,8 +231,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icBtnMore" width="44" height="44"/>
         <image name="icResetMypage" width="44" height="44"/>
-        <image name="icnSetting" width="44" height="44"/>
         <image name="imgMypageUser" width="70" height="70"/>
         <namedColor name="black">
             <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

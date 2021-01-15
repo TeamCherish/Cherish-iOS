@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Medium.otf">
+            <string>NotoSansCJKkr-Medium</string>
+        </array>
+        <array key="NotoSansCJKkr-Regular.otf">
+            <string>NotoSansCJKkr-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="SearchPlantCell" customModule="Cherish_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FAI-ny-6Ti">
+                        <rect key="frame" x="16" y="0.0" width="54" height="54"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="FAI-ny-6Ti" secondAttribute="height" multiplier="1:1" id="e7C-MH-Mkm"/>
+                            <constraint firstAttribute="height" constant="54" id="qY3-K9-5SJ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GT9-n8-o4a" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                        <rect key="frame" x="81" y="5" width="42.5" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="RJs-aC-FSE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                        <color key="textColor" name="black"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                <real key="value" value="-0.69999999999999996"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스투키 Lv.3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOz-4z-VdN" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                        <rect key="frame" x="81" y="23" width="56.5" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="fWd-i0-4Hg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                        <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                <real key="value" value="-0.69999999999999996"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="GT9-n8-o4a" firstAttribute="leading" secondItem="FAI-ny-6Ti" secondAttribute="trailing" constant="11" id="2nk-iA-NfV"/>
+                    <constraint firstItem="IOz-4z-VdN" firstAttribute="leading" secondItem="FAI-ny-6Ti" secondAttribute="trailing" constant="11" id="864-bp-MDs"/>
+                    <constraint firstAttribute="bottom" secondItem="IOz-4z-VdN" secondAttribute="bottom" constant="33" id="95V-2d-k6f"/>
+                    <constraint firstItem="FAI-ny-6Ti" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="B9d-zy-m0Q"/>
+                    <constraint firstAttribute="bottom" secondItem="FAI-ny-6Ti" secondAttribute="bottom" constant="26" id="UTl-PG-Vm3"/>
+                    <constraint firstItem="GT9-n8-o4a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="VEQ-gL-cbO"/>
+                    <constraint firstItem="FAI-ny-6Ti" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="yOF-BG-1Cq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="84.782608695652186" y="95.758928571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="black">
+            <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

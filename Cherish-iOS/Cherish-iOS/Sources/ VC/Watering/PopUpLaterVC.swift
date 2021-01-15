@@ -46,15 +46,8 @@ class PopUpLaterVC: UIViewController {
         setWateringDate()
     }
     
-    @IBAction func backBtn(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-        
-    }
-    @IBAction func completeLatering(_ sender: Any) {
-        getLaterData()
-        // 시드는 모션 뷰로 이동
-    }
     
+
     /// 물 줄 날짜, 미룬 횟수 셋팅
     func setWateringDate(){
         guard let originDate = UserDefaults.standard.string(forKey: "wateringDate") else { return }
@@ -92,10 +85,13 @@ class PopUpLaterVC: UIViewController {
                 if let dataMessage = data as? String{
                     print(dataMessage)
                 }
+
+                self.dismiss(animated: true, completion: nil)
                 self.appDel.isWateringPostponed = true
                 //메인뷰에 모달이 dismiss되었음을 알려주는 Noti
                 NotificationCenter.default.post(name: .postPostponed, object: nil)
                 
+
             case .requestErr(let msg):
                 if let message = msg as? String {
                     print(message)
@@ -109,6 +105,16 @@ class PopUpLaterVC: UIViewController {
             }
         }
     }
+    
+    @IBAction func backBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func completeLatering(_ sender: Any) {
+        getLaterData()
+        // 시드는 모션 뷰로 이동
+    }
+    
+    
 }
 
 //MARK: -Protocols

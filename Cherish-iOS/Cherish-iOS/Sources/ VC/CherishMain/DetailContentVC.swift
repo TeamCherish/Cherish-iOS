@@ -43,7 +43,8 @@ class DetailContentVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if appDel.isCherishAdded == true || appDel.isWateringPostponed == true {
+        //이 거 때 문 이 다
+        if appDel.isCherishAdded == true || appDel.isWateringPostponed == true  {
             setCherishPeopleData()
         }
     }
@@ -74,7 +75,6 @@ class DetailContentVC: UIViewController {
                 }
             case .requestErr(let msg):
                 if let message = msg as? String {
-                    print(message)
                 }
             case .pathErr:
                 print("pathErr")

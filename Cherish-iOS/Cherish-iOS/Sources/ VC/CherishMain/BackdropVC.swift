@@ -18,11 +18,12 @@ class BackdropVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(makeOpacityView), name: .notchMaximum, object: nil)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name: .notchMinimum, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .cherishPeopleCellClicked, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .notchMaximum, object: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(makeClearView), name: .notchMinimum, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(makeClearView), name: .cherishPeopleCellClicked, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(makeOpacityView), name: .notchMaximum, object: nil)
     }
+   
     
     @objc func makeOpacityView() {
         view = PassThroughView()
@@ -32,5 +33,11 @@ class BackdropVC: UIViewController {
     @objc func makeClearView() {
         view = PassThroughView()
         view.backgroundColor = UIColor.init(white: 0, alpha: 0)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: .notchMinimum, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .cherishPeopleCellClicked, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .notchMaximum, object: nil)
     }
 }

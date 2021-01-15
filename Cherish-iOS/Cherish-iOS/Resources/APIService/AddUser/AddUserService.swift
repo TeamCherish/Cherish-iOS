@@ -22,7 +22,7 @@ struct AddUserService {
             "phone": phone,
             "cycle_date": cycle_date,
             "notice_time": notice_time,
-            "water_notice_" : water_notice_,
+            "water_notice" : water_notice_,
             "UserId": UserId
         ]
         let dataRequest = AF.request(url,

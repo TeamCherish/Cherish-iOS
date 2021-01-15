@@ -85,21 +85,18 @@ class InputDetailVC: UIViewController {
             guard let loadingVC = self.storyboard?.instantiateViewController(identifier: "LoadingPopUpVC") as? LoadingPopUpVC else { return }
             guard let resultVC = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else { return }
 
-            AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: periodText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")) { (networkResult) -> (Void) in
+            AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: periodText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")) {
+                
+                (networkResult) -> (Void) in
+                print(UserDefaults.standard.integer(forKey: "userID"))
                 switch networkResult {
                 case .success(let data):
 
                     if let resultData = data as? AddUserData {
-                        
-                        resultVC.modifier = resultData.plant.modifier
-                        resultVC.explanation = resultData.plant.explanation
-                        
-                        DispatchQueue.main.async {
-                            resultVC.modifier = resultData.plant.modifier
-                            resultVC.explanation = resultData.plant.explanation
-                            NotificationCenter.default.post(name: .sendPlantResult, object: nil)
-                        }
-//                        resultVC.resultPeriodLabel.text = self.resultPeriod
+                        UserDefaults.standard.set(resultData.plant.modifier, forKey: "resultModifier")
+                        UserDefaults.standard.set(resultData.plant.explanation , forKey: "resultExplanation")
+                        print(resultVC.modifier)
+//                        NotificationCenter.default.post(name: .sendPlantResult, object: nil)
                     }
                 case .requestErr(_):
                     print("requesetErr")
