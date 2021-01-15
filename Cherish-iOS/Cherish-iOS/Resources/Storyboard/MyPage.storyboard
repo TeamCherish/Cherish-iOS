@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6rt-Gh-njX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mtU-Uq-od7">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -309,6 +309,9 @@
                                             <constraint firstAttribute="height" constant="44" id="lx9-oS-BJU"/>
                                         </constraints>
                                         <state key="normal" image="icn_search_box"/>
+                                        <connections>
+                                            <action selector="moveToSearchPlant:" destination="6rt-Gh-njX" eventType="touchUpInside" id="Hlw-rx-VMf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="mypageBackground"/>
@@ -396,12 +399,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ksi-9M-4B7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1156" y="162.5615763546798"/>
+            <point key="canvasLocation" x="2098.4000000000001" y="162.5615763546798"/>
         </scene>
         <!--My Page Search PlantVC-->
         <scene sceneID="K0q-Tw-Aej">
             <objects>
-                <viewController id="evd-wj-37N" customClass="MyPageSearchPlantVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPageSearchPlantVC" id="evd-wj-37N" customClass="MyPageSearchPlantVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6b0-PD-oap">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -422,7 +425,7 @@
                                             <rect key="frame" x="323" y="10" width="30" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
-                                            <state key="normal" title="완료">
+                                            <state key="normal" title="취소">
                                                 <color key="titleColor" name="textGrey"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
@@ -430,6 +433,9 @@
                                                     <real key="value" value="-0.69999999999999996"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="backToMyPage:" destination="evd-wj-37N" eventType="touchUpInside" id="CzZ-D3-Z4M"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -517,7 +523,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="plantNumber" destination="u1e-FG-sf1" id="TCP-ak-MRv"/>
+                                            <outlet property="plantNumberLabel" destination="u1e-FG-sf1" id="Se9-xJ-JRK"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="SPn-yi-m4x" customClass="SearchPlantCell" customModule="Cherish_iOS" customModuleProvider="target">
@@ -602,11 +608,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dayCornerView" destination="oef-RG-XBC" id="yey-gc-pJW"/>
-                                            <outlet property="myPlantImageView" destination="xtq-8d-3dN" id="jvP-0r-ynn"/>
-                                            <outlet property="myPlantInfoLabel" destination="yQC-AT-nqL" id="ecu-Ti-X98"/>
-                                            <outlet property="myPlantNameLabel" destination="WAc-ZI-3ZO" id="zm5-6O-rnx"/>
-                                            <outlet property="plantDay" destination="m6o-LH-nnx" id="6VY-le-Koa"/>
+                                            <outlet property="dayCornerView" destination="oef-RG-XBC" id="Gqq-ha-T2g"/>
+                                            <outlet property="myPlantImageView" destination="xtq-8d-3dN" id="irR-50-hXd"/>
+                                            <outlet property="myPlantInfoLabel" destination="yQC-AT-nqL" id="PpZ-c8-SEU"/>
+                                            <outlet property="myPlantNameLabel" destination="WAc-ZI-3ZO" id="k5E-js-yx0"/>
+                                            <outlet property="plantDay" destination="m6o-LH-nnx" id="PbX-Cc-Hzx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -622,14 +628,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="plantCompleteBtn" destination="9Bi-hV-H06" id="Hr7-P6-fCs"/>
-                        <outlet property="plantSearchBar" destination="9NK-GL-Etu" id="BY4-o7-LuK"/>
-                        <outlet property="plantTableView" destination="Rzr-y6-g61" id="O3a-pc-t6o"/>
+                        <outlet property="plantTableView" destination="Rzr-y6-g61" id="eaS-35-3lh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VSK-SM-miG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2112.8000000000002" y="162.5615763546798"/>
+            <point key="canvasLocation" x="2906.4000000000001" y="162.5615763546798"/>
         </scene>
         <!--My Page Search ContactVC-->
         <scene sceneID="vWb-NO-XqU">
@@ -638,13 +642,79 @@
                     <view key="view" contentMode="scaleToFill" id="aOr-Wc-e5Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ok7-DD-uiE">
+                                <rect key="frame" x="0.0" y="57" width="375" height="721"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="S8O-Sx-2b1">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qpD-ED-cFY">
+                                            <rect key="frame" x="0.0" y="0.0" width="313" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </searchBar>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaR-Qe-wOz">
+                                            <rect key="frame" x="322" y="13" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="취소"/>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="76" id="JnO-LO-wOb">
+                                        <rect key="frame" x="0.0" y="85" width="375" height="76"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JnO-LO-wOb" id="ivq-ey-WDV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mypage_modal_stroke" translatesAutoresizingMaskIntoConstraints="NO" id="KJM-Hw-k35">
+                                                    <rect key="frame" x="0.0" y="48" width="375" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="FWY-WI-2e5">
+                                        <rect key="frame" x="0.0" y="161" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FWY-WI-2e5" id="8Ir-iP-ICT">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ebi-32-XF2">
+                                                    <rect key="frame" x="16" y="0.0" width="54" height="54"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="54" id="N37-ka-uN2"/>
+                                                        <constraint firstAttribute="width" secondItem="Ebi-32-XF2" secondAttribute="height" multiplier="1:1" id="fMn-uY-TK7"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ebi-32-XF2" firstAttribute="leading" secondItem="8Ir-iP-ICT" secondAttribute="leading" constant="16" id="3yb-iG-QIo"/>
+                                                <constraint firstItem="Ebi-32-XF2" firstAttribute="top" secondItem="8Ir-iP-ICT" secondAttribute="top" id="cak-8k-ONm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="eaS-Sc-HhR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eaS-Sc-HhR" firstAttribute="trailing" secondItem="Ok7-DD-uiE" secondAttribute="trailing" id="TYY-nH-sZf"/>
+                            <constraint firstItem="eaS-Sc-HhR" firstAttribute="bottom" secondItem="Ok7-DD-uiE" secondAttribute="bottom" id="VbA-qq-IH9"/>
+                            <constraint firstItem="Ok7-DD-uiE" firstAttribute="leading" secondItem="eaS-Sc-HhR" secondAttribute="leading" id="b4s-4z-DCz"/>
+                            <constraint firstItem="Ok7-DD-uiE" firstAttribute="top" secondItem="eaS-Sc-HhR" secondAttribute="top" constant="13" id="bzl-fb-1aU"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="omD-fi-hGY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2783" y="163"/>
+            <point key="canvasLocation" x="3583.1999999999998" y="162.5615763546798"/>
         </scene>
         <!--Mypage PlantVC-->
         <scene sceneID="Upa-Au-Bqg">
@@ -755,7 +825,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzA-gf-QWD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="798" y="977"/>
+            <point key="canvasLocation" x="1753" y="977"/>
         </scene>
         <!--Mypage ContactVC-->
         <scene sceneID="05M-EM-fG9">
@@ -850,7 +920,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5p8-13-aVr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1474" y="1006"/>
+            <point key="canvasLocation" x="2457" y="1006"/>
+        </scene>
+        <!--MypageNC-->
+        <scene sceneID="W2v-Dr-spM">
+            <objects>
+                <navigationController storyboardIdentifier="MypageNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="mtU-Uq-od7" customClass="MypageNC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="92P-qg-N8p">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6rt-Gh-njX" kind="relationship" relationship="rootViewController" id="GzU-MQ-ZxI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BXi-jk-Crc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1156" y="162.5615763546798"/>
         </scene>
     </scenes>
     <resources>

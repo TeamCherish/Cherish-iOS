@@ -128,6 +128,7 @@
 		92824D9425B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824D9325B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift */; };
 		92824D9C25B16E94003D7678 /* SearchPlantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824D9A25B16E94003D7678 /* SearchPlantCell.swift */; };
 		92824D9D25B16E94003D7678 /* SearchPlantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92824D9B25B16E94003D7678 /* SearchPlantCell.xib */; };
+		92824DA225B19A7F003D7678 /* MypageNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824DA125B19A7F003D7678 /* MypageNC.swift */; };
 		92B0F9D925AEB15400AA411A /* AddUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0F9D825AEB15400AA411A /* AddUserData.swift */; };
 		92B0F9E225AEE41600AA411A /* FetchedContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0F9E125AEE41600AA411A /* FetchedContact.swift */; };
 		92B0FA2C25B0F6A900AA411A /* NoPlantVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0FA2B25B0F6A800AA411A /* NoPlantVC.swift */; };
@@ -263,6 +264,7 @@
 		92824D9325B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSearchPlantHeaderCell.swift; sourceTree = "<group>"; };
 		92824D9A25B16E94003D7678 /* SearchPlantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlantCell.swift; sourceTree = "<group>"; };
 		92824D9B25B16E94003D7678 /* SearchPlantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPlantCell.xib; sourceTree = "<group>"; };
+		92824DA125B19A7F003D7678 /* MypageNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageNC.swift; sourceTree = "<group>"; };
 		92B0F9D825AEB15400AA411A /* AddUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserData.swift; sourceTree = "<group>"; };
 		92B0F9E125AEE41600AA411A /* FetchedContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedContact.swift; sourceTree = "<group>"; };
 		92B0FA2B25B0F6A800AA411A /* NoPlantVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPlantVC.swift; sourceTree = "<group>"; };
@@ -606,6 +608,7 @@
 				332CC7B825A7028A00D0047D /* MypageContactVC.swift */,
 				92824D7825B145DB003D7678 /* MyPageSearchPlantVC.swift */,
 				92824D7C25B145FA003D7678 /* MyPageSearchContactVC.swift */,
+				92824DA125B19A7F003D7678 /* MypageNC.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -1029,6 +1032,7 @@
 				92DCC3DF25A8504F00160523 /* SelectFriendSearchBar.swift in Sources */,
 				33D0026625A3036800E97811 /* PlantDetailPopUpExplainVC.swift in Sources */,
 				546A247325ACD53A00F869E2 /* WateringReviewData.swift in Sources */,
+				92824DA225B19A7F003D7678 /* MypageNC.swift in Sources */,
 				3317777825B042C200CC1030 /* UIImage+Extension.swift in Sources */,
 				33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */,
 				332CC7BD25A707BD00D0047D /* MypagePlantData.swift in Sources */,
