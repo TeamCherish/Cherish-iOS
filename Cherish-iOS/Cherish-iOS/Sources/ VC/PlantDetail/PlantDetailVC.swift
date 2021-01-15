@@ -39,6 +39,14 @@ class PlantDetailVC: UIViewController {
     @IBOutlet var memoTextFieldHeight: NSLayoutConstraint!
     @IBOutlet var keywordCVTopConstraint: NSLayoutConstraint!
     @IBOutlet var keywordCVBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var nameTagView: UIView!{
+        didSet{
+            nameTagView.makeRounded(cornerRadius: 13.0)
+            nameTagView.backgroundColor = .clear
+            nameTagView.layer.borderColor = UIColor.seaweed.cgColor
+            nameTagView.layer.borderWidth  = 1.0
+        }
+    }
     
     var isClicked:Bool = false
     var plantId:Int = 0
@@ -286,8 +294,8 @@ class PlantDetailVC: UIViewController {
                         firstMemoTextLabel.text = "메모를 입력하지 않았어요!"
                         secondMemoTextLabel.text = "메모를 입력하지 않았어요!"
                         
-                        firstMemoDayLabel.text = "‼️📝"
-                        secondMemoDayLabel.text = "‼️📝"
+                        firstMemoDayLabel.text = "----"
+                        secondMemoDayLabel.text = "----"
                     }
                     /// 메모 데이터가 하나일 때
                     else if reviewArray.count == 1 {
@@ -322,7 +330,7 @@ class PlantDetailVC: UIViewController {
                         }
                         
                         //메모데이터가 하나이니까 두번째 메모는 없다
-                        secondMemoDayLabel.text = "‼️📝"
+                        secondMemoDayLabel.text = "----"
                         secondMemoTextLabel.text = "메모를 입력하지 않았어요!"
                         
                         // 캘린더로 이동할 수 있는 두번째 메모버튼을 숨기고, 누를 수 없게 한다
@@ -546,6 +554,15 @@ class PlantDetailVC: UIViewController {
             
             /// 달력 클릭 시 월간 모드
             self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    @IBAction func moveToWatering(_ sender: Any) {
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpWatering", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpWateringVC") as? PopUpWateringVC {
+            vc.modalPresentationStyle = .overFullScreen ///탭바까지 Alpha값으로 덮으면서 팝업뷰
+            vc.modalTransitionStyle = .crossDissolve
+            self.present(vc, animated: true, completion: nil)
         }
     }
 }
