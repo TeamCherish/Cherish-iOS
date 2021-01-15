@@ -192,11 +192,11 @@ if (condition){
 </div>
 </details>
  
+ 
+<br>
 
  다음 스타일 Guide를 참고헀습니다. 👉🏻[Style Guide](https://github.com/StyleShare/swift-style-guide)
 
-
- <br>
 
 ## ✉️ Commit Messge Rules
 <details>
@@ -527,8 +527,8 @@ UIImage+Extension.swift
 | 팀원 | 팀원 이름 | 소개 |역할 |
 |:---:|:---------:|:-------:|:---------------:|
 | <img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103209152-b436e680-4945-11eb-91e4-bd8622e442e2.png" width="200px" />  | [지은](https://github.com/hwangJi-dev) | 안녕하세요🍒 Cherish의 비타민같은 존재 황지은 입니다!  | 황구글(물어보면 바로 찾아줌), 황사인 볼트(개발속도 개빠름) |
-| <img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103280936-ee22ee00-4a14-11eb-9161-aa5249d74f20.png" width="200px" height = "200px" />  | [원석](https://github.com/snowedev) | 안녕하세요🍒 Cherish가 정말 필요한 개발자 이원석입니다!  | 캘린더, 키워드의 노예, 늘리고 줄이기 달인 |
-| <img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103281341-e9ab0500-4a15-11eb-877b-e9c384c7de88.png" width="200px" height = "200px" />  | [서현](https://github.com/seohyun-106) | 안녕하세요🍒 Cherish의 귀염둥이 막내 장서현입니다! | 라디오 버튼의 노예..저 이제 라디오 안듣습니다.. |
+| <img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103280936-ee22ee00-4a14-11eb-9161-aa5249d74f20.png" width="250px" height = "200px" />  | [원석](https://github.com/snowedev) | 안녕하세요🍒 Cherish가 정말 필요한 개발자 이원석입니다!  | 캘린더, 키워드의 노예, 늘리고 줄이기 달인 |
+| <img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/63224278/103281341-e9ab0500-4a15-11eb-877b-e9c384c7de88.png" width="250px" height = "200px" />  | [서현](https://github.com/seohyun-106) | 안녕하세요🍒 Cherish의 귀염둥이 막내 장서현입니다! | 라디오 버튼의 노예..저 이제 라디오 안듣습니다.. |
 
 
 <br>
