@@ -121,8 +121,11 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
                     
                     for i in 0...mypagePlantCount-1 {
                         print("\(i): " + "\(mypageData.result[i].id)")
-//                        myPlantID[i] = mypageData.result[i].id
+                        myPlantID.append(mypageData.result[i].id)
                     }
+                    
+                    print(myPlantID)
+                    print(myPlantID.count)
 
 //                    UserDefaults.standard.set(myPlantID, forKey: "plantIDArray")
 
