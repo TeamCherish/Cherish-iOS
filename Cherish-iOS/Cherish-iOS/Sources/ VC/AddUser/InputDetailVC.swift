@@ -90,16 +90,10 @@ class InputDetailVC: UIViewController {
                 case .success(let data):
 
                     if let resultData = data as? AddUserData {
-                        
-                        resultVC.modifier = resultData.plant.modifier
-                        resultVC.explanation = resultData.plant.explanation
-                        
-                        DispatchQueue.main.async {
-                            resultVC.modifier = resultData.plant.modifier
-                            resultVC.explanation = resultData.plant.explanation
-                            NotificationCenter.default.post(name: .sendPlantResult, object: nil)
-                        }
-//                        resultVC.resultPeriodLabel.text = self.resultPeriod
+                        UserDefaults.standard.set(resultData.plant.modifier, forKey: "resultModifier")
+                        UserDefaults.standard.set(resultData.plant.explanation , forKey: "resultExplanation")
+                        print(resultVC.modifier)
+//                        NotificationCenter.default.post(name: .sendPlantResult, object: nil)
                     }
                 case .requestErr(_):
                     print("requesetErr")

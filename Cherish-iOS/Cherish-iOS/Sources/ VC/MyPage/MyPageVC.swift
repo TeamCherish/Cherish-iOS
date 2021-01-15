@@ -126,15 +126,6 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
             
         }
     }
-    
-    //MARK: - 마이페이지 검색뷰로 이동
-    @IBAction func moveToMyPageSearch(_ sender: Any) {
-        let myPageSearchVC = self.storyboard?.instantiateViewController(identifier: "MyPageSearchVC") as! MyPageSearchVC
-        
-        myPageSearchVC.modalTransitionStyle = .flipHorizontal
-        myPageSearchVC.modalPresentationStyle = .fullScreen
-        self.present(myPageSearchVC, animated: false, completion: nil)
-    }
 }
 
 //MARK: - UIScrollViewDelegate

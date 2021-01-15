@@ -23,7 +23,7 @@ class PlantResultVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setPlantLabel()
-        NotificationCenter.default.addObserver(self, selector: #selector(setPlantLabel), name: .sendPlantResult, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(setPlantLabel), name: .sendPlantResult, object: nil)
         // Do any additional setup after loading the view.
     }
 
@@ -32,12 +32,17 @@ class PlantResultVC: UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    @objc func setPlantLabel() {
-        if let modifier = self.modifier,
-           let explanation = self.explanation {
-            self.modifierLabel.text = modifier
-            self.explanationLabel.text = explanation
-        }
+    func setPlantLabel() {
+        print("hi")
+//        print(self.modifier) // nil
+//        if let modifier = self.modifier,
+//           let explanation = self.explanation {
+//            self.modifierLabel.text = modifier
+//            self.explanationLabel.text = explanation
+//            print(self.modifierLabel.text)
+//        }
+        self.modifierLabel.text = UserDefaults.standard.string(forKey: "resultModifier")
+        self.explanationLabel.text = UserDefaults.standard.string(forKey: "resultExplanation")
         viewWillAppear(false)
     }
 }

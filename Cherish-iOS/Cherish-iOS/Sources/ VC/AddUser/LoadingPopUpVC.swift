@@ -17,8 +17,7 @@ class LoadingPopUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingImgView.loadGif(asset: "loading")
-        sleep(5)
-        mTimer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(moveToResultVC), userInfo: nil, repeats: false)
+        mTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(moveToResultVC), userInfo: nil, repeats: false)
         // Do any additional setup after loading the view.
     }
     
