@@ -81,7 +81,10 @@ class PlantDetailVC: UIViewController {
                     plantNicknameLabel.text = plantDetailData.nickname
                     userNameInRoundViewLabel.text = plantDetailData.name
                     plantKindsInRoundViewLabel.text = plantDetailData.plantName
-                
+                    
+                    let url = URL(string: plantDetailData.plantThumbnailImageURL ?? "")
+                    let imageData = try? Data(contentsOf: url!)
+                    plantDetailBtn.setImage(UIImage(data: imageData!), for: .normal)
                     
                     plantdDayLabel.text = "D-\(plantDetailData.dDay)"
                     plantMaintainDayLabel.text = "\(plantDetailData.duration)일째"

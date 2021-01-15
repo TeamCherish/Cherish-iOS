@@ -48,7 +48,6 @@ class DetailContentVC: UIViewController {
         }
     }
     
-    
     //MARK: - 헤더 뷰 라운드로 만드는 함수
     func makeHeaderViewCornerRadius() {
         self.view.layer.cornerRadius = 30

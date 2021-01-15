@@ -18,14 +18,17 @@ class MainContentVC: UIViewController {
     @IBOutlet var progressbarView: ProgressBarView!
     @IBOutlet var progressbarBackView: ProgressBarView!
     @IBOutlet var growthPercentLabel: CustomLabel!
-    @IBOutlet var backgroundView: UIView!
+    @IBOutlet var plantImageViewTopConstraint: NSLayoutConstraint!
     var cherishPeopleData:[ResultData] = []
     var isFirstLoad:Int = 0
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let backgroundWhiteView = UIView()
     
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        backgroundWhiteView.frame = CGRect(x: 0, y: 0, width: self.view.frame.maxX, height: self.view.frame.maxY)
+        backgroundWhiteView.backgroundColor = .white
         isFirstLoad += 1
         getCherishData()
         print("viewDidLoad")
@@ -38,12 +41,13 @@ class MainContentVC: UIViewController {
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
+        print(appDel.isWateringComplete)
         
         LoadingHUD.show()
         print("viewWillAppear")
         // cherishPeopleCell이 선택되거나
         // 물주기를 미루면 배경뷰의 라벨값, 식물이미지, 배경색을 바꿔준다.
-        if appDel.isWateringPostponed == true  {
+        if appDel.isWateringPostponed == true {
             print("isWateringPostponed")
             getCherishData()
             appDel.isWateringPostponed = false
@@ -51,9 +55,11 @@ class MainContentVC: UIViewController {
         
         
         // cherishPeopleCell이 선택되면 배경뷰의 라벨값, 식물이미지, 배경색을 바꿔준다.
-        if appDel.isCherishPeopleCellSelected == true {
+        if appDel.isCherishPeopleCellSelected == true || appDel.isWateringComplete == true {
+            print("hhh???????")
             setMainDataViewWillApeear()
             appDel.isCherishPeopleCellSelected = false
+            LoadingHUD.hide()
         }
         
         if isFirstLoad > 0 {
@@ -71,6 +77,7 @@ class MainContentVC: UIViewController {
         }
     }
     override func viewDidAppear(_ animated: Bool) {
+        backgroundWhiteView.isHidden = true
         LoadingHUD.hide()
     }
     
@@ -79,7 +86,7 @@ class MainContentVC: UIViewController {
     func getCherishData() {
         
         // cherishPeopleCell이 선택되지 않았을 때 첫 메인의 값을 지정해준다.
-        if appDel.isCherishPeopleCellSelected == false || appDel.isWateringPostponed == true {
+        if appDel.isCherishPeopleCellSelected == false || appDel.isWateringPostponed == true || appDel.isWateringComplete == true {
             let cherishMainUserIdx: Int = UserDefaults.standard.integer(forKey: "userID")
             
             MainService.shared.inquireMainView(idx:cherishMainUserIdx) { [self]
@@ -95,16 +102,31 @@ class MainContentVC: UIViewController {
                         
                         /// gif 데이터가 있을 때
                         if cherishPeopleData[0].gif != "없지롱" {
-                            plantImageView.isHidden = true
-                            plantGifView.isHidden = false
-                            plantGifView.loadGif(name: "real_min")
-                            self.view.backgroundColor = .dandelionBg
+                            
+                            //물주기가 완료되었을 때만 물주기 모션 그래픽
+                            if appDel.isWateringComplete == true {
+                                plantImageView.isHidden = true
+                                plantGifView.isHidden = false
+                                plantGifView.image = UIImage.gif(name: "min_watering_ios")!
+                                appDel.isWateringComplete = false
+                            }
+                            else {
+                                plantImageView.isHidden = true
+                                plantGifView.isHidden = false
+                                plantGifView.image = UIImage.gif(name: "real_min")!
+                                self.view.backgroundColor = .dandelionBg
+                            }
                         }
                         /// gif 데이터가 없을 때
                         // 식물 그래픽 이미지로 대체
                         else {
                             plantGifView.isHidden = true
                             plantImageView.isHidden = false
+                            
+                            //Topconstant 기본값 104
+                            plantImageViewTopConstraint.constant = 104
+                            
+                            //MARK: - 식물별 이미지 할당
                             if cherishPeopleData[0].plantName == "민들레" {
                                 plantImageView.image = UIImage(named: "mainImgMin")
                                 self.view.backgroundColor = .dandelionBg
@@ -118,6 +140,7 @@ class MainContentVC: UIViewController {
                                 self.view.backgroundColor = .stuckyBg
                             }
                             else if cherishPeopleData[0].plantName == "아메리칸블루" {
+                                plantImageViewTopConstraint.constant = 134
                                 plantImageView.image = UIImage(named: "mainImgAmericanblue")
                                 self.view.backgroundColor = .americanBlueBg
                             }
@@ -169,10 +192,20 @@ class MainContentVC: UIViewController {
         
         // gif 데이터가 있을 때
         if selectedGif != "없지롱" {
-            plantImageView.isHidden = true
-            plantGifView.isHidden = false
-            plantGifView.loadGif(name: "real_min")
-            self.view.backgroundColor = .dandelionBg
+            
+            //물주기가 완료되었을 때만 물주기 모션 그래픽
+            if appDel.isWateringComplete == true {
+                plantImageView.isHidden = true
+                plantGifView.isHidden = false
+                plantGifView.image = UIImage.gif(name: "min_watering_ios")!
+                appDel.isWateringComplete = false
+            }
+            else {
+                plantImageView.isHidden = true
+                plantGifView.isHidden = false
+                plantGifView.image = UIImage.gif(name: "real_min")!
+                self.view.backgroundColor = .dandelionBg
+            }
         }
         // gif 데이터가 없을 때
         // 식물 그래픽 이미지로 대체
@@ -180,6 +213,10 @@ class MainContentVC: UIViewController {
             plantImageView.isHidden = false
             plantGifView.isHidden = true
             
+            //Topconstant 기본값 104
+            plantImageViewTopConstraint.constant = 104
+            
+            //MARK: - 선택된 친구 데이터의 식물별 이미지 할당
             if selectedPlantName == "민들레" {
                 plantImageView.image = UIImage(named: "mainImgMin")
                 self.view.backgroundColor = .dandelionBg
@@ -193,6 +230,7 @@ class MainContentVC: UIViewController {
                 self.view.backgroundColor = .stuckyBg
             }
             else if selectedPlantName == "아메리칸블루" {
+                plantImageViewTopConstraint.constant = 134
                 plantImageView.image = UIImage(named: "mainImgAmericanblue")
                 self.view.backgroundColor = .americanBlueBg
             }
@@ -202,7 +240,7 @@ class MainContentVC: UIViewController {
             }
         }
         
-        /// dDay 값 파싱 -,+,0
+        //MARK: - 선택된 친구 데이터의 dDay 값 파싱 -,+,0
         if UserDefaults.standard.integer(forKey: "selecteddDayData") == 0 {
             self.dayCountLabel.text = "D-day"
         }
@@ -253,38 +291,58 @@ class MainContentVC: UIViewController {
 
 class LoadingHUD: NSObject {
     private static let sharedInstance = LoadingHUD()
-    private var popupView: UIImageView?
-
+    private var backgroundView: UIView?
+    private var popupView: UIView?
+    private var popupImageView: UIImageView?
+    
     class func show() {
-        let popupView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
-        popupView.backgroundColor = UIColor.black
-        popupView.animationImages = LoadingHUD.getAnimationImageArray()
-        popupView.animationDuration = 4.0
-        popupView.animationRepeatCount = 0
-
         if let window = UIApplication.shared.keyWindow {
-            window.addSubview(popupView)
+            let backgroundView = UIView()
+            let popupView = UIView()
+            let popupImageView = UIImageView()
+            let w = UIScreen.main.bounds.width
+            let h = UIScreen.main.bounds.height
+            popupView.frame = CGRect(x:0, y: 0, width: 80, height: 80)
             popupView.center = window.center
-            popupView.startAnimating()
+            popupView.layer.cornerRadius = 20
+            backgroundView.frame = CGRect(x: 0, y: 0, width: window.frame.maxX, height: window.frame.maxY)
+            // 윈도우의 크기에 맞춰 설정
+            backgroundView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+            popupView.backgroundColor = UIColor.white
+            popupImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 58)
+            popupImageView.center = window.center
+            popupImageView.image = LoadingHUD.getAnimationImage()
+            popupImageView.animationDuration = 4.0
+            popupImageView.animationRepeatCount = 0
+            
+            window.addSubview(backgroundView)
+            window.addSubview(popupView)
+            window.addSubview(popupImageView)
+            sharedInstance.popupImageView?.removeFromSuperview()
             sharedInstance.popupView?.removeFromSuperview()
+            sharedInstance.backgroundView?.removeFromSuperview()
             sharedInstance.popupView = popupView
+            sharedInstance.backgroundView = backgroundView
+            sharedInstance.popupImageView = popupImageView
         }
     }
-
+    
     class func hide() {
         if let popupView = sharedInstance.popupView {
-            popupView.stopAnimating()
             popupView.removeFromSuperview()
         }
+        if let backgroundView = sharedInstance.backgroundView {
+            backgroundView.removeFromSuperview()
+        }
+        if let popupImageView = sharedInstance.popupImageView {
+            popupImageView.stopAnimating()
+            popupImageView.removeFromSuperview()
+        }
     }
-
-    private class func getAnimationImageArray() -> [UIImage] {
-        var animationArray: [UIImage] = []
-        animationArray.append(UIImage(named: "cherish_iOS")!)
-        animationArray.append(UIImage(named: "cherish_iOS")!)
-        animationArray.append(UIImage(named: "cherish_iOS")!)
-        animationArray.append(UIImage(named: "cherish_iOS")!)
-
+    
+    private class func getAnimationImage() -> UIImage {
+        let animationArray: UIImage = UIImage.gif(asset: "loading")!
+        
         return animationArray
     }
 }

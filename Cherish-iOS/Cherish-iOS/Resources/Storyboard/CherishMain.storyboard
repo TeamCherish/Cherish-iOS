@@ -180,7 +180,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="애정도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g2-qy-Jyj" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="539.33333333333337" width="31.333333333333329" height="14"/>
+                                <rect key="frame" x="20.000000000000004" y="539.33333333333337" width="33.333333333333343" height="18"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -240,6 +240,7 @@
                         <outlet property="plantExplainLabel" destination="MqD-Yz-UwB" id="lsW-qY-OCZ"/>
                         <outlet property="plantGifView" destination="1LF-25-ssR" id="Oy7-Rr-zW6"/>
                         <outlet property="plantImageView" destination="1cl-cl-xvs" id="Wmv-vk-st5"/>
+                        <outlet property="plantImageViewTopConstraint" destination="gDu-wJ-xHN" id="Ued-RZ-Y0e"/>
                         <outlet property="progressbarBackView" destination="Ook-bx-AcP" id="9qk-3n-XYz"/>
                         <outlet property="progressbarView" destination="tC1-OL-vxp" id="EF5-MD-zMm"/>
                         <outlet property="userNickNameLabel" destination="rb3-up-wUt" id="vAL-T6-ssD"/>
@@ -268,7 +269,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 소중한 사람들" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWq-sY-NPK" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="16.000000000000007" y="30" width="104.66666666666669" height="16.333333333333329"/>
+                                        <rect key="frame" x="16" y="27.666666666666671" width="111" height="21"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="14"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -279,7 +280,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhZ-mV-MRR" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="124.66666666666667" y="29.666666666666671" width="0.0" height="17"/>
+                                        <rect key="frame" x="131" y="29.666666666666671" width="0.0" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="9cX-Kq-gGw"/>
                                         </constraints>

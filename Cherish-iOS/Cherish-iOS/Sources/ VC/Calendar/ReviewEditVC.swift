@@ -12,6 +12,7 @@ class ReviewEditVC: UIViewController{
     var edit_keyword = [String]() /// 키워드 배열
     var edit_date : String?
     var dateForServer : String?
+
     
     @IBOutlet weak var editMemoDateLabel: CustomLabel!
     @IBOutlet weak var keywordTextField: UITextField!{
@@ -138,7 +139,7 @@ class ReviewEditVC: UIViewController{
     }
 
     @IBAction func completeEdit(_ sender: Any) {
-        CalendarService.shared.reviewEdit(CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), water_date: dateForServer!, review: memoTextView.text, keyword1: edit_keyword[0], keyword2: edit_keyword[1], keyword3: edit_keyword[2]) { (networkResult) -> (Void) in
+        CalendarService.shared.reviewEdit(CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), water_date: dateForServer!, review: memoTextView.text, keyword1: edit_keyword[0], keyword2: edit_keyword[1], keyword3: edit_keyword[2]) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(_):
                 print("success")

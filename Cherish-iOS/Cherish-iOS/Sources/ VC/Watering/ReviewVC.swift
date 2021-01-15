@@ -9,6 +9,7 @@ import UIKit
 
 class ReviewVC: UIViewController {
     var keyword : [String] = [] /// 키워드 배열
+    let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     //MARK: -@IBOutlet
     @IBOutlet weak var reviewNameLabel: CustomLabel! ///또령님! 남쿵둥이님과(와)의
@@ -73,6 +74,7 @@ class ReviewVC: UIViewController {
             skip.tintColor = .placeholderGrey
         }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -201,6 +203,7 @@ class ReviewVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 print(data)
+                appDel.isWateringComplete = true
                 goToWateringMotion()
                 
             case .requestErr(_):
