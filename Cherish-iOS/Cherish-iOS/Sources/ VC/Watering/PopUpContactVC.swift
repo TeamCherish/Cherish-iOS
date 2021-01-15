@@ -31,7 +31,6 @@ class PopUpContactVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        getRecentKeyword()
     }
     
     override func viewWillAppear(_ animated: Bool) {
