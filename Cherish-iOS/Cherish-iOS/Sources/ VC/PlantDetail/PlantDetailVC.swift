@@ -395,6 +395,15 @@ class PlantDetailVC: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    @IBAction func moveToWatering(_ sender: Any) {
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpWatering", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpWateringVC") as? PopUpWateringVC {
+            vc.modalPresentationStyle = .overFullScreen ///탭바까지 Alpha값으로 덮으면서 팝업뷰
+            vc.modalTransitionStyle = .crossDissolve
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
 }
 
 //MARK: - Extension : CollectionView

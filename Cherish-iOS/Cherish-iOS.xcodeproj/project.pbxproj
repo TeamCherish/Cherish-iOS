@@ -81,6 +81,7 @@
 		33EDFBB525A1B533006367A7 /* PlantDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */; };
 		33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */; };
 		33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */; };
+		540C061C25B22DB200D3F36F /* UINavigation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540C061B25B22DB200D3F36F /* UINavigation+Extension.swift */; };
 		54425C2125ADBD9600E62BAB /* RecentKeywordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C2025ADBD9600E62BAB /* RecentKeywordData.swift */; };
 		54425C2425ADBE0700E62BAB /* RecentKeywordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C2325ADBE0700E62BAB /* RecentKeywordService.swift */; };
 		54425C2925AE32E100E62BAB /* KeywordReviewEditCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C2825AE32E100E62BAB /* KeywordReviewEditCVC.swift */; };
@@ -217,6 +218,7 @@
 		33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlantDetail.storyboard; sourceTree = "<group>"; };
 		33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailVC.swift; sourceTree = "<group>"; };
 		33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCVCell.swift; sourceTree = "<group>"; };
+		540C061B25B22DB200D3F36F /* UINavigation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigation+Extension.swift"; sourceTree = "<group>"; };
 		54425C2025ADBD9600E62BAB /* RecentKeywordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentKeywordData.swift; sourceTree = "<group>"; };
 		54425C2325ADBE0700E62BAB /* RecentKeywordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentKeywordService.swift; sourceTree = "<group>"; };
 		54425C2825AE32E100E62BAB /* KeywordReviewEditCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordReviewEditCVC.swift; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 				548DF16E25A1B4AB0081FCD1 /* UITextField+Extension.swift */,
 				337A5CBC25A868C000578130 /* UIButton+Extention.swift */,
 				3317777725B042C200CC1030 /* UIImage+Extension.swift */,
+				540C061B25B22DB200D3F36F /* UINavigation+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1040,6 +1043,7 @@
 				337A5CB925A8545E00578130 /* LoginVC.swift in Sources */,
 				33EAA2EC25B15D4E00E75F95 /* AddUserNC.swift in Sources */,
 				33E8752325A05CFC001F84FE /* DetailContentVC.swift in Sources */,
+				540C061C25B22DB200D3F36F /* UINavigation+Extension.swift in Sources */,
 				33851C74259A5541005BCFFD /* AppDelegate.swift in Sources */,
 				548DF19925A2E1780081FCD1 /* PopUpLaterVC.swift in Sources */,
 				54425C3D25AF58BF00E62BAB /* FetchCalendar.swift in Sources */,
