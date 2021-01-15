@@ -28,6 +28,10 @@ class MypagePlantVC: UIViewController {
         setPlantData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     func setPlantData(){
         let myPageUserIdx = UserDefaults.standard.integer(forKey: "userID")
         MypageService.shared.inquireMypageView(idx: myPageUserIdx) { [self]
