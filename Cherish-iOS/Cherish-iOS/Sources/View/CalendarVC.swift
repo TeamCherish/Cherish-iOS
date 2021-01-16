@@ -235,8 +235,22 @@ class CalendarVC: UIViewController {
     func getCalendarData() {
         formatter.locale = Locale(identifier: "ko")
         formatter.dateFormat = "yyyy-MM-dd"
-        UserDefaults.standard.integer(forKey: "selectedFriendsIdData")
-        CalendarService.shared.calendarLoad(id: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), completion: { [self] (networkResult) -> (Void) in
+        
+        var myCherishIsSelectedCalendar = UserDefaults.standard.bool(forKey: "calendarPlantIsSelected")
+        
+        var myCherishIdx = UserDefaults.standard.integer(forKey: "selectedCherish")
+        var calendarInquireInt: Int?
+        print(myCherishIsSelectedCalendar)
+        
+        if myCherishIsSelectedCalendar == true {
+            calendarInquireInt = myCherishIdx
+            UserDefaults.standard.set(false, forKey: "calendarPlantIsSelected")
+        }
+        else {
+            calendarInquireInt = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+        }
+        print(calendarInquireInt)
+        CalendarService.shared.calendarLoad(id: calendarInquireInt!, completion: { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 if let calendarResult = data as? CalendarSeeData{

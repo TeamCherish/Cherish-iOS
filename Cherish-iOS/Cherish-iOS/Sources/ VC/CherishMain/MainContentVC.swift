@@ -28,8 +28,8 @@ class MainContentVC: UIViewController {
         super.viewDidLoad()
         isFirstLoad += 1
         setDataWithSelectedData()
-        UserDefaults.standard.set(false,  forKey: "plantIsSelected")
-        
+        UserDefaults.standard.set(false, forKey: "plantIsSelected")
+        UserDefaults.standard.set(false, forKey: "calendarPlantIsSelected")
         //noti 감지 후 view가 reload될 수 있도록 viewWillAppear함수를 호출해준다.
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .cherishPeopleCellClicked, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .postPostponed, object: nil)
