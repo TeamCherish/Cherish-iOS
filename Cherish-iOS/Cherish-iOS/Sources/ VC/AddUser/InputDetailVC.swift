@@ -24,8 +24,8 @@ class InputDetailVC: UIViewController {
     
     //MARK: - 변수 지정
     
-//    var name: String?
-//    var phoneNumber: String?
+    //    var name: String?
+    //    var phoneNumber: String?
     
     let datePicker = UIDatePicker()
     var periodPicker = UIPickerView()
@@ -44,7 +44,7 @@ class InputDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setBirthPickerData()
+        setBirthPickerData()
         completeBtn.isEnabled = false
         setTextField()
         setSwitch()
@@ -88,16 +88,16 @@ class InputDetailVC: UIViewController {
         if completeBtn.isEnabled == true {
             guard let loadingVC = self.storyboard?.instantiateViewController(identifier: "LoadingPopUpVC") as? LoadingPopUpVC else { return }
             guard let resultVC = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else { return }
-//
-//            print(nameText)
-//            print(nicknameText)
-//            print(birthText)
-//            print(phonenumberText)
-//            print(cycle_date)
-//            print(periodText)
-//            print(alarmState)
-//            print(UserDefaults.standard.integer(forKey: "userID"))
-
+            //
+            //            print(nameText)
+            //            print(nicknameText)
+            //            print(birthText)
+            //            print(phonenumberText)
+            //            print(cycle_date)
+            //            print(periodText)
+            //            print(alarmState)
+            //            print(UserDefaults.standard.integer(forKey: "userID"))
+            
             AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: periodText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")) {
                 
                 (networkResult) -> (Void) in
@@ -109,7 +109,7 @@ class InputDetailVC: UIViewController {
                         UserDefaults.standard.set(resultData.plant.modifier, forKey: "resultModifier")
                         UserDefaults.standard.set(resultData.plant.explanation , forKey: "resultExplanation")
                         print(resultVC.modifier)
-//                        NotificationCenter.default.post(name: .sendPlantResult, object: nil)
+                        //                        NotificationCenter.default.post(name: .sendPlantResult, object: nil)
                     }
                 case .requestErr(_):
                     print("requesetErr")
@@ -144,25 +144,8 @@ class InputDetailVC: UIViewController {
     }
     
     func setBirthPickerData() {
-        var firstMonth = 1
-        for i in 0...11 {
-            month[i] = (String(firstMonth) + "월")
-            firstMonth = firstMonth+1
-        }
-        var firstYear = 1910
-        while(firstYear<=2021) {
-            var i = 0
-            year[i] = firstYear
-            firstYear = firstYear+1
-            i = i+1
-        }
-        var firstDay = 1
-        while(firstDay<=31){
-            var i = 0
-            day[i] = (String(firstDay)+"일")
-            firstDay = firstDay + 1
-            i = i+1
-        }
+        
+        self.datePicker.maximumDate = Date()
     }
     
     //MARK: - 텍스트필드 값 다 채워지면 완료 버튼 enable
@@ -287,7 +270,7 @@ class InputDetailVC: UIViewController {
 }
 
 //MARK: - PickerView DataSource, Delegate
-    ///pickerView 여러개에 대해 각각 datasource 수정ㅎ려면 어떡해야돼??
+///pickerView 여러개에 대해 각각 datasource 수정ㅎ려면 어떡해야돼??
 extension InputDetailVC: UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -295,24 +278,31 @@ extension InputDetailVC: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if component == 0 {
-            return 1
+        if pickerView == periodPicker {
+            if component == 0 {
+                return 1
+            }
+            else {
+                return 3
+            }
         }
-        else {
-            return 3
-        }
+        return 0
     }
 }
 
 extension InputDetailVC: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if component == 0 {
-            return "every"
+        
+        if pickerView == periodPicker {
+            if component == 0 {
+                return "every"
+            }
+            else if component == 1 {
+                return num[row]
+            }
+            return period[row]
         }
-        else if component == 1 {
-            return num[row]
-        }
-        return period[row]
+        return ""
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -327,41 +317,41 @@ extension InputDetailVC: UIPickerViewDelegate {
         case "day":
             if realNum == "1" {
                 self.cycle_date = 1
-//                self.resultPeriod = "1일에 1번 물주기"
+                //                self.resultPeriod = "1일에 1번 물주기"
             }
             else if realNum == "2" {
                 self.cycle_date = 2
-//                self.resultPeriod = "2일에 1번 물주기"
+                //                self.resultPeriod = "2일에 1번 물주기"
             }
             else if realNum == "3" {
                 self.cycle_date = 3
-//                self.resultPeriod = "3일에 1번 물주기"
+                //                self.resultPeriod = "3일에 1번 물주기"
             }
         case "week":
             if realNum == "1" {
                 self.cycle_date = 7
-//                self.resultPeriod = "1주에 1번 물주기"
+                //                self.resultPeriod = "1주에 1번 물주기"
             }
             else if realNum == "2" {
                 self.cycle_date = 14
-//                self.resultPeriod = "2주에 1번 물주기"
+                //                self.resultPeriod = "2주에 1번 물주기"
             }
             else if realNum == "3" {
                 self.cycle_date = 21
-//                self.resultPeriod = "3주에 1번 물주기"
+                //                self.resultPeriod = "3주에 1번 물주기"
             }
         case "month":
             if realNum == "1" {
                 self.cycle_date = 30
-//                self.resultPeriod = "1달에 1번 물주기"
+                //                self.resultPeriod = "1달에 1번 물주기"
             }
             else if realNum == "2" {
                 self.cycle_date = 60
-//                self.resultPeriod = "2달에 1번 물주기"
+                //                self.resultPeriod = "2달에 1번 물주기"
             }
             else if realNum == "3" {
                 self.cycle_date = 90
-//                self.resultPeriod = "3달에 1번 물주기"
+                //                self.resultPeriod = "3달에 1번 물주기"
             }
         default:
             self.cycle_date = 0
