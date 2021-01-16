@@ -44,7 +44,7 @@ class InputDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // setBirthPickerData()
+        setBirthPickerData()
         completeBtn.isEnabled = false
         setTextField()
         setSwitch()
@@ -143,27 +143,9 @@ class InputDetailVC: UIViewController {
         stateSwitch.transform = CGAffineTransform(scaleX: 0.8, y: 0.74)
     }
     
-//    func setBirthPickerData() {
-//        var firstMonth = 1
-//        for i in 0...11 {
-//            month[i] = (String(firstMonth) + "월")
-//            firstMonth = firstMonth+1
-//        }
-//        var firstYear = 1910
-//        while(firstYear<=2021) {
-//            var i = 0
-//            year[i] = firstYear
-//            firstYear = firstYear+1
-//            i = i+1
-//        }
-//        var firstDay = 1
-//        while(firstDay<=31){
-//            var i = 0
-//            day[i] = (String(firstDay)+"일")
-//            firstDay = firstDay + 1
-//            i = i+1
-//        }
-//    }
+    func setBirthPickerData() {
+        datePicker.maximumDate = Date()
+    }
     
     //MARK: - 텍스트필드 값 다 채워지면 완료 버튼 enable
     func enableCompleteBtn() {
