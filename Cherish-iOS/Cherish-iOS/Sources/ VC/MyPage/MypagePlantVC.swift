@@ -108,6 +108,7 @@ extension MypagePlantVC: UITableViewDelegate, UITableViewDataSource {
         
         // plantIsSelected 값 UserDefaults에 넣기
         UserDefaults.standard.set(plantIsSelected, forKey: "plantIsSelected")
+        UserDefaults.standard.set(plantIsSelected, forKey: "calendarPlantIsSelected")
         print(UserDefaults.standard.bool(forKey: "plantIsSelected"))
         print(UserDefaults.standard.integer(forKey: "selectedCherish"))
         
