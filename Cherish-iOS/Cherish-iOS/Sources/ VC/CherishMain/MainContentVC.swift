@@ -19,7 +19,14 @@ class MainContentVC: UIViewController {
     @IBOutlet var progressbarBackView: ProgressBarView!
     @IBOutlet var growthPercentLabel: CustomLabel!
     @IBOutlet var plantImageViewTopConstraint: NSLayoutConstraint!
-    var cherishPeopleData:[ResultData] = [] 
+    @IBOutlet weak var blurBtn: UIVisualEffectView!{
+        didSet{
+            blurBtn.makeRounded(cornerRadius: 14.0)
+        }
+    }
+    
+    
+    var cherishPeopleData:[ResultData] = []
     var isFirstLoad:Int = 0
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     

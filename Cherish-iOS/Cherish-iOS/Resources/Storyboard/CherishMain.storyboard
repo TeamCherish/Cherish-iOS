@@ -150,13 +150,6 @@
                                     <constraint firstAttribute="width" secondItem="Ook-bx-AcP" secondAttribute="height" multiplier="7:82" id="cDi-Fu-aqa"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainBtnMoveDetailview" translatesAutoresizingMaskIntoConstraints="NO" id="8W2-oQ-08F">
-                                <rect key="frame" x="118" y="200.66666666666663" width="256" height="380"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="8W2-oQ-08F" secondAttribute="height" multiplier="256:380" id="Ndf-vJ-hfD"/>
-                                    <constraint firstAttribute="height" constant="380" id="nIi-T0-qZr"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tC1-OL-vxp" customClass="ProgressBarView" customModule="Cherish_iOS" customModuleProvider="target">
                                 <rect key="frame" x="29.999999999999996" y="356.33333333333331" width="10.333333333333332" height="164.99999999999994"/>
                                 <color key="backgroundColor" name="seaweed"/>
@@ -179,8 +172,31 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1rh-Gn-4tL">
+                                <rect key="frame" x="289" y="564" width="28" height="28"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tzH-fY-HS4">
+                                    <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icBack" translatesAutoresizingMaskIntoConstraints="NO" id="uB5-M0-UCd">
+                                            <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="uB5-M0-UCd" secondAttribute="trailing" id="MJF-Ke-czc"/>
+                                        <constraint firstItem="uB5-M0-UCd" firstAttribute="top" secondItem="tzH-fY-HS4" secondAttribute="top" id="SaN-sy-She"/>
+                                        <constraint firstAttribute="bottom" secondItem="uB5-M0-UCd" secondAttribute="bottom" id="wFi-fA-vDv"/>
+                                        <constraint firstItem="uB5-M0-UCd" firstAttribute="leading" secondItem="tzH-fY-HS4" secondAttribute="leading" id="xiD-lj-iGl"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1rh-Gn-4tL" secondAttribute="height" multiplier="1:1" id="HVd-om-1KN"/>
+                                    <constraint firstAttribute="height" constant="28" id="vfl-ZP-P7s"/>
+                                </constraints>
+                                <blurEffect style="systemUltraThinMaterial"/>
+                            </visualEffectView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="애정도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g2-qy-Jyj" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="539.33333333333337" width="31.333333333333329" height="14"/>
+                                <rect key="frame" x="20.000000000000004" y="539.33333333333337" width="33.333333333333343" height="18"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -207,17 +223,16 @@
                             <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="WVc-1z-5Ct" secondAttribute="trailing" constant="16" id="0sK-aj-JNq"/>
                             <constraint firstItem="tC1-OL-vxp" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="30" id="1XE-MB-dFm"/>
                             <constraint firstItem="Ook-bx-AcP" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="28" id="2nf-kS-Sp8"/>
-                            <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="8W2-oQ-08F" secondAttribute="trailing" constant="1" id="8VT-KM-ulm"/>
                             <constraint firstItem="6g2-qy-Jyj" firstAttribute="top" secondItem="7lJ-v4-Fdo" secondAttribute="bottom" constant="-1" id="GEW-5T-E3P"/>
                             <constraint firstItem="Otg-az-yW5" firstAttribute="top" secondItem="TmQ-US-0yO" secondAttribute="top" constant="24" id="JFI-KJ-QGn"/>
                             <constraint firstItem="7lJ-v4-Fdo" firstAttribute="top" secondItem="tC1-OL-vxp" secondAttribute="bottom" constant="6" id="Jh2-Lb-YsX"/>
                             <constraint firstItem="MqD-Yz-UwB" firstAttribute="top" secondItem="Otg-az-yW5" secondAttribute="bottom" id="NVe-rU-BRG"/>
                             <constraint firstItem="rb3-up-wUt" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="Oab-yJ-QY5"/>
-                            <constraint firstItem="8W2-oQ-08F" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" constant="44" id="Swu-9T-rPS"/>
                             <constraint firstItem="tC1-OL-vxp" firstAttribute="top" secondItem="571-Dh-KLL" secondAttribute="bottom" constant="101" id="WYQ-md-i8v"/>
                             <constraint firstItem="MqD-Yz-UwB" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="XP7-Wi-NiB"/>
                             <constraint firstItem="rvI-uI-SPM" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" constant="36.329999999999998" id="YzY-lm-gp2"/>
                             <constraint firstItem="1LF-25-ssR" firstAttribute="top" secondItem="53S-aO-x9T" secondAttribute="top" id="anz-Zs-3Ru"/>
+                            <constraint firstItem="1rh-Gn-4tL" firstAttribute="trailing" secondItem="TmQ-US-0yO" secondAttribute="trailing" constant="-58" id="cYI-FA-ncV"/>
                             <constraint firstItem="7lJ-v4-Fdo" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="26" id="cae-tb-XtH"/>
                             <constraint firstItem="571-Dh-KLL" firstAttribute="top" secondItem="rb3-up-wUt" secondAttribute="bottom" constant="17" id="eNb-JJ-9v9"/>
                             <constraint firstItem="WVc-1z-5Ct" firstAttribute="top" secondItem="Otg-az-yW5" secondAttribute="top" id="ep8-Ry-r09"/>
@@ -227,6 +242,7 @@
                             <constraint firstItem="Otg-az-yW5" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="16" id="gU2-9v-S28"/>
                             <constraint firstItem="6g2-qy-Jyj" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="20" id="l3P-tL-9S3"/>
                             <constraint firstItem="571-Dh-KLL" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="nqY-XG-32e"/>
+                            <constraint firstItem="1rh-Gn-4tL" firstAttribute="bottom" secondItem="TmQ-US-0yO" secondAttribute="bottom" constant="-186" id="pfe-Br-I3m"/>
                             <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="1LF-25-ssR" secondAttribute="trailing" constant="-10" id="wYg-2z-Rbn"/>
                             <constraint firstItem="Ook-bx-AcP" firstAttribute="top" secondItem="571-Dh-KLL" secondAttribute="bottom" constant="99" id="waq-TO-PMn"/>
                             <constraint firstItem="rb3-up-wUt" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" id="xGF-4Q-8bB"/>
@@ -235,6 +251,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Byv-ah-pKX"/>
                     <connections>
+                        <outlet property="blurBtn" destination="1rh-Gn-4tL" id="Ano-DO-LVl"/>
                         <outlet property="dayCountLabel" destination="Otg-az-yW5" id="xZ4-9p-e0J"/>
                         <outlet property="growthPercentLabel" destination="7lJ-v4-Fdo" id="GqH-Wb-S86"/>
                         <outlet property="plantExplainLabel" destination="MqD-Yz-UwB" id="lsW-qY-OCZ"/>
@@ -269,7 +286,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 소중한 사람들" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWq-sY-NPK" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="16.000000000000007" y="30" width="104.66666666666669" height="16.333333333333329"/>
+                                        <rect key="frame" x="16" y="27.666666666666671" width="111" height="21"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="14"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -280,7 +297,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhZ-mV-MRR" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="124.66666666666667" y="29.666666666666671" width="0.0" height="17"/>
+                                        <rect key="frame" x="131" y="29.666666666666671" width="0.0" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="9cX-Kq-gGw"/>
                                         </constraints>
@@ -503,8 +520,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icBack" width="28" height="28"/>
         <image name="invalidName" width="48.333332061767578" height="13"/>
-        <image name="mainBtnMoveDetailview" width="256" height="380"/>
         <image name="mainBtnWater" width="90" height="40"/>
         <image name="mainIcAlarm" width="48" height="48"/>
         <image name="modal" width="50" height="4"/>
