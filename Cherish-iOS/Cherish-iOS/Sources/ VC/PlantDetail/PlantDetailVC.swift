@@ -63,9 +63,12 @@ class PlantDetailVC: UIViewController {
         defineFirstPlantCardBtnStatus()
 
         myCherishIsSelected = UserDefaults.standard.bool(forKey: "plantIsSelected")
+        
         var myCherishIdx = UserDefaults.standard.integer(forKey: "selectedCherish")
+        
         if myCherishIsSelected == true {
             getPlantDataFromMyPage(cherishId: myCherishIdx)
+            UserDefaults.standard.set(false, forKey: "plantIsSelected")
         }
         else {
             getPlantDetailData()
@@ -145,8 +148,8 @@ class PlantDetailVC: UIViewController {
                         firstMemoTextLabel.text = "메모를 입력하지 않았어요!"
                         secondMemoTextLabel.text = "메모를 입력하지 않았어요!"
                         
-                        firstMemoDayLabel.text = "‼️📝"
-                        secondMemoDayLabel.text = "‼️📝"
+                        firstMemoDayLabel.text = "----"
+                        secondMemoDayLabel.text = "----"
                     }
                     /// 메모 데이터가 하나일 때
                     else if reviewArray.count == 1 {
@@ -181,7 +184,7 @@ class PlantDetailVC: UIViewController {
                         }
                         
                         //메모데이터가 하나이니까 두번째 메모는 없다
-                        secondMemoDayLabel.text = "‼️📝"
+                        secondMemoDayLabel.text = "----"
                         secondMemoTextLabel.text = "메모를 입력하지 않았어요!"
                         
                         // 캘린더로 이동할 수 있는 두번째 메모버튼을 숨기고, 누를 수 없게 한다

@@ -28,6 +28,7 @@ class MainContentVC: UIViewController {
         super.viewDidLoad()
         isFirstLoad += 1
         setDataWithSelectedData()
+        UserDefaults.standard.set(false,  forKey: "plantIsSelected")
         
         //noti 감지 후 view가 reload될 수 있도록 viewWillAppear함수를 호출해준다.
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .cherishPeopleCellClicked, object: nil)
@@ -45,6 +46,8 @@ class MainContentVC: UIViewController {
         // cherishPeopleCell이 선택되면 배경뷰의 라벨값, 식물이미지, 배경색을 바꿔준다.
         if appDel.isCherishPeopleCellSelected == true || appDel.isWateringComplete == true || appDel.isWateringPostponed == true {
             
+            //문제 : 미루고나서 변수가 제대로 할당이 안됨! 조건 다시 생각해보기!
+            print("hahahah")
             appDel.isCherishPeopleCellSelected = true
             setDataWithSelectedData()
             LoadingHUD.hide()
@@ -57,14 +60,13 @@ class MainContentVC: UIViewController {
                 setDataWithSelectedData()
                 appDel.isCherishAdded = false
             }
-            
-            // 식물상세페이지로 네비게이션 연결 후 탭바가 사라지기 때문에
-            // popViewController 액션으로 다시 메인뷰로 돌아왔을 때 탭바가 나타나야 한다.
-            self.tabBarController?.tabBar.isHidden = false
-            
+            LoadingHUD.hide()
         }
+        // 식물상세페이지로 네비게이션 연결 후 탭바가 사라지기 때문에
+        // popViewController 액션으로 다시 메인뷰로 돌아왔을 때 탭바가 나타나야 한다.
         self.tabBarController?.tabBar.isHidden = false
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         LoadingHUD.hide()
     }
@@ -100,7 +102,7 @@ class MainContentVC: UIViewController {
                    
                         self.plantGifView.image = UIImage.gif(name: "min_watering_ios")!
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.05) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
                         self.plantGifView.image = UIImage.gif(name: "real_min")!
                     }
                     
@@ -140,7 +142,7 @@ class MainContentVC: UIViewController {
                         self.plantImageView.image = UIImage(named: "dandelion1")
                         view.backgroundColor = .dandelionBg
                     }
-                    else if growthInfo < 50 && growthInfo > 25 {
+                    else if growthInfo < 50 && growthInfo >= 25 {
                         // 2단계
                         plantGifView.isHidden = true
                         self.plantImageView.image = UIImage(named: "dandelion2")
