@@ -78,9 +78,13 @@ extension MypagePlantVC: UITableViewDelegate, UITableViewDataSource {
             
             /// 이미지 url 처리
             let url = URL(string: mypagePlantArray[indexPath.row].thumbnailImageURL ?? "")
-            let imageData = try? Data(contentsOf: url!)
-            
-            cell.setProperties(imageData!, mypagePlantArray[indexPath.row].nickname, mypagePlantArray[indexPath.row].name, mypagePlantArray[indexPath.row].dDay)
+            DispatchQueue.global(qos: .default).async(execute: {() -> Void in
+                let imageData = try? Data(contentsOf: url!)
+                DispatchQueue.main.async(execute: { [self]() -> Void in
+                    cell.setProperties(imageData!, mypagePlantArray[indexPath.row].nickname, mypagePlantArray[indexPath.row].name, mypagePlantArray[indexPath.row].dDay)
+                })
+            })
+
         }
         return cell
     }

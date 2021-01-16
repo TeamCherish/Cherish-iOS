@@ -44,7 +44,7 @@ class InputDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setBirthPickerData()
+       // setBirthPickerData()
         completeBtn.isEnabled = false
         setTextField()
         setSwitch()
@@ -147,7 +147,7 @@ class InputDetailVC: UIViewController {
         
         self.datePicker.maximumDate = Date()
     }
-    
+
     //MARK: - 텍스트필드 값 다 채워지면 완료 버튼 enable
     func enableCompleteBtn() {
         let nameEmpty = nameTextField.text?.isEmpty

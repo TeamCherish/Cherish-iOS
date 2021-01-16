@@ -22,4 +22,11 @@ class CherishSelectPersonCVC: UICollectionViewCell {
         userWaterImageView.layer.shadowRadius = 15
         userWaterImageView.layer.shadowOpacity = 0.10
     }
+    
+    override func prepareForReuse() {
+        self.eclipseImageView.image = UIImage()
+        self.plantImageView.image = UIImage()
+        self.userWaterImageView.image = UIImage()
+        self.nickNameLabel.text = ""
+    }
 }
