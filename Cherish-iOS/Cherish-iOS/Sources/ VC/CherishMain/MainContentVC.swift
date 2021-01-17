@@ -19,7 +19,14 @@ class MainContentVC: UIViewController {
     @IBOutlet var progressbarBackView: ProgressBarView!
     @IBOutlet var growthPercentLabel: CustomLabel!
     @IBOutlet var plantImageViewTopConstraint: NSLayoutConstraint!
-    var cherishPeopleData:[ResultData] = [] 
+    @IBOutlet weak var blurBtn: UIVisualEffectView!{
+        didSet{
+            blurBtn.makeRounded(cornerRadius: 14.0)
+        }
+    }
+    
+    
+    var cherishPeopleData:[ResultData] = []
     var isFirstLoad:Int = 0
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -123,7 +130,7 @@ class MainContentVC: UIViewController {
                         DispatchQueue.main.async(execute: {() -> Void in
                             self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
                         })
-                        self.view.backgroundColor = .gray
+                        self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
                     }
                     else {
                         appDel.isWateringPostponed = false

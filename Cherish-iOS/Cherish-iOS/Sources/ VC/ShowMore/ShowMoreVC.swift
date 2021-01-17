@@ -37,11 +37,14 @@ class ShowMoreVC: UIViewController {
             synchronizationLabel.textColor = .showmoreGrey
         }
     }
+    @IBOutlet var userImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showMoreTableView.tableHeaderView = HeaderView
         showMoreTableView.register(ShowMoreTVC.nib(), forCellReuseIdentifier: ShowMoreTVC.identifier)
+        userImageView.clipsToBounds = true
+        userImageView.layer.cornerRadius = userImageView.frame.height / 2
         // Do any additional setup after loading the view.
     }
     @IBAction func doSynchronization(_ sender: Any) {

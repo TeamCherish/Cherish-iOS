@@ -105,6 +105,7 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     //MARK: - 마이페이지 식물 데이터 구성하는 함수
     func getMypageData() {
         let myPageUserIdx = UserDefaults.standard.integer(forKey: "userID")
+        print(myPageUserIdx)
         MypageService.shared.inquireMypageView(idx: myPageUserIdx) { [self]
             (networkResult) -> (Void) in
             switch networkResult {

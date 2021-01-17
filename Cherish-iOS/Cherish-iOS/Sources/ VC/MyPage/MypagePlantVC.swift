@@ -14,6 +14,7 @@ class MypagePlantVC: UIViewController {
     
     var mypagePlantArray: [MypagefriendsData] = []
     
+    
     var myCherishId: [Int] = []
     
     var plantIsSelected = false
@@ -38,18 +39,20 @@ class MypagePlantVC: UIViewController {
             (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
+                print("와요",myPageUserIdx)
                 if let mypageData = data as? MypageData {
                     mypagePlantArray = mypageData.result
-                    
+                    print("온다고",myPageUserIdx)
+                    print(mypagePlantArray)
                     // UserDefault에 넣기
 
                     UserDefaults.standard.set(mypageData.totalCherish, forKey: "totalCherish")
 
                     UserDefaults.standard.set(try? PropertyListEncoder().encode(mypageData.result), forKey: "cherishResult")
                     
-                    DispatchQueue.main.async {
+                    
                         mypageTV.reloadData()
-                    }
+                    
                 }
             case .requestErr(let msg):
                 print(msg)
@@ -94,10 +97,8 @@ extension MypagePlantVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        plantIsSelected = true
-        
+        plantIsSelected = true 
 //        let vc = MyPageVC()
-        
         print("2: my plant임 ㅎㅇㅎㅇ")
 //        print(vc.myPlantID)
         

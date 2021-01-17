@@ -38,7 +38,7 @@
                                     <rect key="frame" x="0.0" y="100.33333206176758" width="375" height="104.99999999999997"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgMypageUser" translatesAutoresizingMaskIntoConstraints="NO" id="pct-RI-rUm">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cherish_iOS" translatesAutoresizingMaskIntoConstraints="NO" id="pct-RI-rUm">
                                             <rect key="frame" x="16" y="20.666666666666671" width="64" height="64"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="pct-RI-rUm" secondAttribute="height" multiplier="1:1" id="TgK-8R-ZnJ"/>
@@ -46,9 +46,9 @@
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="OW1-Hq-Swt">
-                                            <rect key="frame" x="95.000000000000014" y="36.333333333333343" width="161.33333333333337" height="32.666666666666657"/>
+                                            <rect key="frame" x="95" y="36.333333333333343" width="97.333333333333314" height="32.666666666666657"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남궁선규" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mm1-Gj-m5C" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아요체리" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mm1-Gj-m5C" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="48.666666666666664" height="16.333333333333332"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="14"/>
                                                     <color key="textColor" name="black"/>
@@ -59,8 +59,8 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="namgoongsunkyu@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5Q-n3-woT" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="16.333333333333329" width="161.33333333333334" height="16.333333333333329"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cherish@iOS.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5Q-n3-woT" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="16.333333333333329" width="97.333333333333329" height="16.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                     <color key="textColor" name="textGrey"/>
                                                     <nil key="highlightedColor"/>
@@ -221,6 +221,7 @@
                         <outlet property="showMoreTableView" destination="abk-WB-S9O" id="gXa-fo-Jpm"/>
                         <outlet property="synchronizationLabel" destination="KHm-gV-s42" id="gbJ-wD-QIj"/>
                         <outlet property="topNaviBar" destination="8nj-yf-X3q" id="C8T-7X-zZ9"/>
+                        <outlet property="userImageView" destination="pct-RI-rUm" id="yng-ex-8m5"/>
                         <outlet property="userNameLabel" destination="mm1-Gj-m5C" id="GIO-JE-Hcs"/>
                         <outlet property="userSubInfoLabel" destination="x5Q-n3-woT" id="E8f-OF-F6b"/>
                     </connections>
@@ -231,9 +232,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cherish_iOS" width="1278" height="1128"/>
         <image name="icBtnMore" width="44" height="44"/>
         <image name="icResetMypage" width="44" height="44"/>
-        <image name="imgMypageUser" width="70" height="70"/>
         <namedColor name="black">
             <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
