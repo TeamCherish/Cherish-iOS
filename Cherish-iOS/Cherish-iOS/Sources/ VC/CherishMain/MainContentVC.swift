@@ -168,7 +168,7 @@ class MainContentVC: UIViewController {
             
             // gif 데이터가 없을 때
             // 식물 그래픽 이미지로 대체
-            // 서버통신
+            // 서버통신하기
             else {
                 plantImageView.isHidden = false
                 plantGifView.isHidden = true
