@@ -10,7 +10,6 @@ import UIKit
 class InputDetailVC: UIViewController {
     
     //MARK: - IBOUtlet
-    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nicknameTextField: UITextField!
     @IBOutlet weak var birthTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
@@ -19,7 +18,7 @@ class InputDetailVC: UIViewController {
     @IBOutlet weak var stateSwitch: UISwitch!
     @IBOutlet weak var completeBtn: UIButton!
     @IBOutlet weak var completeLabel: CustomLabel!
-    @IBOutlet weak var alarmTimePicker: UIDatePicker!
+    @IBOutlet weak var alarmPicker: UIPickerView!
     
     
     //MARK: - 변수 지정
@@ -29,8 +28,12 @@ class InputDetailVC: UIViewController {
     
     let datePicker = UIDatePicker()
     var periodPicker = UIPickerView()
+    
     let num = ["1", "2", "3"]
     let period = ["day", "week", "month"]
+    let time = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+    let ampm = ["AM", "PM"]
+    
     var year: [Int] = []
     var month: [String] = []
     var day: [String] = []
@@ -38,7 +41,7 @@ class InputDetailVC: UIViewController {
     var cycle_date = 0
     var givenName: String?
     var givenPhoneNumber: String?
-    var resultPeriod: String?
+//    var resultPeriod: String?
     
     //MARK: - viewDidLoad()
     
@@ -53,6 +56,8 @@ class InputDetailVC: UIViewController {
         createPicker()
         periodPicker.delegate = self
         periodPicker.dataSource = self
+        alarmPicker.delegate = self
+        alarmPicker.dataSource = self
         nicknameTextField.delegate = self
     }
     
@@ -77,7 +82,7 @@ class InputDetailVC: UIViewController {
     }
     
     @IBAction func touchUpComplete(_ sender: Any) {
-        guard let nameText = nameTextField.text,
+        guard let nameText = givenName,
               let nicknameText = nicknameTextField.text,
               let birthText = birthTextField.text,
               let phonenumberText = phoneTextField.text,
@@ -88,15 +93,6 @@ class InputDetailVC: UIViewController {
         if completeBtn.isEnabled == true {
             guard let loadingVC = self.storyboard?.instantiateViewController(identifier: "LoadingPopUpVC") as? LoadingPopUpVC else { return }
             guard let resultVC = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else { return }
-            //
-            //            print(nameText)
-            //            print(nicknameText)
-            //            print(birthText)
-            //            print(phonenumberText)
-            //            print(cycle_date)
-            //            print(periodText)
-            //            print(alarmState)
-            //            print(UserDefaults.standard.integer(forKey: "userID"))
             
             AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: periodText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")) {
                 
@@ -104,7 +100,6 @@ class InputDetailVC: UIViewController {
                 print(UserDefaults.standard.integer(forKey: "userID"))
                 switch networkResult {
                 case .success(let data):
-                    print("들어와져?")
                     if let resultData = data as? AddUserData {
                         UserDefaults.standard.set(resultData.plant.modifier, forKey: "resultModifier")
                         UserDefaults.standard.set(resultData.plant.explanation , forKey: "resultExplanation")
@@ -129,9 +124,8 @@ class InputDetailVC: UIViewController {
     //MARK: - 함수 모음
     
     func setTextField() {
-        if let name = self.givenName,
-           let phoneNumber = self.givenPhoneNumber {
-            self.nameTextField.text = name
+        nicknameTextField.placeholder = givenName
+        if let phoneNumber = self.givenPhoneNumber {
             self.phoneTextField.text = phoneNumber
         }
     }
@@ -143,15 +137,15 @@ class InputDetailVC: UIViewController {
         stateSwitch.transform = CGAffineTransform(scaleX: 0.8, y: 0.74)
     }
     
+    // 생일 picker 미래로 설정 못하게
     func setBirthPickerData() {
-
         self.datePicker.maximumDate = Date()
     }
 
 
     //MARK: - 텍스트필드 값 다 채워지면 완료 버튼 enable
     func enableCompleteBtn() {
-        let nameEmpty = nameTextField.text?.isEmpty
+//        let nameEmpty = nameTextField.text?.isEmpty
         let nicknameEmpty = nicknameTextField.text?.isEmpty
         let birthEmpty = birthTextField.text?.isEmpty
         let phoneEmpty = phoneTextField.text?.isEmpty
@@ -160,12 +154,15 @@ class InputDetailVC: UIViewController {
         
         switch stateSwitch.isOn {
         case true:
-            if (nameEmpty==false) && (nicknameEmpty==false) && (birthEmpty==false) && (phoneEmpty==false) && (alarmTimeEmpty==false) && (alarmPeriodEmpty==false){
+            if (nicknameEmpty==false) &&
+                (phoneEmpty==false) &&
+                (alarmTimeEmpty==false) &&
+                (alarmPeriodEmpty==false){
                 completeBtn.isEnabled = true
                 self.completeLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
             }
         case false:
-            if (nameEmpty==false) && (nicknameEmpty==false) && (birthEmpty==false) && (phoneEmpty==false) && (alarmTimeEmpty==false) {
+            if (nicknameEmpty==false) && (phoneEmpty==false) && (alarmTimeEmpty==false) {
                 completeBtn.isEnabled = true
                 self.completeLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
             }
@@ -174,11 +171,11 @@ class InputDetailVC: UIViewController {
     
     //MARK: - 텍스트필드 back ground image 지정
     func textFieldBackgroundImage() {
-        nameTextField.background = UIImage(named: "box_half_add_plant_detail")
-        nameTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
-        nameTextField.layer.borderWidth = 0
+//        nameTextField.background = UIImage(named: "box_half_add_plant_detail")
+//        nameTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
+//        nameTextField.layer.borderWidth = 0
         
-        nicknameTextField.background = UIImage(named: "box_half_add_plant_detail")
+        nicknameTextField.background = UIImage(named: "box_add_plant_detail")
         nicknameTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
         nicknameTextField.layer.borderWidth = 0
         
@@ -201,7 +198,6 @@ class InputDetailVC: UIViewController {
     
     //MARK: - 텍스트필드 padding값 지정
     func textFieldPadding() {
-        nameTextField.addDetailRightPadding()
         nicknameTextField.addDetailRightPadding()
         birthTextField.addDetailRightPadding()
         phoneTextField.addDetailRightPadding()
@@ -225,7 +221,9 @@ class InputDetailVC: UIViewController {
         toolbar2.setItems([doneBtnPeriod], animated: true)
         
         // alarm time
-        alarmTimePicker.addTarget(self, action: #selector(changed), for: .valueChanged)
+//        alarmTimePicker.addTarget(self, action: #selector(changed), for: .valueChanged)
+        
+//        alarmPikcer.addTarget(self, action: #selector(changed), for: .valueChanged)
         
         // assign toolbar
         birthTextField.inputAccessoryView = toolbar
@@ -239,8 +237,8 @@ class InputDetailVC: UIViewController {
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
         
-        alarmTimePicker.datePickerMode = .time
-        alarmTimePicker.preferredDatePickerStyle = .wheels
+//        alarmTimePicker.datePickerMode = .time
+//        alarmTimePicker.preferredDatePickerStyle = .wheels
         
     }
     
@@ -260,14 +258,16 @@ class InputDetailVC: UIViewController {
         enableCompleteBtn()
     }
     
-    @objc func changed() {
-        let dateformatter = DateFormatter()
-        dateformatter.dateStyle = .none
-        dateformatter.timeStyle = .short
-        let date = dateformatter.string(from: alarmTimePicker.date)
-        alarmTimeTextField.text = date
-        enableCompleteBtn()
-    }
+//    @objc func changed() {
+//        let dateformatter = DateFormatter()
+//        dateformatter.dateStyle = .none
+//        dateformatter.timeStyle = .short
+//        let date = dateformatter.string(from: alarmTimePicker.date)
+//        alarmTimeTextField.text = date
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "HH"
+//        enableCompleteBtn()
+//    }
 }
 
 //MARK: - PickerView DataSource, Delegate
@@ -275,7 +275,13 @@ class InputDetailVC: UIViewController {
 extension InputDetailVC: UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        3
+        if pickerView == periodPicker {
+            return 3
+        }
+        else if pickerView == alarmPicker {
+            return 3
+        }
+        return 0
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -285,6 +291,18 @@ extension InputDetailVC: UIPickerViewDataSource {
             }
             else {
                 return 3
+            }
+        }
+        
+        else if pickerView == self.alarmPicker {
+            if component == 0 {
+                return 12
+            }
+            else if component == 1 {
+                return 1
+            }
+            else {
+                return 2
             }
         }
         return 0
@@ -303,66 +321,74 @@ extension InputDetailVC: UIPickerViewDelegate {
             }
             return period[row]
         }
+        
+        else if pickerView == alarmPicker {
+            if component == 0 {
+                return time[row]
+            }
+            else if component == 1 {
+                return "00"
+            }
+            return ampm[row]
+        }
         return ""
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selectedNum = pickerView.selectedRow(inComponent: 1)
-        
-        let selectedPeriod = pickerView.selectedRow(inComponent: 2)
-        
-        let realNum = num[selectedNum]
-        let realPeriod = period[selectedPeriod]
-        
-        switch realPeriod {
-        case "day":
-            if realNum == "1" {
-                self.cycle_date = 1
-                //                self.resultPeriod = "1일에 1번 물주기"
+        if pickerView == periodPicker {
+            let selectedNum = pickerView.selectedRow(inComponent: 1)
+            let selectedPeriod = pickerView.selectedRow(inComponent: 2)
+            let realNum = num[selectedNum]
+            let realPeriod = period[selectedPeriod]
+            switch realPeriod {
+            case "day":
+                if realNum == "1" {
+                    self.cycle_date = 1
+                }
+                else if realNum == "2" {
+                    self.cycle_date = 2
+                }
+                else if realNum == "3" {
+                    self.cycle_date = 3
+                }
+            case "week":
+                if realNum == "1" {
+                    self.cycle_date = 7
+                }
+                else if realNum == "2" {
+                    self.cycle_date = 14
+                }
+                else if realNum == "3" {
+                    self.cycle_date = 21
+                }
+            case "month":
+                if realNum == "1" {
+                    self.cycle_date = 30
+                }
+                else if realNum == "2" {
+                    self.cycle_date = 60
+                }
+                else if realNum == "3" {
+                    self.cycle_date = 90
+                }
+            default:
+                self.cycle_date = 0
             }
-            else if realNum == "2" {
-                self.cycle_date = 2
-                //                self.resultPeriod = "2일에 1번 물주기"
-            }
-            else if realNum == "3" {
-                self.cycle_date = 3
-                //                self.resultPeriod = "3일에 1번 물주기"
-            }
-        case "week":
-            if realNum == "1" {
-                self.cycle_date = 7
-                //                self.resultPeriod = "1주에 1번 물주기"
-            }
-            else if realNum == "2" {
-                self.cycle_date = 14
-                //                self.resultPeriod = "2주에 1번 물주기"
-            }
-            else if realNum == "3" {
-                self.cycle_date = 21
-                //                self.resultPeriod = "3주에 1번 물주기"
-            }
-        case "month":
-            if realNum == "1" {
-                self.cycle_date = 30
-                //                self.resultPeriod = "1달에 1번 물주기"
-            }
-            else if realNum == "2" {
-                self.cycle_date = 60
-                //                self.resultPeriod = "2달에 1번 물주기"
-            }
-            else if realNum == "3" {
-                self.cycle_date = 90
-                //                self.resultPeriod = "3달에 1번 물주기"
-            }
-        default:
-            self.cycle_date = 0
+            let fullData = "every "+realNum+" "+realPeriod
+            self.alarmPeriodTextField.text = fullData
         }
-        
-        let fullData = "every "+realNum+" "+realPeriod
-        self.alarmPeriodTextField.text = fullData
+        else if pickerView == alarmPicker {
+            let selectedTime = pickerView.selectedRow(inComponent: 0)
+            let selectedAMPM = pickerView.selectedRow(inComponent: 2)
+            let realTime = time[selectedTime]
+            let realAMPM = ampm[selectedAMPM]
+            let fullAlarmTime = realTime+":00"+" "+realAMPM
+            self.alarmTimeTextField.text = fullAlarmTime
+        }
     }
 }
 
+// MARK: - textfield 키보드 내리기
 extension InputDetailVC: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.nicknameTextField.resignFirstResponder()

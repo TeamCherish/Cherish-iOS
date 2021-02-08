@@ -134,7 +134,7 @@
                                             <constraint firstAttribute="height" constant="24" id="Xga-js-ZlE"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
-                                        <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
@@ -152,26 +152,11 @@
                                     <constraint firstItem="ZI0-yy-yAE" firstAttribute="leading" secondItem="e35-Fc-Bwl" secondAttribute="leading" id="t1e-Ec-zmp"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sip-5t-HyK" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="27" y="114" width="26" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Sip-5t-HyK" secondAttribute="height" multiplier="13:12" id="0nD-yU-7pn"/>
-                                    <constraint firstAttribute="height" constant="24" id="Gre-4D-x8L"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
-                                <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                        <real key="value" value="-0.69999999999999996"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물애칭" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aL1-JX-GuN" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="207" y="117" width="52" height="24"/>
+                                <rect key="frame" x="27" y="114" width="51" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="ODT-fQ-uYv"/>
-                                    <constraint firstAttribute="width" secondItem="aL1-JX-GuN" secondAttribute="height" multiplier="13:6" id="ZBJ-Oi-agQ"/>
+                                    <constraint firstAttribute="height" constant="24" id="PUt-Mb-g3Q"/>
+                                    <constraint firstAttribute="width" secondItem="aL1-JX-GuN" secondAttribute="height" multiplier="17:8" id="jHl-7n-Xm1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
                                 <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -185,8 +170,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="생일" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eh-tN-roC" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                 <rect key="frame" x="29" y="203" width="26" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="2eh-tN-roC" secondAttribute="height" multiplier="13:12" id="Kfh-uX-Z4g"/>
-                                    <constraint firstAttribute="height" constant="24" id="fed-00-Pc6"/>
+                                    <constraint firstAttribute="height" constant="24" id="7vL-yW-USH"/>
+                                    <constraint firstAttribute="width" secondItem="2eh-tN-roC" secondAttribute="height" multiplier="13:12" id="kUp-4L-jYz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
                                 <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -198,10 +183,10 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWL-Ip-d3K" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="29" y="287" width="52" height="24"/>
+                                <rect key="frame" x="29" y="287" width="51" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="iWL-Ip-d3K" secondAttribute="height" multiplier="13:6" id="Xew-py-GCc"/>
-                                    <constraint firstAttribute="height" constant="24" id="fDO-OT-48c"/>
+                                    <constraint firstAttribute="height" constant="24" id="AgU-Tp-T5f"/>
+                                    <constraint firstAttribute="width" secondItem="iWL-Ip-d3K" secondAttribute="height" multiplier="17:8" id="obI-vW-bJS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
                                 <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -213,10 +198,10 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물주기 알림주기" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkC-BL-GOc" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="29" y="373" width="95" height="24"/>
+                                <rect key="frame" x="29" y="373" width="91" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="RkC-BL-GOc" secondAttribute="height" multiplier="95:24" id="dBd-u4-HjN"/>
-                                    <constraint firstAttribute="height" constant="24" id="mPh-kj-OMj"/>
+                                    <constraint firstAttribute="height" constant="24" id="Q8s-cE-vdp"/>
+                                    <constraint firstAttribute="width" secondItem="RkC-BL-GOc" secondAttribute="height" multiplier="91:24" id="tB0-16-yoS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
                                 <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -228,10 +213,10 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물주기 알람시간" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Eg-k9-vFi" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="29" y="459" width="95" height="24"/>
+                                <rect key="frame" x="29" y="459" width="91" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="9Eg-k9-vFi" secondAttribute="height" multiplier="95:24" id="MHO-eR-QCd"/>
-                                    <constraint firstAttribute="height" constant="24" id="ZfL-k7-K0D"/>
+                                    <constraint firstAttribute="height" constant="24" id="KYG-RZ-1iD"/>
+                                    <constraint firstAttribute="width" secondItem="9Eg-k9-vFi" secondAttribute="height" multiplier="91:24" id="OPG-ph-DzV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
                                 <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -242,21 +227,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="남궁선규" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ts-fx-9IF">
-                                <rect key="frame" x="16" y="145" width="165" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="2ts-fx-9IF" secondAttribute="height" multiplier="15:4" id="TNV-Ls-wdo"/>
-                                    <constraint firstAttribute="height" constant="44" id="lJL-xN-AKp"/>
-                                </constraints>
-                                <color key="textColor" name="black"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ex.남쿵둥이" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xSI-Uz-kG0">
-                                <rect key="frame" x="194" y="145" width="165" height="44"/>
+                                <rect key="frame" x="16" y="145" width="343" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Khi-5W-kOV"/>
-                                    <constraint firstAttribute="width" secondItem="xSI-Uz-kG0" secondAttribute="height" multiplier="15:4" id="Y3Q-p0-iVz"/>
+                                    <constraint firstAttribute="width" secondItem="xSI-Uz-kG0" secondAttribute="height" multiplier="343:44" id="4GL-HM-TDf"/>
+                                    <constraint firstAttribute="height" constant="44" id="g0h-V1-e8r"/>
                                 </constraints>
                                 <color key="textColor" name="black"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
@@ -265,8 +240,8 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0000/00/00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cho-wb-3ua">
                                 <rect key="frame" x="16" y="231" width="343" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Tir-Hn-ddN"/>
-                                    <constraint firstAttribute="width" secondItem="Cho-wb-3ua" secondAttribute="height" multiplier="343:44" id="aaK-AS-tI5"/>
+                                    <constraint firstAttribute="height" constant="44" id="IzO-sU-Orx"/>
+                                    <constraint firstAttribute="width" secondItem="Cho-wb-3ua" secondAttribute="height" multiplier="343:44" id="yRy-eO-ZFm"/>
                                 </constraints>
                                 <color key="textColor" name="black"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
@@ -275,8 +250,8 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="010.1234.5678" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wLQ-co-qp2">
                                 <rect key="frame" x="16" y="315" width="343" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="7G1-gh-fG3"/>
-                                    <constraint firstAttribute="width" secondItem="wLQ-co-qp2" secondAttribute="height" multiplier="343:44" id="zqu-j5-1t6"/>
+                                    <constraint firstAttribute="width" secondItem="wLQ-co-qp2" secondAttribute="height" multiplier="343:44" id="Tgz-AQ-rzZ"/>
+                                    <constraint firstAttribute="height" constant="44" id="kWk-g9-UIx"/>
                                 </constraints>
                                 <color key="textColor" name="black"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
@@ -285,8 +260,8 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Every 1 week" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uhn-zN-3vv">
                                 <rect key="frame" x="16" y="401" width="343" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="uhn-zN-3vv" secondAttribute="height" multiplier="343:44" id="Yc9-lY-6Q1"/>
-                                    <constraint firstAttribute="height" constant="44" id="rhe-gv-J3w"/>
+                                    <constraint firstAttribute="width" secondItem="uhn-zN-3vv" secondAttribute="height" multiplier="343:44" id="VDo-ON-5V3"/>
+                                    <constraint firstAttribute="height" constant="44" id="uTT-gq-9xb"/>
                                 </constraints>
                                 <color key="textColor" name="black"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
@@ -295,15 +270,15 @@
                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00:00 AM" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Hr-uL-saD">
                                 <rect key="frame" x="16" y="487" width="343" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Fcb-E0-zuk"/>
-                                    <constraint firstAttribute="width" secondItem="2Hr-uL-saD" secondAttribute="height" multiplier="343:44" id="dm8-1Y-FC8"/>
+                                    <constraint firstAttribute="height" constant="44" id="f2W-ku-LOo"/>
+                                    <constraint firstAttribute="width" secondItem="2Hr-uL-saD" secondAttribute="height" multiplier="343:44" id="wpO-Kp-qbk"/>
                                 </constraints>
                                 <color key="textColor" name="black"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bB-lW-ioS">
-                                <rect key="frame" x="294" y="408" width="51" height="31"/>
+                                <rect key="frame" x="296" y="407.66666666666669" width="51" height="31"/>
                                 <connections>
                                     <action selector="switchAction:" destination="DAc-nO-vXW" eventType="valueChanged" id="Bc7-Vb-HaU"/>
                                 </connections>
@@ -335,63 +310,58 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ew4-HB-xfu">
-                                <rect key="frame" x="27.666666666666657" y="539" width="320" height="135"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDu-1D-bi1">
+                                <rect key="frame" x="11" y="525" width="353" height="164"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ew4-HB-xfu" secondAttribute="height" multiplier="64:27" id="dpH-sV-l5s"/>
-                                    <constraint firstAttribute="height" constant="135" id="ilY-et-k7W"/>
+                                    <constraint firstAttribute="height" constant="164" id="t5F-7B-iYu"/>
+                                    <constraint firstAttribute="width" secondItem="jDu-1D-bi1" secondAttribute="height" multiplier="353:164" id="xzM-VO-Vh9"/>
                                 </constraints>
-                            </datePicker>
+                            </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dJf-1V-FHK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dJf-1V-FHK" firstAttribute="trailing" secondItem="xSI-Uz-kG0" secondAttribute="trailing" constant="16" id="075-jh-cvc"/>
-                            <constraint firstItem="RkC-BL-GOc" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="29" id="1w2-9J-xiA"/>
-                            <constraint firstItem="RkC-BL-GOc" firstAttribute="top" secondItem="wLQ-co-qp2" secondAttribute="bottom" constant="14" id="30T-dk-Qaq"/>
+                            <constraint firstItem="wLQ-co-qp2" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="16" id="069-iA-pjK"/>
                             <constraint firstItem="e35-Fc-Bwl" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" id="37m-NF-35R"/>
-                            <constraint firstItem="2eh-tN-roC" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="29" id="3UA-LC-2eO"/>
-                            <constraint firstItem="Sip-5t-HyK" firstAttribute="top" secondItem="e35-Fc-Bwl" secondAttribute="bottom" constant="26" id="5Ip-JG-k2p"/>
-                            <constraint firstItem="9Eg-k9-vFi" firstAttribute="top" secondItem="uhn-zN-3vv" secondAttribute="bottom" constant="14" id="6VG-fv-VPO"/>
-                            <constraint firstItem="2ts-fx-9IF" firstAttribute="top" secondItem="Sip-5t-HyK" secondAttribute="bottom" constant="7" id="7pO-pK-XTm"/>
-                            <constraint firstItem="2Hr-uL-saD" firstAttribute="top" secondItem="9Eg-k9-vFi" secondAttribute="bottom" constant="4" id="9Ge-ez-Y46"/>
-                            <constraint firstItem="dJf-1V-FHK" firstAttribute="trailing" secondItem="aL1-JX-GuN" secondAttribute="trailing" constant="116" id="9U9-Vn-soN"/>
+                            <constraint firstItem="aL1-JX-GuN" firstAttribute="top" secondItem="e35-Fc-Bwl" secondAttribute="bottom" constant="26" id="4hH-5X-Uwk"/>
+                            <constraint firstItem="wLQ-co-qp2" firstAttribute="top" secondItem="iWL-Ip-d3K" secondAttribute="bottom" constant="4" id="8zv-1i-EYE"/>
+                            <constraint firstItem="aL1-JX-GuN" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="27" id="90s-Sl-ThB"/>
+                            <constraint firstItem="jDu-1D-bi1" firstAttribute="centerX" secondItem="OPd-NF-VB0" secondAttribute="centerX" id="9UY-XW-JK1"/>
+                            <constraint firstItem="uhn-zN-3vv" firstAttribute="top" secondItem="RkC-BL-GOc" secondAttribute="bottom" constant="4" id="9eM-MK-wXS"/>
                             <constraint firstItem="dJf-1V-FHK" firstAttribute="bottom" secondItem="tlM-NJ-OJ1" secondAttribute="bottom" constant="45" id="9lr-aO-wZq"/>
-                            <constraint firstItem="iWL-Ip-d3K" firstAttribute="top" secondItem="Cho-wb-3ua" secondAttribute="bottom" constant="12" id="AiC-fL-xu4"/>
-                            <constraint firstItem="aL1-JX-GuN" firstAttribute="top" secondItem="e35-Fc-Bwl" secondAttribute="bottom" constant="29" id="AwU-Xh-fbp"/>
                             <constraint firstItem="e35-Fc-Bwl" firstAttribute="trailing" secondItem="dJf-1V-FHK" secondAttribute="trailing" id="B3A-Ci-vaV"/>
-                            <constraint firstItem="2Hr-uL-saD" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="16" id="DNn-QU-YnX"/>
                             <constraint firstItem="aas-LP-IMf" firstAttribute="centerX" secondItem="OPd-NF-VB0" secondAttribute="centerX" id="EOr-44-2w0"/>
-                            <constraint firstItem="iWL-Ip-d3K" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="29" id="Enx-Wz-Fe7"/>
-                            <constraint firstItem="xSI-Uz-kG0" firstAttribute="top" secondItem="aL1-JX-GuN" secondAttribute="bottom" constant="4" id="H3M-Ub-MSJ"/>
+                            <constraint firstItem="iWL-Ip-d3K" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="29" id="Htj-9H-alt"/>
                             <constraint firstItem="e35-Fc-Bwl" firstAttribute="top" secondItem="dJf-1V-FHK" secondAttribute="top" id="IVq-rt-58H"/>
-                            <constraint firstItem="ew4-HB-xfu" firstAttribute="top" secondItem="2Hr-uL-saD" secondAttribute="bottom" constant="8" id="KsT-uq-svJ"/>
-                            <constraint firstItem="Sip-5t-HyK" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="27" id="Ktk-cf-te3"/>
-                            <constraint firstItem="9Eg-k9-vFi" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="29" id="MN5-Qd-mo3"/>
-                            <constraint firstItem="uhn-zN-3vv" firstAttribute="top" secondItem="RkC-BL-GOc" secondAttribute="bottom" constant="4" id="OaM-EW-JMh"/>
-                            <constraint firstItem="4bB-lW-ioS" firstAttribute="top" secondItem="wLQ-co-qp2" secondAttribute="bottom" constant="49" id="Wpr-c3-cF0"/>
-                            <constraint firstItem="Cho-wb-3ua" firstAttribute="top" secondItem="2eh-tN-roC" secondAttribute="bottom" constant="4" id="Y0h-cv-OUS"/>
-                            <constraint firstItem="wLQ-co-qp2" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="16" id="ZsY-HT-Vud"/>
+                            <constraint firstItem="RkC-BL-GOc" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="29" id="Jzr-8r-VJD"/>
+                            <constraint firstItem="Cho-wb-3ua" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="16" id="NEE-DX-fcD"/>
+                            <constraint firstItem="2eh-tN-roC" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="29" id="Nrw-VR-ybQ"/>
+                            <constraint firstItem="2Hr-uL-saD" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="16" id="Nwv-mn-4Pf"/>
+                            <constraint firstItem="Cho-wb-3ua" firstAttribute="top" secondItem="2eh-tN-roC" secondAttribute="bottom" constant="4" id="RAZ-ey-25L"/>
+                            <constraint firstItem="uhn-zN-3vv" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="16" id="S7O-hQ-CPD"/>
+                            <constraint firstItem="RkC-BL-GOc" firstAttribute="top" secondItem="wLQ-co-qp2" secondAttribute="bottom" constant="14" id="Y4w-Lk-ZFc"/>
+                            <constraint firstItem="xSI-Uz-kG0" firstAttribute="top" secondItem="aL1-JX-GuN" secondAttribute="bottom" constant="7" id="Ym4-2V-WvI"/>
                             <constraint firstItem="dJf-1V-FHK" firstAttribute="bottom" secondItem="e35-Fc-Bwl" secondAttribute="bottom" constant="690" id="aZW-oj-niL"/>
-                            <constraint firstItem="dJf-1V-FHK" firstAttribute="trailing" secondItem="4bB-lW-ioS" secondAttribute="trailing" constant="32" id="bpT-TV-W9j"/>
-                            <constraint firstItem="wLQ-co-qp2" firstAttribute="top" secondItem="iWL-Ip-d3K" secondAttribute="bottom" constant="4" id="c03-oj-lCb"/>
-                            <constraint firstItem="Cho-wb-3ua" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="16" id="eY9-V8-ImG"/>
-                            <constraint firstItem="ew4-HB-xfu" firstAttribute="centerX" secondItem="OPd-NF-VB0" secondAttribute="centerX" id="hNt-3O-ElW"/>
+                            <constraint firstItem="2eh-tN-roC" firstAttribute="top" secondItem="xSI-Uz-kG0" secondAttribute="bottom" constant="14" id="bH6-7c-aQi"/>
+                            <constraint firstItem="4bB-lW-ioS" firstAttribute="centerY" secondItem="uhn-zN-3vv" secondAttribute="centerY" id="cRB-GW-o4s"/>
+                            <constraint firstItem="9Eg-k9-vFi" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="29" id="csS-uR-mAj"/>
                             <constraint firstItem="dJf-1V-FHK" firstAttribute="bottom" secondItem="aas-LP-IMf" secondAttribute="bottom" constant="33" id="heZ-ZU-wg3"/>
                             <constraint firstItem="tlM-NJ-OJ1" firstAttribute="centerX" secondItem="OPd-NF-VB0" secondAttribute="centerX" id="hhs-yB-yNm"/>
-                            <constraint firstItem="2ts-fx-9IF" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="16" id="hk3-pV-Vhl"/>
-                            <constraint firstItem="2eh-tN-roC" firstAttribute="top" secondItem="2ts-fx-9IF" secondAttribute="bottom" constant="14" id="jRj-ff-1O2"/>
-                            <constraint firstItem="uhn-zN-3vv" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="16" id="pI8-zN-7x1"/>
+                            <constraint firstItem="dJf-1V-FHK" firstAttribute="trailing" secondItem="4bB-lW-ioS" secondAttribute="trailing" constant="30" id="hkZ-JT-lBc"/>
+                            <constraint firstItem="iWL-Ip-d3K" firstAttribute="top" secondItem="Cho-wb-3ua" secondAttribute="bottom" constant="12" id="l2Y-T0-q1j"/>
+                            <constraint firstItem="9Eg-k9-vFi" firstAttribute="top" secondItem="uhn-zN-3vv" secondAttribute="bottom" constant="14" id="mJD-3j-hwe"/>
+                            <constraint firstItem="jDu-1D-bi1" firstAttribute="top" secondItem="9Eg-k9-vFi" secondAttribute="bottom" constant="42" id="nib-Ec-5WW"/>
+                            <constraint firstItem="xSI-Uz-kG0" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="16" id="scn-Ds-8ws"/>
+                            <constraint firstItem="2Hr-uL-saD" firstAttribute="top" secondItem="9Eg-k9-vFi" secondAttribute="bottom" constant="4" id="u29-je-uFP"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="alarmPeriodTextField" destination="uhn-zN-3vv" id="B3c-Ld-Xvg"/>
-                        <outlet property="alarmTimePicker" destination="ew4-HB-xfu" id="WAZ-8b-Fnf"/>
+                        <outlet property="alarmPicker" destination="jDu-1D-bi1" id="klK-rb-C5q"/>
                         <outlet property="alarmTimeTextField" destination="2Hr-uL-saD" id="mrX-Dg-NmV"/>
                         <outlet property="birthTextField" destination="Cho-wb-3ua" id="llV-m5-8f0"/>
                         <outlet property="completeBtn" destination="aas-LP-IMf" id="Hoe-Bt-G2P"/>
                         <outlet property="completeLabel" destination="tlM-NJ-OJ1" id="gaO-w0-adr"/>
-                        <outlet property="nameTextField" destination="2ts-fx-9IF" id="f8x-93-w9K"/>
                         <outlet property="nicknameTextField" destination="xSI-Uz-kG0" id="7m9-gC-Ejg"/>
                         <outlet property="phoneTextField" destination="wLQ-co-qp2" id="bC0-ad-QEr"/>
                         <outlet property="stateSwitch" destination="4bB-lW-ioS" id="vGs-TF-UWL"/>
@@ -399,7 +369,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKh-Ns-1fb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1793" y="-300"/>
+            <point key="canvasLocation" x="1792.8" y="-300"/>
         </scene>
         <!--Loading Pop UpVC-->
         <scene sceneID="71b-7w-xPR">
