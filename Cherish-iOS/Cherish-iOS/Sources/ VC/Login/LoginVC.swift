@@ -239,7 +239,6 @@ class LoginVC: UIViewController {
         
         guard let emailText = loginEmailTextField.text,
               let passwordText = loginPwTextField.text else { return }
-        
         LoginService.shared.doLogin(email: emailText, password: passwordText){ (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
