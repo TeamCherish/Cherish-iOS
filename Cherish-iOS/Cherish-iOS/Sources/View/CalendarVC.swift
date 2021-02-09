@@ -73,21 +73,22 @@ class CalendarVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getCalendarData()
         memoShowView.isHidden = true
         cal_Style()
         defineCalStatus()
         forsmallPhone()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        getCalendarData()
-    }
-    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+//        getCalendarData()
+//    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        calendarOrigin.reloadData()
         
+        calendarOrigin.reloadData()
         if calendarStatus == "memo"{
             memoMode()
         }
@@ -183,14 +184,12 @@ class CalendarVC: UIViewController {
     /// 식물 상세보기 메모 버튼->캘린더 이동시 해당 메모가 작성된 날짜 및 메모를 불러오기
     func memoMode() {
         calendarOrigin.reloadData()
-        //        print("메캘메캘메캘메캘"+"\(memoToCalendarDate ?? "2020-12-26")")
         calendarOrigin.select(formatter.date(from: memoToCalendarDate ?? "2020-12-26"), scrollToDate: true)
         for i in 0...(fetchCalendar.count - 1) {
             if memoToCalendarDate == fetchCalendar[i].waterDate{
                 memoShowView.isHidden = false
                 formatter.dateFormat = "yyyy-MM-dd"
                 memoToCalendarDateTemp = formatter.date(from: fetchCalendar[i].waterDate)
-                //                print("메캘메캘메캘메캘"+"\(memoToCalendarDateTemp)!")
                 formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
                 memoDateLabel.text = formatter.string(from: memoToCalendarDateTemp!)
                 memoTextLabel.text = fetchCalendar[i].review
@@ -236,9 +235,9 @@ class CalendarVC: UIViewController {
         formatter.locale = Locale(identifier: "ko")
         formatter.dateFormat = "yyyy-MM-dd"
         
-        var myCherishIsSelectedCalendar = UserDefaults.standard.bool(forKey: "calendarPlantIsSelected")
+        let myCherishIsSelectedCalendar = UserDefaults.standard.bool(forKey: "calendarPlantIsSelected")
         
-        var myCherishIdx = UserDefaults.standard.integer(forKey: "selectedCherish")
+        let myCherishIdx = UserDefaults.standard.integer(forKey: "selectedCherish")
         var calendarInquireInt: Int?
         print(myCherishIsSelectedCalendar)
         
@@ -249,7 +248,6 @@ class CalendarVC: UIViewController {
         else {
             calendarInquireInt = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
         }
-        print(calendarInquireInt)
         CalendarService.shared.calendarLoad(id: calendarInquireInt!, completion: { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
@@ -397,6 +395,8 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         formatter.dateFormat = "yyyy-MM-dd"
         print(formatter.string(from: date) + " 선택됨")
+        memoToCalendarDate = formatter.string(from: date) // 캘린더 버튼으로 캘린더 넘어왔을 때 수정 날짜를 저장해주기 위함
+        
         /// 물 준 적이 있고, 이벤트가 있다면 표시
         if wasWatering {
             for i in 0...fetchCalendar.count-1 {
