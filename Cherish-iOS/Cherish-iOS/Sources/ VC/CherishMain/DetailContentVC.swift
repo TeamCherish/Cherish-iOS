@@ -132,7 +132,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                         firstCell.eclipseImageView.image = UIImage(named: "ellipse373")
                     }
                     else if plantName == "로즈마리" {
-                        print("jjo?a")
                         firstCell.eclipseImageView.image = UIImage(named: "ellipse375")
                     }
                     else if plantName == "단모환" {
@@ -165,12 +164,10 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 // 셀이 한번 이상 눌린 상태
                 else
                 {
-                    print(plantName)
                     if plantName == "민들레" {
                         firstCell.eclipseImageView.image = UIImage(named: "ellipse373")
                     }
                     else if plantName == "로즈마리" {
-                        print("jjo?")
                         firstCell.eclipseImageView.image = UIImage(named: "ellipse375")
                     }
                     else if plantName == "단모환" {
@@ -199,7 +196,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     let url = URL(string: UserDefaults.standard.string(forKey:"selectedPlantNameData")!)
                     let imageData = try? Data(contentsOf: url!)
                     firstCell.plantImageView.image = UIImage(data: imageData!)
-                    
                 }
             }
             
@@ -230,10 +226,11 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 DispatchQueue.global(qos: .default).async(execute: {() -> Void in
                     let imageData = try? Data(contentsOf: url!)
                     DispatchQueue.main.async(execute: {() -> Void in
+                        print("hahaha")
                         cell.cherishPlantImageView.image = UIImage(data: imageData!)
                     })
                 })
-
+                
                 
                 
                 if indexPath == selectedIndexPath {
@@ -262,6 +259,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
         
         if indexPath.item > 0 {
             
+            
             // appDelegate에 전역변수를 생성해주고, 한번 셀이 눌린 후로는 그 값을 true로 바꿔준다
             appDel.isCherishPeopleCellSelected = true
             print(indexPath.row - 1)
@@ -275,16 +273,23 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].plantName, forKey: "selectedPlantName")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].gif, forKey: "selectedGif")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].main_bg, forKey: "selectedMainBg")
-
-
+            
+            
             //선택된 친구의 인덱스 값과 전화번호를 저장해준다
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].id, forKey: "selectedFriendIdData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].phone, forKey: "selectedFriendPhoneData")
             
             UIView.performWithoutAnimation {
-                selectedIndexPath = indexPath
-                cherishPeopleCV.reloadData()
-                cherishPeopleCV.reloadItems(at: [IndexPath(item: 0, section: 0)])
+                
+                self.cherishPeopleCV.performBatchUpdates({ () -> Void in
+                    
+                    selectedIndexPath = indexPath
+                    cherishPeopleCV.reloadData()
+                    cherishPeopleCV.reloadItems(at: [IndexPath(item: 0, section: 0)])
+                    
+                }, completion: { (finished) -> Void in
+                    
+                })
             }
             
         }

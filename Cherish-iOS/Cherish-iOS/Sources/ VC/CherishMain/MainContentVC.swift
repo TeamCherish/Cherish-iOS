@@ -54,7 +54,6 @@ class MainContentVC: UIViewController {
         if appDel.isCherishPeopleCellSelected == true || appDel.isWateringComplete == true || appDel.isWateringPostponed == true {
             
             //문제 : 미루고나서 변수가 제대로 할당이 안됨! 조건 다시 생각해보기!
-            print("hahahah")
             appDel.isCherishPeopleCellSelected = true
             setDataWithSelectedData()
             LoadingHUD.hide()
