@@ -87,14 +87,7 @@ class CalendarVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         calendarOrigin.reloadData()
-        if calendarStatus == "memo"{
-            if fetchCalendar.count == 0 {
-                self.navigationController?.popViewController(animated: true)
-            }else{
-                memoMode()
-            }
-        }
-        
+        cal_Status()
     }
     
     @IBAction func moveToBack(_ sender: Any) {
@@ -200,6 +193,16 @@ class CalendarVC: UIViewController {
                 calendarKeywordCollectionView.reloadData()
                 calendarKeywordCollectionView.delegate = self
                 calendarKeywordCollectionView.dataSource = self
+            }
+        }
+    }
+    
+    func cal_Status(){
+        if calendarStatus == "memo"{
+            if fetchCalendar.count == 0 {
+                self.navigationController?.popViewController(animated: true)
+            }else{
+                memoMode()
             }
         }
     }
