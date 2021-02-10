@@ -8,11 +8,10 @@
 import UIKit
 
 class ReviewEditVC: UIViewController{
-    var space: String?
+    var space: String? /// 메모 내용
     var edit_keyword = [String]() /// 키워드 배열
-    var edit_date : String?
+    var edit_date : String? /// 메모 작성 날짜
     var dateForServer : String?
-
     
     @IBOutlet weak var editMemoDateLabel: CustomLabel!
     @IBOutlet weak var keywordTextField: UITextField!{
@@ -71,10 +70,6 @@ class ReviewEditVC: UIViewController{
         super.viewDidLoad()
         loadMemo()
         textViewPlaceholder()
-    }
-    
-    @IBAction func moveToBack(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: -사용자 정의 함수
@@ -137,7 +132,41 @@ class ReviewEditVC: UIViewController{
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+    
+    func deleteAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "삭제",style: .destructive) { [self] (action) in
+            // DELETE 서버 통신
+            CalendarService.shared.reviewDelete(CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), water_date: dateForServer!) { (networkResult) -> (Void) in
 
+                switch networkResult {
+                case .success(_):
+                    self.navigationController?.popViewController(animated: true)
+                    print("success")
+                case .requestErr(_):
+                    print("requestErr")
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            }
+        }
+        let cancel = UIAlertAction(title: "취소",style: .default)
+        alert.addAction(cancel)
+        alert.addAction(confirm)
+        present(alert, animated: true)
+    }
+    
+    @IBAction func moveToBack(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func deleteMemo(_ sender: Any) {
+        deleteAlert(title: "정말로 메모를 삭제하시겠어요?", message: "삭제된 메모는 되돌릴 수 없어요")
+    }
     @IBAction func completeEdit(_ sender: Any) {
 
         if edit_keyword.count == 0 {
@@ -150,11 +179,13 @@ class ReviewEditVC: UIViewController{
         if edit_keyword.count == 2 {
             edit_keyword.append("")
         }
+        if memoTextView.text == "메모를 입력해주세요!"{
+            memoTextView.text = ""
+        }
         CalendarService.shared.reviewEdit(CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), water_date: dateForServer!, review: memoTextView.text, keyword1: edit_keyword[0], keyword2: edit_keyword[1], keyword3: edit_keyword[2]) { (networkResult) -> (Void) in
 
             switch networkResult {
-            case .success(_):
-            
+            case .success(_):                
                 self.navigationController?.popViewController(animated: true)
                 print("success")
             case .requestErr(_):
@@ -232,12 +263,12 @@ extension ReviewEditVC: UITextFieldDelegate,UITextViewDelegate{
     }
     
     func textViewPlaceholder() {
-        if memoTextView.text == "메모" {
+        if memoTextView.text == "메모를 입력해주세요!" {
             memoTextView.text = ""
             memoTextView.textColor = .black
         }
         else if memoTextView.text == "" {
-            memoTextView.text = "메모"
+            memoTextView.text = "메모를 입력해주세요!"
             memoTextView.textColor = .placeholderGrey
         }
     }

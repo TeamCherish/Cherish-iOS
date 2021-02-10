@@ -83,6 +83,7 @@ class ReviewVC: UIViewController {
             keyboardUP() /// 키보드 올릴 때 사용
         }
         setNamingLabel()
+        setBtnNotText()
     }
     
     //MARK: -사용자 정의 함수
@@ -161,43 +162,23 @@ class ReviewVC: UIViewController {
         present(alert, animated: true)
     }
     
-    // 리뷰 완료 후 물주기 모션으로 이동
-    func goToWateringMotion(){
-        guard let pvc = self.presentingViewController else {return}
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "WateringMotionVC") else{return}
-        vc.modalPresentationStyle = .fullScreen
-        vc.modalTransitionStyle = .coverVertical
-        
-        self.dismiss(animated: true){
-            pvc.present(vc, animated: true, completion: nil)
-        }
-        
-        /// 5초 후에 메인 화면으로 돌아감
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            // Do whatever you want
-            vc.dismiss(animated: true, completion: nil)
-        }
-    }
-    
     func setNamingLabel(){
         reviewNameLabel.text = "\(UserDefaults.standard.string(forKey: "UserNickname")!)"+"님! "+"\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의"
         reviewPlzLabel.text = "\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의 물주기를 기록해주세요"
     }
     
     
-    /// 아무것도 안썼을 때 보더만 있는 버튼
+    /// 아무것도 안썼을 때 보더만 있는 등록완료 버튼
     func setBtnNotText(){
         submit.backgroundColor = .white
         submit.layer.borderColor = UIColor.seaweed.cgColor
         submit.layer.borderWidth  = 1.0
-        submit.titleLabel?.text = "등록완료"
         submit.titleLabel?.textColor = .seaweed
     }
     
-    /// 무언가를 썼을 때 채워진 버튼
+    /// 무언가를 썼을 때 채워진 등록완료 버튼
     func setBtnYesText(){
         submit.backgroundColor = .seaweed
-        submit.titleLabel?.text = "등록완료"
         submit.titleLabel?.textColor = .white
     }
     
@@ -219,7 +200,6 @@ class ReviewVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 print(data)
-                // goToWateringMotion()
                 appDel.isWateringComplete = true
                 self.dismiss(animated: true, completion: nil)
                 
@@ -241,8 +221,8 @@ class ReviewVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 print(data)
-                goToWateringMotion()
-                
+                appDel.isWateringComplete = true
+                self.dismiss(animated: true, completion: nil)
             case .requestErr(_):
                 print("requestErr")
             case .pathErr:
@@ -269,7 +249,13 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         /// 글자 수 실시간 카운팅
         keywordCountingLabel.text =  "\(String(newKeywordLength))"+"/"
         
-        /// 100자 채우면 101자로 표시되는거 해결
+        /// 키워드를 하나라도 입력했으면 채워진 버튼
+        if keyword.count >= 1 {
+            setBtnYesText()
+        }else{
+            setBtnNotText()
+        }
+        /// 5글자 채우면 6으로 표시되는거 해결
         if newKeywordLength >= 5 {
             keywordCountingLabel.text =  "5/"
         }
@@ -299,6 +285,12 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         /// 글자 수 실시간 카운팅
         memoCountingLabel.text =  "\(String(newMemoLength))"+"/"
         
+        /// 키워드가 1개라도 있거나, 키워드가 없더라도 메모를 한 글자라도 입력했으면 채워진 버튼
+        if keyword.count >= 1 || newMemoLength > 0 {
+            setBtnYesText()
+        }else{
+            setBtnNotText()
+        }
         /// 100자 채우면 101자로 표시되는거 해결
         if newMemoLength >= 100 {
             memoCountingLabel.text =  "100/"
@@ -348,6 +340,11 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         /// 키워드 터치시 삭제
         keyword.remove(at: indexPath.row)
         keywordCollectionView.reloadData()
+        
+        /// 키워드를 삭제했을 때 메모도 없고 키워드가 0개이면
+        if keyword.count == 0 && memoTextView.text == "메모를 입력해주세요!" {
+            setBtnNotText()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
