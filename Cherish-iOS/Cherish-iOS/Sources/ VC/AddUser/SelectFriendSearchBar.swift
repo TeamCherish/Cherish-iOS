@@ -37,10 +37,11 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     var nameTextFrom: String = ""
     var phoneNumFrom: String = ""
     
-//    let vc = InputDetailVC()
     
     var fetchedName: [String] = []
     var fetchedPhoneNumber: [String] = []
+    
+    var checkSearch: Int = 0
     
     
     override func viewDidLoad() {
@@ -68,15 +69,26 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     }
     @IBAction func touchUpNextBtn(_ sender: Any) {
         if nextBtn.isEnabled == true {
-//            guard let dvc = self.storyboard?.instantiateViewController(identifier: "InputDetailVC") else {
-//                return
-//            }
-//
+            
+            // 중복 검사 여기서!
+            // 다음 버튼 눌렀을 때 -> 어떤 cell이 선택된건지 정보 받아와서 그거 폰 번호로 중복 검사 하면 될듯
 
             guard let dvc = self.storyboard?.instantiateViewController(identifier: "InputDetailVC") as? InputDetailVC else {return}
-            print("이게 먼저야")
-            dvc.givenName = friendList[index].name
-            dvc.givenPhoneNumber = friendList[index].phoneNumber
+            
+            
+            // 만약 검색창이 사용되지 않았으면 -> friendList에서
+            // 검색창이 사용됐으면 -> filteredData 에서
+            
+            if checkSearch == 0 {
+                dvc.givenName = friendList[index].name
+                dvc.givenPhoneNumber = friendList[index].phoneNumber
+            }
+            
+            else if checkSearch == 1 {
+                dvc.givenName = filteredData[index].name
+                dvc.givenPhoneNumber = filteredData[index].phoneNumber
+            }
+            
             
             dvc.modalPresentationStyle = .fullScreen
             self.navigationController?.pushViewController(dvc, animated: true)
@@ -154,6 +166,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         updateSelectedIndex(indexPath.row)
         index = indexPath.row
+        print(index)
     }
     
     //MARK: - searchBar delegate
@@ -165,6 +178,8 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
             filteredData = friendList
         }
         else {
+            checkSearch = 1
+            
             for friend in friendList {
                 if friend.name.contains(searchText) {
                     filteredData.append(contentsOf: [
@@ -173,7 +188,9 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
                 else if friend.phoneNumber.contains(searchText) {
                     filteredData.append(contentsOf: [Friend(name: friend.name, phoneNumber: friend.phoneNumber, selected: friend.selected)])
                 }
+                
             }
+            
         }
         self.tableView.reloadData()
     }

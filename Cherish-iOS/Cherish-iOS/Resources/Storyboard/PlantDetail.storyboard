@@ -24,6 +24,62 @@
         </array>
     </customFonts>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="UQf-y1-Tu3">
+            <objects>
+                <viewController id="FYv-TB-RGy" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mvw-35-vxn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuw-K6-mPe">
+                                <rect key="frame" x="0.0" y="44" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cuw-K6-mPe" secondAttribute="height" multiplier="1:1" id="1EL-pB-NYU"/>
+                                    <constraint firstAttribute="height" constant="44" id="nea-52-bri"/>
+                                </constraints>
+                                <state key="normal" image="icn_back"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 상세 입력" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfO-oK-elq" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="138.66666666666666" y="54" width="98" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="bao-PI-bgn"/>
+                                    <constraint firstAttribute="width" secondItem="WfO-oK-elq" secondAttribute="height" multiplier="49:12" id="qxy-g1-3Ej"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                <color key="textColor" name="black"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHn-Xl-0em">
+                                <rect key="frame" x="325" y="44" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="FEH-xU-rAq"/>
+                                    <constraint firstAttribute="width" secondItem="sHn-Xl-0em" secondAttribute="height" multiplier="1:1" id="Qbb-Ma-3aq"/>
+                                </constraints>
+                                <state key="normal" image="icDeleteCalendarEdit"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1pI-zB-wUD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sHn-Xl-0em" firstAttribute="top" secondItem="1pI-zB-wUD" secondAttribute="top" id="GZK-NF-alC"/>
+                            <constraint firstItem="cuw-K6-mPe" firstAttribute="top" secondItem="1pI-zB-wUD" secondAttribute="top" id="IAA-es-6KI"/>
+                            <constraint firstItem="WfO-oK-elq" firstAttribute="top" secondItem="1pI-zB-wUD" secondAttribute="top" constant="10" id="O0c-9v-htI"/>
+                            <constraint firstItem="WfO-oK-elq" firstAttribute="centerX" secondItem="Mvw-35-vxn" secondAttribute="centerX" id="gmw-VS-k9h"/>
+                            <constraint firstItem="cuw-K6-mPe" firstAttribute="leading" secondItem="1pI-zB-wUD" secondAttribute="leading" id="hSw-q6-HVW"/>
+                            <constraint firstItem="1pI-zB-wUD" firstAttribute="trailing" secondItem="sHn-Xl-0em" secondAttribute="trailing" constant="6" id="mX2-K7-KRB"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vbx-c9-M1R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1814" y="-531"/>
+        </scene>
         <!--PlantDetailVC-->
         <scene sceneID="TbY-AL-tnq">
             <objects>
@@ -757,11 +813,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icDeleteCalendarEdit" width="44" height="44"/>
         <image name="icnBack" width="44" height="44"/>
         <image name="icnCalendar" width="44" height="44"/>
         <image name="icnCancel" width="48" height="48"/>
         <image name="icnInfo" width="44" height="44"/>
         <image name="icnSetting" width="44" height="44"/>
+        <image name="icn_back" width="44" height="44"/>
         <image name="minPlantSay" width="166" height="27"/>
         <image name="plantDetail" width="375" height="720"/>
         <image name="plantDetailLine" width="1" height="35"/>
