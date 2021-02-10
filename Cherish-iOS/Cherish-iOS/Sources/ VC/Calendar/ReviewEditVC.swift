@@ -179,6 +179,9 @@ class ReviewEditVC: UIViewController{
         if edit_keyword.count == 2 {
             edit_keyword.append("")
         }
+        if memoTextView.text == "메모를 입력해주세요!"{
+            memoTextView.text = ""
+        }
         CalendarService.shared.reviewEdit(CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), water_date: dateForServer!, review: memoTextView.text, keyword1: edit_keyword[0], keyword2: edit_keyword[1], keyword3: edit_keyword[2]) { (networkResult) -> (Void) in
 
             switch networkResult {
@@ -260,12 +263,12 @@ extension ReviewEditVC: UITextFieldDelegate,UITextViewDelegate{
     }
     
     func textViewPlaceholder() {
-        if memoTextView.text == "메모" {
+        if memoTextView.text == "메모를 입력해주세요!" {
             memoTextView.text = ""
             memoTextView.textColor = .black
         }
         else if memoTextView.text == "" {
-            memoTextView.text = "메모"
+            memoTextView.text = "메모를 입력해주세요!"
             memoTextView.textColor = .placeholderGrey
         }
     }

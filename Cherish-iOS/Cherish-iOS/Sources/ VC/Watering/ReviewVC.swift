@@ -162,24 +162,6 @@ class ReviewVC: UIViewController {
         present(alert, animated: true)
     }
     
-    // 리뷰 완료 후 물주기 모션으로 이동
-    func goToWateringMotion(){
-        guard let pvc = self.presentingViewController else {return}
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "WateringMotionVC") else{return}
-        vc.modalPresentationStyle = .fullScreen
-        vc.modalTransitionStyle = .coverVertical
-        
-        self.dismiss(animated: true){
-            pvc.present(vc, animated: true, completion: nil)
-        }
-        
-        /// 5초 후에 메인 화면으로 돌아감
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            // Do whatever you want
-            vc.dismiss(animated: true, completion: nil)
-        }
-    }
-    
     func setNamingLabel(){
         reviewNameLabel.text = "\(UserDefaults.standard.string(forKey: "UserNickname")!)"+"님! "+"\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의"
         reviewPlzLabel.text = "\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의 물주기를 기록해주세요"
@@ -218,7 +200,6 @@ class ReviewVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 print(data)
-                // goToWateringMotion()
                 appDel.isWateringComplete = true
                 self.dismiss(animated: true, completion: nil)
                 
@@ -240,8 +221,8 @@ class ReviewVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 print(data)
-                goToWateringMotion()
-                
+                appDel.isWateringComplete = true
+                self.dismiss(animated: true, completion: nil)
             case .requestErr(_):
                 print("requestErr")
             case .pathErr:

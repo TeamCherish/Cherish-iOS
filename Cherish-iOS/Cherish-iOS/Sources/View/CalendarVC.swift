@@ -73,6 +73,10 @@ class CalendarVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         getCalendarData()
         memoShowView.isHidden = true
         cal_Style()
@@ -80,18 +84,17 @@ class CalendarVC: UIViewController {
         forsmallPhone()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        getCalendarData()
-//    }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
         calendarOrigin.reloadData()
         if calendarStatus == "memo"{
-            memoMode()
+            if fetchCalendar.count == 0 {
+                self.navigationController?.popViewController(animated: true)
+            }else{
+                memoMode()
+            }
         }
+        
     }
     
     @IBAction func moveToBack(_ sender: Any) {
@@ -194,6 +197,7 @@ class CalendarVC: UIViewController {
                 memoDateLabel.text = formatter.string(from: memoToCalendarDateTemp!)
                 memoTextLabel.text = fetchCalendar[i].review
                 n = i
+                calendarKeywordCollectionView.reloadData()
                 calendarKeywordCollectionView.delegate = self
                 calendarKeywordCollectionView.dataSource = self
             }
@@ -248,16 +252,22 @@ class CalendarVC: UIViewController {
         else {
             calendarInquireInt = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
         }
+        
+        fetchCalendar = []
+        keyword = []
+        futurewatering_Events = []
+        keywordForCV = []
+        
         CalendarService.shared.calendarLoad(id: calendarInquireInt!, completion: { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 if let calendarResult = data as? CalendarSeeData{
-
+                    
+                    print("물주기 이력,횟수"+"\(calendarResult.water.count)")
                     /// 물주기 한번도 안했을 때
                     if calendarResult.water.count == 0 {
                         wasWatering = false
                         futurewatering_Events.append(formatter.date(from: calendarResult.futureWaterDate)!)
-                        //print(futurewatering_Events)
                     }else{
                         /// 물준 이력이 있을 때
                         wasWatering = true
@@ -270,24 +280,10 @@ class CalendarVC: UIViewController {
                             ])
                             print(calendarResult.water[i].waterDate)
                             watering_Events.append(formatter.date(from: calendarResult.water[i].waterDate)!)
-                            //print(watering_Events)
                         }
                         futurewatering_Events.append(formatter.date(from: calendarResult.futureWaterDate)!)
-                        //print(futurewatering_Events)
-
-                    for i in 0...calendarResult.water.count-1 {
-                        fetchCalendar.append(contentsOf: [
-                            FetchCalendar(waterDate: calendarResult.water[i].waterDate, review: calendarResult.water[i].review, keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
-                        ])
-                        keyword.append(contentsOf: [
-                            CalendarKeyword(keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
-                        ])
-                        watering_Events.append(formatter.date(from: calendarResult.water[i].waterDate)!)
-                        print(watering_Events)
-
                     }
-                }
-                print(keyword)
+                    print(keyword)
                 }
             case .requestErr(_):
                 print("requestErr")
