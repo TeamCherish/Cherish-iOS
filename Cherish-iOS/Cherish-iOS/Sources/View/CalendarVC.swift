@@ -77,8 +77,8 @@ class CalendarVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        getCalendarData()
         memoShowView.isHidden = true
+        getCalendarData()
         cal_Style()
         defineCalStatus()
         forsmallPhone()
@@ -86,7 +86,6 @@ class CalendarVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        calendarOrigin.reloadData()
         cal_Status()
     }
     
@@ -258,6 +257,7 @@ class CalendarVC: UIViewController {
         
         fetchCalendar = []
         keyword = []
+        watering_Events = []
         futurewatering_Events = []
         keywordForCV = []
         
@@ -281,12 +281,13 @@ class CalendarVC: UIViewController {
                             keyword.append(contentsOf: [
                                 CalendarKeyword(keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
                             ])
-                            print(calendarResult.water[i].waterDate)
+//                            print(calendarResult.water[i].waterDate)
                             watering_Events.append(formatter.date(from: calendarResult.water[i].waterDate)!)
                         }
                         futurewatering_Events.append(formatter.date(from: calendarResult.futureWaterDate)!)
                     }
-                    print(keyword)
+//                    print(keyword)
+                    calendarOrigin.reloadData()
                 }
             case .requestErr(_):
                 print("requestErr")

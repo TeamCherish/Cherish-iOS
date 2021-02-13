@@ -190,7 +190,9 @@ class ReviewEditVC: UIViewController{
 
                 switch networkResult {
                 case .success(_):
-                    self.navigationController?.popViewController(animated: true)
+                    /// 삭제됐을 경우 캘린더가 아니라 식물카드뷰로 나가기
+                    let controller = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2]
+                    self.navigationController?.popToViewController(controller!, animated: true)
                     print("success")
                 case .requestErr(_):
                     print("requestErr")
@@ -234,7 +236,7 @@ class ReviewEditVC: UIViewController{
         CalendarService.shared.reviewEdit(CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), water_date: dateForServer!, review: memoTextView.text, keyword1: edit_keyword[0], keyword2: edit_keyword[1], keyword3: edit_keyword[2]) { (networkResult) -> (Void) in
 
             switch networkResult {
-            case .success(_):                
+            case .success(_):
                 self.navigationController?.popViewController(animated: true)
                 print("success")
             case .requestErr(_):
