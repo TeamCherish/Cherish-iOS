@@ -73,11 +73,12 @@ class CalendarVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        memoShowView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        memoShowView.isHidden = true
+//        memoShowView.isHidden = true
         getCalendarData()
         cal_Style()
         defineCalStatus()
@@ -196,6 +197,25 @@ class CalendarVC: UIViewController {
         }
     }
     
+    /// 캘린더 모드로 진입하여 메모 수정한 뒤에 데이터 리로드를 위한 함수
+    func calendarModeForEdit() {
+        calendarOrigin.reloadData()
+        for i in 0...(fetchCalendar.count - 1) {
+            if memoToCalendarDate == fetchCalendar[i].waterDate{
+                memoShowView.isHidden = false
+                formatter.dateFormat = "yyyy-MM-dd"
+                memoToCalendarDateTemp = formatter.date(from: fetchCalendar[i].waterDate)
+                formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
+                memoDateLabel.text = formatter.string(from: memoToCalendarDateTemp!)
+                memoTextLabel.text = fetchCalendar[i].review
+                n = i
+                calendarKeywordCollectionView.reloadData()
+                calendarKeywordCollectionView.delegate = self
+                calendarKeywordCollectionView.dataSource = self
+            }
+        }
+    }
+    
     func cal_Status(){
         if calendarStatus == "memo"{
             if fetchCalendar.count == 0 {
@@ -203,6 +223,8 @@ class CalendarVC: UIViewController {
             }else{
                 memoMode()
             }
+        }else{
+            calendarModeForEdit()
         }
     }
     
