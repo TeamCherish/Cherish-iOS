@@ -172,12 +172,25 @@ extension MyPageVC: UIScrollViewDelegate {
         changingIndex = false
     }
     
-    
+    //MARK: - scrollDelegate
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         if scrollView == mypageExternalSV {
             if !changingIndex{
                 segmentView.setIndex(index: Int(round(mypageExternalSV.contentOffset.x / mypageExternalSV.frame.size.width)))
+            }
+            
+            // horizontal scroll 시
+            // 스크롤 영역보다 왼쪽으로 (0미만값으로) 스크롤 될 때
+            if scrollView.contentOffset.x < 0 {
+                // contentOffset.x 값을 왼쪽 최소값인 0으로 설정
+                scrollView.contentOffset.x = 0
+            }
+            // 스크롤 영역보다 오른쪽으로 (375초과값으로) 스크롤 될 때
+            else if scrollView.contentOffset.x > 375 {
+                // contentOffset.x 값을 오른쪽 최대값인 375로 설정
+                /// 이부분은 기기사이즈에 따라 달라지므로 autolayout 다시 살펴봐야함!
+                scrollView.contentOffset.x = 375
             }
         }
         else {
@@ -263,6 +276,8 @@ extension MyPageVC: CustomSegmentedControlDelegate {
         changingIndex = true
         let x = segmentView.selectedIndex * Int(mypageExternalSV.frame.width)
         mypageExternalSV.setContentOffset(CGPoint(x:x, y:0), animated: true)
+        
+        print(mypageExternalSV.contentInset.left)
         
     }
     
