@@ -87,6 +87,7 @@ extension CherishMainVC : OverlayContainerViewControllerDelegate {
     
     /// 오버레이(노치)가 움직이기 전에 액션처리 해주는 함수
     func overlayContainerViewController(_ containerViewController: OverlayContainerViewController, willMoveOverlay overlayViewController: UIViewController, toNotchAt index: Int) {
+
      
         switch Notches.allCases[index] {
         case .minimum:
@@ -104,6 +105,7 @@ extension CherishMainVC : OverlayContainerViewControllerDelegate {
     }
     
     func overlayContainerViewController(_ containerViewController: OverlayContainerViewController, didMoveOverlay overlayViewController: UIViewController, toNotchAt index: Int) {
+    
         switch Notches.allCases[index] {
         case .minimum:
             print("minimum")
