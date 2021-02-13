@@ -220,7 +220,6 @@ class MainContentVC: UIViewController {
             else {
                 self.dayCountLabel.text = "D-\(UserDefaults.standard.integer(forKey: "selecteddDayData"))"
             }
-            appDel.isCherishPeopleCellSelected = false
         }
     }
     

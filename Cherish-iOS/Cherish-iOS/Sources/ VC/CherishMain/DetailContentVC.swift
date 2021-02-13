@@ -127,7 +127,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 
                 // 셀이 눌리지 않은 상태
                 if appDel.isCherishPeopleCellSelected == false {
-                    
+                    print("first")
                     if plantName == "민들레" {
                         firstCell.eclipseImageView.image = UIImage(named: "ellipse373")
                     }
@@ -164,10 +164,12 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 // 셀이 한번 이상 눌린 상태
                 else
                 {
+                    print("else")
                     if plantName == "민들레" {
                         firstCell.eclipseImageView.image = UIImage(named: "ellipse373")
                     }
                     else if plantName == "로즈마리" {
+                        print("로즈마리")
                         firstCell.eclipseImageView.image = UIImage(named: "ellipse375")
                     }
                     else if plantName == "단모환" {
@@ -226,7 +228,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 DispatchQueue.global(qos: .default).async(execute: {() -> Void in
                     let imageData = try? Data(contentsOf: url!)
                     DispatchQueue.main.async(execute: {() -> Void in
-                        print("hahaha")
                         cell.cherishPlantImageView.image = UIImage(data: imageData!)
                     })
                 })
@@ -282,14 +283,8 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             selectedIndexPath = indexPath
             
             UIView.performWithoutAnimation {
-                print("select됨")
                 cherishPeopleCV.reloadData()
                 cherishPeopleCV.reloadItems(at: [IndexPath(item: 0, section: 0)])
-                self.cherishPeopleCV.performBatchUpdates({ () -> Void in
-                    print("select됨")
-                }, completion: { [self] (finished) -> Void in
-                  
-                })
             }
             
         }
