@@ -232,7 +232,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 })
                 
                 
-                
+                /// 선택된 친구셀 블러처리
                 if indexPath == selectedIndexPath {
                     cell.cherishPlantImageView.alpha = 0.5
                 } else {
@@ -279,16 +279,16 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].id, forKey: "selectedFriendIdData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].phone, forKey: "selectedFriendPhoneData")
             
+            selectedIndexPath = indexPath
+            
             UIView.performWithoutAnimation {
-                
+                print("select됨")
+                cherishPeopleCV.reloadData()
+                cherishPeopleCV.reloadItems(at: [IndexPath(item: 0, section: 0)])
                 self.cherishPeopleCV.performBatchUpdates({ () -> Void in
-                    
-                    selectedIndexPath = indexPath
-                    cherishPeopleCV.reloadData()
-                    cherishPeopleCV.reloadItems(at: [IndexPath(item: 0, section: 0)])
-                    
-                }, completion: { (finished) -> Void in
-                    
+                    print("select됨")
+                }, completion: { [self] (finished) -> Void in
+                  
                 })
             }
             
