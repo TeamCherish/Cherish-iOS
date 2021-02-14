@@ -12,6 +12,8 @@ class ReviewEditVC: UIViewController{
     var edit_keyword = [String]() /// 키워드 배열
     var edit_date : String? /// 메모 작성 날짜
     var dateForServer : String?
+    let maxLength_keyword  = 5 /// 키워드 최대 입력 5글자
+    let maxLength_memo  = 100 /// 메모 최대 입력 100글자
     
     @IBOutlet weak var editMemoDateLabel: CustomLabel!
     @IBOutlet weak var keywordTextField: UITextField!{
@@ -74,6 +76,53 @@ class ReviewEditVC: UIViewController{
     
     //MARK: -사용자 정의 함수
     
+    // 글자 수 검사 노티들 가진 함수
+    func checkingLetterCount(){
+        NotificationCenter.default.addObserver(self, selector: #selector(textfieldDidChange(_:)), name: UITextField.textDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(textviewDidChange(_:)), name: UITextView.textDidChangeNotification, object: nil)
+    }
+    
+    // 1. 키워드 입력 TextField 글자 수 감시(& 복붙 검사)
+    @objc private func textfieldDidChange(_ notification: Notification) {
+        if let textField = notification.object as? UITextField {
+            if let text = textField.text {
+                
+                if text.count > maxLength_keyword {
+                    // 5글자 넘어가면 자동으로 키보드 내려감
+                    textField.resignFirstResponder()
+                }
+                
+                // 초과되는 텍스트 제거
+                if text.count >= maxLength_keyword {
+                    let index = text.index(text.startIndex, offsetBy: maxLength_keyword)
+                    let newString = text[text.startIndex..<index]
+                    textField.text = String(newString)
+                }
+                
+            }
+        }
+    }
+    
+    // 2. 메모 입력 TextView 글자 수 감시(& 복붙 검사)
+    @objc private func textviewDidChange(_ notification: Notification) {
+        if let textView = notification.object as? UITextView {
+            if let text = textView.text {
+                
+                if text.count > maxLength_memo {
+                    // 100글자 넘어가면 자동으로 키보드 내려감
+                    textView.resignFirstResponder()
+                }
+                
+                // 초과되는 텍스트 제거
+                if text.count >= maxLength_memo {
+                    let index = text.index(text.startIndex, offsetBy: maxLength_memo)
+                    let newString = text[text.startIndex..<index]
+                    textView.text = String(newString)
+                }
+                
+            }
+        }
+    }
     /// 키보드 Done 버튼 생성
     func textFieldDoneBtnMake(text_field : UITextField)
     {
@@ -141,7 +190,9 @@ class ReviewEditVC: UIViewController{
 
                 switch networkResult {
                 case .success(_):
-                    self.navigationController?.popViewController(animated: true)
+                    /// 삭제됐을 경우 캘린더가 아니라 식물카드뷰로 나가기
+                    let controller = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2]
+                    self.navigationController?.popToViewController(controller!, animated: true)
                     print("success")
                 case .requestErr(_):
                     print("requestErr")
@@ -185,7 +236,7 @@ class ReviewEditVC: UIViewController{
         CalendarService.shared.reviewEdit(CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), water_date: dateForServer!, review: memoTextView.text, keyword1: edit_keyword[0], keyword2: edit_keyword[1], keyword3: edit_keyword[2]) { (networkResult) -> (Void) in
 
             switch networkResult {
-            case .success(_):                
+            case .success(_):
                 self.navigationController?.popViewController(animated: true)
                 print("success")
             case .requestErr(_):
@@ -206,21 +257,23 @@ class ReviewEditVC: UIViewController{
 extension ReviewEditVC: UITextFieldDelegate,UITextViewDelegate{
     /// 키워드 부분 글자수 Counting
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let currentCharacterCount = textField.text?.count ?? 0
-        if (range.length + range.location > currentCharacterCount){
-            return false
-        }
-        let newKeywordLength = currentCharacterCount + string.utf16.count - range.length
+        guard let text = textField.text else { return false }
+        
+        let newKeywordLength = text.count + string.utf16.count - range.length
         /// 글자 수 실시간 카운팅
         keywordCountingLabel.text =  "\(String(newKeywordLength))"+"/"
         
-        /// 100자 채우면 101자로 표시되는거 해결
-        if newKeywordLength >= 5 {
+        /// 5글자 채우면 6으로 표시되는거 해결
+        if newKeywordLength >= maxLength_keyword {
             keywordCountingLabel.text =  "5/"
         }
         
         /// 최대 글자 수 5
-        return newKeywordLength <= 5
+        if text.count >= maxLength_keyword && range.length == 0 && range.location < maxLength_keyword {
+            return false
+        }
+        
+        return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -233,23 +286,23 @@ extension ReviewEditVC: UITextFieldDelegate,UITextViewDelegate{
     
     /// 메모 부분 글자수 Counting
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        let currentCharacterCount = memoTextView.text?.count ?? 0
-        if text == "\n" {
-            textView.resignFirstResponder()
-        }
-        if (range.length + range.location > currentCharacterCount){
-            return false
-        }
-        let newMemoLength = currentCharacterCount + text.utf16.count - range.length
+        guard let str = memoTextView.text else { return false }
+
+        let newMemoLength = str.count + text.utf16.count - range.length
         /// 글자 수 실시간 카운팅
         memoCountingLabel.text =  "\(String(newMemoLength))"+"/"
-        
-        /// 100자 채우면 101자로 표시되는거 해결
-        if newMemoLength >= 100 {
+
+        /// 100글자 채우면 101로 표시되는거 해결
+        if newMemoLength >= maxLength_memo {
             memoCountingLabel.text =  "100/"
         }
-        /// 최대 글자 수 100자
-        return newMemoLength <= 100
+
+        /// 최대 100글자
+        if text.count >= maxLength_memo && range.length == 0 && range.location < maxLength_memo {
+            return false
+        }
+
+        return true
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
