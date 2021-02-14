@@ -18,6 +18,8 @@ class DetailContentVC: UIViewController {
     @IBOutlet var cherishPeopleCV: UICollectionView!
     var selectedIndexPath : IndexPath?
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let userId: Int = UserDefaults.standard.integer(forKey: "userID")
+    let fcmToken: String = UserDefaults.standard.string(forKey: "fcmToken")!
     
     var cherishPeopleData:[ResultData] = [] {
         didSet {
@@ -37,7 +39,8 @@ class DetailContentVC: UIViewController {
         setCherishPeopleData()
         makeHeaderViewCornerRadius()
         cherishPeopleCV.allowsMultipleSelection = false
-        
+        fcmTokenUpdate()
+
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .postPostponed, object: nil)
         
     }
@@ -64,7 +67,7 @@ class DetailContentVC: UIViewController {
     //MARK: - 메인뷰 데이터 받아오는 함수
     func setCherishPeopleData() {
         
-        MainService.shared.inquireMainView(idx: UserDefaults.standard.integer(forKey: "userID")) { [self]
+        MainService.shared.inquireMainView(idx: userId) { [self]
             (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
@@ -94,6 +97,28 @@ class DetailContentVC: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
         if let vc = storyBoard.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar {
             self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    //MARK: - FCMToken Update func
+    func fcmTokenUpdate() {
+        // 서버에 업데이트된 fcmToken을 put
+        FCMTokenUpdateService.shared.updateFCMToken(userId: userId, fcmToken: fcmToken) {
+            (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                print(data)
+            case .requestErr(let msg):
+                if let message = msg as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
         }
     }
 }

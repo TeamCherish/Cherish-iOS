@@ -8,6 +8,7 @@
 import UIKit
 import MessageUI
 import CallKit
+import Alamofire
 
 class PopUpContactVC: UIViewController {
     var keyword = [String]()
@@ -103,6 +104,26 @@ class PopUpContactVC: UIViewController {
             }
         }
     }
+    
+    func postPushReview(cherishIdx:Int) {
+        PushReviewService.shared.postContact(cherishId:cherishIdx ) {
+            (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                print(data)
+            case .requestErr(let msg):
+                if let message = msg as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
 
     
     //MARK: -@IBAction
@@ -121,12 +142,14 @@ class PopUpContactVC: UIViewController {
         if UIApplication.shared.canOpenURL(kakaoTalkURL! as URL) {
             /// 연락 수단 선택 창 dismiss
             self.dismiss(animated: true){
-                UIApplication.shared.open(kakaoTalkURL! as URL){_ in
+                UIApplication.shared.open(kakaoTalkURL! as URL){ [self]_ in
                     let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
                     if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
                         vc.modalPresentationStyle = .fullScreen
                         pvc.present(vc, animated: true, completion: nil)
                     }
+                    // 푸시알람기능을 위해 카톡 연결을 했음을 알려주는 서버 연결
+                    postPushReview(cherishIdx: UserDefaults.standard.integer(forKey: "selectedFriendIdData"))
                 }
             }
         }
@@ -164,6 +187,9 @@ extension PopUpContactVC: CXCallObserverDelegate{
                 }
             }
             print("Call button pressed")
+            
+            // 푸시알람기능을 위해 전화연결을 했음을 알려주는 서버 연결
+            postPushReview(cherishIdx: UserDefaults.standard.integer(forKey: "selectedFriendIdData"))
         }
     }
 }
@@ -184,6 +210,8 @@ extension PopUpContactVC: MFMessageComposeViewControllerDelegate{
                     }
                 }
             }
+            // 푸시알람기능을 위해 문자연결을 했음을 알려주는 서버 연결
+            postPushReview(cherishIdx: UserDefaults.standard.integer(forKey: "selectedFriendIdData"))
             print("전송 완료")
             break
         case MessageComposeResult.cancelled:
