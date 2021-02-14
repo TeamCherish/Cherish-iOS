@@ -117,7 +117,17 @@ class PlantDetailVC: UIViewController {
                     let imageData = try? Data(contentsOf: url!)
                     plantDetailBtn.setImage(UIImage(data: imageData!), for: .normal)
                     
-                    plantdDayLabel.text = "D-\(plantDetailDataFromMyPage.dDay)"
+                    //MARK: - 선택된 친구 데이터의 dDay 값 파싱 -,+,0
+                    if plantDetailDataFromMyPage.dDay == 0 {
+                        plantdDayLabel.text = "D-day"
+                    }
+                    else if plantDetailDataFromMyPage.dDay < 0 {
+                        plantdDayLabel.text = "D+\(-plantDetailDataFromMyPage.dDay)"
+                    }
+                    else {
+                        plantdDayLabel.text = "D-\(plantDetailDataFromMyPage.dDay)"
+                    }
+                    
                     plantMaintainDayLabel.text = "\(plantDetailDataFromMyPage.duration)일째"
                     plantBirthDayLabel.text = plantDetailDataFromMyPage.birth
                     memoTitleLabel.text = "\(plantDetailDataFromMyPage.nickname)와(과) 함께했던 이야기"
@@ -131,6 +141,7 @@ class PlantDetailVC: UIViewController {
                     if keywordArray.count == 0 {
                         keywordArray.append("키워드 없음")
                     }
+                    
                     plantHealthStatusLabel.text = plantDetailDataFromMyPage.statusMessage
                     makeCircularView(Float(plantDetailDataFromMyPage.gage))
                     
@@ -266,7 +277,17 @@ class PlantDetailVC: UIViewController {
                     let imageData = try? Data(contentsOf: url!)
                     plantDetailBtn.setImage(UIImage(data: imageData!), for: .normal)
                     
-                    plantdDayLabel.text = "D-\(plantDetailData.dDay)"
+                    //MARK: - 선택된 친구 데이터의 dDay 값 파싱 -,+,0
+                    if plantDetailData.dDay == 0 {
+                        plantdDayLabel.text = "D-day"
+                    }
+                    else if plantDetailData.dDay < 0 {
+                        plantdDayLabel.text = "D+\(-plantDetailData.dDay)"
+                    }
+                    else {
+                        plantdDayLabel.text = "D-\(plantDetailData.dDay)"
+                    }
+                    
                     plantMaintainDayLabel.text = "\(plantDetailData.duration)일째"
                     plantBirthDayLabel.text = plantDetailData.birth
                     memoTitleLabel.text = "\(plantDetailData.nickname)와(과) 함께했던 이야기"
@@ -584,14 +605,14 @@ extension PlantDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
         
         if keywordArray.count != 0 {
             
-            if keywordArray.count == 1 {
-                keywordCell.keywordLabel.textColor = .pinkSub
-                keywordCell.layer.borderColor = CGColor(red: 247/255, green: 89/255, blue: 108/255, alpha: 1.0)
-            }
-            else {
+//            if keywordArray.count == 1 {
+//                keywordCell.keywordLabel.textColor = .pinkSub
+//                keywordCell.layer.borderColor = CGColor(red: 247/255, green: 89/255, blue: 108/255, alpha: 1.0)
+//            }
+//            else {
                 keywordCell.keywordLabel.textColor = .black
                 keywordCell.layer.borderColor = CGColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
-            }
+//            }
             keywordCell.keywordLabel.text = keywordArray[indexPath.row]
         }
         

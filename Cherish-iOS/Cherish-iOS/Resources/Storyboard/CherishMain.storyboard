@@ -111,14 +111,6 @@
                                     <action selector="moveToWateringPopUp:" destination="y3f-7o-jg5" eventType="touchUpInside" id="H3N-RT-NcW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVc-1z-5Ct">
-                                <rect key="frame" x="311" y="68" width="48" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="WVc-1z-5Ct" secondAttribute="height" multiplier="1:1" id="1w9-c3-gzi"/>
-                                    <constraint firstAttribute="height" constant="48" id="JFV-bV-lGR"/>
-                                </constraints>
-                                <state key="normal" image="mainIcAlarm"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ook-bx-AcP" customClass="ProgressBarView" customModule="Cherish_iOS" customModuleProvider="target">
                                 <rect key="frame" x="27.999999999999996" y="354.33333333333331" width="14.333333333333332" height="168.99999999999994"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -197,7 +189,6 @@
                         <viewLayoutGuide key="safeArea" id="TmQ-US-0yO"/>
                         <color key="backgroundColor" name="white"/>
                         <constraints>
-                            <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="WVc-1z-5Ct" secondAttribute="trailing" constant="16" id="0sK-aj-JNq"/>
                             <constraint firstItem="tC1-OL-vxp" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="30" id="1XE-MB-dFm"/>
                             <constraint firstItem="Ook-bx-AcP" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="28" id="2nf-kS-Sp8"/>
                             <constraint firstItem="6g2-qy-Jyj" firstAttribute="top" secondItem="7lJ-v4-Fdo" secondAttribute="bottom" constant="-1" id="GEW-5T-E3P"/>
@@ -212,7 +203,6 @@
                             <constraint firstItem="1rh-Gn-4tL" firstAttribute="trailing" secondItem="TmQ-US-0yO" secondAttribute="trailing" constant="-58" id="cYI-FA-ncV"/>
                             <constraint firstItem="7lJ-v4-Fdo" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="26" id="cae-tb-XtH"/>
                             <constraint firstItem="571-Dh-KLL" firstAttribute="top" secondItem="rb3-up-wUt" secondAttribute="bottom" constant="17" id="eNb-JJ-9v9"/>
-                            <constraint firstItem="WVc-1z-5Ct" firstAttribute="top" secondItem="Otg-az-yW5" secondAttribute="top" id="ep8-Ry-r09"/>
                             <constraint firstItem="1cl-cl-xvs" firstAttribute="trailing" secondItem="TmQ-US-0yO" secondAttribute="trailing" id="fjq-QB-PKn"/>
                             <constraint firstItem="1LF-25-ssR" firstAttribute="leading" secondItem="53S-aO-x9T" secondAttribute="leading" constant="10" id="g56-IB-MkX"/>
                             <constraint firstItem="1cl-cl-xvs" firstAttribute="top" secondItem="TmQ-US-0yO" secondAttribute="top" constant="104" id="gDu-wJ-xHN"/>
@@ -500,7 +490,6 @@
         <image name="icBack" width="28" height="28"/>
         <image name="invalidName" width="48.333332061767578" height="13"/>
         <image name="mainBtnWater" width="90" height="40"/>
-        <image name="mainIcAlarm" width="48" height="48"/>
         <image name="modal" width="50" height="4"/>
         <namedColor name="black">
             <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
