@@ -139,7 +139,7 @@ class PlantDetailVC: UIViewController {
                     // keywordArray 요소 중 null값을 필터링
                     keywordArray = keywordArray.filter(){$0 != ""}
                     if keywordArray.count == 0 {
-                        keywordArray.append("키워드 없음")
+                        keywordArray.append("등록된 키워드가 없어요")
                     }
                     
                     plantHealthStatusLabel.text = plantDetailDataFromMyPage.statusMessage
@@ -299,7 +299,7 @@ class PlantDetailVC: UIViewController {
                     // keywordArray 요소 중 null값을 필터링
                     keywordArray = keywordArray.filter(){$0 != ""}
                     if keywordArray.count == 0 {
-                        keywordArray.append("키워드 없음")
+                        keywordArray.append("등록된 키워드가 없어요")
                     }
                     plantHealthStatusLabel.text = plantDetailData.statusMessage
                     makeCircularView(Float(plantDetailData.gage))
@@ -605,14 +605,14 @@ extension PlantDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
         
         if keywordArray.count != 0 {
             
-//            if keywordArray.count == 1 {
-//                keywordCell.keywordLabel.textColor = .pinkSub
-//                keywordCell.layer.borderColor = CGColor(red: 247/255, green: 89/255, blue: 108/255, alpha: 1.0)
-//            }
-//            else {
+            if keywordArray[0] == "등록된 키워드가 없어요" {
+                keywordCell.keywordLabel.textColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
+                keywordCell.layer.borderColor = CGColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
+            }
+            else {
                 keywordCell.keywordLabel.textColor = .black
                 keywordCell.layer.borderColor = CGColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
-//            }
+            }
             keywordCell.keywordLabel.text = keywordArray[indexPath.row]
         }
         
