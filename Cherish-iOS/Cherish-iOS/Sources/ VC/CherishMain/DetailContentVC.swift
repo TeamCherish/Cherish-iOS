@@ -117,6 +117,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
     
     //MARK: - cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         /// 선택된 아이템 표시하는 0번째 item
         if indexPath.item == 0 {
             let firstCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CherishSelectPersonCVC", for: indexPath) as! CherishSelectPersonCVC
@@ -125,9 +126,11 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 
                 var plantName = UserDefaults.standard.string( forKey: "selectedPlantName")
                 
-                // 셀이 눌리지 않은 상태
+                // 셀이 눌리지 않은 상태 (cherishPeopleData의 첫번 째 데이터값으로 초기값을 설정해준다)
                 if appDel.isCherishPeopleCellSelected == false {
                     print("first")
+                    
+                    /// plantName에 따라 원형 이미지를 다르게 설정해주기 위한 분기처리
                     if plantName == "민들레" {
                         firstCell.eclipseImageView.image = UIImage(named: "ellipse373")
                     }

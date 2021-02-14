@@ -37,6 +37,7 @@ class MainContentVC: UIViewController {
         setDataWithSelectedData()
         UserDefaults.standard.set(false, forKey: "plantIsSelected")
         UserDefaults.standard.set(false, forKey: "calendarPlantIsSelected")
+        
         //noti 감지 후 view가 reload될 수 있도록 viewWillAppear함수를 호출해준다.
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .cherishPeopleCellClicked, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .postPostponed, object: nil)
@@ -62,7 +63,6 @@ class MainContentVC: UIViewController {
         if isFirstLoad > 0 {
             
             if appDel.isCherishAdded == true {
-                print("isCherishAdded")
                 setDataWithSelectedData()
                 appDel.isCherishAdded = false
             }
@@ -77,6 +77,10 @@ class MainContentVC: UIViewController {
         LoadingHUD.hide()
     }
     
+    
+    func dandelionImagebyGrowth() {
+        
+    }
     
     //selectedData를 갖고 실제로 view를 구성하는 함수
     func setDataWithSelectedData() {
@@ -105,11 +109,36 @@ class MainContentVC: UIViewController {
                 if appDel.isWateringComplete == true {
                     plantImageView.isHidden = true
                     plantGifView.isHidden = false
-                   
-                        self.plantGifView.image = UIImage.gif(name: "min_watering_ios")!
+                    print("요기가...?")
+                    self.plantGifView.image = UIImage.gif(name: "min_watering_ios")!
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                        self.plantGifView.image = UIImage.gif(name: "real_min")!
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
+                        // gif뷰가 끝나고 나타날 뷰
+                        
+                        // 식물3단계 파싱해주기
+                        if growthInfo < 25 {
+                            print("왜왜왜왜왜ㅙㅇ??")
+                            // 1단계
+                            plantImageView.isHidden = false
+                            plantGifView.isHidden = true
+                            self.plantImageView.image = UIImage(named: "dandelion1")
+                            view.backgroundColor = .dandelionBg
+                        }
+                        else if growthInfo < 50 && growthInfo >= 25 {
+                            // 2단계
+                            plantImageView.isHidden = false
+                            plantGifView.isHidden = true
+                            self.plantImageView.image = UIImage(named: "dandelion2")
+                            view.backgroundColor = .dandelionBg
+                        }
+                        else {
+                            plantImageView.isHidden = true
+                            // 3단계
+                            DispatchQueue.main.async(execute: {() -> Void in
+                                self.plantGifView.image = UIImage.gif(name: "real_min")!
+                            })
+                            self.view.backgroundColor = .dandelionBg
+                        }
                     }
                     
                     // 미루기가 진행중이고, 선택한 친구가 미루기를 한 친구일 때
@@ -121,14 +150,12 @@ class MainContentVC: UIViewController {
                 }
                 //물주기 미뤘을 때 시든상태
                 else if appDel.isWateringPostponed == true && postponedIdx == selectedFriendsIdx {
-                    print("미루기 옵니까???")
                     
                     if appDel.isWateringComplete == false {
                         plantImageView.isHidden = true
                         plantGifView.isHidden = false
-                        DispatchQueue.main.async(execute: {() -> Void in
-                            self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
-                        })
+                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
+                       
                         self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
                     }
                     else {
@@ -137,7 +164,7 @@ class MainContentVC: UIViewController {
                 }
                 //default
                 else {
-                    print("여기니?디폴트")
+                    
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
                     
@@ -155,11 +182,9 @@ class MainContentVC: UIViewController {
                         view.backgroundColor = .dandelionBg
                     }
                     else {
-                        plantImageView.isHidden = true
                         // 3단계
-                        DispatchQueue.main.async(execute: {() -> Void in
-                            self.plantGifView.image = UIImage.gif(name: "real_min")!
-                        })
+                        plantImageView.isHidden = true
+                        self.plantGifView.image = UIImage.gif(name: "real_min")!
                         self.view.backgroundColor = .dandelionBg
                     }
                 }
