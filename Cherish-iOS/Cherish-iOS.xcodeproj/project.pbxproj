@@ -116,6 +116,10 @@
 		548DF19925A2E1780081FCD1 /* PopUpLaterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */; };
 		548DF1A925A395D20081FCD1 /* KeywordCanDeleteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */; };
 		548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */; };
+		54D223F425DA2912003A1496 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54D223F325DA2912003A1496 /* SignUp.storyboard */; };
+		54D223F925DA2D73003A1496 /* SignUpAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D223F825DA2D73003A1496 /* SignUpAccountVC.swift */; };
+		54D223FC25DA30EA003A1496 /* SignUpMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D223FB25DA30EA003A1496 /* SignUpMainVC.swift */; };
+		54D2241325DA3607003A1496 /* SignUpPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
 		9214410225ACE7BD00853E53 /* AddUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9214410125ACE7BD00853E53 /* AddUserService.swift */; };
 		923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */; };
@@ -252,6 +256,10 @@
 		548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpLaterVC.swift; sourceTree = "<group>"; };
 		548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCanDeleteCVC.swift; sourceTree = "<group>"; };
 		548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewAlign.swift; sourceTree = "<group>"; };
+		54D223F325DA2912003A1496 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		54D223F825DA2D73003A1496 /* SignUpAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAccountVC.swift; sourceTree = "<group>"; };
+		54D223FB25DA30EA003A1496 /* SignUpMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMainVC.swift; sourceTree = "<group>"; };
+		54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneVC.swift; sourceTree = "<group>"; };
 		9214410125ACE7BD00853E53 /* AddUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserService.swift; sourceTree = "<group>"; };
 		923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailVC.swift; sourceTree = "<group>"; };
 		923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendVC.swift; sourceTree = "<group>"; };
@@ -441,6 +449,7 @@
 				92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */,
 				33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */,
 				337A5CB425A8543600578130 /* Login.storyboard */,
+				54D223F325DA2912003A1496 /* SignUp.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -478,6 +487,7 @@
 		33851C8D259A5B0E005BCFFD /*  VC */ = {
 			isa = PBXGroup;
 			children = (
+				54D223F625DA294E003A1496 /* SignUp */,
 				33EAA2F225B180C000E75F95 /* SplashVC.swift */,
 				337A5CB725A8544D00578130 /* Login */,
 				5488922325A594B9003839FC /* Calendar */,
@@ -754,6 +764,16 @@
 			path = Watering;
 			sourceTree = "<group>";
 		};
+		54D223F625DA294E003A1496 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				54D223F825DA2D73003A1496 /* SignUpAccountVC.swift */,
+				54D223FB25DA30EA003A1496 /* SignUpMainVC.swift */,
+				54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		9214410025ACE5B000853E53 /* AddUser */ = {
 			isa = PBXGroup;
 			children = (
@@ -886,6 +906,7 @@
 				33201B2225AF3F23001A94E4 /* GoogleService-Info.plist in Resources */,
 				33E874E825A04832001F84FE /* TabBar.storyboard in Resources */,
 				33E874C825A04332001F84FE /* NotoSansCJKkr-Regular.otf in Resources */,
+				54D223F425DA2912003A1496 /* SignUp.storyboard in Resources */,
 				33E874CB25A0434B001F84FE /* Roboto-Regular.ttf in Resources */,
 				33851C7D259A5542005BCFFD /* Assets.xcassets in Resources */,
 				5488923725A5E962003839FC /* CalendarKeywordCVCell.xib in Resources */,
@@ -975,6 +996,7 @@
 				5478345225AB7D8E0021C32B /* ShowMoreNotImageTVC.swift in Sources */,
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,
 				5478343A25A82B060021C32B /* ReviewEditVC.swift in Sources */,
+				54D223F925DA2D73003A1496 /* SignUpAccountVC.swift in Sources */,
 				33805F8E25AC73B1005CED0F /* MainData.swift in Sources */,
 				548DF18D25A227A00081FCD1 /* KeywordCVC.swift in Sources */,
 				923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */,
@@ -1039,6 +1061,7 @@
 				546A247025ACD32800F869E2 /* WateringReviewService.swift in Sources */,
 				33E8754925A09440001F84FE /* NotificationName.swift in Sources */,
 				337A5CB925A8545E00578130 /* LoginVC.swift in Sources */,
+				54D2241325DA3607003A1496 /* SignUpPhoneVC.swift in Sources */,
 				33EAA2EC25B15D4E00E75F95 /* AddUserNC.swift in Sources */,
 				33E8752325A05CFC001F84FE /* DetailContentVC.swift in Sources */,
 				33851C74259A5541005BCFFD /* AppDelegate.swift in Sources */,
@@ -1058,6 +1081,7 @@
 				33805F9A25ACE78A005CED0F /* PlantDetailData.swift in Sources */,
 				33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */,
 				332CC7B325A701A400D0047D /* MypageContactTVC.swift in Sources */,
+				54D223FC25DA30EA003A1496 /* SignUpMainVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
