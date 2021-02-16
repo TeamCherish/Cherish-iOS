@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Bold.otf">
+            <string>NotoSansCJKkr-Bold</string>
+        </array>
         <array key="NotoSansCJKkr-Medium.otf">
             <string>NotoSansCJKkr-Medium</string>
         </array>
@@ -17,10 +20,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Sign Up MainVC-->
+        <!--Sign Up AccountVC-->
         <scene sceneID="WjM-kI-g0z">
             <objects>
-                <viewController id="xkf-fx-ibr" customClass="SignUpMainVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpAccountVC" id="xkf-fx-ibr" customClass="SignUpAccountVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iIL-mb-rbu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,6 +34,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWW-gK-pAH">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                         <state key="normal" image="icnBack"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="xkf-fx-ibr" eventType="touchUpInside" id="Ihi-JC-scl"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원가입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sc3-qb-Nmm" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                         <rect key="frame" x="177.5" y="10" width="59" height="24"/>
@@ -54,40 +60,264 @@
                                     <constraint firstAttribute="height" constant="44" id="qHa-US-mOo"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AC9-6c-qfe">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <connections>
-                                    <segue destination="otp-ym-06B" kind="embed" identifier="" id="A1T-Al-UHI"/>
-                                </connections>
-                            </containerView>
-                            <pageControl opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="PHE-FK-Ms3">
-                                <rect key="frame" x="24" y="106" width="157" height="27.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="PHE-FK-Ms3" secondAttribute="height" multiplier="57:10" id="JbY-Ez-D1w"/>
-                                </constraints>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="PHE-FK-Ms3">
+                                <rect key="frame" x="24" y="106" width="141" height="27.5"/>
                                 <color key="pageIndicatorTintColor" name="textGrey"/>
                                 <color key="currentPageIndicatorTintColor" name="seaweed"/>
                             </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일을 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwG-rO-oEB" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="16" y="178.5" width="190" height="30"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="20"/>
+                                <color key="textColor" name="black"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ex) cherish@naver.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rua-uz-FjC">
+                                <rect key="frame" x="16" y="212.5" width="382" height="44"/>
+                                <color key="backgroundColor" name="mypageBackground"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Ycs-8W-Ow5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="email"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용가능한 이메일입니다." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Og-7H-GaN" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="269.5" y="256.5" width="128.5" height="18"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <color key="textColor" name="seaweed"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호를 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cf2-LH-e9p" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="16" y="294.5" width="208.5" height="30"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="20"/>
+                                <color key="textColor" name="black"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="영문, 숫자 포함 8자이상" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l6g-fl-rw9">
+                                <rect key="frame" x="16" y="328.5" width="382" height="44"/>
+                                <color key="backgroundColor" name="mypageBackground"/>
+                                <color key="textColor" name="textGrey"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 다시 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZDm-eq-3ma">
+                                <rect key="frame" x="16" y="385.5" width="382" height="44"/>
+                                <color key="backgroundColor" name="mypageBackground"/>
+                                <color key="textColor" name="textGrey"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용가능한 비밀번호입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXh-br-Xn2" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="258.5" y="429.5" width="139.5" height="18"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <color key="textColor" name="seaweed"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKJ-5x-4V1">
+                                <rect key="frame" x="364" y="338.5" width="24" height="24"/>
+                                <state key="normal" image="eyeOff"/>
+                                <connections>
+                                    <action selector="firstEyeAction:" destination="xkf-fx-ibr" eventType="touchUpInside" id="9Mc-ox-m7u"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5k-X7-utb">
+                                <rect key="frame" x="364" y="395.5" width="24" height="24"/>
+                                <state key="normal" image="eyeOff"/>
+                                <connections>
+                                    <action selector="secondEyeAction:" destination="xkf-fx-ibr" eventType="touchUpInside" id="fNR-66-Twg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntH-uc-BDn">
+                                <rect key="frame" x="16" y="779" width="382" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dx6-9W-DY3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="16"/>
+                                <state key="normal" title="완료">
+                                    <color key="titleColor" name="textGrey"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextPage:" destination="xkf-fx-ibr" eventType="touchUpInside" id="X9i-hP-63A"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9mu-EE-Ke3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ZDm-eq-3ma" firstAttribute="height" secondItem="Rua-uz-FjC" secondAttribute="height" id="6s3-wF-XHS"/>
+                            <constraint firstItem="0Og-7H-GaN" firstAttribute="top" secondItem="Rua-uz-FjC" secondAttribute="bottom" id="8GF-cs-DKZ"/>
                             <constraint firstItem="PHE-FK-Ms3" firstAttribute="top" secondItem="1cK-RR-2xn" secondAttribute="bottom" constant="18" id="9Lh-5a-bg9"/>
-                            <constraint firstItem="AC9-6c-qfe" firstAttribute="leading" secondItem="9mu-EE-Ke3" secondAttribute="leading" id="DVv-1l-GXg"/>
+                            <constraint firstItem="ntH-uc-BDn" firstAttribute="leading" secondItem="l6g-fl-rw9" secondAttribute="leading" id="BeP-Ic-uPM"/>
+                            <constraint firstItem="r5k-X7-utb" firstAttribute="centerY" secondItem="ZDm-eq-3ma" secondAttribute="centerY" id="FvI-2p-a94"/>
+                            <constraint firstItem="UKJ-5x-4V1" firstAttribute="trailing" secondItem="l6g-fl-rw9" secondAttribute="trailing" constant="-10" id="HFp-lJ-toL"/>
+                            <constraint firstItem="l6g-fl-rw9" firstAttribute="top" secondItem="Cf2-LH-e9p" secondAttribute="bottom" constant="4" id="Jem-ia-hk3"/>
+                            <constraint firstItem="0Og-7H-GaN" firstAttribute="trailing" secondItem="Rua-uz-FjC" secondAttribute="trailing" id="Lp9-Uj-JI9"/>
+                            <constraint firstItem="ZDm-eq-3ma" firstAttribute="trailing" secondItem="Rua-uz-FjC" secondAttribute="trailing" id="NTh-U4-I26"/>
+                            <constraint firstItem="WXh-br-Xn2" firstAttribute="trailing" secondItem="ZDm-eq-3ma" secondAttribute="trailing" id="NUD-TU-hQ3"/>
+                            <constraint firstItem="l6g-fl-rw9" firstAttribute="height" secondItem="Rua-uz-FjC" secondAttribute="height" id="OGw-nx-tW5"/>
                             <constraint firstItem="1cK-RR-2xn" firstAttribute="top" secondItem="9mu-EE-Ke3" secondAttribute="top" id="P2U-nV-M0D"/>
+                            <constraint firstItem="l6g-fl-rw9" firstAttribute="leading" secondItem="Rua-uz-FjC" secondAttribute="leading" id="Rwv-JK-ZoL"/>
+                            <constraint firstItem="UKJ-5x-4V1" firstAttribute="centerY" secondItem="l6g-fl-rw9" secondAttribute="centerY" id="T0a-om-lv6"/>
+                            <constraint firstItem="Rua-uz-FjC" firstAttribute="leading" secondItem="UwG-rO-oEB" secondAttribute="leading" id="TxS-ht-iPF"/>
                             <constraint firstItem="1cK-RR-2xn" firstAttribute="leading" secondItem="9mu-EE-Ke3" secondAttribute="leading" id="VNb-bs-Bxo"/>
-                            <constraint firstItem="AC9-6c-qfe" firstAttribute="top" secondItem="1cK-RR-2xn" secondAttribute="bottom" id="YSe-Mu-zDl"/>
+                            <constraint firstItem="Rua-uz-FjC" firstAttribute="top" secondItem="UwG-rO-oEB" secondAttribute="bottom" constant="4" id="VpJ-xK-aWW"/>
+                            <constraint firstItem="ntH-uc-BDn" firstAttribute="trailing" secondItem="l6g-fl-rw9" secondAttribute="trailing" id="Zd5-aR-NOb"/>
+                            <constraint firstItem="9mu-EE-Ke3" firstAttribute="bottom" secondItem="ntH-uc-BDn" secondAttribute="bottom" constant="33" id="cXE-Lz-nhJ"/>
+                            <constraint firstItem="Cf2-LH-e9p" firstAttribute="leading" secondItem="UwG-rO-oEB" secondAttribute="leading" id="dDw-L9-z8V"/>
+                            <constraint firstItem="ZDm-eq-3ma" firstAttribute="leading" secondItem="Rua-uz-FjC" secondAttribute="leading" id="dle-79-okM"/>
+                            <constraint firstItem="l6g-fl-rw9" firstAttribute="trailing" secondItem="Rua-uz-FjC" secondAttribute="trailing" id="euZ-nr-2aG"/>
                             <constraint firstItem="9mu-EE-Ke3" firstAttribute="trailing" secondItem="1cK-RR-2xn" secondAttribute="trailing" id="mWJ-cz-MkV"/>
+                            <constraint firstItem="ZDm-eq-3ma" firstAttribute="top" secondItem="l6g-fl-rw9" secondAttribute="bottom" constant="13" id="peI-oo-Xov"/>
+                            <constraint firstItem="Cf2-LH-e9p" firstAttribute="top" secondItem="Rua-uz-FjC" secondAttribute="bottom" constant="38" id="qZv-OY-iB2"/>
+                            <constraint firstItem="WXh-br-Xn2" firstAttribute="top" secondItem="ZDm-eq-3ma" secondAttribute="bottom" id="qag-Ni-bb1"/>
+                            <constraint firstItem="UwG-rO-oEB" firstAttribute="leading" secondItem="9mu-EE-Ke3" secondAttribute="leading" constant="16" id="r83-cc-yqa"/>
                             <constraint firstItem="PHE-FK-Ms3" firstAttribute="leading" secondItem="9mu-EE-Ke3" secondAttribute="leading" constant="24" id="rGW-fj-yqp"/>
-                            <constraint firstItem="9mu-EE-Ke3" firstAttribute="bottom" secondItem="AC9-6c-qfe" secondAttribute="bottom" id="t5z-Z2-Nbe"/>
-                            <constraint firstItem="9mu-EE-Ke3" firstAttribute="trailing" secondItem="AC9-6c-qfe" secondAttribute="trailing" id="tC3-Wc-D0T"/>
+                            <constraint firstItem="UwG-rO-oEB" firstAttribute="top" secondItem="PHE-FK-Ms3" secondAttribute="bottom" constant="45" id="suz-A8-x2c"/>
+                            <constraint firstItem="r5k-X7-utb" firstAttribute="trailing" secondItem="UKJ-5x-4V1" secondAttribute="trailing" id="vgZ-7S-Nan"/>
+                            <constraint firstItem="9mu-EE-Ke3" firstAttribute="trailing" secondItem="Rua-uz-FjC" secondAttribute="trailing" constant="16" id="zQb-Sk-JQW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4eW-c9-Qmm"/>
+                    <connections>
+                        <outlet property="emailCheckBtn" destination="ntH-uc-BDn" id="AJY-c7-aph"/>
+                        <outlet property="emailCheckLabel" destination="0Og-7H-GaN" id="ih7-1V-vJt"/>
+                        <outlet property="emailTextField" destination="Rua-uz-FjC" id="mOZ-ig-3IS"/>
+                        <outlet property="firstEyeBtn" destination="UKJ-5x-4V1" id="A2M-8J-lCN"/>
+                        <outlet property="passwordCheckLabel" destination="WXh-br-Xn2" id="9OS-eJ-tnQ"/>
+                        <outlet property="passwordCheckTextField" destination="ZDm-eq-3ma" id="Izq-Hy-pZM"/>
+                        <outlet property="passwordTextField" destination="l6g-fl-rw9" id="GIE-ry-UbN"/>
+                        <outlet property="pleasePasswordLabel" destination="Cf2-LH-e9p" id="Nd7-f5-815"/>
+                        <outlet property="secondEyeBtn" destination="r5k-X7-utb" id="eXb-Vj-Vch"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXx-w9-1k7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863.768115942029" y="99.776785714285708"/>
+            <point key="canvasLocation" x="725" y="100"/>
+        </scene>
+        <!--Sign Up PhoneVC-->
+        <scene sceneID="PRU-TM-BW5">
+            <objects>
+                <viewController storyboardIdentifier="SignUpPhoneVC" id="esr-Ib-Z3R" customClass="SignUpPhoneVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nGJ-zh-rws">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7n-Wh-vaH">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIX-xN-1vz">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <state key="normal" image="icnBack"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="xkf-fx-ibr" eventType="touchUpInside" id="gOa-TF-ZoJ"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원가입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ja2-Tm-lgi" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="177.5" y="10" width="59" height="24"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                        <color key="textColor" name="black"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                <real key="value" value="-0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="ja2-Tm-lgi" firstAttribute="centerX" secondItem="I7n-Wh-vaH" secondAttribute="centerX" id="27P-aV-Ysw"/>
+                                    <constraint firstItem="iIX-xN-1vz" firstAttribute="top" secondItem="I7n-Wh-vaH" secondAttribute="top" id="ALe-7I-eXg"/>
+                                    <constraint firstAttribute="height" constant="44" id="Tts-AU-lqp"/>
+                                    <constraint firstItem="ja2-Tm-lgi" firstAttribute="centerY" secondItem="I7n-Wh-vaH" secondAttribute="centerY" id="WQv-fo-uJ8"/>
+                                    <constraint firstAttribute="bottom" secondItem="iIX-xN-1vz" secondAttribute="bottom" id="jNe-ha-KT5"/>
+                                    <constraint firstItem="iIX-xN-1vz" firstAttribute="leading" secondItem="I7n-Wh-vaH" secondAttribute="leading" id="rx1-rf-ICF"/>
+                                </constraints>
+                            </view>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="hHa-uA-Yrs">
+                                <rect key="frame" x="24" y="106" width="141" height="27.5"/>
+                                <color key="pageIndicatorTintColor" name="textGrey"/>
+                                <color key="currentPageIndicatorTintColor" name="seaweed"/>
+                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호를 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcT-6f-aKk" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="16" y="178.5" width="208.5" height="30"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="20"/>
+                                <color key="textColor" name="black"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ex) 010-1234-5678" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6HT-ss-BEP">
+                                <rect key="frame" x="16" y="212.5" width="382" height="44"/>
+                                <color key="backgroundColor" name="mypageBackground"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="PbK-cz-c1V"/>
+                                </constraints>
+                                <color key="textColor" name="textGrey"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호를 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="448-DH-Pzd" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="16" y="294.5" width="208.5" height="30"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="20"/>
+                                <color key="textColor" name="black"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bob-yC-3oG">
+                                <rect key="frame" x="16" y="332" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SAT-xL-4Dx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kcT-6f-aKk" firstAttribute="leading" secondItem="SAT-xL-4Dx" secondAttribute="leading" constant="16" id="2YM-Sc-BXY"/>
+                            <constraint firstItem="I7n-Wh-vaH" firstAttribute="top" secondItem="SAT-xL-4Dx" secondAttribute="top" id="3Fw-1J-FFG"/>
+                            <constraint firstItem="hHa-uA-Yrs" firstAttribute="top" secondItem="I7n-Wh-vaH" secondAttribute="bottom" constant="18" id="DU6-1h-831"/>
+                            <constraint firstItem="6HT-ss-BEP" firstAttribute="top" secondItem="kcT-6f-aKk" secondAttribute="bottom" constant="4" id="EvG-c5-ecM"/>
+                            <constraint firstItem="448-DH-Pzd" firstAttribute="top" secondItem="6HT-ss-BEP" secondAttribute="bottom" constant="38" id="FtE-WI-Fwo"/>
+                            <constraint firstItem="I7n-Wh-vaH" firstAttribute="leading" secondItem="nGJ-zh-rws" secondAttribute="leading" id="IJR-a1-JSJ"/>
+                            <constraint firstItem="SAT-xL-4Dx" firstAttribute="trailing" secondItem="6HT-ss-BEP" secondAttribute="trailing" constant="16" id="J58-W4-3rL"/>
+                            <constraint firstItem="kcT-6f-aKk" firstAttribute="top" secondItem="hHa-uA-Yrs" secondAttribute="bottom" constant="45" id="KGc-bc-gwz"/>
+                            <constraint firstItem="SAT-xL-4Dx" firstAttribute="trailing" secondItem="I7n-Wh-vaH" secondAttribute="trailing" id="LEI-QC-FJg"/>
+                            <constraint firstItem="448-DH-Pzd" firstAttribute="leading" secondItem="kcT-6f-aKk" secondAttribute="leading" id="T5O-El-ZXy"/>
+                            <constraint firstItem="6HT-ss-BEP" firstAttribute="leading" secondItem="kcT-6f-aKk" secondAttribute="leading" id="oRB-1A-IV4"/>
+                            <constraint firstItem="hHa-uA-Yrs" firstAttribute="leading" secondItem="SAT-xL-4Dx" secondAttribute="leading" constant="24" id="zel-Xt-JOo"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bfn-2V-bnI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1490" y="100"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vup-DF-fKm">
@@ -106,149 +336,15 @@
             </objects>
             <point key="canvasLocation" x="-46.376811594202906" y="99.776785714285708"/>
         </scene>
-        <!--Sign Up AccountVC-->
-        <scene sceneID="9e0-IC-gCu">
-            <objects>
-                <viewController storyboardIdentifier="SignUpAccountVC" id="otp-ym-06B" customClass="SignUpAccountVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EPc-sU-zec">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일을 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oa-5l-IQO" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="73" width="190" height="30"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="20"/>
-                                <color key="textColor" name="black"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                        <real key="value" value="-0.69999999999999996"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex) cherish@naver.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xLQ-l3-xXG">
-                                <rect key="frame" x="16" y="107" width="382" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="gel-Um-70S"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tac-HW-KVa">
-                                <rect key="frame" x="16" y="691" width="382" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="QF3-3n-HBc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
-                                <state key="normal" title="완료">
-                                    <color key="titleColor" name="textGrey"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
-                                        <real key="value" value="-0.69999999999999996"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용가능한 이메일입니다." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPb-B2-VTV" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="269.5" y="151" width="128.5" height="18"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
-                                <color key="textColor" name="seaweed"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                        <real key="value" value="-0.69999999999999996"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호를 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2XP-Gy-zBf" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="189" width="208.5" height="30"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="20"/>
-                                <color key="textColor" name="black"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                        <real key="value" value="-0.69999999999999996"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="영문, 숫자 포함 8자이상" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KPx-A6-73m">
-                                <rect key="frame" x="16" y="223" width="382" height="44"/>
-                                <color key="textColor" name="textGrey"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호를 다시 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vRN-wV-hUp">
-                                <rect key="frame" x="16" y="280" width="382" height="44"/>
-                                <color key="textColor" name="textGrey"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용가능한 비밀번호입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haS-i0-kjl" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="258.5" y="324" width="139.5" height="18"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
-                                <color key="textColor" name="seaweed"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                        <real key="value" value="-0.69999999999999996"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5TA-2b-UdG">
-                                <rect key="frame" x="360" y="233" width="24" height="24"/>
-                                <state key="normal" image="eyeOff"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jF9-uU-Kex">
-                                <rect key="frame" x="360" y="290" width="24" height="24"/>
-                                <state key="normal" image="eyeOff"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="WPb-B2-VTV" firstAttribute="top" secondItem="xLQ-l3-xXG" secondAttribute="bottom" id="029-xR-UDE"/>
-                            <constraint firstItem="Tac-HW-KVa" firstAttribute="trailing" secondItem="xLQ-l3-xXG" secondAttribute="trailing" id="604-Zb-Wv9"/>
-                            <constraint firstItem="vRN-wV-hUp" firstAttribute="leading" secondItem="xLQ-l3-xXG" secondAttribute="leading" id="7O2-BL-TwW"/>
-                            <constraint firstItem="KPx-A6-73m" firstAttribute="leading" secondItem="xLQ-l3-xXG" secondAttribute="leading" id="C9K-5I-2j1"/>
-                            <constraint firstItem="vRN-wV-hUp" firstAttribute="trailing" secondItem="xLQ-l3-xXG" secondAttribute="trailing" id="DAW-sg-OFj"/>
-                            <constraint firstItem="jF9-uU-Kex" firstAttribute="centerY" secondItem="vRN-wV-hUp" secondAttribute="centerY" id="IGV-Nw-we3"/>
-                            <constraint firstItem="xLQ-l3-xXG" firstAttribute="leading" secondItem="9oa-5l-IQO" secondAttribute="leading" id="Kht-hP-lxs"/>
-                            <constraint firstItem="2XP-Gy-zBf" firstAttribute="leading" secondItem="9oa-5l-IQO" secondAttribute="leading" id="Mo1-3p-7Ug"/>
-                            <constraint firstItem="WPb-B2-VTV" firstAttribute="trailing" secondItem="xLQ-l3-xXG" secondAttribute="trailing" id="N6q-d8-iA3"/>
-                            <constraint firstItem="KPx-A6-73m" firstAttribute="top" secondItem="2XP-Gy-zBf" secondAttribute="bottom" constant="4" id="NbG-ax-pAp"/>
-                            <constraint firstItem="9oa-5l-IQO" firstAttribute="top" secondItem="EPc-sU-zec" secondAttribute="top" constant="73" id="NiM-ox-4ve"/>
-                            <constraint firstItem="vRN-wV-hUp" firstAttribute="height" secondItem="xLQ-l3-xXG" secondAttribute="height" id="Or7-v2-5rl"/>
-                            <constraint firstItem="jF9-uU-Kex" firstAttribute="trailing" secondItem="5TA-2b-UdG" secondAttribute="trailing" id="QfT-3a-Jbc"/>
-                            <constraint firstItem="KPx-A6-73m" firstAttribute="trailing" secondItem="xLQ-l3-xXG" secondAttribute="trailing" id="Tuq-Yp-LIP"/>
-                            <constraint firstItem="2XP-Gy-zBf" firstAttribute="top" secondItem="xLQ-l3-xXG" secondAttribute="bottom" constant="38" id="bFq-mB-mq5"/>
-                            <constraint firstItem="vRN-wV-hUp" firstAttribute="top" secondItem="KPx-A6-73m" secondAttribute="bottom" constant="13" id="c86-aO-Iae"/>
-                            <constraint firstAttribute="trailing" secondItem="xLQ-l3-xXG" secondAttribute="trailing" constant="16" id="dxf-kl-oz9"/>
-                            <constraint firstItem="9oa-5l-IQO" firstAttribute="leading" secondItem="EPc-sU-zec" secondAttribute="leading" constant="16" id="eGI-u2-20g"/>
-                            <constraint firstItem="5TA-2b-UdG" firstAttribute="centerY" secondItem="KPx-A6-73m" secondAttribute="centerY" id="eMg-yr-Ig4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5TA-2b-UdG" secondAttribute="trailing" constant="10" id="g1h-xS-pyq"/>
-                            <constraint firstItem="KPx-A6-73m" firstAttribute="height" secondItem="xLQ-l3-xXG" secondAttribute="height" id="ihe-Dp-5du"/>
-                            <constraint firstItem="haS-i0-kjl" firstAttribute="top" secondItem="vRN-wV-hUp" secondAttribute="bottom" id="kGN-yS-I4M"/>
-                            <constraint firstAttribute="bottom" secondItem="Tac-HW-KVa" secondAttribute="bottom" constant="33" id="lux-pR-u1p"/>
-                            <constraint firstItem="Tac-HW-KVa" firstAttribute="leading" secondItem="xLQ-l3-xXG" secondAttribute="leading" id="pW9-vN-x5m"/>
-                            <constraint firstItem="xLQ-l3-xXG" firstAttribute="top" secondItem="9oa-5l-IQO" secondAttribute="bottom" constant="4" id="qQb-MX-dwj"/>
-                            <constraint firstItem="haS-i0-kjl" firstAttribute="trailing" secondItem="vRN-wV-hUp" secondAttribute="trailing" id="vt4-DO-qjt"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="emailCheckBtn" destination="Tac-HW-KVa" id="skq-xk-1Jx"/>
-                        <outlet property="emailTextField" destination="xLQ-l3-xXG" id="eCX-3G-wBx"/>
-                        <outlet property="passwordCheckTextField" destination="vRN-wV-hUp" id="1qU-gG-zqC"/>
-                        <outlet property="passwordTextField" destination="KPx-A6-73m" id="V1l-sQ-NaF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fvr-vG-bZ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1648" y="-554"/>
-        </scene>
     </scenes>
     <resources>
         <image name="eyeOff" width="24" height="24"/>
         <image name="icnBack" width="44" height="44"/>
         <namedColor name="black">
             <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="mypageBackground">
+            <color red="0.93699997663497925" green="0.94499999284744263" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="seaweed">
             <color red="0.10199999809265137" green="0.82400000095367432" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -297,6 +297,12 @@ class LoginVC: UIViewController {
             }
         }
     }
+    @IBAction func signUpAction(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "SignUp", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(identifier: "SignUpAccountVC") as? SignUpAccountVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 //MARK: - UITextFieldDelegate

@@ -82,6 +82,9 @@
                                 <state key="normal" title="회원가입">
                                     <color key="titleColor" name="textGrey"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUpAction:" destination="tI6-tj-Hhh" eventType="touchUpInside" id="3gQ-Ex-7ly"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icEmail" translatesAutoresizingMaskIntoConstraints="NO" id="aCg-a4-Ppb">
                                 <rect key="frame" x="34" y="346.66666666666669" width="19" height="19"/>
