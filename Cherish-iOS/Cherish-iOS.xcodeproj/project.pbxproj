@@ -119,6 +119,8 @@
 		5491593125DBADC6008104FC /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593025DBADC6008104FC /* CustomPageControl.swift */; };
 		5491593425DBB1C0008104FC /* SignUpGenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593325DBB1C0008104FC /* SignUpGenderVC.swift */; };
 		5491593A25DBF78B008104FC /* SignUpNicknameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593925DBF78B008104FC /* SignUpNicknameVC.swift */; };
+		5491593D25DC13A6008104FC /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593C25DC13A5008104FC /* SignUpService.swift */; };
+		5491594025DC1641008104FC /* SignUpData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593F25DC1641008104FC /* SignUpData.swift */; };
 		54D223F425DA2912003A1496 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54D223F325DA2912003A1496 /* SignUp.storyboard */; };
 		54D223FC25DA30EA003A1496 /* SignUpAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */; };
 		54D2241325DA3607003A1496 /* SignUpPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */; };
@@ -261,6 +263,8 @@
 		5491593025DBADC6008104FC /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		5491593325DBB1C0008104FC /* SignUpGenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpGenderVC.swift; sourceTree = "<group>"; };
 		5491593925DBF78B008104FC /* SignUpNicknameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNicknameVC.swift; sourceTree = "<group>"; };
+		5491593C25DC13A5008104FC /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
+		5491593F25DC1641008104FC /* SignUpData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpData.swift; sourceTree = "<group>"; };
 		54D223F325DA2912003A1496 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAccountVC.swift; sourceTree = "<group>"; };
 		54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneVC.swift; sourceTree = "<group>"; };
@@ -351,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				33805F7D25AC6209005CED0F /* LoginService.swift */,
+				5491593C25DC13A5008104FC /* SignUpService.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				33805F8225AC62B3005CED0F /* LoginData.swift */,
+				5491593F25DC1641008104FC /* SignUpData.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1003,6 +1009,7 @@
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,
 				5478343A25A82B060021C32B /* ReviewEditVC.swift in Sources */,
 				33805F8E25AC73B1005CED0F /* MainData.swift in Sources */,
+				5491594025DC1641008104FC /* SignUpData.swift in Sources */,
 				548DF18D25A227A00081FCD1 /* KeywordCVC.swift in Sources */,
 				923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */,
 				33E8750725A04DA2001F84FE /* UIColor+Additions.swift in Sources */,
@@ -1059,6 +1066,7 @@
 				33D0026625A3036800E97811 /* PlantDetailPopUpExplainVC.swift in Sources */,
 				546A247325ACD53A00F869E2 /* WateringReviewData.swift in Sources */,
 				92824DA225B19A7F003D7678 /* MypageNC.swift in Sources */,
+				5491593D25DC13A6008104FC /* SignUpService.swift in Sources */,
 				3317777825B042C200CC1030 /* UIImage+Extension.swift in Sources */,
 				33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */,
 				332CC7BD25A707BD00D0047D /* MypagePlantData.swift in Sources */,

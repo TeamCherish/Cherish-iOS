@@ -9,7 +9,9 @@ import UIKit
 import MessageUI
 
 class SignUpPhoneVC: UIViewController {
+    //MARK: -변수 선언부
     var forSending = ["","","","","",""]
+
     //MARK: -@IBOutlet
     @IBOutlet weak var phoneTextField: UITextField!{
         didSet{
@@ -51,6 +53,11 @@ class SignUpPhoneVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetting(status: true)
+    }
+    
+    ///화면 터치시 키보드 내리기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     //MARK: -Personal Func

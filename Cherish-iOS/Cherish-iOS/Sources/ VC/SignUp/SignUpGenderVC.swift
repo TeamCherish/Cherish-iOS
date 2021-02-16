@@ -9,6 +9,17 @@ import UIKit
 
 class SignUpGenderVC: UIViewController {
     
+    //MARK: -변수 선언부
+    var genderPicker = UIPickerView()
+    var genderPickerStatus : Bool = false
+    var agePicker = UIPickerView()
+    var agePickerStatus : Bool = false
+    let gender = ["여성","남성"]
+    let formatter = DateFormatter()
+    var limit: String?
+    var limit_year : Int?
+    
+    //MARK: -@IBOutlet
     @IBOutlet weak var genderTextField: UITextField!{
         didSet{
             genderTextField.makeRounded(cornerRadius: 8)
@@ -31,18 +42,17 @@ class SignUpGenderVC: UIViewController {
             nextBtn.backgroundColor = .inputGrey
         }
     }
-    var genderPicker = UIPickerView()
-    var genderPickerStatus : Bool = false
-    var agePicker = UIPickerView()
-    var agePickerStatus : Bool = false
-    let gender = ["여성","남성"]
-    let formatter = DateFormatter()
-    var limit: String?
-    var limit_year : Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createPicker()
         pickerSetting()
+    }
+    
+    //MARK: -사용자 정의 함수
+    ///화면 터치시 키보드 내리기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func blankAlert(title: String, message: String) {
@@ -88,8 +98,10 @@ class SignUpGenderVC: UIViewController {
             nextBtn.backgroundColor = .seaweed
             nextBtn.setTitleColor(.white, for: .normal)
         }
+        
     }
     
+    //MARK: -@IBAction
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -105,6 +117,7 @@ class SignUpGenderVC: UIViewController {
     
 }
 
+//MARK: -Protocols
 extension SignUpGenderVC: UIPickerViewDataSource,UIPickerViewDelegate{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

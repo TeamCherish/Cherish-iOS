@@ -20,4 +20,5 @@ struct APIConstants {
     static let plantDetailCardURL = baseURL + "plantDetail/"
     static let calendarURL = baseURL + "calendar/"
     static let mypageURL = baseURL + "user/" ///마이페이지
+    static let signupURL = baseURL + "login/signup"
 }
