@@ -116,6 +116,8 @@
 		548DF19925A2E1780081FCD1 /* PopUpLaterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */; };
 		548DF1A925A395D20081FCD1 /* KeywordCanDeleteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */; };
 		548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */; };
+		5491593125DBADC6008104FC /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593025DBADC6008104FC /* CustomPageControl.swift */; };
+		5491593425DBB1C0008104FC /* SignUpGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593325DBB1C0008104FC /* SignUpGender.swift */; };
 		54D223F425DA2912003A1496 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54D223F325DA2912003A1496 /* SignUp.storyboard */; };
 		54D223FC25DA30EA003A1496 /* SignUpAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */; };
 		54D2241325DA3607003A1496 /* SignUpPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */; };
@@ -255,6 +257,8 @@
 		548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpLaterVC.swift; sourceTree = "<group>"; };
 		548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCanDeleteCVC.swift; sourceTree = "<group>"; };
 		548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewAlign.swift; sourceTree = "<group>"; };
+		5491593025DBADC6008104FC /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
+		5491593325DBB1C0008104FC /* SignUpGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpGender.swift; sourceTree = "<group>"; };
 		54D223F325DA2912003A1496 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAccountVC.swift; sourceTree = "<group>"; };
 		54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneVC.swift; sourceTree = "<group>"; };
@@ -509,6 +513,7 @@
 				33E8751225A05623001F84FE /* CircularProgressBar.swift */,
 				33E8754B25A0D272001F84FE /* ProgressBarView.swift */,
 				548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */,
+				5491593025DBADC6008104FC /* CustomPageControl.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -767,6 +772,7 @@
 			children = (
 				54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */,
 				54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */,
+				5491593325DBB1C0008104FC /* SignUpGender.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1020,6 +1026,7 @@
 				5478346F25AC72F90021C32B /* LaterService.swift in Sources */,
 				5488923625A5E962003839FC /* CalendarKeywordCVCell.swift in Sources */,
 				92B2306525A30F390024B8A8 /* Friend.swift in Sources */,
+				5491593125DBADC6008104FC /* CustomPageControl.swift in Sources */,
 				548DF17525A1BB7F0081FCD1 /* PopUpContactVC.swift in Sources */,
 				5478347525AC77600021C32B /* WateringDayService.swift in Sources */,
 				3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */,
@@ -1073,6 +1080,7 @@
 				33805F7E25AC6209005CED0F /* LoginService.swift in Sources */,
 				548DF17E25A1EE730081FCD1 /* ReviewVC.swift in Sources */,
 				33EAA2EF25B17D3D00E75F95 /* PlantDetailCardService.swift in Sources */,
+				5491593425DBB1C0008104FC /* SignUpGender.swift in Sources */,
 				5478343625A76EBC0021C32B /* UIDevice+ScreenSize.swift in Sources */,
 				33805F9A25ACE78A005CED0F /* PlantDetailData.swift in Sources */,
 				33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */,

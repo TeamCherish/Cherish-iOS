@@ -110,4 +110,9 @@ extension UIColor {
     @nonobjc class var rosemaryBg: UIColor {
         return UIColor(red: 199/255, green: 177/255, blue: 216/255, alpha: 1.0)
     }
+    
+    // pageControl 비지정 색
+    @nonobjc class var pageGrey: UIColor {
+        return UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 1.0)
+    }
 }

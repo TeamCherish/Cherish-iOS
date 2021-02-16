@@ -8,7 +8,7 @@
 import UIKit
 
 class SignUpAccountVC: UIViewController {
-
+    
     @IBOutlet weak var emailTextField: UITextField!{
         didSet{
             emailTextField.addLeftPadding()
@@ -59,23 +59,19 @@ class SignUpAccountVC: UIViewController {
         self.view.endEditing(true)
     }
     
+    func setHidden(status: Bool){
+        pleasePasswordLabel.isHidden = status
+        passwordTextField.isHidden = status
+        firstEyeBtn.isHidden = status
+        passwordCheckTextField.isHidden = status
+        secondEyeBtn.isHidden = status
+    }
+    
     // 이메일 입력하기 전까지는 안보이기
     func beforeEmail(){
         emailCheckLabel.isHidden = true
-        pleasePasswordLabel.isHidden = true
-        passwordTextField.isHidden = true
-        firstEyeBtn.isHidden = true
-        passwordCheckTextField.isHidden = true
-        secondEyeBtn.isHidden = true
         passwordCheckLabel.isHidden = true
-    }
-    
-    func afterEmail(){
-        pleasePasswordLabel.isHidden = false
-        passwordTextField.isHidden = false
-        firstEyeBtn.isHidden = false
-        passwordCheckTextField.isHidden = false
-        secondEyeBtn.isHidden = false
+        setHidden(status: true)
     }
     
     func textFeildRight(){
@@ -84,7 +80,7 @@ class SignUpAccountVC: UIViewController {
         passwordCheckTextField.delegate = self
     }
     
-       
+    
     @IBAction func nextPage(_ sender: Any) {
         // 비밀번호까지 입력 다 했다면
         if isEmail == true{
@@ -96,7 +92,7 @@ class SignUpAccountVC: UIViewController {
             // 이메일 중복 체크 코드 필요
             // 중복 아니면 emailCheckLabel.isHidden = false && emailStatus = true
             // 중복이면 멘트 변경 && emailStatus = false
-            afterEmail()
+            setHidden(status: false)
             isEmail = true
             emailCheckBtn.backgroundColor = .seaweed
             emailCheckBtn.setTitleColor(.white, for: .normal)
@@ -137,9 +133,9 @@ extension SignUpAccountVC: UITextFieldDelegate{
     //    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
     //    }
     
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//
-//    }
+    //    func textFieldDidBeginEditing(_ textField: UITextField) {
+    //
+    //    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == emailTextField{

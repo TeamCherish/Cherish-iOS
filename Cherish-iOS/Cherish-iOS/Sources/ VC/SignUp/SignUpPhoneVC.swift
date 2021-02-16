@@ -9,21 +9,46 @@ import UIKit
 
 class SignUpPhoneVC: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var phoneTextField: UITextField!{
+        didSet{
+            phoneTextField.makeRounded(cornerRadius: 8)
+            phoneTextField.addLeftPadding()
+        }
+    }
+    @IBOutlet weak var requestMessageBtn: UIButton!{
+        didSet{
+            requestMessageBtn.makeRounded(cornerRadius: 8)
+            requestMessageBtn.layer.borderColor = UIColor.textGrey.cgColor
+            requestMessageBtn.layer.borderWidth  = 1.0
+        }
+    }
+    @IBOutlet weak var pleaseTypingLabel: CustomLabel!
+    @IBOutlet weak var typingMessageTextField: UITextField!
+    @IBOutlet weak var resendMessageBtn: UIButton!{
+        didSet{
+            resendMessageBtn.makeRounded(cornerRadius: 8)
+            resendMessageBtn.layer.borderColor = UIColor.textGrey.cgColor
+            resendMessageBtn.layer.borderWidth  = 1.0
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initialSetting(status: true)
     }
-    */
+    
+    func initialSetting(status: Bool){
+        pleaseTypingLabel.isHidden = status
+        typingMessageTextField.isHidden = status
+        resendMessageBtn.isHidden = status
+    }
 
+
+    @IBAction func receiveMessage(_ sender: Any) {
+        requestMessageBtn.isHidden = true
+        initialSetting(status: false)
+    }
+    @IBAction func backAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
