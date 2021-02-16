@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import MessageUI
 
 class SignUpPhoneVC: UIViewController {
-
+    var forSending = ["","","","","",""]
+    //MARK: -@IBOutlet
     @IBOutlet weak var phoneTextField: UITextField!{
         didSet{
             phoneTextField.makeRounded(cornerRadius: 8)
             phoneTextField.addLeftPadding()
+            phoneTextField.backgroundColor = .inputGrey
         }
     }
     @IBOutlet weak var requestMessageBtn: UIButton!{
@@ -23,7 +26,13 @@ class SignUpPhoneVC: UIViewController {
         }
     }
     @IBOutlet weak var pleaseTypingLabel: CustomLabel!
-    @IBOutlet weak var typingMessageTextField: UITextField!
+    @IBOutlet weak var typingMessageTextField: UITextField!{
+        didSet{
+            typingMessageTextField.makeRounded(cornerRadius: 8)
+            typingMessageTextField.addLeftPadding()
+            typingMessageTextField.backgroundColor = .inputGrey
+        }
+    }
     @IBOutlet weak var resendMessageBtn: UIButton!{
         didSet{
             resendMessageBtn.makeRounded(cornerRadius: 8)
@@ -31,24 +40,37 @@ class SignUpPhoneVC: UIViewController {
             resendMessageBtn.layer.borderWidth  = 1.0
         }
     }
+    @IBOutlet weak var nextBtn: UIButton!{
+        didSet{
+            nextBtn.makeRounded(cornerRadius: 25.0)
+            nextBtn.backgroundColor = .inputGrey
+        }
+    }
     
+    //MARK: -viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetting(status: true)
     }
     
+    //MARK: -Personal Func
     func initialSetting(status: Bool){
         pleaseTypingLabel.isHidden = status
         typingMessageTextField.isHidden = status
         resendMessageBtn.isHidden = status
     }
 
-
+    //MARK: -@IBAction
     @IBAction func receiveMessage(_ sender: Any) {
         requestMessageBtn.isHidden = true
         initialSetting(status: false)
     }
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func nextAction(_ sender: Any) {
+        if let vc = self.storyboard?.instantiateViewController(identifier: "SignUpGenderVC") as? SignUpGenderVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  SignUpMainVC.swift
+//  SignUpAccountVC.swift
 //  Cherish-iOS
 //
 //  Created by 이원석 on 2021/02/15.
@@ -84,8 +84,9 @@ class SignUpAccountVC: UIViewController {
     @IBAction func nextPage(_ sender: Any) {
         // 비밀번호까지 입력 다 했다면
         if isEmail == true{
-            let storyboard: UIStoryboard = UIStoryboard(name: "SignUp", bundle: nil)
-            if let vc = storyboard.instantiateViewController(identifier: "SignUpPhoneVC") as? SignUpPhoneVC {
+            if let vc = self.storyboard?.instantiateViewController(identifier: "SignUpPhoneVC") as? SignUpPhoneVC {
+                vc.forSending[0] = emailTextField.text!
+                vc.forSending[1] = passwordCheckTextField.text!
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }else{
