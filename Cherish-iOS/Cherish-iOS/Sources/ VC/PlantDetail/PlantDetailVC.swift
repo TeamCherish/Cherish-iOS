@@ -77,12 +77,14 @@ class PlantDetailVC: UIViewController {
         makeDelegates()
         makeCornerRadiusView()
         setAutoLayoutByScreenSize()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         LoadingHUD.show()
         friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
         getPlantDetailData()
+        NotificationCenter.default.addObserver(self, selector: #selector(popToMainView), name: .popToMainView, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -98,6 +100,10 @@ class PlantDetailVC: UIViewController {
     func makeDelegates() {
         keywordCV.delegate = self
         keywordCV.dataSource = self
+    }
+    
+    @objc func popToMainView() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func getPlantDataFromMyPage(cherishId: Int) {

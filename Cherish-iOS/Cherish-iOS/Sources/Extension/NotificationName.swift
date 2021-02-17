@@ -15,4 +15,5 @@ extension Notification.Name {
     static let notchMaximum = Notification.Name("notchMaximum")
     static let sendPlantResult = Notification.Name("sendPlantResult")
     static let postPostponed = Notification.Name("postPostponed")
+    static let popToMainView = Notification.Name("popToMainView")
 }
