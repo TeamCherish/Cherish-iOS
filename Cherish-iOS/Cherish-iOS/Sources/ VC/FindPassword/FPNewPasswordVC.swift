@@ -77,7 +77,8 @@ class FPNewPasswordVC: UIViewController {
     }
     @IBAction func completeBtn(_ sender: Any) {
         if passwordStatus{
-            // 완료
+            nextBtn.isEnabled = true
+            // 변경 완료
         }else{
             nextBtn.isEnabled = false
         }

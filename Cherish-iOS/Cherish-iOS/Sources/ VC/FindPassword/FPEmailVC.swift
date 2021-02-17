@@ -8,6 +8,7 @@
 import UIKit
 
 class FPEmailVC: UIViewController {
+    var isFinished : Bool = false
     
     @IBOutlet weak var emailTextField: UITextField!{
         didSet{
@@ -44,8 +45,10 @@ class FPEmailVC: UIViewController {
             if let text = textField.text {
                 if text.count > 0 {
                     greenBtn()
+                    isFinished = true
                 }else{
                     grayBtn()
+                    isFinished = false
                 }
             }
         }
@@ -63,6 +66,16 @@ class FPEmailVC: UIViewController {
     
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func nextAction(_ sender: Any) {
+        if isFinished{
+            nextBtn.isEnabled = true
+            if let vc = self.storyboard?.instantiateViewController(identifier: "FPPhoneVC") as? FPPhoneVC {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }else{
+            nextBtn.isEnabled = false
+        }
     }
 }
 

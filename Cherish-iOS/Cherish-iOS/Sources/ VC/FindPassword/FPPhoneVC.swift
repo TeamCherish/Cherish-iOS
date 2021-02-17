@@ -76,6 +76,10 @@ class FPPhoneVC: UIViewController {
         /// 텍스트필드 클리어
         inputTextField.text = ""
     }
+    
+    @IBAction func nextAction(_ sender: Any) {
+        // 서버랑 통신해서 보내준 인증번호가 맞으면 넘기고 아니면 안넘기도록 분기처리
+    }
 }
 
 extension FPPhoneVC: UITextFieldDelegate{
