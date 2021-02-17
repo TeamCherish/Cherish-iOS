@@ -82,6 +82,7 @@ class PlantDetailVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         LoadingHUD.show()
         friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+        getPlantDetailData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -131,7 +132,9 @@ class PlantDetailVC: UIViewController {
                     plantMaintainDayLabel.text = "\(plantDetailDataFromMyPage.duration)일째"
                     plantBirthDayLabel.text = plantDetailDataFromMyPage.birth
                     memoTitleLabel.text = "\(plantDetailDataFromMyPage.nickname)와(과) 함께했던 이야기"
-                    
+                    print("지우기 전",keywordArray)
+                    keywordArray.removeAll()
+                    print("지운 후",keywordArray)
                     keywordArray.append(plantDetailDataFromMyPage.keyword1)
                     keywordArray.append(plantDetailDataFromMyPage.keyword2)
                     keywordArray.append(plantDetailDataFromMyPage.keyword3)
@@ -292,6 +295,12 @@ class PlantDetailVC: UIViewController {
                     plantBirthDayLabel.text = plantDetailData.birth
                     memoTitleLabel.text = "\(plantDetailData.nickname)와(과) 함께했던 이야기"
                     
+                    ///1) 첫 로드, 2) 키워드 수정 후 viewWillAppear에서만 로드되는 경우
+                    
+                    // 2)키워드 중복로드 방지를 위해 viewDidLoad에서 로드되었던 keywordArray를 지워준다
+                    keywordArray.removeAll()
+                    // 1)서버에서 받아온 keyword를 append한다
+                    // 2)viewWillAppear에서 새롭게 띄워질 keyword를 append한다
                     keywordArray.append(plantDetailData.keyword1)
                     keywordArray.append(plantDetailData.keyword2)
                     keywordArray.append(plantDetailData.keyword3)
