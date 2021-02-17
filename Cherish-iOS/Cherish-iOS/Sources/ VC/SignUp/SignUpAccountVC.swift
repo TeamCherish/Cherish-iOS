@@ -130,13 +130,6 @@ class SignUpAccountVC: UIViewController {
 //MARK: -Protocols
 /// 1
 extension SignUpAccountVC: UITextFieldDelegate{
-    /// 키워드 부분 글자수 Counting
-    //    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    //    }
-    
-    //    func textFieldDidBeginEditing(_ textField: UITextField) {
-    //
-    //    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == emailTextField{

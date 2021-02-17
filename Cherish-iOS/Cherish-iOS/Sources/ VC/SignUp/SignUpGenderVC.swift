@@ -98,7 +98,6 @@ class SignUpGenderVC: UIViewController {
             nextBtn.backgroundColor = .seaweed
             nextBtn.setTitleColor(.white, for: .normal)
         }
-        
     }
     
     //MARK: -@IBAction
@@ -145,11 +144,9 @@ extension SignUpGenderVC: UIPickerViewDataSource,UIPickerViewDelegate{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == genderPicker {
             genderTextField.text = gender[row]
-            genderTextField.textColor = .black
             genderPickerStatus = true
         }else if pickerView == agePicker {
             ageTextField.text = "\(Int(limit!)!-row)"
-            ageTextField.textColor = .black
             agePickerStatus = true
         }
     }

@@ -121,6 +121,10 @@
 		5491593A25DBF78B008104FC /* SignUpNicknameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593925DBF78B008104FC /* SignUpNicknameVC.swift */; };
 		5491593D25DC13A6008104FC /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593C25DC13A5008104FC /* SignUpService.swift */; };
 		5491594025DC1641008104FC /* SignUpData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593F25DC1641008104FC /* SignUpData.swift */; };
+		5491594625DCD32B008104FC /* FindPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5491594525DCD32B008104FC /* FindPassword.storyboard */; };
+		5491594A25DCD360008104FC /* FPEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491594925DCD360008104FC /* FPEmailVC.swift */; };
+		5491594E25DCD647008104FC /* FPPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491594D25DCD647008104FC /* FPPhoneVC.swift */; };
+		5491595125DCD65A008104FC /* FPNewPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491595025DCD65A008104FC /* FPNewPasswordVC.swift */; };
 		54D223F425DA2912003A1496 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54D223F325DA2912003A1496 /* SignUp.storyboard */; };
 		54D223FC25DA30EA003A1496 /* SignUpAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */; };
 		54D2241325DA3607003A1496 /* SignUpPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */; };
@@ -265,6 +269,10 @@
 		5491593925DBF78B008104FC /* SignUpNicknameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNicknameVC.swift; sourceTree = "<group>"; };
 		5491593C25DC13A5008104FC /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		5491593F25DC1641008104FC /* SignUpData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpData.swift; sourceTree = "<group>"; };
+		5491594525DCD32B008104FC /* FindPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FindPassword.storyboard; sourceTree = "<group>"; };
+		5491594925DCD360008104FC /* FPEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPEmailVC.swift; sourceTree = "<group>"; };
+		5491594D25DCD647008104FC /* FPPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPPhoneVC.swift; sourceTree = "<group>"; };
+		5491595025DCD65A008104FC /* FPNewPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPNewPasswordVC.swift; sourceTree = "<group>"; };
 		54D223F325DA2912003A1496 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAccountVC.swift; sourceTree = "<group>"; };
 		54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneVC.swift; sourceTree = "<group>"; };
@@ -460,6 +468,7 @@
 				33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */,
 				337A5CB425A8543600578130 /* Login.storyboard */,
 				54D223F325DA2912003A1496 /* SignUp.storyboard */,
+				5491594525DCD32B008104FC /* FindPassword.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -497,6 +506,7 @@
 		33851C8D259A5B0E005BCFFD /*  VC */ = {
 			isa = PBXGroup;
 			children = (
+				5491594825DCD335008104FC /* FindPassword */,
 				54D223F625DA294E003A1496 /* SignUp */,
 				33EAA2F225B180C000E75F95 /* SplashVC.swift */,
 				337A5CB725A8544D00578130 /* Login */,
@@ -775,6 +785,16 @@
 			path = Watering;
 			sourceTree = "<group>";
 		};
+		5491594825DCD335008104FC /* FindPassword */ = {
+			isa = PBXGroup;
+			children = (
+				5491594925DCD360008104FC /* FPEmailVC.swift */,
+				5491594D25DCD647008104FC /* FPPhoneVC.swift */,
+				5491595025DCD65A008104FC /* FPNewPasswordVC.swift */,
+			);
+			path = FindPassword;
+			sourceTree = "<group>";
+		};
 		54D223F625DA294E003A1496 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -912,6 +932,7 @@
 			files = (
 				33E874E025A04746001F84FE /* CherishMain.storyboard in Resources */,
 				332AFC4A25B1102E00689594 /* min_watering_ios.gif in Resources */,
+				5491594625DCD32B008104FC /* FindPassword.storyboard in Resources */,
 				33D0027325A30E4700E97811 /* 38217-money-growth.json in Resources */,
 				33851C80259A5542005BCFFD /* LaunchScreen.storyboard in Resources */,
 				92DCC3EB25A85D7100160523 /* SelectFriendCell.xib in Resources */,
@@ -1018,6 +1039,7 @@
 				9244DF0C25AB90F00014FF5D /* PlantResultVC.swift in Sources */,
 				332CC7B025A7018400D0047D /* MypagePlantTVC.swift in Sources */,
 				54425C3A25AF520A00E62BAB /* CalendarService.swift in Sources */,
+				5491595125DCD65A008104FC /* FPNewPasswordVC.swift in Sources */,
 				332CC7B625A7027D00D0047D /* MypagePlantVC.swift in Sources */,
 				9214410225ACE7BD00853E53 /* AddUserService.swift in Sources */,
 				923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */,
@@ -1055,6 +1077,7 @@
 				92824D9C25B16E94003D7678 /* SearchPlantCell.swift in Sources */,
 				33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */,
 				33E8750425A04D1E001F84FE /* CustomLabel.swift in Sources */,
+				5491594E25DCD647008104FC /* FPPhoneVC.swift in Sources */,
 				5491593A25DBF78B008104FC /* SignUpNicknameVC.swift in Sources */,
 				33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */,
 				33201B1525AE419F001A94E4 /* MainSelectedData.swift in Sources */,
@@ -1077,6 +1100,7 @@
 				33E8754925A09440001F84FE /* NotificationName.swift in Sources */,
 				337A5CB925A8545E00578130 /* LoginVC.swift in Sources */,
 				54D2241325DA3607003A1496 /* SignUpPhoneVC.swift in Sources */,
+				5491594A25DCD360008104FC /* FPEmailVC.swift in Sources */,
 				33EAA2EC25B15D4E00E75F95 /* AddUserNC.swift in Sources */,
 				33E8752325A05CFC001F84FE /* DetailContentVC.swift in Sources */,
 				33851C74259A5541005BCFFD /* AppDelegate.swift in Sources */,
