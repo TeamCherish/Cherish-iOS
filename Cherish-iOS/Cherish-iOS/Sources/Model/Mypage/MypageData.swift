@@ -33,4 +33,16 @@ struct MypagefriendsData: Codable {
         case level
         case plantID = "PlantId"
     }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = (try? values.decode(Int.self, forKey: .id)) ?? -1
+        dDay = (try? values.decode(Int.self, forKey: .dDay)) ?? -1
+        nickname = (try? values.decode(String.self, forKey: .nickname)) ?? ""
+        name = (try? values.decode(String.self, forKey: .name)) ?? ""
+        thumbnailImageURL = (try? values.decode(String.self, forKey: .thumbnailImageURL)) ?? ""
+        level = (try? values.decode(Int.self, forKey: .level)) ?? -1
+        plantID = (try? values.decode(Int.self, forKey: .plantID)) ?? -1
+    }
+
 }

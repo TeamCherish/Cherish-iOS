@@ -79,24 +79,14 @@ extension MypagePlantVC: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         
         if mypagePlantArray.count != 0 {
-            
-            
-//            for i in 0...mypagePlantArray.count - 1 {
-//                myCherishLevel[i] = mypagePlantArray[i].level
-//                if myCherishLevel[i] == -1 {
-//                    myCherishLevel[i] = 0
-//                }
-//            }
-//            
-//            print(myCherishLevel)
-         
+ 
             /// 이미지 url 처리
             let url = URL(string: mypagePlantArray[indexPath.row].thumbnailImageURL ?? "")
             
             DispatchQueue.global(qos: .default).async(execute: {() -> Void in
                 let imageData = try? Data(contentsOf: url!)
                 DispatchQueue.main.async(execute: { [self]() -> Void in
-                    cell.setProperties(imageData!, mypagePlantArray[indexPath.row].nickname, mypagePlantArray[indexPath.row].name + " Lv.\(String(describing: mypagePlantArray[indexPath.row].level))", mypagePlantArray[indexPath.row].dDay)
+                    cell.setProperties(imageData!, mypagePlantArray[indexPath.row].nickname, mypagePlantArray[indexPath.row].name + " Lv.\(String(describing: mypagePlantArray[indexPath.row].level!))", mypagePlantArray[indexPath.row].dDay)
                 })
             })
 
