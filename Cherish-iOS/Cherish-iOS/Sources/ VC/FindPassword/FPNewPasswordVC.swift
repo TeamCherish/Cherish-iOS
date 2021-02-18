@@ -40,6 +40,7 @@ class FPNewPasswordVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkingLetterCount()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -77,10 +78,9 @@ class FPNewPasswordVC: UIViewController {
     }
     @IBAction func completeBtn(_ sender: Any) {
         if passwordStatus{
-            nextBtn.isEnabled = true
             // 변경 완료
         }else{
-            nextBtn.isEnabled = false
+            //
         }
     }
 }
@@ -97,22 +97,22 @@ extension FPNewPasswordVC: UITextFieldDelegate{
             let passRegEx = "^(?=.*[a-z])(?=.*[0-9]).{8}$"
             let passTest = NSPredicate(format: "SELF MATCHES %@", passRegEx)
             if !passTest.evaluate(with: textField.text){
-                enterPWTextField.text = "사용하실 수 없는 비밀번호입니다."
-                enterPWTextField.textColor = .pinkSub
+                checkingLabel.text = "사용하실 수 없는 비밀번호입니다."
+                checkingLabel.textColor = .pinkSub
                 passwordStatus = false
             }else{
-                enterPWTextField.text = "사용가능한 비밀번호입니다."
-                enterPWTextField.textColor = .seaweed
+                checkingLabel.text = "사용가능한 비밀번호입니다."
+                checkingLabel.textColor = .seaweed
             }
         }
         else if textField == enterAgainTextField{
-            if enterAgainTextField.text == textField.text {
-                enterAgainTextField.text = "비밀번호가 일치합니다."
-                enterAgainTextField.textColor = .seaweed
+            if enterPWTextField.text == textField.text {
+                checkingLabel.text = "비밀번호가 일치합니다."
+                checkingLabel.textColor = .seaweed
                 passwordStatus = true
             }else{
-                enterAgainTextField.text = "비밀번호가 일치하지 않습니다."
-                enterAgainTextField.textColor = .pinkSub
+                checkingLabel.text = "비밀번호가 일치하지 않습니다."
+                checkingLabel.textColor = .pinkSub
                 passwordStatus = false
             }
         }

@@ -301,9 +301,19 @@ class LoginVC: UIViewController {
             }
         }
     }
+    
+    // 회원가입
     @IBAction func signUpAction(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "SignUp", bundle: nil)
         if let vc = storyBoard.instantiateViewController(identifier: "SignUpAccountVC") as? SignUpAccountVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    // 비밀번호 찾기
+    @IBAction func findingPWAction(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "FindPassword", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(identifier: "FPEmailVC") as? FPEmailVC {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

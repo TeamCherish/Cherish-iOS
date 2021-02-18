@@ -125,6 +125,7 @@
 		5491594A25DCD360008104FC /* FPEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491594925DCD360008104FC /* FPEmailVC.swift */; };
 		5491594E25DCD647008104FC /* FPPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491594D25DCD647008104FC /* FPPhoneVC.swift */; };
 		5491595125DCD65A008104FC /* FPNewPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491595025DCD65A008104FC /* FPNewPasswordVC.swift */; };
+		5491595425DE43F8008104FC /* testwatering.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5491595325DE43F7008104FC /* testwatering.gif */; };
 		54D223F425DA2912003A1496 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54D223F325DA2912003A1496 /* SignUp.storyboard */; };
 		54D223FC25DA30EA003A1496 /* SignUpAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */; };
 		54D2241325DA3607003A1496 /* SignUpPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */; };
@@ -273,6 +274,7 @@
 		5491594925DCD360008104FC /* FPEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPEmailVC.swift; sourceTree = "<group>"; };
 		5491594D25DCD647008104FC /* FPPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPPhoneVC.swift; sourceTree = "<group>"; };
 		5491595025DCD65A008104FC /* FPNewPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPNewPasswordVC.swift; sourceTree = "<group>"; };
+		5491595325DE43F7008104FC /* testwatering.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = testwatering.gif; sourceTree = "<group>"; };
 		54D223F325DA2912003A1496 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAccountVC.swift; sourceTree = "<group>"; };
 		54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneVC.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 		3317777D25B0568600CC1030 /* Gif */ = {
 			isa = PBXGroup;
 			children = (
+				5491595325DE43F7008104FC /* testwatering.gif */,
 				33EAA2FB25B1C0C500E75F95 /* die_min_iOS.gif */,
 				332AFC4825B1102E00689594 /* min_watering_ios.gif */,
 				3317777F25B0569C00CC1030 /* real_min.gif */,
@@ -943,6 +946,7 @@
 				33E874CB25A0434B001F84FE /* Roboto-Regular.ttf in Resources */,
 				33851C7D259A5542005BCFFD /* Assets.xcassets in Resources */,
 				5488923725A5E962003839FC /* CalendarKeywordCVCell.xib in Resources */,
+				5491595425DE43F8008104FC /* testwatering.gif in Resources */,
 				33EAA2FC25B1C0C500E75F95 /* die_min_iOS.gif in Resources */,
 				5488922125A59486003839FC /* Calendar.storyboard in Resources */,
 				33E874D125A0437A001F84FE /* NotoSansCJKkr-Bold.otf in Resources */,

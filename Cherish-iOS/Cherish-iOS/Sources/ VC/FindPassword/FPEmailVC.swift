@@ -69,12 +69,9 @@ class FPEmailVC: UIViewController {
     }
     @IBAction func nextAction(_ sender: Any) {
         if isFinished{
-            nextBtn.isEnabled = true
             if let vc = self.storyboard?.instantiateViewController(identifier: "FPPhoneVC") as? FPPhoneVC {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
-        }else{
-            nextBtn.isEnabled = false
         }
     }
 }

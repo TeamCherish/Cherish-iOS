@@ -145,6 +145,9 @@
                                 <state key="normal" title="비밀번호 찾기">
                                     <color key="titleColor" name="textGrey"/>
                                 </state>
+                                <connections>
+                                    <action selector="findingPWAction:" destination="tI6-tj-Hhh" eventType="touchUpInside" id="51B-67-ku0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="avt-Ci-sPC"/>

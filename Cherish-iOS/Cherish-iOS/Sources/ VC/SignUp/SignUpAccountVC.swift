@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVKit
 
 class SignUpAccountVC: UIViewController {
     
@@ -52,6 +53,12 @@ class SignUpAccountVC: UIViewController {
         super.viewDidLoad()
         beforeEmail()
         textFeildRight()
+//        self.testImageView.image = UIImage.gif(name: "testwatering")!
+//        self.testImageView.alpha = 0.7
+//        UIView.animate(withDuration: 4, animations:
+//       {
+//            self.testImageView.alpha = 0.0
+//       })
     }
     
     ///화면 터치시 키보드 내리기
@@ -79,6 +86,10 @@ class SignUpAccountVC: UIViewController {
         passwordTextField.delegate = self
         passwordCheckTextField.delegate = self
     }
+    
+
+           
+
     
     
     @IBAction func nextPage(_ sender: Any) {

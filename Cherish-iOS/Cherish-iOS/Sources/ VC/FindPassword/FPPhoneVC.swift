@@ -79,6 +79,12 @@ class FPPhoneVC: UIViewController {
     
     @IBAction func nextAction(_ sender: Any) {
         // 서버랑 통신해서 보내준 인증번호가 맞으면 넘기고 아니면 안넘기도록 분기처리
+            
+        // 테스트용 뷰 전환
+        if let vc = self.storyboard?.instantiateViewController(identifier: "FPNewPasswordVC") as? FPNewPasswordVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+
     }
 }
 
