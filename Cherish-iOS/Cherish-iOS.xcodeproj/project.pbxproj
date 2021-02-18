@@ -126,6 +126,8 @@
 		5491594E25DCD647008104FC /* FPPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491594D25DCD647008104FC /* FPPhoneVC.swift */; };
 		5491595125DCD65A008104FC /* FPNewPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491595025DCD65A008104FC /* FPNewPasswordVC.swift */; };
 		5491595425DE43F8008104FC /* testwatering.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5491595325DE43F7008104FC /* testwatering.gif */; };
+		5491595925DE73EB008104FC /* CheckEmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491595825DE73EB008104FC /* CheckEmailService.swift */; };
+		5491595F25DE794B008104FC /* CheckEmailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491595E25DE794B008104FC /* CheckEmailData.swift */; };
 		54D223F425DA2912003A1496 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54D223F325DA2912003A1496 /* SignUp.storyboard */; };
 		54D223FC25DA30EA003A1496 /* SignUpAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */; };
 		54D2241325DA3607003A1496 /* SignUpPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */; };
@@ -275,6 +277,8 @@
 		5491594D25DCD647008104FC /* FPPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPPhoneVC.swift; sourceTree = "<group>"; };
 		5491595025DCD65A008104FC /* FPNewPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPNewPasswordVC.swift; sourceTree = "<group>"; };
 		5491595325DE43F7008104FC /* testwatering.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = testwatering.gif; sourceTree = "<group>"; };
+		5491595825DE73EB008104FC /* CheckEmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailService.swift; sourceTree = "<group>"; };
+		5491595E25DE794B008104FC /* CheckEmailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailData.swift; sourceTree = "<group>"; };
 		54D223F325DA2912003A1496 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAccountVC.swift; sourceTree = "<group>"; };
 		54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneVC.swift; sourceTree = "<group>"; };
@@ -366,7 +370,6 @@
 			isa = PBXGroup;
 			children = (
 				33805F7D25AC6209005CED0F /* LoginService.swift */,
-				5491593C25DC13A5008104FC /* SignUpService.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -375,7 +378,6 @@
 			isa = PBXGroup;
 			children = (
 				33805F8225AC62B3005CED0F /* LoginData.swift */,
-				5491593F25DC1641008104FC /* SignUpData.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -486,6 +488,7 @@
 				9214410025ACE5B000853E53 /* AddUser */,
 				5478346D25AC72C40021C32B /* Watering */,
 				33805F8725AC7387005CED0F /* Main */,
+				5491595625DE67EC008104FC /* SignUp */,
 				33805F7C25AC61F8005CED0F /* Login */,
 			);
 			path = APIService;
@@ -556,6 +559,7 @@
 		33851C90259A5B1F005BCFFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5491595D25DE792F008104FC /* SignUp */,
 				54425C3325AF519E00E62BAB /* Calendar */,
 				92B0F9E025AEE40600AA411A /* Contact */,
 				5478346525AC6A690021C32B /* Watering */,
@@ -796,6 +800,24 @@
 				5491595025DCD65A008104FC /* FPNewPasswordVC.swift */,
 			);
 			path = FindPassword;
+			sourceTree = "<group>";
+		};
+		5491595625DE67EC008104FC /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				5491593C25DC13A5008104FC /* SignUpService.swift */,
+				5491595825DE73EB008104FC /* CheckEmailService.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		5491595D25DE792F008104FC /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				5491593F25DC1641008104FC /* SignUpData.swift */,
+				5491595E25DE794B008104FC /* CheckEmailData.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		54D223F625DA294E003A1496 /* SignUp */ = {
@@ -1078,6 +1100,7 @@
 				92B0F9E225AEE41600AA411A /* FetchedContact.swift in Sources */,
 				33CAF85625A2674A0050DE29 /* CircularProgressView.swift in Sources */,
 				33805F8925AC739D005CED0F /* MainService.swift in Sources */,
+				5491595925DE73EB008104FC /* CheckEmailService.swift in Sources */,
 				92824D9C25B16E94003D7678 /* SearchPlantCell.swift in Sources */,
 				33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */,
 				33E8750425A04D1E001F84FE /* CustomLabel.swift in Sources */,
@@ -1097,6 +1120,7 @@
 				3317777825B042C200CC1030 /* UIImage+Extension.swift in Sources */,
 				33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */,
 				332CC7BD25A707BD00D0047D /* MypagePlantData.swift in Sources */,
+				5491595F25DE794B008104FC /* CheckEmailData.swift in Sources */,
 				33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */,
 				332CC7B925A7028A00D0047D /* MypageContactVC.swift in Sources */,
 				54425C3525AF51CB00E62BAB /* CalendarSeeData.swift in Sources */,

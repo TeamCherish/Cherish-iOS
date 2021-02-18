@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import AVKit
+
 
 class SignUpAccountVC: UIViewController {
     
@@ -43,9 +43,9 @@ class SignUpAccountVC: UIViewController {
     }
     @IBOutlet weak var passwordCheckLabel: CustomLabel!
     
-    var isEmail : Bool?
-    var emailStatus : Bool?
-    var passwordStatus : Bool?
+    var isEmail : Bool? = false // 중복 확인용
+    var isPossibleEmail : Bool? = false // 이메일 형식 통과 확인용
+    var passwordStatus : Bool? = false // 비밀번호 통과 확인용
     var isfirstEyeClicked : Bool = false
     var isSecondEyeClicked : Bool = false
     
@@ -53,12 +53,12 @@ class SignUpAccountVC: UIViewController {
         super.viewDidLoad()
         beforeEmail()
         textFeildRight()
-//        self.testImageView.image = UIImage.gif(name: "testwatering")!
-//        self.testImageView.alpha = 0.7
-//        UIView.animate(withDuration: 4, animations:
-//       {
-//            self.testImageView.alpha = 0.0
-//       })
+        //        self.testImageView.image = UIImage.gif(name: "testwatering")!
+        //        self.testImageView.alpha = 0.7
+        //        UIView.animate(withDuration: 4, animations:
+        //       {
+        //            self.testImageView.alpha = 0.0
+        //       })
     }
     
     ///화면 터치시 키보드 내리기
@@ -87,27 +87,52 @@ class SignUpAccountVC: UIViewController {
         passwordCheckTextField.delegate = self
     }
     
-
-           
-
-    
-    
     @IBAction func nextPage(_ sender: Any) {
-        // 비밀번호까지 입력 다 했다면
+        // 이메일 중복확인이 끝났고 비밀번호도 입력이 끝났다면
         if isEmail == true{
-            if let vc = self.storyboard?.instantiateViewController(identifier: "SignUpPhoneVC") as? SignUpPhoneVC {
-                vc.forSending[0] = emailTextField.text!
-                vc.forSending[1] = passwordCheckTextField.text!
-                self.navigationController?.pushViewController(vc, animated: true)
+            if passwordStatus == true {
+                if let vc = self.storyboard?.instantiateViewController(identifier: "SignUpPhoneVC") as? SignUpPhoneVC {
+                    vc.forSending[0] = emailTextField.text!
+                    vc.forSending[1] = passwordCheckTextField.text!
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }else{
+                //비밀번호를 입력해주세요
             }
         }else{
-            // 이메일 중복 체크 코드 필요
-            // 중복 아니면 emailCheckLabel.isHidden = false && emailStatus = true
-            // 중복이면 멘트 변경 && emailStatus = false
-            setHidden(status: false)
-            isEmail = true
-            emailCheckBtn.backgroundColor = .seaweed
-            emailCheckBtn.setTitleColor(.white, for: .normal)
+            if isPossibleEmail == true {
+                // 이메일 중복 체크 코드
+                CheckEmailService.shared.checkEmail(email: emailTextField.text!) { [self] (networkResult) -> (Void) in
+                    switch networkResult {
+                    case .success(_):
+                        
+                        setHidden(status: false)
+                        emailCheckBtn.backgroundColor = .seaweed
+                        emailCheckBtn.setTitleColor(.white, for: .normal)
+                        emailCheckLabel.text = "사용가능한 이메일입니다."
+                        emailCheckLabel.textColor = .seaweed
+                        
+                        // 이메일 수정 못하게 Enable
+                        emailTextField.isEnabled = false
+                        emailTextField.textColor = .textGrey
+                        isEmail = true // 중복 검사 완료
+                    
+                    case .requestErr(let msg):
+                        if let message = msg as? String {
+                            emailCheckLabel.text = "이미 등록된 이메일입니다."
+                            emailCheckLabel.textColor = .pinkSub
+                            isEmail = false // 중복 검사 불통과
+                            print(message)
+                        }
+                    case .pathErr:
+                        print("pathErr")
+                    case .serverErr:
+                        print("serverErr")
+                    case .networkFail:
+                        print("networkFail")
+                    }
+                }
+            }
         }
     }
     @IBAction func firstEyeAction(_ sender: Any) {
@@ -150,11 +175,11 @@ extension SignUpAccountVC: UITextFieldDelegate{
             if !emailTest.evaluate(with: textField.text){
                 emailCheckLabel.text = "사용할 수 없는 형식입니다."
                 emailCheckLabel.textColor = .pinkSub
-                emailStatus = false
+                isPossibleEmail = false
             }else{
                 emailCheckLabel.text = "사용가능한 이메일입니다."
                 emailCheckLabel.textColor = .seaweed
-                emailStatus = true
+                isPossibleEmail = true
             }
         }
         else if textField == passwordTextField{

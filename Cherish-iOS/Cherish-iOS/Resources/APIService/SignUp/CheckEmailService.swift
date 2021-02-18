@@ -1,27 +1,22 @@
 //
-//  SignUpService.swift
+//  CheckEmailService.swift
 //  Cherish-iOS
 //
-//  Created by 이원석 on 2021/02/16.
+//  Created by 이원석 on 2021/02/18.
 //
 
 import Foundation
 import Alamofire
 
-struct SignUpService {
-    static let shared = SignUpService()
-    
-    func doSignUp(email: String, password: String, phonenumber: String, sex: Bool, birth: String, nickname: String, completion: @escaping (NetworkResult<Any>) -> (Void)){
+struct CheckEmailService {
+    static let shared = CheckEmailService()
+
+    func checkEmail(email: String, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
-        let url = APIConstants.signupURL
+        let url = APIConstants.checkSameEmailURL
         let header: HTTPHeaders = [ "Content-Type":"application/json"]
         let body: Parameters = [
             "email":email,
-            "password":password,
-            "phonenumber": phonenumber,
-            "sex": sex,
-            "birth": birth,
-            "nickname": nickname
         ]
         let dataRequest = AF.request(url,
                                      method: .post,
@@ -41,12 +36,10 @@ struct SignUpService {
                 completion(.networkFail) }
         }
     }
-    
-    
-    
+
     private func judgeData(status: Int, data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(GenericResponse<LoginData>.self, from: data) else {
+        guard let decodedData = try? decoder.decode(GenericResponse<String>.self, from: data) else {
             return .pathErr }
         switch status {
         case 200:
