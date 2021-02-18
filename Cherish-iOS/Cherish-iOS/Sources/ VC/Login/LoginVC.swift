@@ -36,35 +36,6 @@ class LoginVC: UIViewController {
      
     }
     
-    @IBAction func switchAction(_ sender: UISwitch) {
-        if sender.isOn {
-            print("isOn")
-            let current = UNUserNotificationCenter.current()
-                    current.getNotificationSettings(completionHandler: { permission in
-                        switch permission.authorizationStatus  {
-                        case .authorized:
-                            print("User granted permission for notification")
-                        case .denied:
-                            DispatchQueue.main.async {
-//                                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
-                               
-                            }
-                            print("User denied notification permission")
-                        case .notDetermined:
-                            print("Notification permission haven't been asked yet")
-                        case .provisional:
-                            // @available(iOS 12.0, *)
-                            print("The application is authorized to post non-interruptive user notifications.")
-                        case .ephemeral:
-                            // @available(iOS 14.0, *)
-                            print("The application is temporarily authorized to post notifications. Only available to app clips.")
-                        @unknown default:
-                            print("Unknow Status")
-                        }
-                    })
-        }
-    }
-    
     func makeDelegate() {
         loginEmailTextField.delegate = self
         loginPwTextField.delegate = self
