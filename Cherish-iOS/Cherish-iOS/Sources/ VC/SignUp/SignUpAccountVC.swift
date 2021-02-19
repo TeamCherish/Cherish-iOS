@@ -42,6 +42,7 @@ class SignUpAccountVC: UIViewController {
         }
     }
     @IBOutlet weak var passwordCheckLabel: CustomLabel!
+    @IBOutlet weak var forChangeImageView: UIImageView!
     
     var isEmail : Bool? = false // 중복 확인용
     var isPossibleEmail : Bool? = false // 이메일 형식 통과 확인용
@@ -81,10 +82,16 @@ class SignUpAccountVC: UIViewController {
         setHidden(status: true)
     }
     
+    // textField Delegates
     func textFeildRight(){
         emailTextField.delegate = self
         passwordTextField.delegate = self
         passwordCheckTextField.delegate = self
+    }
+    
+    func greenBtn(){
+        emailCheckBtn.backgroundColor = .seaweed
+        emailCheckBtn.setTitleColor(.white, for: .normal)
     }
     
     @IBAction func nextPage(_ sender: Any) {
@@ -107,8 +114,7 @@ class SignUpAccountVC: UIViewController {
                     case .success(_):
                         
                         setHidden(status: false)
-                        emailCheckBtn.backgroundColor = .seaweed
-                        emailCheckBtn.setTitleColor(.white, for: .normal)
+                        greenBtn()
                         emailCheckLabel.text = "사용가능한 이메일입니다."
                         emailCheckLabel.textColor = .seaweed
                         

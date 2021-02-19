@@ -48,12 +48,26 @@ class SignUpPhoneVC: UIViewController {
             nextBtn.backgroundColor = .inputGrey
         }
     }
+    @IBOutlet weak var beforeImageView: UIImageView!
+    @IBOutlet weak var afterImageView: UIImageView!
     
     //MARK: -viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         print(forSending)
         initialSetting(status: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        //self.forChangeImageView.image = UIImage(named: "joinCircleUnselected")
+        UIView.animate(withDuration: 1.0, animations: {
+            self.beforeImageView.image = UIImage(named: "joinCircleUnselected")
+        },completion: {finished in
+            UIView.animate(withDuration: 1.0, animations: {
+                self.afterImageView.image = UIImage(named: "joinCircleSelected")
+            })
+        })
     }
     
     ///화면 터치시 키보드 내리기
@@ -67,11 +81,17 @@ class SignUpPhoneVC: UIViewController {
         typingMessageTextField.isHidden = status
         resendMessageBtn.isHidden = status
     }
+        
+    func greenBtn(){
+        nextBtn.backgroundColor = .seaweed
+        nextBtn.setTitleColor(.white, for: .normal)
+    }
 
     //MARK: -@IBAction
     @IBAction func receiveMessage(_ sender: Any) {
         requestMessageBtn.isHidden = true
         initialSetting(status: false)
+        greenBtn()
     }
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

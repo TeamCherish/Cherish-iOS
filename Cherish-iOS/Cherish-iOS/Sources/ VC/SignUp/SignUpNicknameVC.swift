@@ -28,10 +28,25 @@ class SignUpNicknameVC: UIViewController {
             startCherishBtn.makeRounded(cornerRadius: 25.0)
         }
     }
+    @IBOutlet weak var beforeImageView: UIImageView!
+    @IBOutlet weak var afterImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(forSignUp)
         checkingLetterCount()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        //self.forChangeImageView.image = UIImage(named: "joinCircleUnselected")
+        UIView.animate(withDuration: 1.0, animations: {
+            self.beforeImageView.image = UIImage(named: "joinCircleUnselected")
+        },completion: {finished in
+            UIView.animate(withDuration: 1.0, animations: {
+                self.afterImageView.image = UIImage(named: "joinCircleSelected")
+            })
+        })
     }
     
     //MARK: -사용자 정의 함수
