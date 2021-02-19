@@ -18,7 +18,7 @@ class SignUpGenderVC: UIViewController {
     let formatter = DateFormatter()
     var limit: String?
     var limit_year : Int?
-    
+    var forSending = ["","",""]
     //MARK: -@IBOutlet
     @IBOutlet weak var genderTextField: UITextField!{
         didSet{
@@ -45,6 +45,7 @@ class SignUpGenderVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(forSending)
         createPicker()
         pickerSetting()
     }
@@ -108,6 +109,11 @@ class SignUpGenderVC: UIViewController {
         if genderPickerStatus && agePickerStatus{
             if let vc = self.storyboard?.instantiateViewController(identifier: "SignUpNicknameVC") as? SignUpNicknameVC {
                 self.navigationController?.pushViewController(vc, animated: true)
+                vc.forSignUp[0] = forSending[0]
+                vc.forSignUp[1] = forSending[1]
+                vc.forSignUp[2] = forSending[2]
+                vc.forSignUp[3] = genderTextField.text!
+                vc.forSignUp[4] = ageTextField.text!
             }
         }else{
             blankAlert(title: "Cherish", message: "빈칸을 채워주세요!")

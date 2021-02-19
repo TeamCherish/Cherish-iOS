@@ -9,7 +9,8 @@ import UIKit
 
 class SignUpNicknameVC: UIViewController {
     let maxLength_nickname = 8
-    
+    var forSignUp = ["","","","",""]
+    var gender: Bool = false
     //MARK: -@IBOutlet
     @IBOutlet weak var nickNameTextField: UITextField!{
         didSet{
@@ -29,6 +30,7 @@ class SignUpNicknameVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(forSignUp)
         checkingLetterCount()
     }
     
@@ -78,6 +80,31 @@ class SignUpNicknameVC: UIViewController {
     @IBAction func startCherish(_ sender: Any) {
         if nickNameTextField.text?.count == 0 {
             blankAlert(title: "Cherish", message: "닉네임을 입력해주세요!")
+        }else{
+            if forSignUp[3]=="남성"{
+                gender = true
+            }else{
+                gender = false
+            }
+            SignUpService.shared.doSignUp(email: forSignUp[0], password: forSignUp[1], phone: forSignUp[2], sex: gender, birth: forSignUp[4], nickname: nickNameTextField.text!) { [self] (networkResult) -> (Void) in
+                switch networkResult {
+                case .success(_):
+                    print("sucess")
+                    self.navigationController?.popToRootViewController(animated: true)
+                case .requestErr(let msg):
+                    if let message = msg as? String {
+                        print(gender)
+                        print(forSignUp)
+                        print(message)
+                    }
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            }
         }
     }
 }
@@ -88,7 +115,7 @@ extension SignUpNicknameVC: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return false }
         
-        let newKeywordLength = text.count + string.utf16.count - range.length
+        //let newKeywordLength = text.count + string.utf16.count - range.length
         
         /// 최대 글자 수 8
         if text.count >= maxLength_nickname && range.length == 0 && range.location < maxLength_nickname {

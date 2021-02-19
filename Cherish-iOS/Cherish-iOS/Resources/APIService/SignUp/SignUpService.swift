@@ -11,14 +11,14 @@ import Alamofire
 struct SignUpService {
     static let shared = SignUpService()
     
-    func doSignUp(email: String, password: String, phonenumber: String, sex: Bool, birth: String, nickname: String, completion: @escaping (NetworkResult<Any>) -> (Void)){
+    func doSignUp(email: String, password: String, phone: String, sex: Bool, birth: String, nickname: String, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
         let url = APIConstants.signupURL
         let header: HTTPHeaders = [ "Content-Type":"application/json"]
         let body: Parameters = [
             "email":email,
             "password":password,
-            "phonenumber": phonenumber,
+            "phone": phone,
             "sex": sex,
             "birth": birth,
             "nickname": nickname

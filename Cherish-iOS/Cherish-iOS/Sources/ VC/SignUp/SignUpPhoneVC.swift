@@ -10,7 +10,7 @@ import MessageUI
 
 class SignUpPhoneVC: UIViewController {
     //MARK: -변수 선언부
-    var forSending = ["","","","","",""]
+    var forSending = ["",""]
 
     //MARK: -@IBOutlet
     @IBOutlet weak var phoneTextField: UITextField!{
@@ -52,6 +52,7 @@ class SignUpPhoneVC: UIViewController {
     //MARK: -viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(forSending)
         initialSetting(status: true)
     }
     
@@ -76,7 +77,11 @@ class SignUpPhoneVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func nextAction(_ sender: Any) {
+        // 인증완료 되었으면 넘기기
         if let vc = self.storyboard?.instantiateViewController(identifier: "SignUpGenderVC") as? SignUpGenderVC {
+            vc.forSending[0] = forSending[0]
+            vc.forSending[1] = forSending[1]
+            vc.forSending[2] = phoneTextField.text!
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
