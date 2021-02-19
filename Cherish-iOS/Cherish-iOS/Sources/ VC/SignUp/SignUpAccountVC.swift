@@ -110,10 +110,12 @@ class SignUpAccountVC: UIViewController {
         passwordFormStatus = form
         
         // 체크 텍스트필드에 입력한 뒤 위에꺼를 수정하러 온거면 일치 체크해주기
-        if passwordTextField.text == passwordCheckTextField.text {
-            passwordStatus = true
-        }else{
-            passwordStatus = false
+        if (form == true || passwordFormStatus == true) && passwordStatus  == true {
+            if passwordTextField.text == passwordCheckTextField.text {
+                pwCorrectLabel(text: "비밀번호가 일치합니다.", color: .seaweed, correct: true)
+            }else{
+                pwCorrectLabel(text: "비밀번호가 일치하지 않습니다.", color: .pinkSub, correct: false)
+            }
         }
     }
     

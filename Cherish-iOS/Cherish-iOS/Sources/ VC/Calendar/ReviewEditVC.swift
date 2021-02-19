@@ -191,8 +191,12 @@ class ReviewEditVC: UIViewController{
                 switch networkResult {
                 case .success(_):
                     /// 삭제됐을 경우 캘린더가 아니라 식물카드뷰로 나가기
-                    let controller = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2]
-                    self.navigationController?.popToViewController(controller!, animated: true)
+                    let controllers = self.navigationController?.viewControllers
+                    for vc in controllers! {
+                        if vc is PlantDetailVC {
+                            _ = self.navigationController?.popToViewController(vc as! PlantDetailVC, animated: true)
+                        }
+                    }
                     print("success")
                 case .requestErr(_):
                     print("requestErr")

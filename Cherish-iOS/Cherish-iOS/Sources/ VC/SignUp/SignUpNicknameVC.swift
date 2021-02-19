@@ -39,7 +39,6 @@ class SignUpNicknameVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        //self.forChangeImageView.image = UIImage(named: "joinCircleUnselected")
         UIView.animate(withDuration: 1.0, animations: {
             self.beforeImageView.image = UIImage(named: "joinCircleUnselected")
         },completion: {finished in
@@ -101,11 +100,18 @@ class SignUpNicknameVC: UIViewController {
             }else{
                 gender = false
             }
-            SignUpService.shared.doSignUp(email: forSignUp[0], password: forSignUp[1], phone: forSignUp[2], sex: gender, birth: forSignUp[4], nickname: nickNameTextField.text!) { [self] (networkResult) -> (Void) in
+            SignUpService.shared.doSignUp(email: forSignUp[0], password: forSignUp[1], phone: forSignUp[2], sex: "\(gender)", birth: forSignUp[4], nickname: nickNameTextField.text!) { [self] (networkResult) -> (Void) in
                 switch networkResult {
                 case .success(_):
                     print("sucess")
-                    self.navigationController?.popToRootViewController(animated: true)
+                    // 회원가입 성공하면 Login 뷰로 pop
+                    let controllers = self.navigationController?.viewControllers
+                    for vc in controllers! {
+                        if vc is LoginVC {
+                            _ = self.navigationController?.popToViewController(vc as! LoginVC, animated: true)
+                        }
+                    }
+                    
                 case .requestErr(let msg):
                     if let message = msg as? String {
                         print(gender)
