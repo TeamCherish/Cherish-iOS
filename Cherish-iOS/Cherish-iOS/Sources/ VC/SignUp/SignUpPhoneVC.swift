@@ -88,10 +88,15 @@ class SignUpPhoneVC: UIViewController {
     }
 
     //MARK: -@IBAction
+    
+    // 인증번호 받기 버튼
     @IBAction func receiveMessage(_ sender: Any) {
-        requestMessageBtn.isHidden = true
         initialSetting(status: false)
+        requestMessageBtn.isHidden = true
+        phoneTextField.textColor = .textGrey
+        phoneTextField.isEnabled = false
         greenBtn()
+        
     }
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
