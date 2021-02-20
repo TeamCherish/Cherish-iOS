@@ -128,6 +128,8 @@
 		5491595425DE43F8008104FC /* testwatering.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5491595325DE43F7008104FC /* testwatering.gif */; };
 		5491595925DE73EB008104FC /* CheckEmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491595825DE73EB008104FC /* CheckEmailService.swift */; };
 		5491595F25DE794B008104FC /* CheckEmailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491595E25DE794B008104FC /* CheckEmailData.swift */; };
+		5491596325E15059008104FC /* MessageAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491596225E15059008104FC /* MessageAuthService.swift */; };
+		5491596625E15102008104FC /* MessageAuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491596525E15102008104FC /* MessageAuthData.swift */; };
 		54D223F425DA2912003A1496 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54D223F325DA2912003A1496 /* SignUp.storyboard */; };
 		54D223FC25DA30EA003A1496 /* SignUpAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */; };
 		54D2241325DA3607003A1496 /* SignUpPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */; };
@@ -279,6 +281,8 @@
 		5491595325DE43F7008104FC /* testwatering.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = testwatering.gif; sourceTree = "<group>"; };
 		5491595825DE73EB008104FC /* CheckEmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailService.swift; sourceTree = "<group>"; };
 		5491595E25DE794B008104FC /* CheckEmailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailData.swift; sourceTree = "<group>"; };
+		5491596225E15059008104FC /* MessageAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAuthService.swift; sourceTree = "<group>"; };
+		5491596525E15102008104FC /* MessageAuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAuthData.swift; sourceTree = "<group>"; };
 		54D223F325DA2912003A1496 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAccountVC.swift; sourceTree = "<group>"; };
 		54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneVC.swift; sourceTree = "<group>"; };
@@ -807,6 +811,7 @@
 			children = (
 				5491593C25DC13A5008104FC /* SignUpService.swift */,
 				5491595825DE73EB008104FC /* CheckEmailService.swift */,
+				5491596225E15059008104FC /* MessageAuthService.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -816,6 +821,7 @@
 			children = (
 				5491593F25DC1641008104FC /* SignUpData.swift */,
 				5491595E25DE794B008104FC /* CheckEmailData.swift */,
+				5491596525E15102008104FC /* MessageAuthData.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1114,6 +1120,7 @@
 				5478347225AC75950021C32B /* WateringDayData.swift in Sources */,
 				92DCC3DF25A8504F00160523 /* SelectFriendSearchBar.swift in Sources */,
 				33D0026625A3036800E97811 /* PlantDetailPopUpExplainVC.swift in Sources */,
+				5491596325E15059008104FC /* MessageAuthService.swift in Sources */,
 				546A247325ACD53A00F869E2 /* WateringReviewData.swift in Sources */,
 				92824DA225B19A7F003D7678 /* MypageNC.swift in Sources */,
 				5491593D25DC13A6008104FC /* SignUpService.swift in Sources */,
@@ -1125,6 +1132,7 @@
 				332CC7B925A7028A00D0047D /* MypageContactVC.swift in Sources */,
 				54425C3525AF51CB00E62BAB /* CalendarSeeData.swift in Sources */,
 				546A247025ACD32800F869E2 /* WateringReviewService.swift in Sources */,
+				5491596625E15102008104FC /* MessageAuthData.swift in Sources */,
 				33E8754925A09440001F84FE /* NotificationName.swift in Sources */,
 				337A5CB925A8545E00578130 /* LoginVC.swift in Sources */,
 				54D2241325DA3607003A1496 /* SignUpPhoneVC.swift in Sources */,

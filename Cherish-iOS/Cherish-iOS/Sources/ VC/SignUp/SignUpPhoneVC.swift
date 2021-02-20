@@ -11,7 +11,10 @@ import MessageUI
 class SignUpPhoneVC: UIViewController {
     //MARK: -변수 선언부
     var forSending = ["",""]
-
+    var authNumber: Int?
+    var isSending: Bool? = false
+    var isAuth: Bool? = false
+    
     //MARK: -@IBOutlet
     @IBOutlet weak var phoneTextField: UITextField!{
         didSet{
@@ -33,6 +36,12 @@ class SignUpPhoneVC: UIViewController {
             typingMessageTextField.makeRounded(cornerRadius: 8)
             typingMessageTextField.addLeftPadding()
             typingMessageTextField.backgroundColor = .inputGrey
+            typingMessageTextField.delegate = self
+        }
+    }
+    @IBOutlet weak var authCheckLabel: UILabel!{
+        didSet{
+            authCheckLabel.isHidden = true
         }
     }
     @IBOutlet weak var resendMessageBtn: UIButton!{
@@ -81,33 +90,105 @@ class SignUpPhoneVC: UIViewController {
         typingMessageTextField.isHidden = status
         resendMessageBtn.isHidden = status
     }
-        
+    
+    // 초록색으로 채워진 버튼
     func greenBtn(){
         nextBtn.backgroundColor = .seaweed
         nextBtn.setTitleColor(.white, for: .normal)
     }
-
+    
+    // 인증 UI 관련 메소드
+    func authLabel(see: Bool, text: String, color: UIColor, authStatus: Bool) {
+        authCheckLabel.isHidden = see
+        authCheckLabel.text = text
+        authCheckLabel.textColor = color
+        isAuth = authStatus
+    }
+    
     //MARK: -@IBAction
     
     // 인증번호 받기 버튼
     @IBAction func receiveMessage(_ sender: Any) {
-        initialSetting(status: false)
-        requestMessageBtn.isHidden = true
-        phoneTextField.textColor = .textGrey
-        phoneTextField.isEnabled = false
-        greenBtn()
-        
+        MessageAuthService.shared.messageAuth(phone: phoneTextField.text!) { [self] (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                authNumber = data as? Int // 보낸 인증번호
+                
+                requestMessageBtn.isHidden = true // 원래 있던 인증번호보내기 버튼 사라지게 하기
+                initialSetting(status: false) // 입력 텍스트 필드 및 재전송 버튼 보이기
+                isSending = true // 문자 보냈음
+                
+                // 번호 입력 부 수정 못하게 비활성화
+                phoneTextField.textColor = .textGrey
+                phoneTextField.isEnabled = false
+                greenBtn()
+            case .requestErr(let msg):
+                if let message = msg as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    @IBAction func resendAction(_ sender: Any) {
+        MessageAuthService.shared.messageAuth(phone: phoneTextField.text!) { [self] (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                authNumber = data as? Int
+                isSending = true
+                
+            case .requestErr(let msg):
+                if let message = msg as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func nextAction(_ sender: Any) {
         // 인증완료 되었으면 넘기기
-        if let vc = self.storyboard?.instantiateViewController(identifier: "SignUpGenderVC") as? SignUpGenderVC {
-            vc.forSending[0] = forSending[0]
-            vc.forSending[1] = forSending[1]
-            vc.forSending[2] = phoneTextField.text!
-            self.navigationController?.pushViewController(vc, animated: true)
+        if isSending == true{
+            if isAuth == true{
+                if let vc = self.storyboard?.instantiateViewController(identifier: "SignUpGenderVC") as? SignUpGenderVC {
+                    vc.forSending[0] = forSending[0]
+                    vc.forSending[1] = forSending[1]
+                    vc.forSending[2] = phoneTextField.text!
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
         }
+    }
+}
+
+//MARK: -Protocols
+/// 1
+extension SignUpPhoneVC: UITextFieldDelegate{
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == typingMessageTextField{
+            if typingMessageTextField.text! == String(authNumber!){
+                authLabel(see: false, text: "인증되었습니다.", color: .seaweed, authStatus: true)
+            }else{
+                authLabel(see: false, text: "올바르지 않은 인증번호입니다.", color: .pinkSub, authStatus: false)
+            }
+        }
+    }
+    
+    ///Return 눌렀을 때 키보드 내리기
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

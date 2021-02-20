@@ -12,7 +12,7 @@ class KeywordReviewEditCVC: UICollectionViewCell {
 
     @IBOutlet weak var editKeywordCanDeleteView: UIView!{
         didSet{
-            editKeywordCanDeleteView.makeRounded(cornerRadius: 15.0)
+            editKeywordCanDeleteView.makeRounded(cornerRadius: 14.0)
             editKeywordCanDeleteView.layer.borderColor = UIColor.textGrey.cgColor
             editKeywordCanDeleteView.layer.borderWidth  = 1.0
         }

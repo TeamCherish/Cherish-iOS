@@ -22,4 +22,5 @@ struct APIConstants {
     static let mypageURL = baseURL + "user/" ///마이페이지
     static let signupURL = baseURL + "login/signup"
     static let checkSameEmailURL = baseURL + "checkSameEmail"
+    static let messageAuthURL = baseURL + "login/phoneAuth"
 }

@@ -1,27 +1,22 @@
 //
-//  SignUpService.swift
+//  MessageAuthService.swift
 //  Cherish-iOS
 //
-//  Created by 이원석 on 2021/02/16.
+//  Created by 이원석 on 2021/02/20.
 //
 
 import Foundation
 import Alamofire
 
-struct SignUpService {
-    static let shared = SignUpService()
+struct MessageAuthService {
+    static let shared = MessageAuthService()
     
-    func doSignUp(email: String, password: String, phone: String, sex: String, birth: String, nickname: String, completion: @escaping (NetworkResult<Any>) -> (Void)){
+    func messageAuth(phone: String, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
-        let url = APIConstants.signupURL
+        let url = APIConstants.messageAuthURL
         let header: HTTPHeaders = [ "Content-Type":"application/json"]
         let body: Parameters = [
-            "email":email,
-            "password":password,
-            "phone": phone,
-            "sex": sex,
-            "birth": birth,
-            "nickname": nickname
+            "phone":phone
         ]
         let dataRequest = AF.request(url,
                                      method: .post,
@@ -44,7 +39,7 @@ struct SignUpService {
     
     private func judgeData(status: Int, data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(GenericResponse<String>.self, from: data) else {
+        guard let decodedData = try? decoder.decode(MessageAuthData.self, from: data) else {
             return .pathErr }
         switch status {
         case 200:

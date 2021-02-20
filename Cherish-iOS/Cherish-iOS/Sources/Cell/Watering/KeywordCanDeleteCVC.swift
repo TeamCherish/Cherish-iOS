@@ -12,7 +12,7 @@ class KeywordCanDeleteCVC: UICollectionViewCell {
 
     @IBOutlet weak var keywordCanDeleteView: UIView!{
         didSet{
-            keywordCanDeleteView.makeRounded(cornerRadius: 15.0)
+            keywordCanDeleteView.makeRounded(cornerRadius: 14.0)
             keywordCanDeleteView.layer.borderColor = UIColor.textGrey.cgColor
             keywordCanDeleteView.layer.borderWidth  = 1.0
         }
