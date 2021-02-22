@@ -15,9 +15,11 @@ struct APIConstants {
     static let recentKeywordURL = baseURL + "contact/" // 최근 연락 키워드
     static let loginURL = baseURL + "login/signin"
     static let mainURL = baseURL + "cherish/" ///체리쉬 메인
-    static let addURL = baseURL + "cherish"
+    static let addURL = baseURL + "cherish" /// 식물등록, 식물 수정
     static let plantDetailURL = baseURL + "cherish?CherishId="
     static let plantDetailCardURL = baseURL + "plantDetail/"
     static let calendarURL = baseURL + "calendar/"
     static let mypageURL = baseURL + "user/" ///마이페이지
+    static let getPlantDataURL = baseURL + "getCherishDetail/" /// 식물 수정할 때 정보 받아오기
+    static let deletePlantURL = baseURL + "cherish/"
 }

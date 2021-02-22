@@ -24,10 +24,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--PlantEditVC-->
         <scene sceneID="UQf-y1-Tu3">
             <objects>
-                <viewController id="FYv-TB-RGy" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlantEditVC" title="PlantEditVC" id="FYv-TB-RGy" customClass="PlantEditVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mvw-35-vxn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,6 +39,9 @@
                                     <constraint firstAttribute="height" constant="44" id="nea-52-bri"/>
                                 </constraints>
                                 <state key="normal" image="icn_back"/>
+                                <connections>
+                                    <action selector="popToDetail:" destination="FYv-TB-RGy" eventType="touchUpInside" id="65s-yO-icG"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 상세 입력" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfO-oK-elq" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                 <rect key="frame" x="138.66666666666666" y="54" width="98" height="24"/>
@@ -62,23 +65,220 @@
                                     <constraint firstAttribute="width" secondItem="sHn-Xl-0em" secondAttribute="height" multiplier="1:1" id="Qbb-Ma-3aq"/>
                                 </constraints>
                                 <state key="normal" image="icDeleteCalendarEdit"/>
+                                <connections>
+                                    <action selector="deletePlant:" destination="FYv-TB-RGy" eventType="touchUpInside" id="jnF-Ns-h7n"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물애칭" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Utv-lk-7NA" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="27" y="114" width="52" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="52" id="Pfq-5R-KxJ"/>
+                                    <constraint firstAttribute="width" secondItem="Utv-lk-7NA" secondAttribute="height" multiplier="13:6" id="QrD-M2-UJ2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                                <color key="textColor" name="black"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물주기 알람시간" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8v-zA-IBL" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="29" y="459" width="94" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="8xF-wt-79e"/>
+                                    <constraint firstAttribute="width" secondItem="B8v-zA-IBL" secondAttribute="height" multiplier="47:12" id="wpN-nM-NSH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                                <color key="textColor" name="black"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물주기 알림주기" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSs-IE-x4X" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="29" y="373" width="94" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="Ooq-ga-Kl4"/>
+                                    <constraint firstAttribute="width" secondItem="LSs-IE-x4X" secondAttribute="height" multiplier="47:12" id="qhC-Fw-AZP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                                <color key="textColor" name="black"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hif-KT-EQ2" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="29" y="287" width="52" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="52" id="fxD-zP-5fh"/>
+                                    <constraint firstAttribute="width" secondItem="hif-KT-EQ2" secondAttribute="height" multiplier="13:6" id="jpj-uj-nEr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                                <color key="textColor" name="black"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="생일" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0br-Bc-THW" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="29" y="203" width="26" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="dVX-dN-awS"/>
+                                    <constraint firstAttribute="width" secondItem="0br-Bc-THW" secondAttribute="height" multiplier="13:12" id="rO5-dN-vgg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                                <color key="textColor" name="black"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="box_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="hvg-3Q-6bv">
+                                <rect key="frame" x="16" y="145" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="MHB-S4-75s"/>
+                                    <constraint firstAttribute="width" secondItem="hvg-3Q-6bv" secondAttribute="height" multiplier="343:44" id="MbQ-mG-l8e"/>
+                                </constraints>
+                                <color key="textColor" name="black"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="box_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="tb5-te-O3a">
+                                <rect key="frame" x="16" y="231" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tb5-te-O3a" secondAttribute="height" multiplier="343:44" id="DgU-kQ-II6"/>
+                                    <constraint firstAttribute="width" constant="343" id="ybt-oM-vdp"/>
+                                </constraints>
+                                <color key="textColor" name="black"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="box_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="f71-QH-bGD">
+                                <rect key="frame" x="16" y="315" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="L7Y-cU-S7w"/>
+                                    <constraint firstAttribute="width" secondItem="f71-QH-bGD" secondAttribute="height" multiplier="343:44" id="mTs-it-L94"/>
+                                </constraints>
+                                <color key="textColor" name="black"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="box_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="uD7-Gg-8Aq">
+                                <rect key="frame" x="16" y="401" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="uD7-Gg-8Aq" secondAttribute="height" multiplier="343:44" id="A1n-Ug-HZ4"/>
+                                    <constraint firstAttribute="width" constant="343" id="ZXi-dg-pdq"/>
+                                </constraints>
+                                <color key="textColor" name="black"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="box_add_plant_detail" translatesAutoresizingMaskIntoConstraints="NO" id="Jkf-eB-1yB">
+                                <rect key="frame" x="16" y="487" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="De0-g0-1qK"/>
+                                    <constraint firstAttribute="width" secondItem="Jkf-eB-1yB" secondAttribute="height" multiplier="343:44" id="GmR-sn-vcc"/>
+                                </constraints>
+                                <color key="textColor" name="black"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QvM-cj-73o">
+                                <rect key="frame" x="16" y="697" width="343" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QvM-cj-73o" secondAttribute="height" multiplier="343:48" id="b5z-F2-ZBn"/>
+                                    <constraint firstAttribute="width" constant="343" id="c3H-4H-GQf"/>
+                                </constraints>
+                                <state key="normal" image="btn_next_selected"/>
+                                <connections>
+                                    <action selector="editPlant:" destination="FYv-TB-RGy" eventType="touchUpInside" id="mcE-hj-pG8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="완료" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Hm-p6-MkK" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="172.66666666666666" y="709" width="30" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8Hm-p6-MkK" secondAttribute="height" multiplier="5:4" id="8h1-wF-JIF"/>
+                                    <constraint firstAttribute="width" constant="30" id="ihR-Yy-KXb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                <color key="textColor" name="white"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mzT-Nn-Drm">
+                                <rect key="frame" x="0.0" y="531" width="375" height="168"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="ZYU-Xj-Zqc"/>
+                                    <constraint firstAttribute="width" secondItem="mzT-Nn-Drm" secondAttribute="height" multiplier="125:56" id="uKH-W5-jed"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1pI-zB-wUD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="1pI-zB-wUD" firstAttribute="bottom" secondItem="8Hm-p6-MkK" secondAttribute="bottom" constant="45" id="0F6-cJ-Bmj"/>
+                            <constraint firstItem="uD7-Gg-8Aq" firstAttribute="centerX" secondItem="Mvw-35-vxn" secondAttribute="centerX" id="6Ai-b0-prw"/>
+                            <constraint firstItem="QvM-cj-73o" firstAttribute="centerX" secondItem="Mvw-35-vxn" secondAttribute="centerX" id="Ag1-ZP-2E9"/>
                             <constraint firstItem="sHn-Xl-0em" firstAttribute="top" secondItem="1pI-zB-wUD" secondAttribute="top" id="GZK-NF-alC"/>
+                            <constraint firstItem="LSs-IE-x4X" firstAttribute="top" secondItem="f71-QH-bGD" secondAttribute="bottom" constant="14" id="GqW-E9-Cqf"/>
                             <constraint firstItem="cuw-K6-mPe" firstAttribute="top" secondItem="1pI-zB-wUD" secondAttribute="top" id="IAA-es-6KI"/>
+                            <constraint firstItem="mzT-Nn-Drm" firstAttribute="trailing" secondItem="1pI-zB-wUD" secondAttribute="trailing" id="JAs-Uy-MPg"/>
+                            <constraint firstItem="B8v-zA-IBL" firstAttribute="top" secondItem="uD7-Gg-8Aq" secondAttribute="bottom" constant="14" id="LcU-oI-aE8"/>
+                            <constraint firstItem="Utv-lk-7NA" firstAttribute="top" secondItem="cuw-K6-mPe" secondAttribute="bottom" constant="26" id="Lh8-N1-ZN6"/>
                             <constraint firstItem="WfO-oK-elq" firstAttribute="top" secondItem="1pI-zB-wUD" secondAttribute="top" constant="10" id="O0c-9v-htI"/>
+                            <constraint firstItem="uD7-Gg-8Aq" firstAttribute="top" secondItem="LSs-IE-x4X" secondAttribute="bottom" constant="4" id="OYe-Nf-SoT"/>
+                            <constraint firstItem="0br-Bc-THW" firstAttribute="leading" secondItem="1pI-zB-wUD" secondAttribute="leading" constant="29" id="Os2-Rq-hrA"/>
+                            <constraint firstItem="Jkf-eB-1yB" firstAttribute="centerX" secondItem="Mvw-35-vxn" secondAttribute="centerX" id="Wzr-b9-8Q5"/>
+                            <constraint firstItem="mzT-Nn-Drm" firstAttribute="leading" secondItem="1pI-zB-wUD" secondAttribute="leading" id="a6m-IM-3lB"/>
+                            <constraint firstItem="8Hm-p6-MkK" firstAttribute="centerX" secondItem="Mvw-35-vxn" secondAttribute="centerX" id="aBp-5D-X5S"/>
+                            <constraint firstItem="tb5-te-O3a" firstAttribute="centerX" secondItem="Mvw-35-vxn" secondAttribute="centerX" id="cBu-hC-eAH"/>
+                            <constraint firstItem="mzT-Nn-Drm" firstAttribute="top" secondItem="Jkf-eB-1yB" secondAttribute="bottom" id="dDF-Wm-wqX"/>
+                            <constraint firstItem="hif-KT-EQ2" firstAttribute="top" secondItem="tb5-te-O3a" secondAttribute="bottom" constant="12" id="dnn-9M-Crx"/>
+                            <constraint firstItem="1pI-zB-wUD" firstAttribute="bottom" secondItem="QvM-cj-73o" secondAttribute="bottom" constant="33" id="eGk-2q-ehb"/>
+                            <constraint firstItem="LSs-IE-x4X" firstAttribute="leading" secondItem="1pI-zB-wUD" secondAttribute="leading" constant="29" id="fRL-CS-qHF"/>
                             <constraint firstItem="WfO-oK-elq" firstAttribute="centerX" secondItem="Mvw-35-vxn" secondAttribute="centerX" id="gmw-VS-k9h"/>
+                            <constraint firstItem="hvg-3Q-6bv" firstAttribute="top" secondItem="Utv-lk-7NA" secondAttribute="bottom" constant="7" id="h1C-hT-1Qb"/>
                             <constraint firstItem="cuw-K6-mPe" firstAttribute="leading" secondItem="1pI-zB-wUD" secondAttribute="leading" id="hSw-q6-HVW"/>
+                            <constraint firstItem="hvg-3Q-6bv" firstAttribute="centerX" secondItem="Mvw-35-vxn" secondAttribute="centerX" id="kfe-lj-orz"/>
+                            <constraint firstItem="f71-QH-bGD" firstAttribute="top" secondItem="hif-KT-EQ2" secondAttribute="bottom" constant="4" id="lbx-MU-mtN"/>
                             <constraint firstItem="1pI-zB-wUD" firstAttribute="trailing" secondItem="sHn-Xl-0em" secondAttribute="trailing" constant="6" id="mX2-K7-KRB"/>
+                            <constraint firstItem="0br-Bc-THW" firstAttribute="top" secondItem="hvg-3Q-6bv" secondAttribute="bottom" constant="14" id="mxb-J4-1n1"/>
+                            <constraint firstItem="Jkf-eB-1yB" firstAttribute="top" secondItem="B8v-zA-IBL" secondAttribute="bottom" constant="4" id="qDt-7G-5A6"/>
+                            <constraint firstItem="tb5-te-O3a" firstAttribute="top" secondItem="0br-Bc-THW" secondAttribute="bottom" constant="4" id="rxT-Hv-orC"/>
+                            <constraint firstItem="f71-QH-bGD" firstAttribute="centerX" secondItem="Mvw-35-vxn" secondAttribute="centerX" id="tpT-vD-pxU"/>
+                            <constraint firstItem="hif-KT-EQ2" firstAttribute="leading" secondItem="1pI-zB-wUD" secondAttribute="leading" constant="29" id="vqB-Kk-N1Q"/>
+                            <constraint firstItem="B8v-zA-IBL" firstAttribute="leading" secondItem="1pI-zB-wUD" secondAttribute="leading" constant="29" id="wwm-4C-x8v"/>
+                            <constraint firstItem="Utv-lk-7NA" firstAttribute="leading" secondItem="1pI-zB-wUD" secondAttribute="leading" constant="27" id="zH3-Bf-cri"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="alarmPicker" destination="mzT-Nn-Drm" id="Rhx-vk-dH4"/>
+                        <outlet property="alarmTimeTextField" destination="Jkf-eB-1yB" id="LxV-vU-Jnq"/>
+                        <outlet property="birthTextField" destination="tb5-te-O3a" id="4We-1h-FyE"/>
+                        <outlet property="editBtn" destination="QvM-cj-73o" id="6Xw-Kf-PgQ"/>
+                        <outlet property="nicknameTextField" destination="hvg-3Q-6bv" id="D9Q-3a-VO0"/>
+                        <outlet property="periodTextField" destination="uD7-Gg-8Aq" id="ska-P5-Fu2"/>
+                        <outlet property="phoneTextField" destination="f71-QH-bGD" id="q14-xB-x32"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbx-c9-M1R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="-531"/>
+            <point key="canvasLocation" x="1813.5999999999999" y="-542.36453201970448"/>
         </scene>
         <!--PlantDetailVC-->
         <scene sceneID="TbY-AL-tnq">
@@ -129,6 +329,9 @@
                                             <constraint firstAttribute="width" secondItem="dTK-B6-ZTW" secondAttribute="height" multiplier="1:1" id="yoW-dL-riQ"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="icnSetting"/>
+                                        <connections>
+                                            <action selector="moveToEdit:" destination="WHt-ur-unu" eventType="touchUpInside" id="iyc-mn-Air"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -813,6 +1016,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="box_add_plant_detail" width="335" height="44"/>
+        <image name="btn_next_selected" width="343" height="48"/>
         <image name="icDeleteCalendarEdit" width="44" height="44"/>
         <image name="icnBack" width="44" height="44"/>
         <image name="icnCalendar" width="44" height="44"/>
@@ -834,6 +1039,9 @@
         </namedColor>
         <namedColor name="seaweed">
             <color red="0.10199999809265137" green="0.82400000095367432" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

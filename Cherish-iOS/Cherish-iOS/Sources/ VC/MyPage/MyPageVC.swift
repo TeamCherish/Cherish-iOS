@@ -153,10 +153,13 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     
     // 검색뷰로 이동
     @IBAction func moveToSearchPlant(_ sender: Any) {
-        guard let dvc = self.storyboard?.instantiateViewController(identifier: "MyPageSearchPlantVC") as? MyPageSearchPlantVC else {return}
+        guard let dvc = self.storyboard?.instantiateViewController(identifier: "MyPageSearchVC") as? MyPageSearchVC else {return}
         dvc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(dvc, animated: true)
     }
+    
+    
+    // 식물등록으로 이동
     @IBAction func moveToAddUser(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
         

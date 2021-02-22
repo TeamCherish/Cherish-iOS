@@ -39,7 +39,6 @@ class PlantResultVC: UIViewController {
         
         self.modifierLabel.text = UserDefaults.standard.string(forKey: "resultModifier")
         
-        
         //label에 있는 Text를 NSMutableAttributedString으로 만들어준다.
         let attributedStr = NSMutableAttributedString(string: self.modifierLabel.text!)
 

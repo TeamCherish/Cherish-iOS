@@ -277,12 +277,6 @@
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bB-lW-ioS">
-                                <rect key="frame" x="296" y="407.66666666666669" width="51" height="31"/>
-                                <connections>
-                                    <action selector="switchAction:" destination="DAc-nO-vXW" eventType="valueChanged" id="Bc7-Vb-HaU"/>
-                                </connections>
-                            </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aas-LP-IMf">
                                 <rect key="frame" x="16" y="697" width="343" height="48"/>
                                 <constraints>
@@ -343,11 +337,9 @@
                             <constraint firstItem="xSI-Uz-kG0" firstAttribute="top" secondItem="aL1-JX-GuN" secondAttribute="bottom" constant="7" id="Ym4-2V-WvI"/>
                             <constraint firstItem="dJf-1V-FHK" firstAttribute="bottom" secondItem="e35-Fc-Bwl" secondAttribute="bottom" constant="690" id="aZW-oj-niL"/>
                             <constraint firstItem="2eh-tN-roC" firstAttribute="top" secondItem="xSI-Uz-kG0" secondAttribute="bottom" constant="14" id="bH6-7c-aQi"/>
-                            <constraint firstItem="4bB-lW-ioS" firstAttribute="centerY" secondItem="uhn-zN-3vv" secondAttribute="centerY" id="cRB-GW-o4s"/>
                             <constraint firstItem="9Eg-k9-vFi" firstAttribute="leading" secondItem="dJf-1V-FHK" secondAttribute="leading" constant="29" id="csS-uR-mAj"/>
                             <constraint firstItem="dJf-1V-FHK" firstAttribute="bottom" secondItem="aas-LP-IMf" secondAttribute="bottom" constant="33" id="heZ-ZU-wg3"/>
                             <constraint firstItem="tlM-NJ-OJ1" firstAttribute="centerX" secondItem="OPd-NF-VB0" secondAttribute="centerX" id="hhs-yB-yNm"/>
-                            <constraint firstItem="dJf-1V-FHK" firstAttribute="trailing" secondItem="4bB-lW-ioS" secondAttribute="trailing" constant="30" id="hkZ-JT-lBc"/>
                             <constraint firstItem="iWL-Ip-d3K" firstAttribute="top" secondItem="Cho-wb-3ua" secondAttribute="bottom" constant="12" id="l2Y-T0-q1j"/>
                             <constraint firstItem="9Eg-k9-vFi" firstAttribute="top" secondItem="uhn-zN-3vv" secondAttribute="bottom" constant="14" id="mJD-3j-hwe"/>
                             <constraint firstItem="jDu-1D-bi1" firstAttribute="top" secondItem="9Eg-k9-vFi" secondAttribute="bottom" constant="42" id="nib-Ec-5WW"/>
@@ -364,7 +356,6 @@
                         <outlet property="completeLabel" destination="tlM-NJ-OJ1" id="gaO-w0-adr"/>
                         <outlet property="nicknameTextField" destination="xSI-Uz-kG0" id="7m9-gC-Ejg"/>
                         <outlet property="phoneTextField" destination="wLQ-co-qp2" id="bC0-ad-QEr"/>
-                        <outlet property="stateSwitch" destination="4bB-lW-ioS" id="vGs-TF-UWL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKh-Ns-1fb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

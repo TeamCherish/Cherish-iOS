@@ -55,7 +55,7 @@ class PlantDetailVC: UIViewController {
     var friendsPlantIdx:Int = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
     
     var myCherishIsSelected: Bool = false
-//    var myCherishIdx: Int = UserDefaults.standard.integer(forKey: "selectedCherishIdx")
+    var myCherishIdx: Int = UserDefaults.standard.integer(forKey: "selectedCherishIdx")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -559,6 +559,16 @@ class PlantDetailVC: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    //MARK: - 수정뷰로 이동하는 함수
+    @IBAction func moveToEdit(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "PlantDetail", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(identifier: "PlantEditVC") as? PlantEditVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    
     @IBAction func moveToWatering(_ sender: Any) {
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpWatering", bundle: nil)

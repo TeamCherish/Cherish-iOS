@@ -15,7 +15,6 @@ class InputDetailVC: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var alarmPeriodTextField: UITextField!
     @IBOutlet weak var alarmTimeTextField: UITextField!
-    @IBOutlet weak var stateSwitch: UISwitch!
     @IBOutlet weak var completeBtn: UIButton!
     @IBOutlet weak var completeLabel: CustomLabel!
     @IBOutlet weak var alarmPicker: UIPickerView!
@@ -41,6 +40,7 @@ class InputDetailVC: UIViewController {
     var cycle_date = 0
     var givenName: String?
     var givenPhoneNumber: String?
+    var convertedAlarmTime: String?
 //    var resultPeriod: String?
     
     //MARK: - viewDidLoad()
@@ -50,7 +50,6 @@ class InputDetailVC: UIViewController {
         setBirthPickerData()
         completeBtn.isEnabled = false
         setTextField()
-        setSwitch()
         textFieldBackgroundImage()
         textFieldPadding()
         createPicker()
@@ -63,20 +62,6 @@ class InputDetailVC: UIViewController {
     }
     
     //MARK: - IBAction
-    
-    @IBAction func switchAction(_ sender: Any) {
-        if stateSwitch.isOn == true {
-            print("알람 받음")
-            alarmPeriodTextField.placeholder = "Every 1 week"
-            alarmPeriodTextField.isEnabled = true
-        }
-        else {
-            print("알람 받지 않음")
-            alarmPeriodTextField.placeholder = ""
-            alarmPeriodTextField.text = ""
-            alarmPeriodTextField.isEnabled = false
-        }
-    }
     
     @IBAction func closeUpToSelectVC(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -99,26 +84,32 @@ class InputDetailVC: UIViewController {
         // 생일 입력 관련 -> 생일도 테스트 해보자! 0000-00-00 으로 잘 넘어가는지~
         // -> 생일은 invalid date로 넘어감 -> 왜냐~~~~~~ 서버한테 물어보자
         if birthTextField.text?.isEmpty == true {
-            birthText = "00/00/0000"
+            birthText = "0000-00-00"
         }
         else {
             birthText = birthTextField.text!
         }
         
         guard let nameText = givenName,
-//              let nicknameText = nicknameTextField.text,
-//              let birthText = birthTextField.text,
               let phonenumberText = phoneTextField.text,
-              let timeText = alarmTimeTextField.text,
+              let timeText = convertedAlarmTime,
               let periodText = alarmPeriodTextField.text else { return }
+        
+        print(nameText)
+        print(nicknameText)
+        print(birthText)
+        print(phonenumberText)
+        print(periodText)
+        print(cycle_date)
+        print(timeText)
     
-        let alarmState = stateSwitch.isOn
+        let alarmState = true
         
         if completeBtn.isEnabled == true {
             guard let loadingVC = self.storyboard?.instantiateViewController(identifier: "LoadingPopUpVC") as? LoadingPopUpVC else { return }
             guard let resultVC = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else { return }
             
-            AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: periodText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")) {
+            AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: timeText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")) {
                 
                 (networkResult) -> (Void) in
                 print(UserDefaults.standard.integer(forKey: "userID"))
@@ -140,7 +131,7 @@ class InputDetailVC: UIViewController {
                     print("networkFail")
                 }
             }
-            self.navigationController?.pushViewController(loadingVC, animated: true)
+            self.navigationController?.pushViewController(loadingVC, animated: false)
         }
     }
     
@@ -158,11 +149,11 @@ class InputDetailVC: UIViewController {
     }
     
     //MARK: - UISwitch Custom
-    func setSwitch() {
-        stateSwitch.tintColor = UIColor.seaweed
-        stateSwitch.onTintColor = UIColor.seaweed
-        stateSwitch.transform = CGAffineTransform(scaleX: 0.8, y: 0.74)
-    }
+//    func setSwitch() {
+//        stateSwitch.tintColor = UIColor.seaweed
+//        stateSwitch.onTintColor = UIColor.seaweed
+//        stateSwitch.transform = CGAffineTransform(scaleX: 0.8, y: 0.74)
+//    }
     
     // 생일 picker 미래로 설정 못하게
     func setBirthPickerData() {
@@ -170,28 +161,17 @@ class InputDetailVC: UIViewController {
     }
 
 
-    //MARK: - 텍스트필드 값 다 채워지면 완료 버튼 enable
+    //MARK: - 필요한 값 다 채워지면 완료 버튼 enable
     func enableCompleteBtn() {
-//        let nameEmpty = nameTextField.text?.isEmpty
-//        let nicknameEmpty = nicknameTextField.text?.isEmpty
-//        let birthEmpty = birthTextField.text?.isEmpty
         let phoneEmpty = phoneTextField.text?.isEmpty
         let alarmPeriodEmpty = alarmPeriodTextField.text?.isEmpty
         let alarmTimeEmpty = alarmTimeTextField.text?.isEmpty
         
-        switch stateSwitch.isOn {
-        case true:
-            if (phoneEmpty==false) &&
-                (alarmTimeEmpty==false) &&
-                (alarmPeriodEmpty==false){
-                completeBtn.isEnabled = true
-                self.completeLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
-            }
-        case false:
-            if (phoneEmpty==false) && (alarmTimeEmpty==false) {
-                completeBtn.isEnabled = true
-                self.completeLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
-            }
+        if (phoneEmpty==false) &&
+            (alarmTimeEmpty==false) &&
+            (alarmPeriodEmpty==false){
+            completeBtn.isEnabled = true
+            self.completeLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         }
     }
     
@@ -212,6 +192,7 @@ class InputDetailVC: UIViewController {
         phoneTextField.background = UIImage(named: "box_add_plant_detail")
         phoneTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
         phoneTextField.layer.borderWidth = 0
+        phoneTextField.isEnabled = false
         
         alarmPeriodTextField.background = UIImage(named: "box_add_plant_detail")
         alarmPeriodTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
@@ -220,6 +201,7 @@ class InputDetailVC: UIViewController {
         alarmTimeTextField.background = UIImage(named: "box_add_plant_detail")
         alarmTimeTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
         alarmTimeTextField.layer.borderWidth = 0
+//        alarmTimeTextField.tintColor = UIColor.clearColor()
     }
     
     //MARK: - 텍스트필드 padding값 지정
@@ -410,6 +392,19 @@ extension InputDetailVC: UIPickerViewDelegate {
             let realAMPM = ampm[selectedAMPM]
             let fullAlarmTime = realTime+":00"+" "+realAMPM
             self.alarmTimeTextField.text = fullAlarmTime
+            
+            // 알람 시간 파싱
+            var convertTime = 0
+            switch realAMPM {
+            case "AM":
+                convertedAlarmTime = realTime+":00"
+            case "PM":
+                convertTime = Int(realTime)! + 12
+                var realConvertedTime = String(convertTime)
+                convertedAlarmTime = realConvertedTime+":00"
+            default:
+                convertTime = 0
+            }
             enableCompleteBtn()
         }
     }

@@ -8,7 +8,9 @@
 import UIKit
 
 class MypageContactTVC: UITableViewCell {
-
+    
+    static let identifier = "MypageContactTVC"
+    
     @IBOutlet var friendsImageView: UIImageView!
     @IBOutlet var friendsNameLabel: CustomLabel!
     @IBOutlet var friendsContactNumberLabel: CustomLabel!
