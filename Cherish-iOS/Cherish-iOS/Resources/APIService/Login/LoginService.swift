@@ -26,7 +26,8 @@ struct LoginService {
         
         
         dataRequest.responseData {(response) in
-            switch response.result { case .success:
+            switch response.result {
+            case .success:
                 guard let statusCode = response.response?.statusCode else { return
                 }
                 guard let data = response.value else {
@@ -46,7 +47,8 @@ struct LoginService {
             return .pathErr }
         switch status {
         case 200:
-            print("성공")
+          //  print("성공")
+            print(decodedData.data)
             return .success(decodedData.data)
         case 400..<500:
             return .requestErr(decodedData.message)
