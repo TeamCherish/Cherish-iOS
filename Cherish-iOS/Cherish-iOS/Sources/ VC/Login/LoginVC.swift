@@ -286,7 +286,11 @@ class LoginVC: UIViewController {
                 }
             case .requestErr(let msg):
                 if let message = msg as? String {
-                    self.loginAlert(title: "로그인 실패", message: message)
+                    if message == "비밀번호가 일치하지 않습니다"{
+                        self.loginAlert(title: "비밀번호가 일치하지 않아요", message: "다시 확인해주세요")
+                    }else{
+                        self.loginAlert(title: "등록되어있지 않은 이메일이에요", message: "다시 확인해주세요")
+                    }
                 }
             case .pathErr:
                 print("pathErr")
@@ -295,6 +299,22 @@ class LoginVC: UIViewController {
             case .networkFail:
                 print("networkFail")
             }
+        }
+    }
+    
+    // 회원가입
+    @IBAction func signUpAction(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "SignUp", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(identifier: "SignUpAccountVC") as? SignUpAccountVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    // 비밀번호 찾기
+    @IBAction func findingPWAction(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "FindPassword", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(identifier: "FPEmailVC") as? FPEmailVC {
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

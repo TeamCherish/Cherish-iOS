@@ -199,19 +199,21 @@ class CalendarVC: UIViewController {
     
     /// 캘린더 모드로 진입하여 메모 수정한 뒤에 데이터 리로드를 위한 함수
     func calendarModeForEdit() {
-        calendarOrigin.reloadData()
-        for i in 0...(fetchCalendar.count - 1) {
-            if memoToCalendarDate == fetchCalendar[i].waterDate{
-                memoShowView.isHidden = false
-                formatter.dateFormat = "yyyy-MM-dd"
-                memoToCalendarDateTemp = formatter.date(from: fetchCalendar[i].waterDate)
-                formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
-                memoDateLabel.text = formatter.string(from: memoToCalendarDateTemp!)
-                memoTextLabel.text = fetchCalendar[i].review
-                n = i
-                calendarKeywordCollectionView.reloadData()
-                calendarKeywordCollectionView.delegate = self
-                calendarKeywordCollectionView.dataSource = self
+        if wasWatering{
+            calendarOrigin.reloadData()
+            for i in 0...(fetchCalendar.count - 1) {
+                if memoToCalendarDate == fetchCalendar[i].waterDate{
+                    memoShowView.isHidden = false
+                    formatter.dateFormat = "yyyy-MM-dd"
+                    memoToCalendarDateTemp = formatter.date(from: fetchCalendar[i].waterDate)
+                    formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
+                    memoDateLabel.text = formatter.string(from: memoToCalendarDateTemp!)
+                    memoTextLabel.text = fetchCalendar[i].review
+                    n = i
+                    calendarKeywordCollectionView.reloadData()
+                    calendarKeywordCollectionView.delegate = self
+                    calendarKeywordCollectionView.dataSource = self
+                }
             }
         }
     }
@@ -362,7 +364,7 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
         let eventScaleFactor: CGFloat = 1.8
         cell.eventIndicator.transform = CGAffineTransform(scaleX: eventScaleFactor, y: eventScaleFactor)
     }
-    
+
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventOffsetFor date: Date) -> CGPoint {
         return CGPoint(x: 0, y: 3)
     }
@@ -384,7 +386,7 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
         
         return 0
     }
-    
+
     /// 물 준 날, 물 주는 날 Default Event Dot 색상 분기처리 - FSCalendarDelegateAppearance
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]?{
         if self.watering_Events.contains(date){

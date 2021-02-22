@@ -34,7 +34,7 @@ class PopUpLaterVC: UIViewController {
             laterPickerView.dataSource = self
         }
     }
-    @IBOutlet weak var laterCountingLabel: UILabel! ///(현재까지 미룬 횟수 n회)
+//    @IBOutlet weak var laterCountingLabel: UILabel! ///(현재까지 미룬 횟수 n회)
     @IBOutlet weak var confirmBtn: UIButton!{
         didSet{
             confirmBtn.makeRounded(cornerRadius: 23.0)
@@ -73,7 +73,7 @@ class PopUpLaterVC: UIViewController {
         
         self.changeDateMonthLabel.text = String(int_month!)
         self.changeDateDayLabel.text = String(int_day!+1) // 1일 미루었을 때의 날짜
-        self.laterCountingLabel.text = UserDefaults.standard.string(forKey: "laterNumUntilNow")
+        //self.laterCountingLabel.text = UserDefaults.standard.string(forKey: "laterNumUntilNow")
     }
     
     /// PickerView가 처음에 1이 선택된 상태고 그걸 future_water_date에 적용해놔야 하므로 didSelectRow 미리 호출

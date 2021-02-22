@@ -85,10 +85,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4qx-gY-PYX">
-                                        <rect key="frame" x="46.666666666666671" y="165.33333333333331" width="217.66666666666663" height="30.666666666666657"/>
+                                        <rect key="frame" x="71.000000000000014" y="165.33333333333331" width="169.33333333333337" height="30.333333333333343"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*미루기가 3번을 넘어가면 애정도가 줄어요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJT-7e-TOu" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="217.66666666666666" height="15.333333333333334"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*물주기를 미루면 식물의 애정도가 -1점씩 감소해요" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJT-7e-TOu" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="169.33333333333334" height="30.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
                                                 <color key="textColor" name="textGrey"/>
                                                 <nil key="highlightedColor"/>
@@ -98,48 +98,10 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yzb-mI-25I">
-                                                <rect key="frame" x="44" y="15.333333333333314" width="130" height="15.333333333333336"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(현재까지 미룬 횟수 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pep-Ce-cII" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="104.33333333333333" height="15.333333333333334"/>
-                                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
-                                                        <color key="textColor" name="textGrey"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                                                <real key="value" value="-0.69999999999999996"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="n" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BU2-Ej-CVE" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="104.33333333333333" y="0.0" width="7.3333333333333286" height="15.333333333333334"/>
-                                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="13"/>
-                                                        <color key="textColor" name="textGrey"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                                                <real key="value" value="-0.20000000000000001"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회 )" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tav-Kz-fzL" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="111.66666666666667" y="0.0" width="18.333333333333329" height="15.333333333333334"/>
-                                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
-                                                        <color key="textColor" name="textGrey"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                                                <real key="value" value="-0.69999999999999996"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzt-qJ-2q3">
-                                        <rect key="frame" x="32" y="213" width="247" height="45"/>
+                                        <rect key="frame" x="32" y="212.66666666666663" width="247" height="45"/>
                                         <color key="backgroundColor" name="black"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="D4m-IA-L8b"/>
@@ -238,7 +200,6 @@
                         <outlet property="changeDateDayLabel" destination="piI-Ff-sUT" id="a7c-2u-Q9t"/>
                         <outlet property="changeDateMonthLabel" destination="vGn-O8-kdL" id="Rzj-Wo-TmW"/>
                         <outlet property="confirmBtn" destination="tzt-qJ-2q3" id="MYe-zb-eY9"/>
-                        <outlet property="laterCountingLabel" destination="BU2-Ej-CVE" id="cSj-Iq-yzO"/>
                         <outlet property="laterPickerView" destination="PRM-bo-UL7" id="een-Sl-nxA"/>
                         <outlet property="laterView" destination="AlV-dc-OEb" id="xH2-0W-4Dh"/>
                         <outlet property="selectDateLabel" destination="n2H-QV-g1R" id="MqZ-mm-DJ6"/>

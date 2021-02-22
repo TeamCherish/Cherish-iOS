@@ -22,4 +22,7 @@ struct APIConstants {
     static let mypageURL = baseURL + "user/" ///마이페이지
     static let getPlantDataURL = baseURL + "getCherishDetail/" /// 식물 수정할 때 정보 받아오기
     static let deletePlantURL = baseURL + "cherish/"
+    static let signupURL = baseURL + "login/signup"
+    static let checkSameEmailURL = baseURL + "checkSameEmail"
+    static let messageAuthURL = baseURL + "login/phoneAuth"
 }
