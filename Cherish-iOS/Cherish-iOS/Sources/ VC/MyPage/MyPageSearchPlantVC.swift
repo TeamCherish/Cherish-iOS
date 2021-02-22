@@ -151,11 +151,11 @@ extension MyPageSearchPlantVC: UISearchBarDelegate {
         else {
             checkSearch = 1
             
-            for plant in filteredPlant {
-                if plant.nickname.contains(searchText) {
-                    filteredPlant.append(contentsOf: [MypagefriendsData(id: plant.id, dDay: plant.dDay, nickname: plant.nickname, name: plant.name, thumbnailImageURL: plant.thumbnailImageURL, level: plant.level, plantID: plant.plantID)])
-                }
-            }
+//            for plant in filteredPlant {
+//                if plant.nickname.contains(searchText) {
+//                    filteredPlant.append(contentsOf: [MypagefriendsData(id: plant.id, dDay: plant.dDay, nickname: plant.nickname, name: plant.name, thumbnailImageURL: plant.thumbnailImageURL, level: plant.level, plantID: plant.plantID)])
+//                }
+//            }
         }
         self.plantTV.reloadData()
     }

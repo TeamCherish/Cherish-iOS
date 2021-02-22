@@ -256,8 +256,9 @@ class ReviewVC: UIViewController {
             case .success(let data):
                 print(data)
                 appDel.isWateringComplete = true
-                self.dismiss(animated: true, completion: nil)
-                
+                self.dismiss(animated: true, completion: {
+                    NotificationCenter.default.post(name: .popToMainView, object: nil)
+                })
             case .requestErr(_):
                 print("requestErr")
             case .pathErr:
@@ -277,7 +278,9 @@ class ReviewVC: UIViewController {
             case .success(let data):
                 print(data)
                 appDel.isWateringComplete = true
-                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: {
+                    NotificationCenter.default.post(name: .popToMainView, object: nil)
+                })
             case .requestErr(_):
                 print("requestErr")
             case .pathErr:

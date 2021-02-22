@@ -77,11 +77,14 @@ class PlantDetailVC: UIViewController {
         makeDelegates()
         makeCornerRadiusView()
         setAutoLayoutByScreenSize()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         LoadingHUD.show()
         friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+        getPlantDetailData()
+        NotificationCenter.default.addObserver(self, selector: #selector(popToMainView), name: .popToMainView, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -97,6 +100,10 @@ class PlantDetailVC: UIViewController {
     func makeDelegates() {
         keywordCV.delegate = self
         keywordCV.dataSource = self
+    }
+    
+    @objc func popToMainView() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func getPlantDataFromMyPage(cherishId: Int) {
@@ -117,11 +124,23 @@ class PlantDetailVC: UIViewController {
                     let imageData = try? Data(contentsOf: url!)
                     plantDetailBtn.setImage(UIImage(data: imageData!), for: .normal)
                     
-                    plantdDayLabel.text = "D-\(plantDetailDataFromMyPage.dDay)"
+                    //MARK: - 선택된 친구 데이터의 dDay 값 파싱 -,+,0
+                    if plantDetailDataFromMyPage.dDay == 0 {
+                        plantdDayLabel.text = "D-day"
+                    }
+                    else if plantDetailDataFromMyPage.dDay < 0 {
+                        plantdDayLabel.text = "D+\(-plantDetailDataFromMyPage.dDay)"
+                    }
+                    else {
+                        plantdDayLabel.text = "D-\(plantDetailDataFromMyPage.dDay)"
+                    }
+                    
                     plantMaintainDayLabel.text = "\(plantDetailDataFromMyPage.duration)일째"
                     plantBirthDayLabel.text = plantDetailDataFromMyPage.birth
                     memoTitleLabel.text = "\(plantDetailDataFromMyPage.nickname)와(과) 함께했던 이야기"
-                    
+                    print("지우기 전",keywordArray)
+                    keywordArray.removeAll()
+                    print("지운 후",keywordArray)
                     keywordArray.append(plantDetailDataFromMyPage.keyword1)
                     keywordArray.append(plantDetailDataFromMyPage.keyword2)
                     keywordArray.append(plantDetailDataFromMyPage.keyword3)
@@ -129,8 +148,9 @@ class PlantDetailVC: UIViewController {
                     // keywordArray 요소 중 null값을 필터링
                     keywordArray = keywordArray.filter(){$0 != ""}
                     if keywordArray.count == 0 {
-                        keywordArray.append("키워드 없음")
+                        keywordArray.append("등록된 키워드가 없어요")
                     }
+                    
                     plantHealthStatusLabel.text = plantDetailDataFromMyPage.statusMessage
                     makeCircularView(Float(plantDetailDataFromMyPage.gage))
                     
@@ -266,11 +286,27 @@ class PlantDetailVC: UIViewController {
                     let imageData = try? Data(contentsOf: url!)
                     plantDetailBtn.setImage(UIImage(data: imageData!), for: .normal)
                     
-                    plantdDayLabel.text = "D-\(plantDetailData.dDay)"
+                    //MARK: - 선택된 친구 데이터의 dDay 값 파싱 -,+,0
+                    if plantDetailData.dDay == 0 {
+                        plantdDayLabel.text = "D-day"
+                    }
+                    else if plantDetailData.dDay < 0 {
+                        plantdDayLabel.text = "D+\(-plantDetailData.dDay)"
+                    }
+                    else {
+                        plantdDayLabel.text = "D-\(plantDetailData.dDay)"
+                    }
+                    
                     plantMaintainDayLabel.text = "\(plantDetailData.duration)일째"
                     plantBirthDayLabel.text = plantDetailData.birth
                     memoTitleLabel.text = "\(plantDetailData.nickname)와(과) 함께했던 이야기"
                     
+                    ///1) 첫 로드, 2) 키워드 수정 후 viewWillAppear에서만 로드되는 경우
+                    
+                    // 2)키워드 중복로드 방지를 위해 viewDidLoad에서 로드되었던 keywordArray를 지워준다
+                    keywordArray.removeAll()
+                    // 1)서버에서 받아온 keyword를 append한다
+                    // 2)viewWillAppear에서 새롭게 띄워질 keyword를 append한다
                     keywordArray.append(plantDetailData.keyword1)
                     keywordArray.append(plantDetailData.keyword2)
                     keywordArray.append(plantDetailData.keyword3)
@@ -278,7 +314,7 @@ class PlantDetailVC: UIViewController {
                     // keywordArray 요소 중 null값을 필터링
                     keywordArray = keywordArray.filter(){$0 != ""}
                     if keywordArray.count == 0 {
-                        keywordArray.append("키워드 없음")
+                        keywordArray.append("등록된 키워드가 없어요")
                     }
                     plantHealthStatusLabel.text = plantDetailData.statusMessage
                     makeCircularView(Float(plantDetailData.gage))
@@ -594,9 +630,9 @@ extension PlantDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
         
         if keywordArray.count != 0 {
             
-            if keywordArray.count == 1 {
-                keywordCell.keywordLabel.textColor = .pinkSub
-                keywordCell.layer.borderColor = CGColor(red: 247/255, green: 89/255, blue: 108/255, alpha: 1.0)
+            if keywordArray[0] == "등록된 키워드가 없어요" {
+                keywordCell.keywordLabel.textColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
+                keywordCell.layer.borderColor = CGColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
             }
             else {
                 keywordCell.keywordLabel.textColor = .black

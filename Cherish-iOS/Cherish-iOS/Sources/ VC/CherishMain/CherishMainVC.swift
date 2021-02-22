@@ -19,6 +19,7 @@ class CherishMainVC: OverlayContainerViewController {
         
         //cherishPeople cell 클릭되었을 때 노티를 보낸걸 감지
         NotificationCenter.default.addObserver(self, selector: #selector(scrollNotchDownAction), name: .cherishPeopleCellClicked, object: nil)
+        
         navigationBarHidden()
         makeOverlayContainerContents()
     }

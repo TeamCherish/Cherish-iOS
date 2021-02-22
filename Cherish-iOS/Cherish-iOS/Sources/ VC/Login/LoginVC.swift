@@ -33,8 +33,8 @@ class LoginVC: UIViewController {
         setButtonTextKerns(-0.7)
         fetchContacts()
         keyboardObserver()
+     
     }
-    
     
     func makeDelegate() {
         loginEmailTextField.delegate = self

@@ -43,6 +43,9 @@
 		33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33851C9C259A5C25005BCFFD /* GenericResponse.swift */; };
 		33CAF85225A249DC0050DE29 /* CherishMainNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CAF85125A249DC0050DE29 /* CherishMainNC.swift */; };
 		33CAF85625A2674A0050DE29 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CAF85525A2674A0050DE29 /* CircularProgressView.swift */; };
+		33CD994E25D9993F00C3BD1C /* PushReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CD994D25D9993F00C3BD1C /* PushReviewService.swift */; };
+		33CD995225D99A0700C3BD1C /* PushReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CD995125D99A0700C3BD1C /* PushReviewData.swift */; };
+		33CD995625D9A0CD00C3BD1C /* FCMTokenUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CD995525D9A0CD00C3BD1C /* FCMTokenUpdateService.swift */; };
 		33D0026625A3036800E97811 /* PlantDetailPopUpExplainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0026525A3036800E97811 /* PlantDetailPopUpExplainVC.swift */; };
 		33D0026925A3093500E97811 /* PlantExplainCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0026825A3093500E97811 /* PlantExplainCVC.swift */; };
 		33D0026F25A30AB700E97811 /* PlantDetailExplainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0026E25A30AB700E97811 /* PlantDetailExplainData.swift */; };
@@ -205,6 +208,9 @@
 		33851C9C259A5C25005BCFFD /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		33CAF85125A249DC0050DE29 /* CherishMainNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishMainNC.swift; sourceTree = "<group>"; };
 		33CAF85525A2674A0050DE29 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		33CD994D25D9993F00C3BD1C /* PushReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushReviewService.swift; sourceTree = "<group>"; };
+		33CD995125D99A0700C3BD1C /* PushReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushReviewData.swift; sourceTree = "<group>"; };
+		33CD995525D9A0CD00C3BD1C /* FCMTokenUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMTokenUpdateService.swift; sourceTree = "<group>"; };
 		33D0026525A3036800E97811 /* PlantDetailPopUpExplainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailPopUpExplainVC.swift; sourceTree = "<group>"; };
 		33D0026825A3093500E97811 /* PlantExplainCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantExplainCVC.swift; sourceTree = "<group>"; };
 		33D0026E25A30AB700E97811 /* PlantDetailExplainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailExplainData.swift; sourceTree = "<group>"; };
@@ -513,6 +519,7 @@
 				5478346D25AC72C40021C32B /* Watering */,
 				33805F8725AC7387005CED0F /* Main */,
 				5491595625DE67EC008104FC /* SignUp */,
+				33CD994725D9991000C3BD1C /* PushAlarm */,
 				33805F7C25AC61F8005CED0F /* Login */,
 			);
 			path = APIService;
@@ -584,6 +591,7 @@
 			isa = PBXGroup;
 			children = (
 				5491595D25DE792F008104FC /* SignUp */,
+				33CD995025D999EB00C3BD1C /* PushAlarm */,
 				54425C3325AF519E00E62BAB /* Calendar */,
 				92B0F9E025AEE40600AA411A /* Contact */,
 				5478346525AC6A690021C32B /* Watering */,
@@ -617,6 +625,23 @@
 				33CAF85525A2674A0050DE29 /* CircularProgressView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		33CD994725D9991000C3BD1C /* PushAlarm */ = {
+			isa = PBXGroup;
+			children = (
+				33CD994D25D9993F00C3BD1C /* PushReviewService.swift */,
+				33CD995525D9A0CD00C3BD1C /* FCMTokenUpdateService.swift */,
+			);
+			path = PushAlarm;
+			sourceTree = "<group>";
+		};
+		33CD995025D999EB00C3BD1C /* PushAlarm */ = {
+			isa = PBXGroup;
+			children = (
+				33CD995125D99A0700C3BD1C /* PushReviewData.swift */,
+			);
+			path = PushAlarm;
 			sourceTree = "<group>";
 		};
 		33D0025525A2914600E97811 /* PlantDetail */ = {
@@ -1107,9 +1132,12 @@
 				332CC7B025A7018400D0047D /* MypagePlantTVC.swift in Sources */,
 				54425C3A25AF520A00E62BAB /* CalendarService.swift in Sources */,
 				5491595125DCD65A008104FC /* FPNewPasswordVC.swift in Sources */,
+				33CD994E25D9993F00C3BD1C /* PushReviewService.swift in Sources */,
 				332CC7B625A7027D00D0047D /* MypagePlantVC.swift in Sources */,
+				33CD995225D99A0700C3BD1C /* PushReviewData.swift in Sources */,
 				9214410225ACE7BD00853E53 /* AddUserService.swift in Sources */,
 				923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */,
+				33CD995625D9A0CD00C3BD1C /* FCMTokenUpdateService.swift in Sources */,
 				33E874FE25A04A8D001F84FE /* ShowMoreVC.swift in Sources */,
 				33E874FB25A04A81001F84FE /* MyPageVC.swift in Sources */,
 				33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */,
