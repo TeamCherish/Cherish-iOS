@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class SignUpNicknameVC: UIViewController {
+class SignUpNicknameVC: UIViewController,SFSafariViewControllerDelegate {
     let maxLength_nickname = 8
     var forSignUp = ["","","","",""]
     var gender: Bool = false
@@ -126,6 +127,22 @@ class SignUpNicknameVC: UIViewController {
                     print("networkFail")
                 }
             }
+        }
+    }
+    @IBAction func privacyPageAction(_ sender: Any) {
+        if let url = URL(string: "https://www.notion.so/Cherish-2d35c1bffa2f4d49943db302d76e3cac") {
+            let vc = SFSafariViewController(url: url)
+                vc.delegate = self
+                vc.modalPresentationStyle = .popover
+                present(vc, animated: true)
+        }
+    }
+    @IBAction func termsOfServiceAction(_ sender: Any) {
+        if let url = URL(string: "https://www.notion.so/Cherish-d96f88172ffa4d80b257665849bddc65") {
+            let vc = SFSafariViewController(url: url)
+                vc.delegate = self
+                vc.modalPresentationStyle = .popover
+                present(vc, animated: true)
         }
     }
 }
