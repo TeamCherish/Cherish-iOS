@@ -305,8 +305,7 @@ class LoginVC: UIViewController {
     // 회원가입
     @IBAction func signUpAction(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "SignUp", bundle: nil)
-        //SignUpAccountVC
-        if let vc = storyBoard.instantiateViewController(identifier: "SignUpNicknameVC") as? SignUpNicknameVC {
+        if let vc = storyBoard.instantiateViewController(identifier: "SignUpAccountVC") as? SignUpAccountVC {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
