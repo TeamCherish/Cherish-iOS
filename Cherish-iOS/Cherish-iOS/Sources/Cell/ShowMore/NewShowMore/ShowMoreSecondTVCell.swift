@@ -9,9 +9,16 @@ import UIKit
 
 class ShowMoreSecondTVCell: UITableViewCell {
 
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var pushAlarmSwitch: UISwitch!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        resizeUISwitch()
+    }
+    
+    func resizeUISwitch() {
+        pushAlarmSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

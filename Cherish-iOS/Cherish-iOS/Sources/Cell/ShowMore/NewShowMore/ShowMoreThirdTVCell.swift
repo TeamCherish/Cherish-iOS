@@ -9,6 +9,8 @@ import UIKit
 
 class ShowMoreThirdTVCell: UITableViewCell {
 
+    @IBOutlet var titleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
