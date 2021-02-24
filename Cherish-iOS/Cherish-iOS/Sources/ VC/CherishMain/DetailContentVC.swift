@@ -157,20 +157,20 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     
                     /// plantName에 따라 원형 이미지를 다르게 설정해주기 위한 분기처리
                     if plantName == "민들레" {
-                        firstCell.eclipseImageView.image = UIImage(named: "ellipse373")
+                        firstCell.eclipseImageView.image = UIImage(named: "imgMinStorke")
                     }
                     else if plantName == "로즈마리" {
-                        firstCell.eclipseImageView.image = UIImage(named: "ellipse375")
+                        firstCell.eclipseImageView.image = UIImage(named: "imgRoseStorke")
                     }
                     else if plantName == "단모환" {
-                        firstCell.eclipseImageView.image = UIImage(named: "ellipse377")
+                        firstCell.eclipseImageView.image = UIImage(named: "imgSunStorke")
                     }
                     else if plantName == "스투키" {
-                        firstCell.eclipseImageView.image = UIImage(named: "ellipse374")
+                        firstCell.eclipseImageView.image = UIImage(named: "imgStukiStorke")
                     }
                     //아메리칸블루
                     else {
-                        firstCell.eclipseImageView.image = UIImage(named: "ellipse376")
+                        firstCell.eclipseImageView.image = UIImage(named: "imgBlueStorke")
                     }
                     
                     firstCell.nickNameLabel.text = cherishPeopleData[0].nickname
@@ -194,21 +194,21 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 {
                     print("else")
                     if plantName == "민들레" {
-                        firstCell.eclipseImageView.image = UIImage(named: "ellipse373")
+                        firstCell.eclipseImageView.image = UIImage(named: "imgMinStorke")
                     }
                     else if plantName == "로즈마리" {
                         print("로즈마리")
-                        firstCell.eclipseImageView.image = UIImage(named: "ellipse375")
+                        firstCell.eclipseImageView.image = UIImage(named: "imgRoseStorke")
                     }
                     else if plantName == "단모환" {
-                        firstCell.eclipseImageView.image = UIImage(named: "ellipse377")
+                        firstCell.eclipseImageView.image = UIImage(named: "imgSunStorke")
                     }
                     else if plantName == "스투키" {
-                        firstCell.eclipseImageView.image = UIImage(named: "ellipse374")
+                        firstCell.eclipseImageView.image = UIImage(named: "imgStukiStorke")
                     }
                     //아메리칸블루
                     else {
-                        firstCell.eclipseImageView.image = UIImage(named: "ellipse376")
+                        firstCell.eclipseImageView.image = UIImage(named: "imgBlueStorke")
                     }
                     
                     firstCell.nickNameLabel.text = UserDefaults.standard.string(forKey:"selectedNickNameData")

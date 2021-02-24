@@ -88,7 +88,7 @@ extension UIColor {
     
     //민들레 배경색
     @nonobjc class var dandelionBg: UIColor {
-        return UIColor(red: 146/255, green: 154/255, blue: 201/255, alpha: 1.0)
+        return UIColor(red: 151/255, green: 205/255, blue: 189/255, alpha: 1.0)
     }
     
     //선인장 배경색
@@ -103,12 +103,12 @@ extension UIColor {
     
     //아메리칸블루 배경색
     @nonobjc class var americanBlueBg: UIColor {
-        return UIColor(red: 252/255, green: 208/255, blue: 98/255, alpha: 1.0)
+        return UIColor(red: 170/255, green: 179/255, blue: 209/255, alpha: 1.0)
     }
     
     //로즈마리 배경색
     @nonobjc class var rosemaryBg: UIColor {
-        return UIColor(red: 199/255, green: 177/255, blue: 216/255, alpha: 1.0)
+        return UIColor(red: 241/255, green: 176/255, blue: 188/255, alpha: 1.0)
     }
     
     // pageControl 비지정 색

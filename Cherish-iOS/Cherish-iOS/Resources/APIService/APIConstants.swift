@@ -27,4 +27,5 @@ struct APIConstants {
     static let messageAuthURL = baseURL + "login/phoneAuth"
     static let pushReviewURL = baseURL + "pushReview" ///pushReview
     static let fcmTokenUpdateURL = baseURL + "user/token" // 어플을 실행시킬때마다 바뀌는 fcm token을 업데이트 해주는 API
+    static let addViewChangeNicknameURL = baseURL + "addView" // 더보기뷰 - 닉네임수정 API
 }

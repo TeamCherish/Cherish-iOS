@@ -172,13 +172,17 @@ class MainContentVC: UIViewController {
                     if growthInfo < 25 {
                         // 1단계
                         plantGifView.isHidden = true
-                        self.plantImageView.image = UIImage(named: "dandelion1")
+                        plantImageViewTopConstraint.constant = 243
+                        self.plantImageView.image = UIImage(named: "imgMin1")
+                        self.plantImageView.frame.size = CGSize(width: 266, height: 336)
                         view.backgroundColor = .dandelionBg
                     }
                     else if growthInfo < 50 && growthInfo >= 25 {
                         // 2단계
                         plantGifView.isHidden = true
-                        self.plantImageView.image = UIImage(named: "dandelion2")
+                        plantImageViewTopConstraint.constant = 297
+                        self.plantImageView.image = UIImage(named: "imgMin2")
+                        self.plantImageView.frame.size = CGSize(width: 266, height: 439)
                         view.backgroundColor = .dandelionBg
                     }
                     else {
@@ -198,18 +202,77 @@ class MainContentVC: UIViewController {
                 plantGifView.isHidden = true
                 
                 if selectedPlantName == "아메리칸블루" {
-                    plantImageViewTopConstraint.constant = 134
-                    self.plantImageView.image = UIImage(named: "mainImgAmericanblue")
+                    // 식물3단계 파싱해주기
+                    if growthInfo < 25 {
+                        // 1단계
+                        plantImageViewTopConstraint.constant = 250
+                        print("아메리칸1",plantImageViewTopConstraint.constant)
+                        self.plantImageView.image = UIImage(named: "imgBlue1")
+                        self.plantImageView.frame.size = CGSize(width: 249, height: 368)
+                        view.backgroundColor = .americanBlueBg
+                    }
+                    else if growthInfo < 50 && growthInfo > 25 {
+                        // 2단계
+                        plantImageViewTopConstraint.constant = 145
+                        self.plantImageView.image = UIImage(named: "imgBlue2")
+                        self.plantImageView.frame.size = CGSize(width: 204, height: 461)
+                        view.backgroundColor = .americanBlueBg
+                    }
+                    else {
+                        // 3단계
+                        plantImageViewTopConstraint.constant = 134
+                        self.plantImageView.image = UIImage(named: "mainImgAmericanblue")
+                        self.view.backgroundColor = .americanBlueBg
+                    }
                     view.backgroundColor = .americanBlueBg
                 }
                 else if selectedPlantName == "단모환" {
                     plantImageViewTopConstraint.constant = 104
-                    self.plantImageView.image = UIImage(named: "mainImgSun")
+                    // 식물3단계 파싱해주기
+                    if growthInfo < 25 {
+                        // 1단계
+                        plantImageViewTopConstraint.constant = 300
+                        self.plantImageView.image = UIImage(named: "imgSun1")
+                        self.plantImageView.frame.size = CGSize(width: 275, height: 229)
+                        view.backgroundColor = .cactusBg
+                    }
+                    else if growthInfo < 50 && growthInfo > 25 {
+                        // 2단계
+                        plantImageViewTopConstraint.constant = 235
+                        self.plantImageView.image = UIImage(named: "imgSun2")
+                        self.plantImageView.frame.size = CGSize(width: 283, height: 350)
+                        view.backgroundColor = .cactusBg
+                    }
+                    else {
+                        // 3단계
+                        self.plantImageView.image = UIImage(named: "mainImgSun")
+                        self.view.backgroundColor = .cactusBg
+                    }
                     view.backgroundColor = .cactusBg
                 }
                 else if selectedPlantName == "로즈마리" {
-                    plantImageViewTopConstraint.constant = 104
-                    self.plantImageView.image = UIImage(named: "mainImgRosemary")
+                    
+                    // 식물3단계 파싱해주기
+                    if growthInfo < 25 {
+                        // 1단계
+                        plantImageViewTopConstraint.constant = 206
+                        self.plantImageView.image = UIImage(named: "imgRose1")
+                        self.plantImageView.frame.size = CGSize(width: 222, height: 460)
+                        view.backgroundColor = .rosemaryBg
+                    }
+                    else if growthInfo < 50 && growthInfo > 25 {
+                        // 2단계
+                        plantImageViewTopConstraint.constant = 106
+                        self.plantImageView.image = UIImage(named: "imgRose2")
+                        self.plantImageView.frame.size = CGSize(width: 204, height: 572)
+                        view.backgroundColor = .rosemaryBg
+                    }
+                    else {
+                        // 3단계
+                        plantImageViewTopConstraint.constant = 104
+                        self.plantImageView.image = UIImage(named: "mainImgRosemary")
+                        self.view.backgroundColor = .rosemaryBg
+                    }
                     view.backgroundColor = .rosemaryBg
                 }
                 else {
@@ -218,18 +281,22 @@ class MainContentVC: UIViewController {
                     // 식물3단계 파싱해주기
                     if growthInfo < 25 {
                         // 1단계
-                        self.plantImageView.image = UIImage(named: "stucky1")
-                        view.backgroundColor = .dandelionBg
+                        plantImageViewTopConstraint.constant = 210
+                        self.plantImageView.image = UIImage(named: "imgStuki1")
+                        self.plantImageView.frame.size = CGSize(width: 323, height: 287)
+                        view.backgroundColor = .stuckyBg
                     }
                     else if growthInfo < 50 && growthInfo > 25 {
                         // 2단계
-                        self.plantImageView.image = UIImage(named: "stucky2")
-                        view.backgroundColor = .dandelionBg
+                        plantImageViewTopConstraint.constant = 268
+                        self.plantImageView.image = UIImage(named: "imgStuki2")
+                        self.plantImageView.frame.size = CGSize(width: 330, height: 345)
+                        view.backgroundColor = .stuckyBg
                     }
                     else {
                         // 3단계
                         self.plantImageView.image = UIImage(named: "mainImgStuki")
-                        self.view.backgroundColor = .dandelionBg
+                        self.view.backgroundColor = .stuckyBg
                     }
                     view.backgroundColor = .stuckyBg
                 }
