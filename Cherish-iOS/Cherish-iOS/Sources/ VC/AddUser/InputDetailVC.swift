@@ -116,8 +116,11 @@ class InputDetailVC: UIViewController {
                 switch networkResult {
                 case .success(let data):
                     if let resultData = data as? AddUserData {
+                        UserDefaults.standard.set(resultData.plant.id, forKey: "resultPlantId")
                         UserDefaults.standard.set(resultData.plant.modifier, forKey: "resultModifier")
                         UserDefaults.standard.set(resultData.plant.explanation , forKey: "resultExplanation")
+                        UserDefaults.standard.set(resultData.plant.imageURL, forKey: "resultImgURL")
+                        UserDefaults.standard.set(resultData.plant.flowerMeaning, forKey: "flowerMeaning")
                         print(resultVC.modifier)
                         //                        NotificationCenter.default.post(name: .sendPlantResult, object: nil)
                     }

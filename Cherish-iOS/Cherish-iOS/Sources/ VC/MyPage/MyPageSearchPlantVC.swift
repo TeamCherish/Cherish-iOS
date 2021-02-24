@@ -14,6 +14,9 @@ class MyPageSearchPlantVC: UIViewController {
     
     var mypagePlantArray: [MypagefriendsData] = []
     var filteredPlant: [MypagefriendsData] = []
+    var filteredData: [MyPlantData] = []
+//    var filteredPlant: [MyPlantData] = []
+    
     
     var myCherishId: [Int] = []
     
@@ -45,7 +48,7 @@ class MyPageSearchPlantVC: UIViewController {
     }
     
     func setSearchBar() {
-        plantSearchBar.placeholder = "연락처 검색"
+        plantSearchBar.placeholder = "식물 검색"
         plantSearchBar.setImage(UIImage(named: "icn_search_box"), for: UISearchBar.Icon.search, state: .normal)
         plantSearchBar.layer.borderWidth = 0
         plantSearchBar.searchBarStyle = .minimal
@@ -151,11 +154,16 @@ extension MyPageSearchPlantVC: UISearchBarDelegate {
         else {
             checkSearch = 1
             
-//            for plant in filteredPlant {
-//                if plant.nickname.contains(searchText) {
-//                    filteredPlant.append(contentsOf: [MypagefriendsData(id: plant.id, dDay: plant.dDay, nickname: plant.nickname, name: plant.name, thumbnailImageURL: plant.thumbnailImageURL, level: plant.level, plantID: plant.plantID)])
-//                }
+//            if friend.name.contains(searchText) {
+//                filteredData.append(contentsOf: [
+//                                        Friend(name: friend.name, phoneNumber: friend.phoneNumber, selected: friend.selected)])
 //            }
+            
+            for plant in filteredPlant {
+                if plant.nickname.contains(searchText) {
+//                    filteredPlant.append(contentsOf: [MypagefriendsData(from: , id: plant.id, dDay: plant.dDay, nickname: plant.nickname, name: plant.name, thumbnailImageURL: plant.thumbnailImageURL, level: plant.level, plantID: plant.plantID)])
+
+                }
         }
         self.plantTV.reloadData()
     }
@@ -163,8 +171,10 @@ extension MyPageSearchPlantVC: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         plantSearchBar.searchTextField.resignFirstResponder()
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.plantSearchBar.endEditing(true)
+//        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//            self.plantSearchBar.endEditing(true)
+//        }
+
+        
     }
 }

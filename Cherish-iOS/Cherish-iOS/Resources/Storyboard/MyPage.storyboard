@@ -457,9 +457,8 @@
                                     <constraint firstItem="0rh-mV-oLd" firstAttribute="top" secondItem="5ZI-OX-bin" secondAttribute="top" constant="12" id="xLI-W3-ny1"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JP7-m0-VSp">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JP7-m0-VSp" customClass="CustomSegmentedControl" customModule="Cherish_iOS" customModuleProvider="target">
                                 <rect key="frame" x="18" y="93" width="180" height="54"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="Q4l-wx-UYk"/>
                                     <constraint firstAttribute="width" secondItem="JP7-m0-VSp" secondAttribute="height" multiplier="10:3" id="n0v-3P-JoW"/>
@@ -577,9 +576,9 @@
                     </view>
                     <connections>
                         <outlet property="myContactSearchSV" destination="flM-kj-E3J" id="3td-51-2Ls"/>
-                        <outlet property="mySearchExternalSV" destination="yKg-kp-yPj" id="Gbl-2l-nj5"/>
+                        <outlet property="mySearchExternalSV" destination="i62-lp-fYj" id="WJF-R1-DR9"/>
                         <outlet property="myplantSearchSV" destination="Hkw-y9-FJS" id="PKE-Lc-rbL"/>
-                        <outlet property="segmentView" destination="JP7-m0-VSp" id="PQ4-YN-WBV"/>
+                        <outlet property="segmentView" destination="JP7-m0-VSp" id="O7O-Jb-voA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yA-en-TqU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1031,9 +1030,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

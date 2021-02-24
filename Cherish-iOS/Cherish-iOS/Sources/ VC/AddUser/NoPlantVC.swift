@@ -11,7 +11,10 @@ class NoPlantVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        guard let dvc = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else {return}
+        dvc.checkPush = true
+        print("아직 식물 없으요")
+        print(dvc.checkPush)
         // Do any additional setup after loading the view.
     }
     
@@ -21,15 +24,5 @@ class NoPlantVC: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -16,10 +16,12 @@ class MyPageSearchVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var segmentView: CustomSegmentedControl!  {
         didSet {
-            segmentView.setButtonTitles(buttonTitles: ["식물 \(mypagePlantCount)", "연락처 \(mypageContactCount)"])
-            segmentView.selectorTextColor = .black
-            segmentView.selectorViewColor = .black
-        }
+            DispatchQueue.main.async {
+                self.segmentView.setButtonTitles(buttonTitles: ["식물 \(self.mypagePlantCount)", "연락처 \(self.mypageContactCount)"])
+                self.segmentView.selectorTextColor = .black
+                self.segmentView.selectorViewColor = .black
+            }
+            }
     }
     @IBOutlet weak var mySearchExternalSV: UIScrollView!
     @IBOutlet weak var myplantSearchSV: UIScrollView!
@@ -35,13 +37,13 @@ class MyPageSearchVC: UIViewController, UIGestureRecognizerDelegate {
         getMypageData()
     }
 
-//    override func viewWillAppear(_ animated: Bool) {
-//        LoadingHUD.show()
-//    }
-//    
-//    override func viewDidAppear(_ animated: Bool) {
-//        LoadingHUD.hide()
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        LoadingHUD.show()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        LoadingHUD.hide()
+    }
     
     func setDelegates() {
         mySearchExternalSV.delegate = self
@@ -54,10 +56,15 @@ class MyPageSearchVC: UIViewController, UIGestureRecognizerDelegate {
         let myPageUserIdx = UserDefaults.standard.integer(forKey: "userID")
         print(myPageUserIdx)
         let plantArr = UserDefaults.standard.array(forKey: "myCherishID")
-        let contactArr = UserDefaults.standard.array(forKey: "userContacts")
+        
+        var contactArr : [Friend] = []
+        
+        if let data = UserDefaults.standard.value(forKey: "userContacts") as? Data {
+            contactArr = try! PropertyListDecoder().decode([Friend].self, from: data)
+        }
         mypagePlantCount = plantArr!.count
-        mypageContactCount = contactArr!.count
-        segmentView.setButtonTitles(buttonTitles: ["식물 \(plantArr)", "연락처 \(contactArr)"])
+        mypageContactCount = contactArr.count
+        segmentView.setButtonTitles(buttonTitles: ["식물 \(mypagePlantCount)", "연락처 \(mypageContactCount)"])
     }
     
     // MARK: - 취소버튼 누르면 마이페이지로 돌아가기
