@@ -58,6 +58,7 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         LoadingHUD.show()
+        getMypageData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -127,6 +128,8 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
                     print("1: my page main임 ㅎㅇㅎㅇ")
                     print(myPlantID)
                     UserDefaults.standard.set(myPlantID, forKey: "plantIDArray")
+                    UserDefaults.standard.set(mypageData.email, forKey: "userEmail")
+                    UserDefaults.standard.set(mypageData.userNickname, forKey: "userNickname")
                     
 
                     // Userdefaults에 저장된 contact 가져오기

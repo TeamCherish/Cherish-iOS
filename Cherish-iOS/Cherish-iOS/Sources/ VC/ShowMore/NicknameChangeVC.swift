@@ -42,8 +42,8 @@ class NicknameChangeVC: UIViewController {
     
     func setFirstTextFieldText() {
         //마이페이지에서 넘겨와서 받기!
-        userNicknameTextField.text = "남궁선규"
-        userEmailTextField.text = "namgoongsunkyu@gmail.com"
+        userNicknameTextField.text = UserDefaults.standard.string(forKey: "userNickname")
+        userEmailTextField.text = UserDefaults.standard.string(forKey: "userEmail")
     }
     
     // cancel 버튼 처음 visible 상태를 false로
@@ -139,12 +139,16 @@ class NicknameChangeVC: UIViewController {
     }
 
     @IBAction func touchUpToChangeNickname(_ sender: UIButton) {
-        ChangeNicknameService.shared.updateNicknameInfo(userId:UserDefaults.standard.integer(forKey: "userID"), nickname: userNicknameTextField.text ?? "") {
+        ChangeNicknameService.shared.updateNicknameInfo(userId:UserDefaults.standard.integer(forKey: "userID"), nickname: userNicknameTextField.text ?? "") { [self]
             (networkResult) -> (Void) in
             switch networkResult {
             case .success:
                 //닉네임 변경 완료 alert
                 self.successAlert()
+                
+                //닉네임 변경 후 update된 닉네임을 Userdefaults에 저장
+                UserDefaults.standard.set(userNicknameTextField.text, forKey: "userNickname")
+                
             case .requestErr(let msg):
                 if let message = msg as? String {
                     print(message)

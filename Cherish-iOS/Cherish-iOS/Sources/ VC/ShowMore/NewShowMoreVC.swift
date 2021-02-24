@@ -12,18 +12,25 @@ import MessageUI
 class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet var showMoreTV: UITableView!
+    @IBOutlet var userNicknameLabel: UILabel!
+    @IBOutlet var userEmailLabel: UILabel!
+    
     var infoTitleArray:[String] = ["About Cherish", "개인정보처리방침", "서비스이용약관", "1대1 문의하기"]
     var logInfoTitleArray:[String] = ["로그아웃", "회원탈퇴"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
+        setUserInfo()
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setUserInfo()
     }
     
     // my selector that was defined above
     @objc func willEnterForeground() {
-        print("reload되어라!")
         showMoreTV.reloadData()
     }
     
@@ -33,8 +40,11 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
         showMoreTV.separatorStyle = .none
     }
     
-    @IBAction func touchUpToChangeNickname(_ sender: UIButton) {
-        print("닉네임 바꾼닷")
+    func setUserInfo() {
+        userNicknameLabel.text = UserDefaults.standard.string(forKey: "userNickname")
+        userEmailLabel.text = UserDefaults.standard.string(forKey: "userEmail")
+        userNicknameLabel.sizeToFit()
+        userEmailLabel.sizeToFit()
     }
     
     func showSendMailErrorAlert() {

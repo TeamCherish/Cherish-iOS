@@ -291,7 +291,6 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="icBtnMore"/>
                                 <connections>
-                                    <action selector="touchUpToChangeNickname:" destination="TAF-GX-xLz" eventType="touchUpInside" id="xah-SA-6zP"/>
                                     <segue destination="Oyn-gH-6T0" kind="show" id="i4W-4F-M5J"/>
                                 </connections>
                             </button>
@@ -447,6 +446,8 @@
                     <navigationItem key="navigationItem" id="aLW-7g-0hg"/>
                     <connections>
                         <outlet property="showMoreTV" destination="r0l-VL-q8q" id="mr5-xQ-237"/>
+                        <outlet property="userEmailLabel" destination="oJo-15-gz1" id="MMd-Fz-R7L"/>
+                        <outlet property="userNicknameLabel" destination="tWi-XV-qI0" id="pyZ-mg-Ozo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sE-Ng-M9B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -456,7 +457,6 @@
         <!--Nickname ChangeVC-->
         <scene sceneID="CxH-xG-kng">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8e2-26-bHF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Oyn-gH-6T0" customClass="NicknameChangeVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2ay-c6-Ihc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -571,6 +571,7 @@
                         <outlet property="userNicknameTextField" destination="n5b-Qz-89i" id="T21-K0-QcK"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8e2-26-bHF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1684" y="121.92118226600985"/>
         </scene>
