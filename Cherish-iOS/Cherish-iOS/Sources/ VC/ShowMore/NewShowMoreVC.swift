@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import SafariServices
+import MessageUI
 
-class NewShowMoreVC: UIViewController {
+class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet var showMoreTV: UITableView!
     var infoTitleArray:[String] = ["About Cherish", "개인정보처리방침", "서비스이용약관", "1대1 문의하기"]
@@ -16,7 +18,13 @@ class NewShowMoreVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    // my selector that was defined above
+    @objc func willEnterForeground() {
+        print("reload되어라!")
+        showMoreTV.reloadData()
     }
     
     func setDelegates() {
@@ -28,6 +36,81 @@ class NewShowMoreVC: UIViewController {
     @IBAction func touchUpToChangeNickname(_ sender: UIButton) {
         print("닉네임 바꾼닷")
     }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertController(title: "메일을 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "확인", style: .default) {
+            (action) in
+            print("확인")
+        }
+        sendMailErrorAlert.addAction(confirmAction)
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func toggleAlarmSwitch(_ sender: UISwitch) {
+        //Off였던 토글값을 On으로 바꿨을 때 작동
+        //현재 퍼미션 상태는 당연히 알림이 거부된 상태겠죠? 원상태가 토글 off였으니!
+        //이 때의 액션은 사용자가 거부했던 알림을 다시 켜고 싶을 때 발생하는 것이므로,
+        //case .denied (즉, 현상태가 denied) 에다가 url연결을 시켜줄게요!
+        if sender.isOn {
+            let current = UNUserNotificationCenter.current()
+            current.getNotificationSettings(completionHandler: { permission in
+                switch permission.authorizationStatus  {
+                case .authorized:
+                    print("User granted permission for notification")
+                case .denied:
+                    DispatchQueue.main.async { [self] in
+                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+                    }
+                    print("User denied notification permission")
+                case .notDetermined:
+                    print("Notification permission haven't been asked yet")
+                case .provisional:
+                    // @available(iOS 12.0, *)
+                    print("The application is authorized to post non-interruptive user notifications.")
+                case .ephemeral:
+                    // @available(iOS 14.0, *)
+                    print("The application is temporarily authorized to post notifications. Only available to app clips.")
+                @unknown default:
+                    print("Unknow Status")
+                }
+            })
+        }
+        //On이였던 토글값을 Off으로 바꿨을 때 작동
+        //현재 퍼미션 상태는 당연히 알림이 허용된 상태겠죠? 원상태가 토글 On이였으니!
+        //이 때의 액션은 사용자가 허용했던 알림을 다시 거부하고 싶을 때 발생하는 것이므로,
+        //case .authorized (즉, 현상태가 authorized) 에다가 url연결을 시켜줄게요!
+        else {
+            let current = UNUserNotificationCenter.current()
+            current.getNotificationSettings(completionHandler: { permission in
+                switch permission.authorizationStatus  {
+                case .authorized:
+                    DispatchQueue.main.async {
+                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+                        
+                    }
+                    print("User granted permission for notification")
+                case .denied:
+                    print("User denied notification permission")
+                case .notDetermined:
+                    print("Notification permission haven't been asked yet")
+                case .provisional:
+                    // @available(iOS 12.0, *)
+                    print("The application is authorized to post non-interruptive user notifications.")
+                case .ephemeral:
+                    // @available(iOS 14.0, *)
+                    print("The application is temporarily authorized to post notifications. Only available to app clips.")
+                @unknown default:
+                    print("Unknow Status")
+                }
+            })
+        }
+    }
+    
 }
 
 extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
@@ -63,6 +146,29 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ShowMoreSecondTVCell") as! ShowMoreSecondTVCell
             cell.titleLabel.text = "물주기 알림"
             cell.selectionStyle = .none
+            
+            let current = UNUserNotificationCenter.current()
+            
+            //현재 푸시알림 승인상태에 따른 분기처리
+            current.getNotificationSettings(completionHandler: {
+                (settings) in
+                if settings.authorizationStatus == .notDetermined {
+                    DispatchQueue.main.async {
+                        cell.pushAlarmSwitch.isOn = false
+                        print("notDetermined")
+                    }
+                } else if settings.authorizationStatus == .denied {
+                    DispatchQueue.main.async {
+                        cell.pushAlarmSwitch.isOn = false
+                        print("denied")
+                    }
+                } else if settings.authorizationStatus == .authorized {
+                    DispatchQueue.main.async {
+                        cell.pushAlarmSwitch.isOn = true
+                        print("authorized")
+                    }
+                }
+            })
             return cell
         }
         else {
@@ -120,23 +226,48 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
     //MARK: - didSelectRowAt
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
+            //About Cherish
             if indexPath.row == 0 {
                 print("section 0, row 0")
             }
+            //개인정보처리방침
             else if indexPath.row == 1 {
-                print("section 0, row 1")
+                let url = NSURL(string: "https://www.notion.so/Cherish-2d35c1bffa2f4d49943db302d76e3cac")
+                let safari: SFSafariViewController = SFSafariViewController(url: url as! URL)
+                self.present(safari, animated: true, completion: nil)
             }
+            //서비스이용약관
             else if indexPath.row == 2 {
-                print("section 0, row 2")
+                let url = NSURL(string: "https://www.notion.so/Cherish-d96f88172ffa4d80b257665849bddc65")
+                let safari: SFSafariViewController = SFSafariViewController(url: url as! URL)
+                self.present(safari, animated: true, completion: nil)
             }
+            //1:1 문의하기
             else {
-                print("section 0, row 3")
+                if MFMailComposeViewController.canSendMail() {
+                    
+                    let compseVC = MFMailComposeViewController()
+                    compseVC.mailComposeDelegate = self
+                    
+                    compseVC.setToRecipients(["Co.Cherishteam@gmail.com"])
+                    compseVC.setSubject("체리쉬 문의")
+                    compseVC.setMessageBody("1. 문의 유형(문의, 버그 제보, 기타) : \n 2. 회원 닉네임(필요시 기입) : \n 3. 문의 내용 : \n \n \n 문의하신 사항은 체리쉬팀이 신속하게 처리하겠습니다. 감사합니다 :)", isHTML: false)
+                    
+                    self.present(compseVC, animated: true, completion: nil)
+                    
+                }
+                else {
+                    self.showSendMailErrorAlert()
+                }
+                
             }
         }
         else if indexPath.section == 2 {
+            //로그아웃
             if indexPath.row == 0 {
                 print("section 2, row 0")
             }
+            //회원탈퇴
             else {
                 print("section 2, row 1")
             }
