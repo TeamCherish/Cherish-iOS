@@ -25,6 +25,9 @@
 		332CC7BD25A707BD00D0047D /* MypagePlantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7BC25A707BD00D0047D /* MypagePlantData.swift */; };
 		332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7C025A72A4800D0047D /* MypageContactData.swift */; };
 		3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3346B34625AB77E300EF5E14 /* AlarmVC.swift */; };
+		336C6D9325E63EAD003865C3 /* ShowMoreNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C6D9225E63EAD003865C3 /* ShowMoreNC.swift */; };
+		336C6D9625E63FAB003865C3 /* NicknameChangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */; };
+		336C6D9A25E64B48003865C3 /* ChangeNicknameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C6D9925E64B48003865C3 /* ChangeNicknameService.swift */; };
 		337A5CB525A8543600578130 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 337A5CB425A8543600578130 /* Login.storyboard */; };
 		337A5CB925A8545E00578130 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337A5CB825A8545E00578130 /* LoginVC.swift */; };
 		337A5CBD25A868C000578130 /* UIButton+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337A5CBC25A868C000578130 /* UIButton+Extention.swift */; };
@@ -192,6 +195,9 @@
 		332CC7C025A72A4800D0047D /* MypageContactData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageContactData.swift; sourceTree = "<group>"; };
 		3346B34325AB653D00EF5E14 /* Cherish-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cherish-iOS.entitlements"; sourceTree = "<group>"; };
 		3346B34625AB77E300EF5E14 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
+		336C6D9225E63EAD003865C3 /* ShowMoreNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreNC.swift; sourceTree = "<group>"; };
+		336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameChangeVC.swift; sourceTree = "<group>"; };
+		336C6D9925E64B48003865C3 /* ChangeNicknameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNicknameService.swift; sourceTree = "<group>"; };
 		337A5CB425A8543600578130 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		337A5CB825A8545E00578130 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		337A5CBC25A868C000578130 /* UIButton+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extention.swift"; sourceTree = "<group>"; };
@@ -395,6 +401,14 @@
 			path = Mypage;
 			sourceTree = "<group>";
 		};
+		336C6D9825E64B34003865C3 /* ShowMore */ = {
+			isa = PBXGroup;
+			children = (
+				336C6D9925E64B48003865C3 /* ChangeNicknameService.swift */,
+			);
+			path = ShowMore;
+			sourceTree = "<group>";
+		};
 		337A5CB725A8544D00578130 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,6 +543,7 @@
 				5491595625DE67EC008104FC /* SignUp */,
 				33CD994725D9991000C3BD1C /* PushAlarm */,
 				33805F7C25AC61F8005CED0F /* Login */,
+				336C6D9825E64B34003865C3 /* ShowMore */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -725,6 +740,8 @@
 			children = (
 				33E874FD25A04A8D001F84FE /* ShowMoreVC.swift */,
 				338CB6C525E527840089E182 /* NewShowMoreVC.swift */,
+				336C6D9225E63EAD003865C3 /* ShowMoreNC.swift */,
+				336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */,
 			);
 			path = ShowMore;
 			sourceTree = "<group>";
@@ -1180,6 +1197,7 @@
 				5491593125DBADC6008104FC /* CustomPageControl.swift in Sources */,
 				548DF17525A1BB7F0081FCD1 /* PopUpContactVC.swift in Sources */,
 				338CB6C625E527840089E182 /* NewShowMoreVC.swift in Sources */,
+				336C6D9A25E64B48003865C3 /* ChangeNicknameService.swift in Sources */,
 				5478347525AC77600021C32B /* WateringDayService.swift in Sources */,
 				3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */,
 				92911FE225DFC72600B4A95F /* GetPlantData.swift in Sources */,
@@ -1191,6 +1209,7 @@
 				5478346B25AC6DF50021C32B /* LaterCheckData.swift in Sources */,
 				54425C2125ADBD9600E62BAB /* RecentKeywordData.swift in Sources */,
 				33E874F725A04A56001F84FE /* CherishMainVC.swift in Sources */,
+				336C6D9325E63EAD003865C3 /* ShowMoreNC.swift in Sources */,
 				332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */,
 				92B0F9E225AEE41600AA411A /* FetchedContact.swift in Sources */,
 				33CAF85625A2674A0050DE29 /* CircularProgressView.swift in Sources */,
@@ -1215,6 +1234,7 @@
 				546A247325ACD53A00F869E2 /* WateringReviewData.swift in Sources */,
 				92824DA225B19A7F003D7678 /* MypageNC.swift in Sources */,
 				5491593D25DC13A6008104FC /* SignUpService.swift in Sources */,
+				336C6D9625E63FAB003865C3 /* NicknameChangeVC.swift in Sources */,
 				3317777825B042C200CC1030 /* UIImage+Extension.swift in Sources */,
 				33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */,
 				332CC7BD25A707BD00D0047D /* MypagePlantData.swift in Sources */,

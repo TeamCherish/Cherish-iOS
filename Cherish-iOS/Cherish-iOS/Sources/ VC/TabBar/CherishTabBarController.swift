@@ -44,8 +44,8 @@ class CherishTabBarController: UITabBarController {
         
         /// 더보기탭
         let ShowMore = UIStoryboard.init(name: "ShowMore", bundle: nil)
-        guard let thirdTab = ShowMore.instantiateViewController(identifier: "NewShowMoreVC")
-                as? NewShowMoreVC  else {
+        guard let thirdTab = ShowMore.instantiateViewController(identifier: "ShowMoreNC")
+                as? ShowMoreNC  else {
             return
         }
         
