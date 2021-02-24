@@ -118,6 +118,7 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
                     userGrowCompleteCountLabel.text = "\(mypageData.completeCount)"
                     mypagePlantCount = mypageData.result.count
                     
+                    myPlantID.removeAll()
                     // 소중이들 아이디 정수 배열 만들기
                     for i in 0...mypagePlantCount-1 {
                         myPlantID.append(mypageData.result[i].id)
