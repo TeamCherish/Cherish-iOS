@@ -220,7 +220,7 @@ extension SignUpAccountVC: UITextFieldDelegate{
         else if textField == passwordTextField{
             // 비밀번호가 영,숫자 포함 8글자인지
             passwordCheckLabel.isHidden = false
-            let passRegEx = "^(?=.*[a-z])(?=.*[0-9]).{8}$"
+            let passRegEx = "^(?=.*[a-z])(?=.*[0-9]).{8,}$"
             let passTest = NSPredicate(format: "SELF MATCHES %@", passRegEx)
             if !passTest.evaluate(with: textField.text){
                 pwFormLabel(text: "사용하실 수 없는 비밀번호입니다.", color: .pinkSub, form: false)
