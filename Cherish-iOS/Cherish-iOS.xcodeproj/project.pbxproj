@@ -126,6 +126,7 @@
 		548DF19925A2E1780081FCD1 /* PopUpLaterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */; };
 		548DF1A925A395D20081FCD1 /* KeywordCanDeleteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */; };
 		548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */; };
+		5490352D25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5490352C25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift */; };
 		5491593125DBADC6008104FC /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593025DBADC6008104FC /* CustomPageControl.swift */; };
 		5491593425DBB1C0008104FC /* SignUpGenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593325DBB1C0008104FC /* SignUpGenderVC.swift */; };
 		5491593A25DBF78B008104FC /* SignUpNicknameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593925DBF78B008104FC /* SignUpNicknameVC.swift */; };
@@ -299,6 +300,7 @@
 		548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpLaterVC.swift; sourceTree = "<group>"; };
 		548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCanDeleteCVC.swift; sourceTree = "<group>"; };
 		548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewAlign.swift; sourceTree = "<group>"; };
+		5490352C25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWatering_WithoutLaterVC.swift; sourceTree = "<group>"; };
 		5491593025DBADC6008104FC /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		5491593325DBB1C0008104FC /* SignUpGenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpGenderVC.swift; sourceTree = "<group>"; };
 		5491593925DBF78B008104FC /* SignUpNicknameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNicknameVC.swift; sourceTree = "<group>"; };
@@ -872,6 +874,7 @@
 				548DF17425A1BB7F0081FCD1 /* PopUpContactVC.swift */,
 				548DF17D25A1EE730081FCD1 /* ReviewVC.swift */,
 				548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */,
+				5490352C25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift */,
 			);
 			path = Watering;
 			sourceTree = "<group>";
@@ -1253,6 +1256,7 @@
 				5491596625E15102008104FC /* MessageAuthData.swift in Sources */,
 				33E8754925A09440001F84FE /* NotificationName.swift in Sources */,
 				337A5CB925A8545E00578130 /* LoginVC.swift in Sources */,
+				5490352D25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift in Sources */,
 				54D2241325DA3607003A1496 /* SignUpPhoneVC.swift in Sources */,
 				5491594A25DCD360008104FC /* FPEmailVC.swift in Sources */,
 				33EAA2EC25B15D4E00E75F95 /* AddUserNC.swift in Sources */,
