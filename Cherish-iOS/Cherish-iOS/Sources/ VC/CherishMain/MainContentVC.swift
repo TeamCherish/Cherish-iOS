@@ -329,6 +329,14 @@ class MainContentVC: UIViewController {
         progressbarView.setProgressValue(currentValue: CGFloat(value))
     }
     
+    //MARK: -Alert View
+    func noWateringDayAlert(title: String) {
+        let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인",style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
     
     //MARK: - 식물 상세페이지 뷰로 이동
     @IBAction func moveToPlantDetailView(_ sender: UIButton) {
@@ -341,11 +349,16 @@ class MainContentVC: UIViewController {
     
     //MARK: - 물주기 팝업뷰로 이동
     @IBAction func moveToWateringPopUp(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpWatering", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpWateringVC") as? PopUpWateringVC{
-            vc.modalPresentationStyle = .overFullScreen
-            vc.modalTransitionStyle = .crossDissolve
-            self.present(vc, animated: true, completion: nil)
+        // D-day가 아닐경우 미리 물주기 금지
+        if UserDefaults.standard.integer(forKey: "selecteddDayData") > 0 {
+            noWateringDayAlert(title: "아직 목이 마르지 않아요")
+        }else{
+            let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpWatering", bundle: nil)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpWateringVC") as? PopUpWateringVC{
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                self.present(vc, animated: true, completion: nil)
+            }
         }
     }
 }
