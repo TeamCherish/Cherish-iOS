@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpGenderVC: UIViewController {
+class SignUpGenderVC: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK: -변수 선언부
     var genderPicker = UIPickerView()
@@ -47,6 +47,7 @@ class SignUpGenderVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         print(forSending)
         createPicker()
         pickerSetting()

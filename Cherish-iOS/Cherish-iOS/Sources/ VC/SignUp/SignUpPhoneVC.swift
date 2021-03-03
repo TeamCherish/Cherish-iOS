@@ -8,7 +8,7 @@
 import UIKit
 import MessageUI
 
-class SignUpPhoneVC: UIViewController {
+class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
     //MARK: -변수 선언부
     var forSending = ["",""]
     var authNumber: Int?
@@ -63,6 +63,7 @@ class SignUpPhoneVC: UIViewController {
     //MARK: -viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         print(forSending)
         initialSetting(status: true)
     }

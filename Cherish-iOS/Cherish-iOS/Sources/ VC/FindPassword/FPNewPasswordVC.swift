@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FPNewPasswordVC: UIViewController {
+class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
     
     var isClicked : Bool = false
     var passwordStatus : Bool = false
@@ -40,6 +40,7 @@ class FPNewPasswordVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         checkingLetterCount()
     }
     

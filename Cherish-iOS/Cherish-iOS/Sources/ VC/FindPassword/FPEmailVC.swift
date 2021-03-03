@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FPEmailVC: UIViewController {
+class FPEmailVC: UIViewController, UIGestureRecognizerDelegate {
     var isFinished : Bool = false
     
     @IBOutlet weak var emailTextField: UITextField!{
@@ -26,6 +26,7 @@ class FPEmailVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         checkingLetterCount()
     }
     

@@ -8,7 +8,7 @@
 import UIKit
 
 
-class SignUpAccountVC: UIViewController {
+class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!{
         didSet{
@@ -53,14 +53,9 @@ class SignUpAccountVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         beforeEmail()
         textFeildRight()
-        //        self.testImageView.image = UIImage.gif(name: "testwatering")!
-        //        self.testImageView.alpha = 0.7
-        //        UIView.animate(withDuration: 4, animations:
-        //       {
-        //            self.testImageView.alpha = 0.0
-        //       })
     }
     
     ///화면 터치시 키보드 내리기

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FPPhoneVC: UIViewController {
+class FPPhoneVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var inputTextField: UITextField!{
         didSet{
@@ -32,6 +32,7 @@ class FPPhoneVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         checkingLetterCount()
     }
     
