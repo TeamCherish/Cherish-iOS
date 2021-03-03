@@ -61,6 +61,11 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func touchUpToNicknameChangeVC(_ sender: UIButton) {
+        let NicknameChangeVC = self.storyboard?.instantiateViewController(identifier: "NicknameChangeVC") as! NicknameChangeVC
+        self.navigationController?.pushViewController(NicknameChangeVC, animated: true)
+    }
+    
     @IBAction func toggleAlarmSwitch(_ sender: UISwitch) {
         //Off였던 토글값을 On으로 바꿨을 때 작동
         //현재 퍼미션 상태는 당연히 알림이 거부된 상태겠죠? 원상태가 토글 off였으니!
