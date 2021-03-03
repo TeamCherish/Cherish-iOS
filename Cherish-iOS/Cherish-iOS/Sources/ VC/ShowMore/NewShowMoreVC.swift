@@ -275,7 +275,24 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
         else if indexPath.section == 2 {
             //로그아웃
             if indexPath.row == 0 {
-                print("section 2, row 0")
+                let logoutAlert = UIAlertController(title: "로그아웃", message: "정말로 로그아웃 하시겠습니까?", preferredStyle: .alert)
+                let confirmAction = UIAlertAction(title: "확인", style: .default) { [self]
+                    (action) in
+                    
+                    //로그아웃하기 위해 자동로그인을 위해 사용되었던
+                    //UserDefualts에 저장된 값들을 삭제해준다
+                    UserDefaults.standard.removeObject(forKey: "loginEmail")
+                    UserDefaults.standard.removeObject(forKey: "loginPw")
+                    UserDefaults.standard.removeObject(forKey: "autoLogin")
+                    
+                    // 자동로그인 해제시 루트 컨트롤러를 로그인으로 설정
+                    let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                    let loginView: LoginNC = storyboard.instantiateViewController(withIdentifier: "LoginNC") as! LoginNC
+                    UIApplication.shared.keyWindow?.rootViewController = loginView
+                    
+                }
+                logoutAlert.addAction(confirmAction)
+                self.present(logoutAlert, animated: true, completion: nil)
             }
             //회원탈퇴
             else {

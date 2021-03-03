@@ -25,6 +25,7 @@
 		332CC7BD25A707BD00D0047D /* MypagePlantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7BC25A707BD00D0047D /* MypagePlantData.swift */; };
 		332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7C025A72A4800D0047D /* MypageContactData.swift */; };
 		3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3346B34625AB77E300EF5E14 /* AlarmVC.swift */; };
+		335B3A3025EF805400DD7A6F /* LoginNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B3A2F25EF805400DD7A6F /* LoginNC.swift */; };
 		336C6D9325E63EAD003865C3 /* ShowMoreNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C6D9225E63EAD003865C3 /* ShowMoreNC.swift */; };
 		336C6D9625E63FAB003865C3 /* NicknameChangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */; };
 		336C6D9A25E64B48003865C3 /* ChangeNicknameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C6D9925E64B48003865C3 /* ChangeNicknameService.swift */; };
@@ -196,6 +197,7 @@
 		332CC7C025A72A4800D0047D /* MypageContactData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageContactData.swift; sourceTree = "<group>"; };
 		3346B34325AB653D00EF5E14 /* Cherish-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cherish-iOS.entitlements"; sourceTree = "<group>"; };
 		3346B34625AB77E300EF5E14 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
+		335B3A2F25EF805400DD7A6F /* LoginNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNC.swift; sourceTree = "<group>"; };
 		336C6D9225E63EAD003865C3 /* ShowMoreNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreNC.swift; sourceTree = "<group>"; };
 		336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameChangeVC.swift; sourceTree = "<group>"; };
 		336C6D9925E64B48003865C3 /* ChangeNicknameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNicknameService.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				337A5CB825A8545E00578130 /* LoginVC.swift */,
+				335B3A2F25EF805400DD7A6F /* LoginNC.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1247,6 +1250,7 @@
 				33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */,
 				332CC7B925A7028A00D0047D /* MypageContactVC.swift in Sources */,
 				54425C3525AF51CB00E62BAB /* CalendarSeeData.swift in Sources */,
+				335B3A3025EF805400DD7A6F /* LoginNC.swift in Sources */,
 				546A247025ACD32800F869E2 /* WateringReviewService.swift in Sources */,
 				92911FDA25DFA28B00B4A95F /* DeletePlantService.swift in Sources */,
 				92911FC025DCF37800B4A95F /* PlantEditVC.swift in Sources */,
