@@ -8,11 +8,12 @@
 import UIKit
 
 class NicknameChangeVC: UIViewController {
-
+    
     @IBOutlet var userNicknameTextField: UITextField!
     @IBOutlet var userEmailTextField: UITextField!
     @IBOutlet var nicknameChangeCompleteBtn: UIButton!
     @IBOutlet var cancelNicknameTextingBtn: UIButton!
+    private let MAX_LENGTH = 6
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,9 @@ class NicknameChangeVC: UIViewController {
         keyboardObserver()
         textFieldEditingCheck()
         nicknameChangeCompleteBtn.isEnabled = false
+        NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: NSNotification.Name(UITextField.textDidChangeNotification.rawValue) , object: userNicknameTextField)
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -114,7 +118,7 @@ class NicknameChangeVC: UIViewController {
         }
     }
     
-
+    
     
     //MARK: - nicknameTextField의 취소버튼을 눌렀을 때
     @IBAction func touchUpToNicknameTextFieldClear(_ sender: UIButton) {
@@ -137,7 +141,7 @@ class NicknameChangeVC: UIViewController {
         nicknameChangeSuccessAlert.addAction(confirmAction)
         self.present(nicknameChangeSuccessAlert, animated: true, completion: nil)
     }
-
+    
     @IBAction func touchUpToChangeNickname(_ sender: UIButton) {
         ChangeNicknameService.shared.updateNicknameInfo(userId:UserDefaults.standard.integer(forKey: "userID"), nickname: userNicknameTextField.text ?? "") { [self]
             (networkResult) -> (Void) in
@@ -187,11 +191,26 @@ extension NicknameChangeVC: UITextFieldDelegate {
     }
     
     @objc func keyboardWillShow(_ notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue { UIView.animate(withDuration: 0.3, animations: {
-                                                                                                                                            self.view.transform = CGAffineTransform(translationX: 0, y: -50) }) }
-        
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue { UIView.animate(withDuration: 0.3, animations: { self.view.transform = CGAffineTransform(translationX: 0, y: -50) }) }
     }
     
-    @objc func keyboardWillDisappear(_ notification: NSNotification){ self.view.transform = .identity
+    @objc func keyboardWillDisappear(_ notification: NSNotification){
+        self.view.transform = .identity
+    }
+    
+    //MARK: - 한글 6자에 맞춰 초과되는 텍스트를 제거하는 함수
+    @objc private func textDidChange(_ notification: Notification) {
+        
+        if let textField = notification.object as? UITextField {
+            if let text = textField.text {
+
+                // 초과되는 텍스트 제거
+                if text.count >= MAX_LENGTH {
+                    let index = text.index(text.startIndex, offsetBy: MAX_LENGTH)
+                    let newString = text.substring(to: index)
+                    textField.text = newString
+                }
+            }
+        }
     }
 }
