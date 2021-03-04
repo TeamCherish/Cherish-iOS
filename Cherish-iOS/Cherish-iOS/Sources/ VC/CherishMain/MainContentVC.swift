@@ -19,6 +19,7 @@ class MainContentVC: UIViewController {
     @IBOutlet var progressbarBackView: ProgressBarView!
     @IBOutlet var growthPercentLabel: CustomLabel!
     @IBOutlet var plantImageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet var plantImageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var blurBtn: UIVisualEffectView!{
         didSet{
             blurBtn.makeRounded(cornerRadius: 14.0)
@@ -231,7 +232,7 @@ class MainContentVC: UIViewController {
                     // 식물3단계 파싱해주기
                     if growthInfo < 25 {
                         // 1단계
-                        plantImageViewTopConstraint.constant = 300
+                        plantImageViewTopConstraint.constant = 240
                         self.plantImageView.image = UIImage(named: "imgSun1")
                         self.plantImageView.frame.size = CGSize(width: 275, height: 229)
                         view.backgroundColor = .cactusBg
@@ -275,15 +276,21 @@ class MainContentVC: UIViewController {
                     }
                     view.backgroundColor = .rosemaryBg
                 }
+                //스투키
                 else {
                     plantImageViewTopConstraint.constant = 104
                     
                     // 식물3단계 파싱해주기
                     if growthInfo < 25 {
-                        // 1단계
-                        plantImageViewTopConstraint.constant = 210
+                        // 1단계 323 287
+                        
                         self.plantImageView.image = UIImage(named: "imgStuki1")
-                        self.plantImageView.frame.size = CGSize(width: 323, height: 287)
+                        plantImageViewTopConstraint.constant = 322
+                        plantImageViewHeight.constant = 287
+                        let widthAnchor = self.plantImageView.widthAnchor.constraint(equalTo: plantImageView.heightAnchor, multiplier: 323/287)
+                        plantImageView.removeConstraint(widthAnchor)
+                        widthAnchor.isActive = true
+                        plantImageView.layoutIfNeeded()
                         view.backgroundColor = .stuckyBg
                     }
                     else if growthInfo < 50 && growthInfo > 25 {
