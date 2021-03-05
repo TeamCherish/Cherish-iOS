@@ -34,6 +34,7 @@ class MainContentVC: UIViewController {
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        LoadingHUD.show()
         isFirstLoad += 1
         setDataWithSelectedData()
         UserDefaults.standard.set(false, forKey: "plantIsSelected")
