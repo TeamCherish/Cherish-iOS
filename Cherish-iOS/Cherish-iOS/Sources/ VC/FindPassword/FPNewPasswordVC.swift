@@ -9,13 +9,13 @@ import UIKit
 
 class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
     
-    var isClicked : Bool = false
     var email: String?
-    var passwordStatus : Bool = false
-    var passwordFormStatus: Bool = false
+    var passwordFormStatus: Bool = false // 비밀번호 형식 검사
+    var passwordStatus : Bool = false // 비밀번호 일치 검사
     var isfirstEyeClicked : Bool = false
     var isSecondEyeClicked : Bool = false
     
+    //MARK: -@IBOutlet
     @IBOutlet weak var enterPWTextField: UITextField!{
         didSet{
             enterPWTextField.makeRounded(cornerRadius: 8)
@@ -52,6 +52,8 @@ class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
         checkingLetterCount()
     }
     
+    //MARK: -사용자 정의 함수
+    // 빈 영역 터치시 키보드 내림
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -72,14 +74,23 @@ class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    // 버튼 초록색(진행 가능함을 의미)
     func grayBtn(){
         nextBtn.backgroundColor = .inputGrey
         nextBtn.setTitleColor(.textGrey, for: .normal)
     }
     
+    // 버튼 회색(진행 불가함을 의미)
     func greenBtn(){
         nextBtn.backgroundColor = .seaweed
         nextBtn.setTitleColor(.white, for: .normal)
+    }
+    
+    func reTypingAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인",style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
     
     // 비밀번호 형식 체크 라벨 관련 함수
@@ -105,6 +116,7 @@ class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
         passwordStatus = correct
     }
     
+    //MARK: -@IBAction
     // 비밀번호 보이게 하기-입력 부
     @IBAction func firstEyeAction(_ sender: Any) {
         if !isfirstEyeClicked {
@@ -132,11 +144,12 @@ class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func completeBtn(_ sender: Any) {
+        // 비밀번호 일치가 확인 되었다면(형식도 확인된 상태)
         if passwordStatus{
             UpdatePasswordService.shared.updatePW(email: email!, password1: enterPWTextField.text!, password2: enterAgainTextField.text!) { [self] (networkResult) -> (Void) in
                 switch networkResult {
                 case .success(_):
-                    // 회원가입 성공하면 Login 뷰로 pop
+                    // 비밀번호 변경 성공하면 Login 뷰로 pop
                     let controllers = self.navigationController?.viewControllers
                     for vc in controllers! {
                         if vc is LoginVC {
@@ -157,10 +170,12 @@ class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
             }
         }
         else{
-            //
+            reTypingAlert(title: "사용할 수 없는 비밀번호 입니다", message: "다시 입력해주세요")
         }
     }
 }
+
+//MARK: -Protocols
 extension FPNewPasswordVC: UITextFieldDelegate{
     ///Return 눌렀을 때 키보드 내리기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -171,7 +186,7 @@ extension FPNewPasswordVC: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == enterPWTextField{
             enterPWTextField.isHidden = false
-            let passRegEx = "^(?=.*[a-z])(?=.*[0-9]).{8,}$"
+            let passRegEx = "^(?=.*[a-z])(?=.*[0-9]).{8,}$" // 영문,숫자 포함 8자 이상
             let passTest = NSPredicate(format: "SELF MATCHES %@", passRegEx)
             if !passTest.evaluate(with: textField.text){
                 pwFormLabel(text: "사용하실 수 없는 비밀번호입니다.", color: .pinkSub, form: false)

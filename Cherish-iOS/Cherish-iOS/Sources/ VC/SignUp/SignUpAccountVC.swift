@@ -85,10 +85,16 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
         passwordCheckTextField.delegate = self
     }
     
-    // 완료버튼 초록색으로 변경
+    // 완료버튼 초록색으로 변경(진행 가능함을 의미)
     func greenBtn(){
         emailCheckBtn.backgroundColor = .seaweed
         emailCheckBtn.setTitleColor(.white, for: .normal)
+    }
+    
+    // 완료버튼 회색 변경(진행 불가함을 의미)
+    func grayBtn(){
+        emailCheckBtn.backgroundColor = .inputGrey
+        emailCheckBtn.setTitleColor(.textGrey, for: .normal)
     }
     
     // 이메일 형식 체크 라벨 관련 함수
@@ -123,8 +129,8 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
     
     
     @IBAction func nextPage(_ sender: Any) {
-        // 이메일 중복확인이 끝났고 비밀번호도 입력이 끝났다면
         if isEmail == true{
+            // 이메일 중복확인이 끝났고 비밀번호도 입력이 끝났다면
             if passwordStatus == true {
                 if let vc = self.storyboard?.instantiateViewController(identifier: "SignUpPhoneVC") as? SignUpPhoneVC {
                     vc.forSending[0] = emailTextField.text!
@@ -135,6 +141,7 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
                 //비밀번호를 입력해주세요
             }
         }else{
+            // 이메일 중복확인을 아직 안했다면
             if isPossibleEmail == true {
                 // 이메일 중복 체크 코드
                 CheckEmailService.shared.checkEmail(email: emailTextField.text!) { [self] (networkResult) -> (Void) in
@@ -142,7 +149,7 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
                     case .success(_):
                         
                         setHidden(status: false)
-                        greenBtn()
+                        grayBtn()
                         emailCheckLabel.text = "사용가능한 이메일입니다."
                         emailCheckLabel.textColor = .seaweed
                         
@@ -208,8 +215,10 @@ extension SignUpAccountVC: UITextFieldDelegate{
             let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
             if !emailTest.evaluate(with: textField.text){
                 emailFormLabel(text: "사용할 수 없는 형식입니다.", color: .pinkSub, form: false)
+                grayBtn()
             }else{
                 emailFormLabel(text: "사용가능한 이메일입니다.", color: .seaweed, form: true)
+                greenBtn()
             }
         }
         else if textField == passwordTextField{
@@ -228,8 +237,10 @@ extension SignUpAccountVC: UITextFieldDelegate{
             if passwordFormStatus == true {
                 if passwordTextField.text == textField.text {
                     pwCorrectLabel(text: "비밀번호가 일치합니다.", color: .seaweed, correct: true)
+                    greenBtn()
                 }else{
                     pwCorrectLabel(text: "비밀번호가 일치하지 않습니다.", color: .pinkSub, correct: false)
+                    grayBtn()
                 }
             }
         }

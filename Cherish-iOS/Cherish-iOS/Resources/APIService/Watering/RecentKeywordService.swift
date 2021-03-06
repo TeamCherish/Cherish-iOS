@@ -42,7 +42,7 @@ struct RecentKeywordService {
             return .pathErr }
         switch status {
         case 200:
-            print("성공")
+            print("최근 연락 키워드 가져오기 성공")
             return .success(decodedData.data)
         case 400..<500:
             return .requestErr(decodedData.message)

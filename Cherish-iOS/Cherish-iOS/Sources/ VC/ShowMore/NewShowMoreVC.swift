@@ -57,6 +57,36 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
         self.present(sendMailErrorAlert, animated: true, completion: nil)
     }
     
+    // 회원탈퇴 팝업
+    func showWithdrawalAlert(){
+        let withdrawalAlert = UIAlertController(title: "정말 계정을 삭제하시겠어요?", message: "소중한 식물들이 모두 삭제되고 되돌릴 수 없어요.", preferredStyle: .alert)
+        
+        // Alert의 '확인'을 누르면 dismiss
+        let okAction = UIAlertAction(title: "네, 삭제할게요.",style: .destructive) { (action) in
+            WithdrawalService.shared.withdrawalAccount(userId: UserDefaults.standard.integer(forKey: "userID")) { [self] (networkResult) -> (Void) in
+                switch networkResult {
+                case .success(_):
+                    // 회원탈퇴 성공하면 Login 뷰로 dismiss
+                    self.dismiss(animated: true, completion: nil)
+                case .requestErr(let msg):
+                    if let message = msg as? String {
+                        print(message)
+                    }
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            }
+        }
+        let cancelAction = UIAlertAction(title: "계속 함께 할게요!",style: .default)
+        withdrawalAlert.addAction(okAction)
+        withdrawalAlert.addAction(cancelAction)
+        present(withdrawalAlert, animated: true)
+    }
+    
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
@@ -279,7 +309,7 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
             }
             //회원탈퇴
             else {
-                print("section 2, row 1")
+                showWithdrawalAlert()
             }
         }
     }

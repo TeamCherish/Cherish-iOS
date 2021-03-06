@@ -49,7 +49,7 @@ struct WateringReviewService {
             return .pathErr }
         switch status {
         case 200:
-            print("성공")
+            print("리뷰하기 성공")
             return .success(decodedData.data)
         case 400..<500:
             return .requestErr(decodedData.message)
