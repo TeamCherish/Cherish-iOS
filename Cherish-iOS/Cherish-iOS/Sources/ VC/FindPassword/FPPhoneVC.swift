@@ -8,6 +8,9 @@
 import UIKit
 
 class FPPhoneVC: UIViewController, UIGestureRecognizerDelegate {
+    var authNumber : Int?
+    var email: String?
+    var isPassed: Bool = false
     
     @IBOutlet weak var inputTextField: UITextField!{
         didSet{
@@ -15,6 +18,11 @@ class FPPhoneVC: UIViewController, UIGestureRecognizerDelegate {
             inputTextField.backgroundColor = .inputGrey
             inputTextField.addLeftPadding()
             inputTextField.delegate = self
+        }
+    }
+    @IBOutlet weak var messageCheckLabel: CustomLabel!{
+        didSet{
+            messageCheckLabel.text = ""
         }
     }
     @IBOutlet weak var resendBtn: UIButton!{
@@ -45,6 +53,22 @@ class FPPhoneVC: UIViewController, UIGestureRecognizerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(textfieldDidChange(_:)), name: UITextField.textDidChangeNotification, object: nil)
     }
     
+    func grayBtn(){
+        nextBtn.backgroundColor = .inputGrey
+        nextBtn.setTitleColor(.textGrey, for: .normal)
+    }
+    
+    func greenBtn(){
+        nextBtn.backgroundColor = .seaweed
+        nextBtn.setTitleColor(.white, for: .normal)
+    }
+    
+    func labelStatus(pass: Bool, color: UIColor, text: String){
+        isPassed = pass
+        messageCheckLabel.textColor = color
+        messageCheckLabel.text = text
+    }
+    
     // 닉네임 입력 TextField 글자 수 감시(& 복붙 검사)
     @objc private func textfieldDidChange(_ notification: Notification) {
         if let textField = notification.object as? UITextField {
@@ -58,15 +82,6 @@ class FPPhoneVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    func grayBtn(){
-        nextBtn.backgroundColor = .inputGrey
-        nextBtn.setTitleColor(.textGrey, for: .normal)
-    }
-    
-    func greenBtn(){
-        nextBtn.backgroundColor = .seaweed
-        nextBtn.setTitleColor(.white, for: .normal)
-    }
     
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -76,20 +91,48 @@ class FPPhoneVC: UIViewController, UIGestureRecognizerDelegate {
     @IBAction func resendSMS(_ sender: Any) {
         /// 텍스트필드 클리어
         inputTextField.text = ""
+        labelStatus(pass: false, color: .pinkSub, text: "올바르지 않은 인증번호입니다")
+        FindPasswordService.shared.findPassword(email: email!) { [self] (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                if let resendAuth = data as? FindPasswordData {
+                    authNumber = resendAuth.verifyCode
+                }
+            case .requestErr(let msg):
+                if let message = msg as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
     
     @IBAction func nextAction(_ sender: Any) {
         // 서버랑 통신해서 보내준 인증번호가 맞으면 넘기고 아니면 안넘기도록 분기처리
-            
-        // 테스트용 뷰 전환
-        if let vc = self.storyboard?.instantiateViewController(identifier: "FPNewPasswordVC") as? FPNewPasswordVC {
-            self.navigationController?.pushViewController(vc, animated: true)
+        if isPassed {
+            if let vc = self.storyboard?.instantiateViewController(identifier: "FPNewPasswordVC") as? FPNewPasswordVC {
+                vc.email = email
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
-
     }
 }
 
 extension FPPhoneVC: UITextFieldDelegate{
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print(authNumber)
+        if inputTextField.text == String(authNumber!){
+            labelStatus(pass: true, color: .seaweed, text: "인증되었습니다")
+        }else{
+            labelStatus(pass: false, color: .pinkSub, text: "올바르지 않은 인증번호입니다")
+        }
+    }
     ///Return 눌렀을 때 키보드 내리기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

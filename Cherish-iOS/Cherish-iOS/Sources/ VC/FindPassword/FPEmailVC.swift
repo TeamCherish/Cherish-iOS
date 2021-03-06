@@ -65,13 +65,41 @@ class FPEmailVC: UIViewController, UIGestureRecognizerDelegate {
         nextBtn.setTitleColor(.white, for: .normal)
     }
     
+    func emailAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인",style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func nextAction(_ sender: Any) {
         if isFinished{
-            if let vc = self.storyboard?.instantiateViewController(identifier: "FPPhoneVC") as? FPPhoneVC {
-                self.navigationController?.pushViewController(vc, animated: true)
+            FindPasswordService.shared.findPassword(email: emailTextField.text!) { [self] (networkResult) -> (Void) in
+                switch networkResult {
+                case .success(let data):
+                    if let auth = data as? FindPasswordData {
+                        if let vc = self.storyboard?.instantiateViewController(identifier: "FPPhoneVC") as? FPPhoneVC {
+                            vc.authNumber = auth.verifyCode
+                            vc.email = emailTextField.text!
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
+                    }
+                case .requestErr(let msg):
+                    if let message = msg as? String {
+                        emailAlert(title: "등록되어있지 않은 이메일이에요", message: "다시 확인해주세요")
+                        print(emailTextField.text!)
+                        print(message)
+                    }
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
             }
         }
     }

@@ -28,4 +28,6 @@ struct APIConstants {
     static let pushReviewURL = baseURL + "pushReview" ///pushReview
     static let fcmTokenUpdateURL = baseURL + "user/token" // 어플을 실행시킬때마다 바뀌는 fcm token을 업데이트 해주는 API
     static let addViewChangeNicknameURL = baseURL + "addView" // 더보기뷰 - 닉네임수정 API
+    static let findPasswordURL = baseURL + "login/findPassword" // 비밀번호 찾기-인증번호
+    static let updatePasswordURL = baseURL + "login/updatePassword" // 비밀번호 찾기-새 비밀번호
 }

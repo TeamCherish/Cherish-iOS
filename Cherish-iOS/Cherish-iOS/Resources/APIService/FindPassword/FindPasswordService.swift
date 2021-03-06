@@ -1,23 +1,22 @@
 //
-//  MessageAuthService.swift
+//  FindPasswordService.swift
 //  Cherish-iOS
 //
-//  Created by 이원석 on 2021/02/20.
+//  Created by 이원석 on 2021/03/06.
 //
 
 import Foundation
 import Alamofire
 
-struct MessageAuthService {
-    static let shared = MessageAuthService()
-    
-    // 회원가입 시 메시지 인증
-    func messageAuth(phone: String, completion: @escaping (NetworkResult<Any>) -> (Void)){
+struct FindPasswordService {
+    static let shared = FindPasswordService()
+    // 비번찾기시 메시지 인증
+    func findPassword(email: String, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
-        let url = APIConstants.messageAuthURL
+        let url = APIConstants.findPasswordURL
         let header: HTTPHeaders = [ "Content-Type":"application/json"]
         let body: Parameters = [
-            "phone":phone
+            "email":email
         ]
         let dataRequest = AF.request(url,
                                      method: .post,
@@ -37,10 +36,10 @@ struct MessageAuthService {
                 completion(.networkFail) }
         }
     }
-    
+
     private func judgeData(status: Int, data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(MessageAuthData.self, from: data) else {
+        guard let decodedData = try? decoder.decode(GenericResponse<FindPasswordData>.self, from: data) else {
             return .pathErr }
         switch status {
         case 200:

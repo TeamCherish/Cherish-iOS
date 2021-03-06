@@ -1,23 +1,24 @@
 //
-//  MessageAuthService.swift
+//  UpdatePasswordService.swift
 //  Cherish-iOS
 //
-//  Created by 이원석 on 2021/02/20.
+//  Created by 이원석 on 2021/03/06.
 //
 
 import Foundation
 import Alamofire
 
-struct MessageAuthService {
-    static let shared = MessageAuthService()
+struct UpdatePasswordService {
+    static let shared = UpdatePasswordService()
     
-    // 회원가입 시 메시지 인증
-    func messageAuth(phone: String, completion: @escaping (NetworkResult<Any>) -> (Void)){
+    func updatePW(email: String, password1: String, password2: String, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
-        let url = APIConstants.messageAuthURL
+        let url = APIConstants.updatePasswordURL
         let header: HTTPHeaders = [ "Content-Type":"application/json"]
         let body: Parameters = [
-            "phone":phone
+            "email":email,
+            "password1":password1,
+            "password2":password2,
         ]
         let dataRequest = AF.request(url,
                                      method: .post,
@@ -40,7 +41,7 @@ struct MessageAuthService {
     
     private func judgeData(status: Int, data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(MessageAuthData.self, from: data) else {
+        guard let decodedData = try? decoder.decode(GenericResponse<String>.self, from: data) else {
             return .pathErr }
         switch status {
         case 200:
