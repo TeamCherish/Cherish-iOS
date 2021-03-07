@@ -7,6 +7,6 @@
 
 import Foundation
 struct MainPlantConditionData {
-    var id: Int
+    var id, dDay: Int
     var isWatering, isWithered: Bool
 }

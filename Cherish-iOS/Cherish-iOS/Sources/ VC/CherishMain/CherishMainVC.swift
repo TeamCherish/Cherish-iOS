@@ -14,6 +14,7 @@ enum Notches : Int, CaseIterable {
 
 class CherishMainVC: OverlayContainerViewController {
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +24,7 @@ class CherishMainVC: OverlayContainerViewController {
         navigationBarHidden()
         addNavigationSwipeGuesture()
         makeOverlayContainerContents()
+        
     }
     
     func navigationBarHidden() {

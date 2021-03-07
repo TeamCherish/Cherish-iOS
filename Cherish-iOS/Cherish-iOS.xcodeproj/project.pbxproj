@@ -26,7 +26,7 @@
 		332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7C025A72A4800D0047D /* MypageContactData.swift */; };
 		3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3346B34625AB77E300EF5E14 /* AlarmVC.swift */; };
 		335B3A3025EF805400DD7A6F /* LoginNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B3A2F25EF805400DD7A6F /* LoginNC.swift */; };
-		335D8F4025F4CDD600FE4C7F /* MainResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335D8F3F25F4CDD600FE4C7F /* MainResultData.swift */; };
+		335D8F4025F4CDD600FE4C7F /* MainPlantConditionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335D8F3F25F4CDD600FE4C7F /* MainPlantConditionData.swift */; };
 		336C6D9325E63EAD003865C3 /* ShowMoreNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C6D9225E63EAD003865C3 /* ShowMoreNC.swift */; };
 		336C6D9625E63FAB003865C3 /* NicknameChangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */; };
 		336C6D9A25E64B48003865C3 /* ChangeNicknameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C6D9925E64B48003865C3 /* ChangeNicknameService.swift */; };
@@ -61,6 +61,7 @@
 		33D0027325A30E4700E97811 /* 38217-money-growth.json in Resources */ = {isa = PBXBuildFile; fileRef = 33D0027225A30E4700E97811 /* 38217-money-growth.json */; };
 		33D0027725A3144400E97811 /* 33650-recolor-plant.json in Resources */ = {isa = PBXBuildFile; fileRef = 33D0027525A3144400E97811 /* 33650-recolor-plant.json */; };
 		33D0027825A3144400E97811 /* 29583-flower.json in Resources */ = {isa = PBXBuildFile; fileRef = 33D0027625A3144400E97811 /* 29583-flower.json */; };
+		33D094DA25F575DF0016BD4E /* MainSplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D094D925F575DF0016BD4E /* MainSplashVC.swift */; };
 		33E874C825A04332001F84FE /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33E874C725A04332001F84FE /* NotoSansCJKkr-Regular.otf */; };
 		33E874CB25A0434B001F84FE /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33E874CA25A0434B001F84FE /* Roboto-Regular.ttf */; };
 		33E874CE25A04361001F84FE /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33E874CD25A04361001F84FE /* NotoSansCJKkr-Medium.otf */; };
@@ -203,7 +204,7 @@
 		3346B34325AB653D00EF5E14 /* Cherish-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cherish-iOS.entitlements"; sourceTree = "<group>"; };
 		3346B34625AB77E300EF5E14 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
 		335B3A2F25EF805400DD7A6F /* LoginNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNC.swift; sourceTree = "<group>"; };
-		335D8F3F25F4CDD600FE4C7F /* MainResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainResultData.swift; sourceTree = "<group>"; };
+		335D8F3F25F4CDD600FE4C7F /* MainPlantConditionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPlantConditionData.swift; sourceTree = "<group>"; };
 		336C6D9225E63EAD003865C3 /* ShowMoreNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreNC.swift; sourceTree = "<group>"; };
 		336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameChangeVC.swift; sourceTree = "<group>"; };
 		336C6D9925E64B48003865C3 /* ChangeNicknameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNicknameService.swift; sourceTree = "<group>"; };
@@ -240,6 +241,7 @@
 		33D0027225A30E4700E97811 /* 38217-money-growth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "38217-money-growth.json"; sourceTree = "<group>"; };
 		33D0027525A3144400E97811 /* 33650-recolor-plant.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "33650-recolor-plant.json"; sourceTree = "<group>"; };
 		33D0027625A3144400E97811 /* 29583-flower.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "29583-flower.json"; sourceTree = "<group>"; };
+		33D094D925F575DF0016BD4E /* MainSplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplashVC.swift; sourceTree = "<group>"; };
 		33E874C725A04332001F84FE /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		33E874CA25A0434B001F84FE /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		33E874CD25A04361001F84FE /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
@@ -464,7 +466,7 @@
 			children = (
 				33805F8D25AC73B1005CED0F /* MainData.swift */,
 				33201B1425AE419F001A94E4 /* MainSelectedData.swift */,
-				335D8F3F25F4CDD600FE4C7F /* MainResultData.swift */,
+				335D8F3F25F4CDD600FE4C7F /* MainPlantConditionData.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -584,9 +586,9 @@
 		33851C8D259A5B0E005BCFFD /*  VC */ = {
 			isa = PBXGroup;
 			children = (
+				33D094D825F575BC0016BD4E /* Splash */,
 				5491594825DCD335008104FC /* FindPassword */,
 				54D223F625DA294E003A1496 /* SignUp */,
-				33EAA2F225B180C000E75F95 /* SplashVC.swift */,
 				337A5CB725A8544D00578130 /* Login */,
 				5488922325A594B9003839FC /* Calendar */,
 				548DF16525A1B3E60081FCD1 /* Watering */,
@@ -717,6 +719,15 @@
 				33D0027525A3144400E97811 /* 33650-recolor-plant.json */,
 			);
 			path = LottieAnimationFile;
+			sourceTree = "<group>";
+		};
+		33D094D825F575BC0016BD4E /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				33EAA2F225B180C000E75F95 /* SplashVC.swift */,
+				33D094D925F575DF0016BD4E /* MainSplashVC.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		33E874EA25A04860001F84FE /* TabBar */ = {
@@ -1184,7 +1195,7 @@
 			files = (
 				3317778B25B0921500CC1030 /* MypageData.swift in Sources */,
 				9291202C25E67C7B00B4A95F /* MyPlantData.swift in Sources */,
-				335D8F4025F4CDD600FE4C7F /* MainResultData.swift in Sources */,
+				335D8F4025F4CDD600FE4C7F /* MainPlantConditionData.swift in Sources */,
 				548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */,
 				92911FD725DFA15800B4A95F /* DeletePlantData.swift in Sources */,
 				9244DF1225AB92220014FF5D /* LoadingPopUpVC.swift in Sources */,
@@ -1197,6 +1208,7 @@
 				92911FDF25DFC57900B4A95F /* GetPlantDataService.swift in Sources */,
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,
 				5478343A25A82B060021C32B /* ReviewEditVC.swift in Sources */,
+				33D094DA25F575DF0016BD4E /* MainSplashVC.swift in Sources */,
 				33805F8E25AC73B1005CED0F /* MainData.swift in Sources */,
 				5491594025DC1641008104FC /* SignUpData.swift in Sources */,
 				548DF18D25A227A00081FCD1 /* KeywordCVC.swift in Sources */,

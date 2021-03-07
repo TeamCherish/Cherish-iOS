@@ -35,7 +35,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OkC-eR-tQC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="468" y="-236"/>
+            <point key="canvasLocation" x="-674" y="130"/>
         </scene>
         <!--Main ContentVC-->
         <scene sceneID="NJ3-aK-mTL">
@@ -233,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Amh-KG-oEa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-554.39999999999998" y="486.94581280788179"/>
+            <point key="canvasLocation" x="-674" y="776"/>
         </scene>
         <!--Detail ContentVC-->
         <scene sceneID="9yd-TY-CVV">
@@ -452,7 +452,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0gv-w8-qz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="168.80000000000001" y="485.46798029556652"/>
+            <point key="canvasLocation" x="49" y="774"/>
         </scene>
         <!--BackdropVC-->
         <scene sceneID="evw-cA-bAm">
@@ -467,7 +467,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BHk-Rk-Ahp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="893.60000000000002" y="485.46798029556652"/>
+            <point key="canvasLocation" x="774" y="774"/>
         </scene>
         <!--Cherish MainNC-->
         <scene sceneID="95L-ci-uJ1">
@@ -479,15 +479,48 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ACK-zb-WlM" kind="relationship" relationship="rootViewController" id="Vbd-mA-6eF"/>
+                        <segue destination="b2A-NM-GdO" kind="relationship" relationship="rootViewController" id="z0T-u9-C09"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OBd-ZA-fsQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-306" y="-236"/>
+            <point key="canvasLocation" x="-1804" y="-236"/>
+        </scene>
+        <!--Main SplashVC-->
+        <scene sceneID="h2q-OK-FI1">
+            <objects>
+                <viewController storyboardIdentifier="MainSplashVC" id="b2A-NM-GdO" customClass="MainSplashVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bpa-Oq-1Y4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cherishLogoPlant" translatesAutoresizingMaskIntoConstraints="NO" id="Tc9-Tb-0Jv">
+                                <rect key="frame" x="162.66666666666666" y="375" width="50" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Tc9-Tb-0Jv" secondAttribute="height" multiplier="50:72" id="ali-fx-9Ci"/>
+                                    <constraint firstAttribute="height" constant="72" id="dQD-xE-5ua"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2yZ-EI-T6M"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Tc9-Tb-0Jv" firstAttribute="centerY" secondItem="2yZ-EI-T6M" secondAttribute="centerY" id="NuY-CF-wfs"/>
+                            <constraint firstItem="Tc9-Tb-0Jv" firstAttribute="centerX" secondItem="2yZ-EI-T6M" secondAttribute="centerX" id="Vmb-ah-1iK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3gM-VF-MTQ"/>
+                    <connections>
+                        <outlet property="logoImageView" destination="Tc9-Tb-0Jv" id="1ba-Pe-z1g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H8m-jA-Ade" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-673" y="-522"/>
         </scene>
     </scenes>
     <resources>
+        <image name="cherishLogoPlant" width="50" height="72"/>
         <image name="icBack" width="28" height="28"/>
         <image name="invalidName" width="48.333332061767578" height="13"/>
         <image name="mainBtnWater" width="90" height="40"/>

@@ -43,6 +43,7 @@ class MainContentVC: UIViewController {
         UserDefaults.standard.set(false, forKey: "calendarPlantIsSelected")
         addNotificationObserver()
         setDataWithSelectedData()
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     
@@ -53,8 +54,6 @@ class MainContentVC: UIViewController {
         // cherishPeopleCell이 선택되면 배경뷰의 라벨값, 식물이미지, 배경색을 바꿔준다.
         if appDel.isCherishPeopleCellSelected == true {
             
-            //문제 : 미루고나서 변수가 제대로 할당이 안됨! 조건 다시 생각해보기!
-            appDel.isCherishPeopleCellSelected = true
             setDataWithSelectedData()
             LoadingHUD.hide()
         }
@@ -78,16 +77,7 @@ class MainContentVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(isWateringReported), name: .wateringReport, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(getPeopleData), name: .sendPeopleDataArray, object: nil)
     }
-    
-    
-    //MARK: - 메인의 친구 별 물주기, 시들기 상태를 저장할 수 있도록 cherishResultData에 데이터를 할당
-    func setMainResultData() {
-        
-        for i in 0...cherishPeopleData.count - 1 {
-            cherishResultData.append(MainPlantConditionData(id: cherishPeopleData[i].id, isWatering: false, isWithered: false))
-        }
-    }
-    
+
     
     //selectedData를 갖고 실제로 view를 구성하는 함수
     func setDataWithSelectedData() {
@@ -138,18 +128,15 @@ class MainContentVC: UIViewController {
                     }
                 }
                 // 시든상태
-                else if appDel.isWateringPostponed == true && postponedIdx == selectedFriendsIdx {
+                else if cherishResultData[selectedRowIndexPath].dDay <= 0 {
+                    print("시들었졍,,")
                     
-                    if appDel.isWateringComplete == false {
-                        plantImageView.isHidden = true
+                        plantImageView.isHidden = false
                         plantGifView.isHidden = false
-                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
+                        dandelionGrowth()
+//                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
                         
                         self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
-                    }
-                    else {
-                        appDel.isWateringPostponed = false
-                    }
                 }
                 //default
                 else {
@@ -185,18 +172,15 @@ class MainContentVC: UIViewController {
                     }
                 }
                 // 시든상태
-                else if appDel.isWateringPostponed == true && postponedIdx == selectedFriendsIdx {
+                else if cherishResultData[selectedRowIndexPath].dDay <= 0 {
+                    print("시들었졍,,")
                     
-                    if appDel.isWateringComplete == false {
-                        plantImageView.isHidden = true
+                        plantImageView.isHidden = false
                         plantGifView.isHidden = false
-                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
+                        americanBlueGrowth()
+//                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
                         
                         self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
-                    }
-                    else {
-                        appDel.isWateringPostponed = false
-                    }
                 }
                 //default
                 else {
@@ -233,18 +217,15 @@ class MainContentVC: UIViewController {
                     }
                 }
                 //물주기 미뤘을 때 시든상태
-                else if appDel.isWateringPostponed == true && postponedIdx == selectedFriendsIdx {
+                else if cherishResultData[selectedRowIndexPath].dDay <= 0 {
+                    print("시들었졍,,")
                     
-                    if appDel.isWateringComplete == false {
-                        plantImageView.isHidden = true
+                        plantImageView.isHidden = false
                         plantGifView.isHidden = false
-                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
+                        rosemaryGrowth()
+//                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
                         
                         self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
-                    }
-                    else {
-                        appDel.isWateringPostponed = false
-                    }
                 }
                 //default
                 else {
@@ -262,6 +243,7 @@ class MainContentVC: UIViewController {
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
                 allocateWateringDataWhenBackgroundMode()
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
+                    print("대체 몇번인데",selectedRowIndexPath)
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
                     plantGifView.alpha = 1.0
@@ -283,18 +265,15 @@ class MainContentVC: UIViewController {
                     }
                 }
                 //물주기 미뤘을 때 시든상태
-                else if appDel.isWateringPostponed == true && postponedIdx == selectedFriendsIdx {
+                else if cherishResultData[selectedRowIndexPath].dDay <= 0 {
+                    print("시들었졍,,")
                     
-                    if appDel.isWateringComplete == false {
-                        plantImageView.isHidden = true
+                        plantImageView.isHidden = false
                         plantGifView.isHidden = false
-                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
+                        sunGrowth()
+//                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
                         
                         self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
-                    }
-                    else {
-                        appDel.isWateringPostponed = false
-                    }
                 }
                 //default
                 else {
@@ -333,18 +312,19 @@ class MainContentVC: UIViewController {
                     }
                 }
                 //물주기 미뤘을 때 시든상태
-                else if appDel.isWateringPostponed == true && postponedIdx == selectedFriendsIdx {
+                else if cherishResultData[selectedRowIndexPath].dDay <= 0 {
+                    print("시들었졍,,")
+                    print(selectedRowIndexPath)
+                    print(cherishResultData)
+                    print(cherishResultData[selectedRowIndexPath].dDay)
                     
-                    if appDel.isWateringComplete == false {
-                        plantImageView.isHidden = true
+                        plantImageView.isHidden = false
                         plantGifView.isHidden = false
-                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
+                        stuckyGrowth()
+//                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
                         
                         self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
-                    }
-                    else {
-                        appDel.isWateringPostponed = false
-                    }
+                    
                 }
                 //default
                 else {
@@ -541,19 +521,6 @@ class MainContentVC: UIViewController {
         }
     }
     
-    
-    
-    //MARK: - 물주기&시들기를 위한 모델형 데이터인 cherishResultData에 아무런 값이 들어있지 않을 때, 임의로 값을 배졍하여 앱이 죽지 않도록 해주는 함수
-    func allocateWateringDataWhenBackgroundMode() {
-        if cherishResultData.count == 0 {
-            let selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
-            
-            for _ in 0...selectedRowIndexPath {
-                cherishResultData.append(MainPlantConditionData(id: 0, isWatering: false, isWithered: false))
-            }
-        }
-    }
-    
     //MARK: - 프로그레스바 커스텀
     func customProgressBarView(_ value : Int) {
         progressbarBackView.setBackColor(color: .white)
@@ -583,6 +550,16 @@ class MainContentVC: UIViewController {
     }
     
     
+    //MARK: - 메인의 친구 별 물주기, 시들기 상태를 저장할 수 있도록 cherishResultData에 데이터를 할당
+    func setMainResultData() {
+        
+        for i in 0...cherishPeopleData.count - 1 {
+            cherishResultData.append(MainPlantConditionData(id: cherishPeopleData[i].id, dDay: cherishPeopleData[i].dDay, isWatering: false, isWithered: false))
+        }
+    }
+    
+    
+    
     //MARK: - 물주기 이후 물주기 모션을 주기 위해 선택된 식물의 인덱스값을 "물주기 상태"로 바꿔주는 함수
     @objc func isWateringReported(_ notification : Notification) {
         let selectedWateringFriendId = notification.object as! Int
@@ -594,6 +571,18 @@ class MainContentVC: UIViewController {
             }
         }
         setDataWithSelectedData()
+    }
+    
+    
+    //MARK: - 물주기&시들기를 위한 모델형 데이터인 cherishResultData에 아무런 값이 들어있지 않을 때, 임의로 값을 배졍하여 앱이 죽지 않도록 해주는 함수
+    func allocateWateringDataWhenBackgroundMode() {
+        if cherishResultData.count == 0 {
+            let selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
+            
+            for _ in 0...selectedRowIndexPath {
+                cherishResultData.append(MainPlantConditionData(id: 0, dDay: 0, isWatering: false, isWithered: false))
+            }
+        }
     }
     
     

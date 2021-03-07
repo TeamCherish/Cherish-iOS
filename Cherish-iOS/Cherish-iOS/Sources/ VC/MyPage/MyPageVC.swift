@@ -22,13 +22,6 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var userWateringCountLabel: CustomLabel!
     @IBOutlet var userWateringPostponeCountLabel: CustomLabel!
     @IBOutlet var userGrowCompleteCountLabel: CustomLabel!
-    @IBOutlet var segmentView: CustomSegmentedControl! {
-        didSet {
-            segmentView.setButtonTitles(buttonTitles: ["식물 \(mypagePlantCount)", "연락처 \(mypageContactCount)"])
-            segmentView.selectorViewColor = .black
-            segmentView.selectorTextColor = .black
-        }
-    }
     @IBOutlet var headerTopConstraint: NSLayoutConstraint!
     @IBOutlet var headerHeightConstraint: NSLayoutConstraint!
     @IBOutlet var mypageExternalSV: UIScrollView!
@@ -38,6 +31,13 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var plantContainerTopConstraint: NSLayoutConstraint!
     @IBOutlet var contactContainerTopConstraint: NSLayoutConstraint!
     @IBOutlet var addFloatingBtn: UIButton!
+    @IBOutlet var segmentView: CustomSegmentedControl! {
+        didSet {
+            segmentView.setButtonTitles(buttonTitles: ["식물 \(mypagePlantCount)", "연락처 \(mypageContactCount)"])
+            segmentView.selectorViewColor = .black
+            segmentView.selectorTextColor = .black
+        }
+    }
     
     var contactArray:[Friend] = []
     
@@ -53,6 +53,7 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
         setConstraints()
         makeCornerRadiusView(segmentView, 30)
         makeCornerRadiusView(stickyHeaderView, 30)
+        addNavigationSwipeGuesture()
         addFloatingBtn.isHidden = true
     }
     
@@ -79,6 +80,11 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
         stickyHeaderView.isExclusiveTouch = true
     }
     
+    //MARK: - add Swipe Guesture that go back to parentVC
+    func addNavigationSwipeGuesture() {
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+    }
+    
     //MARK: - 상태바 백그라운드 컬러 변경
     func changeStatusBarBackgroundColor(_ Color : String) {
         let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
@@ -98,6 +104,7 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
+    //MARK: - floatingBtn 오프셋 설정
     func setFloatingBtnOffset(_ floatingBtn: UIButton ,_ isHidden: Bool,_ x: CGFloat,_ y: CGFloat,_ width: CGFloat,_ height: CGFloat) {
         floatingBtn.isHidden = isHidden
         floatingBtn.frame = CGRect(x: x, y: y, width: width, height: height)

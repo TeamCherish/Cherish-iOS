@@ -26,11 +26,11 @@ class MypagePlantVC: UIViewController {
         mypageTV.delegate = self
         mypageTV.dataSource = self
         mypageTV.separatorStyle = .none
-    
         setPlantData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        setPlantData()
         self.tabBarController?.tabBar.isHidden = false
     }
     

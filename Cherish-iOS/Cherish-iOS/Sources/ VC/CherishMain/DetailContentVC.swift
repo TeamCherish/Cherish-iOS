@@ -21,8 +21,8 @@ class DetailContentVC: UIViewController {
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let userId: Int = UserDefaults.standard.integer(forKey: "userID")
     let fcmToken: String = UserDefaults.standard.string(forKey: "fcmToken")!
-
-
+    
+    
     var cherishPeopleData:[ResultData] = [] {
         didSet {
             cherishPeopleCV.reloadData()
@@ -43,13 +43,13 @@ class DetailContentVC: UIViewController {
         makeHeaderViewCornerRadius()
         cherishPeopleCV.allowsMultipleSelection = false
         fcmTokenUpdate()
-        NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .postPostponed, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .addUser, object: nil)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //이 거 때 문 이 다
-        if appDel.isCherishAdded == true || appDel.isWateringPostponed == true  {
+        
+        if appDel.isCherishAdded == true {
             setCherishPeopleData()
         }
     }
@@ -146,11 +146,12 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
         
         /// 선택된 아이템 표시하는 0번째 item
         if indexPath.item == 0 {
-           
+            
             let firstCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CherishSelectPersonCVC", for: indexPath) as! CherishSelectPersonCVC
             
             if cherishPeopleData.count != 0 {
                 
+                //Noti를 한번만 보내기 위해 숫자를 count
                 if sendCount == 0 {
                     
                     NotificationCenter.default.post(name: .sendPeopleDataArray, object: cherishPeopleData)
@@ -261,14 +262,14 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 /// 이미지 url 처리
                 DispatchQueue.global(qos: .default).async(execute: { [self]() -> Void in
                     
-                        let url = URL(string: cherishPeopleData[indexPath.row - 1].thumbnailImageURL)
-                        let imageData = try? Data(contentsOf: url!)
-                        DispatchQueue.main.async(execute: {() -> Void in
-                            
-                            if(cell.tag == indexPath.row) {
+                    let url = URL(string: cherishPeopleData[indexPath.row - 1].thumbnailImageURL)
+                    let imageData = try? Data(contentsOf: url!)
+                    DispatchQueue.main.async(execute: {() -> Void in
+                        
+                        if(cell.tag == indexPath.row) {
                             cell.cherishPlantImageView.image = UIImage(data: imageData!)
-                            }
-                        })
+                        }
+                    })
                 })
                 
                 /// 선택된 친구셀 블러처리
@@ -297,7 +298,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
         
         
         if indexPath.item > 0 {
-            
             
             // appDelegate에 전역변수를 생성해주고, 한번 셀이 눌린 후로는 그 값을 true로 바꿔준다
             appDel.isCherishPeopleCellSelected = true

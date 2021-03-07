@@ -112,13 +112,6 @@ class PopUpLaterVC: UIViewController {
                 }
 
                 self.dismiss(animated: true, completion: nil)
-                self.appDel.isWateringPostponed = true
-                
-                // 미루기 횟수를 3회 초과했을 경우
-                if UserDefaults.standard.bool(forKey: "noMinusisPossible") == true {
-                    //시든모션 뜨도록 설정
-                    UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "selectedFriendIdData"), forKey: "postponedIdData")
-                }
                 
                 //메인뷰에 모달이 dismiss되었음을 알려주는 Noti
                 NotificationCenter.default.post(name: .postPostponed, object: nil)

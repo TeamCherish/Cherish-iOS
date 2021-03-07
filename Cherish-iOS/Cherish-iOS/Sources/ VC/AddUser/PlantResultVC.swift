@@ -46,6 +46,7 @@ class PlantResultVC: UIViewController {
     
     @IBAction func startToMain(_ sender: Any) {
         appDel.isCherishAdded = true
+        NotificationCenter.default.post(name: .addUser, object: nil)
 
         if self.checkPush == true {
             let storyBoard: UIStoryboard = UIStoryboard(name: "CherishMain", bundle: nil)

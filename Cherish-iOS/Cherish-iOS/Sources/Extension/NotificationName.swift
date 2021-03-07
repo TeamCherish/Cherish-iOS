@@ -18,4 +18,5 @@ extension Notification.Name {
     static let popToMainView = Notification.Name("popToMainView")
     static let wateringReport = Notification.Name("wateringReport")
     static let sendPeopleDataArray = Notification.Name("sendPeopleDataArray")
+    static let addUser = Notification.Name("addUser")
 }
