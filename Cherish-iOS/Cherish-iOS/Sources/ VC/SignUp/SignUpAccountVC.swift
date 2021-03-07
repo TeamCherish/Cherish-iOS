@@ -10,6 +10,12 @@ import UIKit
 
 class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
     
+    var isEmail : Bool? = false // 중복 확인용
+    var isPossibleEmail : Bool? = false // 이메일 형식 통과 확인용
+    var passwordStatus: Bool? =   false // 비밀번호 일치 확인용
+    var passwordFormStatus : Bool? = false // 비밀번호 통과 확인용
+    
+    //MARK: @IBOutlet
     @IBOutlet weak var emailTextField: UITextField!{
         didSet{
             emailTextField.addLeftPadding()
@@ -44,12 +50,6 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var passwordCheckLabel: CustomLabel!
     @IBOutlet weak var forChangeImageView: UIImageView!
     
-    var isEmail : Bool? = false // 중복 확인용
-    var isPossibleEmail : Bool? = false // 이메일 형식 통과 확인용
-    var passwordStatus: Bool? =   false // 비밀번호 일치 확인용
-    var passwordFormStatus : Bool? = false // 비밀번호 통과 확인용
-    var isfirstEyeClicked : Bool = false
-    var isSecondEyeClicked : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +58,7 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
         textFeildRight()
     }
     
+    //MARK: -사용자 정의 함수
     ///화면 터치시 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -127,7 +128,7 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
         passwordStatus = correct
     }
     
-    
+    //MARK: -@IBAction
     @IBAction func nextPage(_ sender: Any) {
         if isEmail == true{
             // 이메일 중복확인이 끝났고 비밀번호도 입력이 끝났다면
@@ -176,29 +177,29 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
             }
         }
     }
-    @IBAction func firstEyeAction(_ sender: Any) {
-        if isfirstEyeClicked{
-            passwordTextField.isSecureTextEntry = true
-            firstEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
-            isfirstEyeClicked = false
-        }else{
-            passwordTextField.isSecureTextEntry = false
-            firstEyeBtn.setImage(UIImage(named: "eye"), for: .normal)
-            isfirstEyeClicked = true
-        }
+    
+    // 터치하고 있으면 비밀번호 보여주기-
+    @IBAction func firstEyeTouch(_ sender: Any) {
+        passwordTextField.isSecureTextEntry = false
+        firstEyeBtn.setImage(UIImage(named: "eye"), for: .normal)
+    }
+    // 버튼에서 손을 떼면 다시 감추기
+    @IBAction func firstEyeAway(_ sender: Any) {
+        passwordTextField.isSecureTextEntry = true
+        firstEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
     }
     
-    @IBAction func secondEyeAction(_ sender: Any) {
-        if isSecondEyeClicked{
-            passwordCheckTextField.isSecureTextEntry = true
-            secondEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
-            isSecondEyeClicked = false
-        }else{
-            passwordCheckTextField.isSecureTextEntry = false
-            secondEyeBtn.setImage(UIImage(named: "eye"), for: .normal)
-            isSecondEyeClicked = true
-        }
+    @IBAction func secondEyeTouch(_ sender: Any) {
+        passwordCheckTextField.isSecureTextEntry = false
+        secondEyeBtn.setImage(UIImage(named: "eye"), for: .normal)
     }
+    
+    @IBAction func secondEyeAway(_ sender: Any) {
+        passwordCheckTextField.isSecureTextEntry = true
+        secondEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
+    }
+   
+    // 뒤로가기
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

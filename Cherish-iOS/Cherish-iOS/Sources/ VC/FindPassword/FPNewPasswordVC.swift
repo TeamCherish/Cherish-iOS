@@ -12,8 +12,6 @@ class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
     var email: String?
     var passwordFormStatus: Bool = false // 비밀번호 형식 검사
     var passwordStatus : Bool = false // 비밀번호 일치 검사
-    var isfirstEyeClicked : Bool = false
-    var isSecondEyeClicked : Bool = false
     
     //MARK: -@IBOutlet
     @IBOutlet weak var enterPWTextField: UITextField!{
@@ -118,27 +116,27 @@ class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK: -@IBAction
     // 비밀번호 보이게 하기-입력 부
-    @IBAction func firstEyeAction(_ sender: Any) {
-        if !isfirstEyeClicked {
-            enterPWTextField.isSecureTextEntry = false
-            isfirstEyeClicked = true
-        }else{
-            enterPWTextField.isSecureTextEntry = true
-            isfirstEyeClicked = false
-        }
+    @IBAction func firstEyeTouch(_ sender: Any) {
+        enterPWTextField.isSecureTextEntry = false
+        firstEyeBtn.setImage(UIImage(named: "eye"), for: .normal)
     }
+    @IBAction func firstEyeAway(_ sender: Any) {
+        enterPWTextField.isSecureTextEntry = true
+        firstEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
+    }
+    
     
     // 비밀번호 보이게 하기-재입력 부
-    @IBAction func secondEyeAction(_ sender: Any) {
-        if !isSecondEyeClicked {
-            enterAgainTextField.isSecureTextEntry = false
-            isSecondEyeClicked = true
-        }else{
-            enterAgainTextField.isSecureTextEntry = true
-            isSecondEyeClicked = false
-        }
+    @IBAction func secondEyeTouch(_ sender: Any) {
+        enterAgainTextField.isSecureTextEntry = false
+        secondEyeBtn.setImage(UIImage(named: "eye"), for: .normal)
     }
-    
+    @IBAction func secondEyeAway(_ sender: Any) {
+        enterAgainTextField.isSecureTextEntry = true
+        secondEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
+    }
+        
+    // 뒤로가기
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

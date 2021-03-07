@@ -132,14 +132,16 @@
                                 <rect key="frame" x="325" y="307.66666666666669" width="24" height="24"/>
                                 <state key="normal" image="eyeOff"/>
                                 <connections>
-                                    <action selector="firstEyeAction:" destination="xkf-fx-ibr" eventType="touchUpInside" id="9Mc-ox-m7u"/>
+                                    <action selector="firstEyeAway:" destination="xkf-fx-ibr" eventType="touchUpInside" id="adW-Ry-dXA"/>
+                                    <action selector="firstEyeTouch:" destination="xkf-fx-ibr" eventType="touchDown" id="CJh-J4-7up"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5k-X7-utb">
                                 <rect key="frame" x="325" y="364.66666666666669" width="24" height="24"/>
                                 <state key="normal" image="eyeOff"/>
                                 <connections>
-                                    <action selector="secondEyeAction:" destination="xkf-fx-ibr" eventType="touchUpInside" id="fNR-66-Twg"/>
+                                    <action selector="secondEyeAway:" destination="xkf-fx-ibr" eventType="touchUpInside" id="6rx-IV-P2M"/>
+                                    <action selector="secondEyeTouch:" destination="xkf-fx-ibr" eventType="touchDown" id="qmA-vw-Zxb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntH-uc-BDn">
