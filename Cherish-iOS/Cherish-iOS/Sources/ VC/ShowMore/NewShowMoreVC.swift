@@ -22,11 +22,17 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
         super.viewDidLoad()
         setDelegates()
         setUserInfo()
-        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        addNavigationSwipeGuesture()
+        addNotificationObserver()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setUserInfo()
+    }
+    
+    //MARK: - addObserver
+    func addNotificationObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     // my selector that was defined above
@@ -34,12 +40,19 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
         showMoreTV.reloadData()
     }
     
+    //MARK: - make Delegates
     func setDelegates() {
         showMoreTV.delegate = self
         showMoreTV.dataSource = self
         showMoreTV.separatorStyle = .none
     }
     
+    //MARK: - add Swipe Guesture that go back to parentVC
+    func addNavigationSwipeGuesture() {
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+    }
+    
+    //MARK: - set User Informations
     func setUserInfo() {
         userNicknameLabel.text = UserDefaults.standard.string(forKey: "userNickname")
         userEmailLabel.text = UserDefaults.standard.string(forKey: "userEmail")
@@ -47,6 +60,7 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
         userEmailLabel.sizeToFit()
     }
     
+    // sendMailErrorAlert
     func showSendMailErrorAlert() {
         let sendMailErrorAlert = UIAlertController(title: "메일을 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "확인", style: .default) {
@@ -56,6 +70,11 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
         sendMailErrorAlert.addAction(confirmAction)
         self.present(sendMailErrorAlert, animated: true, completion: nil)
     }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
     
     // 회원탈퇴 팝업
     func showWithdrawalAlert(){
@@ -87,9 +106,6 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
         present(withdrawalAlert, animated: true)
     }
     
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
     
     @IBAction func touchUpToNicknameChangeVC(_ sender: UIButton) {
         let NicknameChangeVC = self.storyboard?.instantiateViewController(identifier: "NicknameChangeVC") as! NicknameChangeVC
@@ -108,7 +124,7 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
                 case .authorized:
                     print("User granted permission for notification")
                 case .denied:
-                    DispatchQueue.main.async { [self] in
+                    DispatchQueue.main.async {
                         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
                     }
                     print("User denied notification permission")

@@ -39,16 +39,9 @@ class MainContentVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         LoadingHUD.show()
-        
         UserDefaults.standard.set(false, forKey: "plantIsSelected")
         UserDefaults.standard.set(false, forKey: "calendarPlantIsSelected")
-        
-        //noti 감지 후 view가 reload될 수 있도록 viewWillAppear함수를 호출해준다.
-        NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .cherishPeopleCellClicked, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .postPostponed, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(isWateringReported), name: .wateringReport, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(getPeopleData), name: .sendPeopleDataArray, object: nil)
-        
+        addNotificationObserver()
         setDataWithSelectedData()
     }
     
@@ -77,13 +70,22 @@ class MainContentVC: UIViewController {
         
     }
     
+    //MARK: - addObserver
+    func addNotificationObserver() {
+        //noti 감지 후 view가 reload될 수 있도록 viewWillAppear함수를 호출해준다.
+        NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .cherishPeopleCellClicked, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .postPostponed, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(isWateringReported), name: .wateringReport, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getPeopleData), name: .sendPeopleDataArray, object: nil)
+    }
+    
+    
     //MARK: - 메인의 친구 별 물주기, 시들기 상태를 저장할 수 있도록 cherishResultData에 데이터를 할당
     func setMainResultData() {
         
         for i in 0...cherishPeopleData.count - 1 {
             cherishResultData.append(MainPlantConditionData(id: cherishPeopleData[i].id, isWatering: false, isWithered: false))
         }
-        
     }
     
     
@@ -117,9 +119,8 @@ class MainContentVC: UIViewController {
                     plantGifView.alpha = 1.0
                     wateringGifPlay()
                     
-                    // gif뷰가 끝나고 나타날 뷰
+                    // gif 물주기 모션뷰가 끝나고 나타날 뷰
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
-                        
                         
                         // gif뷰가 끝났다는 것은 물주기가 완료되었다는 뜻이므로 isWatering을 false로 바꿈!!
                         cherishResultData[selectedRowIndexPath].isWatering = false
@@ -153,7 +154,6 @@ class MainContentVC: UIViewController {
                 //default
                 else {
                     plantImageView.isHidden = false
-                    
                     // 식물3단계 파싱해주기
                     dandelionGrowth()
                 }
@@ -171,14 +171,11 @@ class MainContentVC: UIViewController {
                     plantGifView.alpha = 1.0
                     wateringGifPlay()
                     
-                    // gif뷰가 끝나고 나타날 뷰
+                    // gif 물주기 모션뷰가 끝나고 나타날 뷰
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
                         
-                        // gif뷰가 끝났다는 것은 물주기가 완료되었다는 뜻이므로 false로 바꿈!!
                         cherishResultData[selectedRowIndexPath].isWatering = false
-                        
                         selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
-                        
                         
                         if selectedPlantName == "아메리칸블루" {
                             plantImageView.isHidden = false
@@ -221,17 +218,14 @@ class MainContentVC: UIViewController {
                     plantGifView.isHidden = false
                     plantGifView.alpha = 1.0
                     wateringGifPlay()
-//
-                    // gif뷰가 끝나고 나타날 뷰
+                    
+                    // gif 물주기 모션뷰가 끝나고 나타날 뷰
                     DispatchQueue.main.asyncAfter(deadline: .now() +  5.0) { [self] in
                         
-                        // gif뷰가 끝났다는 것은 물주기가 완료되었다는 뜻이므로 false로 바꿈!!
                         cherishResultData[selectedRowIndexPath].isWatering = false
-                        
                         selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
                         
                         if selectedPlantName == "로즈마리" {
-                            
                             plantImageView.isHidden = false
                             // 식물3단계 파싱해주기
                             rosemaryGrowth()
@@ -273,12 +267,10 @@ class MainContentVC: UIViewController {
                     plantGifView.alpha = 1.0
                     wateringGifPlay()
                     
+                    // gif 물주기 모션뷰가 끝나고 나타날 뷰
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
-                        // gif뷰가 끝나고 나타날 뷰
-                        self.plantGifView.alpha = 0
-                        // gif뷰가 끝났다는 것은 물주기가 완료되었다는 뜻이므로 false로 바꿈!!
-                        cherishResultData[selectedRowIndexPath].isWatering = false
                         
+                        cherishResultData[selectedRowIndexPath].isWatering = false
                         selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
                         
                         if selectedPlantName == "단모환" {
@@ -306,10 +298,8 @@ class MainContentVC: UIViewController {
                 }
                 //default
                 else {
-                    
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
-                    
                     plantImageViewTopConstraint.constant = 104
                     // 식물3단계 파싱해주기
                     sunGrowth()
@@ -328,16 +318,13 @@ class MainContentVC: UIViewController {
                     plantGifView.alpha = 1.0
                     wateringGifPlay()
                     
+                    // gif 물주기 모션뷰가 끝나고 나타날 뷰
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
-                        // gif뷰가 끝나고 나타날 뷰
                         
-                        // gif뷰가 끝났다는 것은 물주기가 완료되었다는 뜻이므로 false로 바꿈!!
                         cherishResultData[selectedRowIndexPath].isWatering = false
-                        
                         selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
                         
                         if selectedPlantName == "스투키" {
-                            
                             plantImageViewTopConstraint.constant = 104
                             plantImageView.isHidden = false
                             // 식물3단계 파싱해주기
