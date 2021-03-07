@@ -191,6 +191,7 @@ class InputDetailVC: UIViewController {
         birthTextField.background = UIImage(named: "box_add_plant_detail")
         birthTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
         birthTextField.layer.borderWidth = 0
+        birthTextField.tintColor = UIColor.clear
         
         phoneTextField.background = UIImage(named: "box_add_plant_detail")
         phoneTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
@@ -200,11 +201,12 @@ class InputDetailVC: UIViewController {
         alarmPeriodTextField.background = UIImage(named: "box_add_plant_detail")
         alarmPeriodTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
         alarmPeriodTextField.layer.borderWidth = 0
+        alarmPeriodTextField.tintColor = UIColor.clear // clear <-> clearColor
         
         alarmTimeTextField.background = UIImage(named: "box_add_plant_detail")
         alarmTimeTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
         alarmTimeTextField.layer.borderWidth = 0
-//        alarmTimeTextField.tintColor = UIColor.clearColor()
+        
     }
     
     //MARK: - 텍스트필드 padding값 지정
@@ -223,13 +225,18 @@ class InputDetailVC: UIViewController {
         toolbar.sizeToFit()
         let toolbar2 = UIToolbar()
         toolbar2.sizeToFit()
-        
+
         // bar button
         let doneBtnBirth = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedBirth))
         toolbar.setItems([doneBtnBirth], animated: true)
         
         let doneBtnPeriod = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePreseedPeriod))
         toolbar2.setItems([doneBtnPeriod], animated: true)
+        
+        // done 버튼 오른쪽으로
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        toolbar.setItems([flexibleSpace, doneBtnBirth], animated: true)
+        toolbar2.setItems([flexibleSpace, doneBtnPeriod], animated: true)
         
         // alarm time
 //        alarmTimePicker.addTarget(self, action: #selector(changed), for: .valueChanged)
@@ -248,8 +255,6 @@ class InputDetailVC: UIViewController {
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
         
-//        alarmTimePicker.datePickerMode = .time
-//        alarmTimePicker.preferredDatePickerStyle = .wheels
         
     }
     
@@ -422,6 +427,10 @@ extension InputDetailVC: UITextFieldDelegate{
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.nicknameTextField.endEditing(true)
+        self.birthTextField.endEditing(true)
+        self.phoneTextField.endEditing(true)
+        self.alarmPeriodTextField.endEditing(true)
+        self.alarmTimeTextField.endEditing(true)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

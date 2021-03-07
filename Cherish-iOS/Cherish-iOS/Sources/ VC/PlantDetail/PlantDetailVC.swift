@@ -83,6 +83,8 @@ class PlantDetailVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         LoadingHUD.show()
         friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+        print("viewWillAppear")
+        print(friendsPlantIdx)
         getPlantDetailData()
         NotificationCenter.default.addObserver(self, selector: #selector(popToMainView), name: .popToMainView, object: nil)
     }
@@ -276,6 +278,8 @@ class PlantDetailVC: UIViewController {
             case .success(let data):
                 print(data)
                 if let plantDetailData = data as? PlantDetailData {
+                    print("샌드위치 플랜트 아이디")
+                    print(plantDetailData.plantId)
                     plantNicknameLabel.text = plantDetailData.nickname
                     userNameInRoundViewLabel.text = plantDetailData.name
                     plantKindsInRoundViewLabel.text = plantDetailData.plantName

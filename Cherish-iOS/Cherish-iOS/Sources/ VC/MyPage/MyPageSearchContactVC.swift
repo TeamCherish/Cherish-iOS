@@ -47,12 +47,14 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
         contactTV.delegate = self
         contactTV.dataSource = self
         contactSearchBar.delegate = self
+        setSearchBar()
+        getContacts()
+        contactTV.reloadData()
         contactTV.tableFooterView = UIView()
         contactTV.register(UINib(nibName: radioButton, bundle: nil), forCellReuseIdentifier: radioButton)
         resetSelectFriendVC()
         filteredData = friendList
-        setSearchBar()
-        getContacts()
+        moveToAddBtn.isEnabled = false
     }
     
     func setSearchBar() {
@@ -73,6 +75,7 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
             
             friendList = contacts!
         }
+
     }
     
     func resetSelectFriendVC() {
@@ -92,9 +95,9 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if section == 0 {
-//            return 1
-//        }
+        if section == 0 {
+            return 1
+        }
         if filteredData == nil {
             return friendList.count
         }
@@ -102,6 +105,12 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.section == 0 {
+            let cell = contactTV.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath)
+            cell.selectionStyle = .none
+            return cell
+        }
         guard let cell = contactTV.dequeueReusableCell(withIdentifier: radioButton, for: indexPath) as? SelectFriendCell else { fatalError("Cell Not Found")}
         cell.selectionStyle = .none
         let friend = filteredData[indexPath.row]
@@ -118,7 +127,14 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
         index = indexPath.row
         print(index)
     }
-   
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 28
+        }
+        return 83
+    }
+    
     // MARK: - searchBar delegate
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -133,6 +149,7 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
             for friend in friendList {
                 if friend.name.contains(searchText) {
                     filteredData.append(contentsOf: [Friend(name: friend.name, phoneNumber: friend.phoneNumber, selected: friend.selected)])
+                    print("하이하이하이")
                 }
                 else if friend.phoneNumber.contains(searchText) {
                     filteredData.append(contentsOf: [Friend(name: friend.name, phoneNumber: friend.phoneNumber, selected: friend.selected)])
@@ -151,26 +168,27 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func moveToAddUser(_ sender: Any) {
+        
+        print("안녕")
 
         if moveToAddBtn.isEnabled == true {
+            print("뇽안")
             let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
-            if let vc = storyboard?.instantiateViewController(identifier: "InputDetailVC") as? InputDetailVC {
-                // 이름, 전화번호 텍필로 넘겨주기
-                if checkSearch == 0 {
-                    // 검색창 사용 X
-                    vc.givenName = friendList[index].name
-                    vc.givenPhoneNumber = friendList[index].phoneNumber
-                }
-                else if checkSearch == 1 {
-                    // 검색창 사용 O
-                    vc.givenName = filteredData[index].name
-                    vc.givenPhoneNumber = filteredData[index].name
-                }
-                
-                vc.modalPresentationStyle = .fullScreen
-                self.navigationController?.pushViewController(vc, animated: true)
+            guard let dvc = storyBoard.instantiateViewController(identifier: "InputDetailVC") as? InputDetailVC else {return}
+            if checkSearch == 0 {
+                dvc.givenName = friendList[index].name
+                dvc.givenPhoneNumber = friendList[index].phoneNumber
             }
-        }
+            else if checkSearch == 1 {
+                dvc.givenName = filteredData[index].name
+                dvc.givenPhoneNumber  = filteredData[index].phoneNumber
+            }
+            print(dvc.givenName)
+            print(dvc.givenPhoneNumber)
+            dvc.modalPresentationStyle = .fullScreen
+            self.navigationController?.pushViewController(dvc, animated: true)
+
+            }
     }
     
 }

@@ -287,5 +287,4 @@ extension MyPageVC: CustomSegmentedControlDelegate {
         print(mypageExternalSV.contentInset.left)
         
     }
-    
 }

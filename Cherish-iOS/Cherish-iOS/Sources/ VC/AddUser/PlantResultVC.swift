@@ -15,6 +15,7 @@ class PlantResultVC: UIViewController {
     @IBOutlet weak var flowerMeaningLabel: CustomLabel!
     @IBOutlet weak var explanationLabel: UILabel!
     @IBOutlet weak var startBtn: UIButton!
+    @IBOutlet weak var plantBox: UIImageView!
     
     var modifier: String?
     var resultPlantImgUrl: String?
@@ -92,26 +93,31 @@ class PlantResultVC: UIViewController {
             self.startBtn.setBackgroundImage(UIImage(named: "btn_final_selected_rose"), for: .normal)
             self.meaningLabel.textColor = self.rose
             self.flowerMeaningLabel.textColor = self.rose
+            self.plantBox.image = UIImage(named: "plant_tip_box_rose")
         case 2:
             // 아메리칸 블루
             self.startBtn.setBackgroundImage(UIImage(named: "btn_final_selected_american"), for: .normal)
             self.meaningLabel.textColor = self.american
             self.flowerMeaningLabel.textColor = self.american
+            self.plantBox.image = UIImage(named: "plant_tip_box_american")
         case 3:
             // 민들레
             self.startBtn.setBackgroundImage(UIImage(named: "btn_final_selected_min"), for: .normal)
             self.meaningLabel.textColor = self.min
             self.flowerMeaningLabel.textColor = self.min
+            self.plantBox.image = UIImage(named: "plant_tip_box_min")
         case 4:
             // 단모환
             self.startBtn.setBackgroundImage(UIImage(named: "btn_final_selected_dan"), for: .normal)
             self.meaningLabel.textColor = self.dan
             self.flowerMeaningLabel.textColor = self.dan
+            self.plantBox.image = UIImage(named: "plant_tip_dan")
         case 5:
             // 스투키
             self.startBtn.setBackgroundImage(UIImage(named: "btn_final_selected_stuki"), for: .normal)
             self.meaningLabel.textColor = self.stuiki
             self.flowerMeaningLabel.textColor = self.stuiki
+            self.plantBox.image = UIImage(named: "plant_tip_box_stuki")
         default:
             return
         }
