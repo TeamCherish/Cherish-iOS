@@ -260,7 +260,8 @@ class LoginVC: UIViewController {
                         switch networkResult {
                         case .success(let data):
                             if let mainData = data as? MainData {
-                                
+                                loginEmailTextField.text?.removeAll()
+                                loginPwTextField.text?.removeAll()
                                 
                                 // 등록된 소중한 사람의 수가 존재한다면
                                 if mainData.totalCherish > 0 {

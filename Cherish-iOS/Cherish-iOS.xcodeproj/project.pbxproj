@@ -128,6 +128,7 @@
 		548DF19925A2E1780081FCD1 /* PopUpLaterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */; };
 		548DF1A925A395D20081FCD1 /* KeywordCanDeleteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */; };
 		548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */; };
+		5490352D25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5490352C25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift */; };
 		5491593125DBADC6008104FC /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593025DBADC6008104FC /* CustomPageControl.swift */; };
 		5491593425DBB1C0008104FC /* SignUpGenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593325DBB1C0008104FC /* SignUpGenderVC.swift */; };
 		5491593A25DBF78B008104FC /* SignUpNicknameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593925DBF78B008104FC /* SignUpNicknameVC.swift */; };
@@ -142,6 +143,10 @@
 		5491595F25DE794B008104FC /* CheckEmailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491595E25DE794B008104FC /* CheckEmailData.swift */; };
 		5491596325E15059008104FC /* MessageAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491596225E15059008104FC /* MessageAuthService.swift */; };
 		5491596625E15102008104FC /* MessageAuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491596525E15102008104FC /* MessageAuthData.swift */; };
+		54AE98AF25F373B400993EA3 /* UpdatePasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AE98AE25F373B400993EA3 /* UpdatePasswordService.swift */; };
+		54AE98B825F3B0F900993EA3 /* FindPasswordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AE98B725F3B0F900993EA3 /* FindPasswordData.swift */; };
+		54AE98BB25F3B16500993EA3 /* FindPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AE98BA25F3B16500993EA3 /* FindPasswordService.swift */; };
+		54AE98BE25F3C02900993EA3 /* WithdrawalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AE98BD25F3C02900993EA3 /* WithdrawalService.swift */; };
 		54D223F425DA2912003A1496 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54D223F325DA2912003A1496 /* SignUp.storyboard */; };
 		54D223FC25DA30EA003A1496 /* SignUpAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */; };
 		54D2241325DA3607003A1496 /* SignUpPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */; };
@@ -303,6 +308,7 @@
 		548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpLaterVC.swift; sourceTree = "<group>"; };
 		548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCanDeleteCVC.swift; sourceTree = "<group>"; };
 		548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewAlign.swift; sourceTree = "<group>"; };
+		5490352C25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWatering_WithoutLaterVC.swift; sourceTree = "<group>"; };
 		5491593025DBADC6008104FC /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		5491593325DBB1C0008104FC /* SignUpGenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpGenderVC.swift; sourceTree = "<group>"; };
 		5491593925DBF78B008104FC /* SignUpNicknameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNicknameVC.swift; sourceTree = "<group>"; };
@@ -317,6 +323,10 @@
 		5491595E25DE794B008104FC /* CheckEmailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailData.swift; sourceTree = "<group>"; };
 		5491596225E15059008104FC /* MessageAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAuthService.swift; sourceTree = "<group>"; };
 		5491596525E15102008104FC /* MessageAuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAuthData.swift; sourceTree = "<group>"; };
+		54AE98AE25F373B400993EA3 /* UpdatePasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordService.swift; sourceTree = "<group>"; };
+		54AE98B725F3B0F900993EA3 /* FindPasswordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordData.swift; sourceTree = "<group>"; };
+		54AE98BA25F3B16500993EA3 /* FindPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordService.swift; sourceTree = "<group>"; };
+		54AE98BD25F3C02900993EA3 /* WithdrawalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalService.swift; sourceTree = "<group>"; };
 		54D223F325DA2912003A1496 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAccountVC.swift; sourceTree = "<group>"; };
 		54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneVC.swift; sourceTree = "<group>"; };
@@ -412,6 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				336C6D9925E64B48003865C3 /* ChangeNicknameService.swift */,
+				54AE98BD25F3C02900993EA3 /* WithdrawalService.swift */,
 			);
 			path = ShowMore;
 			sourceTree = "<group>";
@@ -541,6 +552,7 @@
 		33851C8B259A5AEE005BCFFD /* APIService */ = {
 			isa = PBXGroup;
 			children = (
+				54AE98AD25F3739C00993EA3 /* FindPassword */,
 				33851C92259A5B68005BCFFD /* APIConstants.swift */,
 				33851C98259A5C00005BCFFD /* NetworkResult.swift */,
 				3317778425B0915B00CC1030 /* Mypage */,
@@ -622,6 +634,7 @@
 		33851C90259A5B1F005BCFFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				54AE98B625F3B0DD00993EA3 /* FindPassword */,
 				5491595D25DE792F008104FC /* SignUp */,
 				33CD995025D999EB00C3BD1C /* PushAlarm */,
 				54425C3325AF519E00E62BAB /* Calendar */,
@@ -878,6 +891,7 @@
 				548DF17425A1BB7F0081FCD1 /* PopUpContactVC.swift */,
 				548DF17D25A1EE730081FCD1 /* ReviewVC.swift */,
 				548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */,
+				5490352C25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift */,
 			);
 			path = Watering;
 			sourceTree = "<group>";
@@ -920,6 +934,23 @@
 				5491596525E15102008104FC /* MessageAuthData.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		54AE98AD25F3739C00993EA3 /* FindPassword */ = {
+			isa = PBXGroup;
+			children = (
+				54AE98AE25F373B400993EA3 /* UpdatePasswordService.swift */,
+				54AE98BA25F3B16500993EA3 /* FindPasswordService.swift */,
+			);
+			path = FindPassword;
+			sourceTree = "<group>";
+		};
+		54AE98B625F3B0DD00993EA3 /* FindPassword */ = {
+			isa = PBXGroup;
+			children = (
+				54AE98B725F3B0F900993EA3 /* FindPasswordData.swift */,
+			);
+			path = FindPassword;
 			sourceTree = "<group>";
 		};
 		54D223F625DA294E003A1496 /* SignUp */ = {
@@ -1213,12 +1244,14 @@
 				3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */,
 				92911FE225DFC72600B4A95F /* GetPlantData.swift in Sources */,
 				548DF16C25A1B4390081FCD1 /* PopUpWateringVC.swift in Sources */,
+				54AE98BB25F3B16500993EA3 /* FindPasswordService.swift in Sources */,
 				92B0F9D925AEB15400AA411A /* AddUserData.swift in Sources */,
 				5478344C25AB65C30021C32B /* ShowMoreTVC.swift in Sources */,
 				332CC7AA25A6F41E00D0047D /* CustomSegmentedControl.swift in Sources */,
 				33D0026925A3093500E97811 /* PlantExplainCVC.swift in Sources */,
 				5478346B25AC6DF50021C32B /* LaterCheckData.swift in Sources */,
 				54425C2125ADBD9600E62BAB /* RecentKeywordData.swift in Sources */,
+				54AE98B825F3B0F900993EA3 /* FindPasswordData.swift in Sources */,
 				33E874F725A04A56001F84FE /* CherishMainVC.swift in Sources */,
 				336C6D9325E63EAD003865C3 /* ShowMoreNC.swift in Sources */,
 				332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */,
@@ -1241,6 +1274,7 @@
 				92DCC3DF25A8504F00160523 /* SelectFriendSearchBar.swift in Sources */,
 				338CB6CE25E528AB0089E182 /* ShowMoreSecondTVCell.swift in Sources */,
 				33D0026625A3036800E97811 /* PlantDetailPopUpExplainVC.swift in Sources */,
+				54AE98AF25F373B400993EA3 /* UpdatePasswordService.swift in Sources */,
 				5491596325E15059008104FC /* MessageAuthService.swift in Sources */,
 				546A247325ACD53A00F869E2 /* WateringReviewData.swift in Sources */,
 				92824DA225B19A7F003D7678 /* MypageNC.swift in Sources */,
@@ -1261,6 +1295,7 @@
 				5491596625E15102008104FC /* MessageAuthData.swift in Sources */,
 				33E8754925A09440001F84FE /* NotificationName.swift in Sources */,
 				337A5CB925A8545E00578130 /* LoginVC.swift in Sources */,
+				5490352D25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift in Sources */,
 				54D2241325DA3607003A1496 /* SignUpPhoneVC.swift in Sources */,
 				5491594A25DCD360008104FC /* FPEmailVC.swift in Sources */,
 				33EAA2EC25B15D4E00E75F95 /* AddUserNC.swift in Sources */,
@@ -1283,6 +1318,7 @@
 				5491593425DBB1C0008104FC /* SignUpGenderVC.swift in Sources */,
 				5478343625A76EBC0021C32B /* UIDevice+ScreenSize.swift in Sources */,
 				33805F9A25ACE78A005CED0F /* PlantDetailData.swift in Sources */,
+				54AE98BE25F3C02900993EA3 /* WithdrawalService.swift in Sources */,
 				33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */,
 				332CC7B325A701A400D0047D /* MypageContactTVC.swift in Sources */,
 				54D223FC25DA30EA003A1496 /* SignUpAccountVC.swift in Sources */,

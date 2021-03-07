@@ -68,7 +68,7 @@ struct LaterService {
             return .pathErr }
         switch status {
         case 200:
-            print("성공")
+            print("미룬 횟수 확인 성공")
             return .success(decodedData.data)
         case 400..<500:
             return .requestErr(decodedData.message)
@@ -84,7 +84,7 @@ struct LaterService {
             return .pathErr }
         switch status {
         case 200:
-            print("성공")
+            print("미루기 성공")
             return .success(decodedData.data)
         case 400..<500:
             return .requestErr(decodedData.message)

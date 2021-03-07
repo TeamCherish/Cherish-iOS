@@ -1,22 +1,24 @@
 //
-//  CheckEmailService.swift
+//  UpdatePasswordService.swift
 //  Cherish-iOS
 //
-//  Created by 이원석 on 2021/02/18.
+//  Created by 이원석 on 2021/03/06.
 //
 
 import Foundation
 import Alamofire
 
-struct CheckEmailService {
-    static let shared = CheckEmailService()
-
-    func checkEmail(email: String, completion: @escaping (NetworkResult<Any>) -> (Void)){
+struct UpdatePasswordService {
+    static let shared = UpdatePasswordService()
+    
+    func updatePW(email: String, password1: String, password2: String, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
-        let url = APIConstants.checkSameEmailURL
+        let url = APIConstants.updatePasswordURL
         let header: HTTPHeaders = [ "Content-Type":"application/json"]
         let body: Parameters = [
             "email":email,
+            "password1":password1,
+            "password2":password2,
         ]
         let dataRequest = AF.request(url,
                                      method: .post,
@@ -36,14 +38,14 @@ struct CheckEmailService {
                 completion(.networkFail) }
         }
     }
-
+    
     private func judgeData(status: Int, data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(GenericResponse<String>.self, from: data) else {
             return .pathErr }
         switch status {
         case 200:
-            print("이메일 중복 확인 성공")
+            print("비밀번호 변경 성공")
             return .success(decodedData.data)
         case 400..<500:
             return .requestErr(decodedData.message)

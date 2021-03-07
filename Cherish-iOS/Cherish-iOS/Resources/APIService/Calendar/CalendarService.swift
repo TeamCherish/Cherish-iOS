@@ -102,7 +102,7 @@ struct CalendarService {
             return .pathErr }
         switch status {
         case 200:
-            print("성공")
+            print("캘린더 정보 불러오기 성공")
             return .success(decodedData.data)
         case 400..<500:
             return .requestErr(decodedData.message)
@@ -118,7 +118,7 @@ struct CalendarService {
             return .pathErr }
         switch status {
         case 200:
-            print("성공")
+            print("리뷰 수정or삭제 성공")
             return .success(decodedData.data)
         case 400..<500:
             return .requestErr(decodedData.message)
