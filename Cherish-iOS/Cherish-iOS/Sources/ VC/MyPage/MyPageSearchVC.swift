@@ -17,6 +17,7 @@ class MyPageSearchVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var segmentView: CustomSegmentedControl!  {
         didSet {
             DispatchQueue.main.async {
+
                 self.segmentView.setButtonTitles(buttonTitles: ["식물 \(self.mypagePlantCount)", "연락처 \(self.mypageContactCount)"])
                 self.segmentView.selectorTextColor = .black
                 self.segmentView.selectorViewColor = .black
@@ -56,7 +57,7 @@ class MyPageSearchVC: UIViewController, UIGestureRecognizerDelegate {
         let myPageUserIdx = UserDefaults.standard.integer(forKey: "userID")
         print(myPageUserIdx)
         let plantArr = UserDefaults.standard.array(forKey: "myCherishID")
-        
+    
         var contactArr : [Friend] = []
         
         if let data = UserDefaults.standard.value(forKey: "userContacts") as? Data {
@@ -64,6 +65,8 @@ class MyPageSearchVC: UIViewController, UIGestureRecognizerDelegate {
         }
         mypagePlantCount = plantArr!.count
         mypageContactCount = contactArr.count
+        print("안녕")
+        print(mypagePlantCount)
         segmentView.setButtonTitles(buttonTitles: ["식물 \(mypagePlantCount)", "연락처 \(mypageContactCount)"])
     }
     

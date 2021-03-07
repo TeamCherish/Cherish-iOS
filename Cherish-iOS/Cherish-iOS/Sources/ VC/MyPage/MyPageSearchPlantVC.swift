@@ -11,12 +11,12 @@ class MyPageSearchPlantVC: UIViewController {
 
     @IBOutlet weak var plantTV: UITableView!
     @IBOutlet weak var plantSearchBar: UISearchBar!
+    @IBOutlet weak var addFloatingBtn: UIButton!
     
     var mypagePlantArray: [MypagefriendsData] = []
     var filteredPlant: [MypagefriendsData] = []
     var filteredData: [MyPlantData] = []
 //    var filteredPlant: [MyPlantData] = []
-    
     
     var myCherishId: [Int] = []
     
@@ -34,17 +34,20 @@ class MyPageSearchPlantVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.translatesAutoresizingMaskIntoConstraints = false
+        self.tabBarController?.tabBar.isHidden = true
+        plantTV.separatorStyle = .none
         plantTV.delegate = self
         plantTV.dataSource = self
-        plantTV.separatorStyle = .none
         plantSearchBar.delegate = self
         setPlantData()
         setSearchBar()
+        plantTV.reloadData()
+        filteredPlant = mypagePlantArray
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     func setSearchBar() {
@@ -67,6 +70,7 @@ class MyPageSearchPlantVC: UIViewController {
             case .success(let data):
                 if let mypageData = data as? MypageData {
                     mypagePlantArray = mypageData.result
+                    print("여기는 영등포")
                     print(mypagePlantArray)
                     plantTV.reloadData()
                 }
@@ -85,7 +89,14 @@ class MyPageSearchPlantVC: UIViewController {
     private func updateSelectedIndex(_ index: Int) {
         selectedPlant = index
     }
-}
+    
+    @IBAction func moveToAddUser(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
+        
+        guard let dvc = storyBoard.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar else {return}
+        self.navigationController?.pushViewController(dvc, animated: true)
+    }
+    }
 
 extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
  
@@ -159,10 +170,26 @@ extension MyPageSearchPlantVC: UISearchBarDelegate {
 //                                        Friend(name: friend.name, phoneNumber: friend.phoneNumber, selected: friend.selected)])
 //            }
             
+//            struct MypagefriendsData: Codable {
+//                let id, dDay: Int
+//                let nickname, name, email: String
+//                let thumbnailImageURL: String
+//                let level: Int?
+//                let plantID: Int
+//
+//                enum CodingKeys: String, CodingKey {
+//                    case id, dDay, nickname, name, email
+//                    case thumbnailImageURL = "thumbnail_image_url"
+//                    case level
+//                    case plantID = "PlantId"
+//                }
+//
+
+            
+
             for plant in filteredPlant {
                 if plant.nickname.contains(searchText) {
-//                    filteredPlant.append(contentsOf: [MypagefriendsData(from: , id: plant.id, dDay: plant.dDay, nickname: plant.nickname, name: plant.name, thumbnailImageURL: plant.thumbnailImageURL, level: plant.level, plantID: plant.plantID)])
-
+//                    filteredPlant.append(contentsOf: [MypagefriendsData])
                 }
         }
         self.plantTV.reloadData()

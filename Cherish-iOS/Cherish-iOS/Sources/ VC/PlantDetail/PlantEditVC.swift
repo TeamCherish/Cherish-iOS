@@ -29,6 +29,10 @@ class PlantEditVC: UIViewController {
     var cycle_date = 0
     var convertedAlarmTime: String?
     
+    var textFieldEvent: Int = 0
+    var popUpCheck: Int = 0
+    var delegateCheck: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         editBtn.isEnabled = true
@@ -46,6 +50,9 @@ class PlantEditVC: UIViewController {
         alarmPicker.delegate = self
         alarmPicker.dataSource = self
         nicknameTextField.delegate = self
+        
+        birthTextField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: .editingDidBegin)
+        periodTextField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: .editingDidBegin)
     }
     
     func setTextFieldBackgrouond() {
@@ -56,18 +63,22 @@ class PlantEditVC: UIViewController {
         birthTextField.background = UIImage(named: "box_add_plant_detail")
         birthTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
         birthTextField.layer.borderWidth = 0
+        birthTextField.tintColor = UIColor.clear
         
         phoneTextField.background = UIImage(named: "box_add_plant_detail")
         phoneTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
         phoneTextField.layer.borderWidth = 0
+        phoneTextField.isEnabled = false
         
         periodTextField.background = UIImage(named: "box_add_plant_detail")
         periodTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
         periodTextField.layer.borderWidth = 0
+        periodTextField.tintColor = UIColor.clear
         
         alarmTimeTextField.background = UIImage(named: "box_add_plant_detail")
         alarmTimeTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
         alarmTimeTextField.layer.borderWidth = 0
+        alarmTimeTextField.tintColor = UIColor.clear
     }
     
     func setTextFieldPadding() {
@@ -152,6 +163,11 @@ class PlantEditVC: UIViewController {
         let doneBtnPeriod = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePreseedPeriod))
         toolbar2.setItems([doneBtnPeriod], animated: true)
         
+        // done 버튼 오른쪽으로
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        toolbar.setItems([flexibleSpace, doneBtnBirth], animated: true)
+        toolbar2.setItems([flexibleSpace, doneBtnPeriod], animated: true)
+        
         // assign toolbar
         birthTextField.inputAccessoryView = toolbar
         periodTextField.inputAccessoryView = toolbar2
@@ -172,11 +188,16 @@ class PlantEditVC: UIViewController {
         
         birthTextField.text = formatter.string(from: birthPicker.date)
         self.view.endEditing(true)
+        textFieldEvent += 1
+        print(textFieldEvent)
     }
     
     @objc func donePreseedPeriod() {
         self.view.endEditing(true)
+        textFieldEvent += 1
+        print(textFieldEvent)
     }
+    
     
     // MARK: - 식물 상세페이지로 돌아가기
     @IBAction func popToDetail(_ sender: Any) {
@@ -221,32 +242,55 @@ class PlantEditVC: UIViewController {
     // MARK: - 수정 완료 버튼
     @IBAction func editPlant(_ sender: Any) {
         var birthText = ""
-        if birthTextField.text?.isEmpty == true {
+//        if birthTextField.text?.isEmpty == true {
+//            birthText = "0000-00-00"
+//        }
+        if birthTextField.text == "Invalid Text" {
             birthText = "0000-00-00"
         }
         else {
             birthText = birthTextField.text!
         }
-        guard let nicknameText = nicknameTextField.text,
-              let periodText = periodTextField.text,
-              let alarmText = convertedAlarmTime else { return }
+        
         let water_notice = true
         
-        //print 안찍힘 -> why.....
-        print(nicknameText)
-        print(birthText)
-        print(periodText)
-        print(alarmText)
+        // 식물 알람 시간 수정 안했을 때 파싱
+        if delegateCheck == 0 {
+            // 텍필.텍스트 값을 배열에 넣고 띄어쓰기로 슬라이스
+            var alarmTimeArr: [String] = []
+            var alarmHrArr: [Character] = []
+            var alarmHrInt: Int = 0
+            alarmTimeArr = (alarmTimeTextField.text?.components(separatedBy: " "))!
+
+            // if 두번째원소 == "AM"
+                // convert웅앵 = 첫번째원소
+            if alarmTimeArr[1] == "AM" {
+                convertedAlarmTime = alarmTimeArr[0]
+                print("수정 안하고 AM일 때")
+                print(convertedAlarmTime)
+            }
+            // else (두번째원소 == "PM"
+                // 첫번째 원소를 배열로 만든다.
+                // 그 배열의 첫번째 원소를 정수로 타입캐스팅한다.
+                // 그리고 그 정수에 12를 더하고 ": 00" 붙여서 converted에 저장
+            else if alarmTimeArr[1] == "PM" {
+                alarmHrArr = Array(alarmTimeArr[0])
+                alarmHrInt = Int(String(alarmHrArr[0]))! + 12 // char to int 한번에 못한다리~
+                convertedAlarmTime = String(alarmHrInt)+":00"
+                print("수정하고 PM일 때")
+                print(convertedAlarmTime)
+            }
+        }
         
         // Alert message
         let alertEdit = UIAlertController(title: "수정 완료되었습니다", message: "", preferredStyle: UIAlertController.Style.alert)
         let okActionEdit = UIAlertAction(title: "확인", style: .default) { (action) in
-            print("확인 눌림")
             self.navigationController?.popViewController(animated: true)
         }
         alertEdit.addAction(okActionEdit)
         
-        EditPlantService.shared.editPlant(nickname: nicknameText, birth: birthText, cycle_date: cycle_date, notice_time: alarmText, water_notice_: water_notice, id: selectedPlantId) { (networkResult) -> (Void) in
+        EditPlantService.shared.editPlant(nickname: nicknameTextField.text! , birth: birthText, cycle_date: cycle_date, notice_time: self.convertedAlarmTime!, water_notice_: water_notice, id: selectedPlantId) { (networkResult) -> (Void) in
+            print("여기도 보이나요?")
             switch networkResult {
             case .success(_):
                 print("통신성공")
@@ -369,6 +413,8 @@ extension PlantEditVC: UIPickerViewDelegate {
             self.periodTextField.text = fullData
         }
         else if pickerView == alarmPicker {
+            delegateCheck = 1
+            
             let selectedTime = pickerView.selectedRow(inComponent: 0)
             let selectedAMPM = pickerView.selectedRow(inComponent: 2)
             let realTime = time[selectedTime]
@@ -381,10 +427,14 @@ extension PlantEditVC: UIPickerViewDelegate {
             switch realAMPM {
             case "AM":
                 convertedAlarmTime = realTime+":00"
+                print("수정하고 AM일 때")
+                print(self.convertedAlarmTime)
             case "PM":
                 convertTime = Int(realTime)! + 12
                 var realConvertedTime = String(convertTime)
                 convertedAlarmTime = realConvertedTime+":00"
+                print("수정하고 PM일 때")
+                print(self.convertedAlarmTime)
             default:
                 convertTime = 0
             }
@@ -399,8 +449,41 @@ extension PlantEditVC: UITextFieldDelegate{
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField {
+        case nicknameTextField:
+            textFieldEvent += 1
+            print(textFieldEvent)
+        case birthTextField:
+            textFieldEvent += 1
+            print(textFieldEvent)
+        case phoneTextField:
+            textFieldEvent += 1
+            print(textFieldEvent)
+        case periodTextField:
+            textFieldEvent += 1
+            print(textFieldEvent)
+            if popUpCheck == 0 {
+                popUpCheck += 1
+                let plantAlert = UIAlertController(title: "물주기 알림주기가 크게 변동되면\n배정된 식물이 변경될 수 있어요!", message: "", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+                plantAlert.addAction(okAction)
+                present(plantAlert, animated: true, completion: nil)
+            }
+        case alarmTimeTextField:
+            textFieldEvent += 1
+            print(textFieldEvent)
+        default:
+            return
+        }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.nicknameTextField.endEditing(true)
+        self.birthTextField.endEditing(true)
+        self.phoneTextField.endEditing(true)
+        self.periodPicker.endEditing(true)
+        self.alarmTimeTextField.endEditing(true)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
