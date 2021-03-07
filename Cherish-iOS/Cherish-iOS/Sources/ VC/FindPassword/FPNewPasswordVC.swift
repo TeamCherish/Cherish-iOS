@@ -125,7 +125,6 @@ class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
         firstEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
     }
     
-    
     // 비밀번호 보이게 하기-재입력 부
     @IBAction func secondEyeTouch(_ sender: Any) {
         enterAgainTextField.isSecureTextEntry = false

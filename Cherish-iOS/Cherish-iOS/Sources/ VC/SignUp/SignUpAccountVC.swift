@@ -218,7 +218,7 @@ extension SignUpAccountVC: UITextFieldDelegate{
                 emailFormLabel(text: "사용할 수 없는 형식입니다.", color: .pinkSub, form: false)
                 grayBtn()
             }else{
-                emailFormLabel(text: "사용가능한 이메일입니다.", color: .seaweed, form: true)
+                emailFormLabel(text: "사용가능한 이메일 형식입니다.", color: .seaweed, form: true)
                 greenBtn()
             }
         }

@@ -368,7 +368,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="올바르지 않은 인증번호입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gb-Ha-9uG" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="214" y="341.66666666666669" width="145" height="14"/>
+                                <rect key="frame" x="214" y="413.66666666666669" width="145" height="14"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="pinkSub"/>
                                 <nil key="highlightedColor"/>
@@ -397,7 +397,6 @@
                             <constraint firstItem="SAT-xL-4Dx" firstAttribute="trailing" secondItem="I7n-Wh-vaH" secondAttribute="trailing" id="LEI-QC-FJg"/>
                             <constraint firstItem="bob-yC-3oG" firstAttribute="top" secondItem="448-DH-Pzd" secondAttribute="bottom" constant="4" id="SAq-R7-MC1"/>
                             <constraint firstItem="448-DH-Pzd" firstAttribute="leading" secondItem="kcT-6f-aKk" secondAttribute="leading" id="T5O-El-ZXy"/>
-                            <constraint firstItem="8gb-Ha-9uG" firstAttribute="trailing" secondItem="bob-yC-3oG" secondAttribute="trailing" id="Wdh-eU-EsG"/>
                             <constraint firstItem="4qX-T8-RV5" firstAttribute="height" secondItem="bob-yC-3oG" secondAttribute="height" id="fvT-ie-nku"/>
                             <constraint firstItem="4qX-T8-RV5" firstAttribute="top" secondItem="bob-yC-3oG" secondAttribute="bottom" constant="28" id="gTl-IT-31b"/>
                             <constraint firstItem="kcT-6f-aKk" firstAttribute="top" secondItem="Vf1-86-y7U" secondAttribute="bottom" constant="45" id="kIA-dy-VD1"/>
@@ -406,10 +405,11 @@
                             <constraint firstItem="bob-yC-3oG" firstAttribute="leading" secondItem="6HT-ss-BEP" secondAttribute="leading" id="mzE-Wc-2Sn"/>
                             <constraint firstItem="4qX-T8-RV5" firstAttribute="leading" secondItem="bob-yC-3oG" secondAttribute="leading" id="nbn-EU-u6B"/>
                             <constraint firstItem="6HT-ss-BEP" firstAttribute="leading" secondItem="kcT-6f-aKk" secondAttribute="leading" id="oRB-1A-IV4"/>
-                            <constraint firstItem="8gb-Ha-9uG" firstAttribute="top" secondItem="bob-yC-3oG" secondAttribute="bottom" id="ppa-PV-iXP"/>
                             <constraint firstItem="1hb-VV-eKa" firstAttribute="trailing" secondItem="6HT-ss-BEP" secondAttribute="trailing" id="tCO-U1-6VR"/>
+                            <constraint firstItem="8gb-Ha-9uG" firstAttribute="trailing" secondItem="4qX-T8-RV5" secondAttribute="trailing" id="uBW-lF-W5p"/>
                             <constraint firstItem="arC-r9-PuP" firstAttribute="trailing" secondItem="6HT-ss-BEP" secondAttribute="trailing" id="v4f-3a-nF0"/>
                             <constraint firstItem="SAT-xL-4Dx" firstAttribute="bottom" secondItem="1hb-VV-eKa" secondAttribute="bottom" constant="33" id="wbs-fC-Awh"/>
+                            <constraint firstItem="8gb-Ha-9uG" firstAttribute="top" secondItem="4qX-T8-RV5" secondAttribute="bottom" id="xjj-k6-NTm"/>
                         </constraints>
                     </view>
                     <connections>

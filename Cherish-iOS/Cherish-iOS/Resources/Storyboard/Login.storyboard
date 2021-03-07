@@ -39,7 +39,7 @@
                                     <constraint firstAttribute="width" secondItem="3kM-7C-RB5" secondAttribute="height" multiplier="343:44" id="vQC-cI-a1k"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" background="loginInput" translatesAutoresizingMaskIntoConstraints="NO" id="GsN-1D-uwx">
                                 <rect key="frame" x="16" y="390" width="343" height="44"/>
@@ -47,7 +47,7 @@
                                     <constraint firstAttribute="height" constant="44" id="M0r-nh-vGz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZiG-FU-Qj0">
                                 <rect key="frame" x="16" y="470" width="343" height="44"/>
