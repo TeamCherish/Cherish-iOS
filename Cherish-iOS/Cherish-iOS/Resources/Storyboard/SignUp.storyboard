@@ -103,7 +103,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="영문, 숫자 포함 8자이상" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l6g-fl-rw9">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="영문, 숫자, 특수문자 포함 8자이상" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l6g-fl-rw9">
                                 <rect key="frame" x="16" y="297.66666666666669" width="343" height="44"/>
                                 <color key="backgroundColor" name="mypageBackground"/>
                                 <color key="textColor" name="black"/>
@@ -134,6 +134,7 @@
                                 <connections>
                                     <action selector="firstEyeAway:" destination="xkf-fx-ibr" eventType="touchUpInside" id="adW-Ry-dXA"/>
                                     <action selector="firstEyeTouch:" destination="xkf-fx-ibr" eventType="touchDown" id="CJh-J4-7up"/>
+                                    <action selector="firstEyeTouchAway:" destination="xkf-fx-ibr" eventType="touchUpOutside" id="zx7-A2-2Tm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5k-X7-utb">
@@ -142,6 +143,7 @@
                                 <connections>
                                     <action selector="secondEyeAway:" destination="xkf-fx-ibr" eventType="touchUpInside" id="6rx-IV-P2M"/>
                                     <action selector="secondEyeTouch:" destination="xkf-fx-ibr" eventType="touchDown" id="qmA-vw-Zxb"/>
+                                    <action selector="secondEyeTouchAway:" destination="xkf-fx-ibr" eventType="touchDragOutside" id="C42-Ed-rkB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntH-uc-BDn">

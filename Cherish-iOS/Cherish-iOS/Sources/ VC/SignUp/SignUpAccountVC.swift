@@ -178,7 +178,9 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    // 터치하고 있으면 비밀번호 보여주기-
+    //MARK: -Secure Text Entry
+    // First Eye
+    // 터치하고 있으면 비밀번호 보여주기
     @IBAction func firstEyeTouch(_ sender: Any) {
         passwordTextField.isSecureTextEntry = false
         firstEyeBtn.setImage(UIImage(named: "eye"), for: .normal)
@@ -188,16 +190,26 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
         passwordTextField.isSecureTextEntry = true
         firstEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
     }
+    // 터치를 유지한채로 버튼 영역 밖으로 벗어났을 경우
+    @IBAction func firstEyeTouchAway(_ sender: Any) {
+        passwordTextField.isSecureTextEntry = true
+        firstEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
+    }
     
+    // Second Eye
     @IBAction func secondEyeTouch(_ sender: Any) {
         passwordCheckTextField.isSecureTextEntry = false
         secondEyeBtn.setImage(UIImage(named: "eye"), for: .normal)
     }
-    
     @IBAction func secondEyeAway(_ sender: Any) {
         passwordCheckTextField.isSecureTextEntry = true
         secondEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
     }
+    @IBAction func secondEyeTouchAway(_ sender: Any) {
+        passwordCheckTextField.isSecureTextEntry = true
+        secondEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
+    }
+    
    
     // 뒤로가기
     @IBAction func backAction(_ sender: Any) {
@@ -223,9 +235,9 @@ extension SignUpAccountVC: UITextFieldDelegate{
             }
         }
         else if textField == passwordTextField{
-            // 비밀번호가 영,숫자 포함 8글자인지
+            // 비밀번호가 영문 ,숫자,특수문자 포함 8글자인지
             passwordCheckLabel.isHidden = false
-            let passRegEx = "^(?=.*[a-z])(?=.*[0-9]).{8,}$"
+            let passRegEx = "^(?=.*[a-z])(?=.*[0-9])(?=.*[\\[\\]~!@#$%^&*()=+{}:?,<>/._-]).{8,}$"
             let passTest = NSPredicate(format: "SELF MATCHES %@", passRegEx)
             if !passTest.evaluate(with: textField.text){
                 pwFormLabel(text: "사용하실 수 없는 비밀번호입니다.", color: .pinkSub, form: false)

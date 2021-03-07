@@ -115,12 +115,20 @@ class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     //MARK: -@IBAction
+    
     // 비밀번호 보이게 하기-입력 부
+    // 터치하고 있으면 비밀번호 보여주기
     @IBAction func firstEyeTouch(_ sender: Any) {
         enterPWTextField.isSecureTextEntry = false
         firstEyeBtn.setImage(UIImage(named: "eye"), for: .normal)
     }
+    // 터치 해제 되면 비밀번호 가리기
     @IBAction func firstEyeAway(_ sender: Any) {
+        enterPWTextField.isSecureTextEntry = true
+        firstEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
+    }
+    // 터치 유지한채로 버튼 영역 벗어나도 비밀번호 가리기
+    @IBAction func firstEyeTouchAway(_ sender: Any) {
         enterPWTextField.isSecureTextEntry = true
         firstEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
     }
@@ -134,7 +142,11 @@ class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
         enterAgainTextField.isSecureTextEntry = true
         secondEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
     }
-        
+    @IBAction func secondEyeTouchAway(_ sender: Any) {
+        enterAgainTextField.isSecureTextEntry = true
+        secondEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
+    }
+    
     // 뒤로가기
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -183,7 +195,8 @@ extension FPNewPasswordVC: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == enterPWTextField{
             enterPWTextField.isHidden = false
-            let passRegEx = "^(?=.*[a-z])(?=.*[0-9]).{8,}$" // 영문,숫자 포함 8자 이상
+            // 영문,숫자,특수문자 포함 8자 이상
+            let passRegEx = "^(?=.*[a-z])(?=.*[0-9])(?=.*[\\[\\]~!@#$%^&*()=+{}:?,<>/._-]).{8,}$"
             let passTest = NSPredicate(format: "SELF MATCHES %@", passRegEx)
             if !passTest.evaluate(with: textField.text){
                 pwFormLabel(text: "사용하실 수 없는 비밀번호입니다.", color: .pinkSub, form: false)
