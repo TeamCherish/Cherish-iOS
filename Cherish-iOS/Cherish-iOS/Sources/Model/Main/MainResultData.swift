@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct MainResultData {
-    var id, dDay: Int
+struct MainPlantConditionData {
+    var id: Int
     var isWatering, isWithered: Bool
 }

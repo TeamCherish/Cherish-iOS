@@ -36,12 +36,6 @@ class DetailContentVC: UIViewController {
         }
     }
     
-    var cherishResultData:[MainResultData] = [] {
-        didSet {
-            print("cherishResultData")
-        }
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -311,6 +305,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             // 셀이 눌릴 때마다 UserDefaults에 값을 새로 저장해준다
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].nickname, forKey: "selectedNickNameData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].thumbnailImageURL, forKey: "selectedPlantNameData")
+            print(cherishPeopleData[indexPath.row - 1].plantName)
             UserDefaults.standard.set(true, forKey: "selectedData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].growth, forKey: "selectedGrowthData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].dDay, forKey: "selecteddDayData")
@@ -323,7 +318,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             //선택된 친구의 인덱스 값과 전화번호를 저장해준다
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].id, forKey: "selectedFriendIdData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].phone, forKey: "selectedFriendPhoneData")
-            
             UserDefaults.standard.set(indexPath.row - 1, forKey: "selectedRowIndexPath")
             
             

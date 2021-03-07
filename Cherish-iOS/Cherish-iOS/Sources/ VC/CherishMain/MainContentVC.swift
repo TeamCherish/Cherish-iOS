@@ -26,7 +26,7 @@ class MainContentVC: UIViewController {
         }
     }
     var cherishPeopleData:[ResultData] = []
-    var cherishResultData:[MainResultData] = []
+    var cherishResultData:[MainPlantConditionData] = []
     var selectedRowIndexPath:Int = 0
     
     let userId: Int = UserDefaults.standard.integer(forKey: "userID")
@@ -75,11 +75,12 @@ class MainContentVC: UIViewController {
         
     }
     
+    //MARK: - 메인의 친구 별 물주기, 시들기 상태를 저장할 수 있도록 cherishResultData에 데이터를 할당
     func setMainResultData() {
-            
+        
         for i in 0...cherishPeopleData.count - 1 {
-            cherishResultData.append(MainResultData(id: cherishPeopleData[i].id, dDay: cherishPeopleData[i].dDay, isWatering: false, isWithered: false))
-            }
+            cherishResultData.append(MainPlantConditionData(id: cherishPeopleData[i].id, isWatering: false, isWithered: false))
+        }
         
     }
     
@@ -89,16 +90,18 @@ class MainContentVC: UIViewController {
         
         if appDel.isCherishPeopleCellSelected == true {
             
-            let growthInfo:Int = UserDefaults.standard.integer(forKey: "selectedGrowthData")
+            // IBOutlet에 값 할당
             self.userNickNameLabel.text = UserDefaults.standard.string(forKey: "selectedNickNameData")
             customProgressBarView(UserDefaults.standard.integer(forKey: "selectedGrowthData"))
             self.growthPercentLabel.text = "\(UserDefaults.standard.integer(forKey: "selectedGrowthData"))%"
             self.plantExplainLabel.text = UserDefaults.standard.string(forKey: "selectedModifierData")
             
-            let selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
+            // 변수에 값 할당
+            var selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
             let selectedFriendsIdx = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
             let postponedIdx = UserDefaults.standard.integer(forKey: "postponedIdData")
             let selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
+            let growthInfo:Int = UserDefaults.standard.integer(forKey: "selectedGrowthData")
             
             
             //MARK: - 민들레일 때
@@ -106,41 +109,51 @@ class MainContentVC: UIViewController {
                 view.backgroundColor = .dandelionBg
                 
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
+                allocateWateringDataWhenBackgroundMode()
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
-        
+                    
                     self.plantGifView.image = UIImage.gif(name: "testwatering")!
                     
+                    // gif뷰가 끝나고 나타날 뷰
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
-                        // gif뷰가 끝나고 나타날 뷰
                         
-                        // gif뷰가 끝났다는 것은 물주기가 완료되었다는 뜻이므로 false로 바꿈!!
+                        
+                        // gif뷰가 끝났다는 것은 물주기가 완료되었다는 뜻이므로 isWatering을 false로 바꿈!!
                         cherishResultData[selectedRowIndexPath].isWatering = false
                         
-                        // 식물3단계 파싱해주기
-                        if growthInfo < 25 {
+                        // 물주기 이후 5초가 지난 상태에서는 애니메이션이 끝나고 원래 식물 성장단계에 맞는 정적 이미지가 나와야함
+                        // 하지만! 5초가 지나기 전에 다른 식물을 선택했어도 DispatchQueue로 인해 5초가 지나면 물주기를 했던 식물이 배경에 뜨게 되는 버그가 생김 (선택된 식물 != 배경에 나타나는 식물) --> 버그
+                        // 따라서 선택된 식물을 다시 한 번 더 조회해서 할당해준 후 현재 클릭된 식물과 같은지 비교하는 과정을 거쳐 준다
+                        selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
+                        
+                        if selectedPlantName == "민들레" {
                             
-                            // 1단계
-                            plantImageView.isHidden = false
-                            plantGifView.isHidden = true
-                            self.plantImageView.image = UIImage(named: "imgMin1")
-                            view.backgroundColor = .dandelionBg
-                        }
-                        else if growthInfo < 50 && growthInfo >= 25 {
-                            // 2단계
-                            plantImageView.isHidden = false
-                            plantGifView.isHidden = true
-                            self.plantImageView.image = UIImage(named: "imgMin2")
-                            view.backgroundColor = .dandelionBg
-                        }
-                        else {
-                            plantImageView.isHidden = true
-                            // 3단계
-                            DispatchQueue.main.async(execute: {() -> Void in
-                                self.plantGifView.image = UIImage.gif(name: "real_min")!
-                            })
-                            self.view.backgroundColor = .dandelionBg
+                            // 식물3단계 파싱해주기
+                            if growthInfo < 25 {
+                                
+                                // 1단계
+                                plantImageView.isHidden = false
+                                plantGifView.isHidden = true
+                                self.plantImageView.image = UIImage(named: "imgMin1")
+                                view.backgroundColor = .dandelionBg
+                            }
+                            else if growthInfo < 50 && growthInfo >= 25 {
+                                // 2단계
+                                plantImageView.isHidden = false
+                                plantGifView.isHidden = true
+                                self.plantImageView.image = UIImage(named: "imgMin2")
+                                view.backgroundColor = .dandelionBg
+                            }
+                            else {
+                                plantImageView.isHidden = true
+                                // 3단계
+                                DispatchQueue.main.async(execute: {() -> Void in
+                                    self.plantGifView.image = UIImage.gif(name: "real_min")!
+                                })
+                                self.view.backgroundColor = .dandelionBg
+                            }
                         }
                     }
                 }
@@ -195,44 +208,51 @@ class MainContentVC: UIViewController {
                 view.backgroundColor = .americanBlueBg
                 
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
+                allocateWateringDataWhenBackgroundMode()
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
-
+                    
                     self.plantGifView.image = UIImage.gif(name: "testwatering")!
                     
+                    // gif뷰가 끝나고 나타날 뷰
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
-                        // gif뷰가 끝나고 나타날 뷰
                         
                         // gif뷰가 끝났다는 것은 물주기가 완료되었다는 뜻이므로 false로 바꿈!!
                         cherishResultData[selectedRowIndexPath].isWatering = false
                         
-                        // 식물3단계 파싱해주기
-                        if growthInfo < 25 {
-                            // 1단계
-                            plantImageView.isHidden = false
-                            plantGifView.isHidden = true
-                            plantImageViewTopConstraint.constant = 250
-                            self.plantImageView.image = UIImage(named: "imgBlue1")
-                            self.plantImageView.frame.size = CGSize(width: 249, height: 368)
-                            view.backgroundColor = .americanBlueBg
-                        }
-                        else if growthInfo < 50 && growthInfo >= 25 {
-                            // 2단계
-                            plantImageView.isHidden = false
-                            plantGifView.isHidden = true
-                            plantImageViewTopConstraint.constant = 145
-                            self.plantImageView.image = UIImage(named: "imgBlue2")
-                            self.plantImageView.frame.size = CGSize(width: 204, height: 461)
-                            view.backgroundColor = .americanBlueBg
-                        }
-                        else {
-                            // 3단계
-                            plantImageView.isHidden = false
-                            plantGifView.isHidden = true
-                            plantImageViewTopConstraint.constant = 134
-                            self.plantImageView.image = UIImage(named: "mainImgAmericanblue")
-                            self.view.backgroundColor = .americanBlueBg
+                        selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
+                        
+                        
+                        if selectedPlantName == "아메리칸블루" {
+                            
+                            // 식물3단계 파싱해주기
+                            if growthInfo < 25 {
+                                // 1단계
+                                plantImageView.isHidden = false
+                                plantGifView.isHidden = true
+                                plantImageViewTopConstraint.constant = 250
+                                self.plantImageView.image = UIImage(named: "imgBlue1")
+                                self.plantImageView.frame.size = CGSize(width: 249, height: 368)
+                                view.backgroundColor = .americanBlueBg
+                            }
+                            else if growthInfo < 50 && growthInfo >= 25 {
+                                // 2단계
+                                plantImageView.isHidden = false
+                                plantGifView.isHidden = true
+                                plantImageViewTopConstraint.constant = 145
+                                self.plantImageView.image = UIImage(named: "imgBlue2")
+                                self.plantImageView.frame.size = CGSize(width: 204, height: 461)
+                                view.backgroundColor = .americanBlueBg
+                            }
+                            else {
+                                // 3단계
+                                plantImageView.isHidden = false
+                                plantGifView.isHidden = true
+                                plantImageViewTopConstraint.constant = 134
+                                self.plantImageView.image = UIImage(named: "mainImgAmericanblue")
+                                self.view.backgroundColor = .americanBlueBg
+                            }
                         }
                     }
                 }
@@ -286,53 +306,59 @@ class MainContentVC: UIViewController {
             // MARK: - 로즈마리
             else if selectedPlantName == "로즈마리" {
                 view.backgroundColor = .rosemaryBg
-                //물주기가 완료되었을 때만 물주기 모션 그래픽
                 
+                //물주기가 완료되었을 때만 물주기 모션 그래픽
+                allocateWateringDataWhenBackgroundMode()
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
-//                    self.plantGifView.image = UIImage.gif(name: "testwatering")!
+                    //                    self.plantGifView.image = UIImage.gif(name: "testwatering")!
                     
                     UIImageView.transition(with: plantGifView,
                                            duration: 5.0,
-                                  options: .curveEaseOut,
-                                  animations: {
-                                    self.plantGifView.image =  UIImage.gif(name: "testwatering")!
-                                    self.plantGifView.alpha = 0.5
-                                  },
-                                  completion: nil)
+                                           options: .curveEaseOut,
+                                           animations: {
+                                            self.plantGifView.image =  UIImage.gif(name: "testwatering")!
+                                            self.plantGifView.alpha = 0.5
+                                           },
+                                           completion: nil)
                     DispatchQueue.main.asyncAfter(deadline: .now() +  5.0) { [self] in
                         // gif뷰가 끝나고 나타날 뷰
                         
                         // gif뷰가 끝났다는 것은 물주기가 완료되었다는 뜻이므로 false로 바꿈!!
                         cherishResultData[selectedRowIndexPath].isWatering = false
                         
-                        // 식물3단계 파싱해주기
-                        if growthInfo < 25 {
-                            // 1단계
-                            plantImageView.isHidden = false
-                            plantGifView.isHidden = true
-                            plantImageViewTopConstraint.constant = 206
-                            self.plantImageView.image = UIImage(named: "imgRose1")
-                            self.plantImageView.frame.size = CGSize(width: 222, height: 460)
-                            view.backgroundColor = .rosemaryBg
-                        }
-                        else if growthInfo < 50 && growthInfo >= 25 {
-                            // 2단계
-                            plantImageView.isHidden = false
-                            plantGifView.isHidden = true
-                            plantImageViewTopConstraint.constant = 106
-                            self.plantImageView.image = UIImage(named: "imgRose2")
-                            self.plantImageView.frame.size = CGSize(width: 204, height: 572)
-                            view.backgroundColor = .rosemaryBg
-                        }
-                        else {
-                            // 3단계
-                            plantImageView.isHidden = false
-                            plantGifView.isHidden = true
-                            plantImageViewTopConstraint.constant = 104
-                            self.plantImageView.image = UIImage(named: "mainImgRosemary")
-                            self.view.backgroundColor = .rosemaryBg
+                        selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
+                        
+                        if selectedPlantName == "로즈마리" {
+                            
+                            // 식물3단계 파싱해주기
+                            if growthInfo < 25 {
+                                // 1단계
+                                plantImageView.isHidden = false
+                                plantGifView.isHidden = true
+                                plantImageViewTopConstraint.constant = 206
+                                self.plantImageView.image = UIImage(named: "imgRose1")
+                                self.plantImageView.frame.size = CGSize(width: 222, height: 460)
+                                view.backgroundColor = .rosemaryBg
+                            }
+                            else if growthInfo < 50 && growthInfo >= 25 {
+                                // 2단계
+                                plantImageView.isHidden = false
+                                plantGifView.isHidden = true
+                                plantImageViewTopConstraint.constant = 106
+                                self.plantImageView.image = UIImage(named: "imgRose2")
+                                self.plantImageView.frame.size = CGSize(width: 204, height: 572)
+                                view.backgroundColor = .rosemaryBg
+                            }
+                            else {
+                                // 3단계
+                                plantImageView.isHidden = false
+                                plantGifView.isHidden = true
+                                plantImageViewTopConstraint.constant = 104
+                                self.plantImageView.image = UIImage(named: "mainImgRosemary")
+                                self.view.backgroundColor = .rosemaryBg
+                            }
                         }
                     }
                 }
@@ -387,6 +413,7 @@ class MainContentVC: UIViewController {
                 view.backgroundColor = .cactusBg
                 
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
+                allocateWateringDataWhenBackgroundMode()
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
@@ -398,32 +425,37 @@ class MainContentVC: UIViewController {
                         // gif뷰가 끝났다는 것은 물주기가 완료되었다는 뜻이므로 false로 바꿈!!
                         cherishResultData[selectedRowIndexPath].isWatering = false
                         
-                        plantImageViewTopConstraint.constant = 104
-                        // 식물3단계 파싱해주기
-                        if growthInfo < 25 {
-                            // 1단계
-                            plantImageView.isHidden = false
-                            plantGifView.isHidden = true
-                            plantImageViewTopConstraint.constant = 240
-                            self.plantImageView.image = UIImage(named: "imgSun1")
-                            self.plantImageView.frame.size = CGSize(width: 275, height: 229)
-                            view.backgroundColor = .cactusBg
-                        }
-                        else if growthInfo < 50 && growthInfo >= 25 {
-                            // 2단계
-                            plantImageView.isHidden = false
-                            plantGifView.isHidden = true
-                            plantImageViewTopConstraint.constant = 235
-                            self.plantImageView.image = UIImage(named: "imgSun2")
-                            self.plantImageView.frame.size = CGSize(width: 283, height: 350)
-                            view.backgroundColor = .cactusBg
-                        }
-                        else {
-                            // 3단계
-                            plantImageView.isHidden = false
-                            plantGifView.isHidden = true
-                            self.plantImageView.image = UIImage(named: "mainImgSun")
-                            self.view.backgroundColor = .cactusBg
+                        selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
+                       
+                        if selectedPlantName == "단모환" {
+                            
+                            plantImageViewTopConstraint.constant = 104
+                            // 식물3단계 파싱해주기
+                            if growthInfo < 25 {
+                                // 1단계
+                                plantImageView.isHidden = false
+                                plantGifView.isHidden = true
+                                plantImageViewTopConstraint.constant = 240
+                                self.plantImageView.image = UIImage(named: "imgSun1")
+                                self.plantImageView.frame.size = CGSize(width: 275, height: 229)
+                                view.backgroundColor = .cactusBg
+                            }
+                            else if growthInfo < 50 && growthInfo >= 25 {
+                                // 2단계
+                                plantImageView.isHidden = false
+                                plantGifView.isHidden = true
+                                plantImageViewTopConstraint.constant = 235
+                                self.plantImageView.image = UIImage(named: "imgSun2")
+                                self.plantImageView.frame.size = CGSize(width: 283, height: 350)
+                                view.backgroundColor = .cactusBg
+                            }
+                            else {
+                                // 3단계
+                                plantImageView.isHidden = false
+                                plantGifView.isHidden = true
+                                self.plantImageView.image = UIImage(named: "mainImgSun")
+                                self.view.backgroundColor = .cactusBg
+                            }
                         }
                     }
                 }
@@ -479,6 +511,7 @@ class MainContentVC: UIViewController {
                 view.backgroundColor = .stuckyBg
                 
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
+                allocateWateringDataWhenBackgroundMode()
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
@@ -491,37 +524,42 @@ class MainContentVC: UIViewController {
                         // gif뷰가 끝났다는 것은 물주기가 완료되었다는 뜻이므로 false로 바꿈!!
                         cherishResultData[selectedRowIndexPath].isWatering = false
                         
-                        plantImageViewTopConstraint.constant = 104
+                        selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
                         
-                        // 식물3단계 파싱해주기
-                        if growthInfo < 25 {
-                            // 1단계 323 287
-                            plantImageView.isHidden = false
-                            plantGifView.isHidden = true
-                            self.plantImageView.image = UIImage(named: "imgStuki1")
-                            plantImageViewTopConstraint.constant = 322
-                            plantImageViewHeight.constant = 287
-                            let widthAnchor = self.plantImageView.widthAnchor.constraint(equalTo: plantImageView.heightAnchor, multiplier: 323/287)
-                            plantImageView.removeConstraint(widthAnchor)
-                            widthAnchor.isActive = true
-                            plantImageView.layoutIfNeeded()
-                            view.backgroundColor = .stuckyBg
-                        }
-                        else if growthInfo < 50 && growthInfo >= 25 {
-                            // 2단계
-                            plantImageView.isHidden = false
-                            plantGifView.isHidden = true
-                            plantImageViewTopConstraint.constant = 268
-                            self.plantImageView.image = UIImage(named: "imgStuki2")
-                            self.plantImageView.frame.size = CGSize(width: 330, height: 345)
-                            view.backgroundColor = .stuckyBg
-                        }
-                        else {
-                            // 3단계
-                            plantImageView.isHidden = false
-                            plantGifView.isHidden = true
-                            self.plantImageView.image = UIImage(named: "mainImgStuki")
-                            self.view.backgroundColor = .stuckyBg
+                        if selectedPlantName == "스투키" {
+                            
+                            plantImageViewTopConstraint.constant = 104
+                            
+                            // 식물3단계 파싱해주기
+                            if growthInfo < 25 {
+                                // 1단계 323 287
+                                plantImageView.isHidden = false
+                                plantGifView.isHidden = true
+                                self.plantImageView.image = UIImage(named: "imgStuki1")
+                                plantImageViewTopConstraint.constant = 322
+                                plantImageViewHeight.constant = 287
+                                let widthAnchor = self.plantImageView.widthAnchor.constraint(equalTo: plantImageView.heightAnchor, multiplier: 323/287)
+                                plantImageView.removeConstraint(widthAnchor)
+                                widthAnchor.isActive = true
+                                plantImageView.layoutIfNeeded()
+                                view.backgroundColor = .stuckyBg
+                            }
+                            else if growthInfo < 50 && growthInfo >= 25 {
+                                // 2단계
+                                plantImageView.isHidden = false
+                                plantGifView.isHidden = true
+                                plantImageViewTopConstraint.constant = 268
+                                self.plantImageView.image = UIImage(named: "imgStuki2")
+                                self.plantImageView.frame.size = CGSize(width: 330, height: 345)
+                                view.backgroundColor = .stuckyBg
+                            }
+                            else {
+                                // 3단계
+                                plantImageView.isHidden = false
+                                plantGifView.isHidden = true
+                                self.plantImageView.image = UIImage(named: "mainImgStuki")
+                                self.view.backgroundColor = .stuckyBg
+                            }
                         }
                     }
                 }
@@ -591,6 +629,17 @@ class MainContentVC: UIViewController {
         }
     }
     
+    //MARK: - 물주기&시들기를 위한 모델형 데이터인 cherishResultData에 아무런 값이 들어있지 않을 때, 임의로 값을 배졍하여 앱이 죽지 않도록 해주는 함수
+    func allocateWateringDataWhenBackgroundMode() {
+        if cherishResultData.count == 0 {
+            let selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
+            
+            for _ in 0...selectedRowIndexPath {
+                cherishResultData.append(MainPlantConditionData(id: 0, isWatering: false, isWithered: false))
+            }
+        }
+    }
+    
     //MARK: - 프로그레스바 커스텀
     func customProgressBarView(_ value : Int) {
         progressbarBackView.setBackColor(color: .white)
@@ -619,13 +668,14 @@ class MainContentVC: UIViewController {
         setMainResultData()
     }
     
+    
     //MARK: - 물주기 이후 물주기 모션을 주기 위해 선택된 식물의 인덱스값을 "물주기 상태"로 바꿔주는 함수
     @objc func isWateringReported(_ notification : Notification) {
-        let selectedFriendIndex = notification.object as! Int
+        let selectedWateringFriendId = notification.object as! Int
         
         for i in 0...cherishResultData.count - 1 {
             
-            if cherishResultData[i].id == selectedFriendIndex {
+            if cherishResultData[i].id == selectedWateringFriendId {
                 cherishResultData[i].isWatering = true
             }
         }
