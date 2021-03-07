@@ -26,6 +26,7 @@
 		332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7C025A72A4800D0047D /* MypageContactData.swift */; };
 		3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3346B34625AB77E300EF5E14 /* AlarmVC.swift */; };
 		335B3A3025EF805400DD7A6F /* LoginNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B3A2F25EF805400DD7A6F /* LoginNC.swift */; };
+		335D8F4025F4CDD600FE4C7F /* MainResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335D8F3F25F4CDD600FE4C7F /* MainResultData.swift */; };
 		336C6D9325E63EAD003865C3 /* ShowMoreNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C6D9225E63EAD003865C3 /* ShowMoreNC.swift */; };
 		336C6D9625E63FAB003865C3 /* NicknameChangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */; };
 		336C6D9A25E64B48003865C3 /* ChangeNicknameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C6D9925E64B48003865C3 /* ChangeNicknameService.swift */; };
@@ -198,6 +199,7 @@
 		3346B34325AB653D00EF5E14 /* Cherish-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cherish-iOS.entitlements"; sourceTree = "<group>"; };
 		3346B34625AB77E300EF5E14 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
 		335B3A2F25EF805400DD7A6F /* LoginNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNC.swift; sourceTree = "<group>"; };
+		335D8F3F25F4CDD600FE4C7F /* MainResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainResultData.swift; sourceTree = "<group>"; };
 		336C6D9225E63EAD003865C3 /* ShowMoreNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreNC.swift; sourceTree = "<group>"; };
 		336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameChangeVC.swift; sourceTree = "<group>"; };
 		336C6D9925E64B48003865C3 /* ChangeNicknameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNicknameService.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 			children = (
 				33805F8D25AC73B1005CED0F /* MainData.swift */,
 				33201B1425AE419F001A94E4 /* MainSelectedData.swift */,
+				335D8F3F25F4CDD600FE4C7F /* MainResultData.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1154,6 +1157,7 @@
 			files = (
 				3317778B25B0921500CC1030 /* MypageData.swift in Sources */,
 				9291202C25E67C7B00B4A95F /* MyPlantData.swift in Sources */,
+				335D8F4025F4CDD600FE4C7F /* MainResultData.swift in Sources */,
 				548DF1AD25A4260E0081FCD1 /* CollectionViewAlign.swift in Sources */,
 				92911FD725DFA15800B4A95F /* DeletePlantData.swift in Sources */,
 				9244DF1225AB92220014FF5D /* LoadingPopUpVC.swift in Sources */,

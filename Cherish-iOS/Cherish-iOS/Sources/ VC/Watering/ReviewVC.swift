@@ -255,7 +255,7 @@ class ReviewVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 print(data)
-                appDel.isWateringComplete = true
+                NotificationCenter.default.post(name: .wateringReport, object: UserDefaults.standard.integer(forKey: "selectedFriendIdData"))
                 self.dismiss(animated: true, completion: {
                     NotificationCenter.default.post(name: .popToMainView, object: nil)
                 })
@@ -277,7 +277,7 @@ class ReviewVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 print(data)
-                appDel.isWateringComplete = true
+                NotificationCenter.default.post(name: .wateringReport, object: UserDefaults.standard.integer(forKey: "selectedFriendIdData"))
                 self.dismiss(animated: true, completion: {
                     NotificationCenter.default.post(name: .popToMainView, object: nil)
                 })
