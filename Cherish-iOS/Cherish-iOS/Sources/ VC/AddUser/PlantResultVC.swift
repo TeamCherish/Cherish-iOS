@@ -46,6 +46,11 @@ class PlantResultVC: UIViewController {
     
     @IBAction func startToMain(_ sender: Any) {
         appDel.isCherishAdded = true
+        UserDefaults.standard.set("", forKey: "selectedNickNameData")
+        UserDefaults.standard.set(0, forKey: "selectedGrowthData")
+        UserDefaults.standard.set(0, forKey: "selectedGrowthData")
+        UserDefaults.standard.set("", forKey: "selectedModifierData")
+        UserDefaults.standard.set(true, forKey: "addUser")
         NotificationCenter.default.post(name: .addUser, object: nil)
 
         if self.checkPush == true {

@@ -218,9 +218,14 @@ class PlantEditVC: UIViewController {
                     print("통신성공")
                     let realert = UIAlertController(title: "삭제 완료되었습니다", message: "", preferredStyle: UIAlertController.Style.alert)
                     let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
+                        
                         // 메인 뷰로 돌아가기
                         self.navigationController?.popToRootViewController(animated: true)
                         appDel.isCherishDeleted = true
+                        UserDefaults.standard.set("", forKey: "selectedNickNameData")
+                        UserDefaults.standard.set(0, forKey: "selectedGrowthData")
+                        UserDefaults.standard.set(0, forKey: "selectedGrowthData")
+                        UserDefaults.standard.set("", forKey: "selectedModifierData")
                     }
                     realert.addAction(okAction)
                     present(realert, animated: true, completion: nil)
@@ -298,6 +303,10 @@ class PlantEditVC: UIViewController {
                 print("통신성공")
                 self.present(alertEdit, animated: true, completion: nil) ///왜 여기는 self 필요한겨..
                 appDel.isCherishEdited = true
+                UserDefaults.standard.set("", forKey: "selectedNickNameData")
+                UserDefaults.standard.set(0, forKey: "selectedGrowthData")
+                UserDefaults.standard.set(0, forKey: "selectedGrowthData")
+                UserDefaults.standard.set("", forKey: "selectedModifierData")
             case .requestErr(_):
                 print("requestErr")
             case .pathErr:

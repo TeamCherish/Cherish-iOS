@@ -11,9 +11,10 @@ class MainSplashVC: UIViewController {
 
     @IBOutlet var logoImageView: UIImageView!
     var isFirstLoaded: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.isHidden = true
+        hiddenTabNaviBar()
         // Do any additional setup after loading the view.
     }
     
@@ -40,5 +41,10 @@ class MainSplashVC: UIViewController {
             self.navigationController?.setViewControllers([vc], animated: false)
         }
        })
+    }
+    
+    func hiddenTabNaviBar() {
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true
     }
 }

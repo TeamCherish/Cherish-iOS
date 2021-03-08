@@ -8,7 +8,9 @@
 import UIKit
 
 class CherishTabBarController: UITabBarController {
-
+    
+    let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,16 +23,6 @@ class CherishTabBarController: UITabBarController {
     func setTabBar() {
         
         self.tabBar.tintColor = UIColor.black
-        
-        /// 메인탭
-        let CherishMain = UIStoryboard.init(name: "CherishMain", bundle: nil)
-        guard let firstTab = CherishMain.instantiateViewController(identifier: "CherishMainNC")
-                as? CherishMainNC  else {
-            return
-        }
-        
-        firstTab.tabBarItem.image = UIImage(named: "icnHomeUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
-        firstTab.tabBarItem.selectedImage = UIImage(named: "icnHomeSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
         
         /// 마이페이지탭
         let MyPage = UIStoryboard.init(name: "MyPage", bundle: nil)
@@ -53,11 +45,41 @@ class CherishTabBarController: UITabBarController {
         thirdTab.tabBarItem.selectedImage = UIImage(named: "icnMoreSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
         
         
-        let tabs =  [firstTab, secondTab, thirdTab]
+        // 메인탭
+        let CherishMain = UIStoryboard.init(name: "CherishMain", bundle: nil)        
         
-        tabBar.layer.shadowOpacity = 0
-        tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
-        tabBar.barTintColor = .white
-        self.setViewControllers(tabs, animated: false)
+        //자동로그인 시
+        if (UserDefaults.standard.string(forKey: "autoLogin") != nil) == true {
+            print("자동 로그인")
+            let firstTab = UINavigationController(rootViewController: (CherishMain.instantiateViewController(identifier: "MainSplashVC") as? MainSplashVC)!)
+            firstTab.navigationController?.navigationBar.isHidden = true
+            
+            firstTab.tabBarItem.image = UIImage(named: "icnHomeUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+            firstTab.tabBarItem.selectedImage = UIImage(named: "icnHomeSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+            
+            let tabs =  [firstTab, secondTab, thirdTab]
+            
+            tabBar.layer.shadowOpacity = 0
+            tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+            tabBar.barTintColor = .white
+            self.setViewControllers(tabs, animated: false)
+        }
+        
+        //수동로그인 시
+        else {
+            
+            print("수동 로그인")
+            let firstTab = UINavigationController(rootViewController: (CherishMain.instantiateViewController(identifier: "CherishMainVC") as? CherishMainVC)!)
+            firstTab.navigationController?.navigationBar.isHidden = true
+            firstTab.tabBarItem.image = UIImage(named: "icnHomeUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+            firstTab.tabBarItem.selectedImage = UIImage(named: "icnHomeSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+            
+            let tabs =  [firstTab, secondTab, thirdTab]
+            
+            tabBar.layer.shadowOpacity = 0
+            tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+            tabBar.barTintColor = .white
+            self.setViewControllers(tabs, animated: false)
+        }
     }
 }

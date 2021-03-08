@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // 자동 로그인이 될 때 첫 Scnene을 메인뷰로
         if (UserDefaults.standard.string(forKey: "autoLogin") != nil) == true {
-            
+                appDel.isLoginManually = false
                 print("첫 로드 : 메인뷰?")
                 
                 let storyboard = UIStoryboard(name: "TabBar", bundle: nil)

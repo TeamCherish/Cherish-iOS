@@ -79,7 +79,6 @@ extension MypagePlantVC: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         
         if mypagePlantArray.count != 0 {
- 
             
             /// 이미지 url 처리
             let url = URL(string: mypagePlantArray[indexPath.row].thumbnailImageURL)

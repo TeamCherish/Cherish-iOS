@@ -22,7 +22,7 @@ class LoginVC: UIViewController {
     var deviceContacts = [FetchedContact]()
     var fetchedName:[String] = []
     var cherishContacts:[Friend] = []
-   
+    let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -237,8 +237,10 @@ class LoginVC: UIViewController {
     //MARK: - 로그인 버튼 눌렀을 때
     @IBAction func touchUpToLogin(_ sender: UIButton) {
         
+        appDel.isLoginManually = true
         guard let emailText = loginEmailTextField.text,
               let passwordText = loginPwTextField.text else { return }
+        
         LoginService.shared.doLogin(email: emailText, password: passwordText){ [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):

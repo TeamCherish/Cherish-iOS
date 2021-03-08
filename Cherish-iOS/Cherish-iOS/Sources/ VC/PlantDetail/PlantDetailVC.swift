@@ -64,7 +64,7 @@ class PlantDetailVC: UIViewController {
 
         myCherishIsSelected = UserDefaults.standard.bool(forKey: "plantIsSelected")
         
-        var myCherishIdx = UserDefaults.standard.integer(forKey: "selectedCherish")
+        let myCherishIdx = UserDefaults.standard.integer(forKey: "selectedCherish")
         
         if myCherishIsSelected == true {
             getPlantDataFromMyPage(cherishId: myCherishIdx)
@@ -121,7 +121,7 @@ class PlantDetailVC: UIViewController {
                     
                     plantId = plantDetailDataFromMyPage.plantId
                     
-                    let url = URL(string: plantDetailDataFromMyPage.plantThumbnailImageURL ?? "")
+                    let url = URL(string: plantDetailDataFromMyPage.plantThumbnailImageURL)
                     
                     let imageData = try? Data(contentsOf: url!)
                     plantDetailBtn.setImage(UIImage(data: imageData!), for: .normal)
@@ -286,7 +286,7 @@ class PlantDetailVC: UIViewController {
                     
                     plantId = plantDetailData.plantId
                     
-                    let url = URL(string: plantDetailData.plantThumbnailImageURL ?? "")
+                    let url = URL(string: plantDetailData.plantThumbnailImageURL)
                     let imageData = try? Data(contentsOf: url!)
                     plantDetailBtn.setImage(UIImage(data: imageData!), for: .normal)
                     

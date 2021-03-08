@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var isCherishAdded:Bool = false
     var isCherishDeleted:Bool = false
     var isCherishEdited:Bool = false
+    var isLoginManually:Bool = false
     let gcmMessageIDKey = "gcm.message_id"
     
     func application(_ application: UIApplication,
@@ -143,6 +144,13 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         print(userInfo)
         
         completionHandler()
+    }
+    
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        
+        // 세로방향 고정
+        return UIInterfaceOrientationMask.portrait
     }
 }
 

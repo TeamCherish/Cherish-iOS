@@ -11,7 +11,7 @@ import Alamofire
 import Kingfisher
 import OverlayContainer
 
-class DetailContentVC: UIViewController {
+class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet var headerView: UIView!
     @IBOutlet var cherishPeopleCountLabel: CustomLabel!
@@ -58,7 +58,6 @@ class DetailContentVC: UIViewController {
         //식물 삭제했을 때 reload
         if appDel.isCherishDeleted == true {
             setCherishPeopleData()
-            appDel.isCherishDeleted = false
         }
         
         //식물 수정했을 때 reload
@@ -87,14 +86,24 @@ class DetailContentVC: UIViewController {
                     cherishPeopleData = mainResultData.result
                     cherishPeopleCountLabel.text = "\(cherishPeopleData.count)"
                     self.cherishPeopleCV.reloadData()
+                    UserDefaults.standard.set(cherishPeopleData.count, forKey: "cherishPeopleDataCount")
                     
                     if cherishPeopleData.count == 0 {
                         let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
                         if let vc = storyBoard.instantiateViewController(identifier: "NoPlantVC") as? NoPlantVC {
                             
-                            self.navigationController?.pushViewController(vc, animated: true)
+                            self.navigationController?.pushViewController(vc, animated: false)
+                            
+                            // 등록된 식물이 하나도 없을 경우에 탭바를 숨김
                             self.tabBarController?.tabBar.isHidden = true
+                            
+                            // 등록된 식물이 하나도 없을 경우에 pop제스처 불가능하도록 만듬
+                            navigationController?.interactivePopGestureRecognizer?.delegate = self
+                            navigationController?.interactivePopGestureRecognizer!.isEnabled = false
                         }
+                    }
+                    else {
+                        navigationController?.interactivePopGestureRecognizer!.isEnabled = true
                     }
                 }
             case .requestErr(let msg):
@@ -173,6 +182,9 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 NotificationCenter.default.post(name: .sendPeopleDataArray, object: cherishPeopleData)
                 
                 let plantName = UserDefaults.standard.string( forKey: "selectedPlantName")
+                print("selectedPlantName",plantName!)
+                print("체리시 데이터를 알아보겠습니다", cherishPeopleData)
+                print("체리시 수", cherishPeopleData.count)
                 
                 // 셀이 눌리지 않은 상태 (cherishPeopleData의 첫번 째 데이터값으로 초기값을 설정해준다)
                 if appDel.isCherishPeopleCellSelected == false {
@@ -196,6 +208,8 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     }
                     
                     firstCell.nickNameLabel.text = cherishPeopleData[0].nickname
+                    
+                    
                     
                     if cherishPeopleData[0].dDay == 0 {
                         firstCell.userWaterImageView.image = UIImage(named: "mainIcUserWater")
@@ -334,6 +348,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].id, forKey: "selectedFriendIdData")
                 UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].phone, forKey: "selectedFriendPhoneData")
                 UserDefaults.standard.set(indexPath.row - 1, forKey: "selectedRowIndexPath")
+                
                 
                 
                 selectedIndexPath = indexPath

@@ -33,6 +33,11 @@ class MainContentVC: UIViewController {
     let userId: Int = UserDefaults.standard.integer(forKey: "userID")
     let growthInfo:Int = UserDefaults.standard.integer(forKey: "selectedGrowthData")
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    // 뷰 전체 폭 길이
+    let screenWidth = UIScreen.main.bounds.size.width
+    
+    // 뷰 전체 높이 길이
+    let screenHeight = UIScreen.main.bounds.size.height
     
     
     //MARK: - viewDidLoad
@@ -51,22 +56,40 @@ class MainContentVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         LoadingHUD.show()
         
+        
         // cherishPeopleCell이 선택되면 배경뷰의 라벨값, 식물이미지, 배경색을 바꿔준다.
         if appDel.isCherishPeopleCellSelected == true {
-            
             setDataWithSelectedData()
-            LoadingHUD.hide()
+        }
+        
+        if appDel.isCherishDeleted == true {
+            setDataWithSelectedData()
+        }
+        
+        // 식물 삭제 후 남은 식물이 한개도 없을 때, 추가된 subView를 식물 등록 후에 remove
+        if UserDefaults.standard.bool(forKey: "addUser") == true {
+            if let viewWithTag = self.view.viewWithTag(100) {
+                viewWithTag.removeFromSuperview()
+                UserDefaults.standard.set(false, forKey: "addUser")
+                view.backgroundColor = .white
+            }
         }
         
         // 식물상세페이지로 네비게이션 연결 후 탭바가 사라지기 때문에
         // popViewController 액션으로 다시 메인뷰로 돌아왔을 때 탭바가 나타나야 한다.
         self.tabBarController?.tabBar.isHidden = false
+        
         LoadingHUD.hide()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         LoadingHUD.hide()
         
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        view.backgroundColor = .white
+        plantImageView.image = nil
     }
     
     //MARK: - addObserver
@@ -76,26 +99,45 @@ class MainContentVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .postPostponed, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(isWateringReported), name: .wateringReport, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(getPeopleData), name: .sendPeopleDataArray, object: nil)
+        
     }
-
+    
     
     //selectedData를 갖고 실제로 view를 구성하는 함수
     func setDataWithSelectedData() {
         
         if appDel.isCherishPeopleCellSelected == true {
             
-            // IBOutlet에 값 할당
-            self.userNickNameLabel.text = UserDefaults.standard.string(forKey: "selectedNickNameData")
-            customProgressBarView(UserDefaults.standard.integer(forKey: "selectedGrowthData"))
-            self.growthPercentLabel.text = "\(UserDefaults.standard.integer(forKey: "selectedGrowthData"))%"
-            self.plantExplainLabel.text = UserDefaults.standard.string(forKey: "selectedModifierData")
+            //식물 삭제했는데, 삭제하기 전 메인의 데이터가 1개였으면 삭제 후에는 식물이 0개인 것임. MainContentVC에서는 식물데이터 통신을 하지 않으므로 조건문으로 식별
+            if appDel.isCherishDeleted == true && cherishResultData.count == 1 {
+                print("들어와요??")
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) { [self] in
+                    let whiteView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+                    whiteView.backgroundColor = .white
+                    whiteView.alpha = 1.0
+                    whiteView.tag = 100
+                    whiteView.isUserInteractionEnabled = true
+                    self.view.addSubview(whiteView)
+                    print("hihihihi")
+                }
+            }
+            
+            else {
+                // IBOutlet에 값 할당
+                DispatchQueue.main.async {
+                    self.userNickNameLabel.text = UserDefaults.standard.string(forKey: "selectedNickNameData")
+                    self.customProgressBarView(UserDefaults.standard.integer(forKey: "selectedGrowthData"))
+                    self.growthPercentLabel.text = "\(UserDefaults.standard.integer(forKey: "selectedGrowthData"))%"
+                    self.plantExplainLabel.text = UserDefaults.standard.string(forKey: "selectedModifierData")
+                }
+            }
+            
+            appDel.isCherishDeleted = false
             
             // 변수에 값 할당
             var selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
-            let selectedFriendsIdx = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
-            let postponedIdx = UserDefaults.standard.integer(forKey: "postponedIdData")
             let selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
-            
             
             //MARK: - 민들레일 때
             if selectedPlantName == "민들레" {
@@ -131,12 +173,12 @@ class MainContentVC: UIViewController {
                 else if cherishResultData[selectedRowIndexPath].dDay <= 0 {
                     print("시들었졍,,")
                     
-                        plantImageView.isHidden = false
-                        plantGifView.isHidden = false
-                        dandelionGrowth()
-//                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
-                        
-                        self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
+                    plantImageView.isHidden = false
+                    plantGifView.isHidden = false
+                    dandelionGrowth()
+                    //                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
+                    
+                    self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
                 }
                 //default
                 else {
@@ -175,12 +217,12 @@ class MainContentVC: UIViewController {
                 else if cherishResultData[selectedRowIndexPath].dDay <= 0 {
                     print("시들었졍,,")
                     
-                        plantImageView.isHidden = false
-                        plantGifView.isHidden = false
-                        americanBlueGrowth()
-//                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
-                        
-                        self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
+                    plantImageView.isHidden = false
+                    plantGifView.isHidden = false
+                    americanBlueGrowth()
+                    //                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
+                    
+                    self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
                 }
                 //default
                 else {
@@ -220,12 +262,12 @@ class MainContentVC: UIViewController {
                 else if cherishResultData[selectedRowIndexPath].dDay <= 0 {
                     print("시들었졍,,")
                     
-                        plantImageView.isHidden = false
-                        plantGifView.isHidden = false
-                        rosemaryGrowth()
-//                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
-                        
-                        self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
+                    plantImageView.isHidden = false
+                    plantGifView.isHidden = false
+                    rosemaryGrowth()
+                    //                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
+                    
+                    self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
                 }
                 //default
                 else {
@@ -268,12 +310,12 @@ class MainContentVC: UIViewController {
                 else if cherishResultData[selectedRowIndexPath].dDay <= 0 {
                     print("시들었졍,,")
                     
-                        plantImageView.isHidden = false
-                        plantGifView.isHidden = false
-                        sunGrowth()
-//                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
-                        
-                        self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
+                    plantImageView.isHidden = false
+                    plantGifView.isHidden = false
+                    sunGrowth()
+                    //                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
+                    
+                    self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
                 }
                 //default
                 else {
@@ -318,12 +360,12 @@ class MainContentVC: UIViewController {
                     print(cherishResultData)
                     print(cherishResultData[selectedRowIndexPath].dDay)
                     
-                        plantImageView.isHidden = false
-                        plantGifView.isHidden = false
-                        stuckyGrowth()
-//                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
-                        
-                        self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
+                    plantImageView.isHidden = false
+                    plantGifView.isHidden = false
+                    stuckyGrowth()
+                    //                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
+                    
+                    self.view.backgroundColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1.0)
                     
                 }
                 //default
@@ -367,13 +409,13 @@ class MainContentVC: UIViewController {
                 print("Task done")
                 DispatchQueue.main.asyncAfter(deadline: .now()) {
                     UIView.transition(with: self.plantGifView, duration: 4, options: .curveEaseInOut, animations: { [self] in
-                    //                            print("왜오오오ㅗ오오")
+                        //                            print("왜오오오ㅗ오오")
                         plantGifView.alpha = 0
                         plantGifView.layoutIfNeeded()
                     }, completion: { finished in
                         self.plantGifView.frame.origin.x = 10
                         self.plantGifView.frame.origin.y = 0
-
+                        
                     })
                 }
             case .failure(let error):
@@ -581,7 +623,7 @@ class MainContentVC: UIViewController {
             let selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
             
             for _ in 0...selectedRowIndexPath {
-                cherishResultData.append(MainPlantConditionData(id: 0, dDay: 0, isWatering: false, isWithered: false))
+                cherishResultData.append(MainPlantConditionData(id: 0, dDay: 1, isWatering: false, isWithered: false))
             }
         }
     }
@@ -634,8 +676,6 @@ class LoadingHUD: NSObject {
             let backgroundView = UIView()
             let popupView = UIView()
             let popupImageView = UIImageView()
-            let w = UIScreen.main.bounds.width
-            let h = UIScreen.main.bounds.height
             popupView.frame = CGRect(x:0, y: 0, width: 80, height: 80)
             popupView.center = window.center
             popupView.layer.cornerRadius = popupView.layer.frame.height / 2
