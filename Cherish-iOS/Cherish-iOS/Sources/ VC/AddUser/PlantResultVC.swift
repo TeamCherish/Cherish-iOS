@@ -23,16 +23,17 @@ class PlantResultVC: UIViewController {
     var explanation: String?
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    var checkPush: Bool?
+    var checkInitial: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setPlantLabel()
-        print(checkPush)
-        if checkPush == nil {
-            print("nil이네요 false넣겠슴당")
-            checkPush = false
+        print(checkInitial)
+        if checkInitial == nil {
+            print("nil이네요 0 넣겠슴다")
+            checkInitial = 0
         }
+        print(checkInitial)
 //        NotificationCenter.default.addObserver(self, selector: #selector(setPlantLabel), name: .sendPlantResult, object: nil)
         // Do any additional setup after loading the view.
     }
@@ -47,7 +48,7 @@ class PlantResultVC: UIViewController {
     @IBAction func startToMain(_ sender: Any) {
         appDel.isCherishAdded = true
 
-        if self.checkPush == true {
+        if self.checkInitial == 1 {
             let storyBoard: UIStoryboard = UIStoryboard(name: "CherishMain", bundle: nil)
             guard let dvc = storyBoard.instantiateViewController(identifier: "MainContentVC") as? MainContentVC else {return}
             self.navigationController?.pushViewController(dvc, animated: true)

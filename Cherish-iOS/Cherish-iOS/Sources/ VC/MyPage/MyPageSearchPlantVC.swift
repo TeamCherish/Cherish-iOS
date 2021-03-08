@@ -156,6 +156,29 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MyPageSearchPlantVC: UISearchBarDelegate {
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        filteredData = []
+//
+//        if searchText == "" {
+//            filteredData = friendList
+//        }
+//        else {
+//            checkSearch = 1
+//
+//            for friend in friendList {
+//                if friend.name.contains(searchText) {
+//                    filteredData.append(contentsOf: [
+//                                            Friend(name: friend.name, phoneNumber: friend.phoneNumber, selected: friend.selected)])
+//                }
+//                else if friend.phoneNumber.contains(searchText) {
+//                    filteredData.append(contentsOf: [Friend(name: friend.name, phoneNumber: friend.phoneNumber, selected: friend.selected)])
+//                }
+//
+//            }
+//
+//        }
+//        self.tableView.reloadData()
+//    }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredPlant = []
         
@@ -164,33 +187,10 @@ extension MyPageSearchPlantVC: UISearchBarDelegate {
         }
         else {
             checkSearch = 1
-            
-//            if friend.name.contains(searchText) {
-//                filteredData.append(contentsOf: [
-//                                        Friend(name: friend.name, phoneNumber: friend.phoneNumber, selected: friend.selected)])
-//            }
-            
-//            struct MypagefriendsData: Codable {
-//                let id, dDay: Int
-//                let nickname, name, email: String
-//                let thumbnailImageURL: String
-//                let level: Int?
-//                let plantID: Int
-//
-//                enum CodingKeys: String, CodingKey {
-//                    case id, dDay, nickname, name, email
-//                    case thumbnailImageURL = "thumbnail_image_url"
-//                    case level
-//                    case plantID = "PlantId"
-//                }
-//
-
-            
-
             for plant in filteredPlant {
-                if plant.nickname.contains(searchText) {
-//                    filteredPlant.append(contentsOf: [MypagefriendsData])
-                }
+                if plant.name.contains(searchText) {
+                    
+            }
         }
         self.plantTV.reloadData()
     }
