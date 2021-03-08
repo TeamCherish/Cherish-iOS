@@ -9,9 +9,11 @@
 struct LoginData: Codable {
     let userID: Int
     let userNickname: String
+    let token: String
 
     enum CodingKeys: String, CodingKey {
         case userID = "UserId"
         case userNickname = "user_nickname"
+        case token = "token"
     }
 }

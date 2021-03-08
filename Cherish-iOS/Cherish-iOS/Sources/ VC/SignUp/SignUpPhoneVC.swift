@@ -8,7 +8,7 @@
 import UIKit
 import MessageUI
 
-class SignUpPhoneVC: UIViewController {
+class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
     //MARK: -변수 선언부
     var forSending = ["",""]
     var authNumber: Int?
@@ -63,6 +63,7 @@ class SignUpPhoneVC: UIViewController {
     //MARK: -viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         print(forSending)
         initialSetting(status: true)
     }
@@ -70,10 +71,10 @@ class SignUpPhoneVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         //self.forChangeImageView.image = UIImage(named: "joinCircleUnselected")
-        UIView.animate(withDuration: 1.0, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.beforeImageView.image = UIImage(named: "joinCircleUnselected")
         },completion: {finished in
-            UIView.animate(withDuration: 1.0, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 self.afterImageView.image = UIImage(named: "joinCircleSelected")
             })
         })

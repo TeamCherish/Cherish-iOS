@@ -8,8 +8,14 @@
 import UIKit
 
 
-class SignUpAccountVC: UIViewController {
+class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
     
+    var isEmail : Bool? = false // 중복 확인용
+    var isPossibleEmail : Bool? = false // 이메일 형식 통과 확인용
+    var passwordStatus: Bool? =   false // 비밀번호 일치 확인용
+    var passwordFormStatus : Bool? = false // 비밀번호 통과 확인용
+    
+    //MARK: @IBOutlet
     @IBOutlet weak var emailTextField: UITextField!{
         didSet{
             emailTextField.addLeftPadding()
@@ -44,25 +50,15 @@ class SignUpAccountVC: UIViewController {
     @IBOutlet weak var passwordCheckLabel: CustomLabel!
     @IBOutlet weak var forChangeImageView: UIImageView!
     
-    var isEmail : Bool? = false // 중복 확인용
-    var isPossibleEmail : Bool? = false // 이메일 형식 통과 확인용
-    var passwordStatus: Bool? =   false // 비밀번호 일치 확인용
-    var passwordFormStatus : Bool? = false // 비밀번호 통과 확인용
-    var isfirstEyeClicked : Bool = false
-    var isSecondEyeClicked : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         beforeEmail()
         textFeildRight()
-        //        self.testImageView.image = UIImage.gif(name: "testwatering")!
-        //        self.testImageView.alpha = 0.7
-        //        UIView.animate(withDuration: 4, animations:
-        //       {
-        //            self.testImageView.alpha = 0.0
-        //       })
     }
     
+    //MARK: -사용자 정의 함수
     ///화면 터치시 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -90,10 +86,16 @@ class SignUpAccountVC: UIViewController {
         passwordCheckTextField.delegate = self
     }
     
-    // 완료버튼 초록색으로 변경
+    // 완료버튼 초록색으로 변경(진행 가능함을 의미)
     func greenBtn(){
         emailCheckBtn.backgroundColor = .seaweed
         emailCheckBtn.setTitleColor(.white, for: .normal)
+    }
+    
+    // 완료버튼 회색 변경(진행 불가함을 의미)
+    func grayBtn(){
+        emailCheckBtn.backgroundColor = .inputGrey
+        emailCheckBtn.setTitleColor(.textGrey, for: .normal)
     }
     
     // 이메일 형식 체크 라벨 관련 함수
@@ -126,10 +128,10 @@ class SignUpAccountVC: UIViewController {
         passwordStatus = correct
     }
     
-    
+    //MARK: -@IBAction
     @IBAction func nextPage(_ sender: Any) {
-        // 이메일 중복확인이 끝났고 비밀번호도 입력이 끝났다면
         if isEmail == true{
+            // 이메일 중복확인이 끝났고 비밀번호도 입력이 끝났다면
             if passwordStatus == true {
                 if let vc = self.storyboard?.instantiateViewController(identifier: "SignUpPhoneVC") as? SignUpPhoneVC {
                     vc.forSending[0] = emailTextField.text!
@@ -140,6 +142,7 @@ class SignUpAccountVC: UIViewController {
                 //비밀번호를 입력해주세요
             }
         }else{
+            // 이메일 중복확인을 아직 안했다면
             if isPossibleEmail == true {
                 // 이메일 중복 체크 코드
                 CheckEmailService.shared.checkEmail(email: emailTextField.text!) { [self] (networkResult) -> (Void) in
@@ -147,7 +150,7 @@ class SignUpAccountVC: UIViewController {
                     case .success(_):
                         
                         setHidden(status: false)
-                        greenBtn()
+                        grayBtn()
                         emailCheckLabel.text = "사용가능한 이메일입니다."
                         emailCheckLabel.textColor = .seaweed
                         
@@ -174,29 +177,41 @@ class SignUpAccountVC: UIViewController {
             }
         }
     }
-    @IBAction func firstEyeAction(_ sender: Any) {
-        if isfirstEyeClicked{
-            passwordTextField.isSecureTextEntry = true
-            firstEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
-            isfirstEyeClicked = false
-        }else{
-            passwordTextField.isSecureTextEntry = false
-            firstEyeBtn.setImage(UIImage(named: "eye"), for: .normal)
-            isfirstEyeClicked = true
-        }
+    
+    //MARK: -Secure Text Entry
+    // First Eye
+    // 터치하고 있으면 비밀번호 보여주기
+    @IBAction func firstEyeTouch(_ sender: Any) {
+        passwordTextField.isSecureTextEntry = false
+        firstEyeBtn.setImage(UIImage(named: "eye"), for: .normal)
+    }
+    // 버튼에서 손을 떼면 다시 감추기
+    @IBAction func firstEyeAway(_ sender: Any) {
+        passwordTextField.isSecureTextEntry = true
+        firstEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
+    }
+    // 터치를 유지한채로 버튼 영역 밖으로 벗어났을 경우
+    @IBAction func firstEyeTouchAway(_ sender: Any) {
+        passwordTextField.isSecureTextEntry = true
+        firstEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
     }
     
-    @IBAction func secondEyeAction(_ sender: Any) {
-        if isSecondEyeClicked{
-            passwordCheckTextField.isSecureTextEntry = true
-            secondEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
-            isSecondEyeClicked = false
-        }else{
-            passwordCheckTextField.isSecureTextEntry = false
-            secondEyeBtn.setImage(UIImage(named: "eye"), for: .normal)
-            isSecondEyeClicked = true
-        }
+    // Second Eye
+    @IBAction func secondEyeTouch(_ sender: Any) {
+        passwordCheckTextField.isSecureTextEntry = false
+        secondEyeBtn.setImage(UIImage(named: "eye"), for: .normal)
     }
+    @IBAction func secondEyeAway(_ sender: Any) {
+        passwordCheckTextField.isSecureTextEntry = true
+        secondEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
+    }
+    @IBAction func secondEyeTouchAway(_ sender: Any) {
+        passwordCheckTextField.isSecureTextEntry = true
+        secondEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
+    }
+    
+   
+    // 뒤로가기
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -213,14 +228,16 @@ extension SignUpAccountVC: UITextFieldDelegate{
             let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
             if !emailTest.evaluate(with: textField.text){
                 emailFormLabel(text: "사용할 수 없는 형식입니다.", color: .pinkSub, form: false)
+                grayBtn()
             }else{
-                emailFormLabel(text: "사용가능한 이메일입니다.", color: .seaweed, form: true)
+                emailFormLabel(text: "사용가능한 이메일 형식입니다.", color: .seaweed, form: true)
+                greenBtn()
             }
         }
         else if textField == passwordTextField{
-            // 비밀번호가 영,숫자 포함 8글자인지
+            // 비밀번호가 영문 ,숫자,특수문자 포함 8글자인지
             passwordCheckLabel.isHidden = false
-            let passRegEx = "^(?=.*[a-z])(?=.*[0-9]).{8,}$"
+            let passRegEx = "^(?=.*[a-z])(?=.*[0-9])(?=.*[\\[\\]~!@#$%^&*()=+{}:?,<>/._-]).{8,}$"
             let passTest = NSPredicate(format: "SELF MATCHES %@", passRegEx)
             if !passTest.evaluate(with: textField.text){
                 pwFormLabel(text: "사용하실 수 없는 비밀번호입니다.", color: .pinkSub, form: false)
@@ -233,8 +250,10 @@ extension SignUpAccountVC: UITextFieldDelegate{
             if passwordFormStatus == true {
                 if passwordTextField.text == textField.text {
                     pwCorrectLabel(text: "비밀번호가 일치합니다.", color: .seaweed, correct: true)
+                    greenBtn()
                 }else{
                     pwCorrectLabel(text: "비밀번호가 일치하지 않습니다.", color: .pinkSub, correct: false)
+                    grayBtn()
                 }
             }
         }

@@ -11,6 +11,7 @@ import Alamofire
 struct MessageAuthService {
     static let shared = MessageAuthService()
     
+    // 회원가입 시 메시지 인증
     func messageAuth(phone: String, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
         let url = APIConstants.messageAuthURL
@@ -43,7 +44,7 @@ struct MessageAuthService {
             return .pathErr }
         switch status {
         case 200:
-            print("성공")
+            print("인증 메시지 전송 성공(회원가입)")
             return .success(decodedData.data)
         case 400..<500:
             return .requestErr(decodedData.message)

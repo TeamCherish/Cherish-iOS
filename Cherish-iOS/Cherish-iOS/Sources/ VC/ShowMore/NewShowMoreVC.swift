@@ -57,8 +57,43 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
         self.present(sendMailErrorAlert, animated: true, completion: nil)
     }
     
+    // 회원탈퇴 팝업
+    func showWithdrawalAlert(){
+        let withdrawalAlert = UIAlertController(title: "정말 계정을 삭제하시겠어요?", message: "소중한 식물들이 모두 삭제되고 되돌릴 수 없어요.", preferredStyle: .alert)
+        
+        // Alert의 '확인'을 누르면 dismiss
+        let okAction = UIAlertAction(title: "네, 삭제할게요.",style: .destructive) { (action) in
+            WithdrawalService.shared.withdrawalAccount(userId: UserDefaults.standard.integer(forKey: "userID")) { [self] (networkResult) -> (Void) in
+                switch networkResult {
+                case .success(_):
+                    // 회원탈퇴 성공하면 Login 뷰로 dismiss
+                    self.dismiss(animated: true, completion: nil)
+                case .requestErr(let msg):
+                    if let message = msg as? String {
+                        print(message)
+                    }
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            }
+        }
+        let cancelAction = UIAlertAction(title: "계속 함께 할게요!",style: .default)
+        withdrawalAlert.addAction(okAction)
+        withdrawalAlert.addAction(cancelAction)
+        present(withdrawalAlert, animated: true)
+    }
+    
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func touchUpToNicknameChangeVC(_ sender: UIButton) {
+        let NicknameChangeVC = self.storyboard?.instantiateViewController(identifier: "NicknameChangeVC") as! NicknameChangeVC
+        self.navigationController?.pushViewController(NicknameChangeVC, animated: true)
     }
     
     @IBAction func toggleAlarmSwitch(_ sender: UISwitch) {
@@ -275,11 +310,28 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
         else if indexPath.section == 2 {
             //로그아웃
             if indexPath.row == 0 {
-                print("section 2, row 0")
+                let logoutAlert = UIAlertController(title: "로그아웃", message: "정말로 로그아웃 하시겠습니까?", preferredStyle: .alert)
+                let confirmAction = UIAlertAction(title: "확인", style: .default) { [self]
+                    (action) in
+                    
+                    //로그아웃하기 위해 자동로그인을 위해 사용되었던
+                    //UserDefualts에 저장된 값들을 삭제해준다
+                    UserDefaults.standard.removeObject(forKey: "loginEmail")
+                    UserDefaults.standard.removeObject(forKey: "loginPw")
+                    UserDefaults.standard.removeObject(forKey: "autoLogin")
+                    
+                    // 자동로그인 해제시 루트 컨트롤러를 로그인으로 설정
+                    let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                    let loginView: LoginNC = storyboard.instantiateViewController(withIdentifier: "LoginNC") as! LoginNC
+                    UIApplication.shared.keyWindow?.rootViewController = loginView
+                    
+                }
+                logoutAlert.addAction(confirmAction)
+                self.present(logoutAlert, animated: true, completion: nil)
             }
             //회원탈퇴
             else {
-                print("section 2, row 1")
+                showWithdrawalAlert()
             }
         }
     }

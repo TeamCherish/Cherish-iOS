@@ -116,7 +116,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a7n-Zl-9WW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="172" y="72"/>
+            <point key="canvasLocation" x="-265" y="51"/>
+        </scene>
+        <!--Pop Up Watering Without LaterVC-->
+        <scene sceneID="hXk-nG-hJ8">
+            <objects>
+                <viewController storyboardIdentifier="PopUpWatering_WithoutLaterVC" id="S6h-N2-R2g" customClass="PopUpWatering_WithoutLaterVC" customModule="Cherish_iOS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sJH-Cy-FJY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Xs-6h-TAe">
+                                <rect key="frame" x="30" y="206" width="315" height="410"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waV-VQ-y4C">
+                                        <rect key="frame" x="261" y="6" width="48" height="48"/>
+                                        <state key="normal" image="icnCancel"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="S6h-N2-R2g" eventType="touchUpInside" id="SHU-mM-3M4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8M0-UN-kuV">
+                                        <rect key="frame" x="17.666666666666657" y="315.66666666666663" width="280" height="48"/>
+                                        <color key="backgroundColor" name="seaweed"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="8M0-UN-kuV" secondAttribute="height" multiplier="280:48" id="4vm-z5-0yw"/>
+                                            <constraint firstAttribute="height" constant="48" id="XRM-EY-Ut0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                        <state key="normal" title="물주기">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                                <real key="value" value="-0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="goToWatering:" destination="S6h-N2-R2g" eventType="touchUpInside" id="jrO-d5-tyF"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고민하기보다 일단 해보는거에요. 시시콜콜한 이야기도 좋아요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jd8-lz-n0I" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="67.000000000000014" y="246.99999999999997" width="181.33333333333337" height="32.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                                        <color key="textColor" name="black"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                <real key="value" value="-0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wateringImg" translatesAutoresizingMaskIntoConstraints="NO" id="Vb7-Kx-Uze">
+                                        <rect key="frame" x="90" y="100" width="135" height="140"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Vb7-Kx-Uze" secondAttribute="height" multiplier="135:140" id="MhB-T9-x3y"/>
+                                            <constraint firstAttribute="height" constant="140" id="eIt-nh-y8C"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="8M0-UN-kuV" firstAttribute="top" secondItem="Jd8-lz-n0I" secondAttribute="bottom" constant="36" id="1d0-qb-r4m"/>
+                                    <constraint firstAttribute="height" constant="410" id="5fZ-3W-fLg"/>
+                                    <constraint firstItem="Jd8-lz-n0I" firstAttribute="top" secondItem="Vb7-Kx-Uze" secondAttribute="bottom" constant="7" id="Bjb-lD-5fx"/>
+                                    <constraint firstItem="Vb7-Kx-Uze" firstAttribute="centerX" secondItem="3Xs-6h-TAe" secondAttribute="centerX" id="WRo-7j-qgV"/>
+                                    <constraint firstAttribute="trailing" secondItem="waV-VQ-y4C" secondAttribute="trailing" constant="6" id="cUt-gT-KdN"/>
+                                    <constraint firstAttribute="width" secondItem="3Xs-6h-TAe" secondAttribute="height" multiplier="315:410" id="dYx-OF-GOo"/>
+                                    <constraint firstItem="8M0-UN-kuV" firstAttribute="centerX" secondItem="3Xs-6h-TAe" secondAttribute="centerX" id="dpf-kp-X9F"/>
+                                    <constraint firstItem="Vb7-Kx-Uze" firstAttribute="top" secondItem="3Xs-6h-TAe" secondAttribute="top" constant="100" id="e1e-fC-V5M"/>
+                                    <constraint firstItem="Jd8-lz-n0I" firstAttribute="centerX" secondItem="3Xs-6h-TAe" secondAttribute="centerX" id="pcR-l5-yCc"/>
+                                    <constraint firstItem="waV-VQ-y4C" firstAttribute="top" secondItem="3Xs-6h-TAe" secondAttribute="top" constant="6" id="uCU-9e-R0E"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4T3-O3-3Z1"/>
+                        <color key="backgroundColor" red="0.14117647059999999" green="0.1333333333" blue="0.1333333333" alpha="0.70235609850000003" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3Xs-6h-TAe" firstAttribute="centerY" secondItem="4T3-O3-3Z1" secondAttribute="centerY" id="lhJ-wQ-dwk"/>
+                            <constraint firstItem="3Xs-6h-TAe" firstAttribute="centerX" secondItem="4T3-O3-3Z1" secondAttribute="centerX" id="wvA-w7-roJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="popupWithoutLaterView" destination="3Xs-6h-TAe" id="YdZ-0M-3TT"/>
+                        <outlet property="wateringBtn" destination="8M0-UN-kuV" id="Ar6-C8-JoJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EI8-OG-jLC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="425" y="51"/>
         </scene>
     </scenes>
     <resources>

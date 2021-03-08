@@ -8,7 +8,7 @@
 import UIKit
 import SafariServices
 
-class SignUpNicknameVC: UIViewController,SFSafariViewControllerDelegate {
+class SignUpNicknameVC: UIViewController,SFSafariViewControllerDelegate, UIGestureRecognizerDelegate {
     let maxLength_nickname = 8
     var forSignUp = ["","","","",""]
     var gender: Bool = false
@@ -34,16 +34,17 @@ class SignUpNicknameVC: UIViewController,SFSafariViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         print(forSignUp)
         checkingLetterCount()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        UIView.animate(withDuration: 1.0, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.beforeImageView.image = UIImage(named: "joinCircleUnselected")
         },completion: {finished in
-            UIView.animate(withDuration: 1.0, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 self.afterImageView.image = UIImage(named: "joinCircleSelected")
             })
         })

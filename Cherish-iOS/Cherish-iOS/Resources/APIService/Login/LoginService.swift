@@ -48,7 +48,7 @@ struct LoginService {
         switch status {
         case 200:
           //  print("성공")
-            print(decodedData.data)
+//            print(decodedData.data)
             return .success(decodedData.data)
         case 400..<500:
             return .requestErr(decodedData.message)

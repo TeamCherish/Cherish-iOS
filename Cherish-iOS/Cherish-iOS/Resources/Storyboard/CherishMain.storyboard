@@ -46,10 +46,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1cl-cl-xvs">
-                                <rect key="frame" x="87" y="148" width="288" height="512"/>
+                                <rect key="frame" x="85" y="148" width="290" height="512"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="512" id="OWd-Ud-SXZ"/>
-                                    <constraint firstAttribute="width" secondItem="1cl-cl-xvs" secondAttribute="height" multiplier="288:512" id="lE9-xJ-nxH"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1LF-25-ssR">
@@ -202,6 +201,7 @@
                             <constraint firstItem="1LF-25-ssR" firstAttribute="top" secondItem="53S-aO-x9T" secondAttribute="top" id="anz-Zs-3Ru"/>
                             <constraint firstItem="1rh-Gn-4tL" firstAttribute="trailing" secondItem="TmQ-US-0yO" secondAttribute="trailing" constant="-58" id="cYI-FA-ncV"/>
                             <constraint firstItem="7lJ-v4-Fdo" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="26" id="cae-tb-XtH"/>
+                            <constraint firstItem="1cl-cl-xvs" firstAttribute="leading" secondItem="6g2-qy-Jyj" secondAttribute="trailing" constant="33.666666666666657" id="dVx-qy-dbr"/>
                             <constraint firstItem="571-Dh-KLL" firstAttribute="top" secondItem="rb3-up-wUt" secondAttribute="bottom" constant="17" id="eNb-JJ-9v9"/>
                             <constraint firstItem="1cl-cl-xvs" firstAttribute="trailing" secondItem="TmQ-US-0yO" secondAttribute="trailing" id="fjq-QB-PKn"/>
                             <constraint firstItem="1LF-25-ssR" firstAttribute="leading" secondItem="53S-aO-x9T" secondAttribute="leading" constant="10" id="g56-IB-MkX"/>
@@ -224,6 +224,7 @@
                         <outlet property="plantExplainLabel" destination="MqD-Yz-UwB" id="lsW-qY-OCZ"/>
                         <outlet property="plantGifView" destination="1LF-25-ssR" id="Oy7-Rr-zW6"/>
                         <outlet property="plantImageView" destination="1cl-cl-xvs" id="Wmv-vk-st5"/>
+                        <outlet property="plantImageViewHeight" destination="OWd-Ud-SXZ" id="2Kt-Pk-1th"/>
                         <outlet property="plantImageViewTopConstraint" destination="gDu-wJ-xHN" id="Ued-RZ-Y0e"/>
                         <outlet property="progressbarBackView" destination="Ook-bx-AcP" id="9qk-3n-XYz"/>
                         <outlet property="progressbarView" destination="tC1-OL-vxp" id="EF5-MD-zMm"/>

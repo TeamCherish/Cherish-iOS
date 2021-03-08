@@ -22,6 +22,7 @@ class LoginVC: UIViewController {
     var deviceContacts = [FetchedContact]()
     var fetchedName:[String] = []
     var cherishContacts:[Friend] = []
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,6 @@ class LoginVC: UIViewController {
         setButtonTextKerns(-0.7)
         fetchContacts()
         keyboardObserver()
-     
     }
     
     func makeDelegate() {
@@ -184,7 +184,7 @@ class LoginVC: UIViewController {
     func makeCherishContacts() {
         
         switch CNContactStore.authorizationStatus(for: .contacts) {
-       /// 권한을 허용했을 때
+        /// 권한을 허용했을 때
         case .authorized:
             // 이름 합치기
             for i in 0...deviceContacts.count - 1 {
@@ -239,13 +239,19 @@ class LoginVC: UIViewController {
         
         guard let emailText = loginEmailTextField.text,
               let passwordText = loginPwTextField.text else { return }
-        LoginService.shared.doLogin(email: emailText, password: passwordText){ (networkResult) -> (Void) in
+        LoginService.shared.doLogin(email: emailText, password: passwordText){ [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 if let loginData = data as? LoginData {
+                    UserDefaults.standard.set(emailText, forKey: "loginEmail")
+                    UserDefaults.standard.set(passwordText, forKey: "loginPw")
+                    UserDefaults.standard.set(true, forKey: "autoLogin")
                     UserDefaults.standard.set(loginData.userID, forKey: "userID")
                     print(UserDefaults.standard.integer(forKey: "userID"))
                     UserDefaults.standard.set(loginData.userNickname, forKey: "UserNickname")
+                    UserDefaults.standard.set(loginData.token, forKey: "token")
+                    print("토큰이다앗",loginData.token)
+                    
                     
                     // 로그인 성공 시
                     // 유저 idx 기반으로 메인뷰에 등록된 소중한 사람이 있는지 조회
@@ -254,7 +260,8 @@ class LoginVC: UIViewController {
                         switch networkResult {
                         case .success(let data):
                             if let mainData = data as? MainData {
-                                
+                                loginEmailTextField.text?.removeAll()
+                                loginPwTextField.text?.removeAll()
                                 
                                 // 등록된 소중한 사람의 수가 존재한다면
                                 if mainData.totalCherish > 0 {
@@ -300,6 +307,7 @@ class LoginVC: UIViewController {
                 print("networkFail")
             }
         }
+        
     }
     
     // 회원가입

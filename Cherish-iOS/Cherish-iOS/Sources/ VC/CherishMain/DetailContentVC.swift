@@ -17,10 +17,12 @@ class DetailContentVC: UIViewController {
     @IBOutlet var cherishPeopleCountLabel: CustomLabel!
     @IBOutlet var cherishPeopleCV: UICollectionView!
     var selectedIndexPath : IndexPath?
+    var sendCount:Int = 0
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let userId: Int = UserDefaults.standard.integer(forKey: "userID")
     let fcmToken: String = UserDefaults.standard.string(forKey: "fcmToken")!
-    
+
+
     var cherishPeopleData:[ResultData] = [] {
         didSet {
             cherishPeopleCV.reloadData()
@@ -34,13 +36,19 @@ class DetailContentVC: UIViewController {
         }
     }
     
+    var cherishResultData:[MainResultData] = [] {
+        didSet {
+            print("cherishResultData")
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setCherishPeopleData()
         makeHeaderViewCornerRadius()
         cherishPeopleCV.allowsMultipleSelection = false
         fcmTokenUpdate()
-
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .postPostponed, object: nil)
         
     }
@@ -72,14 +80,13 @@ class DetailContentVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 if let mainResultData = data as? MainData {
-                    
-                    
                     cherishPeopleData = mainResultData.result
                     cherishPeopleCountLabel.text = "\(cherishPeopleData.count)"
                     self.cherishPeopleCV.reloadData()
                 }
             case .requestErr(let msg):
                 if let message = msg as? String {
+                    print(message)
                 }
             case .pathErr:
                 print("pathErr")
@@ -145,15 +152,22 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
         
         /// 선택된 아이템 표시하는 0번째 item
         if indexPath.item == 0 {
+           
             let firstCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CherishSelectPersonCVC", for: indexPath) as! CherishSelectPersonCVC
             
             if cherishPeopleData.count != 0 {
                 
-                var plantName = UserDefaults.standard.string( forKey: "selectedPlantName")
+                if sendCount == 0 {
+                    
+                    NotificationCenter.default.post(name: .sendPeopleDataArray, object: cherishPeopleData)
+                    
+                    sendCount += 1
+                }
+                
+                let plantName = UserDefaults.standard.string( forKey: "selectedPlantName")
                 
                 // 셀이 눌리지 않은 상태 (cherishPeopleData의 첫번 째 데이터값으로 초기값을 설정해준다)
                 if appDel.isCherishPeopleCellSelected == false {
-                    print("first")
                     
                     /// plantName에 따라 원형 이미지를 다르게 설정해주기 위한 분기처리
                     if plantName == "민들레" {
@@ -184,7 +198,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     }
                     
                     /// 이미지 url 처리
-                    let url = URL(string: cherishPeopleData[0].thumbnailImageURL ?? "")
+                    let url = URL(string: cherishPeopleData[0].thumbnailImageURL)
                     let imageData = try? Data(contentsOf: url!)
                     firstCell.plantImageView.image = UIImage(data: imageData!)
                 }
@@ -192,12 +206,10 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 // 셀이 한번 이상 눌린 상태
                 else
                 {
-                    print("else")
                     if plantName == "민들레" {
                         firstCell.eclipseImageView.image = UIImage(named: "imgMinStorke")
                     }
                     else if plantName == "로즈마리" {
-                        print("로즈마리")
                         firstCell.eclipseImageView.image = UIImage(named: "imgRoseStorke")
                     }
                     else if plantName == "단모환" {
@@ -250,16 +262,20 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     cell.cherishUserWaterImageView.isHidden = true
                 }
                 
+                cell.tag = indexPath.row
                 
                 /// 이미지 url 처리
-                let url = URL(string: cherishPeopleData[indexPath.row - 1].thumbnailImageURL)
-                DispatchQueue.global(qos: .default).async(execute: {() -> Void in
-                    let imageData = try? Data(contentsOf: url!)
-                    DispatchQueue.main.async(execute: {() -> Void in
-                        cell.cherishPlantImageView.image = UIImage(data: imageData!)
-                    })
+                DispatchQueue.global(qos: .default).async(execute: { [self]() -> Void in
+                    
+                        let url = URL(string: cherishPeopleData[indexPath.row - 1].thumbnailImageURL)
+                        let imageData = try? Data(contentsOf: url!)
+                        DispatchQueue.main.async(execute: {() -> Void in
+                            
+                            if(cell.tag == indexPath.row) {
+                            cell.cherishPlantImageView.image = UIImage(data: imageData!)
+                            }
+                        })
                 })
-                
                 
                 /// 선택된 친구셀 블러처리
                 if indexPath == selectedIndexPath {
@@ -291,7 +307,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             
             // appDelegate에 전역변수를 생성해주고, 한번 셀이 눌린 후로는 그 값을 true로 바꿔준다
             appDel.isCherishPeopleCellSelected = true
-            print(indexPath.row - 1)
+            
             // 셀이 눌릴 때마다 UserDefaults에 값을 새로 저장해준다
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].nickname, forKey: "selectedNickNameData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].thumbnailImageURL, forKey: "selectedPlantNameData")
@@ -307,6 +323,9 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             //선택된 친구의 인덱스 값과 전화번호를 저장해준다
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].id, forKey: "selectedFriendIdData")
             UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].phone, forKey: "selectedFriendPhoneData")
+            
+            UserDefaults.standard.set(indexPath.row - 1, forKey: "selectedRowIndexPath")
+            
             
             selectedIndexPath = indexPath
             

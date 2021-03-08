@@ -129,7 +129,17 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
             let contacts = try? PropertyListDecoder().decode([Friend].self, from: data)
 
             friendList = contacts!
-//            print(friendList)
+            
+            // 숫자 -> 한글 가나다순 -> 영어순으로 정렬
+            friendList = friendList.sorted(by: {$0.name.localizedStandardCompare($1.name) == .orderedAscending })
+            // 숫자로 시작하는 문자열 추출 후 저장
+            let startNumberArray = friendList.filter{$0.name.first?.isNumber == true}
+            // 문자로 시작하는 문자열만 추출해서 저장
+            friendList = friendList.filter{$0.name.first?.isNumber == false}
+            // 문자로 시작하는 문자열 뒤에 숫자로 시작하는 문자열 병합
+            friendList.append(contentsOf: startNumberArray)
+            
+            print(friendList)
             
         }
     }

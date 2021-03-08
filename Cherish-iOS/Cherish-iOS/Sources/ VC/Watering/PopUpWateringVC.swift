@@ -11,7 +11,7 @@ class PopUpWateringVC: UIViewController {
     //MARK: -@IBOutlet
     @IBOutlet weak var popupWaterView: UIView!{
         didSet{
-            popupWaterView.dropShadow(color: UIColor.blue, offSet: CGSize(width: 0, height: 4), opacity: 0.25, radius: 4)
+            popupWaterView.dropShadow(color: UIColor.blue, offSet: CGSize(width: 0, height: 50), opacity: 1, radius: 4)
             popupWaterView.makeRounded(cornerRadius: 20.0)
         }
     }

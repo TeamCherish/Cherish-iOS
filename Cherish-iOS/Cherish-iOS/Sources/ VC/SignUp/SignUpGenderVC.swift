@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpGenderVC: UIViewController {
+class SignUpGenderVC: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK: -변수 선언부
     var genderPicker = UIPickerView()
@@ -47,6 +47,7 @@ class SignUpGenderVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         print(forSending)
         createPicker()
         pickerSetting()
@@ -55,10 +56,10 @@ class SignUpGenderVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         //self.forChangeImageView.image = UIImage(named: "joinCircleUnselected")
-        UIView.animate(withDuration: 1.0, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.beforeImageView.image = UIImage(named: "joinCircleUnselected")
         },completion: {finished in
-            UIView.animate(withDuration: 1.0, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 self.afterImageView.image = UIImage(named: "joinCircleSelected")
             })
         })
