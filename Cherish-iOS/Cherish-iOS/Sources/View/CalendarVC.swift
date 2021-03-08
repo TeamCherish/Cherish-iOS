@@ -73,6 +73,7 @@ class CalendarVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        forVarietyPhones()
         memoShowView.isHidden = true
     }
     
@@ -82,7 +83,6 @@ class CalendarVC: UIViewController {
         getCalendarData()
         cal_Style()
         defineCalStatus()
-        forsmallPhone()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -153,13 +153,19 @@ class CalendarVC: UIViewController {
         }
     }
     
-    //MARK: -SE2를 위한 AutoLayout 변경
-    func forsmallPhone(){
+    //MARK: -스크린 사이즈가 다른 기기를 위한 AutoLayout 변경
+    func forVarietyPhones(){
+        //SE2(8)
         if UIDevice.current.isiPhoneSE2{
             memoShowView.removeConstraint(memoShowViewHeight)
-            memoShowView.heightAnchor.constraint(greaterThanOrEqualToConstant: 190).isActive = true
+            memoShowView.heightAnchor.constraint(lessThanOrEqualToConstant: 190).isActive = true
             memoTextLabelHeight.constant = 33
-            memoViewBotAnchor.constant = 52
+            memoViewBotAnchor.constant = 22
+        }
+        
+        //8+
+        if UIDevice.current.isiPhone8Plus{
+            memoViewBotAnchor.constant = 22
         }
     }
     
