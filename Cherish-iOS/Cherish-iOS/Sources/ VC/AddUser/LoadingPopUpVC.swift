@@ -25,5 +25,4 @@ class LoadingPopUpVC: UIViewController {
         guard let dvc = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else { return }
         self.navigationController?.pushViewController(dvc, animated: true)
     }
-
 }
