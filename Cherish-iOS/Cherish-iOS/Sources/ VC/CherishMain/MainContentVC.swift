@@ -58,10 +58,10 @@ class MainContentVC: UIViewController {
             LoadingHUD.hide()
         }
         
-        
         // 식물상세페이지로 네비게이션 연결 후 탭바가 사라지기 때문에
         // popViewController 액션으로 다시 메인뷰로 돌아왔을 때 탭바가 나타나야 한다.
         self.tabBarController?.tabBar.isHidden = false
+        LoadingHUD.hide()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -553,6 +553,7 @@ class MainContentVC: UIViewController {
     //MARK: - 메인의 친구 별 물주기, 시들기 상태를 저장할 수 있도록 cherishResultData에 데이터를 할당
     func setMainResultData() {
         
+        cherishResultData.removeAll()
         for i in 0...cherishPeopleData.count - 1 {
             cherishResultData.append(MainPlantConditionData(id: cherishPeopleData[i].id, dDay: cherishPeopleData[i].dDay, isWatering: false, isWithered: false))
         }

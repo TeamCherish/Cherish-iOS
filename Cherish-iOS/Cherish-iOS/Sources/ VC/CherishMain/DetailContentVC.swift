@@ -49,13 +49,23 @@ class DetailContentVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
+        //식물 추가했을 때 reload
         if appDel.isCherishAdded == true {
             setCherishPeopleData()
+            appDel.isCherishAdded = false
         }
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name: .postPostponed, object: nil)
+        
+        //식물 삭제했을 때 reload
+        if appDel.isCherishDeleted == true {
+            setCherishPeopleData()
+            appDel.isCherishDeleted = false
+        }
+        
+        //식물 수정했을 때 reload
+        if appDel.isCherishEdited == true {
+            setCherishPeopleData()
+            appDel.isCherishEdited = false
+        }
     }
     
     //MARK: - 헤더 뷰 라운드로 만드는 함수
@@ -77,6 +87,15 @@ class DetailContentVC: UIViewController {
                     cherishPeopleData = mainResultData.result
                     cherishPeopleCountLabel.text = "\(cherishPeopleData.count)"
                     self.cherishPeopleCV.reloadData()
+                    
+                    if cherishPeopleData.count == 0 {
+                        let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
+                        if let vc = storyBoard.instantiateViewController(identifier: "NoPlantVC") as? NoPlantVC {
+                            
+                            self.navigationController?.pushViewController(vc, animated: true)
+                            self.tabBarController?.tabBar.isHidden = true
+                        }
+                    }
                 }
             case .requestErr(let msg):
                 if let message = msg as? String {
@@ -151,13 +170,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             
             if cherishPeopleData.count != 0 {
                 
-                //Noti를 한번만 보내기 위해 숫자를 count
-                if sendCount == 0 {
-                    
-                    NotificationCenter.default.post(name: .sendPeopleDataArray, object: cherishPeopleData)
-                    
-                    sendCount += 1
-                }
+                NotificationCenter.default.post(name: .sendPeopleDataArray, object: cherishPeopleData)
                 
                 let plantName = UserDefaults.standard.string( forKey: "selectedPlantName")
                 
@@ -299,37 +312,41 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
         
         if indexPath.item > 0 {
             
-            // appDelegate에 전역변수를 생성해주고, 한번 셀이 눌린 후로는 그 값을 true로 바꿔준다
-            appDel.isCherishPeopleCellSelected = true
-            
-            // 셀이 눌릴 때마다 UserDefaults에 값을 새로 저장해준다
-            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].nickname, forKey: "selectedNickNameData")
-            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].thumbnailImageURL, forKey: "selectedPlantNameData")
-            print(cherishPeopleData[indexPath.row - 1].plantName)
-            UserDefaults.standard.set(true, forKey: "selectedData")
-            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].growth, forKey: "selectedGrowthData")
-            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].dDay, forKey: "selecteddDayData")
-            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].modifier, forKey: "selectedModifierData")
-            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].plantName, forKey: "selectedPlantName")
-            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].gif, forKey: "selectedGif")
-            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].main_bg, forKey: "selectedMainBg")
-            
-            
-            //선택된 친구의 인덱스 값과 전화번호를 저장해준다
-            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].id, forKey: "selectedFriendIdData")
-            UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].phone, forKey: "selectedFriendPhoneData")
-            UserDefaults.standard.set(indexPath.row - 1, forKey: "selectedRowIndexPath")
-            
-            
-            selectedIndexPath = indexPath
-            
-            UIView.performWithoutAnimation {
-                cherishPeopleCV.reloadData()
-                cherishPeopleCV.reloadItems(at: [IndexPath(item: 0, section: 0)])
+            if cherishPeopleData.count != 0 {
+                
+                // appDelegate에 전역변수를 생성해주고, 한번 셀이 눌린 후로는 그 값을 true로 바꿔준다
+                appDel.isCherishPeopleCellSelected = true
+                
+                // 셀이 눌릴 때마다 UserDefaults에 값을 새로 저장해준다
+                UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].nickname, forKey: "selectedNickNameData")
+                UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].thumbnailImageURL, forKey: "selectedPlantNameData")
+                print(cherishPeopleData[indexPath.row - 1].plantName)
+                UserDefaults.standard.set(true, forKey: "selectedData")
+                UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].growth, forKey: "selectedGrowthData")
+                UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].dDay, forKey: "selecteddDayData")
+                UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].modifier, forKey: "selectedModifierData")
+                UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].plantName, forKey: "selectedPlantName")
+                UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].gif, forKey: "selectedGif")
+                UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].main_bg, forKey: "selectedMainBg")
+                
+                
+                //선택된 친구의 인덱스 값과 전화번호를 저장해준다
+                UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].id, forKey: "selectedFriendIdData")
+                UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].phone, forKey: "selectedFriendPhoneData")
+                UserDefaults.standard.set(indexPath.row - 1, forKey: "selectedRowIndexPath")
+                
+                
+                selectedIndexPath = indexPath
+                
+                UIView.performWithoutAnimation {
+                    cherishPeopleCV.reloadData()
+                    cherishPeopleCV.reloadItems(at: [IndexPath(item: 0, section: 0)])
+                }
+                
             }
+            // 셀이 눌렸을 때 노치 사이즈 줄어들기 위해 보내는 noti
+            NotificationCenter.default.post(name: .cherishPeopleCellClicked, object: nil)
             
         }
-        // 셀이 눌렸을 때 노치 사이즈 줄어들기 위해 보내는 noti
-        NotificationCenter.default.post(name: .cherishPeopleCellClicked, object: nil)
     }
 }
