@@ -9,6 +9,12 @@ import UIKit
 
 class NoPlantVC: UIViewController {
 
+    @IBOutlet weak var addBtn: UIButton!{
+        didSet{
+            addBtn.backgroundColor = .seaweed
+            addBtn.makeRounded(cornerRadius: 25.0)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
