@@ -13,7 +13,6 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     var mypagePlantCount: Int = 0
     var mypageContactCount: Int = 0
     
-    
     @IBOutlet var mypageUserImageView: UIImageView!
     @IBOutlet var mypageNaviView: UIView!
     @IBOutlet var mypageHeaderView: PassthroughView!
@@ -55,15 +54,24 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
         makeCornerRadiusView(stickyHeaderView, 30)
         addNavigationSwipeGuesture()
         addFloatingBtn.isHidden = true
+        setUserImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         LoadingHUD.show()
         getMypageData()
+        setUserImage()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         LoadingHUD.hide()
+    }
+    
+    func setUserImage() {
+        if let image: UIImage
+            = ImageFileManager.shared.getSavedImage(named: UserDefaults.standard.string(forKey: "uniqueImageName")!) {
+            mypageUserImageView.image = image
+        }
     }
     
     func setDelegates() {
@@ -92,6 +100,7 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
         statusBarView.backgroundColor = statusBarColor
         view.addSubview(statusBarView)
     }
+    
     
     //MARK: - 프로필 이미지 뷰 round 처리
     func setImageViewRounded() {

@@ -14,6 +14,7 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet var showMoreTV: UITableView!
     @IBOutlet var userNicknameLabel: UILabel!
     @IBOutlet var userEmailLabel: UILabel!
+    @IBOutlet var userImageView: UIImageView!
     
     var infoTitleArray:[String] = ["About Cherish", "개인정보처리방침", "서비스이용약관", "1대1 문의하기"]
     var logInfoTitleArray:[String] = ["로그아웃", "회원탈퇴"]
@@ -24,10 +25,14 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
         setUserInfo()
         addNavigationSwipeGuesture()
         addNotificationObserver()
+        setUserImage()
+        setImageViewRounded()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setUserInfo()
+        setUserImage()
+        setImageViewRounded()
     }
     
     //MARK: - addObserver
@@ -50,6 +55,19 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
     //MARK: - add Swipe Guesture that go back to parentVC
     func addNavigationSwipeGuesture() {
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
+    }
+    
+    func setUserImage() {
+        if let image: UIImage
+            = ImageFileManager.shared.getSavedImage(named: UserDefaults.standard.string(forKey: "uniqueImageName")!) {
+            userImageView.image = image
+        }
+    }
+    
+    //MARK: - 프로필 이미지 뷰 round 처리
+    func setImageViewRounded() {
+        userImageView.clipsToBounds = true
+        userImageView.layer.cornerRadius = userImageView.frame.height / 2
     }
     
     //MARK: - set User Informations

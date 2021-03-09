@@ -7,12 +7,16 @@
 
 import UIKit
 
-class NicknameChangeVC: UIViewController {
+class NicknameChangeVC: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet var userNicknameTextField: UITextField!
     @IBOutlet var userEmailTextField: UITextField!
     @IBOutlet var nicknameChangeCompleteBtn: UIButton!
     @IBOutlet var cancelNicknameTextingBtn: UIButton!
+    @IBOutlet var userImageView: UIImageView!
+    var profileImg: UIImage?
+    var profileImgName: String = ""
+    var isImage: Bool = false
     private let MAX_LENGTH = 6
     
     override func viewDidLoad() {
@@ -26,11 +30,28 @@ class NicknameChangeVC: UIViewController {
         keyboardObserver()
         textFieldEditingCheck()
         nicknameChangeCompleteBtn.isEnabled = false
+        setUserImage()
+        setImageViewRounded()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: NSNotification.Name(UITextField.textDidChangeNotification.rawValue) , object: userNicknameTextField)
         
         
         // Do any additional setup after loading the view.
     }
+    
+    func setUserImage() {
+        if let image: UIImage
+            = ImageFileManager.shared.getSavedImage(named: UserDefaults.standard.string(forKey: "uniqueImageName")!) {
+            userImageView.image = image
+        }
+    }
+    
+    //MARK: - 프로필 이미지 뷰 round 처리
+    func setImageViewRounded() {
+        userImageView.clipsToBounds = true
+        userImageView.layer.cornerRadius = userImageView.frame.height / 2
+    }
+
     
     //MARK: - 버튼 내 텍스트 자간 설정
     func setButtonTextKerns(_ kernValue: CGFloat) {
@@ -142,6 +163,13 @@ class NicknameChangeVC: UIViewController {
         self.present(nicknameChangeSuccessAlert, animated: true, completion: nil)
     }
     
+    @IBAction func touchUpToChangePhotoBtn(_ sender: Any) {
+        let myPicker = UIImagePickerController()
+        myPicker.delegate = self
+        myPicker.sourceType = .photoLibrary
+        self.present(myPicker, animated: true, completion: nil)
+    }
+    
     @IBAction func touchUpToChangeNickname(_ sender: UIButton) {
         ChangeNicknameService.shared.updateNicknameInfo(userId:UserDefaults.standard.integer(forKey: "userID"), nickname: userNicknameTextField.text ?? "") { [self]
             (networkResult) -> (Void) in
@@ -152,6 +180,9 @@ class NicknameChangeVC: UIViewController {
                 
                 //닉네임 변경 후 update된 닉네임을 Userdefaults에 저장
                 UserDefaults.standard.set(userNicknameTextField.text, forKey: "userNickname")
+                
+                UserDefaults.standard.set(profileImg, forKey: "userProfileImg")
+                UserDefaults.standard.synchronize()
                 
             case .requestErr(let msg):
                 if let message = msg as? String {
@@ -212,5 +243,32 @@ extension NicknameChangeVC: UITextFieldDelegate {
                 }
             }
         }
+    }
+}
+extension NicknameChangeVC: UIImagePickerControllerDelegate {
+    func imagePickerController (_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            self.userImageView.image = image
+            isImage = true
+            
+            if isImage == true {
+                nicknameChangeCompleteBtn.isEnabled = true
+            }
+            
+            let uniqueFileName: String
+              = "(ProcessInfo.processInfo.globallyUniqueString).jpeg"
+            
+            ImageFileManager.shared
+              .saveImage(image: image,
+                         name: uniqueFileName) { [weak self] onSuccess in
+              print("saveImage onSuccess: \(onSuccess)")
+                UserDefaults.standard.set(uniqueFileName, forKey: "uniqueImageName")
+            }
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel (_ picker: UIImagePickerController) { self.dismiss(animated: true, completion: nil)
     }
 }

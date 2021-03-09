@@ -26,6 +26,7 @@
 		332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7C025A72A4800D0047D /* MypageContactData.swift */; };
 		3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3346B34625AB77E300EF5E14 /* AlarmVC.swift */; };
 		335B3A3025EF805400DD7A6F /* LoginNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B3A2F25EF805400DD7A6F /* LoginNC.swift */; };
+		335B8FE825F797A800A03640 /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B8FE725F797A800A03640 /* ImageFileManager.swift */; };
 		335D8F4025F4CDD600FE4C7F /* MainPlantConditionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335D8F3F25F4CDD600FE4C7F /* MainPlantConditionData.swift */; };
 		336C6D9325E63EAD003865C3 /* ShowMoreNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C6D9225E63EAD003865C3 /* ShowMoreNC.swift */; };
 		336C6D9625E63FAB003865C3 /* NicknameChangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */; };
@@ -204,6 +205,7 @@
 		3346B34325AB653D00EF5E14 /* Cherish-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cherish-iOS.entitlements"; sourceTree = "<group>"; };
 		3346B34625AB77E300EF5E14 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
 		335B3A2F25EF805400DD7A6F /* LoginNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNC.swift; sourceTree = "<group>"; };
+		335B8FE725F797A800A03640 /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
 		335D8F3F25F4CDD600FE4C7F /* MainPlantConditionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPlantConditionData.swift; sourceTree = "<group>"; };
 		336C6D9225E63EAD003865C3 /* ShowMoreNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreNC.swift; sourceTree = "<group>"; };
 		336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameChangeVC.swift; sourceTree = "<group>"; };
@@ -612,6 +614,7 @@
 				33E8754B25A0D272001F84FE /* ProgressBarView.swift */,
 				548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */,
 				5491593025DBADC6008104FC /* CustomPageControl.swift */,
+				335B8FE725F797A800A03640 /* ImageFileManager.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -1320,6 +1323,7 @@
 				33E8754225A08CFE001F84FE /* CherishSelectPersonCVC.swift in Sources */,
 				33805F9725ACE24E005CED0F /* PlantDetailService.swift in Sources */,
 				33805F7E25AC6209005CED0F /* LoginService.swift in Sources */,
+				335B8FE825F797A800A03640 /* ImageFileManager.swift in Sources */,
 				548DF17E25A1EE730081FCD1 /* ReviewVC.swift in Sources */,
 				92911FCF25DEAC6A00B4A95F /* MyPageSearchVC.swift in Sources */,
 				33EAA2EF25B17D3D00E75F95 /* PlantDetailCardService.swift in Sources */,

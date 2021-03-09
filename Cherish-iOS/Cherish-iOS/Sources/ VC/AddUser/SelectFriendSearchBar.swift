@@ -96,8 +96,10 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     }
         
     func getContacts() {
+        
         if let data = UserDefaults.standard.value(forKey: "userContacts") as? Data {
             let contacts = try? PropertyListDecoder().decode([Friend].self, from: data)
+            
 
             friendList = contacts!
             
