@@ -46,6 +46,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nextBtn.isEnabled = false
         tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
