@@ -43,18 +43,47 @@ class PlantResultVC: UIViewController {
     let min: UIColor = UIColor(red: 123/255, green: 166/255, blue: 154/255, alpha: 1.0)
     let stuiki: UIColor = UIColor(red: 136/255, green: 162/255, blue: 196/255, alpha: 1.0)
     let dan: UIColor = UIColor(red: 125/255, green: 159/255, blue: 188/255, alpha: 1.0)
+    
+    func goToCherishMainView(){
+        let tabBarStoyboard: UIStoryboard = UIStoryboard(name: "TabBar", bundle: nil)
+        if let tabBarVC = tabBarStoyboard.instantiateViewController(identifier: "CherishTabBarController") as? CherishTabBarController {
+            tabBarVC.modalPresentationStyle = .fullScreen
+            self.present(tabBarVC, animated: true, completion: nil)
+        }
+    }
 
     
     @IBAction func startToMain(_ sender: Any) {
         appDel.isCherishAdded = true
-
-        if self.checkInitial == "initial" {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "CherishMain", bundle: nil)
-            guard let dvc = storyBoard.instantiateViewController(identifier: "MainContentVC") as? MainContentVC else {return}
-            self.navigationController?.pushViewController(dvc, animated: true)
-        }
-        else {
-            self.navigationController?.popToRootViewController(animated: true)
+        var userId = UserDefaults.standard.integer(forKey: "UserId")
+        let storyBoard: UIStoryboard = UIStoryboard(name: "CherishMain", bundle: nil)
+        
+        guard let dvc = storyBoard.instantiateViewController(identifier: "MainContentVC") as? MainContentVC else {return}
+        
+        MainService.shared.inquireMainView(idx: userId){ [self]
+            (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                if let mainData = data as? MainData {
+                    print(mainData.totalCherish)
+                    // 등록된 소중한 사람의 수가 존재한다면
+                    if mainData.totalCherish > 0 {
+                        self.navigationController?.popToRootViewController(animated: true)
+                    }
+                    // 소중한 사람이 한명도 등록되지 않았다면
+                    else {
+                        goToCherishMainView()
+                    }
+                }
+            case .requestErr:
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
         }
     }
     

@@ -219,6 +219,9 @@ class PlantEditVC: UIViewController {
                     let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
                         // 메인 뷰로 돌아가기
                         self.navigationController?.popToRootViewController(animated: true)
+                        
+                        // 삭제하고 남은 식물이 0개면 '등록해주세요 웅엥'
+                        
                     }
                     realert.addAction(okAction)
                     present(realert, animated: true, completion: nil)
