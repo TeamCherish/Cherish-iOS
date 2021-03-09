@@ -59,9 +59,14 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
     
     func setUserImage() {
         if let image: UIImage
-            = ImageFileManager.shared.getSavedImage(named: UserDefaults.standard.string(forKey: "uniqueImageName")!) {
+            = ImageFileManager.shared.getSavedImage(named: UserDefaults.standard.string(forKey: "uniqueImageName") ?? "") {
+            
+            if image == nil {
+                userImageView.image = UIImage(named: "userImg")
+            }
             userImageView.image = image
         }
+        
     }
     
     //MARK: - 프로필 이미지 뷰 round 처리

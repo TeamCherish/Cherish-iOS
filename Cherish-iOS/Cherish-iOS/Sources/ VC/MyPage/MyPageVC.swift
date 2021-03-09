@@ -69,7 +69,11 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     
     func setUserImage() {
         if let image: UIImage
-            = ImageFileManager.shared.getSavedImage(named: UserDefaults.standard.string(forKey: "uniqueImageName")!) {
+            = ImageFileManager.shared.getSavedImage(named: UserDefaults.standard.string(forKey: "uniqueImageName") ?? "") {
+            
+            if image == nil {
+                mypageUserImageView.image = UIImage(named: "userImg")
+            }
             mypageUserImageView.image = image
         }
     }
