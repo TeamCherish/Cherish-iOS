@@ -469,6 +469,14 @@ class PlantDetailVC: UIViewController {
         wateringBtn.layer.cornerRadius = 25
     }
     
+    //MARK: -Alert View
+    func noWateringDayAlert(title: String) {
+        let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인",style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
     //MARK: - 식물카드 클릭시 isClicked의 상태를 바꿔줘서 클릭 액션을 주는 함수
     @IBAction func plantDetailBtnClicked(_ sender: UIButton) {
         
@@ -608,14 +616,27 @@ class PlantDetailVC: UIViewController {
         }
     }
     
-    
+    //MARK: - 물주기
     @IBAction func moveToWatering(_ sender: Any) {
-        
-        let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpWatering", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpWateringVC") as? PopUpWateringVC {
-            vc.modalPresentationStyle = .overFullScreen ///탭바까지 Alpha값으로 덮으면서 팝업뷰
-            vc.modalTransitionStyle = .crossDissolve
-            self.present(vc, animated: true, completion: nil)
+        if UserDefaults.standard.integer(forKey: "selecteddDayData") > 0 {
+            // D-day가 아닐경우 미리 물주기 금지
+            noWateringDayAlert(title: "아직 목이 마르지 않아요")
+        }else if UserDefaults.standard.integer(forKey: "selecteddDayData") < 0{
+            // D+day일 경우 미루기가 없는 물주기 팝업
+            let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpWatering", bundle: nil)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpWatering_WithoutLaterVC") as? PopUpWatering_WithoutLaterVC{
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                self.present(vc, animated: true, completion: nil)
+            }
+        }else{
+            // D-day일 경우 기본 물주기 팝업
+            let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpWatering", bundle: nil)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpWateringVC") as? PopUpWateringVC{
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                self.present(vc, animated: true, completion: nil)
+            }
         }
     }
 }

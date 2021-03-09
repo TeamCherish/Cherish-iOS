@@ -175,6 +175,9 @@
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021년 1월 6일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9f-V6-OcS">
                                                 <rect key="frame" x="16" y="22" width="104" height="18.666666666666671"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="750" constant="24" id="szn-gj-cEZ"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="16"/>
                                                 <color key="textColor" name="black"/>
                                                 <nil key="highlightedColor"/>
