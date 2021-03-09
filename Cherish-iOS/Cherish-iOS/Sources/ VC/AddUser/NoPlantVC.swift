@@ -14,14 +14,10 @@ class NoPlantVC: UIViewController {
     }
     
     @IBAction func touchUpToAddNC(_ sender: UIButton) {
-//        guard let dvc = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else {return}
-//        dvc.checkInitial = 1
-//        print("첫 식물이야")
-//        print(dvc.checkInitial)
+        guard let dvc = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else {return}
+        dvc.checkInitial = "initial"
         
-        let dvc = PlantResultVC(nibName: "PlantResultVC", bundle: nil)
-        dvc.checkInitial = 1
-        print("첫 식물~")
+        print("첫 식물이야")
         print(dvc.checkInitial)
         
         if let vc = self.storyboard?.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar {

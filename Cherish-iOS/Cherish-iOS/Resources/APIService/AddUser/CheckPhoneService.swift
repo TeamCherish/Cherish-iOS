@@ -14,8 +14,13 @@ struct CheckPhoneService {
     func checkPhone(phone: String, UserId: Int, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         let url = APIConstants.checkPhoneURL
         let header: HTTPHeaders = [ "Contentp-Type" : "application/json" ]
+        let body: Parameters = [
+            "phone": phone,
+            "UserId" : UserId
+        ]
         let dataRequest = AF.request(url,
                                      method: .post,
+                                     parameters: body,
                                      encoding: JSONEncoding.default,
                                      headers: header)
         dataRequest.responseData {(response) in

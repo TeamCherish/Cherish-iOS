@@ -611,7 +611,6 @@
                                                         <constraint firstAttribute="height" constant="54" id="U8a-4H-609"/>
                                                     </constraints>
                                                 </imageView>
-
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFC-C9-JGL" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                                     <rect key="frame" x="80" y="34" width="0.0" height="24"/>
                                                     <constraints>
@@ -626,7 +625,6 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ua3-7u-m7j" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                                     <rect key="frame" x="80" y="59" width="0.0" height="18"/>
                                                     <constraints>
@@ -648,7 +646,6 @@
                                                         <constraint firstAttribute="height" constant="25" id="lHg-uj-rK8"/>
                                                     </constraints>
                                                 </view>
-
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qV-yR-Pka" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                                     <rect key="frame" x="329" y="44.666666666666664" width="0.0" height="22.999999999999993"/>
                                                     <constraints>

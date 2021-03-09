@@ -156,29 +156,7 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MyPageSearchPlantVC: UISearchBarDelegate {
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        filteredData = []
-//
-//        if searchText == "" {
-//            filteredData = friendList
-//        }
-//        else {
-//            checkSearch = 1
-//
-//            for friend in friendList {
-//                if friend.name.contains(searchText) {
-//                    filteredData.append(contentsOf: [
-//                                            Friend(name: friend.name, phoneNumber: friend.phoneNumber, selected: friend.selected)])
-//                }
-//                else if friend.phoneNumber.contains(searchText) {
-//                    filteredData.append(contentsOf: [Friend(name: friend.name, phoneNumber: friend.phoneNumber, selected: friend.selected)])
-//                }
-//
-//            }
-//
-//        }
-//        self.tableView.reloadData()
-//    }
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredPlant = []
         

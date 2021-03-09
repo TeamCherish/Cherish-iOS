@@ -85,42 +85,38 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
                 dvc.givenPhoneNumber = filteredData[index].phoneNumber
             }
             
-            print(dvc.givenName)
-            print(dvc.givenPhoneNumber)
-            
-            
             // 중복된 연락처라고 알려줄 팝업
             let alert = UIAlertController.init(title: "이미 등록된 연락처입니다", message: "", preferredStyle: .alert)
             let okAction = UIAlertAction.init(title: "확인", style: .default, handler: nil)
             alert.addAction(okAction)
             
-            // 연락처 중복 검사
-//            CheckPhoneService.shared.checkPhone(phone: dvc.givenPhoneNumber!, UserId: UserDefaults.standard.integer(forKey: "userID")) { [self](networkResult) -> (Void) in
-//                switch networkResult {
-//                case .success(_):
-//                    print("통신성공")
-//                    dvc.modalPresentationStyle = .fullScreen
-//                    self.navigationController?.pushViewController(dvc, animated: true)
-//                case .requestErr(_):
-//                    print("requestErr")
-//                    present(alert, animated: true, completion: nil)
-//                    nextBtn.isEnabled = false
-//                case .pathErr:
-//                    print("pathErr")
-//                    present(alert, animated: true, completion: nil)
-//                    nextBtn.isEnabled = false
-//                case .serverErr:
-//                    print("serverErr")
-//                    present(alert, animated: true, completion: nil)
-//                    nextBtn.isEnabled = false
-//                case .networkFail:
-//                    print("networkFail")
-//                    present(alert, animated: true, completion: nil)
-//                    nextBtn.isEnabled = false
-//                }
-//            }
-            dvc.modalPresentationStyle = .fullScreen
-            self.navigationController?.pushViewController(dvc, animated: true)
+            var phoneNumber: String = dvc.givenPhoneNumber!
+            var userId = UserDefaults.standard.integer(forKey: "userID")
+            
+            CheckPhoneService.shared.checkPhone(phone: phoneNumber , UserId: userId) { [self](networkResult) -> (Void) in
+                switch networkResult {
+                case .success(_):
+                    print("통신성공")
+                    dvc.modalPresentationStyle = .fullScreen
+                    self.navigationController?.pushViewController(dvc, animated: true)
+                case .requestErr(_):
+                    print("requestErr")
+                    present(alert, animated: true, completion: nil)
+                    nextBtn.isEnabled = false
+                case .pathErr:
+                    print("pathErr")
+                    present(alert, animated: true, completion: nil)
+                    nextBtn.isEnabled = false
+                case .serverErr:
+                    print("serverErr")
+                    present(alert, animated: true, completion: nil)
+                    nextBtn.isEnabled = false
+                case .networkFail:
+                    print("networkFail")
+                    present(alert, animated: true, completion: nil)
+                    nextBtn.isEnabled = false
+                }
+            }
         }
     }
         
