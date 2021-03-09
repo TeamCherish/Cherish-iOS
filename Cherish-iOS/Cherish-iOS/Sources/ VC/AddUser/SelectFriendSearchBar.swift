@@ -69,16 +69,12 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     }
     @IBAction func touchUpNextBtn(_ sender: Any) {
         if nextBtn.isEnabled == true {
-            
-            // 중복 검사 여기서!
-            // 다음 버튼 눌렀을 때 -> 어떤 cell이 선택된건지 정보 받아와서 그거 폰 번호로 중복 검사 하면 될듯
 
             guard let dvc = self.storyboard?.instantiateViewController(identifier: "InputDetailVC") as? InputDetailVC else {return}
             
             
             // 만약 검색창이 사용되지 않았으면 -> friendList에서
             // 검색창이 사용됐으면 -> filteredData 에서
-            
             if checkSearch == 0 {
                 dvc.givenName = friendList[index].name
                 dvc.givenPhoneNumber = friendList[index].phoneNumber
@@ -89,9 +85,38 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
                 dvc.givenPhoneNumber = filteredData[index].phoneNumber
             }
             
+            // 중복된 연락처라고 알려줄 팝업
+            let alert = UIAlertController.init(title: "이미 등록된 연락처입니다", message: "", preferredStyle: .alert)
+            let okAction = UIAlertAction.init(title: "확인", style: .default, handler: nil)
+            alert.addAction(okAction)
             
-            dvc.modalPresentationStyle = .fullScreen
-            self.navigationController?.pushViewController(dvc, animated: true)
+            var phoneNumber: String = dvc.givenPhoneNumber!
+            var userId = UserDefaults.standard.integer(forKey: "userID")
+            
+            CheckPhoneService.shared.checkPhone(phone: phoneNumber , UserId: userId) { [self](networkResult) -> (Void) in
+                switch networkResult {
+                case .success(_):
+                    print("통신성공")
+                    dvc.modalPresentationStyle = .fullScreen
+                    self.navigationController?.pushViewController(dvc, animated: true)
+                case .requestErr(_):
+                    print("requestErr")
+                    present(alert, animated: true, completion: nil)
+                    nextBtn.isEnabled = false
+                case .pathErr:
+                    print("pathErr")
+                    present(alert, animated: true, completion: nil)
+                    nextBtn.isEnabled = false
+                case .serverErr:
+                    print("serverErr")
+                    present(alert, animated: true, completion: nil)
+                    nextBtn.isEnabled = false
+                case .networkFail:
+                    print("networkFail")
+                    present(alert, animated: true, completion: nil)
+                    nextBtn.isEnabled = false
+                }
+            }
         }
     }
         

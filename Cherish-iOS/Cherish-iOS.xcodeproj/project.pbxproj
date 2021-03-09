@@ -157,6 +157,8 @@
 		923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */; };
 		9244DF0C25AB90F00014FF5D /* PlantResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */; };
 		9244DF1225AB92220014FF5D /* LoadingPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */; };
+		927DE44225F5F6C500B73129 /* CheckPhoneData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927DE44125F5F6C500B73129 /* CheckPhoneData.swift */; };
+		927DE44525F5F73500B73129 /* CheckPhoneService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927DE44425F5F73500B73129 /* CheckPhoneService.swift */; };
 		92824D9425B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824D9325B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift */; };
 		92824D9C25B16E94003D7678 /* SearchPlantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824D9A25B16E94003D7678 /* SearchPlantCell.swift */; };
 		92824D9D25B16E94003D7678 /* SearchPlantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92824D9B25B16E94003D7678 /* SearchPlantCell.xib */; };
@@ -337,6 +339,8 @@
 		923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendVC.swift; sourceTree = "<group>"; };
 		9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantResultVC.swift; sourceTree = "<group>"; };
 		9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPopUpVC.swift; sourceTree = "<group>"; };
+		927DE44125F5F6C500B73129 /* CheckPhoneData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPhoneData.swift; sourceTree = "<group>"; };
+		927DE44425F5F73500B73129 /* CheckPhoneService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPhoneService.swift; sourceTree = "<group>"; };
 		92824D9325B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSearchPlantHeaderCell.swift; sourceTree = "<group>"; };
 		92824D9A25B16E94003D7678 /* SearchPlantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlantCell.swift; sourceTree = "<group>"; };
 		92824D9B25B16E94003D7678 /* SearchPlantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPlantCell.xib; sourceTree = "<group>"; };
@@ -979,6 +983,7 @@
 			isa = PBXGroup;
 			children = (
 				9214410125ACE7BD00853E53 /* AddUserService.swift */,
+				927DE44425F5F73500B73129 /* CheckPhoneService.swift */,
 			);
 			path = AddUser;
 			sourceTree = "<group>";
@@ -1029,6 +1034,7 @@
 			children = (
 				92B2306425A30F390024B8A8 /* Friend.swift */,
 				92B0F9D825AEB15400AA411A /* AddUserData.swift */,
+				927DE44125F5F6C500B73129 /* CheckPhoneData.swift */,
 			);
 			path = AddUser;
 			sourceTree = "<group>";
@@ -1302,6 +1308,7 @@
 				335B3A3025EF805400DD7A6F /* LoginNC.swift in Sources */,
 				546A247025ACD32800F869E2 /* WateringReviewService.swift in Sources */,
 				92911FDA25DFA28B00B4A95F /* DeletePlantService.swift in Sources */,
+				927DE44525F5F73500B73129 /* CheckPhoneService.swift in Sources */,
 				92911FC025DCF37800B4A95F /* PlantEditVC.swift in Sources */,
 				5491596625E15102008104FC /* MessageAuthData.swift in Sources */,
 				33E8754925A09440001F84FE /* NotificationName.swift in Sources */,
@@ -1316,6 +1323,7 @@
 				548DF19925A2E1780081FCD1 /* PopUpLaterVC.swift in Sources */,
 				54425C3D25AF58BF00E62BAB /* FetchCalendar.swift in Sources */,
 				33851C76259A5541005BCFFD /* SceneDelegate.swift in Sources */,
+				927DE44225F5F6C500B73129 /* CheckPhoneData.swift in Sources */,
 				92DCC3EA25A85D7100160523 /* SelectFriendCell.swift in Sources */,
 				33E8752625A05D34001F84FE /* MainContentVC.swift in Sources */,
 				54425C2425ADBE0700E62BAB /* RecentKeywordService.swift in Sources */,

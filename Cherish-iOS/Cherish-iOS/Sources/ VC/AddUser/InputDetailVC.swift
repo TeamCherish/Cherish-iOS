@@ -46,6 +46,8 @@ class InputDetailVC: UIViewController {
     //MARK: - viewDidLoad()
     
     override func viewDidLoad() {
+        print(givenName)
+        print(givenPhoneNumber)
         super.viewDidLoad()
         setBirthPickerData()
         completeBtn.isEnabled = false

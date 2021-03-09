@@ -226,6 +226,7 @@ class PlantEditVC: UIViewController {
                         UserDefaults.standard.set(0, forKey: "selectedGrowthData")
                         UserDefaults.standard.set(0, forKey: "selectedGrowthData")
                         UserDefaults.standard.set("", forKey: "selectedModifierData")
+
                     }
                     realert.addAction(okAction)
                     present(realert, animated: true, completion: nil)

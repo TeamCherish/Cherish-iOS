@@ -74,8 +74,16 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
             let contacts = try? PropertyListDecoder().decode([Friend].self, from: data)
             
             friendList = contacts!
+            
+            // 숫자 -> 한글 가나다순 -> 영어순으로 정렬
+            friendList = friendList.sorted(by: {$0.name.localizedStandardCompare($1.name) == .orderedAscending })
+            // 숫자로 시작하는 문자열 추출 후 저장
+            let startNumberArray = friendList.filter{$0.name.first?.isNumber == true}
+            // 문자로 시작하는 문자열만 추출해서 저장
+            friendList = friendList.filter{$0.name.first?.isNumber == false}
+            // 문자로 시작하는 문자열 뒤에 숫자로 시작하는 문자열 병합
+            friendList.append(contentsOf: startNumberArray)
         }
-
     }
     
     func resetSelectFriendVC() {
@@ -183,12 +191,38 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
                 dvc.givenName = filteredData[index].name
                 dvc.givenPhoneNumber  = filteredData[index].phoneNumber
             }
-            print(dvc.givenName)
-            print(dvc.givenPhoneNumber)
-            dvc.modalPresentationStyle = .fullScreen
-            self.navigationController?.pushViewController(dvc, animated: true)
-
+            
+            // 중복된 연락처라고 알려줄 팝업
+            let alert = UIAlertController.init(title: "이미 등록된 연락처입니다", message: "", preferredStyle: .alert)
+            let okAction = UIAlertAction.init(title: "확인", style: .default, handler: nil)
+            alert.addAction(okAction)
+            
+            // 연락처 중복 검사
+            CheckPhoneService.shared.checkPhone(phone: dvc.givenPhoneNumber!, UserId: UserDefaults.standard.integer(forKey: "userID")) { [self](networkResult) -> (Void) in
+                switch networkResult {
+                case .success(_):
+                    print("통신성공")
+                    dvc.modalPresentationStyle = .fullScreen
+                    self.navigationController?.pushViewController(dvc, animated: true)
+                case .requestErr(_):
+                    print("requestErr")
+                    present(alert, animated: true, completion: nil)
+                    moveToAddBtn.isEnabled = false
+                case .pathErr:
+                    print("pathErr")
+                    present(alert, animated: true, completion: nil)
+                    moveToAddBtn.isEnabled = false
+                case .serverErr:
+                    print("serverErr")
+                    present(alert, animated: true, completion: nil)
+                    moveToAddBtn.isEnabled = false
+                case .networkFail:
+                    print("networkFail")
+                    present(alert, animated: true, completion: nil)
+                    moveToAddBtn.isEnabled = false
+                }
             }
+        }
     }
     
 }
