@@ -12,6 +12,12 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     var changingIndex = false
     var mypagePlantCount: Int = 0
     var mypageContactCount: Int = 0
+    // 뷰 전체 폭 길이
+    let screenWidth = UIScreen.main.bounds.size.width
+    
+    // 뷰 전체 높이 길이
+    let screenHeight = UIScreen.main.bounds.size.height
+   
     
     @IBOutlet var mypageUserImageView: UIImageView!
     @IBOutlet var mypageNaviView: UIView!
@@ -214,10 +220,10 @@ extension MyPageVC: UIScrollViewDelegate {
                 scrollView.contentOffset.x = 0
             }
             // 스크롤 영역보다 오른쪽으로 (375초과값으로) 스크롤 될 때
-            else if scrollView.contentOffset.x > 375 {
+            else if scrollView.contentOffset.x > screenWidth {
                 // contentOffset.x 값을 오른쪽 최대값인 375로 설정
                 /// 이부분은 기기사이즈에 따라 달라지므로 autolayout 다시 살펴봐야함!
-                scrollView.contentOffset.x = 375
+                scrollView.contentOffset.x = screenWidth
             }
         }
         else {
