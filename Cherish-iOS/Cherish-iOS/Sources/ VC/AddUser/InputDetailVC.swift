@@ -22,9 +22,6 @@ class InputDetailVC: UIViewController {
     
     //MARK: - 변수 지정
     
-    //    var name: String?
-    //    var phoneNumber: String?
-    
     let datePicker = UIDatePicker()
     var periodPicker = UIPickerView()
     
@@ -41,7 +38,6 @@ class InputDetailVC: UIViewController {
     var givenName: String?
     var givenPhoneNumber: String?
     var convertedAlarmTime: String?
-//    var resultPeriod: String?
     
     //MARK: - viewDidLoad()
     

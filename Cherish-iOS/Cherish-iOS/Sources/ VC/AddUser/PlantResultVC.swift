@@ -63,7 +63,7 @@ class PlantResultVC: UIViewController {
         UserDefaults.standard.set(true, forKey: "addUser")
         NotificationCenter.default.post(name: .addUser, object: nil)
 
-        var userId = UserDefaults.standard.integer(forKey: "UserId")
+        var userId = UserDefaults.standard.integer(forKey: "userID")
         let storyBoard: UIStoryboard = UIStoryboard(name: "CherishMain", bundle: nil)
         
         guard let dvc = storyBoard.instantiateViewController(identifier: "MainContentVC") as? MainContentVC else {return}
