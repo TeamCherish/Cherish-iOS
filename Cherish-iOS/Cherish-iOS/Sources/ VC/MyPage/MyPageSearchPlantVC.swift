@@ -20,6 +20,8 @@ class MyPageSearchPlantVC: UIViewController {
     var filteredData: [SearchMypageFriendData] = []
     var newData: [SearchMypageFriendData] = []
 //    var filteredPlant: [MyPlantData] = []
+
+
     
     var myCherishId: [Int] = []
     
@@ -44,10 +46,13 @@ class MyPageSearchPlantVC: UIViewController {
         plantTV.delegate = self
         plantTV.dataSource = self
         plantSearchBar.delegate = self
+        
         setPlantData()
         setSearchBar()
         plantTV.reloadData()
         filteredPlant = newData
+
+
         // Do any additional setup after loading the view.
     }
     
@@ -61,8 +66,8 @@ class MyPageSearchPlantVC: UIViewController {
         plantSearchBar.layer.borderWidth = 0
         plantSearchBar.searchBarStyle = .minimal
         plantSearchBar.setSearchFieldBackgroundImage(UIImage(named: "search_box"), for: .normal)
-        plantSearchBar.sizeToFit()
-        plantSearchBar.searchTextField.sizeToFit()
+//        plantSearchBar.sizeToFit()
+        plantSearchBar.frame = CGRect(x: 16, y: 0, width: 200, height: 44)
         plantSearchBar.searchTextField.textColor = UIColor.black
         plantSearchBar.searchTextField.font = UIFont.init(name: "NotoSansCJKKR-Regular", size: 14)
     }
@@ -120,7 +125,6 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if filteredPlant.count == 0 {
-            print("hi?")
             return mypagePlantArray.count
         }
         return filteredPlant.count
@@ -149,9 +153,6 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         plantIsSelected = true
-        //        let vc = MyPageVC()
-        print("2: my plant임 ㅎㅇㅎㅇ")
-        //        print(vc.myPlantID)
         
         var myCherish: [Int] = UserDefaults.standard.array(forKey: "plantIDArray")! as? [Int] ?? [Int]()
         print(myCherish)
@@ -177,7 +178,7 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
 extension MyPageSearchPlantVC: UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredPlant = []
+        var index: Int = 0
         
         if searchText == "" {
             print("여기로 오닝?")
@@ -192,16 +193,14 @@ extension MyPageSearchPlantVC: UISearchBarDelegate {
                 print("필터",filteredPlant)
         }
         self.plantTV.reloadData()
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         plantSearchBar.searchTextField.resignFirstResponder()
     }
-        
-//        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//            self.plantSearchBar.endEditing(true)
-//        }
-
-        
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.plantSearchBar.endEditing(true)
     }
 }
