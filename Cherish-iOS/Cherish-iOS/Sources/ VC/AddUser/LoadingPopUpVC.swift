@@ -13,7 +13,6 @@ class LoadingPopUpVC: UIViewController {
     
     var mTimer: Timer?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingImgView.loadGif(asset: "loading")

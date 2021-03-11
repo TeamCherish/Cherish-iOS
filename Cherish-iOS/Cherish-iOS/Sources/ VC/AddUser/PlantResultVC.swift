@@ -20,18 +20,10 @@ class PlantResultVC: UIViewController {
     var resultPeriod: String?
     var explanation: String?
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    
-    var checkInitial: String?
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         setPlantLabel()
-        if checkInitial != "initial" {
-            print("nil이네요 0 넣겠슴다")
-            checkInitial = "not Initial"
-        }
-        print("결과뷰")
-        print(checkInitial)
 //        NotificationCenter.default.addObserver(self, selector: #selector(setPlantLabel), name: .sendPlantResult, object: nil)
         // Do any additional setup after loading the view.
     }

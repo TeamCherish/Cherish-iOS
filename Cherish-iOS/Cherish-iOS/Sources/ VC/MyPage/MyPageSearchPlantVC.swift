@@ -80,7 +80,6 @@ class MyPageSearchPlantVC: UIViewController {
             case .success(let data):
                 if let mypageData = data as? MypageData {
                     mypagePlantArray = mypageData.result
-                    print("여기는 영등포")
                     if mypagePlantArray.count != 0 {
                         for _ in 0...mypagePlantArray.count - 1 {
                             newData.append(contentsOf: [SearchMypageFriendData(id: 0, dDay: 0, nickname: "", name: "", thumbnailImageURL: "", level: 0, plantID: 0)])
