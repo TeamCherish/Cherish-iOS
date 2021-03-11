@@ -86,7 +86,6 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
             (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
-                LoadingHUD.show()
                 if let mainResultData = data as? MainData {
                     cherishPeopleData = mainResultData.result
                     cherishPeopleCountLabel.text = "\(cherishPeopleData.count)"
@@ -110,7 +109,6 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
                     else {
                         navigationController?.interactivePopGestureRecognizer!.isEnabled = true
                     }
-                    LoadingHUD.hide()
                 }
             case .requestErr(let msg):
                 if let message = msg as? String {
@@ -181,7 +179,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
     
     //MARK: - cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        LoadingHUD.show()
+        
         /// 선택된 아이템 표시하는 0번째 item
         if indexPath.item == 0 {
             
@@ -271,13 +269,11 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     firstCell.plantImageView.image = UIImage(data: imageData!)
                 }
             }
-            LoadingHUD.hide()
             return firstCell
         }
         
         /// 나머지 items
         else {
-            LoadingHUD.show()
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CherishPeopleCVC", for: indexPath) as! CherishPeopleCVC
             
             if cherishPeopleData.count != 0 {
@@ -318,7 +314,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 }
                 return cell
             }
-            LoadingHUD.hide()
             return cell
         }
     }
@@ -332,7 +327,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
     //MARK: - didSelectItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        LoadingHUD.show()
         if indexPath.item > 0 {
             
             if cherishPeopleData.count != 0 {
@@ -370,7 +364,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             }
             // 셀이 눌렸을 때 노치 사이즈 줄어들기 위해 보내는 noti
             NotificationCenter.default.post(name: .cherishPeopleCellClicked, object: nil)
-            LoadingHUD.hide()
         }
     }
 }
