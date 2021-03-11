@@ -57,6 +57,34 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
+    //MARK: - set User Informations
+    func setUserInfo() {
+        let myPageUserIdx = UserDefaults.standard.integer(forKey: "userID")
+        print(myPageUserIdx)
+        MypageService.shared.inquireMypageView(idx: myPageUserIdx) { [self]
+            (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                if let mypageData = data as? MypageData {
+                    userNicknameLabel.text = "\(mypageData.userNickname)"
+                    userEmailLabel.text = "\(mypageData.email)"
+                    userNicknameLabel.sizeToFit()
+                    userEmailLabel.sizeToFit()
+                    UserDefaults.standard.set(mypageData.email, forKey: "userEmail")
+                    UserDefaults.standard.set(mypageData.userNickname, forKey: "userNickname")
+                }
+            case .requestErr(let msg):
+                print(msg)
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
     func setUserImage() {
         if let image: UIImage
             = ImageFileManager.shared.getSavedImage(named: UserDefaults.standard.string(forKey: "uniqueImageName") ?? "") {
@@ -73,14 +101,6 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
     func setImageViewRounded() {
         userImageView.clipsToBounds = true
         userImageView.layer.cornerRadius = userImageView.frame.height / 2
-    }
-    
-    //MARK: - set User Informations
-    func setUserInfo() {
-        userNicknameLabel.text = UserDefaults.standard.string(forKey: "userNickname")
-        userEmailLabel.text = UserDefaults.standard.string(forKey: "userEmail")
-        userNicknameLabel.sizeToFit()
-        userEmailLabel.sizeToFit()
     }
     
     // sendMailErrorAlert

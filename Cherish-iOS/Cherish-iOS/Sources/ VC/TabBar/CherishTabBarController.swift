@@ -50,24 +50,42 @@ class CherishTabBarController: UITabBarController {
         
         //자동로그인 시
         if (UserDefaults.standard.string(forKey: "autoLogin") != nil) == true {
-            print("자동 로그인")
-            let firstTab = UINavigationController(rootViewController: (CherishMain.instantiateViewController(identifier: "MainSplashVC") as? MainSplashVC)!)
-            firstTab.navigationController?.navigationBar.isHidden = true
             
-            firstTab.tabBarItem.image = UIImage(named: "icnHomeUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
-            firstTab.tabBarItem.selectedImage = UIImage(named: "icnHomeSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
-            
-            let tabs =  [firstTab, secondTab, thirdTab]
-            
-            tabBar.layer.shadowOpacity = 0
-            tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
-            tabBar.barTintColor = .white
-            self.setViewControllers(tabs, animated: false)
+            if appDel.isCherishAdded == true {
+                print("자동 로그인이고 식물추가상태")
+                let firstTab = UINavigationController(rootViewController: (CherishMain.instantiateViewController(identifier: "CherishMainVC") as? CherishMainVC)!)
+                firstTab.navigationController?.navigationBar.isHidden = true
+                firstTab.tabBarItem.image = UIImage(named: "icnHomeUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+                firstTab.tabBarItem.selectedImage = UIImage(named: "icnHomeSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+                
+                let tabs =  [firstTab, secondTab, thirdTab]
+                
+                tabBar.layer.shadowOpacity = 0
+                tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+                tabBar.barTintColor = .white
+                self.setViewControllers(tabs, animated: false)
+                print("here?")
+                appDel.isCherishAdded = false
+            }
+            else {
+                print("자동 로그인")
+                let firstTab = UINavigationController(rootViewController: (CherishMain.instantiateViewController(identifier: "MainSplashVC") as? MainSplashVC)!)
+                firstTab.navigationController?.navigationBar.isHidden = true
+                
+                firstTab.tabBarItem.image = UIImage(named: "icnHomeUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+                firstTab.tabBarItem.selectedImage = UIImage(named: "icnHomeSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+                
+                let tabs =  [firstTab, secondTab, thirdTab]
+                
+                tabBar.layer.shadowOpacity = 0
+                tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+                tabBar.barTintColor = .white
+                self.setViewControllers(tabs, animated: false)
+            }
         }
         
         //수동로그인 시
         else {
-            
             print("수동 로그인")
             let firstTab = UINavigationController(rootViewController: (CherishMain.instantiateViewController(identifier: "CherishMainVC") as? CherishMainVC)!)
             firstTab.navigationController?.navigationBar.isHidden = true

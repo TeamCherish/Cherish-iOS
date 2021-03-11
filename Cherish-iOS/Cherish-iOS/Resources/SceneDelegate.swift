@@ -19,10 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         // 자동 로그인이 될 때 첫 Scnene을 메인뷰로
-        if (UserDefaults.standard.string(forKey: "autoLogin") != nil) == true {
+        if (UserDefaults.standard.string(forKey: "loginEmail") != nil) == true {
                 appDel.isLoginManually = false
                 print("첫 로드 : 메인뷰?")
-                
+                UserDefaults.standard.set(true,forKey: "autoLogin")
                 let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
                 
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController")

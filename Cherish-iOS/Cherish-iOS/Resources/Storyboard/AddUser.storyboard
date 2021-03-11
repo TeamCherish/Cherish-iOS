@@ -486,7 +486,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NJ-4w-ATg" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="94.333333333333329" y="137" width="186.66666666666669" height="83"/>
+                                <rect key="frame" x="99.000000000000014" y="137" width="177.33333333333337" height="65.333333333333314"/>
                                 <string key="text">혼자서도 씩씩한
 따뜻한 민들레</string>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Light" family="Noto Sans CJK KR" pointSize="28"/>
@@ -499,7 +499,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeJ-TW-ozj" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="21.333333333333343" y="618" width="332.66666666666663" height="44"/>
+                                <rect key="frame" x="28.666666666666657" y="600.33333333333337" width="317.66666666666674" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ArN-Su-VaL"/>
                                 </constraints>
@@ -515,7 +515,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yzy-LD-K9Q">
-                                <rect key="frame" x="55" y="263" width="265" height="274"/>
+                                <rect key="frame" x="55" y="245.33333333333337" width="265" height="274"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="yzy-LD-K9Q" secondAttribute="height" multiplier="265:274" id="fu9-tI-FjC"/>
                                     <constraint firstAttribute="height" constant="274" id="msz-hn-pjh"/>
@@ -523,14 +523,14 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Msu-Ba-Cq7">
-                                <rect key="frame" x="105" y="564" width="165" height="27"/>
+                                <rect key="frame" x="105" y="546.33333333333337" width="165" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="sFL-Gs-xlA"/>
                                     <constraint firstAttribute="width" secondItem="Msu-Ba-Cq7" secondAttribute="height" multiplier="55:9" id="wPD-8V-mKn"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꽃말 | " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9e6-7s-bND" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="121" y="567" width="36" height="21"/>
+                                <rect key="frame" x="121" y="549.33333333333337" width="36" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="lNb-v9-tOS"/>
                                 </constraints>
@@ -544,7 +544,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인연에서의 행복" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vQ-e9-edS" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="162" y="567" width="94.333333333333314" height="21"/>
+                                <rect key="frame" x="162" y="549.33333333333337" width="88.666666666666686" height="16.333333333333371"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                 <color key="textColor" red="0.50588235294117645" green="0.53725490196078429" blue="0.70196078431372544" alpha="0.90450059499172186" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

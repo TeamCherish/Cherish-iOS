@@ -137,9 +137,6 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
             friendList = friendList.filter{$0.name.first?.isNumber == false}
             // 문자로 시작하는 문자열 뒤에 숫자로 시작하는 문자열 병합
             friendList.append(contentsOf: startNumberArray)
-            
-            print(friendList)
-            
         }
     }
     

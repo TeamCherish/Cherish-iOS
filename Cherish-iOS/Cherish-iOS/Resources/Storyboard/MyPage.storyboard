@@ -53,10 +53,9 @@
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypageBox" translatesAutoresizingMaskIntoConstraints="NO" id="Qr3-RV-D0C">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypageBox" translatesAutoresizingMaskIntoConstraints="NO" id="Qr3-RV-D0C">
                                 <rect key="frame" x="16" y="203" width="343" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Qr3-RV-D0C" secondAttribute="height" multiplier="343:80" id="Exg-DQ-0Ld"/>
                                     <constraint firstAttribute="height" constant="80" id="vgj-cB-yws"/>
                                 </constraints>
                             </imageView>
@@ -351,6 +350,7 @@
                             <constraint firstItem="Ece-Lp-UXD" firstAttribute="trailing" secondItem="fou-I1-LZ2" secondAttribute="trailing" constant="16" id="M8W-lc-86Y"/>
                             <constraint firstItem="0i3-De-jVj" firstAttribute="top" secondItem="Qr3-RV-D0C" secondAttribute="top" constant="20" id="OfF-lX-hae"/>
                             <constraint firstItem="hvX-zY-5lf" firstAttribute="leading" secondItem="hab-ew-hbd" secondAttribute="trailing" constant="41" id="P7s-LB-no6"/>
+                            <constraint firstItem="Ece-Lp-UXD" firstAttribute="trailing" secondItem="Qr3-RV-D0C" secondAttribute="trailing" constant="16" id="SAd-ri-0OG"/>
                             <constraint firstItem="Qr3-RV-D0C" firstAttribute="leading" secondItem="NaW-Jf-7Wp" secondAttribute="leading" id="Wcf-4g-MdH"/>
                             <constraint firstItem="Y4K-ji-FV5" firstAttribute="leading" secondItem="NaW-Jf-7Wp" secondAttribute="trailing" constant="14" id="Wx7-UN-lyi"/>
                             <constraint firstItem="RlE-ff-1z3" firstAttribute="centerY" secondItem="BGC-BI-MRQ" secondAttribute="centerY" id="YBT-fv-bLg"/>
