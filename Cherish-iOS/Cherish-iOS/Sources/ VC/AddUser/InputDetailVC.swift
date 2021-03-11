@@ -39,6 +39,8 @@ class InputDetailVC: UIViewController {
     var givenPhoneNumber: String?
     var convertedAlarmTime: String?
     
+    var checkPicker: Int = 0
+    
     //MARK: - viewDidLoad()
     
     override func viewDidLoad() {
@@ -268,7 +270,14 @@ class InputDetailVC: UIViewController {
     }
     
     @objc func donePreseedPeriod() {
-        self.view.endEditing(true)
+        if checkPicker == 0 {
+            print("쳌핔 0~")
+            self.alarmPeriodTextField.text = "every 1 day"
+            self.view.endEditing(true)
+        }
+        else {
+            self.view.endEditing(true)
+        }
         enableCompleteBtn()
     }
     
@@ -350,6 +359,9 @@ extension InputDetailVC: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == periodPicker {
+            checkPicker = 1
+            print("체크피커")
+            print(checkPicker)
             let selectedNum = pickerView.selectedRow(inComponent: 1)
             let selectedPeriod = pickerView.selectedRow(inComponent: 2)
             let realNum = num[selectedNum]
@@ -386,7 +398,7 @@ extension InputDetailVC: UIPickerViewDelegate {
                     self.cycle_date = 90
                 }
             default:
-                self.cycle_date = 0
+                self.cycle_date = 1
             }
             let fullData = "every "+realNum+" "+realPeriod
             self.alarmPeriodTextField.text = fullData
