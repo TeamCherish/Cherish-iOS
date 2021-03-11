@@ -251,8 +251,6 @@ class LoginVC: UIViewController {
                     print(UserDefaults.standard.integer(forKey: "userID"))
                     UserDefaults.standard.set(loginData.userNickname, forKey: "UserNickname")
                     UserDefaults.standard.set(loginData.token, forKey: "token")
-                    print("토큰이다앗",loginData.token)
-                    
                     
                     // 로그인 성공 시
                     // 유저 idx 기반으로 메인뷰에 등록된 소중한 사람이 있는지 조회
