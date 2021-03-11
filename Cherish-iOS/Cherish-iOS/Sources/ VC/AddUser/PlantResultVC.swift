@@ -47,8 +47,9 @@ class PlantResultVC: UIViewController {
     func goToCherishMainView(){
         let tabBarStoyboard: UIStoryboard = UIStoryboard(name: "TabBar", bundle: nil)
         if let tabBarVC = tabBarStoyboard.instantiateViewController(identifier: "CherishTabBarController") as? CherishTabBarController {
-            tabBarVC.modalPresentationStyle = .fullScreen
-            self.present(tabBarVC, animated: true, completion: nil)
+            
+            self.navigationController?.pushViewController(tabBarVC, animated: true)
+            self.navigationController?.setViewControllers([tabBarVC], animated: false)
         }
     }
 
@@ -63,37 +64,52 @@ class PlantResultVC: UIViewController {
         UserDefaults.standard.set(true, forKey: "addUser")
         NotificationCenter.default.post(name: .addUser, object: nil)
 
-        var userId = UserDefaults.standard.integer(forKey: "UserId")
+        var userId = UserDefaults.standard.integer(forKey: "userID")
         let storyBoard: UIStoryboard = UIStoryboard(name: "CherishMain", bundle: nil)
         
         guard let dvc = storyBoard.instantiateViewController(identifier: "MainContentVC") as? MainContentVC else {return}
         
-        MainService.shared.inquireMainView(idx: userId){ [self]
-            (networkResult) -> (Void) in
-            switch networkResult {
-            case .success(let data):
-                if let mainData = data as? MainData {
-                    print(mainData.totalCherish)
-                    // 등록된 소중한 사람의 수가 존재한다면
-                    if mainData.totalCherish > 0 {
-                        self.navigationController?.popToRootViewController(animated: true)
-                    }
-                    // 소중한 사람이 한명도 등록되지 않았다면
-                    else {
-                        goToCherishMainView()
-                    }
-                }
-            case .requestErr:
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
-            }
-
+        let rootviewController = UIApplication.shared.keyWindow?.rootViewController
+        
+        print("루트뷰컨", rootviewController)
+        
+        if rootviewController is LoginNC {
+            print("루트 뷰컨이 LoginNC에요")
+            goToCherishMainView()
         }
+        else {
+            print("루트 뷰컨이 TabBarController에요")
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+
+//        MainService.shared.inquireMainView(idx: userId){ [self]
+//            (networkResult) -> (Void) in
+//            switch networkResult {
+//            case .success(let data):
+//                if let mainData = data as? MainData {
+//                    print(mainData.totalCherish)
+//                    // 등록된 소중한 사람의 수가 존재한다면
+//                    if mainData.totalCherish > 0 {
+//                        print("durl??")
+//                        self.navigationController?.popToRootViewController(animated: true)
+//                    }
+//                    // 소중한 사람이 한명도 등록되지 않았다면
+//                    else {
+//                        print("여기??")
+//                        goToCherishMainView()
+//                    }
+//                }
+//            case .requestErr:
+//                print("requestErr")
+//            case .pathErr:
+//                print("pathErr")
+//            case .serverErr:
+//                print("serverErr")
+//            case .networkFail:
+//                print("networkFail")
+//            }
+//
+//        }
     }
     
     func setPlantLabel() {

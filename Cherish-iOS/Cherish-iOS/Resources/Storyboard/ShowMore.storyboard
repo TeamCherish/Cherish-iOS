@@ -274,8 +274,8 @@
                                     <constraint firstAttribute="height" constant="88" id="mlI-CJ-8IW"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="namgoongsunkyu@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJo-15-gz1">
-                                <rect key="frame" x="86.666666666666671" y="237.33333333333334" width="201.66666666666663" height="24.000000000000028"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJo-15-gz1">
+                                <rect key="frame" x="187.66666666666666" y="237.33333333333334" width="0.0" height="24.000000000000028"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="3Se-l8-aWa"/>
                                 </constraints>
@@ -394,10 +394,10 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="AMs-FY-VKg">
-                                <rect key="frame" x="144" y="213.33333333333334" width="87" height="19"/>
+                                <rect key="frame" x="141.66666666666666" y="213.33333333333334" width="92" height="19"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="히히ㅣ히힣" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ks7-cB-zTT">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="19"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ks7-cB-zTT">
+                                        <rect key="frame" x="0.0" y="0.0" width="83" height="19"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="19" id="UgT-9w-LSs"/>
                                         </constraints>
@@ -406,7 +406,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byo-C9-9zU">
-                                        <rect key="frame" x="81" y="0.0" width="6" height="19"/>
+                                        <rect key="frame" x="86" y="0.0" width="6" height="19"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="19" id="c5t-fs-kps"/>
                                             <constraint firstAttribute="width" secondItem="Byo-C9-9zU" secondAttribute="height" multiplier="6:19" id="eD4-NB-QO7"/>
@@ -432,7 +432,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8eX-wu-6rq">
-                                <rect key="frame" x="144" y="213.33333333333334" width="87" height="19"/>
+                                <rect key="frame" x="141.66666666666666" y="213.33333333333334" width="92" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="UyW-ld-zbA"/>
                                 </constraints>

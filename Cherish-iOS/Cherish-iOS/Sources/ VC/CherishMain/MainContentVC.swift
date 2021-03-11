@@ -110,8 +110,6 @@ class MainContentVC: UIViewController {
             
             //식물 삭제했는데, 삭제하기 전 메인의 데이터가 1개였으면 삭제 후에는 식물이 0개인 것임. MainContentVC에서는 식물데이터 통신을 하지 않으므로 조건문으로 식별
             if appDel.isCherishDeleted == true && cherishResultData.count == 1 {
-                print("들어와요??")
-                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) { [self] in
                     let whiteView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
                     whiteView.backgroundColor = .white
@@ -119,7 +117,6 @@ class MainContentVC: UIViewController {
                     whiteView.tag = 100
                     whiteView.isUserInteractionEnabled = true
                     self.view.addSubview(whiteView)
-                    print("hihihihi")
                 }
             }
             
@@ -166,12 +163,12 @@ class MainContentVC: UIViewController {
                             plantImageView.isHidden = false
                             // 식물3단계 파싱해주기
                             dandelionGrowth()
+                            NotificationCenter.default.post(name: .postToReloadMainCell, object: nil)
                         }
                     }
                 }
                 // 시든상태
                 else if cherishResultData[selectedRowIndexPath].dDay <= 0 {
-                    print("시들었졍,,")
                     
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
@@ -210,12 +207,12 @@ class MainContentVC: UIViewController {
                             plantImageView.isHidden = false
                             // 식물3단계 파싱해주기
                             americanBlueGrowth()
+                            NotificationCenter.default.post(name: .postToReloadMainCell, object: nil)
                         }
                     }
                 }
                 // 시든상태
                 else if cherishResultData[selectedRowIndexPath].dDay <= 0 {
-                    print("시들었졍,,")
                     
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
@@ -255,12 +252,12 @@ class MainContentVC: UIViewController {
                             plantImageView.isHidden = false
                             // 식물3단계 파싱해주기
                             rosemaryGrowth()
+                            NotificationCenter.default.post(name: .postToReloadMainCell, object: nil)
                         }
                     }
                 }
                 //물주기 미뤘을 때 시든상태
                 else if cherishResultData[selectedRowIndexPath].dDay <= 0 {
-                    print("시들었졍,,")
                     
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
@@ -285,11 +282,10 @@ class MainContentVC: UIViewController {
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
                 allocateWateringDataWhenBackgroundMode()
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
-                    print("대체 몇번인데",selectedRowIndexPath)
+                    wateringGifPlay()
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
                     plantGifView.alpha = 1.0
-                    wateringGifPlay()
                     
                     // gif 물주기 모션뷰가 끝나고 나타날 뷰
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
@@ -302,14 +298,14 @@ class MainContentVC: UIViewController {
                             plantImageViewTopConstraint.constant = 104
                             // 식물3단계 파싱해주기
                             sunGrowth()
+                            NotificationCenter.default.post(name: .postToReloadMainCell, object: nil)
                             
                         }
                     }
                 }
                 //물주기 미뤘을 때 시든상태
                 else if cherishResultData[selectedRowIndexPath].dDay <= 0 {
-                    print("시들었졍,,")
-                    
+                  
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
                     sunGrowth()
@@ -350,15 +346,12 @@ class MainContentVC: UIViewController {
                             plantImageView.isHidden = false
                             // 식물3단계 파싱해주기
                             stuckyGrowth()
+                            NotificationCenter.default.post(name: .postToReloadMainCell, object: nil)
                         }
                     }
                 }
                 //물주기 미뤘을 때 시든상태
                 else if cherishResultData[selectedRowIndexPath].dDay <= 0 {
-                    print("시들었졍,,")
-                    print(selectedRowIndexPath)
-                    print(cherishResultData)
-                    print(cherishResultData[selectedRowIndexPath].dDay)
                     
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
@@ -398,24 +391,24 @@ class MainContentVC: UIViewController {
         let url = URL(fileURLWithPath: filePath!)
         plantGifView.kf.setImage(
             with: url,
-            placeholder: UIImage(named: "placeholderImage"),
+            placeholder: UIImage(),
             options: [
-                .cacheOriginalImage
+                .cacheOriginalImage,
+                .transition(.fade(0.2)),
             ])
         {
             result in
             switch result {
             case .success(_):
-                print("Task done")
                 DispatchQueue.main.asyncAfter(deadline: .now()) {
-                    UIView.transition(with: self.plantGifView, duration: 4, options: .curveEaseInOut, animations: { [self] in
-                        //                            print("왜오오오ㅗ오오")
+                    UIView.transition(with: self.plantImageView, duration: 4, options: .transitionCrossDissolve, animations: { [self] in
                         plantGifView.alpha = 0
-                        plantGifView.layoutIfNeeded()
+                        plantGifView.backgroundColor = .clear
+                        plantImageView.isHidden = false
+                       // plantGifView.layoutIfNeeded()
                     }, completion: { finished in
                         self.plantGifView.frame.origin.x = 10
                         self.plantGifView.frame.origin.y = 0
-                        
                     })
                 }
             case .failure(let error):

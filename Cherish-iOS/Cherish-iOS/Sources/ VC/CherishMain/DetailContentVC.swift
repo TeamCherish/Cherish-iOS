@@ -39,12 +39,11 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addNotificationObserver()
         setCherishPeopleData()
         makeHeaderViewCornerRadius()
         cherishPeopleCV.allowsMultipleSelection = false
         fcmTokenUpdate()
-        NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .addUser, object: nil)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +64,11 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
             setCherishPeopleData()
             appDel.isCherishEdited = false
         }
+    }
+    
+    func addNotificationObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .addUser, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadDataWhenFinishWatering), name: .postToReloadMainCell, object: nil)
     }
     
     //MARK: - 헤더 뷰 라운드로 만드는 함수
@@ -120,13 +124,8 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    
-    //MARK: - 친구추가 뷰로 이동
-    @IBAction func moveToSelectFriend(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+    @objc func reloadDataWhenFinishWatering() {
+        setCherishPeopleData()
     }
     
     //MARK: - FCMToken Update func
@@ -148,6 +147,15 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
             case .networkFail:
                 print("networkFail")
             }
+        }
+    }
+    
+    
+    //MARK: - 친구추가 뷰로 이동
+    @IBAction func moveToSelectFriend(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar {
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
