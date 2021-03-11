@@ -21,7 +21,11 @@ class SignUpNicknameVC: UIViewController,SFSafariViewControllerDelegate, UIGestu
             nickNameTextField.delegate = self
         }
     }
-    @IBOutlet weak var nickNameCheckLabel: CustomLabel!
+    @IBOutlet weak var nickNameCheckLabel: CustomLabel!{
+        didSet{
+            nickNameCheckLabel.text = ""
+        }
+    }
     @IBOutlet weak var privacyPolicyBtn: UIButton!
     @IBOutlet weak var termOfServiceBtn: UIButton!
     @IBOutlet weak var startCherishBtn: UIButton!{
@@ -67,6 +71,13 @@ class SignUpNicknameVC: UIViewController,SFSafariViewControllerDelegate, UIGestu
         if let textField = notification.object as? UITextField {
             if let text = textField.text {
                 
+                // 닉네임이 있어야 버튼 초록색
+                if text.count > 0 {
+                    greenBtn()
+                }else{
+                    grayBtn()
+                }
+                
                 if text.count > maxLength_nickname {
                     // 5글자 넘어가면 자동으로 키보드 내려감
                     textField.resignFirstResponder()
@@ -80,6 +91,21 @@ class SignUpNicknameVC: UIViewController,SFSafariViewControllerDelegate, UIGestu
                 }
             }
         }
+    }
+    
+    func grayBtn() {
+        startCherishBtn.backgroundColor = .inputGrey
+        startCherishBtn.setTitleColor(.textGrey, for: .normal)
+    }
+    
+    func greenBtn() {
+        startCherishBtn.backgroundColor = .seaweed
+        startCherishBtn.setTitleColor(.white, for: .normal)
+    }
+    
+    func labelChange(color: UIColor, text: String) {
+        nickNameCheckLabel.textColor = color
+        nickNameCheckLabel.text = text
     }
     
     func blankAlert(title: String, message: String) {
@@ -164,11 +190,14 @@ extension SignUpNicknameVC: UITextFieldDelegate{
         return true
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
+        if textField.text?.count ?? 0 > 0 {
+            labelChange(color: .seaweed, text: "사용하실 수 있는 닉네임입니다.")
+        }else{
+            labelChange(color: .pinkSub, text: "닉네임을 입력해주세요.")
+        }
     }
     
     ///Return 눌렀을 때 키보드 내리기

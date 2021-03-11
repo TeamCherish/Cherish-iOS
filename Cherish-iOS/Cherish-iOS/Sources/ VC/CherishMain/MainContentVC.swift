@@ -579,7 +579,7 @@ class MainContentVC: UIViewController {
     
     //MARK: - Alert View
     func noWateringDayAlert(title: String) {
-        let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인",style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)

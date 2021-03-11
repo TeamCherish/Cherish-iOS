@@ -11,9 +11,9 @@ class SignUpGenderVC: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK: -변수 선언부
     var genderPicker = UIPickerView()
-    var genderPickerStatus : Bool = false
+//    var genderPickerStatus : Bool = false
     var agePicker = UIPickerView()
-    var agePickerStatus : Bool = false
+//    var agePickerStatus : Bool = false
     let gender = ["여성","남성"]
     let formatter = DateFormatter()
     var limit: String?
@@ -39,7 +39,9 @@ class SignUpGenderVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var nextBtn: UIButton!{
         didSet{
             nextBtn.makeRounded(cornerRadius: 25.0)
-            nextBtn.backgroundColor = .inputGrey
+            nextBtn.backgroundColor = .seaweed
+            nextBtn.setTitleColor(.white, for: .normal)
+            
         }
     }
     @IBOutlet weak var beforeImageView: UIImageView!
@@ -71,12 +73,12 @@ class SignUpGenderVC: UIViewController, UIGestureRecognizerDelegate {
         self.view.endEditing(true)
     }
     
-    func blankAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인",style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
+//    func blankAlert(title: String, message: String) {
+//        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//        let okAction = UIAlertAction(title: "확인",style: .default)
+//        alert.addAction(okAction)
+//        present(alert, animated: true)
+//    }
     
     func pickerSetting(){
         genderPicker.delegate = self
@@ -110,43 +112,59 @@ class SignUpGenderVC: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func donePreseedPeriod() {
         self.view.endEditing(true)
-        if genderPickerStatus && agePickerStatus{
-            nextBtn.backgroundColor = .seaweed
-            nextBtn.setTitleColor(.white, for: .normal)
-        }
+//        if genderPickerStatus && agePickerStatus{
+//            nextBtn.backgroundColor = .seaweed
+//            nextBtn.setTitleColor(.white, for: .normal)
+//        }
     }
     
-    func grayBtn(){
-        nextBtn.backgroundColor = .inputGrey
-        nextBtn.setTitleColor(.textGrey, for: .normal)
-    }
-    
-    func greenBtn(){
-        nextBtn.backgroundColor = .seaweed
-        nextBtn.setTitleColor(.white, for: .normal)
-    }
+//    func grayBtn(){
+//        nextBtn.backgroundColor = .inputGrey
+//        nextBtn.setTitleColor(.textGrey, for: .normal)
+//    }
+//
+//    func greenBtn(){
+//        nextBtn.backgroundColor = .seaweed
+//        nextBtn.setTitleColor(.white, for: .normal)
+//    }
     
     //MARK: -@IBAction
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func nextAction(_ sender: Any) {
-        if genderPickerStatus && agePickerStatus{
-            if let vc = self.storyboard?.instantiateViewController(identifier: "SignUpNicknameVC") as? SignUpNicknameVC {
-                self.navigationController?.pushViewController(vc, animated: true)
-                vc.forSignUp[0] = forSending[0]
-                vc.forSignUp[1] = forSending[1]
-                vc.forSignUp[2] = forSending[2]
+        if let vc = self.storyboard?.instantiateViewController(identifier: "SignUpNicknameVC") as? SignUpNicknameVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+            vc.forSignUp[0] = forSending[0]
+            vc.forSignUp[1] = forSending[1]
+            vc.forSignUp[2] = forSending[2]
+            if genderTextField.text!.count == 0 {
+                vc.forSignUp[3] = "여성"
+            }else{
                 vc.forSignUp[3] = genderTextField.text!
+            }
+            if ageTextField.text!.count == 0 {
+                vc.forSignUp[4] = "2021"
+            }else{
                 vc.forSignUp[4] = ageTextField.text!
             }
-        }else if genderPickerStatus{
-            blankAlert(title: "출생년도를 선택해주세요!", message: "수집된 정보는 서비스 개선을 위해서 사용됩니다")
-        }else if agePickerStatus{
-            blankAlert(title: "성별을 선택해주세요!", message: "수집된 정보는 서비스 개선을 위해서 사용됩니다")
-        }else{
-            blankAlert(title: "성별과 출생년도를 선택해주세요!", message: "수집된 정보는 서비스 개선을 위해서 사용됩니다")
         }
+//        if genderPickerStatus && agePickerStatus{
+//            if let vc = self.storyboard?.instantiateViewController(identifier: "SignUpNicknameVC") as? SignUpNicknameVC {
+//                self.navigationController?.pushViewController(vc, animated: true)
+//                vc.forSignUp[0] = forSending[0]
+//                vc.forSignUp[1] = forSending[1]
+//                vc.forSignUp[2] = forSending[2]
+//                vc.forSignUp[3] = genderTextField.text!
+//                vc.forSignUp[4] = ageTextField.text!
+//            }
+//        }else if genderPickerStatus{
+//            blankAlert(title: "출생년도를 선택해주세요!", message: "수집된 정보는 서비스 개선을 위해 활용됩니다")
+//        }else if agePickerStatus{
+//            blankAlert(title: "성별을 선택해주세요!", message: "수집된 정보는 서비스 개선을 위해 활용됩니다")
+//        }else{
+//            blankAlert(title: "성별과 출생년도를 선택해주세요!", message: "수집된 정보는 서비스 개선을 위해 활용됩니다")
+//        }
     }
     
 }
@@ -179,17 +197,16 @@ extension SignUpGenderVC: UIPickerViewDataSource,UIPickerViewDelegate{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == genderPicker {
             genderTextField.text = gender[row]
-            genderPickerStatus = true
+//            genderPickerStatus = true
         }else if pickerView == agePicker {
             ageTextField.text = "\(Int(limit!)!-row)"
-            agePickerStatus = true
+//            agePickerStatus = true
         }
-        
-        if genderPickerStatus && agePickerStatus {
-            greenBtn()
-        }else{
-            grayBtn()
-        }
+//        if genderPickerStatus && agePickerStatus {
+//            greenBtn()
+//        }else{
+//            grayBtn()
+//        }
     }
 }
 
