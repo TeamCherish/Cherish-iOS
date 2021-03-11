@@ -880,7 +880,9 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flR-xD-6TE" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+
                                                     <rect key="frame" x="308.66666666666669" y="45" width="38.333333333333314" height="23"/>
+
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="gym-pF-NNx"/>
                                                     </constraints>
