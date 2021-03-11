@@ -69,11 +69,11 @@ class PlantResultVC: UIViewController {
         
         guard let dvc = storyBoard.instantiateViewController(identifier: "MainContentVC") as? MainContentVC else {return}
         
-        let rootviewController = UIApplication.shared.keyWindow?.rootViewController
+        let rootviewController = self.navigationController!.viewControllers.first
         
-        print("루트뷰컨", rootviewController)
+        print("루트뷰컨", rootviewController!)
         
-        if rootviewController is LoginNC {
+        if rootviewController is SplashVC {
             print("루트 뷰컨이 LoginNC에요")
             goToCherishMainView()
         }
@@ -81,35 +81,6 @@ class PlantResultVC: UIViewController {
             print("루트 뷰컨이 TabBarController에요")
             self.navigationController?.popToRootViewController(animated: true)
         }
-
-//        MainService.shared.inquireMainView(idx: userId){ [self]
-//            (networkResult) -> (Void) in
-//            switch networkResult {
-//            case .success(let data):
-//                if let mainData = data as? MainData {
-//                    print(mainData.totalCherish)
-//                    // 등록된 소중한 사람의 수가 존재한다면
-//                    if mainData.totalCherish > 0 {
-//                        print("durl??")
-//                        self.navigationController?.popToRootViewController(animated: true)
-//                    }
-//                    // 소중한 사람이 한명도 등록되지 않았다면
-//                    else {
-//                        print("여기??")
-//                        goToCherishMainView()
-//                    }
-//                }
-//            case .requestErr:
-//                print("requestErr")
-//            case .pathErr:
-//                print("pathErr")
-//            case .serverErr:
-//                print("serverErr")
-//            case .networkFail:
-//                print("networkFail")
-//            }
-//
-//        }
     }
     
     func setPlantLabel() {

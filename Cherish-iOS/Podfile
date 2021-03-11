@@ -14,5 +14,4 @@ target 'Cherish-iOS' do
   pod 'OverlayContainer'
   pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'
-  pod 'SwiftyGif'
 end
