@@ -202,6 +202,10 @@ extension FPNewPasswordVC: UITextFieldDelegate{
                 pwFormLabel(text: "사용하실 수 없는 비밀번호입니다.", color: .pinkSub, form: false)
             }else{
                 pwFormLabel(text: "사용가능한 비밀번호입니다.", color: .seaweed, form: true)
+                if textField.text == enterAgainTextField.text {
+                    pwCorrectLabel(text: "비밀번호가 일치합니다.", color: .seaweed, correct: true)
+                    greenBtn()
+                }
             }
         }
         else if textField == enterAgainTextField{

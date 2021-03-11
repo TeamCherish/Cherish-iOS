@@ -22,9 +22,6 @@ class InputDetailVC: UIViewController {
     
     //MARK: - 변수 지정
     
-    //    var name: String?
-    //    var phoneNumber: String?
-    
     let datePicker = UIDatePicker()
     var periodPicker = UIPickerView()
     
@@ -41,7 +38,8 @@ class InputDetailVC: UIViewController {
     var givenName: String?
     var givenPhoneNumber: String?
     var convertedAlarmTime: String?
-//    var resultPeriod: String?
+    
+    var checkPicker: Int = 0
     
     //MARK: - viewDidLoad()
     
@@ -123,8 +121,14 @@ class InputDetailVC: UIViewController {
                         UserDefaults.standard.set(resultData.plant.explanation , forKey: "resultExplanation")
                         UserDefaults.standard.set(resultData.plant.imageURL, forKey: "resultImgURL")
                         UserDefaults.standard.set(resultData.plant.flowerMeaning, forKey: "flowerMeaning")
-                        print(resultVC.modifier)
+                        
+                        print("식물매칭중 id",resultData.plant.id)
+                        print("식물매칭중 modifier",resultData.plant.modifier)
+                        print("식물매칭중 설명",resultData.plant.explanation)
+                        print("식물매칭중 사진",resultData.plant.imageURL)
+                        print("식물매칭중 꽃말",resultData.plant.flowerMeaning)
                         //                        NotificationCenter.default.post(name: .sendPlantResult, object: nil)
+                        self.navigationController?.pushViewController(loadingVC, animated: false)
                     }
                 case .requestErr(_):
                     print("requesetErr")
@@ -136,7 +140,6 @@ class InputDetailVC: UIViewController {
                     print("networkFail")
                 }
             }
-            self.navigationController?.pushViewController(loadingVC, animated: false)
         }
     }
     
@@ -272,7 +275,14 @@ class InputDetailVC: UIViewController {
     }
     
     @objc func donePreseedPeriod() {
-        self.view.endEditing(true)
+        if checkPicker == 0 {
+            print("쳌핔 0~")
+            self.alarmPeriodTextField.text = "every 1 day"
+            self.view.endEditing(true)
+        }
+        else {
+            self.view.endEditing(true)
+        }
         enableCompleteBtn()
     }
     
@@ -354,6 +364,9 @@ extension InputDetailVC: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == periodPicker {
+            checkPicker = 1
+            print("체크피커")
+            print(checkPicker)
             let selectedNum = pickerView.selectedRow(inComponent: 1)
             let selectedPeriod = pickerView.selectedRow(inComponent: 2)
             let realNum = num[selectedNum]
@@ -390,7 +403,7 @@ extension InputDetailVC: UIPickerViewDelegate {
                     self.cycle_date = 90
                 }
             default:
-                self.cycle_date = 0
+                self.cycle_date = 1
             }
             let fullData = "every "+realNum+" "+realPeriod
             self.alarmPeriodTextField.text = fullData

@@ -234,6 +234,7 @@ extension SignUpAccountVC: UITextFieldDelegate{
                 greenBtn()
             }
         }
+        // 1번 텍스트 필드
         else if textField == passwordTextField{
             // 비밀번호가 영문 ,숫자,특수문자 포함 8글자인지
             passwordCheckLabel.isHidden = false
@@ -243,8 +244,15 @@ extension SignUpAccountVC: UITextFieldDelegate{
                 pwFormLabel(text: "사용하실 수 없는 비밀번호입니다.", color: .pinkSub, form: false)
             }else{
                 pwFormLabel(text: "사용가능한 비밀번호입니다.", color: .seaweed, form: true)
+                // 1번,2번 다 입력했는데 1번이 의도치 않게 오타나서 1번을 2번과 일치하게 바꾸면
+                // 1번 텍스트 필드에서도 일치 검사를 해야하는 상황이 있음
+                if textField.text == passwordCheckTextField.text {
+                    pwCorrectLabel(text: "비밀번호가 일치합니다.", color: .seaweed, correct: true)
+                    greenBtn()
+                }
             }
         }
+        // 2번 텍스트 필드
         else if textField == passwordCheckTextField{
             // 형식을 통과했으며, 비밀번호가 일치하는지
             if passwordFormStatus == true {

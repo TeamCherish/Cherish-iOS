@@ -29,6 +29,8 @@ class PlantEditVC: UIViewController {
     var cycle_date = 0
     var convertedAlarmTime: String?
     
+    var checkPicker: Int = 0
+    
     var textFieldEvent: Int = 0
     var popUpCheck: Int = 0
     var delegateCheck: Int = 0
@@ -190,13 +192,16 @@ class PlantEditVC: UIViewController {
         birthTextField.text = formatter.string(from: birthPicker.date)
         self.view.endEditing(true)
         textFieldEvent += 1
-        print(textFieldEvent)
     }
     
     @objc func donePreseedPeriod() {
+        if checkPicker == 0 {
+            self.periodTextField.text = "every 1 day"
+            self.view.endEditing(true)
+            textFieldEvent += 1
+        }
         self.view.endEditing(true)
         textFieldEvent += 1
-        print(textFieldEvent)
     }
     
     
@@ -384,6 +389,7 @@ extension PlantEditVC: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == periodPicker {
+            checkPicker = 1
             let selectedNum = pickerView.selectedRow(inComponent: 1)
             let selectedPeriod = pickerView.selectedRow(inComponent: 2)
             let realNum = num[selectedNum]
@@ -420,7 +426,7 @@ extension PlantEditVC: UIPickerViewDelegate {
                     self.cycle_date = 90
                 }
             default:
-                self.cycle_date = 0
+                self.cycle_date = 1
             }
             let fullData = "every "+realNum+" "+realPeriod
             self.periodTextField.text = fullData
