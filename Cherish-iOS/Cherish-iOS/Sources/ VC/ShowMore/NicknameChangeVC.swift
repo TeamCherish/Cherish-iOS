@@ -34,9 +34,6 @@ class NicknameChangeVC: UIViewController, UINavigationControllerDelegate {
         setImageViewRounded()
         
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: NSNotification.Name(UITextField.textDidChangeNotification.rawValue) , object: userNicknameTextField)
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     func setUserImage() {
@@ -161,6 +158,7 @@ class NicknameChangeVC: UIViewController, UINavigationControllerDelegate {
         let confirmAction = UIAlertAction(title: "확인", style: .default) {
             (action) in
             print("확인")
+            self.navigationController?.popViewController(animated: true)
         }
         nicknameChangeSuccessAlert.addAction(confirmAction)
         self.present(nicknameChangeSuccessAlert, animated: true, completion: nil)
@@ -183,9 +181,6 @@ class NicknameChangeVC: UIViewController, UINavigationControllerDelegate {
                 
                 //닉네임 변경 후 update된 닉네임을 Userdefaults에 저장
                 UserDefaults.standard.set(userNicknameTextField.text, forKey: "userNickname")
-                
-                UserDefaults.standard.set(profileImg, forKey: "userProfileImg")
-                UserDefaults.standard.synchronize()
                 
             case .requestErr(let msg):
                 if let message = msg as? String {
@@ -257,6 +252,7 @@ extension NicknameChangeVC: UIImagePickerControllerDelegate {
             
             if isImage == true {
                 nicknameChangeCompleteBtn.isEnabled = true
+                nicknameChangeCompleteBtn.setBackgroundImage(UIImage(named: "btnNextSelected"), for: .normal)
             }
             
             let uniqueFileName: String

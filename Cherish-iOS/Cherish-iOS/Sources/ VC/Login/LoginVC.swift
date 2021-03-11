@@ -247,7 +247,6 @@ class LoginVC: UIViewController {
                 if let loginData = data as? LoginData {
                     UserDefaults.standard.set(emailText, forKey: "loginEmail")
                     UserDefaults.standard.set(passwordText, forKey: "loginPw")
-                    UserDefaults.standard.set(true, forKey: "autoLogin")
                     UserDefaults.standard.set(loginData.userID, forKey: "userID")
                     print(UserDefaults.standard.integer(forKey: "userID"))
                     UserDefaults.standard.set(loginData.userNickname, forKey: "UserNickname")
