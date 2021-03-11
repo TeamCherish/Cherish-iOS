@@ -94,6 +94,9 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
             var phoneNumber: String = dvc.givenPhoneNumber!
             var userId = UserDefaults.standard.integer(forKey: "userID")
             
+            print("유저아이디~")
+            print(userId)
+            
             CheckPhoneService.shared.checkPhone(phone: phoneNumber , UserId: userId) { [self](networkResult) -> (Void) in
                 switch networkResult {
                 case .success(_):
