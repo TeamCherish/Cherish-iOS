@@ -121,8 +121,14 @@ class InputDetailVC: UIViewController {
                         UserDefaults.standard.set(resultData.plant.explanation , forKey: "resultExplanation")
                         UserDefaults.standard.set(resultData.plant.imageURL, forKey: "resultImgURL")
                         UserDefaults.standard.set(resultData.plant.flowerMeaning, forKey: "flowerMeaning")
-                        print(resultVC.modifier)
+                        
+                        print("식물매칭중 id",resultData.plant.id)
+                        print("식물매칭중 modifier",resultData.plant.modifier)
+                        print("식물매칭중 설명",resultData.plant.explanation)
+                        print("식물매칭중 사진",resultData.plant.imageURL)
+                        print("식물매칭중 꽃말",resultData.plant.flowerMeaning)
                         //                        NotificationCenter.default.post(name: .sendPlantResult, object: nil)
+                        self.navigationController?.pushViewController(loadingVC, animated: false)
                     }
                 case .requestErr(_):
                     print("requesetErr")
@@ -134,7 +140,6 @@ class InputDetailVC: UIViewController {
                     print("networkFail")
                 }
             }
-            self.navigationController?.pushViewController(loadingVC, animated: false)
         }
     }
     

@@ -85,7 +85,7 @@ class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
         self.view.endEditing(true)
     }
     
-    //MARK: -Personal Func
+    //MARK: -사용자 정의 함수
     func initialSetting(status: Bool){
         pleaseTypingLabel.isHidden = status
         typingMessageTextField.isHidden = status
@@ -104,6 +104,14 @@ class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
         authCheckLabel.text = text
         authCheckLabel.textColor = color
         isAuth = authStatus
+    }
+    
+    // 인증번호 전송 성공 Alert
+    func authAlert(title: String) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인",style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
     
     //MARK: -@IBAction
@@ -140,6 +148,7 @@ class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
         MessageAuthService.shared.messageAuth(phone: phoneTextField.text!) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
+                authAlert(title: "인증번호가 재전송 되었습니다.")
                 authNumber = data as? Int
                 isSending = true
                 
