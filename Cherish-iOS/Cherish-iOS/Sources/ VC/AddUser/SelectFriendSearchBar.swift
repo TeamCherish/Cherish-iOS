@@ -12,8 +12,12 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     //MARK: - IBOutlet
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var nextBtn: UIButton!
-    @IBOutlet weak var nextLabel: UILabel!
+    @IBOutlet weak var nextBtn: UIButton! {
+        didSet{
+            nextBtn.backgroundColor = .inputGrey
+            nextBtn.makeRounded(cornerRadius: 25)
+        }
+    }
     @IBOutlet weak var searchBar: UISearchBar!
     
     var friendList: [Friend] = []
@@ -24,8 +28,10 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         didSet {
             tableView.reloadData()
             self.nextBtn.isEnabled = true
-            self.nextBtn.setImage(UIImage(named: "btn_next_selected"), for: .normal)
-            self.nextLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+//            self.nextBtn.setImage(UIImage(named: "btn_next_selected"), for: .normal)
+            self.nextBtn.backgroundColor = .seaweed
+            self.nextBtn.makeRounded(cornerRadius: 25)
+            self.nextBtn.setTitleColor(UIColor(red: 255, green: 255, blue: 255, alpha: 1.0), for: .normal)
         }
     }
     
