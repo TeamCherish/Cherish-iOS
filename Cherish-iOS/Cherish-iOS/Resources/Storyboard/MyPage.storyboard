@@ -847,7 +847,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIa-QI-QPQ" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="80" y="34" width="59" height="24"/>
+                                                    <rect key="frame" x="80" y="34" width="55.666666666666657" height="18.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                                     <color key="textColor" name="black"/>
                                                     <nil key="highlightedColor"/>
@@ -858,7 +858,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스투키 Lv.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUv-S3-84k" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="80" y="59" width="58" height="18"/>
+                                                    <rect key="frame" x="80" y="53.666666666666664" width="58" height="17.999999999999993"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="aUv-S3-84k" secondAttribute="height" multiplier="29:9" id="H1Q-r7-0n0"/>
                                                         <constraint firstAttribute="width" constant="58" id="JtB-fH-gz2"/>
@@ -880,11 +880,10 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flR-xD-6TE" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="311" y="45" width="36" height="23"/>
+                                                    <rect key="frame" x="308.66666666666669" y="45" width="38.333333333333314" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="gym-pF-NNx"/>
                                                     </constraints>
-
                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

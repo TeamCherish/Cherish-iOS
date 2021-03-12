@@ -252,6 +252,7 @@ class LoginVC: UIViewController {
                     UserDefaults.standard.set(loginData.userNickname, forKey: "UserNickname")
                     UserDefaults.standard.set(loginData.token, forKey: "token")
                     
+                    
                     // 로그인 성공 시
                     // 유저 idx 기반으로 메인뷰에 등록된 소중한 사람이 있는지 조회
                     MainService.shared.inquireMainView(idx: loginData.userID){ [self]
@@ -259,6 +260,7 @@ class LoginVC: UIViewController {
                         switch networkResult {
                         case .success(let data):
                             if let mainData = data as? MainData {
+                                print(loginData.userID)
                                 loginEmailTextField.text?.removeAll()
                                 loginPwTextField.text?.removeAll()
                                 

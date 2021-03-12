@@ -179,6 +179,7 @@ extension MyPageSearchPlantVC: UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         var index: Int = 0
+        filteredPlant.removeAll()
         
         if searchText == "" {
             print("여기로 오닝?")
