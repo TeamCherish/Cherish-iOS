@@ -13,14 +13,15 @@ class MyPageSearchVC: UIViewController, UIGestureRecognizerDelegate {
     var mypagePlantCount: Int = 0
     var mypageContactCount: Int = 0
     
+    let screenWidth = UIScreen.main.bounds.size.width
     
     @IBOutlet weak var segmentView: CustomSegmentedControl!  {
         didSet {
             DispatchQueue.main.async {
 
                 self.segmentView.setButtonTitles(buttonTitles: ["식물 \(self.mypagePlantCount)", "연락처 \(self.mypageContactCount)"])
-                self.segmentView.selectorTextColor = .black
                 self.segmentView.selectorViewColor = .black
+                self.segmentView.selectorTextColor = .black
             }
             }
     }
@@ -94,10 +95,10 @@ extension MyPageSearchVC: UIScrollViewDelegate {
                 scrollView.contentOffset.x = 0
             }
             // 스크롤 영역보다 오른쪽으로 (375초과값으로) 스크롤 될 때
-            else if scrollView.contentOffset.x > 375 {
+            else if scrollView.contentOffset.x > screenWidth {
                 // contentOffset.x 값을 오른쪽 최대값인 375로 설정
                 /// 이부분은 기기사이즈에 따라 달라지므로 autolayout 다시 살펴봐야함!
-                scrollView.contentOffset.x = 375
+                scrollView.contentOffset.x = screenWidth
             }
         }
     }

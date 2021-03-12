@@ -25,7 +25,7 @@ class InputDetailVC: UIViewController {
     let datePicker = UIDatePicker()
     var periodPicker = UIPickerView()
     
-    let num = ["1", "2", "3"]
+    var num = [String](repeating: "1", count: 90)
     let period = ["day", "week", "month"]
     let time = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
     let ampm = ["AM", "PM"]
@@ -44,15 +44,19 @@ class InputDetailVC: UIViewController {
     //MARK: - viewDidLoad()
     
     override func viewDidLoad() {
-        print(givenName)
-        print(givenPhoneNumber)
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         setBirthPickerData()
         completeBtn.isEnabled = false
         setTextField()
         textFieldBackgroundImage()
         textFieldPadding()
         createPicker()
+        for i in 0...89 {
+            num[i] = String(i+1)
+        }
+        print("이 넘")
+        print(num)
         nicknameTextField.delegate = self
         periodPicker.delegate = self
         periodPicker.dataSource = self
@@ -95,13 +99,14 @@ class InputDetailVC: UIViewController {
               let timeText = convertedAlarmTime,
               let periodText = alarmPeriodTextField.text else { return }
         
-        print(nameText)
-        print(nicknameText)
-        print(birthText)
-        print(phonenumberText)
-        print(periodText)
+//        print(nameText)
+//        print(nicknameText)
+//        print(birthText)
+//        print(phonenumberText)
+//        print(periodText)
+        print("사이클데이트트")
         print(cycle_date)
-        print(timeText)
+//        print(timeText)
     
         let alarmState = true
         
@@ -185,10 +190,6 @@ class InputDetailVC: UIViewController {
     
     //MARK: - 텍스트필드 back ground image 지정
     func textFieldBackgroundImage() {
-//        nameTextField.background = UIImage(named: "box_half_add_plant_detail")
-//        nameTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
-//        nameTextField.layer.borderWidth = 0
-        
         nicknameTextField.background = UIImage(named: "box_add_plant_detail")
         nicknameTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
         nicknameTextField.layer.borderWidth = 0
@@ -276,8 +277,7 @@ class InputDetailVC: UIViewController {
     
     @objc func donePreseedPeriod() {
         if checkPicker == 0 {
-            print("쳌핔 0~")
-            self.alarmPeriodTextField.text = "every 1 day"
+            self.alarmPeriodTextField.text = "Every 1 day"
             self.view.endEditing(true)
         }
         else {
@@ -317,9 +317,10 @@ extension InputDetailVC: UIPickerViewDataSource {
             if component == 0 {
                 return 1
             }
-            else {
-                return 3
+            else if component == 1 {
+                return num.count
             }
+            return 1
         }
         
         else if pickerView == self.alarmPicker {
@@ -342,12 +343,14 @@ extension InputDetailVC: UIPickerViewDelegate {
         
         if pickerView == periodPicker {
             if component == 0 {
-                return "every"
+                return "Every"
             }
             else if component == 1 {
                 return num[row]
             }
-            return period[row]
+            else if component == 2 {
+                return "day"
+            }
         }
         
         else if pickerView == alarmPicker {
@@ -365,47 +368,46 @@ extension InputDetailVC: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == periodPicker {
             checkPicker = 1
-            print("체크피커")
-            print(checkPicker)
             let selectedNum = pickerView.selectedRow(inComponent: 1)
-            let selectedPeriod = pickerView.selectedRow(inComponent: 2)
+//            let selectedPeriod = pickerView.selectedRow(inComponent: 2)
             let realNum = num[selectedNum]
-            let realPeriod = period[selectedPeriod]
-            switch realPeriod {
-            case "day":
-                if realNum == "1" {
-                    self.cycle_date = 1
-                }
-                else if realNum == "2" {
-                    self.cycle_date = 2
-                }
-                else if realNum == "3" {
-                    self.cycle_date = 3
-                }
-            case "week":
-                if realNum == "1" {
-                    self.cycle_date = 7
-                }
-                else if realNum == "2" {
-                    self.cycle_date = 14
-                }
-                else if realNum == "3" {
-                    self.cycle_date = 21
-                }
-            case "month":
-                if realNum == "1" {
-                    self.cycle_date = 30
-                }
-                else if realNum == "2" {
-                    self.cycle_date = 60
-                }
-                else if realNum == "3" {
-                    self.cycle_date = 90
-                }
-            default:
-                self.cycle_date = 1
-            }
-            let fullData = "every "+realNum+" "+realPeriod
+//            let realPeriod = period[selectedPeriod]
+            self.cycle_date = Int(num[selectedNum])!
+//            switch realPeriod {
+//            case "day":
+//                if realNum == "1" {
+//                    self.cycle_date = 1
+//                }
+//                else if realNum == "2" {
+//                    self.cycle_date = 2
+//                }
+//                else if realNum == "3" {
+//                    self.cycle_date = 3
+//                }
+//            case "week":
+//                if realNum == "1" {
+//                    self.cycle_date = 7
+//                }
+//                else if realNum == "2" {
+//                    self.cycle_date = 14
+//                }
+//                else if realNum == "3" {
+//                    self.cycle_date = 21
+//                }
+//            case "month":
+//                if realNum == "1" {
+//                    self.cycle_date = 30
+//                }
+//                else if realNum == "2" {
+//                    self.cycle_date = 60
+//                }
+//                else if realNum == "3" {
+//                    self.cycle_date = 90
+//                }
+//            default:
+//                self.cycle_date = 1
+//            }
+            let fullData = "Every "+realNum+" day"
             self.alarmPeriodTextField.text = fullData
         }
         else if pickerView == alarmPicker {

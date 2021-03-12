@@ -822,9 +822,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="631"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iBK-uy-pBr">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iBK-uy-pBr">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="631"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="8ae-Gd-TJZ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -880,9 +879,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flR-xD-6TE" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-
                                                     <rect key="frame" x="308.66666666666669" y="45" width="38.333333333333314" height="23"/>
-
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="gym-pF-NNx"/>
                                                     </constraints>
@@ -934,8 +931,12 @@
                         <viewLayoutGuide key="safeArea" id="7gW-UT-k9r"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="iBK-uy-pBr" firstAttribute="top" secondItem="oQI-B1-g5R" secondAttribute="top" id="DqY-bm-0Vq"/>
+                            <constraint firstItem="iBK-uy-pBr" firstAttribute="trailing" secondItem="7gW-UT-k9r" secondAttribute="trailing" id="gFd-tF-cw1"/>
                             <constraint firstItem="7gW-UT-k9r" firstAttribute="trailing" secondItem="aGT-3h-scO" secondAttribute="trailing" constant="16" id="gRd-bl-9TQ"/>
                             <constraint firstItem="7gW-UT-k9r" firstAttribute="bottom" secondItem="aGT-3h-scO" secondAttribute="bottom" constant="20" id="hIb-Ul-zM6"/>
+                            <constraint firstItem="iBK-uy-pBr" firstAttribute="bottom" secondItem="7gW-UT-k9r" secondAttribute="bottom" id="y9x-4b-87K"/>
+                            <constraint firstItem="iBK-uy-pBr" firstAttribute="leading" secondItem="7gW-UT-k9r" secondAttribute="leading" id="zhn-BO-dD1"/>
                         </constraints>
                     </view>
                     <connections>

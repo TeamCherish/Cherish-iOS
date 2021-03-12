@@ -22,7 +22,8 @@ class PlantEditVC: UIViewController {
     let birthPicker = UIDatePicker()
     var periodPicker = UIPickerView()
     
-    let num = ["1", "2", "3"]
+//    let num = ["1", "2", "3"]
+    var num = [String](repeating: "0", count: 90)
     let period = ["day", "week", "month"]
     let time = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
     let ampm = ["AM", "PM"]
@@ -47,6 +48,9 @@ class PlantEditVC: UIViewController {
         getPlantDataToEdit()
         createPicker()
         setBirthPickerData()
+        for i in 0...89 {
+            num[i] = String(i+1)
+        }
         nicknameTextField.delegate = self
         periodPicker.delegate = self
         periodPicker.dataSource = self
@@ -101,20 +105,23 @@ class PlantEditVC: UIViewController {
                 if let plantData = data as? GetPlantData {
     
                     // 알림주기 파싱
-                    var cycleDate = plantData.cherishDetail.cycleDate
-                    if cycleDate < 4 {
-                        self.parsedPeriod = "every "+String(cycleDate)+" day"
-                    }
-                    else if cycleDate % 7 == 0 {
-                        cycleDate = cycleDate/7
-                        print(cycleDate)
-                        self.parsedPeriod = "every "+String(cycleDate)+" week"
-                    }
-                    else if cycleDate % 30 == 0 {
-                        cycleDate = cycleDate/30
-                        print(cycleDate)
-                        self.parsedPeriod = "every "+String(cycleDate)+" month"
-                    }
+//                    var cycleDate = plantData.cherishDetail.cycleDate
+//                    if cycleDate < 4 {
+//                        self.parsedPeriod = "Every "+String(cycleDate)+" day"
+//                    }
+//                    else if cycleDate % 7 == 0 {
+//                        cycleDate = cycleDate/7
+//                        print(cycleDate)
+//                        self.parsedPeriod = "Every "+String(cycleDate)+" week"
+//                    }
+//                    else if cycleDate % 30 == 0 {
+//                        cycleDate = cycleDate/30
+//                        print(cycleDate)
+//                        self.parsedPeriod = "Every "+String(cycleDate)+" month"
+//                    }
+                    print("에브리데이")
+                    print(plantData.cherishDetail.cycleDate)
+                    self.parsedPeriod = "Every "+String(plantData.cherishDetail.cycleDate)+" day"
                     
                     // 알람시간 파싱
                     var noticeTimeHr = 0
@@ -196,7 +203,7 @@ class PlantEditVC: UIViewController {
     
     @objc func donePreseedPeriod() {
         if checkPicker == 0 {
-            self.periodTextField.text = "every 1 day"
+            self.periodTextField.text = "Every 1 day"
             self.view.endEditing(true)
             textFieldEvent += 1
         }
@@ -344,9 +351,10 @@ extension PlantEditVC: UIPickerViewDataSource {
             if component == 0 {
                 return 1
             }
-            else {
-                return 3
+            else if component == 1 {
+                return num.count
             }
+            return 1
         }
         else if pickerView == self.alarmPicker {
             if component == 0 {
@@ -368,12 +376,12 @@ extension PlantEditVC: UIPickerViewDelegate {
         
         if pickerView == periodPicker {
             if component == 0 {
-                return "every"
+                return "Every"
             }
             else if component == 1 {
                 return num[row]
             }
-            return period[row]
+            return "day"
         }
         else if pickerView == alarmPicker {
             if component == 0 {
@@ -391,44 +399,44 @@ extension PlantEditVC: UIPickerViewDelegate {
         if pickerView == periodPicker {
             checkPicker = 1
             let selectedNum = pickerView.selectedRow(inComponent: 1)
-            let selectedPeriod = pickerView.selectedRow(inComponent: 2)
+//            let selectedPeriod = pickerView.selectedRow(inComponent: 2)
             let realNum = num[selectedNum]
-            let realPeriod = period[selectedPeriod]
-            switch realPeriod {
-            case "day":
-                if realNum == "1" {
-                    self.cycle_date = 1
-                }
-                else if realNum == "2" {
-                    self.cycle_date = 2
-                }
-                else if realNum == "3" {
-                    self.cycle_date = 3
-                }
-            case "week":
-                if realNum == "1" {
-                    self.cycle_date = 7
-                }
-                else if realNum == "2" {
-                    self.cycle_date = 14
-                }
-                else if realNum == "3" {
-                    self.cycle_date = 21
-                }
-            case "month":
-                if realNum == "1" {
-                    self.cycle_date = 30
-                }
-                else if realNum == "2" {
-                    self.cycle_date = 60
-                }
-                else if realNum == "3" {
-                    self.cycle_date = 90
-                }
-            default:
-                self.cycle_date = 1
-            }
-            let fullData = "every "+realNum+" "+realPeriod
+//            let realPeriod = period[selectedPeriod]
+//            switch realPeriod {
+//            case "day":
+//                if realNum == "1" {
+//                    self.cycle_date = 1
+//                }
+//                else if realNum == "2" {
+//                    self.cycle_date = 2
+//                }
+//                else if realNum == "3" {
+//                    self.cycle_date = 3
+//                }
+//            case "week":
+//                if realNum == "1" {
+//                    self.cycle_date = 7
+//                }
+//                else if realNum == "2" {
+//                    self.cycle_date = 14
+//                }
+//                else if realNum == "3" {
+//                    self.cycle_date = 21
+//                }
+//            case "month":
+//                if realNum == "1" {
+//                    self.cycle_date = 30
+//                }
+//                else if realNum == "2" {
+//                    self.cycle_date = 60
+//                }
+//                else if realNum == "3" {
+//                    self.cycle_date = 90
+//                }
+//            default:
+//                self.cycle_date = 1
+//            }
+            let fullData = "Every "+realNum+" day"
             self.periodTextField.text = fullData
         }
         else if pickerView == alarmPicker {
