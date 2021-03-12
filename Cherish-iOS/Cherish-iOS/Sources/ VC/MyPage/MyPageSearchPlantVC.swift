@@ -199,6 +199,7 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
 extension MyPageSearchPlantVC: UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
         filteredPlant = []
         
         if searchText == "" {
