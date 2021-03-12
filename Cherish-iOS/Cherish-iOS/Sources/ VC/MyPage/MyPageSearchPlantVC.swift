@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+
 
 class MyPageSearchPlantVC: UIViewController {
 
@@ -14,11 +16,16 @@ class MyPageSearchPlantVC: UIViewController {
     @IBOutlet weak var addFloatingBtn: UIButton!
     
     var mypagePlantArray: [MypagefriendsData] = []
-    var filteredPlant: [MypagefriendsData] = []
-    var filteredData: [MyPlantData] = []
+    var filteredPlant: [SearchMypageFriendData] = []
+    var filteredData: [SearchMypageFriendData] = []
+    var newData: [SearchMypageFriendData] = []
 //    var filteredPlant: [MyPlantData] = []
+
+
     
     var myCherishId: [Int] = []
+    
+    var here: MypageData?
     
     var plantIsSelected = false
 
@@ -39,10 +46,13 @@ class MyPageSearchPlantVC: UIViewController {
         plantTV.delegate = self
         plantTV.dataSource = self
         plantSearchBar.delegate = self
+        
         setPlantData()
         setSearchBar()
         plantTV.reloadData()
-        filteredPlant = mypagePlantArray
+        filteredPlant = newData
+
+
         // Do any additional setup after loading the view.
     }
     
@@ -56,8 +66,8 @@ class MyPageSearchPlantVC: UIViewController {
         plantSearchBar.layer.borderWidth = 0
         plantSearchBar.searchBarStyle = .minimal
         plantSearchBar.setSearchFieldBackgroundImage(UIImage(named: "search_box"), for: .normal)
-        plantSearchBar.sizeToFit()
-        plantSearchBar.searchTextField.sizeToFit()
+//        plantSearchBar.sizeToFit()
+        plantSearchBar.frame = CGRect(x: 16, y: 0, width: 200, height: 44)
         plantSearchBar.searchTextField.textColor = UIColor.black
         plantSearchBar.searchTextField.font = UIFont.init(name: "NotoSansCJKKR-Regular", size: 14)
     }
@@ -70,9 +80,21 @@ class MyPageSearchPlantVC: UIViewController {
             case .success(let data):
                 if let mypageData = data as? MypageData {
                     mypagePlantArray = mypageData.result
-                    print("여기는 영등포")
-                    print(mypagePlantArray)
-                    plantTV.reloadData()
+                    if mypagePlantArray.count != 0 {
+                        for _ in 0...mypagePlantArray.count - 1 {
+                            newData.append(contentsOf: [SearchMypageFriendData(id: 0, dDay: 0, nickname: "", name: "", thumbnailImageURL: "", level: 0, plantID: 0)])
+                        }
+                        for i in 0...mypagePlantArray.count - 1 {
+                            newData[i].dDay = mypagePlantArray[i].dDay
+                            newData[i].id = mypagePlantArray[i].id
+                            newData[i].level = mypagePlantArray[i].level
+                            newData[i].name = mypagePlantArray[i].name
+                            newData[i].nickname = mypagePlantArray[i].nickname
+                            newData[i].plantID = mypagePlantArray[i].plantID
+                            newData[i].thumbnailImageURL = mypagePlantArray[i].thumbnailImageURL
+                        }
+                        plantTV.reloadData()
+                    }
                 }
             case .requestErr(let msg):
                 print(msg)
@@ -101,7 +123,7 @@ class MyPageSearchPlantVC: UIViewController {
 extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if filteredPlant == nil {
+        if filteredPlant.count == 0 {
             return mypagePlantArray.count
         }
         return filteredPlant.count
@@ -112,7 +134,7 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         
         // 여기 search bar 썼냐, 안썼냐로 분기처리 해야됨
-        if mypagePlantArray.count != 0 {
+        if newData.count != 0 {
             let url = URL(string: mypagePlantArray[indexPath.row].thumbnailImageURL ?? "")
             DispatchQueue.global(qos: .default).async(execute: {() -> Void in
                 let imageData = try? Data(contentsOf: url!)
@@ -130,9 +152,6 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         plantIsSelected = true
-        //        let vc = MyPageVC()
-        print("2: my plant임 ㅎㅇㅎㅇ")
-        //        print(vc.myPlantID)
         
         var myCherish: [Int] = UserDefaults.standard.array(forKey: "plantIDArray")! as? [Int] ?? [Int]()
         print(myCherish)
@@ -158,28 +177,29 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
 extension MyPageSearchPlantVC: UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredPlant = []
+        var index: Int = 0
         
         if searchText == "" {
-            filteredPlant = mypagePlantArray
+            print("여기로 오닝?")
+            filteredPlant = newData
         }
         else {
             checkSearch = 1
-            for plant in filteredPlant {
-                if plant.name.contains(searchText) {
-                    
+            for plant in newData {
+                if plant.nickname.contains(searchText) {
+                    filteredPlant.append(contentsOf: [SearchMypageFriendData(id: plant.id, dDay: plant.dDay, nickname: plant.nickname, name: plant.name, thumbnailImageURL: plant.thumbnailImageURL, level: plant.level, plantID: plant.plantID)])
             }
+                print("필터",filteredPlant)
         }
         self.plantTV.reloadData()
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         plantSearchBar.searchTextField.resignFirstResponder()
     }
-//        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//            self.plantSearchBar.endEditing(true)
-//        }
-
-        
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.plantSearchBar.endEditing(true)
     }
 }

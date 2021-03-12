@@ -20,4 +20,5 @@ extension Notification.Name {
     static let sendPeopleDataArray = Notification.Name("sendPeopleDataArray")
     static let deleteCherishZero = Notification.Name("deleteCherishZero")
     static let addUser = Notification.Name("addUser")
+    static let postToReloadMainCell = Notification.Name("postToReloadMainCell")
 }

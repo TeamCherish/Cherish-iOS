@@ -39,12 +39,11 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addNotificationObserver()
         setCherishPeopleData()
         makeHeaderViewCornerRadius()
         cherishPeopleCV.allowsMultipleSelection = false
         fcmTokenUpdate()
-        NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .addUser, object: nil)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +64,11 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
             setCherishPeopleData()
             appDel.isCherishEdited = false
         }
+    }
+    
+    func addNotificationObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .addUser, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadDataWhenFinishWatering), name: .postToReloadMainCell, object: nil)
     }
     
     //MARK: - 헤더 뷰 라운드로 만드는 함수
@@ -120,13 +124,8 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    
-    //MARK: - 친구추가 뷰로 이동
-    @IBAction func moveToSelectFriend(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+    @objc func reloadDataWhenFinishWatering() {
+        setCherishPeopleData()
     }
     
     //MARK: - FCMToken Update func
@@ -148,6 +147,15 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
             case .networkFail:
                 print("networkFail")
             }
+        }
+    }
+    
+    
+    //MARK: - 친구추가 뷰로 이동
+    @IBAction func moveToSelectFriend(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar {
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
@@ -182,9 +190,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 NotificationCenter.default.post(name: .sendPeopleDataArray, object: cherishPeopleData)
                 
                 let plantName = UserDefaults.standard.string( forKey: "selectedPlantName")
-                print("selectedPlantName",plantName!)
-                print("체리시 데이터를 알아보겠습니다", cherishPeopleData)
-                print("체리시 수", cherishPeopleData.count)
                 
                 // 셀이 눌리지 않은 상태 (cherishPeopleData의 첫번 째 데이터값으로 초기값을 설정해준다)
                 if appDel.isCherishPeopleCellSelected == false {
@@ -208,6 +213,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     }
                     
                     firstCell.nickNameLabel.text = cherishPeopleData[0].nickname
+                    firstCell.nickNameLabel?.textAlignment = .left
                     
                     
                     
@@ -246,6 +252,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     }
                     
                     firstCell.nickNameLabel.text = UserDefaults.standard.string(forKey:"selectedNickNameData")
+                    firstCell.nickNameLabel.textAlignment = .left
                     
                     /// dDay 값이 1 이하일 때 물아이콘 나타나게
                     if UserDefaults.standard.integer(forKey: "selecteddDayData") < 1 {
@@ -262,7 +269,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     firstCell.plantImageView.image = UIImage(data: imageData!)
                 }
             }
-            
             return firstCell
         }
         
@@ -273,6 +279,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             if cherishPeopleData.count != 0 {
                 
                 cell.cherishNickNameLabel.text = cherishPeopleData[indexPath.row - 1].nickname
+                cell.cherishNickNameLabel?.textAlignment = .left
                 
                 
                 /// dDay 값이 1 이하일 때 물아이콘 나타나게
@@ -306,10 +313,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     cell.cherishPlantImageView.alpha = 1
                 }
                 return cell
-                
-                
             }
-            
             return cell
         }
     }
@@ -323,7 +327,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
     //MARK: - didSelectItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        
         if indexPath.item > 0 {
             
             if cherishPeopleData.count != 0 {
@@ -334,7 +337,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 // 셀이 눌릴 때마다 UserDefaults에 값을 새로 저장해준다
                 UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].nickname, forKey: "selectedNickNameData")
                 UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].thumbnailImageURL, forKey: "selectedPlantNameData")
-                print(cherishPeopleData[indexPath.row - 1].plantName)
                 UserDefaults.standard.set(true, forKey: "selectedData")
                 UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].growth, forKey: "selectedGrowthData")
                 UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].dDay, forKey: "selecteddDayData")
@@ -361,7 +363,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
             }
             // 셀이 눌렸을 때 노치 사이즈 줄어들기 위해 보내는 noti
             NotificationCenter.default.post(name: .cherishPeopleCellClicked, object: nil)
-            
         }
     }
 }

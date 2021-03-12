@@ -848,10 +848,6 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIa-QI-QPQ" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                                     <rect key="frame" x="80" y="34" width="59" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="DIa-QI-QPQ" secondAttribute="height" multiplier="59:24" id="nkr-WK-GNU"/>
-                                                        <constraint firstAttribute="width" constant="59" id="qhs-pG-sUU"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                                     <color key="textColor" name="black"/>
                                                     <nil key="highlightedColor"/>

@@ -57,6 +57,34 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
+    //MARK: - set User Informations
+    func setUserInfo() {
+        let myPageUserIdx = UserDefaults.standard.integer(forKey: "userID")
+        print(myPageUserIdx)
+        MypageService.shared.inquireMypageView(idx: myPageUserIdx) { [self]
+            (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                if let mypageData = data as? MypageData {
+                    userNicknameLabel.text = "\(mypageData.userNickname)"
+                    userEmailLabel.text = "\(mypageData.email)"
+                    userNicknameLabel.sizeToFit()
+                    userEmailLabel.sizeToFit()
+                    UserDefaults.standard.set(mypageData.email, forKey: "userEmail")
+                    UserDefaults.standard.set(mypageData.userNickname, forKey: "userNickname")
+                }
+            case .requestErr(let msg):
+                print(msg)
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
     func setUserImage() {
         if let image: UIImage
             = ImageFileManager.shared.getSavedImage(named: UserDefaults.standard.string(forKey: "uniqueImageName") ?? "") {
@@ -73,14 +101,6 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
     func setImageViewRounded() {
         userImageView.clipsToBounds = true
         userImageView.layer.cornerRadius = userImageView.frame.height / 2
-    }
-    
-    //MARK: - set User Informations
-    func setUserInfo() {
-        userNicknameLabel.text = UserDefaults.standard.string(forKey: "userNickname")
-        userEmailLabel.text = UserDefaults.standard.string(forKey: "userEmail")
-        userNicknameLabel.sizeToFit()
-        userEmailLabel.sizeToFit()
     }
     
     // sendMailErrorAlert
@@ -108,8 +128,16 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
             WithdrawalService.shared.withdrawalAccount(userId: UserDefaults.standard.integer(forKey: "userID")) { [self] (networkResult) -> (Void) in
                 switch networkResult {
                 case .success(_):
-                    // 회원탈퇴 성공하면 Login 뷰로 dismiss
-                    self.dismiss(animated: true, completion: nil)
+                    //회원탈퇴를 하기 위해 자동로그인을 위해 사용되었던
+                    //UserDefualts에 저장된 값들을 삭제해준다
+                    UserDefaults.standard.removeObject(forKey: "loginEmail")
+                    UserDefaults.standard.removeObject(forKey: "loginPw")
+                    UserDefaults.standard.removeObject(forKey: "autoLogin")
+                    
+                    // 자동로그인 해제시 루트 컨트롤러를 로그인으로 설정
+                    let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                    let loginView: LoginNC = storyboard.instantiateViewController(withIdentifier: "LoginNC") as! LoginNC
+                    UIApplication.shared.keyWindow?.rootViewController = loginView
                 case .requestErr(let msg):
                     if let message = msg as? String {
                         print(message)

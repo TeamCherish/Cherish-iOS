@@ -14,7 +14,7 @@ class MypagePlantVC: UIViewController {
     
     var mypagePlantArray: [MypagefriendsData] = []
     
-    
+     
     var myCherishId: [Int] = []
     var myCherishLevel: [Int] = []
     
@@ -50,7 +50,6 @@ class MypagePlantVC: UIViewController {
                     UserDefaults.standard.set(mypageData.totalCherish, forKey: "totalCherish")
 
                     UserDefaults.standard.set(try? PropertyListEncoder().encode(mypageData.result), forKey: "cherishResult")
-                    
                     
                         mypageTV.reloadData()
                     

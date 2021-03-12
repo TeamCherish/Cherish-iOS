@@ -45,5 +45,4 @@ struct MypagefriendsData: Codable {
         level = (try? values.decode(Int.self, forKey: .level)) ?? -1
         plantID = (try? values.decode(Int.self, forKey: .plantID)) ?? -1
     }
-
 }

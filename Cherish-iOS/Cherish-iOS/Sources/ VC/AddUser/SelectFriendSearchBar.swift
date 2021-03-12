@@ -46,6 +46,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nextBtn.isEnabled = false
         tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
@@ -93,6 +94,9 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
             var phoneNumber: String = dvc.givenPhoneNumber!
             var userId = UserDefaults.standard.integer(forKey: "userID")
             
+            print("유저아이디~")
+            print(userId)
+            
             CheckPhoneService.shared.checkPhone(phone: phoneNumber , UserId: userId) { [self](networkResult) -> (Void) in
                 switch networkResult {
                 case .success(_):
@@ -136,9 +140,6 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
             friendList = friendList.filter{$0.name.first?.isNumber == false}
             // 문자로 시작하는 문자열 뒤에 숫자로 시작하는 문자열 병합
             friendList.append(contentsOf: startNumberArray)
-            
-            print(friendList)
-            
         }
     }
     

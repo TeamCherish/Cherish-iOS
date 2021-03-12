@@ -57,6 +57,10 @@ class PlantDetailVC: UIViewController {
     var myCherishIsSelected: Bool = false
     var myCherishIdx: Int = UserDefaults.standard.integer(forKey: "selectedCherishIdx")
     
+    
+    // selectedCherish : 마이페이지에서 온 변수
+    // selectedFriendIdData: 메인에서 온 변수
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setControllers()
@@ -85,7 +89,13 @@ class PlantDetailVC: UIViewController {
         friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
         print("viewWillAppear")
         print(friendsPlantIdx)
-        getPlantDetailData()
+        if myCherishIsSelected == true {
+            getPlantDataFromMyPage(cherishId: myCherishIdx)
+            UserDefaults.standard.set(false, forKey: "plantIsSelected")
+        }
+        else {
+            getPlantDetailData()
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(popToMainView), name: .popToMainView, object: nil)
     }
     
