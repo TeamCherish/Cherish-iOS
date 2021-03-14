@@ -203,6 +203,8 @@ extension MyPageSearchPlantVC: UISearchBarDelegate {
         filteredPlant = []
         
         if searchText == "" {
+            checkSearch = 0
+            myCherish = []
             filteredPlant = plantArr
         }
         else {
