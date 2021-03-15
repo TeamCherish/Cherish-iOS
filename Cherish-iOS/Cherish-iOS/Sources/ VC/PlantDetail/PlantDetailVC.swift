@@ -71,8 +71,9 @@ class PlantDetailVC: UIViewController {
         let myCherishIdx = UserDefaults.standard.integer(forKey: "selectedCherish")
         
         if myCherishIsSelected == true {
+            print("hi")
             getPlantDataFromMyPage(cherishId: myCherishIdx)
-            UserDefaults.standard.set(false, forKey: "plantIsSelected")
+//            UserDefaults.standard.set(false, forKey: "plantIsSelected")
         }
         else {
             getPlantDetailData()
@@ -86,12 +87,13 @@ class PlantDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         LoadingHUD.show()
+        setControllers()
         friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
         print("viewWillAppear")
         print(friendsPlantIdx)
         if myCherishIsSelected == true {
             getPlantDataFromMyPage(cherishId: myCherishIdx)
-            UserDefaults.standard.set(false, forKey: "plantIsSelected")
+//            UserDefaults.standard.set(false, forKey: "plantIsSelected")
         }
         else {
             getPlantDetailData()

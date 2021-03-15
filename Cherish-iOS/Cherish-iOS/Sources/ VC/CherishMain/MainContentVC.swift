@@ -44,6 +44,7 @@ class MainContentVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         LoadingHUD.show()
+        print(UserDefaults.standard.bool(forKey: "plantIsSelected"))
         UserDefaults.standard.set(false, forKey: "plantIsSelected")
         UserDefaults.standard.set(false, forKey: "calendarPlantIsSelected")
         addNotificationObserver()
@@ -78,7 +79,7 @@ class MainContentVC: UIViewController {
         // 식물상세페이지로 네비게이션 연결 후 탭바가 사라지기 때문에
         // popViewController 액션으로 다시 메인뷰로 돌아왔을 때 탭바가 나타나야 한다.
         self.tabBarController?.tabBar.isHidden = false
-        
+        UserDefaults.standard.set(false, forKey: "plantIsSelected")
         LoadingHUD.hide()
     }
     
