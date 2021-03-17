@@ -154,7 +154,7 @@ class NicknameChangeVC: UIViewController, UINavigationControllerDelegate {
     }
     
     func successAlert() {
-        let nicknameChangeSuccessAlert = UIAlertController(title: "닉네임 변경 완료!", message: "", preferredStyle: .alert)
+        let nicknameChangeSuccessAlert = UIAlertController(title: "변경이 완료되었어요", message: "", preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "확인", style: .default) {
             (action) in
             print("확인")
