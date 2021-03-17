@@ -31,7 +31,7 @@ class MainContentVC: UIViewController {
     var selectedRowIndexPath:Int = 0
     
     let userId: Int = UserDefaults.standard.integer(forKey: "userID")
-    let growthInfo:Int = UserDefaults.standard.integer(forKey: "selectedGrowthData")
+    var growthInfo:Int = UserDefaults.standard.integer(forKey: "selectedGrowthData")
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     // 뷰 전체 폭 길이
     let screenWidth = UIScreen.main.bounds.size.width
@@ -142,6 +142,7 @@ class MainContentVC: UIViewController {
                 
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
                 allocateWateringDataWhenBackgroundMode()
+                growthInfo = UserDefaults.standard.integer(forKey: "selectedGrowthData")
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
@@ -191,6 +192,7 @@ class MainContentVC: UIViewController {
                 
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
                 allocateWateringDataWhenBackgroundMode()
+                growthInfo = UserDefaults.standard.integer(forKey: "selectedGrowthData")
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
@@ -236,6 +238,7 @@ class MainContentVC: UIViewController {
                 
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
                 allocateWateringDataWhenBackgroundMode()
+                growthInfo = UserDefaults.standard.integer(forKey: "selectedGrowthData")
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
@@ -281,6 +284,7 @@ class MainContentVC: UIViewController {
                 
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
                 allocateWateringDataWhenBackgroundMode()
+                growthInfo = UserDefaults.standard.integer(forKey: "selectedGrowthData")
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
                     wateringGifPlay(.cactusBg)
                     plantImageView.isHidden = false
@@ -330,6 +334,7 @@ class MainContentVC: UIViewController {
                 
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
                 allocateWateringDataWhenBackgroundMode()
+                growthInfo = UserDefaults.standard.integer(forKey: "selectedGrowthData")
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
@@ -430,6 +435,7 @@ class MainContentVC: UIViewController {
     
     //MARK: - 민들레 3단계 성장
     func dandelionGrowth() {
+
         
         if growthInfo < 25 {
             // 1단계
@@ -495,11 +501,13 @@ class MainContentVC: UIViewController {
             self.plantImageView.image = UIImage(named: "imgRose1")
             plantImageView.center = CGPoint(x:153, y:251)
             self.plantImageView.frame.size = CGSize(width: 222, height: 460)
+            print("hi")
             view.backgroundColor = .rosemaryBg
         }
         else if growthInfo < 50 && growthInfo >= 25 {
             // 2단계
             plantGifView.isHidden = true
+            print("growthInfo")
             plantImageViewTopConstraint.constant = 106
             self.plantImageView.image = UIImage(named: "imgRose2")
             plantImageView.center = CGPoint(x:149, y:151)

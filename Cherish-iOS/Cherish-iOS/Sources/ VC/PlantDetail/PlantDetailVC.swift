@@ -324,7 +324,7 @@ class PlantDetailVC: UIViewController {
                     
                     plantMaintainDayLabel.text = "\(plantDetailData.duration)일째"
                     
-                    
+                    print(plantDetailData.birth)
                     //MARK: - 생일 값이 Invalidate Date로 넘어올 때 처리
                     if plantDetailData.birth == "Invalid Date" {
                         plantBirthDayLabel.text = "--.--"
