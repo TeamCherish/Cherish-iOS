@@ -47,6 +47,9 @@ class PlantDetailPopUpExplainVC: UIViewController {
                         plantExplain = detailCardData.plantResponse
                         // 4개 카드 중 3개 정보 받는 array
                         plantStepExplainArray = detailCardData.plantDetail
+                        
+                        print("plantExplain",plantExplain)
+                        print("plantStepExplainArray",plantStepExplainArray)
                         plantExplainCV.reloadData()
                     }
                 case .requestErr(let msg):
@@ -92,50 +95,77 @@ extension PlantDetailPopUpExplainVC : UICollectionViewDelegate, UICollectionView
                 plantExplainCell.plantExplainTitleLabel.text = plantExplain[0].modifier
                 plantExplainCell.plantExplainSubtitleLabel.text = plantExplain[0].explanation
                 
-                let first_url = URL(string: plantExplain[0].image )
-                let first_imageData = try? Data(contentsOf: first_url!)
-                plantExplainCell.flowerMeaningImageView.image = UIImage(data: first_imageData!)
+//                let first_url = URL(string: plantExplain[0].image)
+//                let first_imageData = try? Data(contentsOf: first_url!)
+//                plantExplainCell.flowerMeaningImageView.image = UIImage(data: first_imageData!)
                 
-                let url = URL(string: plantExplain[0].imageURL )
-                let imageData = try? Data(contentsOf: url!)
-                plantExplainCell.plantImageView.image = UIImage(data: imageData!)
+                /// 이미지 url 처리
+                DispatchQueue.global(qos: .default).async(execute: { [self]() -> Void in
+                    
+                    let url = URL(string: plantExplain[0].imageURL )
+                    let imageData = try? Data(contentsOf: url!)
+                    DispatchQueue.main.async(execute: {() -> Void in
+                        
+                        plantExplainCell.plantImageView.image = UIImage(data: imageData!)
+                    })
+                })
+                
 //                plantExplainCell.plantImageView.image = UIImage(named: "imgMinLevel3")
             }
             else if indexPath.item == 1 {
                 plantExplainCell.plantExplainTitleLabel.text = "1단계"
                 plantExplainCell.plantExplainSubtitleLabel.text = plantStepExplainArray[0].plantDetailDescription
                 
-                let step1 = URL(string: plantStepExplainArray[0].image )
-                let step1_imageData = try? Data(contentsOf: step1!)
-                plantExplainCell.flowerMeaningImageView.image = UIImage(data: step1_imageData!)
+//                let step1 = URL(string: plantStepExplainArray[0].imageURL)
+//                let step1_imageData = try? Data(contentsOf: step1!)
+//                plantExplainCell.flowerMeaningImageView.image = UIImage(data: step1_imageData!)
                 
-                let url = URL(string: plantStepExplainArray[0].imageURL )
-                let imageData = try? Data(contentsOf: url!)
-                plantExplainCell.plantImageView.image = UIImage(data: imageData!)
+                /// 이미지 url 처리
+                DispatchQueue.global(qos: .default).async(execute: { [self]() -> Void in
+                    
+                    let url = URL(string: plantStepExplainArray[0].imageURL)
+                    let imageData = try? Data(contentsOf: url!)
+                    DispatchQueue.main.async(execute: {() -> Void in
+                        
+                        plantExplainCell.plantImageView.image = UIImage(data: imageData!)
+                    })
+                })
             }
             else if indexPath.item == 2 {
                 plantExplainCell.plantExplainTitleLabel.text = "2단계"
                 plantExplainCell.plantExplainSubtitleLabel.text = plantStepExplainArray[1].plantDetailDescription
                 
-                let step2 = URL(string: plantStepExplainArray[1].image )
-                let step2_imageData = try? Data(contentsOf: step2!)
-                plantExplainCell.flowerMeaningImageView.image = UIImage(data: step2_imageData!)
-                
-                let url = URL(string: plantStepExplainArray[1].imageURL )
-                let imageData = try? Data(contentsOf: url!)
-                plantExplainCell.plantImageView.image = UIImage(data: imageData!)
+//                let step2 = URL(string: plantStepExplainArray[1].imageURL)
+//                let step2_imageData = try? Data(contentsOf: step2!)
+//                plantExplainCell.flowerMeaningImageView.image = UIImage(data: step2_imageData!)
+                /// 이미지 url 처리
+                DispatchQueue.global(qos: .default).async(execute: { [self]() -> Void in
+                    
+                    let url = URL(string: plantStepExplainArray[1].imageURL)
+                    let imageData = try? Data(contentsOf: url!)
+                    DispatchQueue.main.async(execute: {() -> Void in
+                        
+                        plantExplainCell.plantImageView.image = UIImage(data: imageData!)
+                    })
+                })
             }
             else {
                 plantExplainCell.plantExplainTitleLabel.text = "3단계"
                 plantExplainCell.plantExplainSubtitleLabel.text = plantStepExplainArray[1].plantDetailDescription
                 
-                let step3 = URL(string: plantStepExplainArray[2].image )
-                let step3_imageData = try? Data(contentsOf: step3!)
-                plantExplainCell.flowerMeaningImageView.image = UIImage(data: step3_imageData!)
-                
-                let url = URL(string: plantStepExplainArray[2].imageURL )
-                let imageData = try? Data(contentsOf: url!)
-                plantExplainCell.plantImageView.image = UIImage(data: imageData!)
+//                let step3 = URL(string: plantStepExplainArray[2].image )
+//                let step3_imageData = try? Data(contentsOf: step3!)
+//                plantExplainCell.flowerMeaningImageView.image = UIImage(data: step3_imageData!)
+                /// 이미지 url 처리
+                DispatchQueue.global(qos: .default).async(execute: { [self]() -> Void in
+                    
+                    let url = URL(string: plantStepExplainArray[2].imageURL)
+                    let imageData = try? Data(contentsOf: url!)
+                    DispatchQueue.main.async(execute: {() -> Void in
+                        
+                        plantExplainCell.plantImageView.image = UIImage(data: imageData!)
+                    })
+                })
             }
         }
         

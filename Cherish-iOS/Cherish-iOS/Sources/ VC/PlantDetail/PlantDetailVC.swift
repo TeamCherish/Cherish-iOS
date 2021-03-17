@@ -71,10 +71,12 @@ class PlantDetailVC: UIViewController {
         let myCherishIdx = UserDefaults.standard.integer(forKey: "selectedCherish")
         
         if myCherishIsSelected == true {
+            print("hi")
             getPlantDataFromMyPage(cherishId: myCherishIdx)
-            UserDefaults.standard.set(false, forKey: "plantIsSelected")
+//            UserDefaults.standard.set(false, forKey: "plantIsSelected")
         }
         else {
+            print(friendsPlantIdx)
             getPlantDetailData()
         }
         
@@ -86,12 +88,13 @@ class PlantDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         LoadingHUD.show()
+        setControllers()
         friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
         print("viewWillAppear")
         print(friendsPlantIdx)
         if myCherishIsSelected == true {
             getPlantDataFromMyPage(cherishId: myCherishIdx)
-            UserDefaults.standard.set(false, forKey: "plantIsSelected")
+//            UserDefaults.standard.set(false, forKey: "plantIsSelected")
         }
         else {
             getPlantDetailData()
@@ -147,8 +150,16 @@ class PlantDetailVC: UIViewController {
                         plantdDayLabel.text = "D-\(plantDetailDataFromMyPage.dDay)"
                     }
                     
+                    //MARK: - 생일 값이 Invalidate Date로 넘어올 때 처리
+                    if plantDetailDataFromMyPage.birth == "Invalid Date" {
+                        plantBirthDayLabel.text = "--.--"
+                    }
+                    else {
+                        plantBirthDayLabel.text = plantDetailDataFromMyPage.birth
+                    }
+                    
                     plantMaintainDayLabel.text = "\(plantDetailDataFromMyPage.duration)일째"
-                    plantBirthDayLabel.text = plantDetailDataFromMyPage.birth
+                    
                     memoTitleLabel.text = "\(plantDetailDataFromMyPage.nickname)와(과) 함께했던 이야기"
                     print("지우기 전",keywordArray)
                     keywordArray.removeAll()
@@ -312,7 +323,16 @@ class PlantDetailVC: UIViewController {
                     }
                     
                     plantMaintainDayLabel.text = "\(plantDetailData.duration)일째"
-                    plantBirthDayLabel.text = plantDetailData.birth
+                    
+                    print(plantDetailData.birth)
+                    //MARK: - 생일 값이 Invalidate Date로 넘어올 때 처리
+                    if plantDetailData.birth == "Invalid Date" {
+                        plantBirthDayLabel.text = "--.--"
+                    }
+                    else {
+                        plantBirthDayLabel.text = plantDetailData.birth
+                    }
+                   
                     memoTitleLabel.text = "\(plantDetailData.nickname)와(과) 함께했던 이야기"
                     
                     ///1) 첫 로드, 2) 키워드 수정 후 viewWillAppear에서만 로드되는 경우

@@ -31,7 +31,7 @@ class MainContentVC: UIViewController {
     var selectedRowIndexPath:Int = 0
     
     let userId: Int = UserDefaults.standard.integer(forKey: "userID")
-    let growthInfo:Int = UserDefaults.standard.integer(forKey: "selectedGrowthData")
+    var growthInfo:Int = UserDefaults.standard.integer(forKey: "selectedGrowthData")
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     // 뷰 전체 폭 길이
     let screenWidth = UIScreen.main.bounds.size.width
@@ -44,6 +44,7 @@ class MainContentVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         LoadingHUD.show()
+        print(UserDefaults.standard.bool(forKey: "plantIsSelected"))
         UserDefaults.standard.set(false, forKey: "plantIsSelected")
         UserDefaults.standard.set(false, forKey: "calendarPlantIsSelected")
         addNotificationObserver()
@@ -78,7 +79,7 @@ class MainContentVC: UIViewController {
         // 식물상세페이지로 네비게이션 연결 후 탭바가 사라지기 때문에
         // popViewController 액션으로 다시 메인뷰로 돌아왔을 때 탭바가 나타나야 한다.
         self.tabBarController?.tabBar.isHidden = false
-        
+        UserDefaults.standard.set(false, forKey: "plantIsSelected")
         LoadingHUD.hide()
     }
     
@@ -141,6 +142,7 @@ class MainContentVC: UIViewController {
                 
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
                 allocateWateringDataWhenBackgroundMode()
+                growthInfo = UserDefaults.standard.integer(forKey: "selectedGrowthData")
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
@@ -190,6 +192,7 @@ class MainContentVC: UIViewController {
                 
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
                 allocateWateringDataWhenBackgroundMode()
+                growthInfo = UserDefaults.standard.integer(forKey: "selectedGrowthData")
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
@@ -235,6 +238,7 @@ class MainContentVC: UIViewController {
                 
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
                 allocateWateringDataWhenBackgroundMode()
+                growthInfo = UserDefaults.standard.integer(forKey: "selectedGrowthData")
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
@@ -280,6 +284,7 @@ class MainContentVC: UIViewController {
                 
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
                 allocateWateringDataWhenBackgroundMode()
+                growthInfo = UserDefaults.standard.integer(forKey: "selectedGrowthData")
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
                     wateringGifPlay(.cactusBg)
                     plantImageView.isHidden = false
@@ -329,6 +334,7 @@ class MainContentVC: UIViewController {
                 
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
                 allocateWateringDataWhenBackgroundMode()
+                growthInfo = UserDefaults.standard.integer(forKey: "selectedGrowthData")
                 if cherishResultData[selectedRowIndexPath].isWatering == true {
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
@@ -429,12 +435,14 @@ class MainContentVC: UIViewController {
     
     //MARK: - 민들레 3단계 성장
     func dandelionGrowth() {
+
         
         if growthInfo < 25 {
             // 1단계
             plantGifView.isHidden = true
             plantImageViewTopConstraint.constant = 243
             self.plantImageView.image = UIImage(named: "imgMin1")
+            plantImageView.center = CGPoint(x:106, y:343)
             self.plantImageView.frame.size = CGSize(width: 266, height: 336)
             view.backgroundColor = .dandelionBg
         }
@@ -443,6 +451,7 @@ class MainContentVC: UIViewController {
             plantGifView.isHidden = true
             plantImageViewTopConstraint.constant = 297
             self.plantImageView.image = UIImage(named: "imgMin2")
+            plantImageView.center = CGPoint(x:107, y:234)
             self.plantImageView.frame.size = CGSize(width: 266, height: 439)
             view.backgroundColor = .dandelionBg
         }
@@ -461,6 +470,7 @@ class MainContentVC: UIViewController {
             plantGifView.isHidden = true
             plantImageViewTopConstraint.constant = 250
             self.plantImageView.image = UIImage(named: "imgBlue1")
+            plantImageView.center = CGPoint(x:124, y:323)
             self.plantImageView.frame.size = CGSize(width: 249, height: 368)
             view.backgroundColor = .americanBlueBg
         }
@@ -469,6 +479,7 @@ class MainContentVC: UIViewController {
             plantGifView.isHidden = true
             plantImageViewTopConstraint.constant = 145
             self.plantImageView.image = UIImage(named: "imgBlue2")
+            plantImageView.center = CGPoint(x:149, y:190)
             self.plantImageView.frame.size = CGSize(width: 204, height: 461)
             view.backgroundColor = .americanBlueBg
         }
@@ -488,14 +499,18 @@ class MainContentVC: UIViewController {
             plantGifView.isHidden = true
             plantImageViewTopConstraint.constant = 206
             self.plantImageView.image = UIImage(named: "imgRose1")
+            plantImageView.center = CGPoint(x:153, y:251)
             self.plantImageView.frame.size = CGSize(width: 222, height: 460)
+            print("hi")
             view.backgroundColor = .rosemaryBg
         }
         else if growthInfo < 50 && growthInfo >= 25 {
             // 2단계
             plantGifView.isHidden = true
+            print("growthInfo")
             plantImageViewTopConstraint.constant = 106
             self.plantImageView.image = UIImage(named: "imgRose2")
+            plantImageView.center = CGPoint(x:149, y:151)
             self.plantImageView.frame.size = CGSize(width: 204, height: 572)
             view.backgroundColor = .rosemaryBg
         }
@@ -515,6 +530,7 @@ class MainContentVC: UIViewController {
             plantGifView.isHidden = true
             plantImageViewTopConstraint.constant = 240
             self.plantImageView.image = UIImage(named: "imgSun1")
+            plantImageView.center = CGPoint(x:100, y:397)
             self.plantImageView.frame.size = CGSize(width: 275, height: 229)
             view.backgroundColor = .cactusBg
         }
@@ -523,6 +539,7 @@ class MainContentVC: UIViewController {
             plantGifView.isHidden = true
             plantImageViewTopConstraint.constant = 235
             self.plantImageView.image = UIImage(named: "imgSun2")
+            plantImageView.center = CGPoint(x:92, y:280)
             self.plantImageView.frame.size = CGSize(width: 283, height: 350)
             view.backgroundColor = .cactusBg
         }
@@ -534,6 +551,7 @@ class MainContentVC: UIViewController {
         }
     }
     
+
     //MARK: - 스투키 3단계 성장
     func stuckyGrowth() {
         if growthInfo < 25 {
@@ -542,10 +560,11 @@ class MainContentVC: UIViewController {
             self.plantImageView.image = UIImage(named: "imgStuki1")
             plantImageViewTopConstraint.constant = 322
             plantImageViewHeight.constant = 287
-            let widthAnchor = self.plantImageView.widthAnchor.constraint(equalTo: plantImageView.heightAnchor, multiplier: 323/287)
-            plantImageView.removeConstraint(widthAnchor)
-            widthAnchor.isActive = true
-            plantImageView.layoutIfNeeded()
+            plantImageView.center = CGPoint(x:52, y:322)
+            print(self.screenWidth)
+            plantImageView.imageResize(sizeChange: CGSize(width: 323, height: 287))
+            self.view.layoutIfNeeded()
+            self.viewWillLayoutSubviews()
             view.backgroundColor = .stuckyBg
         }
         else if growthInfo < 50 && growthInfo >= 25 {
@@ -553,7 +572,9 @@ class MainContentVC: UIViewController {
             plantGifView.isHidden = true
             plantImageViewTopConstraint.constant = 268
             self.plantImageView.image = UIImage(named: "imgStuki2")
+            plantImageView.center = CGPoint(x:44, y:313)
             self.plantImageView.frame.size = CGSize(width: 330, height: 345)
+            self.view.layoutIfNeeded()
             view.backgroundColor = .stuckyBg
         }
         else {
@@ -564,6 +585,7 @@ class MainContentVC: UIViewController {
             self.view.backgroundColor = .stuckyBg
         }
     }
+    
     
     //MARK: - 프로그레스바 커스텀
     func customProgressBarView(_ value : Int) {

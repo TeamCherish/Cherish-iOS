@@ -136,7 +136,13 @@ class PlantEditVC: UIViewController {
                     }
                 
                     self.nicknameTextField.text = plantData.cherishDetail.nickname
-                    self.birthTextField.text = plantData.cherishDetail.birth
+                    //MARK: - 생일 값이 Invalidate Date로 넘어올 때 처리
+                    if plantData.cherishDetail.birth == "Invalid Date" {
+                        self.birthTextField.text = "--.--"
+                    }
+                    else {
+                        self.birthTextField.text = plantData.cherishDetail.birth
+                    }
                     self.phoneTextField.text = plantData.cherishDetail.phone
                     self.periodTextField.text = self.parsedPeriod
                     self.alarmTimeTextField.text = self.parsedAlarm
