@@ -7,7 +7,7 @@
 		<string>iOS.Cherish.Cherish-iOS</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<string></string>
 	<key>CFBundleDisplayName</key>
 	<string>Cherish</string>
 	<key>CFBundleExecutable</key>

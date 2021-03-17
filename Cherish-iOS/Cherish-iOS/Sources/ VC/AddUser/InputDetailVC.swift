@@ -22,17 +22,17 @@ class InputDetailVC: UIViewController {
     
     //MARK: - 변수 지정
     
-    let datePicker = UIDatePicker()
+//    let datePicker = UIDatePicker()
+    var birthPicker = UIPickerView()
     var periodPicker = UIPickerView()
     
     var num = [String](repeating: "1", count: 90)
     let period = ["day", "week", "month"]
     let time = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
     let ampm = ["AM", "PM"]
+    var month = [Int](repeating: 0, count: 12)
+    var day = [Int](repeating: 0, count: 31)
     
-    var year: [Int] = []
-    var month: [String] = []
-    var day: [String] = []
     var receiveItem = ""
     var cycle_date = 0
     var givenName: String?
@@ -41,12 +41,14 @@ class InputDetailVC: UIViewController {
     
     var checkPicker: Int = 0
     
+    var serverBirth: String = ""
+        
     //MARK: - viewDidLoad()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        setBirthPickerData()
+//        setBirthPickerData()
         completeBtn.isEnabled = false
         setTextField()
         textFieldBackgroundImage()
@@ -55,9 +57,17 @@ class InputDetailVC: UIViewController {
         for i in 0...89 {
             num[i] = String(i+1)
         }
-        print("이 넘")
-        print(num)
+        for i in 0...11 {
+            month[i] = i+1
+        }
+        for i in 0...30 {
+            day[i] = i+1
+        }
+        print(month)
+        print(day)
         nicknameTextField.delegate = self
+        birthPicker.delegate = self
+        birthPicker.dataSource = self
         periodPicker.delegate = self
         periodPicker.dataSource = self
         alarmPicker.delegate = self
@@ -87,31 +97,28 @@ class InputDetailVC: UIViewController {
         
         // 생일 입력 관련 -> 생일도 테스트 해보자! 0000-00-00 으로 잘 넘어가는지~
         // -> 생일은 invalid date로 넘어감 -> 왜냐~~~~~~ 서버한테 물어보자
-        if birthTextField.text?.isEmpty == true {
-            birthText = "0000-00-00"
+        if birthTextField.text == "" {
+            print("생이 입력 안됨")
+            birthText = "0000.00.00"
         }
         else {
-            birthText = birthTextField.text!
+            birthText = serverBirth
+            print(serverBirth)
         }
         
         guard let nameText = givenName,
-              let phonenumberText = phoneTextField.text,
+              let phonenumberText = givenPhoneNumber,
               let timeText = convertedAlarmTime,
               let periodText = alarmPeriodTextField.text else { return }
         
-//        print(nameText)
-//        print(nicknameText)
-//        print(birthText)
-//        print(phonenumberText)
-//        print(periodText)
-        print("사이클데이트트")
-        print(cycle_date)
-//        print(timeText)
-    
+        print(birthText)
+
         let alarmState = true
         
         if completeBtn.isEnabled == true {
             guard let loadingVC = self.storyboard?.instantiateViewController(identifier: "LoadingPopUpVC") as? LoadingPopUpVC else { return }
+            loadingVC.modalPresentationStyle = .overCurrentContext
+            
             guard let resultVC = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else { return }
             
             AddUserService.shared.addUser(name: nameText, nickname: nicknameText, birth: birthText, phone: phonenumberText, cycle_date: cycle_date, notice_time: timeText, water_notice_: alarmState, UserId: UserDefaults.standard.integer(forKey: "userID")) {
@@ -133,7 +140,12 @@ class InputDetailVC: UIViewController {
                         print("식물매칭중 사진",resultData.plant.imageURL)
                         print("식물매칭중 꽃말",resultData.plant.flowerMeaning)
                         //                        NotificationCenter.default.post(name: .sendPlantResult, object: nil)
-                        self.navigationController?.pushViewController(loadingVC, animated: false)
+                        self.present(loadingVC, animated: false, completion: nil)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                            self.dismiss(animated: false) {
+                                self.navigationController?.pushViewController(resultVC, animated: true)
+                            }
+                        }
                     }
                 case .requestErr(_):
                     print("requesetErr")
@@ -148,6 +160,12 @@ class InputDetailVC: UIViewController {
         }
     }
     
+//    @objc func moveToResultVC() {
+//        guard let dvc = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else { return }
+//        self.dismiss(animated: false) {
+//            self.navigationController?.pushViewController(dvc, animated: true)
+//        }
+//    }
     
     //MARK: - 함수 모음
     
@@ -157,7 +175,15 @@ class InputDetailVC: UIViewController {
         
         // 핸드폰 번호 자동으로 받아오기
         if let phoneNumber = self.givenPhoneNumber {
-            self.phoneTextField.text = phoneNumber
+            let phoneNumInt = Int(phoneNumber)
+            let phoneNumArr = Array(phoneNumber)
+            if phoneNumArr.count > 11 {
+                self.phoneTextField.text = phoneNumber
+            }
+            else {
+                self.phoneTextField.text = "0" + phoneNumInt!.withHypen
+            }
+//            self.phoneTextField.text = phoneNumber
         }
     }
     
@@ -169,10 +195,9 @@ class InputDetailVC: UIViewController {
 //    }
     
     // 생일 picker 미래로 설정 못하게
-    func setBirthPickerData() {
-        self.datePicker.maximumDate = Date()
-    }
-
+//    func setBirthPickerData() {
+//        self.datePicker.maximumDate = Date()
+//    }
 
     //MARK: - 필요한 값 다 채워지면 완료 버튼 enable
     func enableCompleteBtn() {
@@ -254,23 +279,25 @@ class InputDetailVC: UIViewController {
         alarmPeriodTextField.inputAccessoryView = toolbar2
         
         // assign picker to the textField
-        birthTextField.inputView = datePicker
+//        birthTextField.inputView = datePicker
+        birthTextField.inputView = birthPicker
         alarmPeriodTextField.inputView = periodPicker
         
         // datePicker mode
-        datePicker.datePickerMode = .date
-        datePicker.preferredDatePickerStyle = .wheels
+//        datePicker.datePickerMode = .date
+//        datePicker.locale = NSLocale(localeIdentifier: "ko_KO") as Locale
+//        datePicker.preferredDatePickerStyle = .wheels
         
         
     }
     
     @objc func donePressedBirth() {
         //formatter
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        
-        birthTextField.text = formatter.string(from: datePicker.date)
+//        let formatter = DateFormatter()
+//        formatter.dateStyle = .medium
+//        formatter.timeStyle = .none
+//
+//        birthTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
         enableCompleteBtn()
     }
@@ -278,6 +305,7 @@ class InputDetailVC: UIViewController {
     @objc func donePreseedPeriod() {
         if checkPicker == 0 {
             self.alarmPeriodTextField.text = "Every 1 day"
+            self.cycle_date = 1
             self.view.endEditing(true)
         }
         else {
@@ -285,6 +313,7 @@ class InputDetailVC: UIViewController {
         }
         enableCompleteBtn()
     }
+    
     
 //    @objc func changed() {
 //        let dateformatter = DateFormatter()
@@ -303,7 +332,10 @@ class InputDetailVC: UIViewController {
 extension InputDetailVC: UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        if pickerView == periodPicker {
+        if pickerView == birthPicker {
+            return 2
+        }
+        else if pickerView == periodPicker {
             return 3
         }
         else if pickerView == alarmPicker {
@@ -313,7 +345,15 @@ extension InputDetailVC: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == periodPicker {
+        if pickerView == birthPicker {
+            if component == 0 {
+                return month.count
+            }
+            else {
+                return day.count
+            }
+        }
+        else if pickerView == periodPicker {
             if component == 0 {
                 return 1
             }
@@ -341,7 +381,16 @@ extension InputDetailVC: UIPickerViewDataSource {
 extension InputDetailVC: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        if pickerView == periodPicker {
+        if pickerView == birthPicker {
+            if component == 0 {
+                return String(month[row]) + "월"
+            }
+            else {
+                return String(day[row]) + "일"
+            }
+        }
+        
+        else if pickerView == periodPicker {
             if component == 0 {
                 return "Every"
             }
@@ -366,47 +415,21 @@ extension InputDetailVC: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == periodPicker {
+        if pickerView == birthPicker {
+            let selectedMonth = pickerView.selectedRow(inComponent: 0)
+            let selectedDay = pickerView.selectedRow(inComponent: 1)
+            let fullBirthDate = String(month[selectedMonth]) + "월 " + String(day[selectedDay])+"일"
+            self.birthTextField.text = fullBirthDate
+            self.serverBirth = "2000." + String(month[selectedMonth]) + "." + String(day[selectedDay])
+            print(serverBirth)
+        }
+        else if pickerView == periodPicker {
             checkPicker = 1
             let selectedNum = pickerView.selectedRow(inComponent: 1)
 //            let selectedPeriod = pickerView.selectedRow(inComponent: 2)
             let realNum = num[selectedNum]
 //            let realPeriod = period[selectedPeriod]
             self.cycle_date = Int(num[selectedNum])!
-//            switch realPeriod {
-//            case "day":
-//                if realNum == "1" {
-//                    self.cycle_date = 1
-//                }
-//                else if realNum == "2" {
-//                    self.cycle_date = 2
-//                }
-//                else if realNum == "3" {
-//                    self.cycle_date = 3
-//                }
-//            case "week":
-//                if realNum == "1" {
-//                    self.cycle_date = 7
-//                }
-//                else if realNum == "2" {
-//                    self.cycle_date = 14
-//                }
-//                else if realNum == "3" {
-//                    self.cycle_date = 21
-//                }
-//            case "month":
-//                if realNum == "1" {
-//                    self.cycle_date = 30
-//                }
-//                else if realNum == "2" {
-//                    self.cycle_date = 60
-//                }
-//                else if realNum == "3" {
-//                    self.cycle_date = 90
-//                }
-//            default:
-//                self.cycle_date = 1
-//            }
             let fullData = "Every "+realNum+" day"
             self.alarmPeriodTextField.text = fullData
         }
@@ -415,7 +438,7 @@ extension InputDetailVC: UIPickerViewDelegate {
             let selectedAMPM = pickerView.selectedRow(inComponent: 2)
             let realTime = time[selectedTime]
             let realAMPM = ampm[selectedAMPM]
-            let fullAlarmTime = realTime+":00"+" "+realAMPM
+            let fullAlarmTime = time[selectedTime]+":00"+" "+ampm[selectedAMPM]
             self.alarmTimeTextField.text = fullAlarmTime
             
             // 알람 시간 파싱

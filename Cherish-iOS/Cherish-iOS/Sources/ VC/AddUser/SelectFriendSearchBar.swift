@@ -28,7 +28,6 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         didSet {
             tableView.reloadData()
             self.nextBtn.isEnabled = true
-//            self.nextBtn.setImage(UIImage(named: "btn_next_selected"), for: .normal)
             self.nextBtn.backgroundColor = .seaweed
             self.nextBtn.makeRounded(cornerRadius: 25)
             self.nextBtn.setTitleColor(UIColor(red: 255, green: 255, blue: 255, alpha: 1.0), for: .normal)

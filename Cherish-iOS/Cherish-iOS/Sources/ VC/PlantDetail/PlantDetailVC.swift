@@ -72,7 +72,7 @@ class PlantDetailVC: UIViewController {
         
         if myCherishIsSelected == true {
             getPlantDataFromMyPage(cherishId: myCherishIdx)
-            UserDefaults.standard.set(false, forKey: "plantIsSelected")
+//            UserDefaults.standard.set(false, forKey: "plantIsSelected")
         }
         else {
             getPlantDetailData()
@@ -91,7 +91,7 @@ class PlantDetailVC: UIViewController {
         print(friendsPlantIdx)
         if myCherishIsSelected == true {
             getPlantDataFromMyPage(cherishId: myCherishIdx)
-            UserDefaults.standard.set(false, forKey: "plantIsSelected")
+//            UserDefaults.standard.set(false, forKey: "plantIsSelected")
         }
         else {
             getPlantDetailData()
