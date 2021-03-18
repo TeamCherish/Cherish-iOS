@@ -857,10 +857,9 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스투키 Lv.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUv-S3-84k" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="80" y="53.666666666666664" width="58" height="17.999999999999993"/>
+                                                    <rect key="frame" x="80" y="53.666666666666664" width="56.333333333333343" height="17.999999999999993"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="aUv-S3-84k" secondAttribute="height" multiplier="29:9" id="H1Q-r7-0n0"/>
-                                                        <constraint firstAttribute="width" constant="58" id="JtB-fH-gz2"/>
+                                                        <constraint firstAttribute="height" constant="18" id="iQE-8M-9Ws"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                     <color key="textColor" name="textGrey"/>
@@ -879,9 +878,9 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flR-xD-6TE" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="308.66666666666669" y="45" width="38.333333333333314" height="23"/>
+                                                    <rect key="frame" x="310" y="44.666666666666664" width="38.333333333333314" height="22.999999999999993"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="23" id="gym-pF-NNx"/>
+                                                        <constraint firstAttribute="height" constant="23" id="hnh-nP-mnc"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -896,14 +895,14 @@
                                             <constraints>
                                                 <constraint firstItem="QAD-Z9-B4I" firstAttribute="leading" secondItem="TJF-BL-M7E" secondAttribute="leading" constant="16" id="0YB-Ar-CUu"/>
                                                 <constraint firstItem="DIa-QI-QPQ" firstAttribute="top" secondItem="TJF-BL-M7E" secondAttribute="top" constant="34" id="4Ta-ph-ddb"/>
-                                                <constraint firstAttribute="trailing" secondItem="flR-xD-6TE" secondAttribute="trailing" constant="28" id="FL0-YC-QbR"/>
                                                 <constraint firstAttribute="trailing" secondItem="5QT-BX-5Km" secondAttribute="trailing" constant="16" id="ITR-rT-Xe9"/>
                                                 <constraint firstAttribute="bottom" secondItem="5QT-BX-5Km" secondAttribute="bottom" constant="15" id="NqT-k0-iTj"/>
+                                                <constraint firstItem="flR-xD-6TE" firstAttribute="centerX" secondItem="5QT-BX-5Km" secondAttribute="centerX" id="TI9-AK-i9j"/>
                                                 <constraint firstAttribute="bottom" secondItem="QAD-Z9-B4I" secondAttribute="bottom" id="U6s-Fe-2X0"/>
                                                 <constraint firstItem="aUv-S3-84k" firstAttribute="top" secondItem="DIa-QI-QPQ" secondAttribute="bottom" constant="1" id="VY9-hZ-f30"/>
                                                 <constraint firstItem="DIa-QI-QPQ" firstAttribute="leading" secondItem="QAD-Z9-B4I" secondAttribute="trailing" constant="10" id="bZb-Lg-g6g"/>
                                                 <constraint firstItem="aUv-S3-84k" firstAttribute="leading" secondItem="DIa-QI-QPQ" secondAttribute="leading" id="cgy-3m-G1e"/>
-                                                <constraint firstAttribute="bottom" secondItem="flR-xD-6TE" secondAttribute="bottom" constant="15" id="dfv-ld-hj9"/>
+                                                <constraint firstItem="flR-xD-6TE" firstAttribute="centerY" secondItem="QAD-Z9-B4I" secondAttribute="centerY" id="fg8-9x-e2M"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

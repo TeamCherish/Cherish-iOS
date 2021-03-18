@@ -9,6 +9,12 @@ import UIKit
 
 class LoadingPopUpVC: UIViewController {
     
+    @IBOutlet weak var popUpView: UIView! {
+        didSet {
+            popUpView.backgroundColor = .white
+            popUpView.makeRounded(cornerRadius: 20)
+        }
+    }
     @IBOutlet weak var loadingImgView: UIImageView!
     
     var mTimer: Timer?
@@ -16,12 +22,13 @@ class LoadingPopUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingImgView.loadGif(asset: "loading")
-        mTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(moveToResultVC), userInfo: nil, repeats: false)
+//        mTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(moveToResultVC), userInfo: nil, repeats: false)
+//        print("왜 안넘어가징")
         // Do any additional setup after loading the view.
     }
     
-    @objc func moveToResultVC() {
-        guard let dvc = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else { return }
-        self.navigationController?.pushViewController(dvc, animated: true)
-    }
+//    @objc func moveToResultVC() {
+//        guard let dvc = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else { return }
+//        self.navigationController?.pushViewController(dvc, animated: true)
+//    }
 }

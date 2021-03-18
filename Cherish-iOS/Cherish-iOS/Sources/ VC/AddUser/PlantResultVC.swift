@@ -103,29 +103,46 @@ class PlantResultVC: UIViewController {
         self.modifierLabel.attributedText = attributedStr
         self.explanationLabel.text = UserDefaults.standard.string(forKey: "resultExplanation")
         
+//        addBtn.backgroundColor = .seaweed
+//        addBtn.makeRounded(cornerRadius: 25.0)
+        
         // 식물 종류 따라 라벨, 버튼 색깔 바꾸기
         let plantId = UserDefaults.standard.integer(forKey: "resultPlantId")
         switch plantId {
         case 1:
             // 로즈마리
-            self.startBtn.setBackgroundImage(UIImage(named: "btn_final_selected_rose"), for: .normal)
+//            self.startBtn.setBackgroundImage(UIImage(named: "btn_final_selected_rose"), for: .normal)
             self.plantBox.image = UIImage(named: "plant_say_rose")
+            self.startBtn.backgroundColor = .rosemaryBg
+            self.startBtn.makeRounded(cornerRadius: 25.0)
         case 2:
             // 아메리칸 블루
-            self.startBtn.setBackgroundImage(UIImage(named: "btn_final_selected_american"), for: .normal)
+//            self.startBtn.setBackgroundImage(UIImage(named: "btn_final_selected_american"), for: .normal)
             self.plantBox.image = UIImage(named: "plant_say_blue")
+            self.startBtn.backgroundColor = .americanBlueBg
+            self.startBtn.makeRounded(cornerRadius: 25.0)
+
         case 3:
             // 민들레
-            self.startBtn.setBackgroundImage(UIImage(named: "btn_final_selected_min"), for: .normal)
+//            self.startBtn.setBackgroundImage(UIImage(named: "btn_final_selected_min"), for: .normal)
             self.plantBox.image = UIImage(named: "plant_say_min")
+            self.startBtn.backgroundColor = .dandelionBg
+            self.startBtn.makeRounded(cornerRadius: 25.0)
+
         case 4:
             // 단모환
-            self.startBtn.setBackgroundImage(UIImage(named: "btn_final_selected_dan"), for: .normal)
+//            self.startBtn.setBackgroundImage(UIImage(named: "btn_final_selected_dan"), for: .normal)
             self.plantBox.image = UIImage(named: "plant_say_dan")
+            self.startBtn.backgroundColor = .cactusBg
+            self.startBtn.makeRounded(cornerRadius: 25.0)
+
         case 5:
             // 스투키
-            self.startBtn.setBackgroundImage(UIImage(named: "btn_final_selected_stuki"), for: .normal)
+//            self.startBtn.setBackgroundImage(UIImage(named: "btn_final_selected_stuki"), for: .normal)
             self.plantBox.image = UIImage(named: "plant_say_stuki")
+            self.startBtn.backgroundColor = .stuckyBg
+            self.startBtn.makeRounded(cornerRadius: 25.0)
+
         default:
             return
         }

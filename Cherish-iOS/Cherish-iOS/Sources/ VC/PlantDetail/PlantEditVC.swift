@@ -14,16 +14,21 @@ class PlantEditVC: UIViewController {
     @IBOutlet weak var periodTextField: UITextField!
     @IBOutlet weak var alarmTimeTextField: UITextField!
     @IBOutlet weak var alarmPicker: UIPickerView!
-    @IBOutlet weak var editBtn: UIButton!
-    
-    var selectedPlantId = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+    @IBOutlet weak var editBtn: UIButton! {
+        didSet {
+            editBtn.backgroundColor = .seaweed
+            editBtn.makeRounded(cornerRadius: 25.0)
+        }
+    }
+
     var parsedPeriod: String?
     var parsedAlarm: String?
-    let birthPicker = UIDatePicker()
+    var birthPicker = UIPickerView()
     var periodPicker = UIPickerView()
     
-//    let num = ["1", "2", "3"]
     var num = [String](repeating: "0", count: 90)
+    var month = [Int](repeating: 0, count: 12)
+    var day = [Int](repeating: 0, count: 31)
     let period = ["day", "week", "month"]
     let time = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
     let ampm = ["AM", "PM"]
@@ -37,8 +42,29 @@ class PlantEditVC: UIViewController {
     var delegateCheck: Int = 0
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    // 메인에서 온건지, 마페에서 온건지 구분 -> false, true
+    var myCherishIsSelected = false
+    // 정보 받아올 체리쉬 아이디 -> 메인에서 온거면 selectedFriendIdData 넣기, 마페에서 온거면 selectedCherish 넣기
+    var selectedPlantId : Int?
+    
+    let formatter = DateFormatter()
+    var serverBirth: String = ""
+    
+    var originPeriod: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        myCherishIsSelected = UserDefaults.standard.bool(forKey: "plantIsSelected")
+        print("불값 ",myCherishIsSelected)
+        if myCherishIsSelected == true {
+            self.selectedPlantId = UserDefaults.standard.integer(forKey: "selectedCherish")
+            UserDefaults.standard.set(false, forKey: "plantIsSelected")
+            print("마페에서 온 아이디 ",selectedPlantId)
+        }
+        else {
+            self.selectedPlantId = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+            print("메인에서 온 아이디 ", selectedPlantId)
+        }
         editBtn.isEnabled = true
         phoneTextField.isEnabled = false
 //        birthTextField.isEnabled = false
@@ -47,11 +73,19 @@ class PlantEditVC: UIViewController {
         setTextFieldPadding()
         getPlantDataToEdit()
         createPicker()
-        setBirthPickerData()
+//        setBirthPickerData()
         for i in 0...89 {
             num[i] = String(i+1)
         }
+        for i in 0...11 {
+            month[i] = i+1
+        }
+        for i in 0...30 {
+            day[i] = i+1
+        }
         nicknameTextField.delegate = self
+        birthPicker.delegate = self
+        birthPicker.dataSource = self
         periodPicker.delegate = self
         periodPicker.dataSource = self
         alarmPicker.delegate = self
@@ -95,34 +129,19 @@ class PlantEditVC: UIViewController {
         periodTextField.addDetailRightPadding()
         alarmTimeTextField.addDetailRightPadding()
     }
-    
-    
+        
     // MARK: - cherishId로 등록해둔 식물 정보 받아오기
     func getPlantDataToEdit() {
-        GetPlantDataService.shared.getPlantData(cherishId: self.selectedPlantId) {(networkResult) -> (Void) in
+        GetPlantDataService.shared.getPlantData(cherishId: self.selectedPlantId!) {(networkResult) -> (Void) in
+            print("체리시아이디")
+            print(self.selectedPlantId)
             switch networkResult {
             case .success(let data):
                 if let plantData = data as? GetPlantData {
-    
-                    // 알림주기 파싱
-//                    var cycleDate = plantData.cherishDetail.cycleDate
-//                    if cycleDate < 4 {
-//                        self.parsedPeriod = "Every "+String(cycleDate)+" day"
-//                    }
-//                    else if cycleDate % 7 == 0 {
-//                        cycleDate = cycleDate/7
-//                        print(cycleDate)
-//                        self.parsedPeriod = "Every "+String(cycleDate)+" week"
-//                    }
-//                    else if cycleDate % 30 == 0 {
-//                        cycleDate = cycleDate/30
-//                        print(cycleDate)
-//                        self.parsedPeriod = "Every "+String(cycleDate)+" month"
-//                    }
-                    print("에브리데이")
-                    print(plantData.cherishDetail.cycleDate)
-                    self.parsedPeriod = "Every "+String(plantData.cherishDetail.cycleDate)+" day"
                     
+                    self.parsedPeriod = "Every "+String(plantData.cherishDetail.cycleDate)+" day"
+                    self.cycle_date = plantData.cherishDetail.cycleDate
+        
                     // 알람시간 파싱
                     var noticeTimeHr = 0
                     var noticeTime = plantData.cherishDetail.noticeTime
@@ -136,14 +155,41 @@ class PlantEditVC: UIViewController {
                     }
                 
                     self.nicknameTextField.text = plantData.cherishDetail.nickname
+<<<<<<< HEAD
                     //MARK: - 생일 값이 Invalidate Date로 넘어올 때 처리
+=======
+                    
+                    // 생일 등록 안하면 invalid 뜨는거 임시 수정
+>>>>>>> cherishAddView
                     if plantData.cherishDetail.birth == "Invalid Date" {
                         self.birthTextField.text = "--.--"
                     }
                     else {
+<<<<<<< HEAD
                         self.birthTextField.text = plantData.cherishDetail.birth
                     }
                     self.phoneTextField.text = plantData.cherishDetail.phone
+=======
+                        // 데이터 파싱해서 년도 빼기
+                        self.formatter.dateFormat = "yyyy-MM-dd"
+                        let date: Date = self.formatter.date(from: plantData.cherishDetail.birth)!
+                        self.formatter.dateFormat = "MM월 dd일"
+                        self.birthTextField.text = self.formatter.string(from: date)
+                        self.serverBirth = plantData.cherishDetail.birth
+                    }
+                    
+                    // 전화번호에 "-" 넣기
+                    let phoneNumInt = Int(plantData.cherishDetail.phone)
+                    let phoneNumArr = Array(String(plantData.cherishDetail.phone))
+                    if phoneNumArr.count > 11 { // +8210 어쩌구
+                        self.phoneTextField.text = plantData.cherishDetail.phone
+                    }
+                    else {
+                        self.phoneTextField.text = "0" + phoneNumInt!.withHypen
+                    }
+//                    self.phoneTextField.text = plantData.cherishDetail.phone
+                    
+>>>>>>> cherishAddView
                     self.periodTextField.text = self.parsedPeriod
                     self.alarmTimeTextField.text = self.parsedAlarm
                 }
@@ -160,9 +206,9 @@ class PlantEditVC: UIViewController {
     }
     
     // 생일 picker 미래로 설정 못하게
-    func setBirthPickerData() {
-        self.birthPicker.maximumDate = Date()
-    }
+//    func setBirthPickerData() {
+//        self.birthPicker.maximumDate = Date()
+//    }
     
     // MARK: - 텍스트필드 안에 picker 넣기
     func createPicker() {
@@ -193,16 +239,16 @@ class PlantEditVC: UIViewController {
         periodTextField.inputView = periodPicker
         
         // birthPicker mode
-        birthPicker.datePickerMode = .date
-        birthPicker.preferredDatePickerStyle = .wheels
+//        birthPicker.datePickerMode = .date
+//        birthPicker.preferredDatePickerStyle = .wheels
     }
     
     @objc func donePressedBirth() {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        
-        birthTextField.text = formatter.string(from: birthPicker.date)
+//        let formatter = DateFormatter()
+//        formatter.dateStyle = .medium
+//        formatter.timeStyle = .none
+//
+//        birthTextField.text = formatter.string(from: birthPicker.date)
         self.view.endEditing(true)
         textFieldEvent += 1
     }
@@ -210,6 +256,7 @@ class PlantEditVC: UIViewController {
     @objc func donePreseedPeriod() {
         if checkPicker == 0 {
             self.periodTextField.text = "Every 1 day"
+            self.cycle_date = 1
             self.view.endEditing(true)
             textFieldEvent += 1
         }
@@ -230,7 +277,7 @@ class PlantEditVC: UIViewController {
         let cancel = UIAlertAction(title: "취소", style: .default, handler : nil)
         let delete = UIAlertAction(title: "삭제", style: .destructive) { (action) in
             
-            DeletePlantService.shared.deletePlant(CherishId: self.selectedPlantId) { [self](networkResult) -> (Void) in
+            DeletePlantService.shared.deletePlant(CherishId: self.selectedPlantId!) { [self](networkResult) -> (Void) in
                 switch networkResult {
                 case .success(_):
                     print("통신성공")
@@ -259,7 +306,6 @@ class PlantEditVC: UIViewController {
                 }
             }
         }
-        
         alert.addAction(cancel)
         alert.addAction(delete)
         present(alert, animated: false, completion: nil)
@@ -268,14 +314,11 @@ class PlantEditVC: UIViewController {
     // MARK: - 수정 완료 버튼
     @IBAction func editPlant(_ sender: Any) {
         var birthText = ""
-//        if birthTextField.text?.isEmpty == true {
-//            birthText = "0000-00-00"
-//        }
-        if birthTextField.text == "Invalid Text" {
-            birthText = "0000-00-00"
+        if birthTextField.text == "--.--" {
+            birthText = "0000.00.00"
         }
         else {
-            birthText = birthTextField.text!
+            birthText = serverBirth
         }
         
         let water_notice = true
@@ -315,7 +358,17 @@ class PlantEditVC: UIViewController {
         }
         alertEdit.addAction(okActionEdit)
         
-        EditPlantService.shared.editPlant(nickname: nicknameTextField.text! , birth: birthText, cycle_date: cycle_date, notice_time: self.convertedAlarmTime!, water_notice_: water_notice, id: selectedPlantId) { [self] (networkResult) -> (Void) in
+        print("수정하려는 데이터")
+        print("닉네임", nicknameTextField.text!)
+        print("생일", birthText)
+        print("물주는 주기", cycle_date)
+        print("물주는 알림 시간", convertedAlarmTime)
+        print("물주는 알림 On off", water_notice)
+        print("체리시 피케이", selectedPlantId)
+
+        
+        // 수정 서버 통신
+        EditPlantService.shared.editPlant(nickname: nicknameTextField.text! , birth: birthText, cycle_date: cycle_date, notice_time: self.convertedAlarmTime!, water_notice_: water_notice, id: selectedPlantId!) { [self] (networkResult) -> (Void) in
             print("여기도 보이나요?")
             switch networkResult {
             case .success(_):
@@ -339,11 +392,25 @@ class PlantEditVC: UIViewController {
     }
 }
 
+// 전화번호에 하이픈 넣기
+extension Int {
+    var withHypen: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.groupingSeparator = "-"
+        numberFormatter.groupingSize = 4
+        return numberFormatter.string(from: self as NSNumber) ?? ""
+    }
+}
+
 //MARK: - PickerView DataSource, Delegate
 extension PlantEditVC: UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        if pickerView == periodPicker {
+        if pickerView == birthPicker {
+            return 2
+        }
+        else if pickerView == periodPicker {
             return 3
         }
         else if pickerView == alarmPicker {
@@ -353,7 +420,15 @@ extension PlantEditVC: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == periodPicker {
+        if pickerView == birthPicker {
+            if component == 0 {
+                return month.count
+            }
+            else {
+                return day.count
+            }
+        }
+        else if pickerView == periodPicker {
             if component == 0 {
                 return 1
             }
@@ -379,8 +454,15 @@ extension PlantEditVC: UIPickerViewDataSource {
 
 extension PlantEditVC: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
-        if pickerView == periodPicker {
+        if pickerView == birthPicker {
+            if component == 0 {
+                return String(month[row])+"월"
+            }
+            else {
+                return String(day[row])+"일"
+            }
+        }
+        else if pickerView == periodPicker {
             if component == 0 {
                 return "Every"
             }
@@ -402,47 +484,21 @@ extension PlantEditVC: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == periodPicker {
+        if pickerView == birthPicker {
+            let selectedMonth = pickerView.selectedRow(inComponent: 0)
+            let selectedDay = pickerView.selectedRow(inComponent: 1)
+            let fullBirthDate = String(month[selectedMonth])+"월 "+String(day[selectedDay])+"일"
+            self.birthTextField.text = fullBirthDate
+            self.serverBirth = "2000." + String(month[selectedMonth]) + "." + String(day[selectedDay])
+            print(serverBirth)
+        }
+        else if pickerView == periodPicker {
             checkPicker = 1
             let selectedNum = pickerView.selectedRow(inComponent: 1)
 //            let selectedPeriod = pickerView.selectedRow(inComponent: 2)
             let realNum = num[selectedNum]
-//            let realPeriod = period[selectedPeriod]
-//            switch realPeriod {
-//            case "day":
-//                if realNum == "1" {
-//                    self.cycle_date = 1
-//                }
-//                else if realNum == "2" {
-//                    self.cycle_date = 2
-//                }
-//                else if realNum == "3" {
-//                    self.cycle_date = 3
-//                }
-//            case "week":
-//                if realNum == "1" {
-//                    self.cycle_date = 7
-//                }
-//                else if realNum == "2" {
-//                    self.cycle_date = 14
-//                }
-//                else if realNum == "3" {
-//                    self.cycle_date = 21
-//                }
-//            case "month":
-//                if realNum == "1" {
-//                    self.cycle_date = 30
-//                }
-//                else if realNum == "2" {
-//                    self.cycle_date = 60
-//                }
-//                else if realNum == "3" {
-//                    self.cycle_date = 90
-//                }
-//            default:
-//                self.cycle_date = 1
-//            }
             let fullData = "Every "+realNum+" day"
+            self.cycle_date = Int(realNum)!
             self.periodTextField.text = fullData
         }
         else if pickerView == alarmPicker {
