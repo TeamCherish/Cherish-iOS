@@ -96,6 +96,10 @@ class PlantEditVC: UIViewController {
         periodTextField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: .editingDidBegin)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        LoadingHUD.hide()
+    }
+    
     func setTextFieldBackgrouond() {
         nicknameTextField.background = UIImage(named: "box_add_plant_detail")
         nicknameTextField.layer.borderColor = CGColor(gray: 0, alpha: 0)
