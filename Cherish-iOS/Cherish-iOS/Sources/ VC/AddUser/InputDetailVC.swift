@@ -16,7 +16,6 @@ class InputDetailVC: UIViewController {
     @IBOutlet weak var alarmPeriodTextField: UITextField!
     @IBOutlet weak var alarmTimeTextField: UITextField!
     @IBOutlet weak var completeBtn: UIButton!
-    @IBOutlet weak var completeLabel: CustomLabel!
     @IBOutlet weak var alarmPicker: UIPickerView!
     
     
@@ -209,7 +208,7 @@ class InputDetailVC: UIViewController {
             (alarmTimeEmpty==false) &&
             (alarmPeriodEmpty==false){
             completeBtn.isEnabled = true
-            self.completeLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+            self.completeBtn.setTitleColor(.white, for: .normal)
         }
     }
     

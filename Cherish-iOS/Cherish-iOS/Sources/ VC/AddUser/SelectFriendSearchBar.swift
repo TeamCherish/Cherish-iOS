@@ -14,7 +14,8 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nextBtn: UIButton! {
         didSet{
-            nextBtn.backgroundColor = .inputGrey
+//            nextBtn.isEnabled = false
+//            nextBtn.backgroundColor = UIColor(red: 245, green: 245, blue: 245, alpha: 1.0)
             nextBtn.makeRounded(cornerRadius: 25)
         }
     }
@@ -28,8 +29,9 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         didSet {
             tableView.reloadData()
             self.nextBtn.isEnabled = true
-            self.nextBtn.backgroundColor = .seaweed
-            self.nextBtn.makeRounded(cornerRadius: 25)
+            self.nextBtn.setBackgroundImage(UIImage(named: "btn_next_selected"), for: .normal)
+            self.nextBtn.backgroundColor = .seaweed /// 이거 안됨
+//            self.nextBtn.makeRounded(cornerRadius: 25)
             self.nextBtn.setTitleColor(UIColor(red: 255, green: 255, blue: 255, alpha: 1.0), for: .normal)
         }
     }
@@ -51,7 +53,8 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextBtn.isEnabled = false
+        /// 이렇게 하면 버튼 타이틀이 가운데로 안온다
+//        nextBtn.isEnabled = false
         tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
@@ -111,7 +114,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
                 case .requestErr(_):
                     print("requestErr")
                     present(alert, animated: true, completion: nil)
-                    nextBtn.isEnabled = false
+                    nextBtn.backgroundColor = .inputGrey
                 case .pathErr:
                     print("pathErr")
                     present(alert, animated: true, completion: nil)
