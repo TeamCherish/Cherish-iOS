@@ -155,21 +155,12 @@ class PlantEditVC: UIViewController {
                     }
                 
                     self.nicknameTextField.text = plantData.cherishDetail.nickname
-<<<<<<< HEAD
-                    //MARK: - 생일 값이 Invalidate Date로 넘어올 때 처리
-=======
                     
                     // 생일 등록 안하면 invalid 뜨는거 임시 수정
->>>>>>> cherishAddView
                     if plantData.cherishDetail.birth == "Invalid Date" {
                         self.birthTextField.text = "--.--"
                     }
                     else {
-<<<<<<< HEAD
-                        self.birthTextField.text = plantData.cherishDetail.birth
-                    }
-                    self.phoneTextField.text = plantData.cherishDetail.phone
-=======
                         // 데이터 파싱해서 년도 빼기
                         self.formatter.dateFormat = "yyyy-MM-dd"
                         let date: Date = self.formatter.date(from: plantData.cherishDetail.birth)!
@@ -187,11 +178,10 @@ class PlantEditVC: UIViewController {
                     else {
                         self.phoneTextField.text = "0" + phoneNumInt!.withHypen
                     }
-//                    self.phoneTextField.text = plantData.cherishDetail.phone
-                    
->>>>>>> cherishAddView
+
                     self.periodTextField.text = self.parsedPeriod
                     self.alarmTimeTextField.text = self.parsedAlarm
+//                    self.phoneTextField.text = plantData.cherishDetail.phone
                 }
             case .requestErr(_):
                 print("requestErr")
