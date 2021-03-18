@@ -12,25 +12,24 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     //MARK: - IBOutlet
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var nextBtn: UIButton! {
-        didSet{
-//            nextBtn.isEnabled = false
-//            nextBtn.backgroundColor = UIColor(red: 245, green: 245, blue: 245, alpha: 1.0)
-            nextBtn.makeRounded(cornerRadius: 25)
-        }
-    }
+    @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     
     var friendList: [Friend] = []
     
     var index: Int = 0
     
+    var checkSelected: Bool = false
+    
     private var selectedFriend: Int? {
         didSet {
             tableView.reloadData()
+            print("골랐니?")
+            checkSelected = true
+            print(checkSelected)
             self.nextBtn.isEnabled = true
             self.nextBtn.setBackgroundImage(UIImage(named: "btn_next_selected"), for: .normal)
-            self.nextBtn.backgroundColor = .seaweed /// 이거 안됨
+//            self.nextBtn.backgroundColor = .seaweed /// 이거 안됨
 //            self.nextBtn.makeRounded(cornerRadius: 25)
             self.nextBtn.setTitleColor(UIColor(red: 255, green: 255, blue: 255, alpha: 1.0), for: .normal)
         }
@@ -77,7 +76,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func touchUpNextBtn(_ sender: Any) {
-        if nextBtn.isEnabled == true {
+        if checkSelected == true {
 
             guard let dvc = self.storyboard?.instantiateViewController(identifier: "InputDetailVC") as? InputDetailVC else {return}
             
@@ -114,7 +113,9 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
                 case .requestErr(_):
                     print("requestErr")
                     present(alert, animated: true, completion: nil)
-                    nextBtn.backgroundColor = .inputGrey
+                    self.nextBtn.setBackgroundImage(UIImage(named: "btn_next_unselected"), for: .normal)
+                    self.nextBtn.setTitleColor(.textGrey, for: .normal)
+                    checkSelected = false
                 case .pathErr:
                     print("pathErr")
                     present(alert, animated: true, completion: nil)

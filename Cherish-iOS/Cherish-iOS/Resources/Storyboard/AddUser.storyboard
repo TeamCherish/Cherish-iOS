@@ -316,7 +316,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(선택 사항)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxi-ut-YOD" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="59" y="203" width="51.333333333333343" height="24"/>
+                                <rect key="frame" x="59" y="203" width="55.666666666666657" height="24"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="textGrey"/>
                                 <nil key="highlightedColor"/>
@@ -542,7 +542,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeJ-TW-ozj" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
                                 <rect key="frame" x="21.333333333333343" y="615" width="332.66666666666663" height="44"/>
-
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ArN-Su-VaL"/>
                                 </constraints>
