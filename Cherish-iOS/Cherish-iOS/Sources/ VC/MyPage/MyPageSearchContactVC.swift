@@ -12,7 +12,6 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var contactTV: UITableView!
     @IBOutlet weak var contactSearchBar: UISearchBar!
     @IBOutlet weak var moveToAddBtn: UIButton!
-    @IBOutlet weak var moveToAddLabel: CustomLabel!
     
     var friendList: [Friend] = []
     
@@ -22,8 +21,7 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
         didSet {
             contactTV.reloadData()
             self.moveToAddBtn.isEnabled = true
-            self.moveToAddBtn.setImage(UIImage(named: "btn_next_selected"), for: .normal)
-            self.moveToAddLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+            self.moveToAddBtn.setBackgroundImage(UIImage(named: "btn_next_selected"), for: .normal)
         }
     }
     
@@ -208,6 +206,7 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
                     print("requestErr")
                     present(alert, animated: true, completion: nil)
                     moveToAddBtn.isEnabled = false
+                    self.moveToAddBtn.setBackgroundImage(UIImage(named: "btnNextUnselected"), for: .normal)
                 case .pathErr:
                     print("pathErr")
                     present(alert, animated: true, completion: nil)

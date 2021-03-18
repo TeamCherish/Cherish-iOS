@@ -17,12 +17,16 @@ class MyPageSearchVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var segmentView: CustomSegmentedControl!  {
         didSet {
-            DispatchQueue.main.async {
+//            DispatchQueue.main.async {
+//
+//                self.segmentView.setButtonTitles(buttonTitles: ["식물 \(self.mypagePlantCount)", "연락처 \(self.mypageContactCount)"])
+//                self.segmentView.selectorViewColor = .black
+//                self.segmentView.selectorTextColor = .black
+//            }
+            self.segmentView.setButtonTitles(buttonTitles: ["식물 \(self.mypagePlantCount)", "연락처 \(self.mypageContactCount)"])
+            self.segmentView.selectorViewColor = .black
+            self.segmentView.selectorTextColor = .black
 
-                self.segmentView.setButtonTitles(buttonTitles: ["식물 \(self.mypagePlantCount)", "연락처 \(self.mypageContactCount)"])
-                self.segmentView.selectorViewColor = .black
-                self.segmentView.selectorTextColor = .black
-            }
             }
     }
     @IBOutlet weak var mySearchExternalSV: UIScrollView!
@@ -37,6 +41,7 @@ class MyPageSearchVC: UIViewController, UIGestureRecognizerDelegate {
         // Do any additional setup after loading the view.
         setDelegates()
         getMypageData()
+        makeCornerRadiusView(segmentView, 30)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +57,11 @@ class MyPageSearchVC: UIViewController, UIGestureRecognizerDelegate {
         myplantSearchSV.delegate = self
         myContactSearchSV.delegate = self
         segmentView.delegate = self
+    }
+    
+    func makeCornerRadiusView(_ view : UIView,_ radiusValue: Int){
+        view.layer.cornerRadius = CGFloat(radiusValue)
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     func getMypageData() {
