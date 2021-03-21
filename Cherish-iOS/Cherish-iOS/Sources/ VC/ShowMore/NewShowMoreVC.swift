@@ -252,6 +252,7 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ShowMoreFirstTVCell") as! ShowMoreFirstTVCell
             cell.titleLabel.text = infoTitleArray[indexPath.row]
+            cell.selectionStyle = .none
             return cell
         }
         else if indexPath.section == 1 {
@@ -286,6 +287,7 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ShowMoreThirdTVCell") as! ShowMoreThirdTVCell
             cell.titleLabel.text = logInfoTitleArray[indexPath.row]
+            cell.selectionStyle = .none
             return cell
         }
     }
@@ -393,7 +395,9 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
                     UIApplication.shared.keyWindow?.rootViewController = loginView
                     
                 }
+                let cancelAction = UIAlertAction(title: "취소", style: .destructive)
                 logoutAlert.addAction(confirmAction)
+                logoutAlert.addAction(cancelAction)
                 self.present(logoutAlert, animated: true, completion: nil)
             }
             //회원탈퇴
