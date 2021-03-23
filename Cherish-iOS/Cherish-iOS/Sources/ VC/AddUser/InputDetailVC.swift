@@ -80,7 +80,7 @@ class InputDetailVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func touchUpComplete(_ sender: Any) {
+    @IBAction func touchUpComplete(_ sender: UIButton) {
         // nicknameTextField 비어있으면 nicknameText = givenName
         // birthTextField 비어있으면 birthText = "0000-00-00"
         var nicknameText = ""
@@ -138,13 +138,15 @@ class InputDetailVC: UIViewController {
                         print("식물매칭중 설명",resultData.plant.explanation)
                         print("식물매칭중 사진",resultData.plant.imageURL)
                         print("식물매칭중 꽃말",resultData.plant.flowerMeaning)
+                        
                         //                        NotificationCenter.default.post(name: .sendPlantResult, object: nil)
                         self.present(loadingVC, animated: false, completion: nil)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             self.dismiss(animated: false) {
                                 self.navigationController?.pushViewController(resultVC, animated: true)
                             }
                         }
+//                        self.navigationController?.pushViewController(resultVC, animated: true)
                     }
                 case .requestErr(_):
                     print("requesetErr")

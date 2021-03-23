@@ -22,6 +22,7 @@ class LoadingPopUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingImgView.loadGif(asset: "loading")
+        print("로딩중중중")
 //        mTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(moveToResultVC), userInfo: nil, repeats: false)
 //        print("왜 안넘어가징")
         // Do any additional setup after loading the view.

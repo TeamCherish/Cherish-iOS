@@ -17,16 +17,31 @@ class MyPageSearchVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var segmentView: CustomSegmentedControl!  {
         didSet {
+            // dispatch 차이!
 //            DispatchQueue.main.async {
 //
 //                self.segmentView.setButtonTitles(buttonTitles: ["식물 \(self.mypagePlantCount)", "연락처 \(self.mypageContactCount)"])
 //                self.segmentView.selectorViewColor = .black
 //                self.segmentView.selectorTextColor = .black
 //            }
-            self.segmentView.setButtonTitles(buttonTitles: ["식물 \(self.mypagePlantCount)", "연락처 \(self.mypageContactCount)"])
-            self.segmentView.selectorViewColor = .black
-            self.segmentView.selectorTextColor = .black
-
+//            var plantTitle = "식물 \(self.mypagePlantCount)"
+//            var contactTitle = "연락처 \(self.mypageContactCount)"
+//            let attributedPlantTitle = NSMutableAttributedString(string: plantTitle)
+//            let attributedContactTitle = NSMutableAttributedString(string: contactTitle)
+//            attributedPlantTitle.addAttribute(.foregroundColor, value: UIColor.textGrey, range: (plantTitle as NSString).range(of: "식물"))
+//            attributedPlantTitle.addAttribute(.foregroundColor, value: UIColor.seaweed, range: (plantTitle as NSString).range(of: "\(self.mypagePlantCount)"))
+//            attributedContactTitle.addAttribute(.foregroundColor, value: UIColor.textGrey, range: (plantTitle as NSString).range(of: "연락처"))
+//            attributedContactTitle.addAttribute(.foregroundColor, value: UIColor.seaweed, range: (plantTitle as NSString).range(of: "\(self.mypageContactCount)"))
+//            print("하이하이하이")
+//            print(plantTitle)
+//            print(attributedContactTitle.string)
+//            print(attributedPlantTitle)
+//            segmentView.setBtnTitles(buttonTitles: [attributedPlantTitle, attributedContactTitle])
+            segmentView.setButtonTitles(buttonTitles: ["식물 \(self.mypagePlantCount)", "연락처 \(self.mypageContactCount)"])
+            print("하이하이")
+            print("식물 \(self.mypagePlantCount)")
+            segmentView.selectorViewColor = .black
+            segmentView.selectorTextColor = .black
             }
     }
     @IBOutlet weak var mySearchExternalSV: UIScrollView!

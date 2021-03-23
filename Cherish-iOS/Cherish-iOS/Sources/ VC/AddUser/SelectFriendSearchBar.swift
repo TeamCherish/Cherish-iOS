@@ -154,13 +154,18 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     
     
     func setSearchBar() {
+//        var imageView = UIImageView
+        let frame = CGRect(x: 0, y: 0, width: 343, height: 44)
+        searchBar.frame = frame
         searchBar.placeholder = "친구 검색"
         searchBar.setImage(UIImage(named: "icn_search_box"), for: UISearchBar.Icon.search, state: .normal)
-        searchBar.layer.borderWidth = 0
+//        searchBar.setImage(imageView, for: UISearchBar.Icon.search, state: .normal)
         searchBar.searchBarStyle = .minimal
         searchBar.setSearchFieldBackgroundImage(UIImage(named: "search_box"), for: .normal)
         searchBar.sizeToFit()
         searchBar.searchTextField.sizeToFit()
+        searchBar.layer.borderWidth = 0
+        searchBar.searchTextPositionAdjustment = UIOffset(horizontal: 8.0, vertical: 0.0)
         searchBar.searchTextField.textColor = UIColor.black
         searchBar.searchTextField.font = UIFont.init(name: "NotoSansCJKKR-Regular", size: 14)
     }
