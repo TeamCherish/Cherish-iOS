@@ -62,12 +62,15 @@ class MyPageSearchPlantVC: UIViewController {
     }
     
     func setSearchBar() {
+        let frame = CGRect(x: 0, y: 0, width: 343, height: 44)
+        plantSearchBar.frame = frame
         plantSearchBar.placeholder = "식물 검색"
         plantSearchBar.setImage(UIImage(named: "icn_search_box"), for: UISearchBar.Icon.search, state: .normal)
         plantSearchBar.layer.borderWidth = 0
         plantSearchBar.searchBarStyle = .minimal
         plantSearchBar.setSearchFieldBackgroundImage(UIImage(named: "search_box"), for: .normal)
-        plantSearchBar.frame = CGRect(x: 16, y: 0, width: 200, height: 44)
+        plantSearchBar.searchTextPositionAdjustment = UIOffset(horizontal: 8.0, vertical: 0.0)
+//        plantSearchBar.frame = CGRect(x: 16, y: 0, width: 200, height: 44)
         plantSearchBar.searchTextField.textColor = UIColor.black
         plantSearchBar.searchTextField.font = UIFont.init(name: "NotoSansCJKKR-Regular", size: 14)
     }

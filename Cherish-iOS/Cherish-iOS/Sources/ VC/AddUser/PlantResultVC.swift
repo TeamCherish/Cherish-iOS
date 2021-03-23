@@ -81,12 +81,15 @@ class PlantResultVC: UIViewController {
         // 이미지 받아오기
         let url = URL(string: UserDefaults.standard.string(forKey: "resultImgURL")!)
         print(url)
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!)
-            DispatchQueue.main.async {
-                self.resultPlantImgView.image = UIImage(data: data!)
-            }
-        }
+        
+//        DispatchQueue.global().async {
+//            let data = try? Data(contentsOf: url!)
+//            DispatchQueue.main.async {
+//                self.resultPlantImgView.image = UIImage(data: data!)
+//            }
+//        }
+        let data = try? Data(contentsOf: url!)
+        self.resultPlantImgView.image = UIImage(data: data!)
         
         self.modifierLabel.text = UserDefaults.standard.string(forKey: "resultModifier")
 //        self.flowerMeaningLabel.text = UserDefaults.standard.string(forKey: "flowerMeaning")
