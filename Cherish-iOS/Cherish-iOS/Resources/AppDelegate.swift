@@ -53,6 +53,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // [END register_for_notifications]
         
         
+        
+        
+        
+        
         return true
     }
     
@@ -110,6 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate : UNUserNotificationCenterDelegate {
     
     // Receive displayed notifications for iOS 10 devices.
+    // 앱이 foreground상태일 때, 알림이 온 경우 어떻게 표시할 것인지 처리
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -129,6 +134,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         completionHandler([[.alert, .sound]])
     }
     
+    //push가 온 경우 처리
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
@@ -142,6 +148,8 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print full message.
         print(userInfo)
+        let cherishIdinUserInfo = userInfo[AnyHashable("CherishId")]!
+        print(cherishIdinUserInfo)
         
         completionHandler()
     }
