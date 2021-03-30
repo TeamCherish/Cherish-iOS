@@ -21,6 +21,7 @@ class MainContentVC: UIViewController {
     @IBOutlet var growthPercentLabel: CustomLabel!
     @IBOutlet var plantImageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet var plantImageViewHeight: NSLayoutConstraint!
+    @IBOutlet var plantImageViewLeading: NSLayoutConstraint!
     @IBOutlet var plantImageViewTrailing: NSLayoutConstraint!
     @IBOutlet weak var blurBtn: UIVisualEffectView!{
         didSet{
@@ -447,6 +448,7 @@ class MainContentVC: UIViewController {
             let newHeight = CGFloat(336)
             plantImageViewHeight.constant = newHeight
             plantImageView.layoutIfNeeded()
+            plantImageViewLeading.constant = 64
             plantImageViewTrailing.constant = 2
             plantImageViewTopConstraint.constant = 298
             self.plantImageView.image = UIImage(named: "imgMin1")
@@ -459,6 +461,7 @@ class MainContentVC: UIViewController {
             let newHeight = CGFloat(439)
             plantImageViewHeight.constant = newHeight
             plantImageView.layoutIfNeeded()
+            plantImageViewLeading.constant = 65
             plantImageViewTrailing.constant = 2
             plantImageViewTopConstraint.constant = 189
             self.plantImageView.image = UIImage(named: "imgMin2")
@@ -481,6 +484,7 @@ class MainContentVC: UIViewController {
             let newHeight = CGFloat(368)
             plantImageViewHeight.constant = newHeight
             plantImageView.layoutIfNeeded()
+            plantImageViewLeading.constant = 82
             plantImageViewTrailing.constant = 2
             plantImageViewTopConstraint.constant = 278
             self.plantImageView.image = UIImage(named: "imgBlue1")
@@ -493,6 +497,7 @@ class MainContentVC: UIViewController {
             let newHeight = CGFloat(461)
             plantImageViewHeight.constant = newHeight
             plantImageView.layoutIfNeeded()
+            plantImageViewLeading.constant = 107
             plantImageViewTrailing.constant = 22
             plantImageViewTopConstraint.constant = 145
             self.plantImageView.image = UIImage(named: "imgBlue2")
@@ -516,6 +521,7 @@ class MainContentVC: UIViewController {
             let newHeight = CGFloat(460)
             plantImageViewHeight.constant = newHeight
             plantImageView.layoutIfNeeded()
+            plantImageViewLeading.constant = 111
             plantImageViewTrailing.constant = 0
             plantImageViewTopConstraint.constant = 206
             self.plantImageView.image = UIImage(named: "imgRose1")
@@ -528,6 +534,7 @@ class MainContentVC: UIViewController {
             let newHeight = CGFloat(572)
             plantImageViewHeight.constant = newHeight
             plantImageView.layoutIfNeeded()
+            plantImageViewLeading.constant = 107
             plantImageViewTrailing.constant = 0
             plantImageViewTopConstraint.constant = 106
             self.plantImageView.image = UIImage(named: "imgRose2")
@@ -551,6 +558,7 @@ class MainContentVC: UIViewController {
             let newHeight = CGFloat(229)
             plantImageViewHeight.constant = newHeight
             plantImageView.layoutIfNeeded()
+            plantImageViewLeading.constant = 58
             plantImageViewTrailing.constant = 0
             plantImageViewTopConstraint.constant = 352
             self.plantImageView.image = UIImage(named: "imgSun1")
@@ -563,6 +571,7 @@ class MainContentVC: UIViewController {
             let newHeight = CGFloat(350)
             plantImageViewHeight.constant = newHeight
             plantImageView.layoutIfNeeded()
+            plantImageViewLeading.constant = 50
             plantImageViewTrailing.constant = 0
             plantImageViewTopConstraint.constant = 235
             self.plantImageView.image = UIImage(named: "imgSun2")
@@ -588,6 +597,7 @@ class MainContentVC: UIViewController {
             plantImageView.layoutIfNeeded()
             self.plantImageView.image = UIImage(named: "imgStuki1")
             plantImageViewTrailing.constant = 0
+            plantImageViewLeading.constant = 10
             plantImageViewTopConstraint.constant = 322
             view.backgroundColor = .stuckyBg
         }
@@ -599,6 +609,7 @@ class MainContentVC: UIViewController {
             plantImageViewHeight.constant = newHeight
             plantImageView.layoutIfNeeded()
             self.plantImageView.image = UIImage(named: "imgStuki2")
+            plantImageViewLeading.constant = 2
             plantImageViewTrailing.constant = 1
             plantImageViewTopConstraint.constant = 268
             view.backgroundColor = .stuckyBg
