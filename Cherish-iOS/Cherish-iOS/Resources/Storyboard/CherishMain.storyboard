@@ -46,10 +46,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1cl-cl-xvs">
-                                <rect key="frame" x="87" y="148" width="288" height="512"/>
+                                <rect key="frame" x="87" y="148" width="288" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="3UD-Uo-NBW"/>
-                                    <constraint firstAttribute="height" constant="512" id="OWd-Ud-SXZ"/>
+                                    <constraint firstAttribute="height" id="OWd-Ud-SXZ"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1LF-25-ssR" customClass="AnimatedImageView" customModule="Kingfisher">
@@ -227,6 +227,7 @@
                         <outlet property="plantImageView" destination="1cl-cl-xvs" id="Wmv-vk-st5"/>
                         <outlet property="plantImageViewHeight" destination="OWd-Ud-SXZ" id="2Kt-Pk-1th"/>
                         <outlet property="plantImageViewTopConstraint" destination="gDu-wJ-xHN" id="Ued-RZ-Y0e"/>
+                        <outlet property="plantImageViewTrailing" destination="fjq-QB-PKn" id="DHL-XA-ZQf"/>
                         <outlet property="progressbarBackView" destination="Ook-bx-AcP" id="9qk-3n-XYz"/>
                         <outlet property="progressbarView" destination="tC1-OL-vxp" id="EF5-MD-zMm"/>
                         <outlet property="userNickNameLabel" destination="rb3-up-wUt" id="vAL-T6-ssD"/>

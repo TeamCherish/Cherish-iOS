@@ -21,6 +21,7 @@ class MainContentVC: UIViewController {
     @IBOutlet var growthPercentLabel: CustomLabel!
     @IBOutlet var plantImageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet var plantImageViewHeight: NSLayoutConstraint!
+    @IBOutlet var plantImageViewTrailing: NSLayoutConstraint!
     @IBOutlet weak var blurBtn: UIVisualEffectView!{
         didSet{
             blurBtn.makeRounded(cornerRadius: 14.0)
@@ -442,19 +443,25 @@ class MainContentVC: UIViewController {
         if growthInfo < 25 {
             // 1단계
             plantGifView.isHidden = true
-            plantImageViewTopConstraint.constant = 243
+            plantImageView.frame.size = CGSize(width: 266, height: 0)
+            let newHeight = CGFloat(336)
+            plantImageViewHeight.constant = newHeight
+            plantImageView.layoutIfNeeded()
+            plantImageViewTrailing.constant = 2
+            plantImageViewTopConstraint.constant = 298
             self.plantImageView.image = UIImage(named: "imgMin1")
-            plantImageView.center = CGPoint(x:106, y:343)
-            self.plantImageView.frame.size = CGSize(width: 266, height: 336)
             view.backgroundColor = .dandelionBg
         }
         else if growthInfo < 50 && growthInfo >= 25 {
             // 2단계
             plantGifView.isHidden = true
-            plantImageViewTopConstraint.constant = 297
+            plantImageView.frame.size = CGSize(width: 266, height: 0)
+            let newHeight = CGFloat(439)
+            plantImageViewHeight.constant = newHeight
+            plantImageView.layoutIfNeeded()
+            plantImageViewTrailing.constant = 2
+            plantImageViewTopConstraint.constant = 189
             self.plantImageView.image = UIImage(named: "imgMin2")
-            plantImageView.center = CGPoint(x:107, y:234)
-            self.plantImageView.frame.size = CGSize(width: 266, height: 439)
             view.backgroundColor = .dandelionBg
         }
         else {
@@ -470,19 +477,25 @@ class MainContentVC: UIViewController {
         if growthInfo < 25 {
             // 1단계
             plantGifView.isHidden = true
-            plantImageViewTopConstraint.constant = 250
+            plantImageView.frame.size = CGSize(width: 249, height: 0)
+            let newHeight = CGFloat(368)
+            plantImageViewHeight.constant = newHeight
+            plantImageView.layoutIfNeeded()
+            plantImageViewTrailing.constant = 2
+            plantImageViewTopConstraint.constant = 278
             self.plantImageView.image = UIImage(named: "imgBlue1")
-            plantImageView.center = CGPoint(x:124, y:323)
-            self.plantImageView.frame.size = CGSize(width: 249, height: 368)
             view.backgroundColor = .americanBlueBg
         }
         else if growthInfo < 50 && growthInfo >= 25 {
             // 2단계
             plantGifView.isHidden = true
+            plantImageView.frame.size = CGSize(width: 204, height: 0)
+            let newHeight = CGFloat(461)
+            plantImageViewHeight.constant = newHeight
+            plantImageView.layoutIfNeeded()
+            plantImageViewTrailing.constant = 22
             plantImageViewTopConstraint.constant = 145
             self.plantImageView.image = UIImage(named: "imgBlue2")
-            plantImageView.center = CGPoint(x:149, y:190)
-            self.plantImageView.frame.size = CGSize(width: 204, height: 461)
             view.backgroundColor = .americanBlueBg
         }
         else {
@@ -499,28 +512,32 @@ class MainContentVC: UIViewController {
         if growthInfo < 25 {
             // 1단계
             plantGifView.isHidden = true
+            plantImageView.frame.size = CGSize(width: 222, height: 0)
+            let newHeight = CGFloat(460)
+            plantImageViewHeight.constant = newHeight
+            plantImageView.layoutIfNeeded()
+            plantImageViewTrailing.constant = 0
             plantImageViewTopConstraint.constant = 206
             self.plantImageView.image = UIImage(named: "imgRose1")
-            plantImageView.center = CGPoint(x:153, y:251)
-            self.plantImageView.frame.size = CGSize(width: 222, height: 460)
-            print("hi")
             view.backgroundColor = .rosemaryBg
         }
         else if growthInfo < 50 && growthInfo >= 25 {
             // 2단계
             plantGifView.isHidden = true
-            print("growthInfo")
+            plantImageView.frame.size = CGSize(width: 204, height: 0)
+            let newHeight = CGFloat(572)
+            plantImageViewHeight.constant = newHeight
+            plantImageView.layoutIfNeeded()
+            plantImageViewTrailing.constant = 0
             plantImageViewTopConstraint.constant = 106
             self.plantImageView.image = UIImage(named: "imgRose2")
-            plantImageView.center = CGPoint(x:149, y:151)
-            self.plantImageView.frame.size = CGSize(width: 204, height: 572)
             view.backgroundColor = .rosemaryBg
         }
         else {
             // 3단계
             plantGifView.isHidden = true
             plantImageViewTopConstraint.constant = 104
-            self.plantImageView.image = UIImage(named: "mainImgRosemary")
+            self.plantImageView.image = UIImage(named: "imgRose2")
             self.view.backgroundColor = .rosemaryBg
         }
     }
@@ -530,19 +547,25 @@ class MainContentVC: UIViewController {
         if growthInfo < 25 {
             // 1단계
             plantGifView.isHidden = true
-            plantImageViewTopConstraint.constant = 240
+            plantImageView.frame.size = CGSize(width: 275, height: 0)
+            let newHeight = CGFloat(229)
+            plantImageViewHeight.constant = newHeight
+            plantImageView.layoutIfNeeded()
+            plantImageViewTrailing.constant = 0
+            plantImageViewTopConstraint.constant = 352
             self.plantImageView.image = UIImage(named: "imgSun1")
-            plantImageView.center = CGPoint(x:100, y:397)
-            self.plantImageView.frame.size = CGSize(width: 275, height: 229)
             view.backgroundColor = .cactusBg
         }
         else if growthInfo < 50 && growthInfo >= 25 {
             // 2단계
             plantGifView.isHidden = true
+            plantImageView.frame.size = CGSize(width: 283, height: 0)
+            let newHeight = CGFloat(350)
+            plantImageViewHeight.constant = newHeight
+            plantImageView.layoutIfNeeded()
+            plantImageViewTrailing.constant = 0
             plantImageViewTopConstraint.constant = 235
             self.plantImageView.image = UIImage(named: "imgSun2")
-            plantImageView.center = CGPoint(x:92, y:280)
-            self.plantImageView.frame.size = CGSize(width: 283, height: 350)
             view.backgroundColor = .cactusBg
         }
         else {
@@ -559,24 +582,25 @@ class MainContentVC: UIViewController {
         if growthInfo < 25 {
             // 1단계 323 287
             plantGifView.isHidden = true
+            plantImageView.frame.size = CGSize(width: 323, height: 0)
+            let newHeight = CGFloat(287)
+            plantImageViewHeight.constant = newHeight
+            plantImageView.layoutIfNeeded()
             self.plantImageView.image = UIImage(named: "imgStuki1")
+            plantImageViewTrailing.constant = 0
             plantImageViewTopConstraint.constant = 322
-            plantImageViewHeight.constant = 287
-            plantImageView.center = CGPoint(x:52, y:322)
-            //print(self.screenWidth)
-            plantImageView.imageResize(sizeChange: CGSize(width: 323, height: 287))
-            self.view.layoutIfNeeded()
-            self.viewWillLayoutSubviews()
             view.backgroundColor = .stuckyBg
         }
         else if growthInfo < 50 && growthInfo >= 25 {
             // 2단계
             plantGifView.isHidden = true
-            plantImageViewTopConstraint.constant = 268
+            plantImageView.frame.size = CGSize(width: 330, height: 0)
+            let newHeight = CGFloat(345)
+            plantImageViewHeight.constant = newHeight
+            plantImageView.layoutIfNeeded()
             self.plantImageView.image = UIImage(named: "imgStuki2")
-            plantImageView.center = CGPoint(x:44, y:313)
-            self.plantImageView.frame.size = CGSize(width: 330, height: 345)
-            self.view.layoutIfNeeded()
+            plantImageViewTrailing.constant = 1
+            plantImageViewTopConstraint.constant = 268
             view.backgroundColor = .stuckyBg
         }
         else {
