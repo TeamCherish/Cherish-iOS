@@ -252,6 +252,7 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ShowMoreFirstTVCell") as! ShowMoreFirstTVCell
             cell.titleLabel.text = infoTitleArray[indexPath.row]
+            cell.selectionStyle = .none
             return cell
         }
         else if indexPath.section == 1 {
@@ -286,6 +287,7 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ShowMoreThirdTVCell") as! ShowMoreThirdTVCell
             cell.titleLabel.text = logInfoTitleArray[indexPath.row]
+            cell.selectionStyle = .none
             return cell
         }
     }
@@ -340,6 +342,11 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             //About Cherish
             if indexPath.row == 0 {
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+                if let vc = storyBoard.instantiateViewController(withIdentifier: "OnboardingVC") as? OnboardingVC{
+                    vc.modalPresentationStyle = .overFullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }
                 print("section 0, row 0")
             }
             //개인정보처리방침
@@ -393,7 +400,9 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
                     UIApplication.shared.keyWindow?.rootViewController = loginView
                     
                 }
+                let cancelAction = UIAlertAction(title: "취소", style: .destructive)
                 logoutAlert.addAction(confirmAction)
+                logoutAlert.addAction(cancelAction)
                 self.present(logoutAlert, animated: true, completion: nil)
             }
             //회원탈퇴

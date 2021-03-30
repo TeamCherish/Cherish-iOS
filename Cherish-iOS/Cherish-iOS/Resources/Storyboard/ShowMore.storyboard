@@ -53,7 +53,7 @@
                                     <constraint firstAttribute="height" constant="416" id="Tsr-Gx-wB6"/>
                                 </constraints>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="OfT-on-jkW">
-                                    <rect key="frame" x="0.0" y="78.333333969116211" width="375" height="105"/>
+                                    <rect key="frame" x="0.0" y="78.333333969116225" width="375" height="104.99999999999999"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cherish_iOS" translatesAutoresizingMaskIntoConstraints="NO" id="pct-RI-rUm">
