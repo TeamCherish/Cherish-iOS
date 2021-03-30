@@ -79,6 +79,7 @@ class MainContentVC: UIViewController {
                 view.backgroundColor = .white
             }
         }
+    
         UserDefaults.standard.set(false, forKey: "plantIsSelected")
         LoadingHUD.hide()
     }
