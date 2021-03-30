@@ -14,6 +14,8 @@ class PlantResultVC: UIViewController {
     @IBOutlet weak var explanationLabel: UILabel!
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var plantBox: UIImageView!
+    @IBOutlet weak var modifierRegular: UILabel!
+    @IBOutlet weak var modifierBold: UILabel!
     
     var modifier: String?
     var resultPlantImgUrl: String?
@@ -91,19 +93,24 @@ class PlantResultVC: UIViewController {
         let data = try? Data(contentsOf: url!)
         self.resultPlantImgView.image = UIImage(data: data!)
         
-        self.modifierLabel.text = UserDefaults.standard.string(forKey: "resultModifier")
+//        self.modifierLabel.text = UserDefaults.standard.string(forKey: "resultModifier")
 //        self.flowerMeaningLabel.text = UserDefaults.standard.string(forKey: "flowerMeaning")
         
         //label에 있는 Text를 NSMutableAttributedString으로 만들어준다.
-        let attributedStr = NSMutableAttributedString(string: self.modifierLabel.text!)
-        let modifierArr = self.modifierLabel.text?.components(separatedBy: "\n")
-        let modifierBold = modifierArr![1]
+//        let attributedStr = NSMutableAttributedString(string: self.modifierLabel.text!)
+//        let modifierArr = self.modifierLabel.text?.components(separatedBy: "\n")
+        let modifierArr = UserDefaults.standard.string(forKey: "resultModifier")?.components(separatedBy: "\n")
+//        let modifierBold = modifierArr![1]
 
         //위에서 만든 attributedStr에 addAttribute메소드를 통해 Attribute를 적용. kCTFontAttributeName은 value로 폰트크기와 폰트를 받을 수 있음
-        attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: font, range: (self.modifierLabel.text as! NSString).range(of: modifierBold))
+//        attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: font, range: (self.modifierLabel.text as! NSString).range(of: modifierBold))
 
         //최종적으로 내 label에 속성을 적용
-        self.modifierLabel.attributedText = attributedStr
+//        self.modifierLabel.attributedText = attributedStr
+        
+        self.modifierRegular.text = modifierArr![0]
+        self.modifierBold.text = modifierArr![1]
+        
         self.explanationLabel.text = UserDefaults.standard.string(forKey: "resultExplanation")
         
 //        addBtn.backgroundColor = .seaweed

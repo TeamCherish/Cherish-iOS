@@ -17,7 +17,7 @@ class LoadingPopUpVC: UIViewController {
     }
     @IBOutlet weak var loadingImgView: UIImageView!
     
-    var mTimer: Timer?
+//    var mTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
