@@ -563,7 +563,7 @@ class MainContentVC: UIViewController {
             plantImageViewTopConstraint.constant = 322
             plantImageViewHeight.constant = 287
             plantImageView.center = CGPoint(x:52, y:322)
-            print(self.screenWidth)
+            //print(self.screenWidth)
             plantImageView.imageResize(sizeChange: CGSize(width: 323, height: 287))
             self.view.layoutIfNeeded()
             self.viewWillLayoutSubviews()
