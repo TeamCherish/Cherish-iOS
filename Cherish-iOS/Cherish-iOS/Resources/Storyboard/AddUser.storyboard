@@ -548,9 +548,18 @@
                                     <constraint firstAttribute="width" secondItem="Msu-Ba-Cq7" secondAttribute="height" multiplier="166:27" id="owU-eq-4Nk"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="푸른 빛의 아메리칸 블루" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHF-YT-Sqc" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="46.666666666666657" y="171" width="281.66666666666674" height="42"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="28"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yzy-LD-K9Q">
+                                <rect key="frame" x="44" y="257" width="287" height="287"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yzy-LD-K9Q" secondAttribute="height" multiplier="1:1" id="c1T-fl-Moy"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="매일매일 꽃이 피는" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Tg-Qm-hoI" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="43.333333333333343" y="137" width="288.33333333333326" height="41.666666666666657"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0Tg-Qm-hoI" secondAttribute="height" multiplier="277:40" id="M9p-aB-NIG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Light" family="Noto Sans CJK KR" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -559,15 +568,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yzy-LD-K9Q">
-                                <rect key="frame" x="44" y="257" width="287" height="287"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="푸른 빛의 아메리칸 블루" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHF-YT-Sqc" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                <rect key="frame" x="43.333333333333343" y="178.66666666666666" width="288.33333333333326" height="41.666666666666657"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="yzy-LD-K9Q" secondAttribute="height" multiplier="1:1" id="c1T-fl-Moy"/>
+                                    <constraint firstAttribute="width" secondItem="GHF-YT-Sqc" secondAttribute="height" multiplier="277:40" id="v8P-Cm-05D"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="매일매일 꽃이 피는" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Tg-Qm-hoI" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="76.666666666666671" y="133" width="221.66666666666663" height="42"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Light" family="Noto Sans CJK KR" pointSize="28"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -582,27 +588,25 @@
                         <constraints>
                             <constraint firstItem="Mkt-AC-Xb1" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="2M0-eo-O2r"/>
                             <constraint firstItem="PkQ-rQ-mSl" firstAttribute="trailing" secondItem="uOL-H4-J9L" secondAttribute="trailing" id="4JC-Ss-7Z2"/>
-                            <constraint firstItem="0Tg-Qm-hoI" firstAttribute="top" secondItem="PkQ-rQ-mSl" secondAttribute="bottom" constant="45" id="8WK-pM-tgb"/>
                             <constraint firstItem="Msu-Ba-Cq7" firstAttribute="top" secondItem="yzy-LD-K9Q" secondAttribute="bottom" constant="17" id="AKU-EF-McT"/>
+                            <constraint firstItem="GHF-YT-Sqc" firstAttribute="top" secondItem="0Tg-Qm-hoI" secondAttribute="bottom" id="D5W-FI-0QA"/>
                             <constraint firstItem="NGw-cS-dGP" firstAttribute="leading" secondItem="uOL-H4-J9L" secondAttribute="leading" constant="16" id="GAt-K3-e3a"/>
-                            <constraint firstItem="GHF-YT-Sqc" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="IGK-E6-qbk"/>
                             <constraint firstItem="yzy-LD-K9Q" firstAttribute="leading" secondItem="uOL-H4-J9L" secondAttribute="leading" constant="44" id="Izw-yi-9L6"/>
-                            <constraint firstItem="0Tg-Qm-hoI" firstAttribute="leading" secondItem="uOL-H4-J9L" secondAttribute="leading" constant="76.666666666666686" id="Ngb-29-bO7"/>
-                            <constraint firstItem="yzy-LD-K9Q" firstAttribute="top" secondItem="GHF-YT-Sqc" secondAttribute="bottom" constant="44" id="O6U-tf-PSW"/>
                             <constraint firstItem="Msu-Ba-Cq7" firstAttribute="leading" secondItem="uOL-H4-J9L" secondAttribute="leading" constant="105" id="PBo-IM-Q0m"/>
                             <constraint firstItem="uOL-H4-J9L" firstAttribute="trailing" secondItem="yzy-LD-K9Q" secondAttribute="trailing" constant="44" id="PSv-o0-HcH"/>
                             <constraint firstItem="uOL-H4-J9L" firstAttribute="bottom" secondItem="NGw-cS-dGP" secondAttribute="bottom" constant="33" id="PcQ-AH-biN"/>
                             <constraint firstItem="uOL-H4-J9L" firstAttribute="trailing" secondItem="NGw-cS-dGP" secondAttribute="trailing" constant="16" id="QGP-Us-yio"/>
                             <constraint firstItem="uOL-H4-J9L" firstAttribute="trailing" secondItem="Msu-Ba-Cq7" secondAttribute="trailing" constant="104" id="VeP-3s-B8d"/>
+                            <constraint firstItem="0Tg-Qm-hoI" firstAttribute="top" secondItem="PkQ-rQ-mSl" secondAttribute="bottom" constant="49" id="ZEk-cu-Yyd"/>
                             <constraint firstItem="NGw-cS-dGP" firstAttribute="top" secondItem="oeJ-TW-ozj" secondAttribute="bottom" constant="38" id="ZHA-pp-r23"/>
+                            <constraint firstItem="GHF-YT-Sqc" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="ZN4-3L-Zry"/>
                             <constraint firstItem="oeJ-TW-ozj" firstAttribute="top" secondItem="Msu-Ba-Cq7" secondAttribute="bottom" constant="27" id="b7H-Uf-Rnz"/>
-                            <constraint firstItem="0Tg-Qm-hoI" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="bF3-jd-BHp"/>
                             <constraint firstItem="oeJ-TW-ozj" firstAttribute="leading" secondItem="uOL-H4-J9L" secondAttribute="leading" constant="21.329999999999998" id="bsI-sC-nq8"/>
                             <constraint firstItem="uOL-H4-J9L" firstAttribute="trailing" secondItem="oeJ-TW-ozj" secondAttribute="trailing" constant="21" id="flk-Wv-ax6"/>
                             <constraint firstItem="NGw-cS-dGP" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="ghP-35-6Be"/>
                             <constraint firstItem="PkQ-rQ-mSl" firstAttribute="top" secondItem="uOL-H4-J9L" secondAttribute="top" id="hlZ-5s-6vV"/>
+                            <constraint firstItem="0Tg-Qm-hoI" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="jbd-RL-LQm"/>
                             <constraint firstItem="PkQ-rQ-mSl" firstAttribute="leading" secondItem="uOL-H4-J9L" secondAttribute="leading" id="lRn-6B-5Jk"/>
-                            <constraint firstItem="GHF-YT-Sqc" firstAttribute="leading" secondItem="uOL-H4-J9L" secondAttribute="leading" constant="46.666666666666657" id="uuD-Qv-UR1"/>
                             <constraint firstItem="uOL-H4-J9L" firstAttribute="bottom" secondItem="Mkt-AC-Xb1" secondAttribute="bottom" constant="45" id="wtT-wn-UTh"/>
                         </constraints>
                     </view>

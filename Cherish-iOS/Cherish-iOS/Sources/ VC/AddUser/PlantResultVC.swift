@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlantResultVC: UIViewController {
+class PlantResultVC: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var modifierLabel: UILabel!
     @IBOutlet weak var resultPlantImgView: UIImageView!
@@ -25,6 +25,7 @@ class PlantResultVC: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        addNavigationSwipeGuesture()
         setPlantLabel()
 //        NotificationCenter.default.addObserver(self, selector: #selector(setPlantLabel), name: .sendPlantResult, object: nil)
         // Do any additional setup after loading the view.
@@ -43,6 +44,10 @@ class PlantResultVC: UIViewController {
             self.navigationController?.pushViewController(tabBarVC, animated: true)
             self.navigationController?.setViewControllers([tabBarVC], animated: false)
         }
+    }
+    
+    func addNavigationSwipeGuesture() {
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
 
     
