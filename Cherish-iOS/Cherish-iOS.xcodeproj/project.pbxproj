@@ -93,7 +93,6 @@
 		33EAA2EC25B15D4E00E75F95 /* AddUserNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAA2EB25B15D4E00E75F95 /* AddUserNC.swift */; };
 		33EAA2EF25B17D3D00E75F95 /* PlantDetailCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAA2EE25B17D3D00E75F95 /* PlantDetailCardService.swift */; };
 		33EAA2F325B180C000E75F95 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAA2F225B180C000E75F95 /* SplashVC.swift */; };
-		33EAD47F25FE31730010E870 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAD47E25FE31730010E870 /* UIImageView+Extension.swift */; };
 		33EDFBB525A1B533006367A7 /* PlantDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */; };
 		33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */; };
 		33FDB7A025A2904000F1EC6F /* KeywordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */; };
@@ -279,7 +278,6 @@
 		33EAA2EB25B15D4E00E75F95 /* AddUserNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserNC.swift; sourceTree = "<group>"; };
 		33EAA2EE25B17D3D00E75F95 /* PlantDetailCardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailCardService.swift; sourceTree = "<group>"; };
 		33EAA2F225B180C000E75F95 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
-		33EAD47E25FE31730010E870 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlantDetail.storyboard; sourceTree = "<group>"; };
 		33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailVC.swift; sourceTree = "<group>"; };
 		33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCVCell.swift; sourceTree = "<group>"; };
@@ -674,7 +672,6 @@
 				337A5CBC25A868C000578130 /* UIButton+Extention.swift */,
 				3317777725B042C200CC1030 /* UIImage+Extension.swift */,
 				333DC23C25FA4D8200120B1E /* UIWindow+Extension.swift */,
-				33EAD47E25FE31730010E870 /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1317,7 +1314,6 @@
 				335B3A3025EF805400DD7A6F /* LoginNC.swift in Sources */,
 				546A247025ACD32800F869E2 /* WateringReviewService.swift in Sources */,
 				92911FDA25DFA28B00B4A95F /* DeletePlantService.swift in Sources */,
-				33EAD47F25FE31730010E870 /* UIImageView+Extension.swift in Sources */,
 				927DE44525F5F73500B73129 /* CheckPhoneService.swift in Sources */,
 				333DC23D25FA4D8200120B1E /* UIWindow+Extension.swift in Sources */,
 				92911FC025DCF37800B4A95F /* PlantEditVC.swift in Sources */,

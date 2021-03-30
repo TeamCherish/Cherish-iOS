@@ -20,6 +20,7 @@ class PlantExplainCVC: UICollectionViewCell {
     // 새로 생길 Cell에 해당하는 종목은 보유하고 있지 않으면 보유량을 표시해주지 말아야 하지만 Custom Cell을 디자인할 때는 보유량의 유무와 상관없이 UILabel을 올리기 때문에 사용자가 보유하고 있는 사라진 Cell의 보유량이 새로 보일 사용자가 보유하고 있지 않는 Cell에 그대로 나타나게 된다.
     //따라서 prepareForReuse함수를 사용해서 재사용할 때 셀에 데이터를 넣기 전에 셀을 초기화해줌으로써 재사용됨으로 인해 생기는 중복문제를 막는다.
     
+    
     override func prepareForReuse() {
         self.plantExplainTitleLabel.text = ""
         self.plantExplainSubtitleLabel.text = ""
