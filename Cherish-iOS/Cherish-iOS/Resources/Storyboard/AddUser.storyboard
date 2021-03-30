@@ -131,7 +131,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 상세 입력" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="XyP-Hj-Los" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="141.66666666666666" y="12.666666666666666" width="92" height="18.666666666666671"/>
+                                        <rect key="frame" x="139" y="10" width="97.333333333333314" height="24"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -305,7 +305,7 @@
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(최대8글자)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0o-5z-5gA" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="81" y="114" width="54.666666666666657" height="24"/>
+                                <rect key="frame" x="81" y="114" width="59" height="24"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="textGrey"/>
                                 <nil key="highlightedColor"/>
@@ -316,7 +316,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(선택 사항)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxi-ut-YOD" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="59" y="203" width="51.333333333333343" height="24"/>
+                                <rect key="frame" x="59" y="203" width="55.666666666666657" height="24"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="textGrey"/>
                                 <nil key="highlightedColor"/>
@@ -404,13 +404,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMQ-vD-f3Q">
                                 <rect key="frame" x="70" y="299.66666666666669" width="235" height="213.00000000000006"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lottie_best_plant" translatesAutoresizingMaskIntoConstraints="NO" id="43R-OA-30D">
-                                        <rect key="frame" x="101" y="53" width="34" height="58"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iK-Tr-46O" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="26" y="133" width="183" height="44"/>
+                                        <rect key="frame" x="27.666666666666671" y="133" width="180" height="44"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="8iK-Tr-46O" secondAttribute="height" multiplier="183:44" id="HyC-EA-E2L"/>
+                                            <constraint firstAttribute="height" constant="44" id="bIM-NU-bzk"/>
+                                            <constraint firstAttribute="width" constant="180" id="bZd-rG-BFD"/>
                                         </constraints>
                                         <string key="text">소중한 사람에게 꼭 맞는 식물을 
 분석하고 있어요!</string>
@@ -423,37 +421,40 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dIw-zA-xXy">
+                                        <rect key="frame" x="100.66666666666666" y="37" width="34" height="74"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="34" id="2oy-oB-bbO"/>
+                                            <constraint firstAttribute="width" secondItem="dIw-zA-xXy" secondAttribute="height" multiplier="29:63" id="Rks-JZ-oRd"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="white"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="8iK-Tr-46O" secondAttribute="trailing" constant="26" id="9G9-kv-Rgl"/>
-                                    <constraint firstItem="43R-OA-30D" firstAttribute="top" secondItem="gMQ-vD-f3Q" secondAttribute="top" constant="53" id="Bff-tG-xc9"/>
-                                    <constraint firstAttribute="width" secondItem="gMQ-vD-f3Q" secondAttribute="height" multiplier="235:213" id="G4c-91-c6I"/>
-                                    <constraint firstItem="43R-OA-30D" firstAttribute="leading" secondItem="gMQ-vD-f3Q" secondAttribute="leading" constant="101" id="Q25-cU-C4Y"/>
-                                    <constraint firstAttribute="trailing" secondItem="43R-OA-30D" secondAttribute="trailing" constant="100" id="fye-uz-V64"/>
-                                    <constraint firstItem="8iK-Tr-46O" firstAttribute="top" secondItem="43R-OA-30D" secondAttribute="bottom" constant="22" id="gl6-zj-rqk"/>
-                                    <constraint firstAttribute="bottom" secondItem="8iK-Tr-46O" secondAttribute="bottom" constant="36" id="hKT-8O-iaY"/>
-                                    <constraint firstAttribute="height" constant="213" id="oq0-YR-oRc"/>
-                                    <constraint firstItem="8iK-Tr-46O" firstAttribute="leading" secondItem="gMQ-vD-f3Q" secondAttribute="leading" constant="26" id="rpZ-wT-NDC"/>
+                                    <constraint firstItem="dIw-zA-xXy" firstAttribute="centerX" secondItem="gMQ-vD-f3Q" secondAttribute="centerX" id="0Q9-R7-17z"/>
+                                    <constraint firstItem="8iK-Tr-46O" firstAttribute="top" secondItem="dIw-zA-xXy" secondAttribute="bottom" constant="22" id="Aaj-RQ-VTd"/>
+                                    <constraint firstAttribute="bottom" secondItem="8iK-Tr-46O" secondAttribute="bottom" constant="36" id="Cbk-Hz-V4L"/>
+                                    <constraint firstAttribute="height" constant="213" id="GVI-L4-PhP"/>
+                                    <constraint firstItem="8iK-Tr-46O" firstAttribute="centerX" secondItem="gMQ-vD-f3Q" secondAttribute="centerX" id="aL3-GK-yfl"/>
+                                    <constraint firstAttribute="width" constant="235" id="b49-RD-0LB"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jXo-Nd-sII"/>
                         <color key="backgroundColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="gMQ-vD-f3Q" firstAttribute="leading" secondItem="jXo-Nd-sII" secondAttribute="leading" constant="70" id="PYy-ks-enh"/>
-                            <constraint firstItem="gMQ-vD-f3Q" firstAttribute="centerY" secondItem="v9n-1b-rIm" secondAttribute="centerY" id="Pc9-ii-PtR"/>
-                            <constraint firstItem="jXo-Nd-sII" firstAttribute="trailing" secondItem="gMQ-vD-f3Q" secondAttribute="trailing" constant="70" id="s8P-6m-FU9"/>
+                            <constraint firstItem="gMQ-vD-f3Q" firstAttribute="centerY" secondItem="v9n-1b-rIm" secondAttribute="centerY" id="Yvk-yM-vLT"/>
+                            <constraint firstItem="gMQ-vD-f3Q" firstAttribute="centerX" secondItem="v9n-1b-rIm" secondAttribute="centerX" id="s6O-Xb-yuC"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="loadingImgView" destination="43R-OA-30D" id="D7s-XY-zMm"/>
+                        <outlet property="loadingImgView" destination="dIw-zA-xXy" id="zwW-eS-hs0"/>
                         <outlet property="popUpView" destination="gMQ-vD-f3Q" id="vDh-f5-1c4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejW-PZ-KgS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2454" y="-300"/>
+            <point key="canvasLocation" x="2453.5999999999999" y="-300"/>
         </scene>
         <!--Plant ResultVC-->
         <scene sceneID="fbV-qe-JFO">
@@ -621,7 +622,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 등록 친구 선택" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIW-3M-rMJ" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="125.33333333333334" y="12.666666666666666" width="124.33333333333334" height="18.666666666666671"/>
+                                        <rect key="frame" x="122.00000000000001" y="10" width="131.33333333333337" height="24"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -776,7 +777,6 @@
         <image name="icnBack" width="44" height="44"/>
         <image name="icn_back" width="44" height="44"/>
         <image name="img_noplant_view" width="154" height="200"/>
-        <image name="lottie_best_plant" width="34" height="58"/>
         <namedColor name="black">
             <color red="0.27099999785423279" green="0.27099999785423279" blue="0.27099999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
