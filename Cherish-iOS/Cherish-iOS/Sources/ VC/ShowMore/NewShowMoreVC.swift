@@ -342,6 +342,11 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             //About Cherish
             if indexPath.row == 0 {
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+                if let vc = storyBoard.instantiateViewController(withIdentifier: "OnboardingVC") as? OnboardingVC{
+                    vc.modalPresentationStyle = .overFullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }
                 print("section 0, row 0")
             }
             //개인정보처리방침
