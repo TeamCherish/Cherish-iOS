@@ -313,7 +313,7 @@
         <!--PlantDetailVC-->
         <scene sceneID="TbY-AL-tnq">
             <objects>
-                <viewController storyboardIdentifier="PlantDetailVC" title="PlantDetailVC" id="WHt-ur-unu" customClass="PlantDetailVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlantDetailVC" title="PlantDetailVC" hidesBottomBarWhenPushed="YES" id="WHt-ur-unu" customClass="PlantDetailVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tgp-N6-ClS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -892,7 +892,7 @@
         <!--Navigation Controller-->
         <scene sceneID="3ah-ij-9fY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="uSD-iH-h4e" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="uSD-iH-h4e" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q9K-Zm-xBZ">
                         <autoresizingMask key="autoresizingMask"/>

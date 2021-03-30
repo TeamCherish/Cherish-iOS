@@ -110,6 +110,8 @@ class PlantDetailVC: UIViewController {
     func setControllers() {
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
+        self.edgesForExtendedLayout = UIRectEdge.bottom
+        print("ddd")
     }
     
     func makeDelegates() {
