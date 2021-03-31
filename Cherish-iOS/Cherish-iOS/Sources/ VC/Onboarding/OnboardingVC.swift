@@ -50,6 +50,13 @@ class OnboardingVC: UIViewController {
         let safeIndex = max(0, min(onboardingData.count - 1, back_index))
         return safeIndex
     }
+    
+    @IBAction func moveToLoginView(_ sender: UIButton) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(identifier: "LoginVC") as? LoginVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 

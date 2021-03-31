@@ -76,6 +76,9 @@
                                         <real key="value" value="-0.69999999999999996"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="moveToLoginView:" destination="aDR-3K-aFa" eventType="touchUpInside" id="Gw6-nd-1X8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bjj-MM-c1D"/>
