@@ -313,7 +313,7 @@
         <!--PlantDetailVC-->
         <scene sceneID="TbY-AL-tnq">
             <objects>
-                <viewController storyboardIdentifier="PlantDetailVC" title="PlantDetailVC" id="WHt-ur-unu" customClass="PlantDetailVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlantDetailVC" title="PlantDetailVC" hidesBottomBarWhenPushed="YES" id="WHt-ur-unu" customClass="PlantDetailVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tgp-N6-ClS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -892,7 +892,7 @@
         <!--Navigation Controller-->
         <scene sceneID="3ah-ij-9fY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="uSD-iH-h4e" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="uSD-iH-h4e" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q9K-Zm-xBZ">
                         <autoresizingMask key="autoresizingMask"/>
@@ -945,8 +945,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="260" height="283"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="쑥쑥자라는 단계" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oz4-WZ-IqB" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                            <rect key="frame" x="62.666666666666671" y="0.0" width="134.66666666666663" height="20"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oz4-WZ-IqB" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                            <rect key="frame" x="130" y="0.0" width="0.0" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="ReU-vW-4Ar"/>
                                                             </constraints>
@@ -966,15 +966,15 @@
                                                                 <constraint firstAttribute="width" secondItem="Nsw-Eg-bUU" secondAttribute="height" multiplier="101:162" id="uTE-OR-U7l"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="minPlantSay" translatesAutoresizingMaskIntoConstraints="NO" id="HId-pi-iAr">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HId-pi-iAr">
                                                             <rect key="frame" x="70.666666666666657" y="226" width="118.66666666666666" height="27"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="27" id="ks2-Ff-m2b"/>
                                                                 <constraint firstAttribute="width" secondItem="HId-pi-iAr" secondAttribute="height" multiplier="101:23" id="oj6-jd-Lm1"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일주일에 물을 1번 씩만 줘도 잘 자라나는 식물이에요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gQ-MS-cvU" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                            <rect key="frame" x="43.333333333333329" y="261" width="173.66666666666669" height="22"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gQ-MS-cvU" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                                            <rect key="frame" x="130" y="261" width="0.0" height="22"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="22" id="NWM-Gu-nzN"/>
                                                             </constraints>
@@ -1055,7 +1055,6 @@
         <image name="icnInfo" width="44" height="44"/>
         <image name="icnSetting" width="44" height="44"/>
         <image name="icn_back" width="44" height="44"/>
-        <image name="minPlantSay" width="166" height="27"/>
         <image name="plantDetail" width="375" height="720"/>
         <image name="plantDetailLine" width="1" height="35"/>
         <image name="plantdetailDimPlant" width="140" height="140"/>
