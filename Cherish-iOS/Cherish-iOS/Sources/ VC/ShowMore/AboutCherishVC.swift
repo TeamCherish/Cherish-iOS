@@ -14,6 +14,11 @@ class AboutCherishVC: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        self.tabBarController?.tabBar.isHidden = false
+    }
     //MARK: - add Swipe Guesture that go back to parentVC
     func addNavigationSwipeGuesture() {
         navigationController?.interactivePopGestureRecognizer?.delegate = nil

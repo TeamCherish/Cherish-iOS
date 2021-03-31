@@ -88,7 +88,6 @@ extension PlantDetailPopUpExplainVC : UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let plantExplainCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlantExplainCVC", for: indexPath) as! PlantExplainCVC
-        
         if plantExplain.count != 0 {
             
             if indexPath.item == 0 {

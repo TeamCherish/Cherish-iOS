@@ -29,32 +29,45 @@ class OnboardingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    // 페이징 관련 index 정의 함수
+    private var indexOfCellBeforeDragging = 0
+    
+    // 오른쪽으로 넘길 때
+    private func indexOfMajorCell() -> Int {
+        let itemWidth = onboardingCV.frame.size.width
+        let proportionalOffset = (onboardingCV.contentOffset.x / itemWidth)+0.3
+        let index = Int(round(proportionalOffset))
+        let safeIndex = max(0, min(onboardingData.count - 1, index))
+        return safeIndex
+    }
+    
+    // 왼쪽으로 넘길 때
+    private func indexOfBeforCell() -> Int {
+        let itemWidth = onboardingCV.frame.size.width
+        let proportionalOffset = (onboardingCV.contentOffset.x / itemWidth)
+        let back_index = Int(floor(proportionalOffset))
+        let safeIndex = max(0, min(onboardingData.count - 1, back_index))
+        return safeIndex
+    }
 }
 
 
 extension OnboardingVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return 5
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row == 4{
+        if indexPath.item == 4{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingLastCVCell.identifier, for: indexPath) as? OnboardingLastCVCell else{
                 return UICollectionViewCell()
             }
-            print("indexpath.row \(indexPath.row)")
-            onboardingPageControl.isHidden = true
-            UIView.animate(withDuration: 1.0, animations:
-                            {
-                                self.startBtn.alpha = 1.0
-                                self.view.layoutIfNeeded()
-                            })
             return cell
         }else{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCVCell.identifier, for: indexPath) as? OnboardingCVCell else{
                 return UICollectionViewCell()
             }
-            print("indexpath.row \(indexPath.row)")
             cell.setCell(imageName: onboardingData[indexPath.row].onboardingImageName, title: onboardingData[indexPath.row].titleLabelName, description: onboardingData[indexPath.row].descriptionLabelName)
             onboardingPageControl.isHidden = false
             UIView.animate(withDuration: 0.3, animations:
@@ -82,46 +95,37 @@ extension OnboardingVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
 
 //MARK: - collectionView Horizontal Scrolling Magnetic Effect 적용
 extension OnboardingVC: UIScrollViewDelegate{
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        switch round(onboardingCV.contentOffset.x / onboardingCV.frame.width) {
-        case 0:
-            onboardingCV.contentOffset.x = 0
-        case 1:
-            onboardingCV.contentOffset.x = 400.0
-        case 2:
-            onboardingCV.contentOffset.x = 800.0
-        case 3:
-            onboardingCV.contentOffset.x = 1600.0
-        case 4:
-            onboardingCV.contentOffset.x = 2000.0
-        case 5:
-            onboardingCV.contentOffset.x = 2400.0
-        default:
-            onboardingCV.contentOffset.x = onboardingCV.contentOffset.x
-        }
-//        print(onboardingCV.contentOffset.x)
-    }
-    /// collectionView magnetic scrolling Effect
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.onboardingCV.scrollToNearestVisibleCollectionViewCell()
-    }
     
-    /// collectionView magnetic scrolling Effect
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            self.onboardingCV.scrollToNearestVisibleCollectionViewCell()
-        }
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        indexOfCellBeforeDragging = indexOfMajorCell()
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let page = Int(targetContentOffset.pointee.x / onboardingCV.frame.width)
-        self.onboardingPageControl.currentPage = page
+        targetContentOffset.pointee = scrollView.contentOffset
+        if velocity.x > 0 {
+            let indexOfMajorCell = self.indexOfMajorCell()
+            let indexPath = IndexPath(row: indexOfMajorCell, section: 0)
+            if indexPath.item == 4 {
+                onboardingPageControl.isHidden = true
+                UIView.animate(withDuration: 1.0, animations:
+                                {
+                                    self.startBtn.alpha = 1.0
+                                    self.view.layoutIfNeeded()
+                                })
+            }
+            onboardingCV.collectionViewLayout.collectionView!.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }else{
+            let indexOfBeforCell = self.indexOfBeforCell()
+            
+            let indexPath = IndexPath(row: indexOfBeforCell, section: 0)
+            onboardingCV.collectionViewLayout.collectionView!.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
     }
     
     //MARK: - scroll animation이 끝나고 적용되는 함수
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         /// scrollAnimation이 끝나고 pageControl의 현재 페이지를 animation이 끝난 상태값으로 바꿔준다.
-        onboardingPageControl.currentPage = Int(round(scrollView.contentOffset.x / scrollView.frame.size.width))
+        onboardingPageControl.currentPage = Int(round(onboardingCV.contentOffset.x / onboardingCV.frame.size.width))
     }
 }
 
