@@ -35,6 +35,10 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
         setImageViewRounded()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     //MARK: - addObserver
     func addNotificationObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
