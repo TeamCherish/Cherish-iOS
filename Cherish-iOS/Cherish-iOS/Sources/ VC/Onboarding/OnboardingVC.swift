@@ -59,6 +59,7 @@ extension OnboardingVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         if indexPath.item == 4{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingLastCVCell.identifier, for: indexPath) as? OnboardingLastCVCell else{
                 return UICollectionViewCell()
@@ -81,7 +82,7 @@ extension OnboardingVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = self.onboardingCV.frame.width
+        let width = self.view.frame.width
         let height =  self.onboardingCV.frame.height
         
         return CGSize(width: width, height: height)

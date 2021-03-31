@@ -925,7 +925,7 @@
                                         </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zxH-Ap-x8Z">
-                                        <rect key="frame" x="27" y="85" width="261" height="284"/>
+                                        <rect key="frame" x="27" y="52" width="261" height="284"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zxH-Ap-x8Z" secondAttribute="height" multiplier="260:283" id="HWB-Oq-VRo"/>
@@ -1010,20 +1010,21 @@
                                         </cells>
                                     </collectionView>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="djg-Dc-dmI">
-                                        <rect key="frame" x="96.666666666666686" y="375" width="122" height="28"/>
+                                        <rect key="frame" x="96.666666666666686" y="378" width="122" height="6"/>
                                         <color key="pageIndicatorTintColor" name="seaweed"/>
                                     </pageControl>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Msc-9y-0v8" secondAttribute="trailing" constant="6" id="1pT-1x-hiq"/>
-                                    <constraint firstItem="djg-Dc-dmI" firstAttribute="top" secondItem="zxH-Ap-x8Z" secondAttribute="bottom" constant="6" id="B4R-1D-YNW"/>
+                                    <constraint firstAttribute="bottom" secondItem="djg-Dc-dmI" secondAttribute="bottom" constant="26" id="5CF-3n-hrW"/>
+                                    <constraint firstItem="djg-Dc-dmI" firstAttribute="top" secondItem="zxH-Ap-x8Z" secondAttribute="bottom" constant="42" id="B4R-1D-YNW"/>
                                     <constraint firstItem="djg-Dc-dmI" firstAttribute="centerX" secondItem="SfX-4B-6rL" secondAttribute="centerX" id="NLH-OB-WpG"/>
                                     <constraint firstItem="Msc-9y-0v8" firstAttribute="top" secondItem="SfX-4B-6rL" secondAttribute="top" constant="6" id="Q7b-bd-OXl"/>
-                                    <constraint firstItem="zxH-Ap-x8Z" firstAttribute="top" secondItem="Msc-9y-0v8" secondAttribute="bottom" constant="31" id="YBC-fA-V0P"/>
+                                    <constraint firstItem="zxH-Ap-x8Z" firstAttribute="top" secondItem="SfX-4B-6rL" secondAttribute="top" constant="52" id="UJI-Tb-7jc"/>
                                     <constraint firstItem="zxH-Ap-x8Z" firstAttribute="centerX" secondItem="SfX-4B-6rL" secondAttribute="centerX" id="ca5-P8-x1e"/>
                                     <constraint firstAttribute="height" constant="410" id="g5X-Ch-ipE"/>
-                                    <constraint firstAttribute="width" secondItem="SfX-4B-6rL" secondAttribute="height" multiplier="63:82" id="zLN-YO-gbQ"/>
+                                    <constraint firstAttribute="width" secondItem="SfX-4B-6rL" secondAttribute="height" multiplier="315:410" id="zLN-YO-gbQ"/>
                                 </constraints>
                             </view>
                         </subviews>
