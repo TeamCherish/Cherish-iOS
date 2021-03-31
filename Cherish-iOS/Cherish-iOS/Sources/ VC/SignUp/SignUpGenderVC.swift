@@ -112,21 +112,10 @@ class SignUpGenderVC: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func donePreseedPeriod() {
         self.view.endEditing(true)
-//        if genderPickerStatus && agePickerStatus{
-//            nextBtn.backgroundColor = .seaweed
-//            nextBtn.setTitleColor(.white, for: .normal)
-//        }
+        if genderTextField.text == ""{
+            genderTextField.attributedPlaceholder = NSAttributedString(string: "여성", attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
+        }
     }
-    
-//    func grayBtn(){
-//        nextBtn.backgroundColor = .inputGrey
-//        nextBtn.setTitleColor(.textGrey, for: .normal)
-//    }
-//
-//    func greenBtn(){
-//        nextBtn.backgroundColor = .seaweed
-//        nextBtn.setTitleColor(.white, for: .normal)
-//    }
     
     //MARK: -@IBAction
     @IBAction func backAction(_ sender: Any) {
@@ -149,22 +138,6 @@ class SignUpGenderVC: UIViewController, UIGestureRecognizerDelegate {
                 vc.forSignUp[4] = ageTextField.text!
             }
         }
-//        if genderPickerStatus && agePickerStatus{
-//            if let vc = self.storyboard?.instantiateViewController(identifier: "SignUpNicknameVC") as? SignUpNicknameVC {
-//                self.navigationController?.pushViewController(vc, animated: true)
-//                vc.forSignUp[0] = forSending[0]
-//                vc.forSignUp[1] = forSending[1]
-//                vc.forSignUp[2] = forSending[2]
-//                vc.forSignUp[3] = genderTextField.text!
-//                vc.forSignUp[4] = ageTextField.text!
-//            }
-//        }else if genderPickerStatus{
-//            blankAlert(title: "출생년도를 선택해주세요!", message: "수집된 정보는 서비스 개선을 위해 활용됩니다")
-//        }else if agePickerStatus{
-//            blankAlert(title: "성별을 선택해주세요!", message: "수집된 정보는 서비스 개선을 위해 활용됩니다")
-//        }else{
-//            blankAlert(title: "성별과 출생년도를 선택해주세요!", message: "수집된 정보는 서비스 개선을 위해 활용됩니다")
-//        }
     }
     
 }
@@ -197,16 +170,9 @@ extension SignUpGenderVC: UIPickerViewDataSource,UIPickerViewDelegate{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == genderPicker {
             genderTextField.text = gender[row]
-//            genderPickerStatus = true
         }else if pickerView == agePicker {
             ageTextField.text = "\(Int(limit!)!-row)"
-//            agePickerStatus = true
         }
-//        if genderPickerStatus && agePickerStatus {
-//            greenBtn()
-//        }else{
-//            grayBtn()
-//        }
     }
 }
 

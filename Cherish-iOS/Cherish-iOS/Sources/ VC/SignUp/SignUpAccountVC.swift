@@ -64,19 +64,28 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
         self.view.endEditing(true)
     }
     
-    func setHidden(status: Bool){
-        pleasePasswordLabel.isHidden = status
-        passwordTextField.isHidden = status
-        firstEyeBtn.isHidden = status
-        passwordCheckTextField.isHidden = status
-        secondEyeBtn.isHidden = status
+    func setHidden(alpha: CGFloat){
+        pleasePasswordLabel.alpha = alpha
+        passwordTextField.alpha = alpha
+        firstEyeBtn.alpha = alpha
+        passwordCheckTextField.alpha = alpha
+        secondEyeBtn.alpha = alpha
     }
     
     // 이메일 입력하기 전까지는 안보이기
     func beforeEmail(){
         emailCheckLabel.isHidden = true
         passwordCheckLabel.isHidden = true
-        setHidden(status: true)
+        setHidden(alpha: 0)
+    }
+    
+    // 비밀번호 입력부 등장 애니메이션
+    func animateGo(){
+        self.pleasePasswordLabel.transform = CGAffineTransform(translationX: 0, y: -10)
+        self.passwordTextField.transform = CGAffineTransform(translationX: 0, y: -10)
+        self.firstEyeBtn.transform = CGAffineTransform(translationX: 0, y: -10)
+        self.passwordCheckTextField.transform = CGAffineTransform(translationX: 0, y: -10)
+        self.secondEyeBtn.transform = CGAffineTransform(translationX: 0, y: -10)
     }
     
     // textField Delegates
@@ -149,14 +158,22 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
                     switch networkResult {
                     case .success(_):
                         
-                        setHidden(status: false)
+                        // 이메일 수정 못하게 Enable
+                        emailTextField.isEnabled = false
+                        
+                        UIView.animate(withDuration: 1, delay: 0, options: .allowUserInteraction, animations: {
+                            emailTextField.textColor = .textGrey
+                        }, completion: { _ in
+                            UIView.animate(withDuration: 1, delay: 0, options: .allowUserInteraction, animations: {
+                                    setHidden(alpha: 1)
+                                    animateGo()
+                            })
+                        })
+                        
                         grayBtn()
                         emailCheckLabel.text = "사용가능한 이메일입니다."
                         emailCheckLabel.textColor = .seaweed
                         
-                        // 이메일 수정 못하게 Enable
-                        emailTextField.isEnabled = false
-                        emailTextField.textColor = .textGrey
                         isEmail = true // 중복 검사 완료
                     
                     case .requestErr(let msg):

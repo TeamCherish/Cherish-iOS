@@ -26,13 +26,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgOnboarding4" translatesAutoresizingMaskIntoConstraints="NO" id="Vhf-E5-cAc">
-                        <rect key="frame" x="0.0" y="18" width="304" height="334.5"/>
+                        <rect key="frame" x="0.0" y="35" width="304" height="334.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Vhf-E5-cAc" secondAttribute="height" multiplier="309:340" id="qyd-Qs-H1M"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신의 소중한 사람을 위한 꾸준한 식물 키우기" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zK2-7u-nVK" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                        <rect key="frame" x="44" y="379.5" width="216.5" height="59.5"/>
+                        <rect key="frame" x="48.5" y="396.5" width="207" height="47"/>
                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
                         <color key="textColor" red="0.16470588235294117" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 바로 시작해볼까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6K-Dn-tLU" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                        <rect key="frame" x="80.5" y="464" width="143.5" height="21"/>
+                        <rect key="frame" x="83.5" y="468.5" width="137" height="16.5"/>
                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                         <color key="textColor" name="textGrey"/>
                         <nil key="highlightedColor"/>

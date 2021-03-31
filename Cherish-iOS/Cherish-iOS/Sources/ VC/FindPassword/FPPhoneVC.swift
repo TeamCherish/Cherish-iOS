@@ -13,6 +13,8 @@ class FPPhoneVC: UIViewController, UIGestureRecognizerDelegate {
     var isPassed: Bool = false // 인증번호가 일치하는지
     
     //MARK: -@IBOutlet
+    @IBOutlet weak var titleLabel: CustomLabel!
+    @IBOutlet weak var pleaseTypingLabel: CustomLabel!
     @IBOutlet weak var inputTextField: UITextField!{
         didSet{
             inputTextField.makeRounded(cornerRadius: 8)
@@ -28,7 +30,7 @@ class FPPhoneVC: UIViewController, UIGestureRecognizerDelegate {
     }
     @IBOutlet weak var resendBtn: UIButton!{
         didSet{
-            resendBtn.makeRounded(cornerRadius: 25)
+            resendBtn.makeRounded(cornerRadius: 8.0)
             resendBtn.layer.borderColor = UIColor.textGrey.cgColor
             resendBtn.layer.borderWidth  = 1.0
         }
@@ -44,6 +46,22 @@ class FPPhoneVC: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         checkingLetterCount()
+        setVisible(alpha: 0)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        UIView.animate(withDuration: 0.5, delay: 0, options: .allowUserInteraction, animations: {
+            self.titleLabel.alpha = 1
+            self.titleLabel.transform = CGAffineTransform(translationX: 0, y: 10)
+        }, completion: { _ in
+            // 입력 텍스트 필드 및 재전송 버튼 보이기
+            UIView.animate(withDuration: 1, delay: 0, options: .allowUserInteraction, animations: {
+                self.setVisible(alpha: 1)
+                self.animateGo()
+            })
+        })
+
     }
     
     //MARK: -사용자 정의 함수
@@ -55,6 +73,21 @@ class FPPhoneVC: UIViewController, UIGestureRecognizerDelegate {
     // 글자 수 검사 노티 가진 함수
     func checkingLetterCount(){
         NotificationCenter.default.addObserver(self, selector: #selector(textfieldDidChange(_:)), name: UITextField.textDidChangeNotification, object: nil)
+    }
+    
+    func setVisible(alpha: CGFloat){
+        self.titleLabel.alpha = alpha
+        self.pleaseTypingLabel.alpha = alpha
+        self.inputTextField.alpha = alpha
+        self.resendBtn.alpha = alpha
+        self.messageCheckLabel.alpha = alpha
+    }
+    
+    func animateGo(){
+        self.pleaseTypingLabel.transform = CGAffineTransform(translationX: 0, y: 10)
+        self.inputTextField.transform = CGAffineTransform(translationX: 0, y: 10)
+        self.resendBtn.transform = CGAffineTransform(translationX: 0, y: 10)
+        self.messageCheckLabel.transform = CGAffineTransform(translationX: 0, y: 10)
     }
     
     // 버튼 초록색(진행 가능함을 의미)
