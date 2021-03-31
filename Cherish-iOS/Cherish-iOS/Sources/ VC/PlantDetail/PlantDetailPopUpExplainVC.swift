@@ -42,8 +42,11 @@ class PlantDetailPopUpExplainVC: UIViewController {
     private func indexOfMajorCell() -> Int {
         let itemWidth = plantExplainCV.frame.size.width
         let proportionalOffset = (plantExplainCV.contentOffset.x / itemWidth)+0.3
+        print("Offset: \(proportionalOffset)")
         let index = Int(round(proportionalOffset))
-        let safeIndex = max(0, min(onboardingData.count - 1, index))
+        print("index: \(index)")
+        let safeIndex = max(0, min(3, index))
+        print("safteIndex: \(safeIndex)")
         return safeIndex
     }
     
@@ -52,7 +55,7 @@ class PlantDetailPopUpExplainVC: UIViewController {
         let itemWidth = plantExplainCV.frame.size.width
         let proportionalOffset = (plantExplainCV.contentOffset.x / itemWidth)
         let back_index = Int(floor(proportionalOffset))
-        let safeIndex = max(0, min(onboardingData.count - 1, back_index))
+        let safeIndex = max(0, min(3, back_index))
         return safeIndex
     }
     
