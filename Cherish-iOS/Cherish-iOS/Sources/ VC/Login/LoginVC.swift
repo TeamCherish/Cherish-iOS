@@ -326,6 +326,11 @@ class LoginVC: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    // 아이디 찾기
+    @IBAction func findEmailAction(_ sender: Any) {
+        loginAlert(title: "Cherish에게 연락 주세요!", message: "TeamCherish@gmail.com")
+    }
 }
 
 //MARK: - UITextFieldDelegate

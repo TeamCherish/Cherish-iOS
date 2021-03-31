@@ -79,7 +79,6 @@
 		33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E874EB25A04892001F84FE /* CherishTabBarController.swift */; };
 		33E874F725A04A56001F84FE /* CherishMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E874F625A04A56001F84FE /* CherishMainVC.swift */; };
 		33E874FB25A04A81001F84FE /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E874FA25A04A81001F84FE /* MyPageVC.swift */; };
-		33E874FE25A04A8D001F84FE /* ShowMoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E874FD25A04A8D001F84FE /* ShowMoreVC.swift */; };
 		33E8750425A04D1E001F84FE /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8750325A04D1E001F84FE /* CustomLabel.swift */; };
 		33E8750725A04DA2001F84FE /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8750625A04DA2001F84FE /* UIColor+Additions.swift */; };
 		33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8751225A05623001F84FE /* CircularProgressBar.swift */; };
@@ -139,6 +138,7 @@
 		548F26A7261336640055C5E1 /* OnboardingLastCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548F26A5261336640055C5E1 /* OnboardingLastCVCell.swift */; };
 		548F26A8261336640055C5E1 /* OnboardingLastCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548F26A6261336640055C5E1 /* OnboardingLastCVCell.xib */; };
 		548F26AB261339E30055C5E1 /* OnboardingNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548F26AA261339E30055C5E1 /* OnboardingNC.swift */; };
+		548F26B826138A310055C5E1 /* AboutCherishVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548F26B726138A310055C5E1 /* AboutCherishVC.swift */; };
 		5490352D25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5490352C25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift */; };
 		5491593125DBADC6008104FC /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593025DBADC6008104FC /* CustomPageControl.swift */; };
 		5491593425DBB1C0008104FC /* SignUpGenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593325DBB1C0008104FC /* SignUpGenderVC.swift */; };
@@ -272,7 +272,6 @@
 		33E874EB25A04892001F84FE /* CherishTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishTabBarController.swift; sourceTree = "<group>"; };
 		33E874F625A04A56001F84FE /* CherishMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishMainVC.swift; sourceTree = "<group>"; };
 		33E874FA25A04A81001F84FE /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
-		33E874FD25A04A8D001F84FE /* ShowMoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreVC.swift; sourceTree = "<group>"; };
 		33E8750325A04D1E001F84FE /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		33E8750625A04DA2001F84FE /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		33E8751225A05623001F84FE /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
@@ -332,6 +331,7 @@
 		548F26A5261336640055C5E1 /* OnboardingLastCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLastCVCell.swift; sourceTree = "<group>"; };
 		548F26A6261336640055C5E1 /* OnboardingLastCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingLastCVCell.xib; sourceTree = "<group>"; };
 		548F26AA261339E30055C5E1 /* OnboardingNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNC.swift; sourceTree = "<group>"; };
+		548F26B726138A310055C5E1 /* AboutCherishVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCherishVC.swift; sourceTree = "<group>"; };
 		5490352C25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWatering_WithoutLaterVC.swift; sourceTree = "<group>"; };
 		5491593025DBADC6008104FC /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		5491593325DBB1C0008104FC /* SignUpGenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpGenderVC.swift; sourceTree = "<group>"; };
@@ -801,10 +801,10 @@
 		33E874F525A049B7001F84FE /* ShowMore */ = {
 			isa = PBXGroup;
 			children = (
-				33E874FD25A04A8D001F84FE /* ShowMoreVC.swift */,
 				338CB6C525E527840089E182 /* NewShowMoreVC.swift */,
 				336C6D9225E63EAD003865C3 /* ShowMoreNC.swift */,
 				336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */,
+				548F26B726138A310055C5E1 /* AboutCherishVC.swift */,
 			);
 			path = ShowMore;
 			sourceTree = "<group>";
@@ -1277,6 +1277,7 @@
 				33D094DA25F575DF0016BD4E /* MainSplashVC.swift in Sources */,
 				33805F8E25AC73B1005CED0F /* MainData.swift in Sources */,
 				5491594025DC1641008104FC /* SignUpData.swift in Sources */,
+				548F26B826138A310055C5E1 /* AboutCherishVC.swift in Sources */,
 				548DF18D25A227A00081FCD1 /* KeywordCVC.swift in Sources */,
 				923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */,
 				33E8750725A04DA2001F84FE /* UIColor+Additions.swift in Sources */,
@@ -1291,7 +1292,6 @@
 				9214410225ACE7BD00853E53 /* AddUserService.swift in Sources */,
 				923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */,
 				33CD995625D9A0CD00C3BD1C /* FCMTokenUpdateService.swift in Sources */,
-				33E874FE25A04A8D001F84FE /* ShowMoreVC.swift in Sources */,
 				33E874FB25A04A81001F84FE /* MyPageVC.swift in Sources */,
 				33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */,
 				33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */,

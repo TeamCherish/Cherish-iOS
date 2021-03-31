@@ -65,7 +65,7 @@ class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         print(forSending)
-        initialSetting(status: true)
+        initialSetting(alpha: 0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,10 +86,17 @@ class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     //MARK: -사용자 정의 함수
-    func initialSetting(status: Bool){
-        pleaseTypingLabel.isHidden = status
-        typingMessageTextField.isHidden = status
-        resendMessageBtn.isHidden = status
+    func initialSetting(alpha: CGFloat){
+        pleaseTypingLabel.alpha = alpha
+        typingMessageTextField.alpha = alpha
+        resendMessageBtn.alpha = alpha
+    }
+    
+    // 인증번호 입력 등장 애니메이션
+    func animateGo(){
+        self.pleaseTypingLabel.transform = CGAffineTransform(translationX: 0, y: -10)
+        self.typingMessageTextField.transform = CGAffineTransform(translationX: 0, y: -10)
+        self.resendMessageBtn.transform = CGAffineTransform(translationX: 0, y: -10)
     }
     
     // 초록색으로 채워진 버튼
@@ -123,13 +130,21 @@ class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
             case .success(let data):
                 authNumber = data as? Int // 보낸 인증번호
                 
-                requestMessageBtn.isHidden = true // 원래 있던 인증번호보내기 버튼 사라지게 하기
-                initialSetting(status: false) // 입력 텍스트 필드 및 재전송 버튼 보이기
                 isSending = true // 문자 보냈음
                 
                 // 번호 입력 부 수정 못하게 비활성화
-                phoneTextField.textColor = .textGrey
                 phoneTextField.isEnabled = false
+                                
+                UIView.animate(withDuration: 0.5, delay: 0, options: .allowUserInteraction, animations: {
+                    phoneTextField.textColor = .textGrey
+                    requestMessageBtn.alpha = 0 // 원래 있던 인증번호보내기 버튼 사라지게 하기
+                }, completion: { _ in
+                    // 입력 텍스트 필드 및 재전송 버튼 보이기
+                    UIView.animate(withDuration: 1, delay: 0, options: .allowUserInteraction, animations: {
+                        initialSetting(alpha: 1)
+                        animateGo()
+                    })
+                })
                 greenBtn()
             case .requestErr(let msg):
                 if let message = msg as? String {

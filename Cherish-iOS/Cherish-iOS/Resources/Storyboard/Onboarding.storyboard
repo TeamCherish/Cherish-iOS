@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Medium.otf">
+            <string>NotoSansCJKkr-Medium</string>
+        </array>
         <array key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
         </array>
@@ -24,16 +27,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nr3-Yi-fmH">
-                                <rect key="frame" x="355" y="64" width="39" height="34"/>
+                                <rect key="frame" x="354" y="64" width="40" height="33"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                 <state key="normal" title="SKIP">
                                     <color key="titleColor" name="seaweed"/>
                                 </state>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Liw-FM-gwa">
-                                <rect key="frame" x="0.0" y="119" width="414" height="634"/>
+                                <rect key="frame" x="0.0" y="126" width="414" height="596"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UXb-15-dJv">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Liw-FM-gwa" secondAttribute="height" multiplier="375:540" id="ebx-9r-Gsr"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oay-VX-y7N">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -50,23 +56,42 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="hjD-2L-pLh">
-                                <rect key="frame" x="127" y="753" width="160" height="28"/>
-                                <color key="pageIndicatorTintColor" name="textGrey"/>
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="hjD-2L-pLh">
+                                <rect key="frame" x="127" y="787" width="160" height="28"/>
+                                <color key="pageIndicatorTintColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" name="seaweed"/>
                             </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHs-X2-LEz">
+                                <rect key="frame" x="16" y="776" width="382" height="50"/>
+                                <color key="backgroundColor" name="seaweed"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="wZA-RQ-O9j"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                <state key="normal" title="시작하기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bjj-MM-c1D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="bjj-MM-c1D" firstAttribute="trailing" secondItem="DHs-X2-LEz" secondAttribute="trailing" constant="16" id="3EI-8o-7cH"/>
                             <constraint firstItem="bjj-MM-c1D" firstAttribute="trailing" secondItem="Nr3-Yi-fmH" secondAttribute="trailing" constant="20" id="41m-V6-rxB"/>
                             <constraint firstItem="Nr3-Yi-fmH" firstAttribute="top" secondItem="bjj-MM-c1D" secondAttribute="top" constant="20" id="7kw-7o-EiS"/>
+                            <constraint firstItem="Liw-FM-gwa" firstAttribute="width" secondItem="uoq-Xy-eOM" secondAttribute="width" id="ChU-Ol-bRH"/>
                             <constraint firstItem="Liw-FM-gwa" firstAttribute="leading" secondItem="bjj-MM-c1D" secondAttribute="leading" id="SFO-fG-UKm"/>
+                            <constraint firstItem="DHs-X2-LEz" firstAttribute="centerY" secondItem="hjD-2L-pLh" secondAttribute="centerY" id="VSg-sh-PW5"/>
+                            <constraint firstAttribute="bottom" secondItem="hjD-2L-pLh" secondAttribute="bottom" constant="81" id="VUT-W3-XSw"/>
                             <constraint firstItem="hjD-2L-pLh" firstAttribute="centerX" secondItem="bjj-MM-c1D" secondAttribute="centerX" id="aEU-H4-eTc"/>
                             <constraint firstItem="Liw-FM-gwa" firstAttribute="trailing" secondItem="bjj-MM-c1D" secondAttribute="trailing" id="f2P-Pa-KN8"/>
-                            <constraint firstItem="bjj-MM-c1D" firstAttribute="bottom" secondItem="hjD-2L-pLh" secondAttribute="bottom" constant="81" id="kcT-Nl-laQ"/>
-                            <constraint firstItem="Liw-FM-gwa" firstAttribute="top" secondItem="Nr3-Yi-fmH" secondAttribute="bottom" constant="21" id="oIQ-Q7-EZO"/>
-                            <constraint firstItem="hjD-2L-pLh" firstAttribute="top" secondItem="Liw-FM-gwa" secondAttribute="bottom" id="vcT-sd-xbN"/>
+                            <constraint firstItem="DHs-X2-LEz" firstAttribute="leading" secondItem="bjj-MM-c1D" secondAttribute="leading" constant="16" id="ohz-7Q-LUw"/>
+                            <constraint firstItem="hjD-2L-pLh" firstAttribute="top" secondItem="Liw-FM-gwa" secondAttribute="bottom" constant="65" id="vcT-sd-xbN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JFq-Wo-WEy"/>
@@ -74,6 +99,7 @@
                         <outlet property="onboardingCV" destination="Liw-FM-gwa" id="RQQ-h4-qbw"/>
                         <outlet property="onboardingPageControl" destination="hjD-2L-pLh" id="v2t-RI-nP8"/>
                         <outlet property="skipBtn" destination="Nr3-Yi-fmH" id="6qH-aJ-5Ui"/>
+                        <outlet property="startBtn" destination="DHs-X2-LEz" id="Exy-A2-tye"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mrd-UX-3pn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -101,9 +127,6 @@
     <resources>
         <namedColor name="seaweed">
             <color red="0.10199999809265137" green="0.82400000095367432" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="textGrey">
-            <color red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

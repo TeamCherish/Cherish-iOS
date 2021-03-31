@@ -35,6 +35,10 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
         setImageViewRounded()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     //MARK: - addObserver
     func addNotificationObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -342,10 +346,13 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             //About Cherish
             if indexPath.row == 0 {
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
-                if let vc = storyBoard.instantiateViewController(withIdentifier: "OnboardingVC") as? OnboardingVC{
-                    vc.modalPresentationStyle = .overFullScreen
-                    self.present(vc, animated: true, completion: nil)
+//                let storyBoard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+//                if let vc = storyBoard.instantiateViewController(withIdentifier: "OnboardingVC") as? OnboardingVC{
+//                    vc.modalPresentationStyle = .overFullScreen
+//                    self.present(vc, animated: true, completion: nil)
+//                }
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AboutCherishVC") as? AboutCherishVC{
+                    self.navigationController?.pushViewController(vc, animated: true)
                 }
                 print("section 0, row 0")
             }

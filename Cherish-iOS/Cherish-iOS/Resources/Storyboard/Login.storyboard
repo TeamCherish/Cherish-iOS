@@ -66,6 +66,9 @@
                                 <state key="normal" title="아이디 찾기">
                                     <color key="titleColor" name="textGrey"/>
                                 </state>
+                                <connections>
+                                    <action selector="findEmailAction:" destination="tI6-tj-Hhh" eventType="touchUpInside" id="9kJ-Io-9aY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaJ-aJ-eej">
                                 <rect key="frame" x="263" y="534.66666666666663" width="50.333333333333314" height="24"/>

@@ -23,6 +23,9 @@ class PlantDetailPopUpExplainVC: UIViewController {
     var plantStepExplainArray:[PlantDetail] = []
     var plantExplain:[PlantResponse] = []
     
+    // 페이징 관련 index 정의 함수
+    private var indexOfCellBeforeDragging = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         makeDelegates()
@@ -33,6 +36,27 @@ class PlantDetailPopUpExplainVC: UIViewController {
     func makeDelegates() {
         plantExplainCV.delegate = self
         plantExplainCV.dataSource = self
+    }
+    
+    // 오른쪽으로 넘길 때
+    private func indexOfMajorCell() -> Int {
+        let itemWidth = plantExplainCV.frame.size.width
+        let proportionalOffset = (plantExplainCV.contentOffset.x / itemWidth)+0.3
+        print("Offset: \(proportionalOffset)")
+        let index = Int(round(proportionalOffset))
+        print("index: \(index)")
+        let safeIndex = max(0, min(3, index))
+        print("safteIndex: \(safeIndex)")
+        return safeIndex
+    }
+    
+    // 왼쪽으로 넘길 때
+    private func indexOfBeforCell() -> Int {
+        let itemWidth = plantExplainCV.frame.size.width
+        let proportionalOffset = (plantExplainCV.contentOffset.x / itemWidth)
+        let back_index = Int(floor(proportionalOffset))
+        let safeIndex = max(0, min(3, back_index))
+        return safeIndex
     }
     
     func setPlantDetailExplainData() {
@@ -88,7 +112,6 @@ extension PlantDetailPopUpExplainVC : UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let plantExplainCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlantExplainCVC", for: indexPath) as! PlantExplainCVC
-        
         if plantExplain.count != 0 {
             
             if indexPath.item == 0 {
@@ -205,22 +228,35 @@ extension UICollectionView {
 //MARK: - collectionView Horizontal Scrolling Magnetic Effect 적용
 extension PlantDetailPopUpExplainVC : UIScrollViewDelegate {
     
-    /// collectionView magnetic scrolling Effect
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.plantExplainCV.scrollToNearestVisibleCollectionViewCell()
-    }
-
-    /// collectionView magnetic scrolling Effect
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            self.plantExplainCV.scrollToNearestVisibleCollectionViewCell()
-        }
+//    /// collectionView magnetic scrolling Effect
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        self.plantExplainCV.scrollToNearestVisibleCollectionViewCell()
+//    }
+//
+//    /// collectionView magnetic scrolling Effect
+//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+//        if !decelerate {
+//            self.plantExplainCV.scrollToNearestVisibleCollectionViewCell()
+//        }
+//    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        indexOfCellBeforeDragging = indexOfMajorCell()
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let page = Int(targetContentOffset.pointee.x / plantExplainCV.frame.width)
-        self.plantExplainPageControl.currentPage = page
-      }
+        targetContentOffset.pointee = scrollView.contentOffset
+        if velocity.x > 0 {
+            let indexOfMajorCell = self.indexOfMajorCell()
+            let indexPath = IndexPath(row: indexOfMajorCell, section: 0)
+            plantExplainCV.collectionViewLayout.collectionView!.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }else{
+            let indexOfBeforCell = self.indexOfBeforCell()
+            
+            let indexPath = IndexPath(row: indexOfBeforCell, section: 0)
+            plantExplainCV.collectionViewLayout.collectionView!.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
     
     //MARK: - scroll animation이 끝나고 적용되는 함수
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
