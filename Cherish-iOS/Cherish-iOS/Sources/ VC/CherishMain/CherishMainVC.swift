@@ -73,13 +73,72 @@ extension CherishMainVC : OverlayContainerViewControllerDelegate {
     
     /// minimum, medium, maximum에 해당하는 각 노치 사이즈를 정하는 함수
     func overlayContainerViewController(_ containerViewController: OverlayContainerViewController, heightForNotchAt index: Int, availableSpace: CGFloat) -> CGFloat {
-        switch Notches.allCases[index] {
-        case .minimum:
-            return availableSpace * 1/6
-        case .medium:
-            return availableSpace * 2.1/7
-        case .maximum:
-            return availableSpace * 3/4
+        
+        if screenHeight == 896 {
+            print("iPhone 11pro, 11proMax")
+            switch Notches.allCases[index] {
+            case .minimum:
+                return availableSpace * 0.16
+            case .medium:
+                return availableSpace * 0.27
+            case .maximum:
+                return availableSpace * 3/4
+            }
+        }
+        else if screenHeight == 926 {
+            print("iPhone 12proMax")
+            switch Notches.allCases[index] {
+            case .minimum:
+                return availableSpace * 0.15
+            case .medium:
+                return availableSpace * 0.26
+            case .maximum:
+                return availableSpace * 3/4
+            }
+        }
+        else if screenHeight == 844 {
+            print("iPhone 12, 12pro")
+            switch Notches.allCases[index] {
+            case .minimum:
+                return availableSpace * 1/6
+            case .medium:
+                return availableSpace * 0.285
+            case .maximum:
+                return availableSpace * 3/4
+            }
+        }
+        else if screenHeight == 736 {
+            print("iPhone 8plus")
+            switch Notches.allCases[index] {
+            case .minimum:
+                return availableSpace * 0.148
+            case .medium:
+                return availableSpace * 0.275
+            case .maximum:
+                return availableSpace * 3/4
+            }
+        }
+        else if screenHeight == 667 {
+            print("iPhone 8")
+            switch Notches.allCases[index] {
+            case .minimum:
+                return availableSpace * 0.16
+            case .medium:
+                return availableSpace * 0.31
+                
+            case .maximum:
+                return availableSpace * 3/4
+            }
+        }
+        else {
+            switch Notches.allCases[index] {
+            case .minimum:
+                return availableSpace * 1/6
+            case .medium:
+                return availableSpace * 0.3
+            case .maximum:
+                return availableSpace * 3/4
+            }
         }
     }
     

@@ -212,7 +212,7 @@
                             <constraint firstItem="Otg-az-yW5" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="16" id="gU2-9v-S28"/>
                             <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="1rh-Gn-4tL" secondAttribute="trailing" constant="40" id="jYu-Ae-Z6c"/>
                             <constraint firstItem="571-Dh-KLL" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="nqY-XG-32e"/>
-                            <constraint firstItem="1rh-Gn-4tL" firstAttribute="bottom" secondItem="TmQ-US-0yO" secondAttribute="bottom" constant="-186" id="pfe-Br-I3m"/>
+                            <constraint firstItem="1rh-Gn-4tL" firstAttribute="top" secondItem="TmQ-US-0yO" secondAttribute="top" constant="520" id="vEW-0V-D1r"/>
                             <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="1LF-25-ssR" secondAttribute="trailing" constant="-10" id="wYg-2z-Rbn"/>
                             <constraint firstItem="Ook-bx-AcP" firstAttribute="top" secondItem="571-Dh-KLL" secondAttribute="bottom" constant="99" id="waq-TO-PMn"/>
                             <constraint firstItem="rb3-up-wUt" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" id="xGF-4Q-8bB"/>
@@ -223,6 +223,7 @@
                     <navigationItem key="navigationItem" id="Byv-ah-pKX"/>
                     <connections>
                         <outlet property="blurBtn" destination="1rh-Gn-4tL" id="Ano-DO-LVl"/>
+                        <outlet property="blurBtnTopConstraint" destination="vEW-0V-D1r" id="QNE-Bd-9IO"/>
                         <outlet property="dayCountLabel" destination="Otg-az-yW5" id="xZ4-9p-e0J"/>
                         <outlet property="growthPercentLabel" destination="7lJ-v4-Fdo" id="GqH-Wb-S86"/>
                         <outlet property="plantExplainLabel" destination="MqD-Yz-UwB" id="lsW-qY-OCZ"/>
@@ -232,6 +233,8 @@
                         <outlet property="plantImageViewLeading" destination="xZ1-yd-2rf" id="Lcg-YM-4Xv"/>
                         <outlet property="plantImageViewTopConstraint" destination="gDu-wJ-xHN" id="Ued-RZ-Y0e"/>
                         <outlet property="plantImageViewTrailing" destination="fjq-QB-PKn" id="DHL-XA-ZQf"/>
+                        <outlet property="progressInnerViewTopConstraint" destination="WYQ-md-i8v" id="iO7-M6-3vb"/>
+                        <outlet property="progressViewTopConstraint" destination="waq-TO-PMn" id="MDI-Q7-cIX"/>
                         <outlet property="progressbarBackView" destination="Ook-bx-AcP" id="9qk-3n-XYz"/>
                         <outlet property="progressbarView" destination="tC1-OL-vxp" id="EF5-MD-zMm"/>
                         <outlet property="userNickNameLabel" destination="rb3-up-wUt" id="vAL-T6-ssD"/>
@@ -260,7 +263,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 소중한 사람들" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWq-sY-NPK" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="16.000000000000007" y="30" width="104.66666666666669" height="16.333333333333329"/>
+                                        <rect key="frame" x="16" y="27.666666666666671" width="111" height="21"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="14"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -271,7 +274,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhZ-mV-MRR" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="124.66666666666667" y="29.666666666666671" width="0.0" height="17"/>
+                                        <rect key="frame" x="131" y="29.666666666666671" width="0.0" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="9cX-Kq-gGw"/>
                                         </constraints>

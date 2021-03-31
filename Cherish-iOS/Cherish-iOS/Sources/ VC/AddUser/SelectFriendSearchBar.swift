@@ -67,6 +67,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         //Array
         //        NotificationCenter.default.addObserver(self, selector: #selector(activeNextBtn(_:)), name: .radioBtnClicked, object: nil)
     }
+    
     //    @objc func activeNextBtn(_ notification: Notification) {
     //        self.nextBtn.isEnabled = true
     //        self.nextBtn.setImage(UIImage(named: "btn_next_selected"), for: .normal)

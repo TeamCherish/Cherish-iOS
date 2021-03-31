@@ -626,7 +626,7 @@
         <!--SelectFriendSearchBar-->
         <scene sceneID="hPq-AR-aYG">
             <objects>
-                <viewController storyboardIdentifier="SelectFriendSearchBar" title="SelectFriendSearchBar" modalPresentationStyle="fullScreen" id="4c4-J9-nWF" customClass="SelectFriendSearchBar" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectFriendSearchBar" title="SelectFriendSearchBar" modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" id="4c4-J9-nWF" customClass="SelectFriendSearchBar" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qCe-J9-pfm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
