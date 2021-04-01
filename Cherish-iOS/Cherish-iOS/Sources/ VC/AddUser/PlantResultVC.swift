@@ -112,7 +112,9 @@ class PlantResultVC: UIViewController, UIGestureRecognizerDelegate {
 
         //최종적으로 내 label에 속성을 적용
 //        self.modifierLabel.attributedText = attributedStr
-        
+        print("modifier")
+        print(modifierArr?[0])
+        print(modifierArr?[1])
         self.modifierRegular.text = modifierArr![0]
         self.modifierBold.text = modifierArr![1]
         
