@@ -141,7 +141,7 @@ class InputDetailVC: UIViewController {
                         
                         //                        NotificationCenter.default.post(name: .sendPlantResult, object: nil)
                         self.present(loadingVC, animated: false, completion: nil)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             self.dismiss(animated: false) {
                                 self.navigationController?.pushViewController(resultVC, animated: true)
                             }
