@@ -183,6 +183,7 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     
     // 검색뷰로 이동
     @IBAction func moveToSearchPlant(_ sender: Any) {
+        print("이동한당")
         guard let dvc = self.storyboard?.instantiateViewController(identifier: "MyPageSearchVC") as? MyPageSearchVC else {return}
         dvc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(dvc, animated: true)

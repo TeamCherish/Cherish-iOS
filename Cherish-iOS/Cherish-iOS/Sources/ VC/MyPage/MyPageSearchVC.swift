@@ -54,6 +54,7 @@ class MyPageSearchVC: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print("이동했당")
         setDelegates()
         getMypageData()
         makeCornerRadiusView(segmentView, 30)
