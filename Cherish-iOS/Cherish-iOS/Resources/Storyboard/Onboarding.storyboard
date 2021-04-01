@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d0H-oP-H6B">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -23,21 +23,14 @@
             <objects>
                 <viewController storyboardIdentifier="OnboardingVC" id="aDR-3K-aFa" customClass="OnboardingVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uoq-Xy-eOM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nr3-Yi-fmH">
-                                <rect key="frame" x="354" y="64" width="40" height="33"/>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
-                                <state key="normal" title="SKIP">
-                                    <color key="titleColor" name="seaweed"/>
-                                </state>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Liw-FM-gwa">
-                                <rect key="frame" x="0.0" y="126" width="414" height="596"/>
+                                <rect key="frame" x="0.0" y="89" width="375" height="556"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Liw-FM-gwa" secondAttribute="height" multiplier="375:540" id="ebx-9r-Gsr"/>
+                                    <constraint firstAttribute="width" secondItem="Liw-FM-gwa" secondAttribute="height" multiplier="375:556" id="ElE-Bh-OQ2"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oay-VX-y7N">
                                     <size key="itemSize" width="128" height="128"/>
@@ -56,13 +49,23 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nr3-Yi-fmH">
+                                <rect key="frame" x="316" y="64" width="39" height="34"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                <state key="normal" title="SKIP">
+                                    <color key="titleColor" name="seaweed"/>
+                                </state>
+                                <connections>
+                                    <action selector="skipToLoginView:" destination="aDR-3K-aFa" eventType="touchUpInside" id="OaJ-CR-YFe"/>
+                                </connections>
+                            </button>
                             <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="hjD-2L-pLh">
-                                <rect key="frame" x="127" y="787" width="160" height="28"/>
+                                <rect key="frame" x="108" y="710" width="159" height="28"/>
                                 <color key="pageIndicatorTintColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" name="seaweed"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHs-X2-LEz">
-                                <rect key="frame" x="16" y="776" width="382" height="50"/>
+                                <rect key="frame" x="16" y="699" width="343" height="50"/>
                                 <color key="backgroundColor" name="seaweed"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wZA-RQ-O9j"/>
@@ -90,7 +93,7 @@
                             <constraint firstItem="Liw-FM-gwa" firstAttribute="width" secondItem="uoq-Xy-eOM" secondAttribute="width" id="ChU-Ol-bRH"/>
                             <constraint firstItem="Liw-FM-gwa" firstAttribute="leading" secondItem="bjj-MM-c1D" secondAttribute="leading" id="SFO-fG-UKm"/>
                             <constraint firstItem="DHs-X2-LEz" firstAttribute="centerY" secondItem="hjD-2L-pLh" secondAttribute="centerY" id="VSg-sh-PW5"/>
-                            <constraint firstAttribute="bottom" secondItem="hjD-2L-pLh" secondAttribute="bottom" constant="81" id="VUT-W3-XSw"/>
+                            <constraint firstItem="bjj-MM-c1D" firstAttribute="bottom" secondItem="hjD-2L-pLh" secondAttribute="bottom" constant="40" id="VUT-W3-XSw"/>
                             <constraint firstItem="hjD-2L-pLh" firstAttribute="centerX" secondItem="bjj-MM-c1D" secondAttribute="centerX" id="aEU-H4-eTc"/>
                             <constraint firstItem="Liw-FM-gwa" firstAttribute="trailing" secondItem="bjj-MM-c1D" secondAttribute="trailing" id="f2P-Pa-KN8"/>
                             <constraint firstItem="DHs-X2-LEz" firstAttribute="leading" secondItem="bjj-MM-c1D" secondAttribute="leading" constant="16" id="ohz-7Q-LUw"/>
@@ -101,7 +104,11 @@
                     <connections>
                         <outlet property="onboardingCV" destination="Liw-FM-gwa" id="RQQ-h4-qbw"/>
                         <outlet property="onboardingPageControl" destination="hjD-2L-pLh" id="v2t-RI-nP8"/>
+                        <outlet property="pageControllerBottomAnchor" destination="VUT-W3-XSw" id="9Ky-HC-gAj"/>
+                        <outlet property="pageControllerTopAnchor" destination="vcT-sd-xbN" id="LKJ-zO-Jjs"/>
                         <outlet property="skipBtn" destination="Nr3-Yi-fmH" id="6qH-aJ-5Ui"/>
+                        <outlet property="skipBtnTopAnchor" destination="7kw-7o-EiS" id="pWc-Fo-xL5"/>
+                        <outlet property="skipBtnTrailingAnchor" destination="41m-V6-rxB" id="UEO-Zn-8og"/>
                         <outlet property="startBtn" destination="DHs-X2-LEz" id="Exy-A2-tye"/>
                     </connections>
                 </viewController>

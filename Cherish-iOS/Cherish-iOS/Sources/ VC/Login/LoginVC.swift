@@ -216,6 +216,17 @@ class LoginVC: UIViewController {
         present(alert, animated: true)
     }
     
+    func findIDAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let duplicate = UIAlertAction(title: "메일 복사", style: .default) { (UIAlertAction) in
+            UIPasteboard.general.string = "co.cherishteam@gmail.com"
+        }
+        let okAction = UIAlertAction(title: "아니오",style: .default)
+        alert.addAction(duplicate)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
     
     func goToCherishMainView(){
         let tabBarStoyboard: UIStoryboard = UIStoryboard(name: "TabBar", bundle: nil)
@@ -232,7 +243,6 @@ class LoginVC: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
     
     //MARK: - 로그인 버튼 눌렀을 때
     @IBAction func touchUpToLogin(_ sender: UIButton) {
@@ -329,7 +339,7 @@ class LoginVC: UIViewController {
     
     // 아이디 찾기
     @IBAction func findEmailAction(_ sender: Any) {
-        loginAlert(title: "Cherish에게 연락 주세요!", message: "TeamCherish@gmail.com")
+        findIDAlert(title: "Cherish에 메일로 문의하시겠어요?", message: "co.cherishteam@gmail.com 으로\n문의 주시면 계정을 찾아드릴게요!")
     }
 }
 
