@@ -220,7 +220,7 @@
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(최대8글자)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jp-C0-17x" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="81" y="114" width="59" height="24"/>
+                                <rect key="frame" x="81" y="114" width="54.666666666666657" height="24"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="textGrey"/>
                                 <nil key="highlightedColor"/>
@@ -231,7 +231,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(선택사항)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIh-Ra-DJl" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="59" y="203" width="52.333333333333343" height="24"/>
+                                <rect key="frame" x="59" y="203" width="48" height="24"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="textGrey"/>
                                 <nil key="highlightedColor"/>
@@ -325,7 +325,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물카드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbL-GE-ESO">
-                                        <rect key="frame" x="158" y="10" width="59" height="24"/>
+                                        <rect key="frame" x="159.66666666666666" y="12.666666666666666" width="55.666666666666657" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -435,7 +435,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물주기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFT-HG-10b" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="89.333333333333329" y="378" width="38.666666666666671" height="21"/>
+                                <rect key="frame" x="90.333333333333329" y="378" width="36.333333333333329" height="16.333333333333314"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                 <color key="textColor" red="0.41960784313725491" green="0.41568627450980389" blue="0.41568627450980389" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -464,7 +464,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="함께한날" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vo2-KK-pWp" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="161.66666666666666" y="377.66666666666669" width="51.666666666666657" height="21"/>
+                                <rect key="frame" x="163.33333333333334" y="377.66666666666669" width="48.666666666666657" height="16.333333333333314"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                 <color key="textColor" red="0.41960784313725491" green="0.41568627450980389" blue="0.41568627450980389" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -489,7 +489,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="생일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xcq-zB-nzx" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="253.66666666666663" y="379" width="26" height="21"/>
+                                <rect key="frame" x="254.33333333333334" y="379" width="24.333333333333343" height="16.333333333333314"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                 <color key="textColor" red="0.41960784309999999" green="0.41568627450000001" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -500,7 +500,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MaY-Ug-rb5">
-                                <rect key="frame" x="16" y="530" width="388.66666666666669" height="34"/>
+                                <rect key="frame" x="16" y="524.66666666666663" width="449.66666666666669" height="39.333333333333371"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MaY-Ug-rb5" secondAttribute="height" multiplier="343:30" id="zOG-Nr-8Al"/>
@@ -513,7 +513,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="KeywordCVCell" id="uOq-I9-Suq" customClass="KeywordCVCell" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="3.6666666666666665" width="44" height="27"/>
+                                        <rect key="frame" x="0.0" y="6.333333333333333" width="44" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NuU-mD-Iqp">
                                             <rect key="frame" x="0.0" y="0.0" width="44" height="27"/>
@@ -680,7 +680,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="힘이 솟아요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MA5-xY-cFr" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="139.33333333333334" y="173.33333333333334" width="96.666666666666657" height="29.666666666666657"/>
+                                <rect key="frame" x="141.33333333333334" y="176.33333333333334" width="92.333333333333343" height="23.333333333333343"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -706,7 +706,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="건강상태" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aux-cA-Yvw" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="165.33333333333334" y="203" width="44.333333333333343" height="18"/>
+                                <rect key="frame" x="166.66666666666666" y="199.66666666666666" width="41.666666666666657" height="14"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -717,7 +717,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남쿵둥이와 함께했던 이야기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqa-6k-Q1S" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="498" width="555" height="24"/>
+                                <rect key="frame" x="16" y="498" width="431.66666666666669" height="18.666666666666629"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Jqa-6k-Q1S" secondAttribute="height" multiplier="185:8" id="pjA-nc-Yzg"/>
                                 </constraints>
@@ -731,13 +731,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YBf-wR-Gwr">
-                                <rect key="frame" x="128.33333333333334" y="301" width="118.66666666666666" height="25"/>
+                                <rect key="frame" x="130.66666666666666" y="301" width="114" height="25"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="uYa-OR-Q18">
-                                        <rect key="frame" x="13" y="3.6666666666666856" width="92.666666666666671" height="18"/>
+                                        <rect key="frame" x="13" y="3.6666666666666856" width="88" height="18"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남궁선규" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWU-BJ-jkX" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="44.333333333333336" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="Mm1-2X-vex"/>
                                                 </constraints>
@@ -751,14 +751,14 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kbJ-uO-gGc">
-                                                <rect key="frame" x="51.333333333333314" y="0.0" width="1" height="18"/>
+                                                <rect key="frame" x="48.666666666666686" y="0.0" width="1" height="18"/>
                                                 <color key="backgroundColor" name="seaweed"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="1" id="SMs-XF-Rat"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="스투키" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5s-9O-64H" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="59.333333333333314" y="0.0" width="33.333333333333343" height="18"/>
+                                                <rect key="frame" x="56.666666666666693" y="0.0" width="31.333333333333336" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="NVg-H7-NIE"/>
                                                 </constraints>
@@ -946,7 +946,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="쑥쑥자라는 단계" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oz4-WZ-IqB" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                            <rect key="frame" x="62.666666666666671" y="0.0" width="134.66666666666663" height="20"/>
+                                                            <rect key="frame" x="66.666666666666657" y="0.0" width="126.66666666666666" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="ReU-vW-4Ar"/>
                                                             </constraints>
@@ -974,7 +974,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일주일에 물을 1번 씩만 줘도 잘 자라나는 식물이에요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gQ-MS-cvU" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                            <rect key="frame" x="43.333333333333329" y="261" width="173.66666666666669" height="22"/>
+                                                            <rect key="frame" x="46" y="261" width="168" height="22"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="22" id="NWM-Gu-nzN"/>
                                                             </constraints>
