@@ -19,28 +19,27 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="OnboardingCVCell" customModule="Cherish_iOS" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="329" height="544"/>
+            <rect key="frame" x="0.0" y="0.0" width="335" height="544"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="329" height="544"/>
+                <rect key="frame" x="0.0" y="0.0" width="335" height="544"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgOnboarding1" translatesAutoresizingMaskIntoConstraints="NO" id="CwK-T2-hxd">
-                        <rect key="frame" x="0.0" y="27.5" width="329" height="435"/>
+                        <rect key="frame" x="0.0" y="68.5" width="335" height="411"/>
                         <constraints>
-                            <constraint firstAttribute="height" priority="250" constant="435" id="DhX-tO-bXy"/>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="414" id="Zm5-u6-D9E"/>
+                            <constraint firstAttribute="width" secondItem="CwK-T2-hxd" secondAttribute="height" multiplier="375:460" id="qKC-EW-XA3"/>
                         </constraints>
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gas-rY-oAH" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                        <rect key="frame" x="135" y="479.5" width="59" height="28"/>
+                        <rect key="frame" x="138" y="479.5" width="59" height="28"/>
                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="24"/>
                         <color key="textColor" red="0.16470588235294117" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5z-10-Bbl" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                        <rect key="frame" x="147.5" y="527.5" width="34.5" height="16.5"/>
+                        <rect key="frame" x="150.5" y="527.5" width="34.5" height="16.5"/>
                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                         <color key="textColor" name="textGrey"/>
                         <nil key="highlightedColor"/>
@@ -52,22 +51,22 @@
                 <constraint firstAttribute="bottom" secondItem="U5z-10-Bbl" secondAttribute="bottom" id="BVU-fa-wbL"/>
                 <constraint firstItem="CwK-T2-hxd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ck8-9h-fI6"/>
                 <constraint firstItem="gas-rY-oAH" firstAttribute="centerX" secondItem="CwK-T2-hxd" secondAttribute="centerX" id="EuD-lE-JYK"/>
-                <constraint firstItem="gas-rY-oAH" firstAttribute="top" secondItem="CwK-T2-hxd" secondAttribute="bottom" constant="17" id="IbQ-3Q-V3C"/>
+                <constraint firstItem="gas-rY-oAH" firstAttribute="top" secondItem="CwK-T2-hxd" secondAttribute="bottom" id="IbQ-3Q-V3C"/>
                 <constraint firstItem="U5z-10-Bbl" firstAttribute="top" secondItem="gas-rY-oAH" secondAttribute="bottom" constant="20" id="J74-nT-JR8"/>
                 <constraint firstItem="U5z-10-Bbl" firstAttribute="centerX" secondItem="CwK-T2-hxd" secondAttribute="centerX" id="Naz-Kn-f8f"/>
                 <constraint firstAttribute="trailing" secondItem="CwK-T2-hxd" secondAttribute="trailing" id="iUS-Zw-ykd"/>
             </constraints>
-            <size key="customSize" width="329" height="544"/>
+            <size key="customSize" width="335" height="544"/>
             <connections>
                 <outlet property="descriptionLabel" destination="U5z-10-Bbl" id="x5w-6f-t6A"/>
                 <outlet property="onboardingImageView" destination="CwK-T2-hxd" id="iph-7G-I0X"/>
                 <outlet property="titleLabel" destination="gas-rY-oAH" id="3DF-Ie-Vu0"/>
             </connections>
-            <point key="canvasLocation" x="173.18840579710147" y="153.34821428571428"/>
+            <point key="canvasLocation" x="177.536231884058" y="153.34821428571428"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="imgOnboarding1" width="307" height="435"/>
+        <image name="imgOnboarding1" width="335" height="460"/>
         <namedColor name="textGrey">
             <color red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

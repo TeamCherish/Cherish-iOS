@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "imgOnboarding2.png",
       "scale" : "1x",
-      "idiom" : "universal"
-    },
-    {
-      "scale" : "2x",
-      "filename" : "imgOnboarding2@2x.png",
-      "idiom" : "universal"
-    },
-    {
-      "filename" : "imgOnboarding2@3x.png",
       "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "imgOnboarding2.png"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "imgOnboarding2@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "scale" : "3x",
+      "filename" : "imgOnboarding2@3x.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {
