@@ -25,9 +25,33 @@ class OnboardingVC: UIViewController {
             startBtn.alpha = 0
         }
     }
+    @IBOutlet weak var pageControllerTopAnchor: NSLayoutConstraint!
+    @IBOutlet weak var pageControllerBottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var skipBtnTopAnchor: NSLayoutConstraint!
+    @IBOutlet weak var skipBtnTrailingAnchor: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setPhoneResolution()
+    }
+    
+    func setPhoneResolution(){
+        if UIDevice.current.isiPhoneSE2 {
+            pageControllerTopAnchor.constant = 30
+            pageControllerBottomAnchor.constant = 20
+            skipBtnTopAnchor.constant = 10
+            skipBtnTrailingAnchor.constant = 10
+        }else if UIDevice.current.isiPhone8Plus{
+            pageControllerTopAnchor.constant = 30
+            pageControllerBottomAnchor.constant = 30
+            skipBtnTopAnchor.constant = 10
+            skipBtnTrailingAnchor.constant = 10
+        }else if UIDevice.current.isiPhoneSE{
+            pageControllerTopAnchor.constant = 10
+            pageControllerBottomAnchor.constant = 15
+            skipBtnTopAnchor.constant = 5
+            skipBtnTrailingAnchor.constant = 5
+        }
     }
     
     // 페이징 관련 index 정의 함수
@@ -49,6 +73,13 @@ class OnboardingVC: UIViewController {
         let back_index = Int(floor(proportionalOffset))
         let safeIndex = max(0, min(onboardingData.count - 1, back_index))
         return safeIndex
+    }
+    
+    @IBAction func skipToLoginView(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(identifier: "LoginVC") as? LoginVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func moveToLoginView(_ sender: UIButton) {
