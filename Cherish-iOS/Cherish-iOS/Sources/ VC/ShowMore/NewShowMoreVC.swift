@@ -408,8 +408,8 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
                     
                 }
                 let cancelAction = UIAlertAction(title: "취소", style: .destructive)
-                logoutAlert.addAction(confirmAction)
                 logoutAlert.addAction(cancelAction)
+                logoutAlert.addAction(confirmAction)
                 self.present(logoutAlert, animated: true, completion: nil)
             }
             //회원탈퇴
