@@ -24,11 +24,11 @@ extension UIDevice {
     }
     
     public var isiPhone8Plus: Bool {
-            if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone && (UIScreen.main.bounds.size.height == 736 || UIScreen.main.bounds.size.width == 414) {
-                return true
-            }
-            return false
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone && (UIScreen.main.bounds.size.height == 736 || UIScreen.main.bounds.size.width == 414) {
+            return true
         }
+        return false
+    }
     
     public var isiPhone12mini: Bool {
         if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone && (UIScreen.main.bounds.size.height == 812 && UIScreen.main.bounds.size.width == 375) {
