@@ -23,6 +23,8 @@ class MainContentVC: UIViewController {
     @IBOutlet var plantImageViewHeight: NSLayoutConstraint!
     @IBOutlet var plantImageViewLeading: NSLayoutConstraint!
     @IBOutlet var plantImageViewTrailing: NSLayoutConstraint!
+    @IBOutlet var progressViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet var progressInnerViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var blurBtn: UIVisualEffectView!{
         didSet{
             blurBtn.makeRounded(cornerRadius: 14.0)
@@ -31,6 +33,7 @@ class MainContentVC: UIViewController {
     var cherishPeopleData:[ResultData] = []
     var cherishResultData:[MainPlantConditionData] = []
     var selectedRowIndexPath:Int = 0
+    @IBOutlet var blurBtnTopConstraint: NSLayoutConstraint!
     
     let userId: Int = UserDefaults.standard.integer(forKey: "userID")
     var growthInfo:Int = UserDefaults.standard.integer(forKey: "selectedGrowthData")
@@ -51,6 +54,7 @@ class MainContentVC: UIViewController {
         UserDefaults.standard.set(false, forKey: "calendarPlantIsSelected")
         addNotificationObserver()
         setDataWithSelectedData()
+        setAutolayout()
         self.tabBarController?.tabBar.isHidden = false
     }
     
@@ -79,17 +83,16 @@ class MainContentVC: UIViewController {
                 view.backgroundColor = .white
             }
         }
-        
         // 식물상세페이지로 네비게이션 연결 후 탭바가 사라지기 때문에
         // popViewController 액션으로 다시 메인뷰로 돌아왔을 때 탭바가 나타나야 한다.
         self.tabBarController?.tabBar.isHidden = false
+        
         UserDefaults.standard.set(false, forKey: "plantIsSelected")
         LoadingHUD.hide()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         LoadingHUD.hide()
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -439,7 +442,7 @@ class MainContentVC: UIViewController {
     
     //MARK: - 민들레 3단계 성장
     func dandelionGrowth() {
-
+        
         
         if growthInfo < 25 {
             // 1단계
@@ -463,7 +466,7 @@ class MainContentVC: UIViewController {
             plantImageView.layoutIfNeeded()
             plantImageViewLeading.constant = 65
             plantImageViewTrailing.constant = 2
-            plantImageViewTopConstraint.constant = 189
+            plantImageViewTopConstraint.constant = 210
             self.plantImageView.image = UIImage(named: "imgMin2")
             view.backgroundColor = .dandelionBg
         }
@@ -585,7 +588,7 @@ class MainContentVC: UIViewController {
         }
     }
     
-
+    
     //MARK: - 스투키 3단계 성장
     func stuckyGrowth() {
         if growthInfo < 25 {
@@ -629,13 +632,71 @@ class MainContentVC: UIViewController {
         progressbarBackView.setBackColor(color: .white)
         progressbarView.setBackColor(color: .white)
         
+        let greenGradient = CAGradientLayer()
+
+        // frame을 잡아주고
+        greenGradient.frame = progressbarView.bounds
+
+        // 섞어줄 색을 colors에 넣어준 뒤
+        greenGradient.colors = [UIColor.seaweed.cgColor,UIColor(red: 0, green: 171/255, blue: 162/255, alpha: 1.0).cgColor]
+        
+        greenGradient.startPoint = CGPoint(x: 0.5, y: 0)
+        greenGradient.endPoint = CGPoint(x: 0.5, y: 1)
+        
+        let redGradient = CAGradientLayer()
+
+        // frame을 잡아주고
+        redGradient.frame = progressbarView.bounds
+
+        // 섞어줄 색을 colors에 넣어준 뒤
+        redGradient.colors = [UIColor.pinkSub.cgColor,UIColor(red: 248/255, green: 230/255, blue: 80/255, alpha: 1.0).cgColor]
+        
+        redGradient.startPoint = CGPoint(x: 0.5, y: 0)
+        redGradient.endPoint = CGPoint(x: 0.5, y: 1)
+        
         if value < 50 {
-            progressbarView.setProgressColor(color: .pinkSub)
+            progressbarView.setProgressColor(color: redGradient)
         }
         else {
-            progressbarView.setProgressColor(color: .seaweed)
+            progressbarView.setProgressColor(color: greenGradient)
         }
         progressbarView.setProgressValue(currentValue: CGFloat(value))
+    }
+    
+    func setAutolayout() {
+    
+        if screenHeight == 896 {
+            print("iPhone 11pro, 11proMax")
+            blurBtnTopConstraint.constant = 530
+            progressViewTopConstraint.constant = 140
+            progressInnerViewTopConstraint.constant = 142
+        }
+        else if screenHeight == 926 {
+            print("iPhone 12proMax")
+            progressViewTopConstraint.constant = 150
+            progressInnerViewTopConstraint.constant = 152
+        }
+        else if screenHeight == 844 {
+            print("iPhone 12, 12pro")
+            progressViewTopConstraint.constant = 127
+            progressInnerViewTopConstraint.constant = 129
+   
+        }
+        else if screenHeight == 736 {
+            print("iPhone 8plus")
+            progressViewTopConstraint.constant = 85
+            progressInnerViewTopConstraint.constant = 87
+        }
+        else if screenHeight == 667 {
+            print("iPhone 8")
+            progressViewTopConstraint.constant = 20
+            progressInnerViewTopConstraint.constant = 22
+        }
+        else {
+            blurBtnTopConstraint.constant = 471
+            progressViewTopConstraint.constant = 92
+            progressInnerViewTopConstraint.constant = 94
+        }
     }
     
     //MARK: - Alert View

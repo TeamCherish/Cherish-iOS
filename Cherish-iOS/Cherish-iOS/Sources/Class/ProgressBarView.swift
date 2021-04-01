@@ -78,7 +78,7 @@ class ProgressBarView: UIView {
      Sets the background color of the progress view.
      This is the color that will display the value you have inserted.
      */
-    func setProgressColor(color : UIColor) {
-        progressView.backgroundColor = color
+    func setProgressColor(color : CAGradientLayer) {
+        progressView.layer.addSublayer(color)
     }
 }

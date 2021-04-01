@@ -141,7 +141,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1rh-Gn-4tL">
-                                <rect key="frame" x="289" y="564" width="28" height="28"/>
+                                <rect key="frame" x="307" y="564" width="28" height="28"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tzH-fY-HS4">
                                     <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -205,14 +205,14 @@
                             <constraint firstItem="MqD-Yz-UwB" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="XP7-Wi-NiB"/>
                             <constraint firstItem="rvI-uI-SPM" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" constant="36.329999999999998" id="YzY-lm-gp2"/>
                             <constraint firstItem="1LF-25-ssR" firstAttribute="top" secondItem="53S-aO-x9T" secondAttribute="top" id="anz-Zs-3Ru"/>
-                            <constraint firstItem="1rh-Gn-4tL" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="289" id="c0i-aW-fIA"/>
                             <constraint firstItem="571-Dh-KLL" firstAttribute="top" secondItem="rb3-up-wUt" secondAttribute="bottom" constant="17" id="eNb-JJ-9v9"/>
                             <constraint firstItem="1cl-cl-xvs" firstAttribute="trailing" secondItem="TmQ-US-0yO" secondAttribute="trailing" id="fjq-QB-PKn"/>
                             <constraint firstItem="1LF-25-ssR" firstAttribute="leading" secondItem="53S-aO-x9T" secondAttribute="leading" constant="10" id="g56-IB-MkX"/>
                             <constraint firstItem="1cl-cl-xvs" firstAttribute="top" secondItem="TmQ-US-0yO" secondAttribute="top" constant="104" id="gDu-wJ-xHN"/>
                             <constraint firstItem="Otg-az-yW5" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="16" id="gU2-9v-S28"/>
+                            <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="1rh-Gn-4tL" secondAttribute="trailing" constant="40" id="jYu-Ae-Z6c"/>
                             <constraint firstItem="571-Dh-KLL" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="nqY-XG-32e"/>
-                            <constraint firstItem="1rh-Gn-4tL" firstAttribute="bottom" secondItem="TmQ-US-0yO" secondAttribute="bottom" constant="-186" id="pfe-Br-I3m"/>
+                            <constraint firstItem="1rh-Gn-4tL" firstAttribute="top" secondItem="TmQ-US-0yO" secondAttribute="top" constant="520" id="vEW-0V-D1r"/>
                             <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="1LF-25-ssR" secondAttribute="trailing" constant="-10" id="wYg-2z-Rbn"/>
                             <constraint firstItem="Ook-bx-AcP" firstAttribute="top" secondItem="571-Dh-KLL" secondAttribute="bottom" constant="99" id="waq-TO-PMn"/>
                             <constraint firstItem="rb3-up-wUt" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" id="xGF-4Q-8bB"/>
@@ -223,6 +223,7 @@
                     <navigationItem key="navigationItem" id="Byv-ah-pKX"/>
                     <connections>
                         <outlet property="blurBtn" destination="1rh-Gn-4tL" id="Ano-DO-LVl"/>
+                        <outlet property="blurBtnTopConstraint" destination="vEW-0V-D1r" id="QNE-Bd-9IO"/>
                         <outlet property="dayCountLabel" destination="Otg-az-yW5" id="xZ4-9p-e0J"/>
                         <outlet property="growthPercentLabel" destination="7lJ-v4-Fdo" id="GqH-Wb-S86"/>
                         <outlet property="plantExplainLabel" destination="MqD-Yz-UwB" id="lsW-qY-OCZ"/>
@@ -232,6 +233,8 @@
                         <outlet property="plantImageViewLeading" destination="xZ1-yd-2rf" id="Lcg-YM-4Xv"/>
                         <outlet property="plantImageViewTopConstraint" destination="gDu-wJ-xHN" id="Ued-RZ-Y0e"/>
                         <outlet property="plantImageViewTrailing" destination="fjq-QB-PKn" id="DHL-XA-ZQf"/>
+                        <outlet property="progressInnerViewTopConstraint" destination="WYQ-md-i8v" id="iO7-M6-3vb"/>
+                        <outlet property="progressViewTopConstraint" destination="waq-TO-PMn" id="MDI-Q7-cIX"/>
                         <outlet property="progressbarBackView" destination="Ook-bx-AcP" id="9qk-3n-XYz"/>
                         <outlet property="progressbarView" destination="tC1-OL-vxp" id="EF5-MD-zMm"/>
                         <outlet property="userNickNameLabel" destination="rb3-up-wUt" id="vAL-T6-ssD"/>
