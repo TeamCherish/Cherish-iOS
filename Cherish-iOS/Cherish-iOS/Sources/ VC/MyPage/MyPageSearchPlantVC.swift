@@ -58,6 +58,8 @@ class MyPageSearchPlantVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // 식물 수정한 결과 가져오기 위함!
+        setPlantData()
         self.tabBarController?.tabBar.isHidden = true
     }
     

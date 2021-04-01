@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Contacts
 
 class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
@@ -63,6 +64,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         resetSelectFriendVC()
         setSearchBar()
         getContacts()
+        requestAccess(completionHandler: {_ in })
         filteredData = friendList
         //Array
         //        NotificationCenter.default.addObserver(self, selector: #selector(activeNextBtn(_:)), name: .radioBtnClicked, object: nil)
@@ -178,6 +180,44 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     
     private func updateSelectedIndex(_ index: Int) {
         selectedFriend = index
+    }
+    
+    func requestAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
+        let store = CNContactStore()
+        switch CNContactStore.authorizationStatus(for: .contacts) {
+        case .authorized:
+            completionHandler(true)
+        case .denied:
+            showSettingsAlert(completionHandler)
+        case .restricted, .notDetermined:
+            store.requestAccess(for: .contacts) { granted, error in
+                if granted {
+                    completionHandler(true)
+                } else {
+                    DispatchQueue.main.async {
+                        self.showSettingsAlert(completionHandler)
+                    }
+                }
+            }
+        @unknown default:
+            fatalError()
+        }
+    }
+
+    private func showSettingsAlert(_ completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
+        let alert = UIAlertController(title: "다음 작업을 위해 Cherish가 사용자의 연락처에 접근하는 것을 허용합니다.", message: "*Cherish에 휴대폰의 연락처를 동기화", preferredStyle: .alert)
+        if
+            let settings = URL(string: UIApplication.openSettingsURLString),
+            UIApplication.shared.canOpenURL(settings) {
+                alert.addAction(UIAlertAction(title: "설정 열기", style: .default) { action in
+                    completionHandler(false)
+                    UIApplication.shared.open(settings)
+                })
+        }
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel) { action in
+            completionHandler(false)
+        })
+        present(alert, animated: true)
     }
     
     

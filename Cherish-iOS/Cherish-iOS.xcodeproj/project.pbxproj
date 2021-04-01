@@ -8,14 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3317777825B042C200CC1030 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3317777725B042C200CC1030 /* UIImage+Extension.swift */; };
-		3317778025B0569C00CC1030 /* real_min.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3317777F25B0569C00CC1030 /* real_min.gif */; };
 		3317778625B0916800CC1030 /* MypageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3317778525B0916800CC1030 /* MypageService.swift */; };
 		3317778B25B0921500CC1030 /* MypageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3317778A25B0921500CC1030 /* MypageData.swift */; };
 		3317778F25B0B7D900CC1030 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3317778D25B0AAC200CC1030 /* Roboto-Medium.ttf */; };
 		33201B1025AE2EBC001A94E4 /* PlantDetailCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33201B0F25AE2EBC001A94E4 /* PlantDetailCardData.swift */; };
 		33201B1525AE419F001A94E4 /* MainSelectedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33201B1425AE419F001A94E4 /* MainSelectedData.swift */; };
 		33201B2225AF3F23001A94E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33201B2125AF3F23001A94E4 /* GoogleService-Info.plist */; };
-		332AFC4A25B1102E00689594 /* min_watering_ios.gif in Resources */ = {isa = PBXBuildFile; fileRef = 332AFC4825B1102E00689594 /* min_watering_ios.gif */; };
 		332CC7A925A6F41E00D0047D /* MyPageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7A725A6F41E00D0047D /* MyPageUtils.swift */; };
 		332CC7AA25A6F41E00D0047D /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7A825A6F41E00D0047D /* CustomSegmentedControl.swift */; };
 		332CC7B025A7018400D0047D /* MypagePlantTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7AF25A7018400D0047D /* MypagePlantTVC.swift */; };
@@ -61,9 +59,6 @@
 		33D0026625A3036800E97811 /* PlantDetailPopUpExplainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0026525A3036800E97811 /* PlantDetailPopUpExplainVC.swift */; };
 		33D0026925A3093500E97811 /* PlantExplainCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0026825A3093500E97811 /* PlantExplainCVC.swift */; };
 		33D0026F25A30AB700E97811 /* PlantDetailExplainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0026E25A30AB700E97811 /* PlantDetailExplainData.swift */; };
-		33D0027325A30E4700E97811 /* 38217-money-growth.json in Resources */ = {isa = PBXBuildFile; fileRef = 33D0027225A30E4700E97811 /* 38217-money-growth.json */; };
-		33D0027725A3144400E97811 /* 33650-recolor-plant.json in Resources */ = {isa = PBXBuildFile; fileRef = 33D0027525A3144400E97811 /* 33650-recolor-plant.json */; };
-		33D0027825A3144400E97811 /* 29583-flower.json in Resources */ = {isa = PBXBuildFile; fileRef = 33D0027625A3144400E97811 /* 29583-flower.json */; };
 		33D094DA25F575DF0016BD4E /* MainSplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D094D925F575DF0016BD4E /* MainSplashVC.swift */; };
 		33E874C825A04332001F84FE /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33E874C725A04332001F84FE /* NotoSansCJKkr-Regular.otf */; };
 		33E874CB25A0434B001F84FE /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33E874CA25A0434B001F84FE /* Roboto-Regular.ttf */; };
@@ -197,7 +192,6 @@
 
 /* Begin PBXFileReference section */
 		3317777725B042C200CC1030 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
-		3317777F25B0569C00CC1030 /* real_min.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = real_min.gif; sourceTree = "<group>"; };
 		3317778525B0916800CC1030 /* MypageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageService.swift; sourceTree = "<group>"; };
 		3317778A25B0921500CC1030 /* MypageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageData.swift; sourceTree = "<group>"; };
 		3317778D25B0AAC200CC1030 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
@@ -205,7 +199,6 @@
 		33201B0F25AE2EBC001A94E4 /* PlantDetailCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailCardData.swift; sourceTree = "<group>"; };
 		33201B1425AE419F001A94E4 /* MainSelectedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSelectedData.swift; sourceTree = "<group>"; };
 		33201B2125AF3F23001A94E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		332AFC4825B1102E00689594 /* min_watering_ios.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = min_watering_ios.gif; sourceTree = "<group>"; };
 		332CC7A725A6F41E00D0047D /* MyPageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageUtils.swift; sourceTree = "<group>"; };
 		332CC7A825A6F41E00D0047D /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		332CC7AF25A7018400D0047D /* MypagePlantTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePlantTVC.swift; sourceTree = "<group>"; };
@@ -254,9 +247,6 @@
 		33D0026525A3036800E97811 /* PlantDetailPopUpExplainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailPopUpExplainVC.swift; sourceTree = "<group>"; };
 		33D0026825A3093500E97811 /* PlantExplainCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantExplainCVC.swift; sourceTree = "<group>"; };
 		33D0026E25A30AB700E97811 /* PlantDetailExplainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailExplainData.swift; sourceTree = "<group>"; };
-		33D0027225A30E4700E97811 /* 38217-money-growth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "38217-money-growth.json"; sourceTree = "<group>"; };
-		33D0027525A3144400E97811 /* 33650-recolor-plant.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "33650-recolor-plant.json"; sourceTree = "<group>"; };
-		33D0027625A3144400E97811 /* 29583-flower.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "29583-flower.json"; sourceTree = "<group>"; };
 		33D094D925F575DF0016BD4E /* MainSplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplashVC.swift; sourceTree = "<group>"; };
 		33E874C725A04332001F84FE /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		33E874CA25A0434B001F84FE /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -405,8 +395,6 @@
 			isa = PBXGroup;
 			children = (
 				5491595325DE43F7008104FC /* testwatering.gif */,
-				332AFC4825B1102E00689594 /* min_watering_ios.gif */,
-				3317777F25B0569C00CC1030 /* real_min.gif */,
 			);
 			path = Gif;
 			sourceTree = "<group>";
@@ -538,7 +526,6 @@
 				548DF15525A1A0000081FCD1 /* WateringStoryboard */,
 				33851C8A259A5AE2005BCFFD /* Storyboard */,
 				33851C8B259A5AEE005BCFFD /* APIService */,
-				33D0027125A30E3000E97811 /* LottieAnimationFile */,
 				3317777D25B0568600CC1030 /* Gif */,
 				33851C8C259A5AF6005BCFFD /* Font */,
 			);
@@ -742,16 +729,6 @@
 				92911FEB25DFDF5800B4A95F /* EditPlantData.swift */,
 			);
 			path = PlantDetail;
-			sourceTree = "<group>";
-		};
-		33D0027125A30E3000E97811 /* LottieAnimationFile */ = {
-			isa = PBXGroup;
-			children = (
-				33D0027225A30E4700E97811 /* 38217-money-growth.json */,
-				33D0027625A3144400E97811 /* 29583-flower.json */,
-				33D0027525A3144400E97811 /* 33650-recolor-plant.json */,
-			);
-			path = LottieAnimationFile;
 			sourceTree = "<group>";
 		};
 		33D094D825F575BC0016BD4E /* Splash */ = {
@@ -1170,10 +1147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				33E874E025A04746001F84FE /* CherishMain.storyboard in Resources */,
-				332AFC4A25B1102E00689594 /* min_watering_ios.gif in Resources */,
 				5491594625DCD32B008104FC /* FindPassword.storyboard in Resources */,
 				548F26A8261336640055C5E1 /* OnboardingLastCVCell.xib in Resources */,
-				33D0027325A30E4700E97811 /* 38217-money-growth.json in Resources */,
 				33851C80259A5542005BCFFD /* LaunchScreen.storyboard in Resources */,
 				92DCC3EB25A85D7100160523 /* SelectFriendCell.xib in Resources */,
 				33201B2225AF3F23001A94E4 /* GoogleService-Info.plist in Resources */,
@@ -1192,19 +1167,16 @@
 				548DF15725A1A0470081FCD1 /* PopUpWatering.storyboard in Resources */,
 				5478344D25AB65C30021C32B /* ShowMoreTVC.xib in Resources */,
 				33E874D725A043CF001F84FE /* Roboto-Bold.ttf in Resources */,
-				33D0027825A3144400E97811 /* 29583-flower.json in Resources */,
 				33EDFBB525A1B533006367A7 /* PlantDetail.storyboard in Resources */,
 				337A5CB525A8543600578130 /* Login.storyboard in Resources */,
 				92824D9D25B16E94003D7678 /* SearchPlantCell.xib in Resources */,
 				3317778F25B0B7D900CC1030 /* Roboto-Medium.ttf in Resources */,
 				33E874DD25A04569001F84FE /* MyPage.storyboard in Resources */,
-				33D0027725A3144400E97811 /* 33650-recolor-plant.json in Resources */,
 				33E874D425A043B4001F84FE /* NotoSansCJKkr-Light.otf in Resources */,
 				33E874DA25A043F1001F84FE /* Roboto-Black.ttf in Resources */,
 				548DF19625A2E1620081FCD1 /* PopUpLater.storyboard in Resources */,
 				548DF17225A1BB6D0081FCD1 /* PopUpContact.storyboard in Resources */,
 				548F2696261310790055C5E1 /* OnboardingCVCell.xib in Resources */,
-				3317778025B0569C00CC1030 /* real_min.gif in Resources */,
 				33E874CE25A04361001F84FE /* NotoSansCJKkr-Medium.otf in Resources */,
 				548DF17B25A1EE610081FCD1 /* Review.storyboard in Resources */,
 			);
