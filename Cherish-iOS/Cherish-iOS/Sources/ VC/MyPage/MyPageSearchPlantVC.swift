@@ -18,7 +18,9 @@ class MyPageSearchPlantVC: UIViewController {
     var mypagePlantArray: [MypagefriendsData] = [] // 서버 통신할 때 받아올 구조체
     var filteredPlant: [SearchMypageFriendData]!
     var plantArr: [SearchMypageFriendData] = [] // 디코딩 안해도 되도록 새로 만든 구조체
-
+    var plantArrCount : Int = 0
+    var filteredCount : Int = 0
+    
     var myCherishId: [Int] = []
     
     var here: MypageData?
@@ -41,23 +43,21 @@ class MyPageSearchPlantVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.translatesAutoresizingMaskIntoConstraints = false
+        print("viewDidLoad")
+//        self.view.translatesAutoresizingMaskIntoConstraints = false
         self.tabBarController?.tabBar.isHidden = true
-        
-        setPlantData()
         setSearchBar()
-        
         plantTV.separatorStyle = .none
         plantTV.delegate = self
         plantTV.dataSource = self
         plantSearchBar.delegate = self
-        
-        
-        plantTV.reloadData()
-        // Do any additional setup after loading the view.
+        setPlantData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+        plantTV.reloadData()
+        setPlantData()
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -83,6 +83,7 @@ class MyPageSearchPlantVC: UIViewController {
             case .success(let data):
                 if let mypageData = data as? MypageData {
                     mypagePlantArray = mypageData.result
+                    plantArr = []
                     if mypagePlantArray.count != 0 {
                         for _ in 0...mypagePlantArray.count - 1 {
                             plantArr.append(contentsOf: [SearchMypageFriendData(id: 0, dDay: 0, nickname: "", name: "", thumbnailImageURL: "", level: 0, plantID: 0)])
@@ -96,6 +97,12 @@ class MyPageSearchPlantVC: UIViewController {
                             plantArr[i].plantID = mypagePlantArray[i].plantID
                             plantArr[i].thumbnailImageURL = mypagePlantArray[i].thumbnailImageURL
                         }
+                        print("통신한 배열에 nil값 있는지 확인")
+                        for i in 0...mypagePlantArray.count - 1 {
+                            print(i)
+                            print(plantArr[i].thumbnailImageURL)
+                        }
+                        plantArrCount = plantArr.count
                         filteredPlant = plantArr
                         plantTV.reloadData()
                     }
@@ -128,8 +135,12 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if filteredPlant == nil {
-            return plantArr.count
+            print("numberOfRowsInSection - nil")
+            print(plantArrCount)
+            return plantArrCount
         }
+        print("numberOfRowsInSection")
+        print(filteredPlant.count)
         return filteredPlant.count
     }
 
@@ -142,6 +153,10 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
         if plantArr.count != 0 {
             if checkSearch == 0 { // search bar 안썼을 때
                 let url = URL(string: plantArr[indexPath.row].thumbnailImageURL ?? "")
+                print(indexPath)
+                print(indexPath.row)
+                print(plantArr[indexPath.row].nickname)
+                print(url)
                 DispatchQueue.global(qos: .background).async(execute: {() -> Void in
                     let imageData = try? Data(contentsOf: url!)
                     DispatchQueue.main.async(execute: { [self]() -> Void in
@@ -220,6 +235,7 @@ extension MyPageSearchPlantVC: UISearchBarDelegate {
                     myCherish.append(plant.id)
                 }
             }
+            filteredCount = filteredPlant.count
         }
         self.plantTV.reloadData()
     }
