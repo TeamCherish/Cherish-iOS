@@ -472,8 +472,17 @@ class MainContentVC: UIViewController {
         }
         else {
             // 3단계
-            plantImageView.isHidden = true
-            self.plantGifView.image = UIImage.gif(name: "real_min")!
+//            plantImageView.isHidden = true
+//            self.plantGifView.image = UIImage.gif(name: "real_min")!
+            plantGifView.isHidden = true
+            plantImageView.frame.size = CGSize(width: 272, height: 0)
+            let newHeight = CGFloat(506)
+            plantImageViewHeight.constant = newHeight
+            plantImageView.layoutIfNeeded()
+            plantImageViewLeading.constant = 58
+            plantImageViewTrailing.constant = 3
+            plantImageViewTopConstraint.constant = 133
+            self.plantImageView.image = UIImage(named: "mainImgMin")
             self.view.backgroundColor = .dandelionBg
         }
     }
@@ -509,7 +518,13 @@ class MainContentVC: UIViewController {
         else {
             // 3단계
             plantGifView.isHidden = true
-            plantImageViewTopConstraint.constant = 134
+            plantImageView.frame.size = CGSize(width: 199, height: 0)
+            let newHeight = CGFloat(490)
+            plantImageViewHeight.constant = newHeight
+            plantImageView.layoutIfNeeded()
+            plantImageViewLeading.constant = 90
+            plantImageViewTrailing.constant = 44
+            plantImageViewTopConstraint.constant = 150
             self.plantImageView.image = UIImage(named: "mainImgAmericanblue")
             self.view.backgroundColor = .americanBlueBg
         }
@@ -546,9 +561,15 @@ class MainContentVC: UIViewController {
         else {
             // 3단계
             plantGifView.isHidden = true
+            plantImageView.frame.size = CGSize(width: 288, height: 0)
+            let newHeight = CGFloat(521)
+            plantImageViewHeight.constant = newHeight
+            plantImageView.layoutIfNeeded()
+            plantImageViewLeading.constant = 45
+            plantImageViewTrailing.constant = 0
             plantImageViewTopConstraint.constant = 104
-            self.plantImageView.image = UIImage(named: "imgRose2")
-            self.view.backgroundColor = .rosemaryBg
+            self.plantImageView.image = UIImage(named: "mainImgRosemary")
+            view.backgroundColor = .rosemaryBg
         }
     }
     
@@ -583,6 +604,13 @@ class MainContentVC: UIViewController {
         else {
             // 3단계
             plantGifView.isHidden = true
+            plantImageView.frame.size = CGSize(width: 299, height: 0)
+            let newHeight = CGFloat(457)
+            plantImageViewHeight.constant = newHeight
+            plantImageView.layoutIfNeeded()
+            plantImageViewLeading.constant = 26
+            plantImageViewTrailing.constant = 8
+            plantImageViewTopConstraint.constant = 215
             self.plantImageView.image = UIImage(named: "mainImgSun")
             self.view.backgroundColor = .cactusBg
         }
@@ -620,7 +648,13 @@ class MainContentVC: UIViewController {
         else {
             // 3단계
             plantGifView.isHidden = true
-            plantGifView.isHidden = true
+            plantImageView.frame.size = CGSize(width: 291, height: 0)
+            let newHeight = CGFloat(466)
+            plantImageViewHeight.constant = newHeight
+            plantImageView.layoutIfNeeded()
+            plantImageViewLeading.constant = 42
+            plantImageViewTrailing.constant = 0
+            plantImageViewTopConstraint.constant = 169
             self.plantImageView.image = UIImage(named: "mainImgStuki")
             self.view.backgroundColor = .stuckyBg
         }
