@@ -55,7 +55,7 @@ class PlantDetailVC: UIViewController {
     var friendsPlantIdx:Int = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
     
     var myCherishIsSelected: Bool = false
-    var myCherishIdx: Int = UserDefaults.standard.integer(forKey: "selectedCherishIdx")
+    var myCherishIdx: Int = UserDefaults.standard.integer(forKey: "selectedCherish")
     
     
     // selectedCherish : 마이페이지에서 온 변수
@@ -68,10 +68,9 @@ class PlantDetailVC: UIViewController {
 
         myCherishIsSelected = UserDefaults.standard.bool(forKey: "plantIsSelected")
         
-        let myCherishIdx = UserDefaults.standard.integer(forKey: "selectedCherish")
         
         if myCherishIsSelected == true {
-            print("hi")
+            print("mypage")
             getPlantDataFromMyPage(cherishId: myCherishIdx)
 //            UserDefaults.standard.set(false, forKey: "plantIsSelected")
         }
@@ -93,6 +92,7 @@ class PlantDetailVC: UIViewController {
         print("viewWillAppear")
         print(friendsPlantIdx)
         if myCherishIsSelected == true {
+            print("hello")
             getPlantDataFromMyPage(cherishId: myCherishIdx)
 //            UserDefaults.standard.set(false, forKey: "plantIsSelected")
         }
