@@ -43,6 +43,22 @@ class CircularProgressView: UIView {
         }
         
         fileprivate func createCircularPath() {
+            /// ScreenSize 가져오는 변수들
+            let screenWidth = UIScreen.main.bounds.size.width
+            let screenHeight = UIScreen.main.bounds.size.height
+            
+            if screenWidth == 375 && screenHeight == 667 {
+                print("아이폰 8 이에요")
+                self.frame.size = CGSize(width: 118, height: 118)
+            }
+            if screenWidth == 428 && screenHeight == 926 {
+                print("아이폰 12 Pro Max 이에요")
+                self.frame.size = CGSize(width: 180, height: 180)
+            }
+            if screenWidth == 414 && screenHeight == 896 {
+                print("아이폰 11 Pro Max 이에요")
+                self.frame.size = CGSize(width: 168, height: 168)
+            }
             self.backgroundColor = UIColor.clear
             self.layer.cornerRadius = self.frame.size.width/2
             let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width/2, y: frame.size.height/2), radius: (frame.size.width - 1.5)/2, startAngle: CGFloat(-0.5 * .pi), endAngle: CGFloat(1.5 * .pi), clockwise: true)

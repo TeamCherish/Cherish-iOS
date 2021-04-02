@@ -29,16 +29,26 @@ class PlantDetailVC: UIViewController {
     @IBOutlet var firstMemoTextLabel: CustomLabel!
     @IBOutlet var secondMemoTextLabel: CustomLabel!
     @IBOutlet var firstMemoBtn: UIButton!
+    @IBOutlet var firstMemoBtnImg: UIImageView!
     @IBOutlet var secondMemoBtn: UIButton!
+    @IBOutlet var secondMemoImg: UIImageView!
     @IBOutlet var memoCardImageView: UIImageView!
     @IBOutlet var wateringBtn: UIButton!
     @IBOutlet var circularProgressViewTopConstant: NSLayoutConstraint!
     @IBOutlet var plantDetailBtnTopConstant: NSLayoutConstraint!
-    @IBOutlet var memoCardHeight: NSLayoutConstraint!
-    @IBOutlet var memoTitleLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet var memoTextFieldHeight: NSLayoutConstraint!
+    @IBOutlet var backdropImageViewHeight: NSLayoutConstraint!
+    @IBOutlet var plantDetailBtnHeight: NSLayoutConstraint!
+    @IBOutlet var circularViewHeight: NSLayoutConstraint!
+    @IBOutlet var memoViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet var infoStackviewTopConstraint: NSLayoutConstraint!
+    @IBOutlet var nicknameLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet var nameTagViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet var infoStackViewHeight: NSLayoutConstraint!
     @IBOutlet var keywordCVTopConstraint: NSLayoutConstraint!
     @IBOutlet var keywordCVBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var secondMemoTopConstraint: NSLayoutConstraint!
+    @IBOutlet var nameTagViewHeight: NSLayoutConstraint!
     @IBOutlet weak var nameTagView: UIView!{
         didSet{
             nameTagView.makeRounded(cornerRadius: 13.0)
@@ -57,6 +67,9 @@ class PlantDetailVC: UIViewController {
     var myCherishIsSelected: Bool = false
     var myCherishIdx: Int = UserDefaults.standard.integer(forKey: "selectedCherish")
     
+    /// ScreenSize 가져오는 변수들
+    let screenWidth = UIScreen.main.bounds.size.width
+    let screenHeight = UIScreen.main.bounds.size.height
     
     // selectedCherish : 마이페이지에서 온 변수
     // selectedFriendIdData: 메인에서 온 변수
@@ -65,14 +78,14 @@ class PlantDetailVC: UIViewController {
         super.viewDidLoad()
         setControllers()
         defineFirstPlantCardBtnStatus()
-
+        
         myCherishIsSelected = UserDefaults.standard.bool(forKey: "plantIsSelected")
         
         
         if myCherishIsSelected == true {
             print("mypage")
             getPlantDataFromMyPage(cherishId: myCherishIdx)
-//            UserDefaults.standard.set(false, forKey: "plantIsSelected")
+            //            UserDefaults.standard.set(false, forKey: "plantIsSelected")
         }
         else {
             print(friendsPlantIdx)
@@ -94,7 +107,7 @@ class PlantDetailVC: UIViewController {
         if myCherishIsSelected == true {
             print("hello")
             getPlantDataFromMyPage(cherishId: myCherishIdx)
-//            UserDefaults.standard.set(false, forKey: "plantIsSelected")
+            //            UserDefaults.standard.set(false, forKey: "plantIsSelected")
         }
         else {
             getPlantDetailData()
@@ -186,7 +199,9 @@ class PlantDetailVC: UIViewController {
                     if reviewArray.count == 0 {
                         // 캘린더로 이동할 수 있는 버튼을 숨기고, 누를 수 없게 한다
                         firstMemoBtn.isHidden = true
+                        firstMemoBtnImg.isHidden = true
                         secondMemoBtn.isHidden = true
+                        secondMemoImg.isHidden = true
                         firstMemoBtn.isEnabled = false
                         secondMemoBtn.isEnabled = false
                         
@@ -334,7 +349,7 @@ class PlantDetailVC: UIViewController {
                     else {
                         plantBirthDayLabel.text = plantDetailData.birth
                     }
-                   
+                    
                     memoTitleLabel.text = "\(plantDetailData.nickname)와(과) 함께했던 이야기"
                     
                     ///1) 첫 로드, 2) 키워드 수정 후 viewWillAppear에서만 로드되는 경우
@@ -362,7 +377,9 @@ class PlantDetailVC: UIViewController {
                     if reviewArray.count == 0 {
                         // 캘린더로 이동할 수 있는 버튼을 숨기고, 누를 수 없게 한다
                         firstMemoBtn.isHidden = true
+                        firstMemoBtnImg.isHidden = true
                         secondMemoBtn.isHidden = true
+                        secondMemoImg.isHidden = true
                         firstMemoBtn.isEnabled = false
                         secondMemoBtn.isEnabled = false
                         
@@ -410,6 +427,7 @@ class PlantDetailVC: UIViewController {
                         
                         // 캘린더로 이동할 수 있는 두번째 메모버튼을 숨기고, 누를 수 없게 한다
                         secondMemoBtn.isHidden = true
+                        secondMemoImg.isHidden = true
                         secondMemoBtn.isEnabled = false
                     }
                     /// 메모 데이터가 두개일 때
@@ -535,48 +553,179 @@ class PlantDetailVC: UIViewController {
         let screenHeight = UIScreen.main.bounds.size.height
         
         if screenWidth == 375 && screenHeight == 667 {
-            backDropImageView.frame.size = CGSize(width: 100, height: 100)
-            plantDetailBtn.frame.size = CGSize(width: 100, height: 100)
-            plantCircularProgressView.frame.size = CGSize(width: 120, height: 120)
+            print("iPhone 8")
             
-            //메모타이틀라벨의 Top Constraint를 10으로 설정
-            memoTitleLabelTopConstraint.constant = 18
+            infoStackViewHeight.constant = 43
+            nameTagViewHeight.constant = 24
+            plantNicknameLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 18)
+            heathStatusLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 10)
+            plantHealthStatusLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 18)
+            nicknameLabelTopConstraint.constant = 10
+           
             
-            keywordCVTopConstraint.constant = 3
+            //백드랍 뷰 사이즈 조정
+            backDropImageView.frame.size = CGSize(width: 100, height: 0)
+            let backdropNewHeight = CGFloat(100)
+            backdropImageViewHeight.constant = backdropNewHeight
+            backDropImageView.layoutIfNeeded()
             
-            //메모카드이미지뷰 높이를 280으로 설정
-            memoCardHeight.constant = 280
+            //식물 정보버튼 사이즈 조정
+            plantDetailBtn.frame.size = CGSize(width: 100, height: 0)
+            let plantDetailNewHeight = CGFloat(100)
+            plantDetailBtnHeight.constant = plantDetailNewHeight
+            plantDetailBtn.layoutIfNeeded()
+            plantDetailBtnTopConstant.constant = 45
+            print("plantDetailHeight",plantDetailBtn.frame.height)
             
-            //메모텍스트필드 높이를 45로 설정
+            //원형 프로그레스바 사이즈 조정 (클래스에서 해줌. 여기서는 세부 constraint 조정)
+            plantCircularProgressView.layoutIfNeeded()
+            circularViewHeight.constant = 118
+            circularProgressViewTopConstant.constant = 36
+            
+            
             memoTextFieldHeight.constant = 45
-            
+            memoViewTopConstraint.constant = 22
+            infoStackviewTopConstraint.constant = 25
+          
             
             //물주기버튼의 radius값 Autolayout에 맞게 18로 설정
             wateringBtn.layer.cornerRadius = 23
         }
         
+        else if screenWidth == 428 && screenHeight == 926 {
+            print("iPhone 12 Pro Max")
+            
+            plantNicknameLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 23)
+            heathStatusLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 15)
+            plantHealthStatusLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 25)
+            nicknameLabelTopConstraint.constant = 20
+            nameTagViewTopConstraint.constant = 10
+            infoStackViewHeight.constant = 50
+            keywordCVTopConstraint.constant = 17
+            keywordCVBottomConstraint.constant = 20
+                
+            //백드랍 뷰 사이즈 조정
+            backDropImageView.frame.size = CGSize(width: 162, height: 0)
+            let backdropNewHeight = CGFloat(162)
+            backdropImageViewHeight.constant = backdropNewHeight
+            backDropImageView.layoutIfNeeded()
+            
+            //식물 정보버튼 사이즈 조정
+            plantDetailBtn.frame.size = CGSize(width: 162, height: 0)
+            let plantDetailNewHeight = CGFloat(162)
+            plantDetailBtnHeight.constant = plantDetailNewHeight
+            plantDetailBtn.layoutIfNeeded()
+            plantDetailBtnTopConstant.constant = 53
+            print("plantDetailHeight",plantDetailBtn.frame.height)
+            
+            //원형 프로그레스바 사이즈 조정 (클래스에서 해줌. 여기서는 세부 constraint 조정)
+            plantCircularProgressView.layoutIfNeeded()
+            circularViewHeight.constant = 180
+            circularProgressViewTopConstant.constant = 44
+            
+            
+            infoStackviewTopConstraint.constant = 37
+            memoTextFieldHeight.constant = 65
+            memoViewTopConstraint.constant = 45
+            secondMemoTopConstraint.constant = 15
+            firstMemoView.layer.cornerRadius = 20
+            secondMemoVIew.layer.cornerRadius = 20
+            
+          
+            
+            //물주기버튼의 radius값 Autolayout에 맞게 18로 설정
+            wateringBtn.layer.cornerRadius = 23
+        }
+        
+        else if screenWidth == 390 && screenHeight == 844 {
+            print("iPhone 12, 12 Pro")
+            
+            plantNicknameLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 21)
+            nicknameLabelTopConstraint.constant = 13
+            nameTagViewTopConstraint.constant = 6
+            infoStackViewHeight.constant = 47
+            keywordCVTopConstraint.constant = 10
+            keywordCVBottomConstraint.constant = 16
+            
+            
+            infoStackviewTopConstraint.constant = 37
+            memoTextFieldHeight.constant = 56
+            memoViewTopConstraint.constant = 34
+            secondMemoTopConstraint.constant = 11
+            firstMemoView.layer.cornerRadius = 16
+            secondMemoVIew.layer.cornerRadius = 16
+            
+          
+            //물주기버튼의 radius값 Autolayout에 맞게 18로 설정
+            wateringBtn.layer.cornerRadius = 23
+        }
+        
+        else if screenWidth == 414 && screenHeight == 896 {
+            print("iPhone 11, 11 Pro Max")
+            
+            plantNicknameLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 22)
+            heathStatusLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 14)
+            plantHealthStatusLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 24)
+            nicknameLabelTopConstraint.constant = 20
+            nameTagViewTopConstraint.constant = 10
+            infoStackViewHeight.constant = 50
+            keywordCVTopConstraint.constant = 17
+            keywordCVBottomConstraint.constant = 20
+                
+            //백드랍 뷰 사이즈 조정
+            backDropImageView.frame.size = CGSize(width: 150, height: 0)
+            let backdropNewHeight = CGFloat(150)
+            backdropImageViewHeight.constant = backdropNewHeight
+            backDropImageView.layoutIfNeeded()
+            
+            //식물 정보버튼 사이즈 조정
+            plantDetailBtn.frame.size = CGSize(width: 150, height: 0)
+            let plantDetailNewHeight = CGFloat(150)
+            plantDetailBtnHeight.constant = plantDetailNewHeight
+            plantDetailBtn.layoutIfNeeded()
+            plantDetailBtnTopConstant.constant = 53
+            print("plantDetailHeight",plantDetailBtn.frame.height)
+            
+            //원형 프로그레스바 사이즈 조정 (클래스에서 해줌. 여기서는 세부 constraint 조정)
+            plantCircularProgressView.layoutIfNeeded()
+            circularViewHeight.constant = 168
+            circularProgressViewTopConstant.constant = 44
+            
+            
+            infoStackviewTopConstraint.constant = 37
+            memoTextFieldHeight.constant = 60
+            memoViewTopConstraint.constant = 45
+            secondMemoTopConstraint.constant = 15
+            firstMemoView.layer.cornerRadius = 20
+            secondMemoVIew.layer.cornerRadius = 20
+            
+          
+            //물주기버튼의 radius값 Autolayout에 맞게 18로 설정
+            wateringBtn.layer.cornerRadius = 23
+        }
+
+        
         /// iPhone12 mini size 보다 클 때
         else if screenWidth >= 375 && screenHeight >= 812 {
             backDropImageView.frame.size = CGSize(width: 140, height: 140)
             plantDetailBtn.frame.size = CGSize(width: 140, height: 140)
-            plantCircularProgressView.frame.size = CGSize(width: 160, height: 160)
             
             //원형 프로그레스바의 Top Constraint를 50으로 설정
-            circularProgressViewTopConstant.constant = 50
+            //  circularProgressViewTopConstant.constant = 50
             
             //식물 상세보기 버튼의 Top Constraint를 60으로 설정
-            plantDetailBtnTopConstant.constant = 60
+            //  plantDetailBtnTopConstant.constant = 60
             
             //메모카드이미지뷰 높이를 313으로 설정
-            memoCardHeight.constant = 313
+            //  memoCardHeight.constant = 313
             
-            keywordCVTopConstraint.constant = 2
+            //  keywordCVTopConstraint.constant = 2
             
             //메모텍스트필드 높이를 54로 설정
-            memoTextFieldHeight.constant = 54
+            //   memoTextFieldHeight.constant = 54
             
             //메모타이틀라벨의 Top Constraint를 25로 설정
-            memoTitleLabelTopConstraint.constant = 25
+            //  memoTitleLabelTopConstraint.constant = 25
         }
     }
     
@@ -685,6 +834,7 @@ extension PlantDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
         
         let keywordCell = collectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCVCell", for: indexPath) as! KeywordCVCell
         
+        
         if keywordArray.count != 0 {
             
             if keywordArray[0] == "등록된 키워드가 없어요" {
@@ -706,9 +856,12 @@ extension PlantDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        
         if keywordArray.count == 1 {
             return CGSize(width: 44, height: 29)
         }
         return CGSize(width: 44, height: 29)
+        
     }
 }
