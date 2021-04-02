@@ -10,6 +10,8 @@ import UIKit
 class InputDetailVC: UIViewController {
     
     //MARK: - IBOUtlet
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var nicknameLabel: CustomLabel!
     @IBOutlet weak var nicknameTextField: UITextField!
     @IBOutlet weak var birthTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
@@ -41,6 +43,8 @@ class InputDetailVC: UIViewController {
     var checkPicker: Int = 0
     
     var serverBirth: String = ""
+    
+    let screenHeight = UIScreen.main.bounds.size.height
         
     //MARK: - viewDidLoad()
     
@@ -48,6 +52,7 @@ class InputDetailVC: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
 //        setBirthPickerData()
+        setConstraints()
         completeBtn.isEnabled = false
         setTextField()
         textFieldBackgroundImage()
@@ -169,6 +174,23 @@ class InputDetailVC: UIViewController {
 //    }
     
     //MARK: - 함수 모음
+    
+    func setConstraints() {
+        nicknameLabel.translatesAutoresizingMaskIntoConstraints = false
+        var constraintTop : NSLayoutConstraint
+        if screenHeight <= 667 {
+            // 아이폰 7,8 이하
+            constraintTop = nicknameLabel.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 11.0)
+        }
+        else {
+            constraintTop = nicknameLabel.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 26.0)
+        }
+        constraintTop.isActive = true
+        nicknameLabel.widthAnchor.constraint(equalToConstant: 52).isActive = true
+        nicknameLabel.heightAnchor.constraint(equalTo: nicknameLabel.widthAnchor, multiplier: 6.0/13.0).isActive = true
+        nicknameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 27).isActive = true
+        nicknameLabel.bottomAnchor.constraint(equalTo: nicknameTextField.topAnchor, constant: -7).isActive = true
+    }
     
     func setTextField() {
         // 닉네임 자리 placeholder에 실명

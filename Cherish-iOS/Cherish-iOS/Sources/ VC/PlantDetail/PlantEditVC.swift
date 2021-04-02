@@ -8,6 +8,8 @@
 import UIKit
 
 class PlantEditVC: UIViewController {
+    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var nicknameLabel: CustomLabel!
     @IBOutlet weak var nicknameTextField: UITextField!
     @IBOutlet weak var birthTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
@@ -52,6 +54,8 @@ class PlantEditVC: UIViewController {
     
     var originPeriod: String = ""
     
+    let screenHeight = UIScreen.main.bounds.size.height
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         myCherishIsSelected = UserDefaults.standard.bool(forKey: "plantIsSelected")
@@ -65,6 +69,7 @@ class PlantEditVC: UIViewController {
             self.selectedPlantId = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
             print("메인에서 온 아이디 ", selectedPlantId)
         }
+        setConstraints()
         editBtn.isEnabled = true
         phoneTextField.isEnabled = false
 //        birthTextField.isEnabled = false
@@ -132,6 +137,23 @@ class PlantEditVC: UIViewController {
         phoneTextField.addDetailRightPadding()
         periodTextField.addDetailRightPadding()
         alarmTimeTextField.addDetailRightPadding()
+    }
+    
+    func setConstraints() {
+        nicknameLabel.translatesAutoresizingMaskIntoConstraints = false
+        var constraintTop : NSLayoutConstraint
+        if screenHeight <= 667 {
+            // 아이폰 8 이하
+            constraintTop = nicknameLabel.topAnchor.constraint(equalTo: backBtn.bottomAnchor, constant: 11.0)
+        }
+        else {
+            constraintTop = nicknameLabel.topAnchor.constraint(equalTo: backBtn.bottomAnchor, constant: 26.0)
+        }
+        constraintTop.isActive = true
+        nicknameLabel.widthAnchor.constraint(equalToConstant: 52).isActive = true
+        nicknameLabel.heightAnchor.constraint(equalTo: nicknameLabel.widthAnchor, multiplier: 6.0/13.0).isActive = true
+        nicknameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 27).isActive = true
+        nicknameLabel.bottomAnchor.constraint(equalTo: nicknameTextField.topAnchor, constant: -7).isActive = true
     }
         
     // MARK: - cherishId로 등록해둔 식물 정보 받아오기
