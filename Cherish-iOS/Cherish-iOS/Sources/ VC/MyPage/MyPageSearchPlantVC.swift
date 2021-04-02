@@ -142,7 +142,7 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
         if plantArr.count != 0 {
             if checkSearch == 0 { // search bar 안썼을 때
                 let url = URL(string: plantArr[indexPath.row].thumbnailImageURL ?? "")
-                DispatchQueue.global(qos: .default).async(execute: {() -> Void in
+                DispatchQueue.global(qos: .background).async(execute: {() -> Void in
                     let imageData = try? Data(contentsOf: url!)
                     DispatchQueue.main.async(execute: { [self]() -> Void in
                         cell.setProperties(imageData!, plantArr[indexPath.row].nickname, plantArr[indexPath.row].name + " Lv.\(String(describing: plantArr[indexPath.row].level!))", plantArr[indexPath.row].dDay)
@@ -155,7 +155,7 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
                 let selected = currentIndex == selectedPlant
                 
                 let searchURL = URL(string: filteredPlant[indexPath.row].thumbnailImageURL ?? "")
-                DispatchQueue.global(qos: .default).async(execute: {() -> Void in
+                DispatchQueue.global(qos: .background).async(execute: {() -> Void in
                     let searchImgData = try? Data(contentsOf: searchURL!)
                     DispatchQueue.main.async(execute: { [self]() -> Void in
                         cell.setProperties(searchImgData!, plant.nickname, plant.name+" Lv.\(String(describing: plant.level!))", plant.dDay)
