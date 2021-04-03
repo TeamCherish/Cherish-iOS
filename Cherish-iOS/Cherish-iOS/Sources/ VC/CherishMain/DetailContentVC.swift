@@ -196,15 +196,14 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
 }
 
 //MARK: - Collectionview Extension
-
 extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    // numberOfSections
+    //MARK: - numberOfSections
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    // numberOfItemsInSection
+    //MARK: - numberOfItemsInSection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return cherishPeopleData.count + 1
@@ -353,7 +352,7 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
         }
     }
     
-    // sizeForItemAt
+    //MARK: - sizeForItemAt
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 69, height: 91)
     }
@@ -385,8 +384,6 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].id, forKey: "selectedFriendIdData")
                 UserDefaults.standard.set(cherishPeopleData[indexPath.row - 1].phone, forKey: "selectedFriendPhoneData")
                 UserDefaults.standard.set(indexPath.row - 1, forKey: "selectedRowIndexPath")
-                
-                
                 
                 selectedIndexPath = indexPath
                 
