@@ -22,6 +22,7 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
     let userId: Int = UserDefaults.standard.integer(forKey: "userID")
     let fcmToken: String = UserDefaults.standard.string(forKey: "fcmToken")!
     var pushCherishId: Int = 0
+    var pushCherishPhoneNumber: String = ""
     
     
     var cherishPeopleData:[ResultData] = [] {
@@ -36,7 +37,6 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
             }
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,21 +71,6 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .addUser, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadDataWhenFinishWatering), name: .postToReloadMainCell, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(whenPushClickedViewUpdate), name: .pushSelected, object: nil)
-    }
-    
-    @objc func whenPushClickedViewUpdate(_ notification: Notification) {
-        let idData:Int = Int(notification.object as! String)!
-        print("푸시왔당",idData)
-        
-        for i in 0...cherishPeopleData.count - 1 {
-            if cherishPeopleData[i].id == idData {
-                pushCherishId = i + 1
-            }
-        }
-        cherishPeopleCV.selectItem(at: IndexPath(item: pushCherishId, section: 0), animated: true, scrollPosition: .top)
-        collectionView(self.cherishPeopleCV, didSelectItemAt: IndexPath(item: pushCherishId, section: 0))
-        cherishPeopleCV.reloadData()
-        NotificationCenter.default.post(name: .cherishPeopleCellClicked, object: nil)
     }
     
     //MARK: - 헤더 뷰 라운드로 만드는 함수
@@ -141,9 +126,42 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    //MARK: - 물주기 후 정보를 reload하는 objc 함수
     @objc func reloadDataWhenFinishWatering() {
         setCherishPeopleData()
     }
+    
+    //MARK: - 푸시알림을 클릭했을 때 뷰를 업데이트하기위한 objc 함수
+    @objc func whenPushClickedViewUpdate(_ notification: Notification) {
+        let idData:Int = Int(notification.object as! String)!
+        print("푸시왔당",idData)
+        
+        for i in 0...cherishPeopleData.count - 1 {
+            if cherishPeopleData[i].id == idData {
+                pushCherishId = i + 1
+                pushCherishPhoneNumber = cherishPeopleData[i].phone
+            }
+        }
+        print(idData, pushCherishPhoneNumber)
+        
+        // 푸시알림이 온 친구(cherishId)를 클릭한 상태가 되기 위해 노티를 받아
+        // 바텀시트 컬렉션뷰의 선택된 셀 정보를 바꿔준다.
+        cherishPeopleCV.selectItem(at: IndexPath(item: pushCherishId, section: 0), animated: true, scrollPosition: .top)
+        collectionView(self.cherishPeopleCV, didSelectItemAt: IndexPath(item: pushCherishId, section: 0))
+        
+        
+        // UserDefaults의 선택된 친구 값도 바꿔준다!
+        UserDefaults.standard.set(idData, forKey: "selectedFriendIdData")
+        UserDefaults.standard.set(pushCherishPhoneNumber, forKey: "selectedFriendPhoneData")
+        cherishPeopleCV.reloadData()
+        
+        
+        // MainContentVC에서도 푸시알림이 온 친구로 뷰 정보가 업데이트되어야하기 때문에
+        // 셀이 눌렸다는 것을 알려주는 noti와 물주기 팝업뷰를 띄워주는 noti를 post!
+        NotificationCenter.default.post(name: .cherishPeopleCellClicked, object: nil)
+        NotificationCenter.default.post(name: .pushClickToWateringPopUp, object: nil)
+    }
+    
     
     //MARK: - FCMToken Update func
     func fcmTokenUpdate() {

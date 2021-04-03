@@ -106,7 +106,7 @@ class MainContentVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .postPostponed, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(isWateringReported), name: .wateringReport, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(getPeopleData), name: .sendPeopleDataArray, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(clickPushToMoveWateringPopup), name: .pushClickToWateringPopUp, object: nil)
     }
     
     
@@ -754,6 +754,16 @@ class MainContentVC: UIViewController {
         cherishResultData.removeAll()
         for i in 0...cherishPeopleData.count - 1 {
             cherishResultData.append(MainPlantConditionData(id: cherishPeopleData[i].id, dDay: cherishPeopleData[i].dDay, isWatering: false, isWithered: false))
+        }
+    }
+    
+    //MARK: - 푸시알림 클릭 후 선택된 친구에 대한 물주기 팝업을 뜨게 하는 함수
+    @objc func clickPushToMoveWateringPopup() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpWatering", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpWateringVC") as? PopUpWateringVC{
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            self.present(vc, animated: true, completion: nil)
         }
     }
     
