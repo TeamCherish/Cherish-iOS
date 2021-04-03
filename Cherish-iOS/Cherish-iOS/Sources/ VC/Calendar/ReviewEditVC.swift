@@ -12,6 +12,7 @@ class ReviewEditVC: UIViewController{
     var edit_keyword = [String]() /// 키워드 배열
     var edit_date : String? /// 메모 작성 날짜
     var dateForServer : String?
+    var reciever: Int = 0
     let maxLength_keyword  = 5 /// 키워드 최대 입력 5글자
     let maxLength_memo  = 100 /// 메모 최대 입력 100글자
     
@@ -73,6 +74,7 @@ class ReviewEditVC: UIViewController{
         loadMemo()
         textViewPlaceholder()
         checkingLetterCount() //글자 수 검사 노티
+        decideMainMyPage()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -188,10 +190,11 @@ class ReviewEditVC: UIViewController{
     }
     
     func deleteAlert(title: String, message: String) {
+        
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let confirm = UIAlertAction(title: "삭제",style: .destructive) { [self] (action) in
             // DELETE 서버 통신
-            CalendarService.shared.reviewDelete(CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), water_date: dateForServer!) { (networkResult) -> (Void) in
+            CalendarService.shared.reviewDelete(CherishId: reciever, water_date: dateForServer!) { (networkResult) -> (Void) in
 
                 switch networkResult {
                 case .success(_):
@@ -220,6 +223,15 @@ class ReviewEditVC: UIViewController{
         present(alert, animated: true)
     }
     
+    func decideMainMyPage(){
+        // 마이페이지에서 온건지 메인에서 온건지
+        if UserDefaults.standard.bool(forKey: "plantIsSelected") == true{
+            reciever = UserDefaults.standard.integer(forKey: "selectedCherish")
+        }else{
+            reciever = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+        }
+    }
+    
     @IBAction func moveToBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -228,7 +240,7 @@ class ReviewEditVC: UIViewController{
         deleteAlert(title: "정말로 메모를 삭제하시겠어요?", message: "삭제된 메모는 되돌릴 수 없어요")
     }
     @IBAction func completeEdit(_ sender: Any) {
-
+        
         if edit_keyword.count == 0 {
             edit_keyword = ["","",""]
         }
@@ -242,7 +254,7 @@ class ReviewEditVC: UIViewController{
         if memoTextView.text == "메모를 입력해주세요!"{
             memoTextView.text = ""
         }
-        CalendarService.shared.reviewEdit(CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), water_date: dateForServer!, review: memoTextView.text, keyword1: edit_keyword[0], keyword2: edit_keyword[1], keyword3: edit_keyword[2]) { (networkResult) -> (Void) in
+        CalendarService.shared.reviewEdit(CherishId: reciever, water_date: dateForServer!, review: memoTextView.text, keyword1: edit_keyword[0], keyword2: edit_keyword[1], keyword3: edit_keyword[2]) { (networkResult) -> (Void) in
 
             switch networkResult {
             case .success(_):

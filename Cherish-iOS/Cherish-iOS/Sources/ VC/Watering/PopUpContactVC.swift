@@ -15,6 +15,8 @@ class PopUpContactVC: UIViewController {
     let callObserver = CXCallObserver()
     var didDetectOutgoingCall = false
     var total: CGFloat? = 0
+    var reciever: Int = 0
+    var phoneNumber: String = ""
     
     //MARK: -@IBOutlet
     @IBOutlet weak var popupContactView: UIView!{
@@ -37,7 +39,7 @@ class PopUpContactVC: UIViewController {
     
     //MARK: - Call Material
     func showCallAlert() {
-        guard let url = NSURL(string: "tel://" + UserDefaults.standard.string(forKey: "selectedFriendPhoneData")!),
+        guard let url = NSURL(string: "tel://" + phoneNumber),
               UIApplication.shared.canOpenURL(url as URL) else {
             return
         }
@@ -73,8 +75,15 @@ class PopUpContactVC: UIViewController {
     
     // 최근 키워드 받아오기 및 연락 상대 이름에 따라 Label 변경
     func getRecentKeyword() {
+        if UserDefaults.standard.bool(forKey: "plantIsSelected") == true{
+            reciever = UserDefaults.standard.integer(forKey: "selectedCherish")
+            phoneNumber = UserDefaults.standard.string(forKey: "selectedCherishPhone") ?? ""
+        }else{
+            reciever = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+            phoneNumber = UserDefaults.standard.string(forKey: "selectedFriendPhoneData") ?? ""
+        }
         print(UserDefaults.standard.integer(forKey: "selectedFriendIdData"))
-        RecentKeywordService.shared.recentKeyword(CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData")) { [self] (networkResult) -> (Void) in
+        RecentKeywordService.shared.recentKeyword(CherishId: reciever) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 print(data)
@@ -149,7 +158,7 @@ class PopUpContactVC: UIViewController {
                         pvc.present(vc, animated: true, completion: nil)
                     }
                     // 푸시알람기능을 위해 카톡 연결을 했음을 알려주는 서버 연결
-                    postPushReview(cherishIdx: UserDefaults.standard.integer(forKey: "selectedFriendIdData"))
+                    postPushReview(cherishIdx: reciever)
                 }
             }
         }
@@ -161,7 +170,7 @@ class PopUpContactVC: UIViewController {
         let messageComposer = MFMessageComposeViewController()
         messageComposer.messageComposeDelegate = self
         if MFMessageComposeViewController.canSendText(){
-            messageComposer.recipients = [UserDefaults.standard.string(forKey: "selectedFriendPhoneData")!]
+            messageComposer.recipients = [phoneNumber]
             messageComposer.body = ""
             messageComposer.modalPresentationStyle = .currentContext
             self.present(messageComposer, animated: true)
@@ -189,7 +198,7 @@ extension PopUpContactVC: CXCallObserverDelegate{
             print("Call button pressed")
             
             // 푸시알람기능을 위해 전화연결을 했음을 알려주는 서버 연결
-            postPushReview(cherishIdx: UserDefaults.standard.integer(forKey: "selectedFriendIdData"))
+            postPushReview(cherishIdx: reciever)
         }
     }
 }
@@ -211,7 +220,7 @@ extension PopUpContactVC: MFMessageComposeViewControllerDelegate{
                 }
             }
             // 푸시알람기능을 위해 문자연결을 했음을 알려주는 서버 연결
-            postPushReview(cherishIdx: UserDefaults.standard.integer(forKey: "selectedFriendIdData"))
+            postPushReview(cherishIdx: reciever)
             print("전송 완료")
             break
         case MessageComposeResult.cancelled:

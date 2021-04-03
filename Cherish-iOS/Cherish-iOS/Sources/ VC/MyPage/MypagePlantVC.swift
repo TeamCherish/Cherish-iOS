@@ -106,12 +106,11 @@ extension MypagePlantVC: UITableViewDelegate, UITableViewDataSource {
         print(myCherish)
         
         var keyId = myCherish[indexPath.row]
-        
         UserDefaults.standard.set(keyId, forKey: "selectedCherish")
-        
+        UserDefaults.standard.set(mypagePlantArray[indexPath.row].phone, forKey: "selectedCherishPhone")
         // plantIsSelected 값 UserDefaults에 넣기
         UserDefaults.standard.set(plantIsSelected, forKey: "plantIsSelected")
-        UserDefaults.standard.set(plantIsSelected, forKey: "calendarPlantIsSelected")
+//        UserDefaults.standard.set(plantIsSelected, forKey: "calendarPlantIsSelected")
         print(UserDefaults.standard.bool(forKey: "plantIsSelected"))
         print(UserDefaults.standard.integer(forKey: "selectedCherish"))
         

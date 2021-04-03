@@ -26,12 +26,14 @@ struct MypagefriendsData: Codable {
     let thumbnailImageURL: String
     let level: Int?
     let plantID: Int
+    let phone: String
     
     enum CodingKeys: String, CodingKey {
         case id, dDay, nickname, name, email
         case thumbnailImageURL = "thumbnail_image_url"
         case level
         case plantID = "PlantId"
+        case phone
     }
     
     init(from decoder: Decoder) throws {
@@ -44,5 +46,6 @@ struct MypagefriendsData: Codable {
         thumbnailImageURL = (try? values.decode(String.self, forKey: .thumbnailImageURL)) ?? ""
         level = (try? values.decode(Int.self, forKey: .level)) ?? -1
         plantID = (try? values.decode(Int.self, forKey: .plantID)) ?? -1
+        phone = (try? values.decode(String.self, forKey: .phone)) ?? ""
     }
 }

@@ -626,7 +626,7 @@ class PlantDetailVC: UIViewController {
     //MARK: - 메인뷰로 돌아가는 함수
     @IBAction func popToCherishMainVC(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
-        UserDefaults.standard.set(false, forKey: "calendarPlantIsSelected")
+        UserDefaults.standard.set(false, forKey: "plantIsSelected")
     }
     
     
@@ -641,7 +641,7 @@ class PlantDetailVC: UIViewController {
         }
     }
     
-    //MARK: - 수정뷰로 이동하는 함수
+    //MARK: - 식물 수정뷰로 이동하는 함수
     @IBAction func moveToEdit(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "PlantDetail", bundle: nil)
         if let vc = storyBoard.instantiateViewController(identifier: "PlantEditVC") as? PlantEditVC {

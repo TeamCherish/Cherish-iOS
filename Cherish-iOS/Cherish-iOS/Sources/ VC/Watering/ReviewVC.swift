@@ -9,6 +9,8 @@ import UIKit
 
 class ReviewVC: UIViewController {
     var keyword : [String] = [] /// 키워드 배열
+    var reciever : Int = 0
+    var phoneNumber : String?
     let maxLength_keyword  = 5 /// 키워드 최대 입력 5글자
     let maxLength_memo  = 100 /// 메모 최대 입력 100글자
     
@@ -245,6 +247,13 @@ class ReviewVC: UIViewController {
     // 등록완료
     @IBAction func submitReview(_ sender: Any) {
         
+        // 마이페이지에서 온건지 메인에서 온건지
+        if UserDefaults.standard.bool(forKey: "plantIsSelected") == true{
+            reciever = UserDefaults.standard.integer(forKey: "selectedCherish")
+        }else{
+            reciever = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+        }
+        
         ///키워드 nil값 대체
         if keyword.count == 2 {
             keyword.append("")
@@ -256,13 +265,15 @@ class ReviewVC: UIViewController {
             keyword.append("")
             keyword.append("")
         }
-        WateringReviewService.shared.wateringReview(review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData")) { [self] (networkResult) -> (Void) in
+        
+        WateringReviewService.shared.wateringReview(review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: reciever) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 print(data)
-                NotificationCenter.default.post(name: .wateringReport, object: UserDefaults.standard.integer(forKey: "selectedFriendIdData"))
+                NotificationCenter.default.post(name: .wateringReport, object: reciever)
                 self.dismiss(animated: true, completion: {
                     NotificationCenter.default.post(name: .popToMainView, object: nil)
+                    UserDefaults.standard.set(false, forKey: "plantIsSelected")
                 })
             case .requestErr(_):
                 print("requestErr")
@@ -277,15 +288,22 @@ class ReviewVC: UIViewController {
     }
     
     @IBAction func submitLater(_ sender: Any) {
+        
+        // 마이페이지에서 온건지 메인에서 온건지
+        if UserDefaults.standard.bool(forKey: "plantIsSelected") == true{
+            reciever = UserDefaults.standard.integer(forKey: "selectedCherish")
+        }else{
+            reciever = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+        }
         keyword = ["","",""]
-        WateringReviewService.shared.wateringReview(review: "", keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: UserDefaults.standard.integer(forKey: "selectedFriendIdData")) { [self] (networkResult) -> (Void) in
+        WateringReviewService.shared.wateringReview(review: "", keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: reciever) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 print(data)
-                NotificationCenter.default.post(name: .wateringReport, object: UserDefaults.standard.integer(forKey: "selectedFriendIdData"))
+                NotificationCenter.default.post(name: .wateringReport, object:reciever)
                 self.dismiss(animated: true, completion: {
                     NotificationCenter.default.post(name: .popToMainView, object: nil)
-                    UserDefaults.standard.set(false, forKey: "calendarPlantIsSelected")
+                    UserDefaults.standard.set(false, forKey: "plantIsSelected")
                 })
             case .requestErr(_):
                 print("requestErr")

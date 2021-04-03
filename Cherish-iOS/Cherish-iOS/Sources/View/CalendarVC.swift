@@ -271,7 +271,7 @@ class CalendarVC: UIViewController {
         formatter.locale = Locale(identifier: "ko")
         formatter.dateFormat = "yyyy-MM-dd"
         
-        let myCherishIsSelectedCalendar = UserDefaults.standard.bool(forKey: "calendarPlantIsSelected")
+        let myCherishIsSelectedCalendar = UserDefaults.standard.bool(forKey: "plantIsSelected")
         
         let myCherishIdx = UserDefaults.standard.integer(forKey: "selectedCherish")
         var calendarInquireInt: Int?
