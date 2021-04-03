@@ -82,8 +82,6 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
                 pushCherishId = i + 1
             }
         }
-        
-        print("되었다",pushCherishId)
         cherishPeopleCV.selectItem(at: IndexPath(item: pushCherishId, section: 0), animated: true, scrollPosition: .top)
         collectionView(self.cherishPeopleCV, didSelectItemAt: IndexPath(item: pushCherishId, section: 0))
         cherishPeopleCV.reloadData()
