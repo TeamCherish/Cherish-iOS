@@ -21,6 +21,7 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let userId: Int = UserDefaults.standard.integer(forKey: "userID")
     let fcmToken: String = UserDefaults.standard.string(forKey: "fcmToken")!
+    var pushCherishId: Int = 0
     
     
     var cherishPeopleData:[ResultData] = [] {
@@ -69,6 +70,22 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
     func addNotificationObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .addUser, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadDataWhenFinishWatering), name: .postToReloadMainCell, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(whenPushClickedViewUpdate), name: .pushSelected, object: nil)
+    }
+    
+    @objc func whenPushClickedViewUpdate(_ notification: Notification) {
+        let idData:Int = Int(notification.object as! String)!
+        print("푸시왔당",idData)
+        
+        for i in 0...cherishPeopleData.count - 1 {
+            if cherishPeopleData[i].id == idData {
+                pushCherishId = i + 1
+            }
+        }
+        cherishPeopleCV.selectItem(at: IndexPath(item: pushCherishId, section: 0), animated: true, scrollPosition: .top)
+        collectionView(self.cherishPeopleCV, didSelectItemAt: IndexPath(item: pushCherishId, section: 0))
+        cherishPeopleCV.reloadData()
+        NotificationCenter.default.post(name: .cherishPeopleCellClicked, object: nil)
     }
     
     //MARK: - 헤더 뷰 라운드로 만드는 함수
