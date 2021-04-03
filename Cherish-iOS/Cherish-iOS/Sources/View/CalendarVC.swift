@@ -279,7 +279,6 @@ class CalendarVC: UIViewController {
         
         if myCherishIsSelectedCalendar == true {
             calendarInquireInt = myCherishIdx
-            UserDefaults.standard.set(false, forKey: "calendarPlantIsSelected")
         }
         else {
             calendarInquireInt = UserDefaults.standard.integer(forKey: "selectedFriendIdData")

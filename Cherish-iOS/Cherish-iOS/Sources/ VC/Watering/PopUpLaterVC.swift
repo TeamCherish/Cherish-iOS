@@ -224,7 +224,7 @@ extension PopUpLaterVC: UIPickerViewDelegate, UIPickerViewDataSource{
                 changeDateMonthLabel.text = "\(int_month!+1)"
                 int_day = int_day! == 30 ? 0 : -1
             }else{
-                changeDateMonthLabel.text = "\(int_month!+1)"
+                changeDateMonthLabel.text = "\(int_month!)"
                 int_day = Int(day!)
             }
         }

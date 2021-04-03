@@ -285,6 +285,7 @@ class ReviewVC: UIViewController {
                 NotificationCenter.default.post(name: .wateringReport, object: UserDefaults.standard.integer(forKey: "selectedFriendIdData"))
                 self.dismiss(animated: true, completion: {
                     NotificationCenter.default.post(name: .popToMainView, object: nil)
+                    UserDefaults.standard.set(false, forKey: "calendarPlantIsSelected")
                 })
             case .requestErr(_):
                 print("requestErr")

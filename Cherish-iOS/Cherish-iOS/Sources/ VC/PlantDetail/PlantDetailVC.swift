@@ -626,6 +626,7 @@ class PlantDetailVC: UIViewController {
     //MARK: - 메인뷰로 돌아가는 함수
     @IBAction func popToCherishMainVC(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+        UserDefaults.standard.set(false, forKey: "calendarPlantIsSelected")
     }
     
     
