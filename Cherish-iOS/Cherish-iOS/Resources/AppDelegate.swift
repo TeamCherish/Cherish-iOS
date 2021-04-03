@@ -138,21 +138,34 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
+        //        let userInfo = response.notification.request.content.userInfo
         // Print message ID.
+        let userInfo = response.notification.request.content.userInfo
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
         
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print full message.
-        print(userInfo)
-        let cherishIdinUserInfo = userInfo[AnyHashable("CherishId")]!
-        print(cherishIdinUserInfo)
+        print("hello",userInfo)
+        
+        if response.actionIdentifier == UNNotificationDismissActionIdentifier {
+            print ("Message Closed")
+        }
+        else if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
+            print ("푸시 메시지 클릭 했을 때")
+            let cherishIdinUserInfo = userInfo[AnyHashable("CherishId")]!
+            print("plz",cherishIdinUserInfo)
+            let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+            NotificationCenter.default.post(name: .pushSelected, object: cherishIdinUserInfo)
+        }
         
         completionHandler()
     }
+    
+    
     
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {

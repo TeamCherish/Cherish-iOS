@@ -21,4 +21,5 @@ extension Notification.Name {
     static let deleteCherishZero = Notification.Name("deleteCherishZero")
     static let addUser = Notification.Name("addUser")
     static let postToReloadMainCell = Notification.Name("postToReloadMainCell")
+    static let pushSelected = Notification.Name("pushSelected")
 }
