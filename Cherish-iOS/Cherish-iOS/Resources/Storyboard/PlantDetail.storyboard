@@ -302,8 +302,10 @@
                     <connections>
                         <outlet property="alarmPicker" destination="mzT-Nn-Drm" id="Rhx-vk-dH4"/>
                         <outlet property="alarmTimeTextField" destination="Jkf-eB-1yB" id="LxV-vU-Jnq"/>
+                        <outlet property="backBtn" destination="cuw-K6-mPe" id="YQo-qo-H0K"/>
                         <outlet property="birthTextField" destination="tb5-te-O3a" id="4We-1h-FyE"/>
                         <outlet property="editBtn" destination="QvM-cj-73o" id="6Xw-Kf-PgQ"/>
+                        <outlet property="nicknameLabel" destination="Utv-lk-7NA" id="nOB-nD-BXd"/>
                         <outlet property="nicknameTextField" destination="hvg-3Q-6bv" id="D9Q-3a-VO0"/>
                         <outlet property="periodTextField" destination="uD7-Gg-8Aq" id="ska-P5-Fu2"/>
                         <outlet property="phoneTextField" destination="f71-QH-bGD" id="q14-xB-x32"/>

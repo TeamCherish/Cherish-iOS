@@ -89,6 +89,11 @@ class ReviewVC: UIViewController {
         checkingLetterCount() // 글자 수 검사 노티
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        NotificationCenter.default.removeObserver(self) //  self에 등록된 옵저버 전체 제거
+    }
+    
     // 글자 수 검사 노티들 가진 함수
     func checkingLetterCount(){
         NotificationCenter.default.addObserver(self, selector: #selector(textfieldDidChange(_:)), name: UITextField.textDidChangeNotification, object: nil)

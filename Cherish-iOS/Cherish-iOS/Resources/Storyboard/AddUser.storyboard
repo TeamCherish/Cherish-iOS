@@ -388,8 +388,10 @@
                         <outlet property="alarmTimeTextField" destination="2Hr-uL-saD" id="mrX-Dg-NmV"/>
                         <outlet property="birthTextField" destination="Cho-wb-3ua" id="llV-m5-8f0"/>
                         <outlet property="completeBtn" destination="aas-LP-IMf" id="Hoe-Bt-G2P"/>
+                        <outlet property="nicknameLabel" destination="aL1-JX-GuN" id="0Sq-v7-3uh"/>
                         <outlet property="nicknameTextField" destination="xSI-Uz-kG0" id="7m9-gC-Ejg"/>
                         <outlet property="phoneTextField" destination="wLQ-co-qp2" id="bC0-ad-QEr"/>
+                        <outlet property="topView" destination="e35-Fc-Bwl" id="mev-H9-LND"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKh-Ns-1fb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
