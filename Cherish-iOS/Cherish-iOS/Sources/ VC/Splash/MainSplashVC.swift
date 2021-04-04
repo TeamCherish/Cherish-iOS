@@ -8,9 +8,9 @@
 import UIKit
 
 class MainSplashVC: UIViewController {
-
-    @IBOutlet var logoImageView: UIImageView!
+    
     var isFirstLoaded: Bool = false
+    @IBOutlet var logoImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

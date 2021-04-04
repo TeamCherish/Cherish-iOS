@@ -547,7 +547,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="899-Sg-gNt" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="66" y="16.666666666666629" width="0.0" height="21"/>
+                                        <rect key="frame" x="66" y="16.666666666666629" width="239" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="W9D-rC-I43"/>
                                         </constraints>
@@ -578,6 +578,7 @@
                                     <constraint firstItem="899-Sg-gNt" firstAttribute="leading" secondItem="Zgb-82-BrT" secondAttribute="leading" constant="66" id="baO-t9-fth"/>
                                     <constraint firstAttribute="trailing" secondItem="9to-fs-GiB" secondAttribute="trailing" constant="16" id="cgN-Yr-H1r"/>
                                     <constraint firstItem="Zgb-82-BrT" firstAttribute="leading" secondItem="yEr-rW-TcY" secondAttribute="leading" id="dp7-Qp-P5o"/>
+                                    <constraint firstItem="9to-fs-GiB" firstAttribute="leading" secondItem="899-Sg-gNt" secondAttribute="trailing" constant="16" id="mr4-ZE-Zxf"/>
                                     <constraint firstAttribute="height" constant="54" id="ppr-0m-4ex"/>
                                     <constraint firstItem="899-Sg-gNt" firstAttribute="centerY" secondItem="Zgb-82-BrT" secondAttribute="centerY" id="qFr-qq-c5L"/>
                                     <constraint firstItem="Zgb-82-BrT" firstAttribute="top" secondItem="yEr-rW-TcY" secondAttribute="top" id="qrI-8J-Oez"/>
@@ -608,7 +609,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meO-3f-sva" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="66" y="17" width="0.0" height="20"/>
+                                        <rect key="frame" x="66" y="17" width="239" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="vbw-bh-XSV"/>
                                         </constraints>
@@ -632,6 +633,7 @@
                                 <constraints>
                                     <constraint firstItem="meO-3f-sva" firstAttribute="centerY" secondItem="ZZK-Pz-BPD" secondAttribute="centerY" id="Cv7-Fq-exd"/>
                                     <constraint firstItem="YlA-Bj-fgu" firstAttribute="leading" secondItem="gNa-1V-c79" secondAttribute="leading" constant="18" id="ELG-a5-hJL"/>
+                                    <constraint firstItem="Wqz-vl-D5y" firstAttribute="leading" secondItem="meO-3f-sva" secondAttribute="trailing" constant="16" id="UyL-P2-kg6"/>
                                     <constraint firstAttribute="trailing" secondItem="ZZK-Pz-BPD" secondAttribute="trailing" id="Wal-W3-zek"/>
                                     <constraint firstItem="meO-3f-sva" firstAttribute="leading" secondItem="ZZK-Pz-BPD" secondAttribute="leading" constant="66" id="aHT-qb-gf7"/>
                                     <constraint firstItem="Wqz-vl-D5y" firstAttribute="centerY" secondItem="ZZK-Pz-BPD" secondAttribute="centerY" id="fYm-B5-yVV"/>

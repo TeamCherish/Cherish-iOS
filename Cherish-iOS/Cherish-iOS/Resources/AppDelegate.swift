@@ -153,19 +153,26 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         }
         else if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
             print ("푸시 메시지 클릭 했을 때")
-            let cherishIdinUserInfo = userInfo[AnyHashable("CherishId")]!
-            print("plz",cherishIdinUserInfo)
-            let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController")
-            self.window?.rootViewController = initialViewController
-            self.window?.makeKeyAndVisible()
-            NotificationCenter.default.post(name: .pushSelected, object: cherishIdinUserInfo)
+            
+            let pushTypeInUserInfo = userInfo[AnyHashable("pushType")]!
+            
+            // 물 줄 시간이에요 푸시
+            if pushTypeInUserInfo as! Int == 1 {
+                let cherishIdinUserInfo = userInfo[AnyHashable("CherishId")]!
+                print("plz",cherishIdinUserInfo)
+                let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController")
+                self.window?.rootViewController = initialViewController
+                self.window?.makeKeyAndVisible()
+                NotificationCenter.default.post(name: .pushSelected, object: cherishIdinUserInfo)
+            }
+            // 물주기 기록을 완료해주세요 푸시
+            else {
+                print("물주기 기록 푸시 받았다 오바")
+            }
         }
-        
         completionHandler()
     }
-    
-    
     
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {

@@ -22,4 +22,5 @@ extension Notification.Name {
     static let addUser = Notification.Name("addUser")
     static let postToReloadMainCell = Notification.Name("postToReloadMainCell")
     static let pushSelected = Notification.Name("pushSelected")
+    static let pushClickToWateringPopUp = Notification.Name("pushClickToWateringPopUp")
 }

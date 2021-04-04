@@ -21,14 +21,13 @@ class BackdropVC: UIViewController {
         makeNotificationCenter()
     }
     
-    // notification
+    // make notification Observer
     func makeNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(makeClearView), name: .notchMinimum, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(makeClearView), name: .notchMedium, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(makeClearView), name: .cherishPeopleCellClicked, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(makeOpacityView), name: .notchMaximum, object: nil)
     }
-    
     
     /// 불투명한 뒷배경 뷰를 만드는 함수
     @objc func makeOpacityView() {
