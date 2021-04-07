@@ -158,7 +158,6 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
             for friend in friendList {
                 if friend.name.contains(searchText) {
                     filteredData.append(contentsOf: [Friend(name: friend.name, phoneNumber: friend.phoneNumber, selected: friend.selected)])
-                    print("하이하이하이")
                 }
                 else if friend.phoneNumber.contains(searchText) {
                     filteredData.append(contentsOf: [Friend(name: friend.name, phoneNumber: friend.phoneNumber, selected: friend.selected)])
@@ -177,11 +176,8 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func moveToAddUser(_ sender: Any) {
-        
-        print("안녕")
 
         if moveToAddBtn.isEnabled == true {
-            print("뇽안")
             let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
             guard let dvc = storyBoard.instantiateViewController(identifier: "InputDetailVC") as? InputDetailVC else {return}
             if checkSearch == 0 {

@@ -43,7 +43,6 @@ class MyPageSearchPlantVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
 //        self.view.translatesAutoresizingMaskIntoConstraints = false
         self.tabBarController?.tabBar.isHidden = true
         setSearchBar()
@@ -56,7 +55,6 @@ class MyPageSearchPlantVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         // 식물 수정한 결과 가져오기 위함!
-        print("viewWillAppear")
         // plantTV.reloadData()
         setPlantData()
         self.tabBarController?.tabBar.isHidden = true
@@ -97,11 +95,6 @@ class MyPageSearchPlantVC: UIViewController {
                             plantArr[i].nickname = mypagePlantArray[i].nickname
                             plantArr[i].plantID = mypagePlantArray[i].plantID
                             plantArr[i].thumbnailImageURL = mypagePlantArray[i].thumbnailImageURL
-                        }
-                        print("통신한 배열에 nil값 있는지 확인")
-                        for i in 0...mypagePlantArray.count - 1 {
-                            print(i)
-                            print(plantArr[i].thumbnailImageURL)
                         }
                         plantArrCount = plantArr.count
                         filteredPlant = plantArr
@@ -154,9 +147,6 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
         if plantArr.count != 0 {
             if checkSearch == 0 { // search bar 안썼을 때
                 let url = URL(string: plantArr[indexPath.row].thumbnailImageURL ?? "")
-                print(indexPath)
-                print(indexPath.row)
-                print(plantArr[indexPath.row].nickname)
                 print(url)
                 DispatchQueue.global(qos: .background).async(execute: {() -> Void in
                     let imageData = try? Data(contentsOf: url!)

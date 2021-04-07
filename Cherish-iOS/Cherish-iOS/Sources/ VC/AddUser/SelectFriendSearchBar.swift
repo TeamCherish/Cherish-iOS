@@ -341,8 +341,6 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath)
         updateSelectedIndex(indexPath.row)
         index = indexPath.row
-        print(index)
-        
     }
     
     //MARK: - searchBar delegate

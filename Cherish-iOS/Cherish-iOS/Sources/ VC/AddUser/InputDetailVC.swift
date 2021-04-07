@@ -67,8 +67,6 @@ class InputDetailVC: UIViewController {
         for i in 0...30 {
             day[i] = i+1
         }
-        print(month)
-        print(day)
         nicknameTextField.delegate = self
         birthPicker.delegate = self
         birthPicker.dataSource = self
@@ -102,7 +100,6 @@ class InputDetailVC: UIViewController {
         // 생일 입력 관련 -> 생일도 테스트 해보자! 0000-00-00 으로 잘 넘어가는지~
         // -> 생일은 invalid date로 넘어감 -> 왜냐~~~~~~ 서버한테 물어보자
         if birthTextField.text == "" {
-            print("생이 입력 안됨")
             birthText = "0000.00.00"
         }
         else {
