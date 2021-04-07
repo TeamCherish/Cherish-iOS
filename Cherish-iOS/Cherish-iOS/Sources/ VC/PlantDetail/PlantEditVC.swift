@@ -44,9 +44,6 @@ class PlantEditVC: UIViewController {
     var delegateCheck: Int = 0
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    // 메인에서 온건지, 마페에서 온건지 구분 -> false, true
-    var myCherishIsSelected = false
-    // 정보 받아올 체리쉬 아이디 -> 메인에서 온거면 selectedFriendIdData 넣기, 마페에서 온거면 selectedCherish 넣기
     var selectedPlantId : Int?
     
     let formatter = DateFormatter()
@@ -56,11 +53,15 @@ class PlantEditVC: UIViewController {
     
     let screenHeight = UIScreen.main.bounds.size.height
     
+    // 메인에서 온건지, 마페에서 온건지 구분 -> false, true
+    var myCherishIsSelected = false
+    // 메인 -> 마페 -> 식물카드 true
+    // 메인 -> 식물카드 false
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 정보 받아올 체리쉬 아이디 -> 메인에서 온거면 selectedFriendIdData 넣기, 마페에서 온거면 selectedCherish 넣기
         myCherishIsSelected = UserDefaults.standard.bool(forKey: "plantIsSelected")
-        print("불값 ",myCherishIsSelected)
-        if myCherishIsSelected == true {
+        if myCherishIsSelected == true { // 마패
             self.selectedPlantId = UserDefaults.standard.integer(forKey: "selectedCherish")
             UserDefaults.standard.set(false, forKey: "plantIsSelected")
             print("마페에서 온 아이디 ",selectedPlantId)
