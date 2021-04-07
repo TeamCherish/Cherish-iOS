@@ -36,6 +36,10 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var plantContainerTopConstraint: NSLayoutConstraint!
     @IBOutlet var contactContainerTopConstraint: NSLayoutConstraint!
     @IBOutlet var addFloatingBtn: UIButton!
+    @IBOutlet var mypageBoxWidth: NSLayoutConstraint!
+    @IBOutlet var mypageInfoStackViewWidth: NSLayoutConstraint!
+    @IBOutlet var mypageInfoStackView: UIStackView!
+    @IBOutlet var mypageBoxImageView: UIImageView!
     @IBOutlet var segmentView: CustomSegmentedControl! {
         didSet {
             segmentView.setButtonTitles(buttonTitles: ["식물 \(mypagePlantCount)", "연락처 \(mypageContactCount)"])
@@ -61,6 +65,7 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
         addNavigationSwipeGuesture()
         addFloatingBtn.isHidden = true
         setUserImage()
+        setAutolayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -178,6 +183,40 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
             case .networkFail:
                 print("networkFail")
             }
+        }
+    }
+    
+    func setAutolayout() {
+        if screenWidth == 375 && screenHeight == 667 {
+            print("iPhone 8")
+            mypageBoxWidth.constant = 343
+            mypageInfoStackViewWidth.constant = 343
+            mypageBoxImageView.layoutIfNeeded()
+            mypageInfoStackView.layoutIfNeeded()
+        }
+        
+        else if screenWidth == 428 && screenHeight == 926 {
+            print("iPhone 12 Pro Max")
+            mypageBoxWidth.constant = 396
+            mypageInfoStackViewWidth.constant = 396
+            mypageBoxImageView.layoutIfNeeded()
+            mypageInfoStackView.layoutIfNeeded()
+        }
+        
+        else if screenWidth == 390 && screenHeight == 844 {
+            print("iPhone 12, 12 Pro")
+            mypageBoxWidth.constant = 358
+            mypageBoxImageView.layoutIfNeeded()
+            mypageInfoStackViewWidth.constant = 358
+            mypageInfoStackView.layoutIfNeeded()
+        }
+        
+        else if screenWidth == 414 && screenHeight == 896 {
+            print("iPhone 11, 11 Pro Max")
+            mypageBoxWidth.constant = 382
+            mypageInfoStackViewWidth.constant = 382
+            mypageBoxImageView.layoutIfNeeded()
+            mypageInfoStackView.layoutIfNeeded()
         }
     }
     
