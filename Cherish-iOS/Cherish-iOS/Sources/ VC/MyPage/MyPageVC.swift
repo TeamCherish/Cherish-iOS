@@ -199,6 +199,7 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
             print("iPhone 12 Pro Max")
             mypageBoxWidth.constant = 396
             mypageInfoStackViewWidth.constant = 396
+            mypageInfoStackView.spacing = 15
             mypageBoxImageView.layoutIfNeeded()
             mypageInfoStackView.layoutIfNeeded()
         }
@@ -206,8 +207,9 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
         else if screenWidth == 390 && screenHeight == 844 {
             print("iPhone 12, 12 Pro")
             mypageBoxWidth.constant = 358
-            mypageBoxImageView.layoutIfNeeded()
             mypageInfoStackViewWidth.constant = 358
+            mypageInfoStackView.spacing = 10
+            mypageBoxImageView.layoutIfNeeded()
             mypageInfoStackView.layoutIfNeeded()
         }
         
@@ -215,6 +217,16 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
             print("iPhone 11, 11 Pro Max")
             mypageBoxWidth.constant = 382
             mypageInfoStackViewWidth.constant = 382
+            mypageInfoStackView.spacing = 15
+            mypageBoxImageView.layoutIfNeeded()
+            mypageInfoStackView.layoutIfNeeded()
+        }
+        
+        else if screenWidth == 414 && screenHeight == 736 {
+            print("iPhone 8+")
+            mypageBoxWidth.constant = 382
+            mypageInfoStackViewWidth.constant = 382
+            mypageInfoStackView.spacing = 15
             mypageBoxImageView.layoutIfNeeded()
             mypageInfoStackView.layoutIfNeeded()
         }
