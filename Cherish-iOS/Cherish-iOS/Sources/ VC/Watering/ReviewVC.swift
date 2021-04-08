@@ -266,6 +266,8 @@ class ReviewVC: UIViewController {
             keyword.append("")
         }
         
+        UserDefaults.standard.set(false, forKey: "reviewNotYet")
+        
         WateringReviewService.shared.wateringReview(review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: reciever) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
@@ -296,6 +298,7 @@ class ReviewVC: UIViewController {
             reciever = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
         }
         keyword = ["","",""]
+        UserDefaults.standard.set(false, forKey: "reviewNotYet")
         WateringReviewService.shared.wateringReview(review: "", keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: reciever) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):

@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var isCherishPeopleCellSelected:Bool = false
+    var isCherishPostponed:Bool = false
     var isCherishAdded:Bool = false
     var isCherishDeleted:Bool = false
     var isCherishEdited:Bool = false
