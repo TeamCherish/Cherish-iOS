@@ -119,6 +119,7 @@ class PlantResultVC: UIViewController, UIGestureRecognizerDelegate {
         self.modifierBold.text = modifierArr![1]
         
         self.explanationLabel.text = UserDefaults.standard.string(forKey: "resultExplanation")
+        print(UserDefaults.standard.string(forKey: "resultExplanation"))
         
         // 식물 종류 따라 라벨, 버튼 색깔 바꾸기
         let plantId = UserDefaults.standard.integer(forKey: "resultPlantId")

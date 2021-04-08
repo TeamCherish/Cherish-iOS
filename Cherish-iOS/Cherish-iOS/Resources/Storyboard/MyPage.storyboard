@@ -1001,7 +1001,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7pO-1b-FsV">
-                                <rect key="frame" x="16" y="0.0" width="343" height="537"/>
+                                <rect key="frame" x="16" y="0.0" width="343" height="631"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="iEh-O4-zpt">
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
@@ -1035,7 +1035,7 @@
                             <constraint firstItem="fCp-ay-aEI" firstAttribute="bottom" secondItem="mYd-Nz-N7u" secondAttribute="bottom" constant="46" id="JhX-0M-uBI"/>
                             <constraint firstItem="7pO-1b-FsV" firstAttribute="centerX" secondItem="g1K-02-kbg" secondAttribute="centerX" id="Le5-q3-Tsv"/>
                             <constraint firstItem="fCp-ay-aEI" firstAttribute="trailing" secondItem="mYd-Nz-N7u" secondAttribute="trailing" constant="16" id="hds-fd-gBN"/>
-                            <constraint firstItem="mYd-Nz-N7u" firstAttribute="top" secondItem="7pO-1b-FsV" secondAttribute="bottom" id="pUy-Dq-xSe"/>
+                            <constraint firstItem="7pO-1b-FsV" firstAttribute="bottom" secondItem="fCp-ay-aEI" secondAttribute="bottom" id="nJx-F2-IWu"/>
                             <constraint firstItem="mYd-Nz-N7u" firstAttribute="centerX" secondItem="g1K-02-kbg" secondAttribute="centerX" id="rJy-of-WGa"/>
                             <constraint firstItem="7pO-1b-FsV" firstAttribute="top" secondItem="g1K-02-kbg" secondAttribute="top" id="vae-GO-7G4"/>
                             <constraint firstItem="fCp-ay-aEI" firstAttribute="trailing" secondItem="7pO-1b-FsV" secondAttribute="trailing" constant="16" id="wLy-0s-gfZ"/>

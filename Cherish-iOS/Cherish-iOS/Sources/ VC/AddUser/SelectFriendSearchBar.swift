@@ -15,7 +15,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
-    
+
     var friendList: [Friend] = []
     
     var index: Int = 0
@@ -59,6 +59,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         /// 이렇게 하면 버튼 타이틀이 가운데로 안온다
 //        nextBtn.isEnabled = false
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SelectFriendCell")
         tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
@@ -70,6 +71,8 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         checkContactArray()
         requestAccess(completionHandler: {_ in })
         filteredData = friendList
+        nextBtn.layer.zPosition = 1
+        self.view.bringSubviewToFront(nextBtn)
         //Array
         //        NotificationCenter.default.addObserver(self, selector: #selector(activeNextBtn(_:)), name: .radioBtnClicked, object: nil)
     }
@@ -212,6 +215,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     @IBAction func closeToMain(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func touchUpNextBtn(_ sender: Any) {
         if checkSelected == true {
 
@@ -247,6 +251,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
                     print("통신성공")
                     dvc.modalPresentationStyle = .fullScreen
                     self.navigationController?.pushViewController(dvc, animated: true)
+                    
                 case .requestErr(_):
                     print("requestErr")
                     present(alert, animated: true, completion: nil)
@@ -333,9 +338,11 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath)
         updateSelectedIndex(indexPath.row)
         index = indexPath.row
         print(index)
+        
     }
     
     //MARK: - searchBar delegate
