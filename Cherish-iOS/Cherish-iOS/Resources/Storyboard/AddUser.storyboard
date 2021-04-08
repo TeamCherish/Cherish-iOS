@@ -693,7 +693,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qRG-KP-b1O">
-                                <rect key="frame" x="16" y="124" width="343" height="573"/>
+                                <rect key="frame" x="16" y="124" width="343" height="688"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="lD5-qe-WIg">
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
@@ -763,6 +763,7 @@
                         <viewLayoutGuide key="safeArea" id="ZHT-MK-egi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="qRG-KP-b1O" secondAttribute="bottom" id="9rm-Sl-jhc"/>
                             <constraint firstItem="ZHT-MK-egi" firstAttribute="bottom" secondItem="lRC-ne-zl0" secondAttribute="bottom" constant="33" id="E7S-vF-bpo"/>
                             <constraint firstItem="qRG-KP-b1O" firstAttribute="leading" secondItem="ZHT-MK-egi" secondAttribute="leading" constant="16" id="M3c-06-APq"/>
                             <constraint firstItem="Pgt-jF-36Z" firstAttribute="trailing" secondItem="ZHT-MK-egi" secondAttribute="trailing" id="NJk-8F-MMY"/>
@@ -772,7 +773,6 @@
                             <constraint firstItem="Pgt-jF-36Z" firstAttribute="leading" secondItem="ZHT-MK-egi" secondAttribute="leading" id="eZ9-eF-mn8"/>
                             <constraint firstItem="qRG-KP-b1O" firstAttribute="top" secondItem="Pgt-jF-36Z" secondAttribute="bottom" constant="36" id="fEg-7b-EE5"/>
                             <constraint firstItem="ZHT-MK-egi" firstAttribute="trailing" secondItem="qRG-KP-b1O" secondAttribute="trailing" constant="16" id="hao-YJ-w2Q"/>
-                            <constraint firstItem="lRC-ne-zl0" firstAttribute="top" secondItem="qRG-KP-b1O" secondAttribute="bottom" id="ltY-cb-eEF"/>
                             <constraint firstItem="lRC-ne-zl0" firstAttribute="centerX" secondItem="qCe-J9-pfm" secondAttribute="centerX" id="qHU-kb-AWw"/>
                         </constraints>
                     </view>

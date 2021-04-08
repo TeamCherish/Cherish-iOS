@@ -25,23 +25,19 @@ class MainContentVC: UIViewController {
     @IBOutlet var plantImageViewTrailing: NSLayoutConstraint!
     @IBOutlet var progressViewTopConstraint: NSLayoutConstraint!
     @IBOutlet var progressInnerViewTopConstraint: NSLayoutConstraint!
+    var cherishPeopleData:[ResultData] = []
+    var cherishResultData:[MainPlantConditionData] = []
+    var selectedRowIndexPath:Int = 0
+    @IBOutlet var blurBtnTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var blurBtn: UIVisualEffectView!{
         didSet{
             blurBtn.makeRounded(cornerRadius: 14.0)
         }
     }
-    var cherishPeopleData:[ResultData] = []
-    var cherishResultData:[MainPlantConditionData] = []
-    var selectedRowIndexPath:Int = 0
-    @IBOutlet var blurBtnTopConstraint: NSLayoutConstraint!
-    
     let userId: Int = UserDefaults.standard.integer(forKey: "userID")
     var growthInfo:Int = UserDefaults.standard.integer(forKey: "selectedGrowthData")
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    // 뷰 전체 폭 길이
     let screenWidth = UIScreen.main.bounds.size.width
-    
-    // 뷰 전체 높이 길이
     let screenHeight = UIScreen.main.bounds.size.height
     
     
@@ -83,6 +79,7 @@ class MainContentVC: UIViewController {
                 view.backgroundColor = .white
             }
         }
+        
         // 식물상세페이지로 네비게이션 연결 후 탭바가 사라지기 때문에
         // popViewController 액션으로 다시 메인뷰로 돌아왔을 때 탭바가 나타나야 한다.
         self.tabBarController?.tabBar.isHidden = false
@@ -99,18 +96,19 @@ class MainContentVC: UIViewController {
         view.backgroundColor = .white
     }
     
-    //MARK: - addObserver
+    
+    //MARK: - addObserver Noti
     func addNotificationObserver() {
         //noti 감지 후 view가 reload될 수 있도록 viewWillAppear함수를 호출해준다.
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .cherishPeopleCellClicked, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .postPostponed, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(isWateringReported), name: .wateringReport, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(getPeopleData), name: .sendPeopleDataArray, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(clickPushToMoveWateringPopup), name: .pushClickToWateringPopUp, object: nil)
     }
     
     
-    //selectedData를 갖고 실제로 view를 구성하는 함수
+    //MARK: - selectedData를 갖고 실제로 view를 구성하는 함수
     func setDataWithSelectedData() {
         LoadingHUD.show()
         
@@ -399,7 +397,7 @@ class MainContentVC: UIViewController {
         LoadingHUD.hide()
     }
     
-    //MARK: - kingfisher를 사용해서 물주기 모션 gif를 play
+    //MARK: - kingfisher를 사용해서 물주기 모션 효과MA gif를 play
     func wateringGifPlay(_ backgroundColor: UIColor) {
         
         let filePath:String? = Bundle.main.path(forResource: "testwatering", ofType: "gif")
@@ -417,7 +415,6 @@ class MainContentVC: UIViewController {
             case .success(_):
                 self.view.backgroundColor = .diePlantGrey
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    
                     UIView.transition(with: self.plantGifView, duration: 1, options: .curveEaseInOut, animations: { [self] in
                         plantGifView.alpha = 0
                         plantGifView.layoutIfNeeded()
@@ -427,7 +424,6 @@ class MainContentVC: UIViewController {
                         self.plantGifView.frame.origin.y = 0
                     })
                 }
-                
                 UIView.transition(with: self.view, duration: 2, options: .transitionCrossDissolve, animations: { [self] in
                     view.backgroundColor = backgroundColor
                     plantGifView.alpha = 1
@@ -442,7 +438,6 @@ class MainContentVC: UIViewController {
     
     //MARK: - 민들레 3단계 성장
     func dandelionGrowth() {
-        
         
         if growthInfo < 25 {
             // 1단계
@@ -697,6 +692,7 @@ class MainContentVC: UIViewController {
         progressbarView.setProgressValue(currentValue: CGFloat(value))
     }
     
+    //MARK: - 기기 사이즈에 맞춰 오토레이아웃 코드로 잡는 함수
     func setAutolayout() {
     
         if screenHeight == 896 {
@@ -754,6 +750,16 @@ class MainContentVC: UIViewController {
         cherishResultData.removeAll()
         for i in 0...cherishPeopleData.count - 1 {
             cherishResultData.append(MainPlantConditionData(id: cherishPeopleData[i].id, dDay: cherishPeopleData[i].dDay, isWatering: false, isWithered: false))
+        }
+    }
+    
+    //MARK: - 푸시알림 클릭 후 선택된 친구에 대한 물주기 팝업을 뜨게 하는 함수
+    @objc func clickPushToMoveWateringPopup() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpWatering", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpWateringVC") as? PopUpWateringVC{
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            self.present(vc, animated: true, completion: nil)
         }
     }
     

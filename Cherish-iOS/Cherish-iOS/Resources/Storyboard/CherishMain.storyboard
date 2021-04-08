@@ -54,7 +54,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1LF-25-ssR" customClass="AnimatedImageView" customModule="Kingfisher">
                                 <rect key="frame" x="10" y="0.0" width="375" height="812"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="812" id="EYF-pn-aGE"/>
                                     <constraint firstAttribute="width" secondItem="1LF-25-ssR" secondAttribute="height" multiplier="375:812" id="uTq-5b-4AI"/>
                                 </constraints>
                             </imageView>

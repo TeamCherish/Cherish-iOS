@@ -24,6 +24,7 @@
 		332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7C025A72A4800D0047D /* MypageContactData.swift */; };
 		333DC23D25FA4D8200120B1E /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333DC23C25FA4D8200120B1E /* UIWindow+Extension.swift */; };
 		333DC25425FA7C8D00120B1E /* SearchMypageFriendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333DC25325FA7C8D00120B1E /* SearchMypageFriendData.swift */; };
+		33413073261B6DA000A68ED2 /* 아메리칸블루 gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 33413072261B6DA000A68ED2 /* 아메리칸블루 gif.gif */; };
 		3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3346B34625AB77E300EF5E14 /* AlarmVC.swift */; };
 		335B3A3025EF805400DD7A6F /* LoginNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B3A2F25EF805400DD7A6F /* LoginNC.swift */; };
 		335B8FE825F797A800A03640 /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B8FE725F797A800A03640 /* ImageFileManager.swift */; };
@@ -209,6 +210,7 @@
 		332CC7C025A72A4800D0047D /* MypageContactData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageContactData.swift; sourceTree = "<group>"; };
 		333DC23C25FA4D8200120B1E /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
 		333DC25325FA7C8D00120B1E /* SearchMypageFriendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMypageFriendData.swift; sourceTree = "<group>"; };
+		33413072261B6DA000A68ED2 /* 아메리칸블루 gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "아메리칸블루 gif.gif"; sourceTree = "<group>"; };
 		3346B34325AB653D00EF5E14 /* Cherish-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cherish-iOS.entitlements"; sourceTree = "<group>"; };
 		3346B34625AB77E300EF5E14 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
 		335B3A2F25EF805400DD7A6F /* LoginNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNC.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 		3317777D25B0568600CC1030 /* Gif */ = {
 			isa = PBXGroup;
 			children = (
+				33413072261B6DA000A68ED2 /* 아메리칸블루 gif.gif */,
 				5491595325DE43F7008104FC /* testwatering.gif */,
 			);
 			path = Gif;
@@ -1149,6 +1152,7 @@
 				33E874E025A04746001F84FE /* CherishMain.storyboard in Resources */,
 				5491594625DCD32B008104FC /* FindPassword.storyboard in Resources */,
 				548F26A8261336640055C5E1 /* OnboardingLastCVCell.xib in Resources */,
+				33413073261B6DA000A68ED2 /* 아메리칸블루 gif.gif in Resources */,
 				33851C80259A5542005BCFFD /* LaunchScreen.storyboard in Resources */,
 				92DCC3EB25A85D7100160523 /* SelectFriendCell.xib in Resources */,
 				33201B2225AF3F23001A94E4 /* GoogleService-Info.plist in Resources */,

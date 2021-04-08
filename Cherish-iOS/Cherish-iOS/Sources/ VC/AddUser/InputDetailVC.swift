@@ -109,7 +109,7 @@ class InputDetailVC: UIViewController {
             birthText = serverBirth
             print(serverBirth)
         }
-        
+        print(convertedAlarmTime)
         guard let nameText = givenName,
               let phonenumberText = givenPhoneNumber,
               let timeText = convertedAlarmTime,

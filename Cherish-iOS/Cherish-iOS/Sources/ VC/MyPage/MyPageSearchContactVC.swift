@@ -52,7 +52,10 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
         contactTV.register(UINib(nibName: radioButton, bundle: nil), forCellReuseIdentifier: radioButton)
         resetSelectFriendVC()
         filteredData = friendList
-        moveToAddBtn.isEnabled = false
+//        moveToAddBtn.isEnabled = false
+        self.moveToAddBtn.setBackgroundImage(UIImage(named: "btnNextUnselected"), for: .normal)
+        moveToAddBtn.layer.zPosition = 1
+        self.view.bringSubviewToFront(moveToAddBtn)
     }
     
     func setSearchBar() {
@@ -205,20 +208,23 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
                 case .requestErr(_):
                     print("requestErr")
                     present(alert, animated: true, completion: nil)
-                    moveToAddBtn.isEnabled = false
+//                    moveToAddBtn.isEnabled = false
                     self.moveToAddBtn.setBackgroundImage(UIImage(named: "btnNextUnselected"), for: .normal)
                 case .pathErr:
                     print("pathErr")
                     present(alert, animated: true, completion: nil)
-                    moveToAddBtn.isEnabled = false
+//                    moveToAddBtn.isEnabled = false
+                    self.moveToAddBtn.setBackgroundImage(UIImage(named: "btnNextUnselected"), for: .normal)
                 case .serverErr:
                     print("serverErr")
                     present(alert, animated: true, completion: nil)
-                    moveToAddBtn.isEnabled = false
+//                    moveToAddBtn.isEnabled = false
+                    self.moveToAddBtn.setBackgroundImage(UIImage(named: "btnNextUnselected"), for: .normal)
                 case .networkFail:
                     print("networkFail")
                     present(alert, animated: true, completion: nil)
-                    moveToAddBtn.isEnabled = false
+//                    moveToAddBtn.isEnabled = false
+                    self.moveToAddBtn.setBackgroundImage(UIImage(named: "btnNextUnselected"), for: .normal)
                 }
             }
         }
