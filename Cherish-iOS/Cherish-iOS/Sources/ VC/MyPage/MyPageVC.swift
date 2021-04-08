@@ -65,7 +65,7 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
         addNavigationSwipeGuesture()
         addFloatingBtn.isHidden = true
         setUserImage()
-        setAutolayout()
+        setAutoLayoutByScreenSize()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -186,7 +186,7 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    func setAutolayout() {
+    func setAutoLayoutByScreenSize() {
         if screenWidth == 375 && screenHeight == 667 {
             print("iPhone 8")
             mypageBoxWidth.constant = 343
