@@ -260,9 +260,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="aLW-7g-0hg"/>
                     <connections>
+                        <outlet property="settingLineTopConstraint" destination="4nv-Uq-R8P" id="Lu0-t1-Ag8"/>
                         <outlet property="showMoreTV" destination="r0l-VL-q8q" id="mr5-xQ-237"/>
                         <outlet property="userEmailLabel" destination="oJo-15-gz1" id="MMd-Fz-R7L"/>
                         <outlet property="userImageView" destination="sdv-iJ-Yuj" id="Nkt-dQ-0g3"/>
+                        <outlet property="userImageViewHeight" destination="mlI-CJ-8IW" id="im1-Qm-giC"/>
                         <outlet property="userNicknameLabel" destination="ks7-cB-zTT" id="7DK-6g-KgB"/>
                     </connections>
                 </viewController>
