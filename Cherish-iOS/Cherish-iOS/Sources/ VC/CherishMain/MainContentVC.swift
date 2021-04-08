@@ -44,6 +44,7 @@ class MainContentVC: UIViewController {
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        whenNotReviewPresentToReviewVC()
         LoadingHUD.show()
         print(UserDefaults.standard.bool(forKey: "plantIsSelected"))
         UserDefaults.standard.set(false, forKey: "plantIsSelected")
@@ -71,6 +72,12 @@ class MainContentVC: UIViewController {
             setDataWithSelectedData()
         }
         
+        if appDel.isCherishPostponed == true {
+            print("미루기 함!")
+            setDataWithSelectedData()
+            appDel.isCherishPostponed = false
+        }
+        
         // 식물 삭제 후 남은 식물이 한개도 없을 때, 추가된 subView를 식물 등록 후에 remove
         if UserDefaults.standard.bool(forKey: "addUser") == true {
             if let viewWithTag = self.view.viewWithTag(100) {
@@ -94,6 +101,19 @@ class MainContentVC: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         view.backgroundColor = .white
+    }
+    
+    func whenNotReviewPresentToReviewVC() {
+        if (UserDefaults.standard.bool(forKey: "reviewNotYet") == true) {
+            print("첫 로드 : 리뷰등록뷰")
+            
+            let reviewStoryboard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
+            if let reviewVC = reviewStoryboard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
+                reviewVC.modalPresentationStyle = .fullScreen
+                reviewVC.modalTransitionStyle = .crossDissolve
+                self.present(reviewVC, animated: true, completion: nil)
+            }
+        }
     }
     
     
