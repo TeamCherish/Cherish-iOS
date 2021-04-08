@@ -15,9 +15,19 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet var userNicknameLabel: UILabel!
     @IBOutlet var userEmailLabel: UILabel!
     @IBOutlet var userImageView: UIImageView!
+    @IBOutlet var userImageViewHeight: NSLayoutConstraint!
+    @IBOutlet var settingLineTopConstraint: NSLayoutConstraint!
+    
     
     var infoTitleArray:[String] = ["About Cherish", "개인정보처리방침", "서비스이용약관", "1대1 문의하기"]
     var logInfoTitleArray:[String] = ["로그아웃", "회원탈퇴"]
+    
+    // 뷰 전체 폭 길이
+    let screenWidth = UIScreen.main.bounds.size.width
+    
+    // 뷰 전체 높이 길이
+    let screenHeight = UIScreen.main.bounds.size.height
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +36,7 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
         addNavigationSwipeGuesture()
         addNotificationObserver()
         setUserImage()
+        setAutoLayout()
         setImageViewRounded()
     }
     
@@ -37,6 +48,15 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    func setAutoLayout() {
+        if screenHeight == 667 {
+            print("iPhone 8")
+            userImageViewHeight.constant = 70
+            settingLineTopConstraint.constant = 20
+            userImageView.layoutIfNeeded()
+        }
     }
     
     //MARK: - addObserver
@@ -298,12 +318,24 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - heightForRowAt
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 48
-        }else if indexPath.section == 1 {
-            return 57
-        }else{
-            return 46
+        
+        if screenHeight == 667 {
+            if indexPath.section == 0 {
+                return 43
+            }else if indexPath.section == 1 {
+                return 52
+            }else{
+                return 41
+            }
+        }
+        else {
+            if indexPath.section == 0 {
+                return 48
+            }else if indexPath.section == 1 {
+                return 57
+            }else{
+                return 46
+            }
         }
     }
     
@@ -346,11 +378,11 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             //About Cherish
             if indexPath.row == 0 {
-//                let storyBoard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
-//                if let vc = storyBoard.instantiateViewController(withIdentifier: "OnboardingVC") as? OnboardingVC{
-//                    vc.modalPresentationStyle = .overFullScreen
-//                    self.present(vc, animated: true, completion: nil)
-//                }
+                //                let storyBoard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+                //                if let vc = storyBoard.instantiateViewController(withIdentifier: "OnboardingVC") as? OnboardingVC{
+                //                    vc.modalPresentationStyle = .overFullScreen
+                //                    self.present(vc, animated: true, completion: nil)
+                //                }
                 if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AboutCherishVC") as? AboutCherishVC{
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
