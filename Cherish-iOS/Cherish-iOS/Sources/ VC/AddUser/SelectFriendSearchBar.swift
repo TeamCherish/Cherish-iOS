@@ -54,6 +54,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     
     var checkSearch: Int = 0
     
+    var checkRadio: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -331,9 +332,11 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         let friend = filteredData[indexPath.row]
         let currentIndex = indexPath.row
         let selected = currentIndex == selectedFriend
+        // selectedFriend -> 내가 선택한 cell의 index
         cell.configureName(friend.name)
         cell.configurePhone(friend.phoneNumber)
         cell.isselected(selected)
+        print("selected \(selected)")
         return cell
     }
     
