@@ -73,12 +73,6 @@ class MainContentVC: UIViewController {
             setDataWithSelectedData()
         }
         
-        if appDel.isCherishPostponed == true {
-            print("미루기 함!")
-            setDataWithSelectedData()
-            appDel.isCherishPostponed = false
-        }
-        
         // 식물 삭제 후 남은 식물이 한개도 없을 때, 추가된 subView를 식물 등록 후에 remove
         if UserDefaults.standard.bool(forKey: "addUser") == true {
             if let viewWithTag = self.view.viewWithTag(100) {
@@ -122,7 +116,6 @@ class MainContentVC: UIViewController {
     func addNotificationObserver() {
         //noti 감지 후 view가 reload될 수 있도록 viewWillAppear함수를 호출해준다.
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .cherishPeopleCellClicked, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .postPostponed, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(isWateringReported), name: .wateringReport, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(getPeopleData), name: .sendPeopleDataArray, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(clickPushToMoveWateringPopup), name: .pushClickToWateringPopUp, object: nil)
@@ -487,12 +480,28 @@ class MainContentVC: UIViewController {
             self.plantImageView.image = UIImage(named: "imgMin2")
             view.backgroundColor = .dandelionBg
         }
+        // 3단계
         else {
-            // 3단계
-            plantImageView.isHidden = true
-            plantGifView.isHidden = false
-            self.plantGifView.image = UIImage.gif(name: "min_iOS")!
-            self.view.backgroundColor = .dandelionBg
+            // 시든 상태일때
+            if cherishResultData[selectedRowIndexPath].dDay <= 0 {
+                plantGifView.isHidden = true
+                plantImageView.frame.size = CGSize(width: 272, height: 0)
+                let newHeight = CGFloat(506)
+                plantImageViewHeight.constant = newHeight
+                plantImageView.layoutIfNeeded()
+                plantImageViewLeading.constant = 58
+                plantImageViewTrailing.constant = 3
+                plantImageViewTopConstraint.constant = 134
+                self.plantImageView.image = UIImage(named: "mainImgMin")
+                self.view.backgroundColor = .diePlantGrey
+            }
+            else {
+                // 3단계
+                plantImageView.isHidden = true
+                plantGifView.isHidden = false
+                self.plantGifView.image = UIImage.gif(name: "min_iOS")!
+                self.view.backgroundColor = .dandelionBg
+            }
         }
     }
     
@@ -524,12 +533,28 @@ class MainContentVC: UIViewController {
             self.plantImageView.image = UIImage(named: "imgBlue2")
             view.backgroundColor = .americanBlueBg
         }
+        // 3단계
         else {
-            // 3단계
-            plantImageView.isHidden = true
-            plantGifView.isHidden = false
-            self.plantGifView.image = UIImage.gif(name: "blue_iOS")!
-            self.view.backgroundColor = .americanBlueBg
+            // 시든 상태일때
+            if cherishResultData[selectedRowIndexPath].dDay <= 0 {
+                plantGifView.isHidden = true
+                plantImageView.frame.size = CGSize(width: 199, height: 0)
+                let newHeight = CGFloat(490)
+                plantImageViewHeight.constant = newHeight
+                plantImageView.layoutIfNeeded()
+                plantImageViewLeading.constant = 90
+                plantImageViewTrailing.constant = 44
+                plantImageViewTopConstraint.constant = 150
+                self.plantImageView.image = UIImage(named: "mainImgAmericanblue")
+                self.view.backgroundColor = .diePlantGrey
+            }
+            else {
+                // 3단계
+                plantImageView.isHidden = true
+                plantGifView.isHidden = false
+                self.plantGifView.image = UIImage.gif(name: "blue_iOS")!
+                self.view.backgroundColor = .americanBlueBg
+            }
         }
     }
     
@@ -561,12 +586,31 @@ class MainContentVC: UIViewController {
             self.plantImageView.image = UIImage(named: "imgRose2")
             view.backgroundColor = .rosemaryBg
         }
+        // 3단계
         else {
-            // 3단계
-            plantImageView.isHidden = true
-            plantGifView.isHidden = false
-            self.plantGifView.image = UIImage.gif(name: "rose_iOS")!
-            view.backgroundColor = .rosemaryBg
+            // 시든 상태일때
+            if cherishResultData[selectedRowIndexPath].dDay <= 0 {
+                print(cherishResultData[selectedRowIndexPath])
+                print("why..?")
+                plantGifView.isHidden = true
+                plantImageView.frame.size = CGSize(width: 288, height: 0)
+                let newHeight = CGFloat(521)
+                plantImageViewHeight.constant = newHeight
+                plantImageView.layoutIfNeeded()
+                plantImageViewLeading.constant = 45
+                plantImageViewTrailing.constant = 0
+                plantImageViewTopConstraint.constant = 109
+                self.plantImageView.image = UIImage(named: "mainImgRosemary")
+                self.view.backgroundColor = .diePlantGrey
+            }
+            else {
+                // 3단계
+                print("w..?")
+                plantImageView.isHidden = true
+                plantGifView.isHidden = false
+                self.plantGifView.image = UIImage.gif(name: "rose_iOS")!
+                view.backgroundColor = .rosemaryBg
+            }
         }
     }
     
@@ -598,12 +642,28 @@ class MainContentVC: UIViewController {
             self.plantImageView.image = UIImage(named: "imgSun2")
             view.backgroundColor = .cactusBg
         }
+        // 3단계
         else {
-            // 3단계
-            plantImageView.isHidden = true
-            plantGifView.isHidden = false
-            self.plantGifView.image = UIImage.gif(name: "sun_iOS")!
-            self.view.backgroundColor = .cactusBg
+            // 시든 상태일때
+            if cherishResultData[selectedRowIndexPath].dDay <= 0 {
+                plantGifView.isHidden = true
+                plantImageView.frame.size = CGSize(width: 299, height: 0)
+                let newHeight = CGFloat(457)
+                plantImageViewHeight.constant = newHeight
+                plantImageView.layoutIfNeeded()
+                plantImageViewLeading.constant = 26
+                plantImageViewTrailing.constant = 8
+                plantImageViewTopConstraint.constant = 215
+                self.plantImageView.image = UIImage(named: "mainImgSun")
+                self.view.backgroundColor = .diePlantGrey
+            }
+            else {
+                // 3단계
+                plantImageView.isHidden = true
+                plantGifView.isHidden = false
+                self.plantGifView.image = UIImage.gif(name: "sun_iOS")!
+                self.view.backgroundColor = .cactusBg
+            }
         }
     }
     
@@ -636,12 +696,28 @@ class MainContentVC: UIViewController {
             plantImageViewTopConstraint.constant = 268
             view.backgroundColor = .stuckyBg
         }
+        // 3단계
         else {
-            // 3단계
-            plantImageView.isHidden = true
-            plantGifView.isHidden = false
-            self.plantGifView.image = UIImage.gif(name: "stuki_iOS")!
-            self.view.backgroundColor = .stuckyBg
+            // 시든 상태일때
+            if cherishResultData[selectedRowIndexPath].dDay <= 0 {
+                plantGifView.isHidden = true
+                plantImageView.frame.size = CGSize(width: 291, height: 0)
+                let newHeight = CGFloat(466)
+                plantImageViewHeight.constant = newHeight
+                plantImageView.layoutIfNeeded()
+                plantImageViewLeading.constant = 42
+                plantImageViewTrailing.constant = 0
+                plantImageViewTopConstraint.constant = 169
+                self.plantImageView.image = UIImage(named: "mainImgSun")
+                self.view.backgroundColor = .diePlantGrey
+            }
+            else {
+                // 3단계
+                plantImageView.isHidden = true
+                plantGifView.isHidden = false
+                self.plantGifView.image = UIImage.gif(name: "stuki_iOS")!
+                self.view.backgroundColor = .stuckyBg
+            }
         }
     }
     

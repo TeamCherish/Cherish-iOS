@@ -69,7 +69,8 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
     
     func addNotificationObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .addUser, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadDataWhenFinishWatering), name: .postToReloadMainCell, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadDataWhenFinishWateringOrPostponed), name: .postToReloadMainCell, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadDataWhenFinishWateringOrPostponed), name: .postPostponed, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(whenPushClickedViewUpdate), name: .pushSelected, object: nil)
     }
     
@@ -127,9 +128,14 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     //MARK: - 물주기 후 정보를 reload하는 objc 함수
-    @objc func reloadDataWhenFinishWatering() {
+    @objc func reloadDataWhenFinishWateringOrPostponed() {
         setCherishPeopleData()
+        
+        if appDel.isCherishPostponed == true {
+            appDel.isCherishPostponed = false
+        }
     }
+    
     
     //MARK: - 푸시알림을 클릭했을 때 뷰를 업데이트하기위한 objc 함수
     @objc func whenPushClickedViewUpdate(_ notification: Notification) {
