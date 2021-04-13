@@ -10,13 +10,13 @@ import Foundation
 struct PlantDetailData: Codable {
     let name, nickname, birth: String
     let duration, dDay, plantId: Int
-    let plantName, plantThumbnailImageURL, statusMessage: String
+    let plantName, plantThumbnailImageURL, statusMessage, status: String
     let gage: Float
     let reviews: [Review]
     let keyword1, keyword2, keyword3: String
 
     enum CodingKeys: String, CodingKey {
-        case name, nickname, birth, duration, dDay, plantId
+        case name, nickname, birth, duration, dDay, plantId, status
         case plantName = "plant_name"
         case plantThumbnailImageURL = "plant_thumbnail_image_url"
         case statusMessage = "status_message"

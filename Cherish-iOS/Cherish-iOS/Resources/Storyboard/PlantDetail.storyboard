@@ -906,7 +906,7 @@
                         <outlet property="firstMemoDayLabel" destination="80A-Cp-bTs" id="jYN-jk-9U7"/>
                         <outlet property="firstMemoTextLabel" destination="899-Sg-gNt" id="hvJ-UG-bMi"/>
                         <outlet property="firstMemoView" destination="yEr-rW-TcY" id="xkX-gk-u7c"/>
-                        <outlet property="heathStatusLabel" destination="Aux-cA-Yvw" id="hgA-F2-rBT"/>
+                        <outlet property="heathStatusLabel" destination="Aux-cA-Yvw" id="0ni-yf-5y4"/>
                         <outlet property="infoStackViewHeight" destination="x2a-ca-FaI" id="CQk-vV-oGQ"/>
                         <outlet property="infoStackviewTopConstraint" destination="zP6-nD-GCk" id="o9T-1c-RaX"/>
                         <outlet property="keywordCV" destination="MaY-Ug-rb5" id="R4U-gn-WL3"/>
