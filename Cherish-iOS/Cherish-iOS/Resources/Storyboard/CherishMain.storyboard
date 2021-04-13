@@ -52,7 +52,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1LF-25-ssR" customClass="AnimatedImageView" customModule="Kingfisher">
-                                <rect key="frame" x="10" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="385" height="833.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1LF-25-ssR" secondAttribute="height" multiplier="375:812" id="uTq-5b-4AI"/>
                                 </constraints>
@@ -187,6 +187,12 @@
                                     <action selector="moveToPlantDetailView:" destination="y3f-7o-jg5" eventType="touchUpInside" id="JSe-K4-EwA"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x9h-5A-Qga" customClass="AnimatedImageView" customModule="Kingfisher">
+                                <rect key="frame" x="0.0" y="44" width="375" height="711"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="x9h-5A-Qga" secondAttribute="height" multiplier="187:406" constant="47.519704433497566" id="VsE-wt-Z3F"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TmQ-US-0yO"/>
                         <color key="backgroundColor" name="white"/>
@@ -196,6 +202,7 @@
                             <constraint firstItem="7lJ-v4-Fdo" firstAttribute="centerX" secondItem="tC1-OL-vxp" secondAttribute="centerX" id="750-oM-BUd"/>
                             <constraint firstItem="6g2-qy-Jyj" firstAttribute="top" secondItem="7lJ-v4-Fdo" secondAttribute="bottom" constant="-1" id="GEW-5T-E3P"/>
                             <constraint firstItem="6g2-qy-Jyj" firstAttribute="centerX" secondItem="tC1-OL-vxp" secondAttribute="centerX" id="HMk-25-AfU"/>
+                            <constraint firstItem="x9h-5A-Qga" firstAttribute="bottom" secondItem="1rh-Gn-4tL" secondAttribute="bottom" constant="163" id="HQf-hU-NwH"/>
                             <constraint firstItem="Otg-az-yW5" firstAttribute="top" secondItem="TmQ-US-0yO" secondAttribute="top" constant="24" id="JFI-KJ-QGn"/>
                             <constraint firstItem="7lJ-v4-Fdo" firstAttribute="top" secondItem="tC1-OL-vxp" secondAttribute="bottom" constant="6" id="Jh2-Lb-YsX"/>
                             <constraint firstItem="MqD-Yz-UwB" firstAttribute="top" secondItem="Otg-az-yW5" secondAttribute="bottom" id="NVe-rU-BRG"/>
@@ -206,12 +213,14 @@
                             <constraint firstItem="1LF-25-ssR" firstAttribute="top" secondItem="53S-aO-x9T" secondAttribute="top" id="anz-Zs-3Ru"/>
                             <constraint firstItem="571-Dh-KLL" firstAttribute="top" secondItem="rb3-up-wUt" secondAttribute="bottom" constant="17" id="eNb-JJ-9v9"/>
                             <constraint firstItem="1cl-cl-xvs" firstAttribute="trailing" secondItem="TmQ-US-0yO" secondAttribute="trailing" id="fjq-QB-PKn"/>
-                            <constraint firstItem="1LF-25-ssR" firstAttribute="leading" secondItem="53S-aO-x9T" secondAttribute="leading" constant="10" id="g56-IB-MkX"/>
+                            <constraint firstItem="1LF-25-ssR" firstAttribute="leading" secondItem="53S-aO-x9T" secondAttribute="leading" id="g56-IB-MkX"/>
                             <constraint firstItem="1cl-cl-xvs" firstAttribute="top" secondItem="TmQ-US-0yO" secondAttribute="top" constant="104" id="gDu-wJ-xHN"/>
                             <constraint firstItem="Otg-az-yW5" firstAttribute="leading" secondItem="TmQ-US-0yO" secondAttribute="leading" constant="16" id="gU2-9v-S28"/>
                             <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="1rh-Gn-4tL" secondAttribute="trailing" constant="40" id="jYu-Ae-Z6c"/>
                             <constraint firstItem="571-Dh-KLL" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="nqY-XG-32e"/>
+                            <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="x9h-5A-Qga" secondAttribute="trailing" id="sVB-Jf-Njp"/>
                             <constraint firstItem="1rh-Gn-4tL" firstAttribute="top" secondItem="TmQ-US-0yO" secondAttribute="top" constant="520" id="vEW-0V-D1r"/>
+                            <constraint firstItem="x9h-5A-Qga" firstAttribute="top" secondItem="TmQ-US-0yO" secondAttribute="top" id="wOk-fE-RtV"/>
                             <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="1LF-25-ssR" secondAttribute="trailing" constant="-10" id="wYg-2z-Rbn"/>
                             <constraint firstItem="Ook-bx-AcP" firstAttribute="top" secondItem="571-Dh-KLL" secondAttribute="bottom" constant="99" id="waq-TO-PMn"/>
                             <constraint firstItem="rb3-up-wUt" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" id="xGF-4Q-8bB"/>
@@ -237,6 +246,7 @@
                         <outlet property="progressbarBackView" destination="Ook-bx-AcP" id="9qk-3n-XYz"/>
                         <outlet property="progressbarView" destination="tC1-OL-vxp" id="EF5-MD-zMm"/>
                         <outlet property="userNickNameLabel" destination="rb3-up-wUt" id="vAL-T6-ssD"/>
+                        <outlet property="wateringGifView" destination="x9h-5A-Qga" id="VPU-D0-kLW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Amh-KG-oEa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

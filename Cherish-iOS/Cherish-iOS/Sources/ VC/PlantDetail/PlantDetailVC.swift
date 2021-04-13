@@ -190,6 +190,7 @@ class PlantDetailVC: UIViewController {
                     }
                     
                     plantHealthStatusLabel.text = plantDetailDataFromMyPage.statusMessage
+                    heathStatusLabel.text = plantDetailDataFromMyPage.status
                     makeCircularView(Float(plantDetailDataFromMyPage.gage))
                     
                     // 메모 데이터
@@ -368,6 +369,7 @@ class PlantDetailVC: UIViewController {
                         keywordArray.append("등록된 키워드가 없어요")
                     }
                     plantHealthStatusLabel.text = plantDetailData.statusMessage
+                    heathStatusLabel.text = plantDetailData.status
                     makeCircularView(Float(plantDetailData.gage))
                     
                     // 메모 데이터
