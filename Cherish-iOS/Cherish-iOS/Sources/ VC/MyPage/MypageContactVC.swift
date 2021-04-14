@@ -167,6 +167,7 @@ extension MypageContactVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MypageContactTVC") as! MypageContactTVC
         
         cell.setProperties(mypageContactArray[indexPath.row].name, mypageContactArray[indexPath.row].phoneNumber)
+        cell.selectionStyle = .none
         
         return cell
     }

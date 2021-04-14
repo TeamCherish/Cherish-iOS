@@ -66,6 +66,7 @@ class CherishTabBarController: UITabBarController {
                 self.setViewControllers(tabs, animated: false)
                 print("here?")
                 appDel.isCherishAdded = false
+                
             }
             else {
                 print("자동 로그인")

@@ -24,6 +24,11 @@
 		332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7C025A72A4800D0047D /* MypageContactData.swift */; };
 		333DC23D25FA4D8200120B1E /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333DC23C25FA4D8200120B1E /* UIWindow+Extension.swift */; };
 		333DC25425FA7C8D00120B1E /* SearchMypageFriendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333DC25325FA7C8D00120B1E /* SearchMypageFriendData.swift */; };
+		334130C72620750700A68ED2 /* blue_iOS.gif in Resources */ = {isa = PBXBuildFile; fileRef = 334130C22620750700A68ED2 /* blue_iOS.gif */; };
+		334130C82620750700A68ED2 /* rose_iOS.gif in Resources */ = {isa = PBXBuildFile; fileRef = 334130C32620750700A68ED2 /* rose_iOS.gif */; };
+		334130C92620750700A68ED2 /* min_iOS.gif in Resources */ = {isa = PBXBuildFile; fileRef = 334130C42620750700A68ED2 /* min_iOS.gif */; };
+		334130CA2620750700A68ED2 /* stuki_iOS.gif in Resources */ = {isa = PBXBuildFile; fileRef = 334130C52620750700A68ED2 /* stuki_iOS.gif */; };
+		334130CB2620750700A68ED2 /* sun_iOS.gif in Resources */ = {isa = PBXBuildFile; fileRef = 334130C62620750700A68ED2 /* sun_iOS.gif */; };
 		3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3346B34625AB77E300EF5E14 /* AlarmVC.swift */; };
 		335B3A3025EF805400DD7A6F /* LoginNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B3A2F25EF805400DD7A6F /* LoginNC.swift */; };
 		335B8FE825F797A800A03640 /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B8FE725F797A800A03640 /* ImageFileManager.swift */; };
@@ -209,6 +214,11 @@
 		332CC7C025A72A4800D0047D /* MypageContactData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageContactData.swift; sourceTree = "<group>"; };
 		333DC23C25FA4D8200120B1E /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
 		333DC25325FA7C8D00120B1E /* SearchMypageFriendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMypageFriendData.swift; sourceTree = "<group>"; };
+		334130C22620750700A68ED2 /* blue_iOS.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = blue_iOS.gif; sourceTree = "<group>"; };
+		334130C32620750700A68ED2 /* rose_iOS.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rose_iOS.gif; sourceTree = "<group>"; };
+		334130C42620750700A68ED2 /* min_iOS.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = min_iOS.gif; sourceTree = "<group>"; };
+		334130C52620750700A68ED2 /* stuki_iOS.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = stuki_iOS.gif; sourceTree = "<group>"; };
+		334130C62620750700A68ED2 /* sun_iOS.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sun_iOS.gif; sourceTree = "<group>"; };
 		3346B34325AB653D00EF5E14 /* Cherish-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cherish-iOS.entitlements"; sourceTree = "<group>"; };
 		3346B34625AB77E300EF5E14 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
 		335B3A2F25EF805400DD7A6F /* LoginNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNC.swift; sourceTree = "<group>"; };
@@ -394,6 +404,11 @@
 		3317777D25B0568600CC1030 /* Gif */ = {
 			isa = PBXGroup;
 			children = (
+				334130C22620750700A68ED2 /* blue_iOS.gif */,
+				334130C42620750700A68ED2 /* min_iOS.gif */,
+				334130C32620750700A68ED2 /* rose_iOS.gif */,
+				334130C52620750700A68ED2 /* stuki_iOS.gif */,
+				334130C62620750700A68ED2 /* sun_iOS.gif */,
 				5491595325DE43F7008104FC /* testwatering.gif */,
 			);
 			path = Gif;
@@ -1152,17 +1167,20 @@
 				33851C80259A5542005BCFFD /* LaunchScreen.storyboard in Resources */,
 				92DCC3EB25A85D7100160523 /* SelectFriendCell.xib in Resources */,
 				33201B2225AF3F23001A94E4 /* GoogleService-Info.plist in Resources */,
+				334130C92620750700A68ED2 /* min_iOS.gif in Resources */,
 				33E874E825A04832001F84FE /* TabBar.storyboard in Resources */,
 				33E874C825A04332001F84FE /* NotoSansCJKkr-Regular.otf in Resources */,
 				54D223F425DA2912003A1496 /* SignUp.storyboard in Resources */,
 				33E874CB25A0434B001F84FE /* Roboto-Regular.ttf in Resources */,
 				33851C7D259A5542005BCFFD /* Assets.xcassets in Resources */,
 				5488923725A5E962003839FC /* CalendarKeywordCVCell.xib in Resources */,
+				334130CB2620750700A68ED2 /* sun_iOS.gif in Resources */,
 				5491595425DE43F8008104FC /* testwatering.gif in Resources */,
 				5488922125A59486003839FC /* Calendar.storyboard in Resources */,
 				548F26882612F52F0055C5E1 /* Onboarding.storyboard in Resources */,
 				33E874D125A0437A001F84FE /* NotoSansCJKkr-Bold.otf in Resources */,
 				33E874E425A047DE001F84FE /* ShowMore.storyboard in Resources */,
+				334130C72620750700A68ED2 /* blue_iOS.gif in Resources */,
 				92DCC3E525A85D1D00160523 /* AddUser.storyboard in Resources */,
 				548DF15725A1A0470081FCD1 /* PopUpWatering.storyboard in Resources */,
 				5478344D25AB65C30021C32B /* ShowMoreTVC.xib in Resources */,
@@ -1170,6 +1188,7 @@
 				33EDFBB525A1B533006367A7 /* PlantDetail.storyboard in Resources */,
 				337A5CB525A8543600578130 /* Login.storyboard in Resources */,
 				92824D9D25B16E94003D7678 /* SearchPlantCell.xib in Resources */,
+				334130CA2620750700A68ED2 /* stuki_iOS.gif in Resources */,
 				3317778F25B0B7D900CC1030 /* Roboto-Medium.ttf in Resources */,
 				33E874DD25A04569001F84FE /* MyPage.storyboard in Resources */,
 				33E874D425A043B4001F84FE /* NotoSansCJKkr-Light.otf in Resources */,
@@ -1179,6 +1198,7 @@
 				548F2696261310790055C5E1 /* OnboardingCVCell.xib in Resources */,
 				33E874CE25A04361001F84FE /* NotoSansCJKkr-Medium.otf in Resources */,
 				548DF17B25A1EE610081FCD1 /* Review.storyboard in Resources */,
+				334130C82620750700A68ED2 /* rose_iOS.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1519,7 +1539,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -1527,7 +1547,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1543,7 +1563,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -1551,7 +1571,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

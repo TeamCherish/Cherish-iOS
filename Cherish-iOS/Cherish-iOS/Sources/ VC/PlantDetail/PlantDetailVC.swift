@@ -190,6 +190,7 @@ class PlantDetailVC: UIViewController {
                     }
                     
                     plantHealthStatusLabel.text = plantDetailDataFromMyPage.statusMessage
+                    heathStatusLabel.text = plantDetailDataFromMyPage.status
                     makeCircularView(Float(plantDetailDataFromMyPage.gage))
                     
                     // 메모 데이터
@@ -368,6 +369,7 @@ class PlantDetailVC: UIViewController {
                         keywordArray.append("등록된 키워드가 없어요")
                     }
                     plantHealthStatusLabel.text = plantDetailData.statusMessage
+                    heathStatusLabel.text = plantDetailData.status
                     makeCircularView(Float(plantDetailData.gage))
                     
                     // 메모 데이터
@@ -703,29 +705,47 @@ class PlantDetailVC: UIViewController {
             //물주기버튼의 radius값 Autolayout에 맞게 18로 설정
             wateringBtn.layer.cornerRadius = 23
         }
-
+        
+        else if screenWidth == 414 && screenHeight == 736 {
+            print("iPhone 8+")
+            infoStackViewHeight.constant = 43
+            nameTagViewHeight.constant = 24
+            plantNicknameLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 20)
+            heathStatusLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 11)
+            plantHealthStatusLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 20)
+            nicknameLabelTopConstraint.constant = 13
+           
+            
+            //백드랍 뷰 사이즈 조정
+            backDropImageView.frame.size = CGSize(width: 130, height: 0)
+            let backdropNewHeight = CGFloat(130)
+            backdropImageViewHeight.constant = backdropNewHeight
+            backDropImageView.layoutIfNeeded()
+            
+            //식물 정보버튼 사이즈 조정
+            plantDetailBtn.frame.size = CGSize(width: 130, height: 0)
+            let plantDetailNewHeight = CGFloat(130)
+            plantDetailBtnHeight.constant = plantDetailNewHeight
+            plantDetailBtn.layoutIfNeeded()
+            plantDetailBtnTopConstant.constant = 45
+            print("plantDetailHeight",plantDetailBtn.frame.height)
+            
+            //원형 프로그레스바 사이즈 조정 (클래스에서 해줌. 여기서는 세부 constraint 조정)
+            plantCircularProgressView.layoutIfNeeded()
+            circularViewHeight.constant = 148
+            circularProgressViewTopConstant.constant = 36
+            
+            
+            memoTextFieldHeight.constant = 55
+            memoViewTopConstraint.constant = 35
+            secondMemoTopConstraint.constant = 12
+            infoStackviewTopConstraint.constant = 25
+        }
         
         /// iPhone12 mini size 보다 클 때
-        else if screenWidth >= 375 && screenHeight >= 812 {
+        else {
             backDropImageView.frame.size = CGSize(width: 140, height: 140)
             plantDetailBtn.frame.size = CGSize(width: 140, height: 140)
-            
-            //원형 프로그레스바의 Top Constraint를 50으로 설정
-            //  circularProgressViewTopConstant.constant = 50
-            
-            //식물 상세보기 버튼의 Top Constraint를 60으로 설정
-            //  plantDetailBtnTopConstant.constant = 60
-            
-            //메모카드이미지뷰 높이를 313으로 설정
-            //  memoCardHeight.constant = 313
-            
-            //  keywordCVTopConstraint.constant = 2
-            
-            //메모텍스트필드 높이를 54로 설정
-            //   memoTextFieldHeight.constant = 54
-            
-            //메모타이틀라벨의 Top Constraint를 25로 설정
-            //  memoTitleLabelTopConstraint.constant = 25
         }
     }
     
