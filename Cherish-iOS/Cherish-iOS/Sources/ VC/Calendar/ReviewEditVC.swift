@@ -202,7 +202,7 @@ class ReviewEditVC: UIViewController{
         let confirm = UIAlertAction(title: "삭제",style: .destructive) { [self] (action) in
             // DELETE 서버 통신
             CalendarService.shared.reviewDelete(CherishId: reciever, water_date: dateForServer!) { (networkResult) -> (Void) in
-
+                
                 switch networkResult {
                 case .success(_):
                     /// 삭제됐을 경우 캘린더가 아니라 식물카드뷰로 나가기
@@ -262,7 +262,7 @@ class ReviewEditVC: UIViewController{
             memoTextView.text = ""
         }
         CalendarService.shared.reviewEdit(CherishId: reciever, water_date: dateForServer!, review: memoTextView.text, keyword1: edit_keyword[0], keyword2: edit_keyword[1], keyword3: edit_keyword[2]) { (networkResult) -> (Void) in
-
+            
             switch networkResult {
             case .success(_):
                 self.navigationController?.popViewController(animated: true)
@@ -283,7 +283,7 @@ class ReviewEditVC: UIViewController{
 //MARK: -Protocols
 /// 1
 extension ReviewEditVC: UITextFieldDelegate,UITextViewDelegate{
-       
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         /// 키워드가 이미 3개인데 사용자가 입력하려한다면 막음
         if edit_keyword.count >= 3 {
@@ -347,7 +347,7 @@ extension ReviewEditVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         return cell
     }
     
-    //MARK: - Cell 사이즈
+    /// Cell 사이즈
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         let label = UILabel(frame: CGRect.zero)

@@ -149,7 +149,7 @@ class ReviewVC: UIViewController {
         }
     }
     
-   
+    
     
     //MARK: -사용자 정의 함수
     /// 키보드 Done 버튼 생성
@@ -343,7 +343,7 @@ class ReviewVC: UIViewController {
 //MARK: -Protocols
 /// 1
 extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
-
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         /// 키워드가 이미 3개인데 사용자가 입력하려한다면 막음
         if keyword.count >= 3 {
@@ -411,15 +411,15 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         return cell
     }
     
-    //MARK: - Cell 사이즈
+    /// Cell 사이즈
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         let label = UILabel(frame: CGRect.zero)
         label.text = keyword[indexPath.row]
         label.sizeToFit()
         let cellSize = label.frame.width+25
-        
+
         return CGSize(width: cellSize, height: 29)
-        
+
     }
 }
