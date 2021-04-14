@@ -73,7 +73,7 @@ class ReviewEditVC: UIViewController{
         super.viewDidLoad()
         loadMemo()
         textViewPlaceholder()
-        checkingLetterCount() //글자 수 검사 노티
+        addLetterCountNoti() //글자 수 검사 노티
         decideMainMyPage()
     }
     
@@ -84,7 +84,7 @@ class ReviewEditVC: UIViewController{
     
     //MARK: -사용자 정의 함수
     // 글자 수 검사 노티들 가진 함수
-    func checkingLetterCount(){
+    func addLetterCountNoti(){
         NotificationCenter.default.addObserver(self, selector: #selector(textfieldDidChange(_:)), name: UITextField.textDidChangeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(textviewDidChange(_:)), name: UITextView.textDidChangeNotification, object: nil)
     }
@@ -94,10 +94,14 @@ class ReviewEditVC: UIViewController{
         if let textField = notification.object as? UITextField {
             if let text = textField.text {
                 
+                keywordCountingLabel.text =  "\(text.count)"+"/"
+                
                 if text.count > maxLength_keyword {
                     // 5글자 넘어가면 자동으로 키보드 내려감
                     textField.resignFirstResponder()
+                    keywordCountingLabel.text =  "5/"
                 }
+                
                 
                 // 초과되는 텍스트 제거
                 if text.count >= maxLength_keyword {
@@ -115,9 +119,12 @@ class ReviewEditVC: UIViewController{
         if let textView = notification.object as? UITextView {
             if let text = textView.text {
                 
+                memoCountingLabel.text = "\(text.count)"+"/"
+                
                 if text.count > maxLength_memo {
                     // 100글자 넘어가면 자동으로 키보드 내려감
                     textView.resignFirstResponder()
+                    memoCountingLabel.text = "100/"
                 }
                 
                 // 초과되는 텍스트 제거
@@ -276,54 +283,13 @@ class ReviewEditVC: UIViewController{
 //MARK: -Protocols
 /// 1
 extension ReviewEditVC: UITextFieldDelegate,UITextViewDelegate{
-    /// 키워드 부분 글자수 Counting
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text else { return false }
-        
-        let newKeywordLength = text.count + string.utf16.count - range.length
-        /// 글자 수 실시간 카운팅
-        keywordCountingLabel.text =  "\(String(newKeywordLength))"+"/"
-        
-        /// 5글자 채우면 6으로 표시되는거 해결
-        if newKeywordLength >= maxLength_keyword {
-            keywordCountingLabel.text =  "5/"
-        }
-        
-        /// 최대 글자 수 5
-        if text.count >= maxLength_keyword && range.length == 0 && range.location < maxLength_keyword {
-            return false
-        }
-        
-        return true
-    }
-    
+       
     func textFieldDidBeginEditing(_ textField: UITextField) {
         /// 키워드가 이미 3개인데 사용자가 입력하려한다면 막음
         if edit_keyword.count >= 3 {
             nomoreKeyword(title: "", message: "키워드는 3개까지 쓸 수 있어요!")
             self.view.endEditing(true) /// 알림창 후 키보드 내림
         }
-    }
-    
-    /// 메모 부분 글자수 Counting
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        guard let str = memoTextView.text else { return false }
-
-        let newMemoLength = str.count + text.utf16.count - range.length
-        /// 글자 수 실시간 카운팅
-        memoCountingLabel.text =  "\(String(newMemoLength))"+"/"
-
-        /// 100글자 채우면 101로 표시되는거 해결
-        if newMemoLength >= maxLength_memo {
-            memoCountingLabel.text =  "100/"
-        }
-
-        /// 최대 100글자
-        if text.count >= maxLength_memo && range.length == 0 && range.location < maxLength_memo {
-            return false
-        }
-
-        return true
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

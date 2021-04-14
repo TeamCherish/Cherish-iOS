@@ -11,8 +11,10 @@ class ReviewVC: UIViewController {
     var keyword : [String] = [] /// 키워드 배열
     var reciever : Int = 0
     var phoneNumber : String?
+    var contentStatus: Bool = false
     let maxLength_keyword  = 5 /// 키워드 최대 입력 5글자
     let maxLength_memo  = 100 /// 메모 최대 입력 100글자
+    let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     //MARK: -@IBOutlet
     @IBOutlet weak var reviewNameLabel: CustomLabel! ///또령님! 남쿵둥이님과(와)의
@@ -77,7 +79,6 @@ class ReviewVC: UIViewController {
             skip.tintColor = .placeholderGrey
         }
     }
-    let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,7 +89,7 @@ class ReviewVC: UIViewController {
         }
         setNamingLabel()
         setBtnNotText()
-        checkingLetterCount() // 글자 수 검사 노티
+        addLetterCountNoti() // 글자 수 검사 노티
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -97,19 +98,22 @@ class ReviewVC: UIViewController {
     }
     
     // 글자 수 검사 노티들 가진 함수
-    func checkingLetterCount(){
+    func addLetterCountNoti(){
         NotificationCenter.default.addObserver(self, selector: #selector(textfieldDidChange(_:)), name: UITextField.textDidChangeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(textviewDidChange(_:)), name: UITextView.textDidChangeNotification, object: nil)
     }
     
-    // 1. 키워드 입력 TextField 글자 수 감시(& 복붙 검사)
+    // 1. 키워드 입력 TextField 글자 수 Counting(& 복붙 검사)
     @objc private func textfieldDidChange(_ notification: Notification) {
         if let textField = notification.object as? UITextField {
             if let text = textField.text {
                 
+                keywordCountingLabel.text =  "\(text.count)"+"/"
+                
                 if text.count > maxLength_keyword {
                     // 5글자 넘어가면 자동으로 키보드 내려감
                     textField.resignFirstResponder()
+                    keywordCountingLabel.text =  "5/"
                 }
                 
                 // 초과되는 텍스트 제거
@@ -118,19 +122,21 @@ class ReviewVC: UIViewController {
                     let newString = text[text.startIndex..<index]
                     textField.text = String(newString)
                 }
-                
             }
         }
     }
     
-    // 2. 메모 입력 TextView 글자 수 감시(& 복붙 검사)
+    // 2. 메모 입력 TextView 글자 수 Counting(& 복붙 검사)
     @objc private func textviewDidChange(_ notification: Notification) {
         if let textView = notification.object as? UITextView {
             if let text = textView.text {
                 
+                memoCountingLabel.text = "\(text.count)"+"/"
+                
                 if text.count > maxLength_memo {
                     // 100글자 넘어가면 자동으로 키보드 내려감
                     textView.resignFirstResponder()
+                    memoCountingLabel.text = "100/"
                 }
                 
                 // 초과되는 텍스트 제거
@@ -139,7 +145,6 @@ class ReviewVC: UIViewController {
                     let newString = text[text.startIndex..<index]
                     textView.text = String(newString)
                 }
-                
             }
         }
     }
@@ -225,8 +230,8 @@ class ReviewVC: UIViewController {
     }
     
     func setNamingLabel(){
-        reviewNameLabel.text = "\(UserDefaults.standard.string(forKey: "UserNickname")!)"+"님! "+"\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의"
-        reviewPlzLabel.text = "\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"과/와의 물주기를 기록해주세요"
+        reviewNameLabel.text = "\(UserDefaults.standard.string(forKey: "UserNickname")!)"+"님! "+"\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"와(과)의"
+        reviewPlzLabel.text = "\(UserDefaults.standard.string(forKey: "wateringNickName")!)"+"와(과)의 물주기를 기록해주세요"
     }
     
     
@@ -236,56 +241,68 @@ class ReviewVC: UIViewController {
         submit.layer.borderColor = UIColor.seaweed.cgColor
         submit.layer.borderWidth  = 1.0
         submit.titleLabel?.textColor = .seaweed
+        contentStatus = false
     }
     
     /// 무언가를 썼을 때 채워진 등록완료 버튼
     func setBtnYesText(){
         submit.backgroundColor = .seaweed
         submit.titleLabel?.textColor = .white
+        contentStatus = true
+    }
+    
+    func contentAlert(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인",style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
     
     // 등록완료
     @IBAction func submitReview(_ sender: Any) {
-        
-        // 마이페이지에서 온건지 메인에서 온건지
-        if UserDefaults.standard.bool(forKey: "plantIsSelected") == true{
-            reciever = UserDefaults.standard.integer(forKey: "selectedCherish")
-        }else{
-            reciever = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
-        }
-        
-        ///키워드 nil값 대체
-        if keyword.count == 2 {
-            keyword.append("")
-        }else if keyword.count == 1 {
-            keyword.append("")
-            keyword.append("")
-        }else if keyword.count == 0 {
-            keyword.append("")
-            keyword.append("")
-            keyword.append("")
-        }
-        
-        UserDefaults.standard.set(false, forKey: "reviewNotYet")
-        
-        WateringReviewService.shared.wateringReview(review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: reciever) { [self] (networkResult) -> (Void) in
-            switch networkResult {
-            case .success(let data):
-                print(data)
-                NotificationCenter.default.post(name: .wateringReport, object: reciever)
-                self.dismiss(animated: true, completion: {
-                    NotificationCenter.default.post(name: .popToMainView, object: nil)
-                    UserDefaults.standard.set(false, forKey: "plantIsSelected")
-                })
-            case .requestErr(_):
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
+        if contentStatus {
+            // 마이페이지에서 온건지 메인에서 온건지
+            if UserDefaults.standard.bool(forKey: "plantIsSelected") == true{
+                reciever = UserDefaults.standard.integer(forKey: "selectedCherish")
+            }else{
+                reciever = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
             }
+            
+            ///키워드 nil값 대체
+            if keyword.count == 2 {
+                keyword.append("")
+            }else if keyword.count == 1 {
+                keyword.append("")
+                keyword.append("")
+            }else if keyword.count == 0 {
+                keyword.append("")
+                keyword.append("")
+                keyword.append("")
+            }
+            
+            UserDefaults.standard.set(false, forKey: "reviewNotYet")
+            
+            WateringReviewService.shared.wateringReview(review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: reciever) { [self] (networkResult) -> (Void) in
+                switch networkResult {
+                case .success(let data):
+                    print(data)
+                    NotificationCenter.default.post(name: .wateringReport, object: reciever)
+                    self.dismiss(animated: true, completion: {
+                        NotificationCenter.default.post(name: .popToMainView, object: nil)
+                        UserDefaults.standard.set(false, forKey: "plantIsSelected")
+                    })
+                case .requestErr(_):
+                    print("requestErr")
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            }
+        }else{
+            contentAlert(message: "키워드 또는 메모를 입력 후 \n 등록을 완료해주세요!")
         }
     }
     
@@ -298,7 +315,9 @@ class ReviewVC: UIViewController {
             reciever = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
         }
         keyword = ["","",""]
+        
         UserDefaults.standard.set(false, forKey: "reviewNotYet")
+        
         WateringReviewService.shared.wateringReview(review: "", keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: reciever) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
@@ -324,27 +343,7 @@ class ReviewVC: UIViewController {
 //MARK: -Protocols
 /// 1
 extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
-    /// 키워드 부분 글자수 Counting
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text else { return false }
-        
-        let newKeywordLength = text.count + string.utf16.count - range.length
-        /// 글자 수 실시간 카운팅
-        keywordCountingLabel.text =  "\(String(newKeywordLength))"+"/"
-        
-        /// 5글자 채우면 6으로 표시되는거 해결
-        if newKeywordLength >= maxLength_keyword {
-            keywordCountingLabel.text =  "5/"
-        }
-        
-        /// 최대 글자 수 5
-        if text.count >= maxLength_keyword && range.length == 0 && range.location < maxLength_keyword {
-            return false
-        }
-        
-        return true
-    }
-    
+
     func textFieldDidBeginEditing(_ textField: UITextField) {
         /// 키워드가 이미 3개인데 사용자가 입력하려한다면 막음
         if keyword.count >= 3 {
@@ -352,35 +351,6 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
             self.view.endEditing(true) /// 알림창 후 키보드 내림
         }
     }
-    
-    
-    /// 메모 부분 글자수 Counting
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        guard let str = memoTextView.text else { return false }
-
-        let newMemoLength = str.count + text.utf16.count - range.length
-        /// 글자 수 실시간 카운팅
-        memoCountingLabel.text =  "\(String(newMemoLength))"+"/"
-
-        /// 100글자 채우면 101로 표시되는거 해결
-        if newMemoLength >= maxLength_memo {
-            memoCountingLabel.text =  "100/"
-        }
-        
-        if keyword.count >= 1 || newMemoLength > 0 {
-            setBtnYesText()
-        }else{
-            setBtnNotText()
-        }
-
-        /// 최대 100글자
-        if text.count >= maxLength_memo && range.length == 0 && range.location < maxLength_memo {
-            return false
-        }
-
-        return true
-    }
-
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         textViewPlaceholder()
