@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "scale" : "1x",
+      "idiom" : "universal",
       "filename" : "cricleSun.png",
-      "idiom" : "universal"
+      "scale" : "1x"
+    },
+    {
+      "scale" : "2x",
+      "idiom" : "universal",
+      "filename" : "cricleSun@2x.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "cricleSun@2x.png",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "cricleSun@3x.png",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "cricleSun@3x.png"
     }
   ],
   "info" : {
