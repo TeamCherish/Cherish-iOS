@@ -386,8 +386,10 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 /// 선택된 친구셀 블러처리
                 if indexPath == selectedIndexPath {
                     cell.cherishPlantImageView.alpha = 0.3
+                    cell.cherishNickNameLabel.alpha = 0.3
                 } else {
                     cell.cherishPlantImageView.alpha = 1
+                    cell.cherishNickNameLabel.alpha = 1
                 }
                 return cell
             }

@@ -74,7 +74,6 @@ PODS:
   - GoogleUtilities/UserDefaults (7.2.0):
     - GoogleUtilities/Logger
   - Kingfisher (6.0.1)
-  - lottie-ios (3.1.9)
   - nanopb (2.30907.0):
     - nanopb/decode (= 2.30907.0)
     - nanopb/encode (= 2.30907.0)
@@ -82,7 +81,6 @@ PODS:
   - nanopb/encode (2.30907.0)
   - OverlayContainer (3.5.1)
   - PromisesObjC (1.2.12)
-  - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4.1)
@@ -90,9 +88,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - FSCalendar
   - Kingfisher
-  - lottie-ios
   - OverlayContainer
-  - SnapKit
 
 SPEC REPOS:
   trunk:
@@ -109,11 +105,9 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleUtilities
     - Kingfisher
-    - lottie-ios
     - nanopb
     - OverlayContainer
     - PromisesObjC
-    - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
@@ -129,12 +123,10 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 1024b1a4dfbd7a0e92cb20d7e0a6f1fb66b449a4
   GoogleUtilities: d866834472f1324d080496bc67ab3ce5d0d46027
   Kingfisher: adde87a4f74f6a3845395769354efff593581740
-  lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   OverlayContainer: a95f0f555fd0dd1addba3fc45370801e5fc16e68
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: e091a65a0b21c5b503d246839e1a5b53b5e7cbed
+PODFILE CHECKSUM: 513dbc1440a4580ff05c68603c9b51bd4e9b1ba2
 
 COCOAPODS: 1.10.0

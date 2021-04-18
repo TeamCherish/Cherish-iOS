@@ -7,9 +7,7 @@ target 'Cherish-iOS' do
 
   # Pods for Cherish-iOS
   pod 'Alamofire','~> 5.4.1'
-  pod 'lottie-ios'
   pod 'Kingfisher'
-  pod 'SnapKit'
   pod 'FSCalendar'
   pod 'OverlayContainer'
   pod 'Firebase/Analytics'

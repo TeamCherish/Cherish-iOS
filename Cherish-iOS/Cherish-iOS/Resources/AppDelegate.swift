@@ -52,9 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
-        print("gdgdgdgd")
-        
-        
         // [END register_for_notifications
         
         return true
