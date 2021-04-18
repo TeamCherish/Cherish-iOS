@@ -99,7 +99,6 @@ class PlantResultVC: UIViewController, UIGestureRecognizerDelegate {
         else {
             print("루트 뷰컨이 TabBarController에요")
             self.navigationController?.popToRootViewController(animated: true)
-
         }
     }
     

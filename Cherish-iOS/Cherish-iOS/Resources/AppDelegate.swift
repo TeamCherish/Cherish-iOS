@@ -43,20 +43,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UNUserNotificationCenter.current().requestAuthorization(
                 options: authOptions,
                 completionHandler: {_, _ in })
+            application.registerForRemoteNotifications()
         } else {
             let settings: UIUserNotificationSettings =
                 UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
             application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
+            
         }
         
-        application.registerForRemoteNotifications()
-        
-        // [END register_for_notifications]
+        print("gdgdgdgd")
         
         
-        
-        
-        
+        // [END register_for_notifications
         
         return true
     }
@@ -139,7 +138,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        //        let userInfo = response.notification.request.content.userInfo
+        
         // Print message ID.
         let userInfo = response.notification.request.content.userInfo
         if let messageID = userInfo[gcmMessageIDKey] {
@@ -155,10 +154,10 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         else if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
             print ("푸시 메시지 클릭 했을 때")
             
-            let pushTypeInUserInfo = userInfo[AnyHashable("pushType")]!
+            let pushTypeInUserInfo = (userInfo[AnyHashable("pushType")]! as! NSString).intValue
             
             // 물 줄 시간이에요 푸시
-            if pushTypeInUserInfo as! Int == 1 {
+            if pushTypeInUserInfo == 1 {
                 let cherishIdinUserInfo = userInfo[AnyHashable("CherishId")]!
                 print("plz",cherishIdinUserInfo)
                 let storyboard = UIStoryboard(name: "TabBar", bundle: nil)

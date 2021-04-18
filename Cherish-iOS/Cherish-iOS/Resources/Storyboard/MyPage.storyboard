@@ -211,7 +211,7 @@
                                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1aO-A7-8M1">
                                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
                                                                         <connections>
-                                                                            <segue destination="ekY-xp-mKN" kind="embed" id="iJe-pB-0t7"/>
+                                                                            <segue destination="ekY-xp-mKN" kind="embed" identifier="" id="iJe-pB-0t7"/>
                                                                         </connections>
                                                                     </containerView>
                                                                 </subviews>
@@ -409,6 +409,7 @@
                         <outlet property="mypageInfoStackView" destination="Cs7-JV-439" id="k5i-c1-a7u"/>
                         <outlet property="mypageInfoStackViewWidth" destination="hZO-h9-5Ae" id="fe8-pG-zLN"/>
                         <outlet property="mypageNaviView" destination="2NA-sO-jaz" id="V6z-3p-6YS"/>
+                        <outlet property="mypageStackView" destination="b0N-eD-Yc5" id="01l-zZ-pxB"/>
                         <outlet property="mypageUserImageView" destination="NaW-Jf-7Wp" id="WMk-R0-Su1"/>
                         <outlet property="plantContainerTopConstraint" destination="oRi-w7-JG3" id="GYg-lo-fjg"/>
                         <outlet property="plantSV" destination="ZOD-Ng-RVr" id="yhL-0U-uqk"/>

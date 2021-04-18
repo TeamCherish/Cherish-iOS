@@ -286,11 +286,13 @@ class ReviewVC: UIViewController {
                 switch networkResult {
                 case .success(let data):
                     print(data)
-                    NotificationCenter.default.post(name: .wateringReport, object: reciever)
-                    self.dismiss(animated: true, completion: {
-                        NotificationCenter.default.post(name: .popToMainView, object: nil)
-                        UserDefaults.standard.set(false, forKey: "plantIsSelected")
-                    })
+                    if UserDefaults.standard.bool(forKey: "plantIsSelected") == false {
+                    NotificationCenter.default.post(name: .wateringReport, object:reciever)
+                }
+                self.dismiss(animated: true, completion: {
+                    NotificationCenter.default.post(name: .popToMainView, object: nil)
+                    UserDefaults.standard.set(false, forKey: "plantIsSelected")
+                })
                 case .requestErr(_):
                     print("requestErr")
                 case .pathErr:
@@ -322,7 +324,9 @@ class ReviewVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 print(data)
-                NotificationCenter.default.post(name: .wateringReport, object:reciever)
+                if UserDefaults.standard.bool(forKey: "plantIsSelected") == false {
+                    NotificationCenter.default.post(name: .wateringReport, object:reciever)
+                }
                 self.dismiss(animated: true, completion: {
                     NotificationCenter.default.post(name: .popToMainView, object: nil)
                     UserDefaults.standard.set(false, forKey: "plantIsSelected")

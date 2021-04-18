@@ -20,7 +20,7 @@ class MypageContactVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.translatesAutoresizingMaskIntoConstraints = false
-//        setContactData()
+        UserDefaults.standard.removeObject(forKey: "mypagePlantVC")
         checkContactArray()
         requestAccess(completionHandler: {_ in })
         mypageContactTV.delegate = self
@@ -30,6 +30,7 @@ class MypageContactVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         requestAccess(completionHandler: {_ in })
+        UserDefaults.standard.removeObject(forKey: "mypagePlantVC")
     }
     
     

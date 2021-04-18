@@ -23,4 +23,6 @@ extension Notification.Name {
     static let postToReloadMainCell = Notification.Name("postToReloadMainCell")
     static let pushSelected = Notification.Name("pushSelected")
     static let pushClickToWateringPopUp = Notification.Name("pushClickToWateringPopUp")
+    static let mypageWatering = Notification.Name("mypageWatering")
+    static let whenMypageWateringMainReload = Notification.Name("whenMypageWateringMainReload")
 }
