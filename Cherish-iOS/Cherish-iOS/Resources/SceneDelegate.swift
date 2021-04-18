@@ -25,23 +25,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             print("첫 로드 : 메인뷰")
             UserDefaults.standard.set(true,forKey: "autoLogin")
             let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
-            
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController")
-            
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
+            UIApplication.shared.registerForRemoteNotifications()
             
         }
         // 자동 로그인이 아닐 때는 첫 Scnene을 로그인뷰로
         else {
             print("첫 로드 : 로그인뷰")
-            
             let storyboard = UIStoryboard(name: "Login", bundle: nil)
-            
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginNC")
-            
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
+            UIApplication.shared.unregisterForRemoteNotifications()
         }
     }
     
