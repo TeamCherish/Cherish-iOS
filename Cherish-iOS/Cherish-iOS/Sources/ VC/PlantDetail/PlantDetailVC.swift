@@ -85,7 +85,6 @@ class PlantDetailVC: UIViewController {
         if myCherishIsSelected == true {
             print("mypage")
             getPlantDataFromMyPage(cherishId: myCherishIdx)
-            //            UserDefaults.standard.set(false, forKey: "plantIsSelected")
         }
         else {
             print(friendsPlantIdx)

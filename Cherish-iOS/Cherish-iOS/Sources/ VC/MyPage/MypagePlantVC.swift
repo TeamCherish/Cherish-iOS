@@ -94,26 +94,20 @@ extension MypagePlantVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        plantIsSelected = true 
-//        let vc = MyPageVC()
-        print("2: my plant임 ㅎㅇㅎㅇ")
-//        print(vc.myPlantID)
+        plantIsSelected = true
         
         let myCherish: [Int] = UserDefaults.standard.array(forKey: "plantIDArray")! as? [Int] ?? [Int]()
-        print(myCherish)
         
         let keyId = myCherish[indexPath.row]
         UserDefaults.standard.set(keyId, forKey: "selectedCherish")
         UserDefaults.standard.set(mypagePlantArray[indexPath.row].phone, forKey: "selectedCherishPhone")
+        
         // plantIsSelected 값 UserDefaults에 넣기
         UserDefaults.standard.set(plantIsSelected, forKey: "plantIsSelected")
-        print(UserDefaults.standard.bool(forKey: "plantIsSelected"))
-        print(UserDefaults.standard.integer(forKey: "selectedCherish"))
+        UserDefaults.standard.set(mypagePlantArray[indexPath.row].dDay, forKey:"selecteddDayData")
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "PlantDetail", bundle: nil)
-
         guard let dvc = storyBoard.instantiateViewController(identifier: "PlantDetailVC") as? PlantDetailVC else { return }
-
         self.navigationController?.pushViewController(dvc, animated: true)
     }
 }

@@ -97,6 +97,7 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
                     self.cherishPeopleCV.reloadData()
                     UserDefaults.standard.set(cherishPeopleData.count, forKey: "cherishPeopleDataCount")
                     
+                    // 남은 식물이 한개도 없을 때 식물 추가뷰를 띄워준다.
                     if cherishPeopleData.count == 0 {
                         let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
                         if let vc = storyBoard.instantiateViewController(identifier: "NoPlantVC") as? NoPlantVC {
@@ -143,7 +144,7 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
     @objc func whenPushClickedViewUpdate(_ notification: Notification) {
         
         let idData:Int = Int(notification.object as! String)!
-        print("푸시왔당",idData)
+        print("푸시",idData)
         
         for i in 0...cherishPeopleData.count - 1 {
             if cherishPeopleData[i].id == idData {
@@ -151,7 +152,6 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
                 pushCherishPhoneNumber = cherishPeopleData[i].phone
             }
         }
-        print(idData, pushCherishPhoneNumber)
         
         // 푸시알림이 온 친구(cherishId)를 클릭한 상태가 되기 위해 노티를 받아
         // 바텀시트 컬렉션뷰의 선택된 셀 정보를 바꿔준다.
@@ -176,7 +176,7 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
     @objc func whenWateringInMypage(_ notification: Notification) {
         
         let idData: Int = notification.object as! Int
-        print("마이페이지에서물주기함",idData)
+        print("마이페이지에서물주기",idData)
         
         for i in 0...cherishPeopleData.count - 1 {
             if cherishPeopleData[i].id == idData {
@@ -185,7 +185,6 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
                 mypageSelectedNickname = cherishPeopleData[i].nickname
             }
         }
-        print(idData, pushCherishPhoneNumber)
         
         // 푸시알림이 온 친구(cherishId)를 클릭한 상태가 되기 위해 노티를 받아
         // 바텀시트 컬렉션뷰의 선택된 셀 정보를 바꿔준다.

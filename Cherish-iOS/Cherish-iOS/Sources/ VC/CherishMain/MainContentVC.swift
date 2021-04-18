@@ -26,9 +26,6 @@ class MainContentVC: UIViewController {
     @IBOutlet var plantImageViewTrailing: NSLayoutConstraint!
     @IBOutlet var progressViewTopConstraint: NSLayoutConstraint!
     @IBOutlet var progressInnerViewTopConstraint: NSLayoutConstraint!
-    var cherishPeopleData:[ResultData] = []
-    var cherishResultData:[MainPlantConditionData] = []
-    var selectedRowIndexPath:Int = 0
     @IBOutlet var blurBtnTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var blurBtn: UIVisualEffectView!{
         didSet{
@@ -36,10 +33,13 @@ class MainContentVC: UIViewController {
         }
     }
     let userId: Int = UserDefaults.standard.integer(forKey: "userID")
-    var growthInfo:Int = UserDefaults.standard.integer(forKey: "selectedGrowthData")
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let screenWidth = UIScreen.main.bounds.size.width
     let screenHeight = UIScreen.main.bounds.size.height
+    var cherishPeopleData:[ResultData] = []
+    var cherishResultData:[MainPlantConditionData] = []
+    var selectedRowIndexPath:Int = 0
+    var growthInfo:Int = UserDefaults.standard.integer(forKey: "selectedGrowthData")
     
     
     //MARK: - viewDidLoad
@@ -84,8 +84,8 @@ class MainContentVC: UIViewController {
         // 식물상세페이지로 네비게이션 연결 후 탭바가 사라지기 때문에
         // popViewController 액션으로 다시 메인뷰로 돌아왔을 때 탭바가 나타나야 한다.
         self.tabBarController?.tabBar.isHidden = false
-        
-        UserDefaults.standard.set(false, forKey: "plantIsSelected")
+//
+//        UserDefaults.standard.set(false, forKey: "plantIsSelected")
         LoadingHUD.hide()
     }
     
@@ -120,6 +120,7 @@ class MainContentVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(clickPushToMoveWateringPopup), name: .pushClickToWateringPopUp, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(whenMypageWateringMainReload), name: .whenMypageWateringMainReload, object: nil)
     }
+    
     
     //MARK: - selectedData를 갖고 실제로 view를 구성하는 함수
     func setDataWithSelectedData() {
@@ -157,7 +158,7 @@ class MainContentVC: UIViewController {
             
             //MARK: - 민들레일 때
             if selectedPlantName == "민들레" {
-                
+    
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
                 allocateWateringDataWhenBackgroundMode()
                 growthInfo = UserDefaults.standard.integer(forKey: "selectedGrowthData")
@@ -282,7 +283,6 @@ class MainContentVC: UIViewController {
                 }
                 //물주기 미뤘을 때 시든상태
                 else if cherishResultData[selectedRowIndexPath].dDay <= 0 {
-                    
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
                     rosemaryGrowth()
@@ -294,6 +294,7 @@ class MainContentVC: UIViewController {
                 else {
                     plantImageView.isHidden = false
                     view.backgroundColor = .rosemaryBg
+                    
                     // 식물3단계 파싱해주기
                     rosemaryGrowth()
                 }
@@ -588,9 +589,8 @@ class MainContentVC: UIViewController {
         // 3단계
         else {
             // 시든 상태일때
+            selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
             if cherishResultData[selectedRowIndexPath].dDay <= 0 {
-                print(cherishResultData[selectedRowIndexPath])
-                print("why..?")
                 plantGifView.isHidden = true
                 plantImageView.frame.size = CGSize(width: 288, height: 0)
                 let newHeight = CGFloat(521)
@@ -604,7 +604,6 @@ class MainContentVC: UIViewController {
             }
             else {
                 // 3단계
-                print("w..?")
                 plantImageView.isHidden = true
                 plantGifView.isHidden = false
                 self.plantGifView.image = UIImage.gif(name: "rose_iOS")!
