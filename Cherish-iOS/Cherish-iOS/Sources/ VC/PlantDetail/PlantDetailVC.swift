@@ -102,12 +102,9 @@ class PlantDetailVC: UIViewController {
         LoadingHUD.show()
         setControllers()
         friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
-        print("viewWillAppear")
         print(friendsPlantIdx)
         if myCherishIsSelected == true {
-            print("hello")
             getPlantDataFromMyPage(cherishId: myCherishIdx)
-            //            UserDefaults.standard.set(false, forKey: "plantIsSelected")
         }
         else {
             getPlantDetailData()
@@ -124,7 +121,6 @@ class PlantDetailVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
         self.edgesForExtendedLayout = UIRectEdge.bottom
-        print("ddd")
     }
     
     func makeDelegates() {
@@ -133,7 +129,13 @@ class PlantDetailVC: UIViewController {
     }
     
     @objc func popToMainView() {
-        self.navigationController?.popViewController(animated: true)
+        // 마이페이지에서 온건지 메인에서 온건지
+        if UserDefaults.standard.bool(forKey: "plantIsSelected") == true{
+            self.tabBarController?.selectedIndex = 0
+            NotificationCenter.default.post(name: .mypageWatering, object: UserDefaults.standard.integer(forKey: "selectedCherish"))            
+        }else{
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     func getPlantDataFromMyPage(cherishId: Int) {
@@ -146,7 +148,6 @@ class PlantDetailVC: UIViewController {
                     plantNicknameLabel.text = plantDetailDataFromMyPage.nickname
                     userNameInRoundViewLabel.text = plantDetailDataFromMyPage.name
                     plantKindsInRoundViewLabel.text = plantDetailDataFromMyPage.plantName
-                    
                     plantId = plantDetailDataFromMyPage.plantId
                     
                     let url = URL(string: plantDetailDataFromMyPage.plantThumbnailImageURL)

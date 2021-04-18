@@ -17,12 +17,20 @@ class MySearchPlantCell: UITableViewCell {
     
     let pinkSub:CGColor = CGColor(red: 247/255, green: 89/255, blue: 108/255, alpha: 1.0)
     let seaweed:CGColor = CGColor(red: 26/255, green: 210/255, blue: 135/255, alpha: 1.0)
+    let white:CGColor = CGColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         makeRadiusView()
     }
+    
+    override func prepareForReuse() {
+        //이미지가 로딩될 때 셀에 다른 이미지가 표시된 후 이미지가 로드되는 이슈
+        //셀 재사용 시 image에 nil값을 배정하는 걸로 해결
+        myPlantImg.image = nil
+        dayCornerView.layer.borderColor = white
+      }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

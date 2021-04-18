@@ -47,7 +47,6 @@ class MainContentVC: UIViewController {
         super.viewDidLoad()
         whenNotReviewPresentToReviewVC()
         LoadingHUD.show()
-        print(UserDefaults.standard.bool(forKey: "plantIsSelected"))
         UserDefaults.standard.set(false, forKey: "plantIsSelected")
         UserDefaults.standard.set(false, forKey: "calendarPlantIsSelected")
         addNotificationObserver()
@@ -119,8 +118,8 @@ class MainContentVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(isWateringReported), name: .wateringReport, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(getPeopleData), name: .sendPeopleDataArray, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(clickPushToMoveWateringPopup), name: .pushClickToWateringPopUp, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(whenMypageWateringMainReload), name: .whenMypageWateringMainReload, object: nil)
     }
-    
     
     //MARK: - selectedData를 갖고 실제로 view를 구성하는 함수
     func setDataWithSelectedData() {
@@ -854,6 +853,15 @@ class MainContentVC: UIViewController {
                 cherishResultData.append(MainPlantConditionData(id: 0, dDay: 1, isWatering: false, isWithered: false))
             }
         }
+    }
+    
+    
+    //MARK: - 마이페이지 -> 물주기했을 때 메인 컨텐트뷰 리로드해주는 함수
+    @objc func whenMypageWateringMainReload() {
+        self.userNickNameLabel.text = UserDefaults.standard.string(forKey: "selectedNickNameData")
+        self.customProgressBarView(UserDefaults.standard.integer(forKey: "selectedGrowthData"))
+        self.growthPercentLabel.text = "\(UserDefaults.standard.integer(forKey: "selectedGrowthData"))%"
+        self.plantExplainLabel.text = UserDefaults.standard.string(forKey: "selectedModifierData")
     }
     
     

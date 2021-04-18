@@ -13,11 +13,8 @@ class MypagePlantVC: UIViewController {
     @IBOutlet var mypageTV: MyOwnTableView!
     
     var mypagePlantArray: [MypagefriendsData] = []
-    
-     
     var myCherishId: [Int] = []
     var myCherishLevel: [Int] = []
-    
     var plantIsSelected = false
     
     override func viewDidLoad() {
@@ -102,15 +99,14 @@ extension MypagePlantVC: UITableViewDelegate, UITableViewDataSource {
         print("2: my plant임 ㅎㅇㅎㅇ")
 //        print(vc.myPlantID)
         
-        var myCherish: [Int] = UserDefaults.standard.array(forKey: "plantIDArray")! as? [Int] ?? [Int]()
+        let myCherish: [Int] = UserDefaults.standard.array(forKey: "plantIDArray")! as? [Int] ?? [Int]()
         print(myCherish)
         
-        var keyId = myCherish[indexPath.row]
+        let keyId = myCherish[indexPath.row]
         UserDefaults.standard.set(keyId, forKey: "selectedCherish")
         UserDefaults.standard.set(mypagePlantArray[indexPath.row].phone, forKey: "selectedCherishPhone")
         // plantIsSelected 값 UserDefaults에 넣기
         UserDefaults.standard.set(plantIsSelected, forKey: "plantIsSelected")
-//        UserDefaults.standard.set(plantIsSelected, forKey: "calendarPlantIsSelected")
         print(UserDefaults.standard.bool(forKey: "plantIsSelected"))
         print(UserDefaults.standard.integer(forKey: "selectedCherish"))
         

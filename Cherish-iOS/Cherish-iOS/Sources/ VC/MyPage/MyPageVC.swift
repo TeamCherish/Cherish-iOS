@@ -47,6 +47,7 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
             segmentView.selectorTextColor = .black
         }
     }
+    @IBOutlet var mypageStackView: UIStackView!
     
     var contactArray:[Friend] = []
     
@@ -69,6 +70,7 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        segmentView.buttonAction(sender: UIButton(type: UIButton.ButtonType(rawValue: 0x7fa0b649fc30)!))
         LoadingHUD.show()
         getMypageData()
         setUserImage()
@@ -262,6 +264,7 @@ extension MyPageVC: UIScrollViewDelegate {
         
         if scrollView == mypageExternalSV {
             if !changingIndex{
+                print("segment")
                 segmentView.setIndex(index: Int(round(mypageExternalSV.contentOffset.x / mypageExternalSV.frame.size.width)))
             }
             
@@ -363,6 +366,5 @@ extension MyPageVC: CustomSegmentedControlDelegate {
         mypageExternalSV.setContentOffset(CGPoint(x:x, y:0), animated: true)
         
         print(mypageExternalSV.contentInset.left)
-        
     }
 }
