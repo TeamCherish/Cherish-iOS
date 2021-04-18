@@ -68,6 +68,8 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
         contactSearchBar.searchTextField.sizeToFit()
         contactSearchBar.searchTextField.textColor = UIColor.black
         contactSearchBar.searchTextField.font = UIFont.init(name: "NotoSansCJKKR-Regular", size: 14)
+        contactSearchBar.searchTextPositionAdjustment = UIOffset(horizontal: 12.0, vertical: 0.0)
+        contactSearchBar.setPositionAdjustment(UIOffset(horizontal: 10.0, vertical: 0.0), for: .search)
     }
     
     func getContacts() {
