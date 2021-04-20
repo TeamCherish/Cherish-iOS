@@ -30,9 +30,9 @@
   | Alamofire   | 서버 통신 | 5.4.1 |
   | Kingfisher  | 이미지 처리 | 5.15.8 |
   | FSCalendar  | 캘린더 뷰 만들기 | 2.8.2 |
-  | OverlayContainer  | BottomSheet애니메이션  |  |
-  | Firebase/Analytics | 앱 데이터 분석 |  |
-  | Firebase/Messaging | Push 알림 |  |
+  | OverlayContainer  | BottomSheet애니메이션  | - |
+  | Firebase/Analytics | 앱 데이터 분석 | - |
+  | Firebase/Messaging | Push 알림 | - |
 
 * 📱 AutoLayout  
   iPhone SE2 ~ 
