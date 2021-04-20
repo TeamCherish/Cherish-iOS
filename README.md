@@ -383,7 +383,7 @@ git push or git push origin main
 | Watering Flow(Contact, Review) | <img width=10px src=https://user-images.githubusercontent.com/42789819/115147514-42221300-a096-11eb-9526-a68b8094f79c.png> | 이원석 |
 | Calendar View(Calendar, Review Edit) | <img width=10px src=https://user-images.githubusercontent.com/42789819/115147514-42221300-a096-11eb-9526-a68b8094f79c.png> | 이원석 |
 | Plant Detail | <img width=10px src=https://user-images.githubusercontent.com/42789819/115147514-42221300-a096-11eb-9526-a68b8094f79c.png> | 황지은 |
-| MyPage(Profile, Search, Add Friend) | <img width=10px src=https://user-images.githubusercontent.com/42789819/11514751| ShowMore | <img width=10px src=https://user-images.githubusercontent.com/42789819/115147514-42221300-a096-11eb-9526-a68b8094f79c.png> | 황지은 |4-42221300-a096-11eb-9526-a68b8094f79c.png> | 황지은,장서현 |  
+| MyPage(Profile, Search, Add Friend) | <img width=10px src=https://user-images.githubusercontent.com/42789819/115147514-42221300-a096-11eb-9526-a68b8094f79c.png> | 황지은,장서현 |  
 | ShowMore | <img width=10px src=https://user-images.githubusercontent.com/42789819/115147514-42221300-a096-11eb-9526-a68b8094f79c.png> | 황지은,이원석 |
 | View Connection | <img width=10px src=https://user-images.githubusercontent.com/42789819/115147514-42221300-a096-11eb-9526-a68b8094f79c.png> | 황지은 |
 
