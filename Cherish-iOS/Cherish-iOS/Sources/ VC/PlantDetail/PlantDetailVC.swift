@@ -83,11 +83,9 @@ class PlantDetailVC: UIViewController {
         
         
         if myCherishIsSelected == true {
-            print("mypage")
             getPlantDataFromMyPage(cherishId: myCherishIdx)
         }
         else {
-            print(friendsPlantIdx)
             getPlantDetailData()
         }
         
@@ -99,9 +97,9 @@ class PlantDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         LoadingHUD.show()
+        setAutoLayoutByScreenSize()
         setControllers()
         friendsPlantIdx = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
-        print(friendsPlantIdx)
         if myCherishIsSelected == true {
             getPlantDataFromMyPage(cherishId: myCherishIdx)
         }
