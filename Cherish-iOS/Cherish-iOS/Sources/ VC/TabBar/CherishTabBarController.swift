@@ -10,6 +10,11 @@ import UIKit
 class CherishTabBarController: UITabBarController {
     
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    // 뷰 전체 폭 길이
+    let screenWidth = UIScreen.main.bounds.size.width
+    
+    // 뷰 전체 높이 길이
+    let screenHeight = UIScreen.main.bounds.size.height
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,12 +22,20 @@ class CherishTabBarController: UITabBarController {
         setTabBar()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
+        tabBar.frame.size.height = 55
+        tabBar.frame.origin.y = view.frame.height - 55
+    }
     
     // MARK: - 탭바 만드는 함수
     
     func setTabBar() {
         
         self.tabBar.tintColor = UIColor.black
+        self.tabBar.frame.size.height = 55
+        
         
         /// 마이페이지탭
         let MyPage = UIStoryboard.init(name: "MyPage", bundle: nil)
