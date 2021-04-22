@@ -363,6 +363,8 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
     func textViewDidEndEditing(_ textView: UITextView) {
         if memoTextView.text == "" {
             textViewPlaceholder()
+        }else if textView.text.count > 0 {
+            setBtnYesText()
         }
     }
     
@@ -374,6 +376,9 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         else if memoTextView.text == "" {
             memoTextView.text = "메모를 입력해주세요!"
             memoTextView.textColor = .placeholderGrey
+            if keyword.count == 0{
+                setBtnNotText()
+            }
         }
     }
     

@@ -13,6 +13,7 @@ class ReviewEditVC: UIViewController{
     var edit_date : String? /// 메모 작성 날짜
     var dateForServer : String?
     var reciever: Int = 0
+    var contentStatus: Bool = true
     let maxLength_keyword  = 5 /// 키워드 최대 입력 5글자
     let maxLength_memo  = 100 /// 메모 최대 입력 100글자
     
@@ -159,6 +160,8 @@ class ReviewEditVC: UIViewController{
         if keywordTextField.text != ""{
             /// 키워드 배열에 저장
             edit_keyword.append(keywordTextField.text!)
+            /// 등록했다는 건 키워드가 1개 이상이라는 것 - 채워진 버튼(삭제시 로직은 delegate에)
+            setBtnYesText()
             /// 텍스트 필드 초기화 및 텍스트 필드 글자수 카운팅 초기화
             keywordTextField.text = ""
             keywordCountingLabel.text = "0/"
@@ -178,19 +181,10 @@ class ReviewEditVC: UIViewController{
         editMemoDateLabel.text = edit_date
     }
     ///Alert
-    func nomoreKeyword(title: String, message: String) {
+    func normalAlert(title: String?, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         // Alert의 '확인'을 누르면 dismiss
-        let okAction = UIAlertAction(title: "확인",style: .default) { (action) in
-            alert.dismiss(animated: true, completion: nil)
-        }
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
-    
-    func loginAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인",style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
@@ -239,6 +233,22 @@ class ReviewEditVC: UIViewController{
         }
     }
     
+    /// 아무것도 안썼을 때 보더만 있는 등록완료 버튼
+    func setBtnNotText(){
+        completeBtn.backgroundColor = .white
+        completeBtn.layer.borderColor = UIColor.seaweed.cgColor
+        completeBtn.layer.borderWidth  = 1.0
+        completeBtn.titleLabel?.textColor = .seaweed
+        contentStatus = false
+    }
+    
+    /// 무언가를 썼을 때 채워진 등록완료 버튼
+    func setBtnYesText(){
+        completeBtn.backgroundColor = .seaweed
+        completeBtn.titleLabel?.textColor = .white
+        contentStatus = true
+    }
+    
     @IBAction func moveToBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -247,35 +257,38 @@ class ReviewEditVC: UIViewController{
         deleteAlert(title: "정말로 메모를 삭제하시겠어요?", message: "삭제된 메모는 되돌릴 수 없어요")
     }
     @IBAction func completeEdit(_ sender: Any) {
-        
-        if edit_keyword.count == 0 {
-            edit_keyword = ["","",""]
-        }
-        if edit_keyword.count == 1 {
-            edit_keyword.append("")
-            edit_keyword.append("")
-        }
-        if edit_keyword.count == 2 {
-            edit_keyword.append("")
-        }
-        if memoTextView.text == "메모를 입력해주세요!"{
-            memoTextView.text = ""
-        }
-        CalendarService.shared.reviewEdit(CherishId: reciever, water_date: dateForServer!, review: memoTextView.text, keyword1: edit_keyword[0], keyword2: edit_keyword[1], keyword3: edit_keyword[2]) { (networkResult) -> (Void) in
-            
-            switch networkResult {
-            case .success(_):
-                self.navigationController?.popViewController(animated: true)
-                print("success")
-            case .requestErr(_):
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
+        if contentStatus{
+            if edit_keyword.count == 0 {
+                edit_keyword = ["","",""]
             }
+            if edit_keyword.count == 1 {
+                edit_keyword.append("")
+                edit_keyword.append("")
+            }
+            if edit_keyword.count == 2 {
+                edit_keyword.append("")
+            }
+            if memoTextView.text == "메모를 입력해주세요!"{
+                memoTextView.text = ""
+            }
+            CalendarService.shared.reviewEdit(CherishId: reciever, water_date: dateForServer!, review: memoTextView.text, keyword1: edit_keyword[0], keyword2: edit_keyword[1], keyword3: edit_keyword[2]) { (networkResult) -> (Void) in
+                
+                switch networkResult {
+                case .success(_):
+                    self.navigationController?.popViewController(animated: true)
+                    print("success")
+                case .requestErr(_):
+                    print("requestErr")
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            }
+        }else{
+            normalAlert(title: nil, message: "키워드 또는 메모를 입력 후 \n 등록을 완료해주세요!")
         }
     }
 }
@@ -287,7 +300,7 @@ extension ReviewEditVC: UITextFieldDelegate,UITextViewDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         /// 키워드가 이미 3개인데 사용자가 입력하려한다면 막음
         if edit_keyword.count >= 3 {
-            nomoreKeyword(title: "", message: "키워드는 3개까지 쓸 수 있어요!")
+            normalAlert(title: "", message: "키워드는 3개까지 쓸 수 있어요!")
             self.view.endEditing(true) /// 알림창 후 키보드 내림
         }
     }
@@ -299,6 +312,8 @@ extension ReviewEditVC: UITextFieldDelegate,UITextViewDelegate{
     func textViewDidEndEditing(_ textView: UITextView) {
         if memoTextView.text == "" {
             textViewPlaceholder()
+        }else if memoTextView.text.count > 0 {
+            setBtnYesText()
         }
     }
     
@@ -310,6 +325,9 @@ extension ReviewEditVC: UITextFieldDelegate,UITextViewDelegate{
         else if memoTextView.text == "" {
             memoTextView.text = "메모를 입력해주세요!"
             memoTextView.textColor = .placeholderGrey
+            if edit_keyword.count == 0 {
+                setBtnNotText()
+            }
         }
     }
     
@@ -333,6 +351,11 @@ extension ReviewEditVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         /// 키워드 터치시 삭제
         edit_keyword.remove(at: indexPath.row)
         keywordCollectionView.reloadData()
+        
+        /// 키워드를 삭제했을 때 메모도 없고 키워드가 0개이면
+        if edit_keyword.count == 0 && memoTextView.text == "메모를 입력해주세요!" {
+            setBtnNotText()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
