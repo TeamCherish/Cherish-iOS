@@ -19,7 +19,7 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet var settingLineTopConstraint: NSLayoutConstraint!
     
     
-    var infoTitleArray:[String] = ["About Cherish", "개인정보처리방침", "서비스이용약관", "1대1 문의하기"]
+    var infoTitleArray:[String] = ["About Cherish", "개인정보처리방침", "서비스이용약관", "오픈소스 라이센스", "1대1 문의하기"]
     var logInfoTitleArray:[String] = ["로그아웃", "회원탈퇴"]
     
     // 뷰 전체 폭 길이
@@ -321,11 +321,11 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
         
         if screenHeight == 667 {
             if indexPath.section == 0 {
-                return 43
+                return 40
             }else if indexPath.section == 1 {
-                return 52
+                return 48
             }else{
-                return 41
+                return 37
             }
         }
         else {
@@ -394,6 +394,13 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
                 let url = NSURL(string: "https://www.notion.so/Cherish-d96f88172ffa4d80b257665849bddc65")
                 let safari: SFSafariViewController = SFSafariViewController(url: url as! URL)
                 self.present(safari, animated: true, completion: nil)
+            }
+            //오픈소스 라이센스
+            else if indexPath.row == 3 {
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "OpenSourcesVC") as? OpenSourcesVC{
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                print("section 0, row 0")
             }
             //1:1 문의하기
             else {

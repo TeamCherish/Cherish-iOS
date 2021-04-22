@@ -485,14 +485,14 @@ class MainContentVC: UIViewController {
             // 시든 상태일때
             if cherishResultData[selectedRowIndexPath].dDay <= 0 {
                 plantGifView.isHidden = true
-                plantImageView.frame.size = CGSize(width: 272, height: 0)
-                let newHeight = CGFloat(506)
+                plantImageView.frame.size = CGSize(width: 274, height: 0)
+                let newHeight = CGFloat(513)
                 plantImageViewHeight.constant = newHeight
                 plantImageView.layoutIfNeeded()
                 plantImageViewLeading.constant = 58
-                plantImageViewTrailing.constant = 3
-                plantImageViewTopConstraint.constant = 134
-                self.plantImageView.image = UIImage(named: "mainImgMin")
+                plantImageViewTrailing.constant = 0
+                plantImageViewTopConstraint.constant = 130
+                self.plantImageView.image = UIImage(named: "min_level3")
                 self.view.backgroundColor = .diePlantGrey
             }
             else {
@@ -706,7 +706,7 @@ class MainContentVC: UIViewController {
                 plantImageViewLeading.constant = 42
                 plantImageViewTrailing.constant = 0
                 plantImageViewTopConstraint.constant = 169
-                self.plantImageView.image = UIImage(named: "mainImgSun")
+                self.plantImageView.image = UIImage(named: "mainImgStuki")
                 self.view.backgroundColor = .diePlantGrey
             }
             else {

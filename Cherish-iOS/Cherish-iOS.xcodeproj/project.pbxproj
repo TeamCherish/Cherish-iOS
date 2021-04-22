@@ -22,6 +22,8 @@
 		332CC7B925A7028A00D0047D /* MypageContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7B825A7028A00D0047D /* MypageContactVC.swift */; };
 		332CC7BD25A707BD00D0047D /* MypagePlantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7BC25A707BD00D0047D /* MypagePlantData.swift */; };
 		332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7C025A72A4800D0047D /* MypageContactData.swift */; };
+		333B138A26306C8C00DAEB6E /* OpenSourcesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333B138926306C8C00DAEB6E /* OpenSourcesVC.swift */; };
+		333B138F26306F1100DAEB6E /* OpenSourcesTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333B138E26306F1100DAEB6E /* OpenSourcesTVCell.swift */; };
 		333DC23D25FA4D8200120B1E /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333DC23C25FA4D8200120B1E /* UIWindow+Extension.swift */; };
 		333DC25425FA7C8D00120B1E /* SearchMypageFriendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333DC25325FA7C8D00120B1E /* SearchMypageFriendData.swift */; };
 		334130C72620750700A68ED2 /* blue_iOS.gif in Resources */ = {isa = PBXBuildFile; fileRef = 334130C22620750700A68ED2 /* blue_iOS.gif */; };
@@ -212,6 +214,8 @@
 		332CC7B825A7028A00D0047D /* MypageContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageContactVC.swift; sourceTree = "<group>"; };
 		332CC7BC25A707BD00D0047D /* MypagePlantData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePlantData.swift; sourceTree = "<group>"; };
 		332CC7C025A72A4800D0047D /* MypageContactData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageContactData.swift; sourceTree = "<group>"; };
+		333B138926306C8C00DAEB6E /* OpenSourcesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourcesVC.swift; sourceTree = "<group>"; };
+		333B138E26306F1100DAEB6E /* OpenSourcesTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourcesTVCell.swift; sourceTree = "<group>"; };
 		333DC23C25FA4D8200120B1E /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
 		333DC25325FA7C8D00120B1E /* SearchMypageFriendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMypageFriendData.swift; sourceTree = "<group>"; };
 		334130C22620750700A68ED2 /* blue_iOS.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = blue_iOS.gif; sourceTree = "<group>"; };
@@ -445,6 +449,14 @@
 				333DC25325FA7C8D00120B1E /* SearchMypageFriendData.swift */,
 			);
 			path = Mypage;
+			sourceTree = "<group>";
+		};
+		333B138C26306ED400DAEB6E /* OpenSourceVC */ = {
+			isa = PBXGroup;
+			children = (
+				333B138E26306F1100DAEB6E /* OpenSourcesTVCell.swift */,
+			);
+			path = OpenSourceVC;
 			sourceTree = "<group>";
 		};
 		336C6D9825E64B34003865C3 /* ShowMore */ = {
@@ -797,6 +809,7 @@
 				336C6D9225E63EAD003865C3 /* ShowMoreNC.swift */,
 				336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */,
 				548F26B726138A310055C5E1 /* AboutCherishVC.swift */,
+				333B138926306C8C00DAEB6E /* OpenSourcesVC.swift */,
 			);
 			path = ShowMore;
 			sourceTree = "<group>";
@@ -850,6 +863,7 @@
 		5478344925AB65250021C32B /* ShowMore */ = {
 			isa = PBXGroup;
 			children = (
+				333B138C26306ED400DAEB6E /* OpenSourceVC */,
 				338CB6C825E5281C0089E182 /* NewShowMore */,
 				5478344A25AB65C20021C32B /* ShowMoreTVC.swift */,
 				5478344B25AB65C20021C32B /* ShowMoreTVC.xib */,
@@ -1264,6 +1278,7 @@
 				548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */,
 				5478345225AB7D8E0021C32B /* ShowMoreNotImageTVC.swift in Sources */,
 				92911FDF25DFC57900B4A95F /* GetPlantDataService.swift in Sources */,
+				333B138A26306C8C00DAEB6E /* OpenSourcesVC.swift in Sources */,
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,
 				5478343A25A82B060021C32B /* ReviewEditVC.swift in Sources */,
 				33D094DA25F575DF0016BD4E /* MainSplashVC.swift in Sources */,
@@ -1354,6 +1369,7 @@
 				3317777825B042C200CC1030 /* UIImage+Extension.swift in Sources */,
 				33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */,
 				332CC7BD25A707BD00D0047D /* MypagePlantData.swift in Sources */,
+				333B138F26306F1100DAEB6E /* OpenSourcesTVCell.swift in Sources */,
 				5491595F25DE794B008104FC /* CheckEmailData.swift in Sources */,
 				338CB6CA25E5289A0089E182 /* ShowMoreFirstTVCell.swift in Sources */,
 				33E8754C25A0D272001F84FE /* ProgressBarView.swift in Sources */,
@@ -1539,7 +1555,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -1547,7 +1563,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1563,7 +1579,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -1571,7 +1587,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
