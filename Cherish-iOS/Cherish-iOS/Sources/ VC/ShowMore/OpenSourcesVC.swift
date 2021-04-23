@@ -51,7 +51,14 @@ extension OpenSourcesVC: UITableViewDelegate, UITableViewDataSource {
         return 48
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let OpenSourceContentVC = self.storyboard?.instantiateViewController(identifier:
+                                                                                        "OpenSourceContentVC") as? OpenSourceContentVC else { return }
+        
+        
+        self.navigationController?.pushViewController(OpenSourceContentVC, animated: true)
+        
+        //이 때, "현재 기준"으로 indexPath.row에 해당하는 데이터를 받아와야함
+        OpenSourceContentVC.openSourceNum = indexPath.row
+    }
 }

@@ -713,7 +713,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cfY-qZ-Z8U">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="670"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OpenSourcesTVCell" id="51F-nq-LiO" customClass="OpenSourcesTVCell" customModule="Cherish_iOS" customModuleProvider="target">
@@ -724,8 +724,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzy-gO-pd9">
-                                                    <rect key="frame" x="22.999999999999996" y="10.666666666666666" width="39.666666666666657" height="22.333333333333336"/>
-                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="15"/>
+                                                    <rect key="frame" x="22.999999999999996" y="10.666666666666666" width="38.666666666666657" height="22.333333333333336"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
                                                     <color key="textColor" name="black"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -794,7 +794,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VvD-WE-o1u" firstAttribute="leading" secondItem="nrB-dg-am4" secondAttribute="leading" id="4hR-A8-hYh"/>
-                            <constraint firstItem="cfY-qZ-Z8U" firstAttribute="top" secondItem="VvD-WE-o1u" secondAttribute="bottom" id="M5B-30-k1W"/>
+                            <constraint firstItem="cfY-qZ-Z8U" firstAttribute="top" secondItem="VvD-WE-o1u" secondAttribute="bottom" constant="20" id="M5B-30-k1W"/>
                             <constraint firstItem="VvD-WE-o1u" firstAttribute="top" secondItem="nrB-dg-am4" secondAttribute="top" id="Qod-zL-jnF"/>
                             <constraint firstItem="nrB-dg-am4" firstAttribute="bottom" secondItem="cfY-qZ-Z8U" secondAttribute="bottom" id="Tfa-Wl-Yte"/>
                             <constraint firstItem="cfY-qZ-Z8U" firstAttribute="leading" secondItem="nrB-dg-am4" secondAttribute="leading" id="ghP-fk-fjm"/>
@@ -809,6 +809,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fxM-pM-zKs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1680" y="831"/>
+        </scene>
+        <!--Open Source ContentVC-->
+        <scene sceneID="HaX-rD-Mf7">
+            <objects>
+                <viewController storyboardIdentifier="OpenSourceContentVC" id="uCr-4g-uPm" customClass="OpenSourceContentVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="26m-nk-9AH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gpR-2h-pVs">
+                                <rect key="frame" x="16" y="104" width="343" height="674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" name="black"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7n-js-fbx">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오픈소스 라이센스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CjI-Pj-hd5" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="126.33333333333334" y="10" width="122.33333333333334" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="dTq-uJ-9a1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                        <color key="textColor" name="black"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                <real key="value" value="-0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gao-dN-UsL">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="gao-dN-UsL" secondAttribute="height" multiplier="1:1" id="gfn-6f-hi9"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="icn_back"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="gao-dN-UsL" firstAttribute="leading" secondItem="c7n-js-fbx" secondAttribute="leading" id="I4Y-hs-D18"/>
+                                    <constraint firstAttribute="height" constant="44" id="Rya-EM-eMB"/>
+                                    <constraint firstItem="gao-dN-UsL" firstAttribute="top" secondItem="c7n-js-fbx" secondAttribute="top" id="WI2-eT-EUd"/>
+                                    <constraint firstAttribute="bottom" secondItem="gao-dN-UsL" secondAttribute="bottom" id="ZBy-9h-VIG"/>
+                                    <constraint firstItem="CjI-Pj-hd5" firstAttribute="centerX" secondItem="c7n-js-fbx" secondAttribute="centerX" id="gq8-We-L3h"/>
+                                    <constraint firstItem="CjI-Pj-hd5" firstAttribute="centerY" secondItem="c7n-js-fbx" secondAttribute="centerY" id="oHp-K6-fUY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5Jh-oQ-JtJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5Jh-oQ-JtJ" firstAttribute="bottom" secondItem="gpR-2h-pVs" secondAttribute="bottom" id="5wj-uB-FX4"/>
+                            <constraint firstItem="c7n-js-fbx" firstAttribute="top" secondItem="5Jh-oQ-JtJ" secondAttribute="top" id="eMS-QF-dDP"/>
+                            <constraint firstItem="c7n-js-fbx" firstAttribute="leading" secondItem="5Jh-oQ-JtJ" secondAttribute="leading" id="gfs-aY-qFO"/>
+                            <constraint firstItem="5Jh-oQ-JtJ" firstAttribute="trailing" secondItem="c7n-js-fbx" secondAttribute="trailing" id="q3g-Uf-pDh"/>
+                            <constraint firstItem="5Jh-oQ-JtJ" firstAttribute="trailing" secondItem="gpR-2h-pVs" secondAttribute="trailing" constant="16" id="tFo-g9-twm"/>
+                            <constraint firstItem="gpR-2h-pVs" firstAttribute="top" secondItem="c7n-js-fbx" secondAttribute="bottom" constant="16" id="uYN-8a-npX"/>
+                            <constraint firstItem="gpR-2h-pVs" firstAttribute="leading" secondItem="5Jh-oQ-JtJ" secondAttribute="leading" constant="16" id="xfe-xV-dK9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="openSourceContentTextView" destination="gpR-2h-pVs" id="Vqm-Ht-TYr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SHP-R8-bh1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2389.5999999999999" y="830.54187192118229"/>
         </scene>
         <!--Nickname ChangeVC-->
         <scene sceneID="CxH-xG-kng">
