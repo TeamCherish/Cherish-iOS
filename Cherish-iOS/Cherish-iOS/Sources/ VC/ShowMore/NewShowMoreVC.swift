@@ -18,7 +18,7 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet var userImageViewHeight: NSLayoutConstraint!
     @IBOutlet var settingLineTopConstraint: NSLayoutConstraint!
     
-    
+    let userId: Int = UserDefaults.standard.integer(forKey: "userID")
     var infoTitleArray:[String] = ["About Cherish", "개인정보처리방침", "서비스이용약관", "오픈소스 라이센스", "1대1 문의하기"]
     var logInfoTitleArray:[String] = ["로그아웃", "회원탈퇴"]
     
@@ -181,6 +181,29 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
         present(withdrawalAlert, animated: true)
     }
     
+    
+    //MARK: - FCMToken Delete func
+    func fcmTokenDelete() {
+        // 서버에 업데이트된 fcmToken을 put
+        FCMTokenDeleteService.shared.deleteFCMToken(userId: userId) {
+            (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                print("성공")
+                print(data)
+            case .requestErr(let msg):
+                if let message = msg as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
     
     @IBAction func touchUpToNicknameChangeVC(_ sender: UIButton) {
         let NicknameChangeVC = self.storyboard?.instantiateViewController(identifier: "NicknameChangeVC") as! NicknameChangeVC
@@ -434,6 +457,8 @@ extension NewShowMoreVC: UITableViewDelegate, UITableViewDataSource {
                     UserDefaults.standard.removeObject(forKey: "loginEmail")
                     UserDefaults.standard.removeObject(forKey: "loginPw")
                     UserDefaults.standard.removeObject(forKey: "autoLogin")
+                    fcmTokenDelete()
+                    
                     
                     // 자동로그인 해제시 루트 컨트롤러를 로그인으로 설정
                     let storyboard = UIStoryboard(name: "Login", bundle: nil)

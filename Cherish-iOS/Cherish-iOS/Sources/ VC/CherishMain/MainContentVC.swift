@@ -592,14 +592,14 @@ class MainContentVC: UIViewController {
             selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
             if cherishResultData[selectedRowIndexPath].dDay <= 0 {
                 plantGifView.isHidden = true
-                plantImageView.frame.size = CGSize(width: 288, height: 0)
-                let newHeight = CGFloat(521)
+                plantImageView.frame.size = CGSize(width: 211, height: 0)
+                let newHeight = CGFloat(590)
                 plantImageViewHeight.constant = newHeight
                 plantImageView.layoutIfNeeded()
-                plantImageViewLeading.constant = 45
-                plantImageViewTrailing.constant = 0
-                plantImageViewTopConstraint.constant = 109
-                self.plantImageView.image = UIImage(named: "mainImgRosemary")
+                plantImageViewLeading.constant = 110
+                plantImageViewTrailing.constant = 12
+                plantImageViewTopConstraint.constant = 98
+                self.plantImageView.image = UIImage(named: "imgRose3")
                 self.view.backgroundColor = .diePlantGrey
             }
             else {

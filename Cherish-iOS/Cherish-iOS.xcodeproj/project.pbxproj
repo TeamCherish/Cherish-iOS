@@ -59,6 +59,7 @@
 		338CB6CA25E5289A0089E182 /* ShowMoreFirstTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338CB6C925E5289A0089E182 /* ShowMoreFirstTVCell.swift */; };
 		338CB6CE25E528AB0089E182 /* ShowMoreSecondTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338CB6CD25E528AB0089E182 /* ShowMoreSecondTVCell.swift */; };
 		338CB6D125E528BE0089E182 /* ShowMoreThirdTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338CB6D025E528BE0089E182 /* ShowMoreThirdTVCell.swift */; };
+		339854CF2635B69E0002E6F0 /* FCMTokenDeleteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339854CE2635B69E0002E6F0 /* FCMTokenDeleteService.swift */; };
 		33CAF85225A249DC0050DE29 /* CherishMainNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CAF85125A249DC0050DE29 /* CherishMainNC.swift */; };
 		33CAF85625A2674A0050DE29 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CAF85525A2674A0050DE29 /* CircularProgressView.swift */; };
 		33CD994E25D9993F00C3BD1C /* PushReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CD994D25D9993F00C3BD1C /* PushReviewService.swift */; };
@@ -255,6 +256,7 @@
 		338CB6C925E5289A0089E182 /* ShowMoreFirstTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreFirstTVCell.swift; sourceTree = "<group>"; };
 		338CB6CD25E528AB0089E182 /* ShowMoreSecondTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreSecondTVCell.swift; sourceTree = "<group>"; };
 		338CB6D025E528BE0089E182 /* ShowMoreThirdTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreThirdTVCell.swift; sourceTree = "<group>"; };
+		339854CE2635B69E0002E6F0 /* FCMTokenDeleteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMTokenDeleteService.swift; sourceTree = "<group>"; };
 		33CAF85125A249DC0050DE29 /* CherishMainNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishMainNC.swift; sourceTree = "<group>"; };
 		33CAF85525A2674A0050DE29 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		33CD994D25D9993F00C3BD1C /* PushReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushReviewService.swift; sourceTree = "<group>"; };
@@ -735,6 +737,7 @@
 			children = (
 				33CD994D25D9993F00C3BD1C /* PushReviewService.swift */,
 				33CD995525D9A0CD00C3BD1C /* FCMTokenUpdateService.swift */,
+				339854CE2635B69E0002E6F0 /* FCMTokenDeleteService.swift */,
 			);
 			path = PushAlarm;
 			sourceTree = "<group>";
@@ -1369,6 +1372,7 @@
 				548F26A7261336640055C5E1 /* OnboardingLastCVCell.swift in Sources */,
 				5491593D25DC13A6008104FC /* SignUpService.swift in Sources */,
 				336C6D9625E63FAB003865C3 /* NicknameChangeVC.swift in Sources */,
+				339854CF2635B69E0002E6F0 /* FCMTokenDeleteService.swift in Sources */,
 				3356C2A62631BBAB00B1F416 /* OpenSourceContentVC.swift in Sources */,
 				3317777825B042C200CC1030 /* UIImage+Extension.swift in Sources */,
 				33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */,
