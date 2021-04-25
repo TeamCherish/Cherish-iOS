@@ -13,7 +13,7 @@ struct FCMTokenDeleteService {
     
     func deleteFCMToken(userId: Int, completion: @escaping (NetworkResult<Any>) -> (Void)){
        
-        let url = APIConstants.fcmTokenUpdateURL
+        let url = APIConstants.deleteMobileTokenURL
         let header: HTTPHeaders = [ "Content-Type":"application/json"]
         let body: Parameters = [
             "UserId": userId,

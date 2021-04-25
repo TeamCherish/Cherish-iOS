@@ -7,6 +7,7 @@
 
 import UIKit
 import SafariServices
+import Alamofire
 import MessageUI
 
 class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
@@ -189,7 +190,6 @@ class NewShowMoreVC: UIViewController, MFMailComposeViewControllerDelegate {
             (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
-                print("성공")
                 print(data)
             case .requestErr(let msg):
                 if let message = msg as? String {
