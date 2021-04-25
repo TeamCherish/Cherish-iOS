@@ -8,13 +8,13 @@
 import UIKit
 
 class ReviewVC: UIViewController {
-    var keyword : [String] = [] /// 키워드 배열
-    var reciever : Int = 0
-    var phoneNumber : String?
+    var keyword: [String] = []/// 키워드 배열
+    var reciever: Int = 0
+    var phoneNumber: String?
     var contentStatus: Bool = false
     let maxLength_keyword  = 5 /// 키워드 최대 입력 5글자
     let maxLength_memo  = 100 /// 메모 최대 입력 100글자
-    let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     //MARK: -@IBOutlet
     @IBOutlet weak var reviewNameLabel: CustomLabel! ///또령님! 남쿵둥이님과(와)의
@@ -179,7 +179,6 @@ class ReviewVC: UIViewController {
             /// 텍스트 필드 초기화 및 텍스트 필드 글자수 카운팅 초기화
             keywordTextField.text = ""
             keywordCountingLabel.text = "0/"
-            print(keyword)
             
             /// 컬렉션 뷰 데이터 업데이트
             keywordCollectionView.reloadData()
@@ -268,21 +267,15 @@ class ReviewVC: UIViewController {
                 reciever = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
             }
             
-            ///키워드 nil값 대체
-            if keyword.count == 2 {
-                keyword.append("")
-            }else if keyword.count == 1 {
-                keyword.append("")
-                keyword.append("")
-            }else if keyword.count == 0 {
-                keyword.append("")
-                keyword.append("")
+            // 키워드 부족한건 ""로 채움
+            for _ in 0..<3-keyword.count {
                 keyword.append("")
             }
             
             UserDefaults.standard.set(false, forKey: "reviewNotYet")
             
-            WateringReviewService.shared.wateringReview(review: memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: reciever) { [self] (networkResult) -> (Void) in
+            // .POST (메모 입력 안했으면 Placeholder 상태니까 삼항연산 이용해서 처리)
+            WateringReviewService.shared.wateringReview(review: memoTextView.text == "메모를 입력해주세요!" ? nil:memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: reciever) { [self] (networkResult) -> (Void) in
                 switch networkResult {
                 case .success(let data):
                     print(data)
@@ -316,11 +309,11 @@ class ReviewVC: UIViewController {
         }else{
             reciever = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
         }
-        keyword = ["","",""]
-        
+
         UserDefaults.standard.set(false, forKey: "reviewNotYet")
         
-        WateringReviewService.shared.wateringReview(review: "", keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: reciever) { [self] (networkResult) -> (Void) in
+        // .POST nil값은 Resources/APIService/Watering/WateringReviewService에서 nil병합 연산자 이용
+        WateringReviewService.shared.wateringReview(review: nil, keyword1: nil, keyword2: nil, keyword3: nil, CherishId: reciever) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 print(data)

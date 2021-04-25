@@ -106,7 +106,6 @@
 		54425C3D25AF58BF00E62BAB /* FetchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C3C25AF58BF00E62BAB /* FetchCalendar.swift */; };
 		54425C4025AF5EBA00E62BAB /* CalendarKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C3F25AF5EBA00E62BAB /* CalendarKeyword.swift */; };
 		546A247025ACD32800F869E2 /* WateringReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A246F25ACD32800F869E2 /* WateringReviewService.swift */; };
-		546A247325ACD53A00F869E2 /* WateringReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A247225ACD53A00F869E2 /* WateringReviewData.swift */; };
 		5478343625A76EBC0021C32B /* UIDevice+ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478343525A76EBC0021C32B /* UIDevice+ScreenSize.swift */; };
 		5478343A25A82B060021C32B /* ReviewEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478343925A82B060021C32B /* ReviewEditVC.swift */; };
 		5478344C25AB65C30021C32B /* ShowMoreTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478344A25AB65C20021C32B /* ShowMoreTVC.swift */; };
@@ -302,7 +301,6 @@
 		54425C3C25AF58BF00E62BAB /* FetchCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCalendar.swift; sourceTree = "<group>"; };
 		54425C3F25AF5EBA00E62BAB /* CalendarKeyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarKeyword.swift; sourceTree = "<group>"; };
 		546A246F25ACD32800F869E2 /* WateringReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReviewService.swift; sourceTree = "<group>"; };
-		546A247225ACD53A00F869E2 /* WateringReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReviewData.swift; sourceTree = "<group>"; };
 		5478343525A76EBC0021C32B /* UIDevice+ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+ScreenSize.swift"; sourceTree = "<group>"; };
 		5478343925A82B060021C32B /* ReviewEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewEditVC.swift; sourceTree = "<group>"; };
 		5478344A25AB65C20021C32B /* ShowMoreTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreTVC.swift; sourceTree = "<group>"; };
@@ -880,7 +878,6 @@
 			children = (
 				5478346A25AC6DF50021C32B /* LaterCheckData.swift */,
 				5478347125AC75950021C32B /* WateringDayData.swift */,
-				546A247225ACD53A00F869E2 /* WateringReviewData.swift */,
 				54425C2025ADBD9600E62BAB /* RecentKeywordData.swift */,
 			);
 			path = Watering;
@@ -1364,7 +1361,6 @@
 				54AE98AF25F373B400993EA3 /* UpdatePasswordService.swift in Sources */,
 				548F2695261310790055C5E1 /* OnboardingCVCell.swift in Sources */,
 				5491596325E15059008104FC /* MessageAuthService.swift in Sources */,
-				546A247325ACD53A00F869E2 /* WateringReviewData.swift in Sources */,
 				92824DA225B19A7F003D7678 /* MypageNC.swift in Sources */,
 				548F26A7261336640055C5E1 /* OnboardingLastCVCell.swift in Sources */,
 				5491593D25DC13A6008104FC /* SignUpService.swift in Sources */,
