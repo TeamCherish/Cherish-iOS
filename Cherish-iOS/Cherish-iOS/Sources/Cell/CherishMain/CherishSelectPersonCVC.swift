@@ -12,15 +12,30 @@ class CherishSelectPersonCVC: UICollectionViewCell {
     @IBOutlet var plantImageView: UIImageView!
     @IBOutlet var userWaterImageView: UIImageView!
     @IBOutlet var nickNameLabel: UILabel!
+    @IBOutlet var userNameLabelLeftPadding: NSLayoutConstraint!
     
     override func awakeFromNib() {
         makeShadow()
     }
     
-    func makeShadow(){
+    override func layoutSubviews() {
+        textAlign()
+    }
+    
+    func makeShadow() {
+        userWaterImageView.layer.cornerRadius = userWaterImageView.frame.height / 2
         userWaterImageView.layer.shadowOffset = CGSize(width: 0, height: 0)
         userWaterImageView.layer.shadowRadius = 15
         userWaterImageView.layer.shadowOpacity = 0.10
+    }
+    
+    func textAlign() {
+        if nickNameLabel.text!.count < 9 {
+            nickNameLabel.textAlignment = NSTextAlignment.center
+        }
+        else {
+            nickNameLabel.textAlignment = NSTextAlignment.left
+        }
     }
     
     override func prepareForReuse() {

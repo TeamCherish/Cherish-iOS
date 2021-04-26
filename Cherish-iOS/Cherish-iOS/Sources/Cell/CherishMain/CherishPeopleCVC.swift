@@ -19,13 +19,27 @@ class CherishPeopleCVC: UICollectionViewCell {
         cherishPlantImageView.image = nil
       }
     
-    
     override func awakeFromNib() {
         makeShadow()
     }
+
+    override func layoutSubviews() {
+        textAlign()
+    }
+  
+    
+    func textAlign() {
+        if cherishNickNameLabel.text!.count < 9 {
+            cherishNickNameLabel.textAlignment = NSTextAlignment.center
+        }
+        else {
+            cherishNickNameLabel.textAlignment = NSTextAlignment.left
+        }
+    }
     
     func makeShadow(){
-        cherishUserWaterImageView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cherishUserWaterImageView.layer.cornerRadius = cherishUserWaterImageView.frame.height / 2
+        cherishUserWaterImageView.layer.shadowOffset = CGSize(width: 1, height: 0)
         cherishUserWaterImageView.layer.shadowRadius = 15
         cherishUserWaterImageView.layer.shadowOpacity = 0.15
     }
