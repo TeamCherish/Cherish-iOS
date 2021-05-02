@@ -58,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // [START receive_message]
+    // 앱이 꺼져있을 때도 pushAlarm 받는 함수
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
@@ -108,6 +109,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Print full message.
         print(userInfo)
+        let pushTypeInUserInfo = (userInfo[AnyHashable("pushType")]! as! NSString).intValue
+        
+        // 물 줄 시간이에요 푸시
+        if pushTypeInUserInfo == 1 {
+            let cherishIdinUserInfo = userInfo[AnyHashable("CherishId")]!
+            print("plz",cherishIdinUserInfo)
+            let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+            NotificationCenter.default.post(name: .pushSelected, object: cherishIdinUserInfo)
+        }
+        // 물주기 기록을 완료해주세요 푸시
+        else {
+            print("물주기 기록 푸시 받았다 오바")
+        }
         
         completionHandler(UIBackgroundFetchResult.newData)
     }
@@ -153,6 +170,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     }
     
     //push가 온 경우 처리
+    //앱을 실행한 적이 있을 때 처리되는 곳(foreground)
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
