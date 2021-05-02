@@ -71,6 +71,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Print full message.
         print(userInfo)
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+        
+        let pushTypeInUserInfo = (userInfo[AnyHashable("pushType")]! as! NSString).intValue
+        
+        // 물 줄 시간이에요 푸시
+        if pushTypeInUserInfo == 1 {
+            let cherishIdinUserInfo = userInfo[AnyHashable("CherishId")]!
+            print("plz",cherishIdinUserInfo)
+            let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+            NotificationCenter.default.post(name: .pushSelected, object: cherishIdinUserInfo)
+        }
+        // 물주기 기록을 완료해주세요 푸시
+        else {
+            print("물주기 기록 푸시 받았다 오바")
+        }
+        
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
