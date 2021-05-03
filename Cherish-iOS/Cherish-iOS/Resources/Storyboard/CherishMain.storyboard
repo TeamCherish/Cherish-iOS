@@ -100,7 +100,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="571-Dh-KLL">
-                                <rect key="frame" x="16" y="215.33333333333334" width="90" height="40"/>
+                                <rect key="frame" x="16" y="214.33333333333334" width="90" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="eOM-Vd-F2G"/>
                                 </constraints>
@@ -110,7 +110,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ook-bx-AcP" customClass="ProgressBarView" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="27.999999999999996" y="354.33333333333331" width="14.333333333333332" height="168.99999999999994"/>
+                                <rect key="frame" x="27.999999999999996" y="353.33333333333331" width="14.333333333333332" height="168.99999999999994"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="169" id="aNR-w0-3SL"/>
@@ -118,7 +118,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tC1-OL-vxp" customClass="ProgressBarView" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="29.999999999999996" y="356.33333333333331" width="10.333333333333332" height="164.99999999999994"/>
+                                <rect key="frame" x="29.999999999999996" y="355.33333333333331" width="10.333333333333332" height="164.99999999999994"/>
                                 <color key="backgroundColor" name="seaweed"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tC1-OL-vxp" secondAttribute="height" multiplier="10.4:165" id="72L-R5-K2N"/>
@@ -126,7 +126,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lJ-v4-Fdo" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="35.333333333333336" y="527.33333333333337" width="0.0" height="13"/>
+                                <rect key="frame" x="35.333333333333336" y="526.33333333333337" width="0.0" height="13"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="13" id="TMR-dq-0JW"/>
                                 </constraints>
@@ -163,7 +163,7 @@
                                 <blurEffect style="systemUltraThinMaterial"/>
                             </visualEffectView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="애정도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g2-qy-Jyj" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="18.666666666666668" y="539.33333333333337" width="33.333333333333329" height="18"/>
+                                <rect key="frame" x="18.666666666666668" y="538.33333333333337" width="33.333333333333329" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="4Ha-ly-zjj"/>
                                     <constraint firstAttribute="width" constant="33.329999999999998" id="5Xp-dm-LM1"/>
@@ -211,7 +211,7 @@
                             <constraint firstItem="MqD-Yz-UwB" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="XP7-Wi-NiB"/>
                             <constraint firstItem="rvI-uI-SPM" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" constant="36.329999999999998" id="YzY-lm-gp2"/>
                             <constraint firstItem="1LF-25-ssR" firstAttribute="top" secondItem="53S-aO-x9T" secondAttribute="top" id="anz-Zs-3Ru"/>
-                            <constraint firstItem="571-Dh-KLL" firstAttribute="top" secondItem="rb3-up-wUt" secondAttribute="bottom" constant="17" id="eNb-JJ-9v9"/>
+                            <constraint firstItem="571-Dh-KLL" firstAttribute="top" secondItem="rb3-up-wUt" secondAttribute="bottom" constant="16" id="eNb-JJ-9v9"/>
                             <constraint firstItem="1cl-cl-xvs" firstAttribute="trailing" secondItem="TmQ-US-0yO" secondAttribute="trailing" id="fjq-QB-PKn"/>
                             <constraint firstItem="1LF-25-ssR" firstAttribute="leading" secondItem="53S-aO-x9T" secondAttribute="leading" id="g56-IB-MkX"/>
                             <constraint firstItem="1cl-cl-xvs" firstAttribute="top" secondItem="TmQ-US-0yO" secondAttribute="top" constant="104" id="gDu-wJ-xHN"/>
@@ -247,6 +247,7 @@
                         <outlet property="progressbarBackView" destination="Ook-bx-AcP" id="9qk-3n-XYz"/>
                         <outlet property="progressbarView" destination="tC1-OL-vxp" id="EF5-MD-zMm"/>
                         <outlet property="userNickNameLabel" destination="rb3-up-wUt" id="vAL-T6-ssD"/>
+                        <outlet property="wateringBtnTopConstraint" destination="eNb-JJ-9v9" id="DFy-cl-raU"/>
                         <outlet property="wateringGifView" destination="x9h-5A-Qga" id="VPU-D0-kLW"/>
                     </connections>
                 </viewController>
@@ -273,7 +274,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 소중한 사람들" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWq-sY-NPK" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="27.666666666666671" width="111" height="21"/>
+                                        <rect key="frame" x="16.000000000000007" y="30" width="104.66666666666669" height="16.333333333333329"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="14"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -284,7 +285,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhZ-mV-MRR" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="131" y="29.666666666666671" width="0.0" height="17"/>
+                                        <rect key="frame" x="124.66666666666667" y="29.666666666666671" width="0.0" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="9cX-Kq-gGw"/>
                                         </constraints>
@@ -325,7 +326,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dA7-UO-PkU">
                                 <rect key="frame" x="0.0" y="104" width="375" height="674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="uEB-Wd-zQh">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="uEB-Wd-zQh">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -335,7 +336,7 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CherishSelectPersonCVC" id="4L7-RV-z3B" customClass="CherishSelectPersonCVC" customModule="Cherish_iOS" customModuleProvider="target">
                                         <rect key="frame" x="11" y="0.0" width="69" height="91"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yuF-KZ-bnw">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="N83-7E-ZUG">
                                             <rect key="frame" x="0.0" y="0.0" width="69" height="91"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -343,6 +344,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="69" height="69"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="69" id="MOk-oK-iMn"/>
+                                                        <constraint firstAttribute="width" secondItem="tUC-yK-00U" secondAttribute="height" multiplier="1:1" id="rX2-Pa-T5m"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kkb-UO-WqI">
@@ -378,14 +380,14 @@
                                                 <constraint firstAttribute="trailing" secondItem="kkb-UO-WqI" secondAttribute="trailing" constant="5" id="3gb-dn-6RH"/>
                                                 <constraint firstAttribute="trailing" secondItem="TE1-U3-O9S" secondAttribute="trailing" constant="2" id="ENr-hc-j8O"/>
                                                 <constraint firstItem="JDM-bV-H4M" firstAttribute="top" secondItem="tUC-yK-00U" secondAttribute="bottom" constant="4" id="FYb-JB-c9h"/>
-                                                <constraint firstItem="TE1-U3-O9S" firstAttribute="top" secondItem="yuF-KZ-bnw" secondAttribute="top" constant="44" id="LSL-Er-yW4"/>
-                                                <constraint firstItem="tUC-yK-00U" firstAttribute="leading" secondItem="yuF-KZ-bnw" secondAttribute="leading" id="PGK-pP-rLw"/>
-                                                <constraint firstItem="tUC-yK-00U" firstAttribute="top" secondItem="yuF-KZ-bnw" secondAttribute="top" id="YYQ-MA-cGB"/>
-                                                <constraint firstItem="kkb-UO-WqI" firstAttribute="top" secondItem="yuF-KZ-bnw" secondAttribute="top" constant="5" id="aVp-sj-LWd"/>
+                                                <constraint firstItem="TE1-U3-O9S" firstAttribute="top" secondItem="N83-7E-ZUG" secondAttribute="top" constant="44" id="LSL-Er-yW4"/>
+                                                <constraint firstItem="tUC-yK-00U" firstAttribute="leading" secondItem="N83-7E-ZUG" secondAttribute="leading" id="PGK-pP-rLw"/>
+                                                <constraint firstItem="tUC-yK-00U" firstAttribute="top" secondItem="N83-7E-ZUG" secondAttribute="top" id="YYQ-MA-cGB"/>
+                                                <constraint firstItem="kkb-UO-WqI" firstAttribute="top" secondItem="N83-7E-ZUG" secondAttribute="top" constant="5" id="aVp-sj-LWd"/>
                                                 <constraint firstAttribute="trailing" secondItem="tUC-yK-00U" secondAttribute="trailing" id="aaP-WP-abe"/>
-                                                <constraint firstItem="JDM-bV-H4M" firstAttribute="centerX" secondItem="yuF-KZ-bnw" secondAttribute="centerX" id="bf9-Oi-e9R"/>
-                                                <constraint firstItem="kkb-UO-WqI" firstAttribute="leading" secondItem="yuF-KZ-bnw" secondAttribute="leading" constant="5" id="dNR-0c-u8w"/>
-                                                <constraint firstItem="JDM-bV-H4M" firstAttribute="leading" secondItem="yuF-KZ-bnw" secondAttribute="leading" id="gyE-E4-ks2"/>
+                                                <constraint firstItem="JDM-bV-H4M" firstAttribute="centerX" secondItem="N83-7E-ZUG" secondAttribute="centerX" id="bf9-Oi-e9R"/>
+                                                <constraint firstItem="kkb-UO-WqI" firstAttribute="leading" secondItem="N83-7E-ZUG" secondAttribute="leading" constant="5" id="dNR-0c-u8w"/>
+                                                <constraint firstItem="JDM-bV-H4M" firstAttribute="leading" secondItem="N83-7E-ZUG" secondAttribute="leading" id="gyE-E4-ks2"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="69" height="91"/>
@@ -393,14 +395,13 @@
                                             <outlet property="eclipseImageView" destination="tUC-yK-00U" id="W3n-Uv-OG5"/>
                                             <outlet property="nickNameLabel" destination="JDM-bV-H4M" id="M5W-rG-pqy"/>
                                             <outlet property="plantImageView" destination="kkb-UO-WqI" id="kQR-cU-jvD"/>
-                                            <outlet property="userNameLabelLeftPadding" destination="gyE-E4-ks2" id="RVV-DW-pmA"/>
                                             <outlet property="userWaterImageView" destination="TE1-U3-O9S" id="c2X-OO-JcV"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CherishPeopleCVC" id="AVQ-9s-i0T" customClass="CherishPeopleCVC" customModule="Cherish_iOS" customModuleProvider="target">
                                         <rect key="frame" x="82" y="0.0" width="69" height="91"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wye-nE-hKo">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RKK-hi-0En">
                                             <rect key="frame" x="0.0" y="0.0" width="69" height="91"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -435,13 +436,13 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="R8W-X4-P9r" secondAttribute="trailing" constant="2" id="1Eq-Ya-Qra"/>
-                                                <constraint firstItem="R8W-X4-P9r" firstAttribute="top" secondItem="wye-nE-hKo" secondAttribute="top" constant="44" id="5yo-fH-cJR"/>
+                                                <constraint firstItem="R8W-X4-P9r" firstAttribute="top" secondItem="RKK-hi-0En" secondAttribute="top" constant="44" id="5yo-fH-cJR"/>
                                                 <constraint firstItem="BRc-ej-5rz" firstAttribute="top" secondItem="YT7-Xw-sgv" secondAttribute="bottom" constant="9" id="Ito-8h-G8m"/>
-                                                <constraint firstItem="BRc-ej-5rz" firstAttribute="leading" secondItem="wye-nE-hKo" secondAttribute="leading" id="LWs-Vo-ag9"/>
-                                                <constraint firstItem="YT7-Xw-sgv" firstAttribute="top" secondItem="wye-nE-hKo" secondAttribute="top" constant="5" id="O6J-ic-qLO"/>
+                                                <constraint firstItem="BRc-ej-5rz" firstAttribute="leading" secondItem="RKK-hi-0En" secondAttribute="leading" id="LWs-Vo-ag9"/>
+                                                <constraint firstItem="YT7-Xw-sgv" firstAttribute="top" secondItem="RKK-hi-0En" secondAttribute="top" constant="5" id="O6J-ic-qLO"/>
                                                 <constraint firstAttribute="trailing" secondItem="YT7-Xw-sgv" secondAttribute="trailing" constant="5" id="UeC-pv-n4p"/>
-                                                <constraint firstItem="BRc-ej-5rz" firstAttribute="centerX" secondItem="wye-nE-hKo" secondAttribute="centerX" id="pos-tQ-tKS"/>
-                                                <constraint firstItem="YT7-Xw-sgv" firstAttribute="leading" secondItem="wye-nE-hKo" secondAttribute="leading" constant="5" id="zkB-0e-pVf"/>
+                                                <constraint firstItem="BRc-ej-5rz" firstAttribute="centerX" secondItem="RKK-hi-0En" secondAttribute="centerX" id="pos-tQ-tKS"/>
+                                                <constraint firstItem="YT7-Xw-sgv" firstAttribute="leading" secondItem="RKK-hi-0En" secondAttribute="leading" constant="5" id="zkB-0e-pVf"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="69" height="91"/>
@@ -467,6 +468,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cherishHeaderViewHeight" destination="kyV-7P-0El" id="nhZ-cY-S9J"/>
                         <outlet property="cherishPeopleCV" destination="dA7-UO-PkU" id="tPR-Zx-Ciu"/>
                         <outlet property="cherishPeopleCountLabel" destination="dhZ-mV-MRR" id="6ki-YX-Twl"/>
                         <outlet property="headerView" destination="3bh-Ia-bkm" id="q4r-Fb-pvd"/>
@@ -474,7 +476,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0gv-w8-qz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="49" y="774"/>
+            <point key="canvasLocation" x="48.799999999999997" y="773.64532019704438"/>
         </scene>
         <!--BackdropVC-->
         <scene sceneID="evw-cA-bAm">

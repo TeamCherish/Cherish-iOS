@@ -28,6 +28,7 @@ class MainContentVC: UIViewController {
     @IBOutlet var progressInnerViewTopConstraint: NSLayoutConstraint!
     @IBOutlet var blurBtnTopConstraint: NSLayoutConstraint!
     @IBOutlet var plantExplainLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet var wateringBtnTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var blurBtn: UIVisualEffectView!{
         didSet{
             blurBtn.makeRounded(cornerRadius: 14.0)
@@ -464,7 +465,18 @@ class MainContentVC: UIViewController {
             plantImageView.layoutIfNeeded()
             plantImageViewLeading.constant = 64
             plantImageViewTrailing.constant = 2
-            plantImageViewTopConstraint.constant = 298
+            if screenHeight == 896 {
+                plantImageViewTopConstraint.constant = 382
+            }
+            else if screenHeight == 926 {
+                plantImageViewTopConstraint.constant = 405
+            }
+            else if screenHeight == 844 {
+                plantImageViewTopConstraint.constant = 330
+            }
+            else {
+                plantImageViewTopConstraint.constant = 298
+            }
             self.plantImageView.image = UIImage(named: "imgMin1")
             view.backgroundColor = .dandelionBg
         }
@@ -477,7 +489,18 @@ class MainContentVC: UIViewController {
             plantImageView.layoutIfNeeded()
             plantImageViewLeading.constant = 65
             plantImageViewTrailing.constant = 2
-            plantImageViewTopConstraint.constant = 210
+            if screenHeight == 896 {
+                plantImageViewTopConstraint.constant = 273
+            }
+            else if screenHeight == 926 {
+                plantImageViewTopConstraint.constant = 296
+            }
+            else if screenHeight == 844 {
+                plantImageViewTopConstraint.constant = 230
+            }
+            else {
+                plantImageViewTopConstraint.constant = 189
+            }
             self.plantImageView.image = UIImage(named: "imgMin2")
             view.backgroundColor = .dandelionBg
         }
@@ -486,14 +509,25 @@ class MainContentVC: UIViewController {
             // 시든 상태일때
             if cherishResultData[selectedRowIndexPath].dDay <= 0 {
                 plantGifView.isHidden = true
-                plantImageView.frame.size = CGSize(width: 274, height: 0)
-                let newHeight = CGFloat(513)
+                plantImageView.frame.size = CGSize(width: 283, height: 0)
+                let newHeight = CGFloat(526.7)
                 plantImageViewHeight.constant = newHeight
                 plantImageView.layoutIfNeeded()
-                plantImageViewLeading.constant = 58
-                plantImageViewTrailing.constant = 0
-                plantImageViewTopConstraint.constant = 130
-                self.plantImageView.image = UIImage(named: "min_level3")
+                plantImageViewLeading.constant = 46
+                plantImageViewTrailing.constant = 4
+                if screenHeight == 896 {
+                    plantImageViewTopConstraint.constant = 182
+                }
+                else if screenHeight == 926 {
+                    plantImageViewTopConstraint.constant = 212
+                }
+                else if screenHeight == 844 {
+                    plantImageViewTopConstraint.constant = 140
+                }
+                else {
+                    plantImageViewTopConstraint.constant = 98
+                }
+                self.plantImageView.image = UIImage(named: "imgMin3")
                 self.view.backgroundColor = .diePlantGrey
             }
             else {
@@ -517,7 +551,18 @@ class MainContentVC: UIViewController {
             plantImageView.layoutIfNeeded()
             plantImageViewLeading.constant = 82
             plantImageViewTrailing.constant = 2
-            plantImageViewTopConstraint.constant = 278
+            if screenHeight == 896 {
+                plantImageViewTopConstraint.constant = 330
+            }
+            else if screenHeight == 926 {
+                plantImageViewTopConstraint.constant = 360
+            }
+            else if screenHeight == 844 {
+                plantImageViewTopConstraint.constant = 310
+            }
+            else {
+                plantImageViewTopConstraint.constant = 278
+            }
             self.plantImageView.image = UIImage(named: "imgBlue1")
             view.backgroundColor = .americanBlueBg
         }
@@ -530,7 +575,18 @@ class MainContentVC: UIViewController {
             plantImageView.layoutIfNeeded()
             plantImageViewLeading.constant = 107
             plantImageViewTrailing.constant = 22
-            plantImageViewTopConstraint.constant = 145
+            if screenHeight == 896 {
+                plantImageViewTopConstraint.constant = 200
+            }
+            else if screenHeight == 926 {
+                plantImageViewTopConstraint.constant = 230
+            }
+            else if screenHeight == 844 {
+                plantImageViewTopConstraint.constant = 190
+            }
+            else {
+                plantImageViewTopConstraint.constant = 145
+            }
             self.plantImageView.image = UIImage(named: "imgBlue2")
             view.backgroundColor = .americanBlueBg
         }
@@ -545,7 +601,18 @@ class MainContentVC: UIViewController {
                 plantImageView.layoutIfNeeded()
                 plantImageViewLeading.constant = 90
                 plantImageViewTrailing.constant = 44
-                plantImageViewTopConstraint.constant = 150
+                if screenHeight == 896 {
+                    plantImageViewTopConstraint.constant = 170
+                }
+                else if screenHeight == 926 {
+                    plantImageViewTopConstraint.constant = 200
+                }
+                else if screenHeight == 844 {
+                    plantImageViewTopConstraint.constant = 140
+                }
+                else {
+                    plantImageViewTopConstraint.constant = 142
+                }
                 self.plantImageView.image = UIImage(named: "mainImgAmericanblue")
                 self.view.backgroundColor = .diePlantGrey
             }
@@ -583,7 +650,15 @@ class MainContentVC: UIViewController {
             plantImageView.layoutIfNeeded()
             plantImageViewLeading.constant = 107
             plantImageViewTrailing.constant = 0
-            plantImageViewTopConstraint.constant = 106
+            if screenHeight == 896 {
+                plantImageViewTopConstraint.constant = 150
+            }
+            else if screenHeight == 926 {
+                plantImageViewTopConstraint.constant = 180
+            }
+            else {
+                plantImageViewTopConstraint.constant = 106
+            }
             self.plantImageView.image = UIImage(named: "imgRose2")
             view.backgroundColor = .rosemaryBg
         }
@@ -599,6 +674,15 @@ class MainContentVC: UIViewController {
                 plantImageView.layoutIfNeeded()
                 plantImageViewLeading.constant = 110
                 plantImageViewTrailing.constant = 12
+                if screenHeight == 896 {
+                    plantImageViewTopConstraint.constant = 150
+                }
+                else if screenHeight == 926 {
+                    plantImageViewTopConstraint.constant = 180
+                }
+                else {
+                    plantImageViewTopConstraint.constant = 106
+                }
                 plantImageViewTopConstraint.constant = 98
                 self.plantImageView.image = UIImage(named: "imgRose3")
                 self.view.backgroundColor = .diePlantGrey
@@ -624,7 +708,18 @@ class MainContentVC: UIViewController {
             plantImageView.layoutIfNeeded()
             plantImageViewLeading.constant = 58
             plantImageViewTrailing.constant = 0
-            plantImageViewTopConstraint.constant = 352
+            if screenHeight == 896 {
+                plantImageViewTopConstraint.constant = 400
+            }
+            else if screenHeight == 926 {
+                plantImageViewTopConstraint.constant = 430
+            }
+            else if screenHeight == 844 {
+                plantImageViewTopConstraint.constant = 380
+            }
+            else {
+                plantImageViewTopConstraint.constant = 352
+            }
             self.plantImageView.image = UIImage(named: "imgSun1")
             view.backgroundColor = .cactusBg
         }
@@ -637,7 +732,18 @@ class MainContentVC: UIViewController {
             plantImageView.layoutIfNeeded()
             plantImageViewLeading.constant = 50
             plantImageViewTrailing.constant = 0
-            plantImageViewTopConstraint.constant = 235
+            if screenHeight == 896 {
+                plantImageViewTopConstraint.constant = 300
+            }
+            else if screenHeight == 926 {
+                plantImageViewTopConstraint.constant = 330
+            }
+            else if screenHeight == 844 {
+                plantImageViewTopConstraint.constant = 270
+            }
+            else {
+                plantImageViewTopConstraint.constant = 235
+            }
             self.plantImageView.image = UIImage(named: "imgSun2")
             view.backgroundColor = .cactusBg
         }
@@ -646,13 +752,24 @@ class MainContentVC: UIViewController {
             // 시든 상태일때
             if cherishResultData[selectedRowIndexPath].dDay <= 0 {
                 plantGifView.isHidden = true
-                plantImageView.frame.size = CGSize(width: 299, height: 0)
-                let newHeight = CGFloat(457)
-                plantImageViewHeight.constant = newHeight
-                plantImageView.layoutIfNeeded()
-                plantImageViewLeading.constant = 26
-                plantImageViewTrailing.constant = 8
-                plantImageViewTopConstraint.constant = 215
+                if screenHeight == 926 {
+                    plantImageView.frame.size = CGSize(width: 320, height: 0)
+                    let newHeight = CGFloat(422)
+                    plantImageViewHeight.constant = newHeight
+                    plantImageView.layoutIfNeeded()
+                    plantImageViewLeading.constant = 52
+                    plantImageViewTrailing.constant = 0
+                    plantImageViewTopConstraint.constant = 314
+                }
+                else {
+                    plantImageView.frame.size = CGSize(width: 299, height: 0)
+                    let newHeight = CGFloat(457)
+                    plantImageViewHeight.constant = newHeight
+                    plantImageView.layoutIfNeeded()
+                    plantImageViewLeading.constant = 26
+                    plantImageViewTrailing.constant = 8
+                    plantImageViewTopConstraint.constant = 215
+                }
                 self.plantImageView.image = UIImage(named: "mainImgSun")
                 self.view.backgroundColor = .diePlantGrey
             }
@@ -679,7 +796,18 @@ class MainContentVC: UIViewController {
             self.plantImageView.image = UIImage(named: "imgStuki1")
             plantImageViewTrailing.constant = 0
             plantImageViewLeading.constant = 10
-            plantImageViewTopConstraint.constant = 322
+            if screenHeight == 896 {
+                plantImageViewTopConstraint.constant = 380
+            }
+            else if screenHeight == 926 {
+                plantImageViewTopConstraint.constant = 410
+            }
+            else if screenHeight == 844 {
+                plantImageViewTopConstraint.constant = 365
+            }
+            else {
+                plantImageViewTopConstraint.constant = 322
+            }
             view.backgroundColor = .stuckyBg
         }
         else if growthInfo < 50 && growthInfo >= 25 {
@@ -768,14 +896,16 @@ class MainContentVC: UIViewController {
             plantExplainLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 34)
             userNickNameLabel.font = UIFont(name: "Noto Sans CJK KR Regular", size: 34)
             plantExplainLabelTopConstraint.constant = 16
+            wateringBtnTopConstraint.constant = 18
         }
         else if screenHeight == 926 {
             print("iPhone 12proMax")
-            progressViewTopConstraint.constant = 150
-            progressInnerViewTopConstraint.constant = 152
+            progressViewTopConstraint.constant = 160
+            progressInnerViewTopConstraint.constant = 162
             plantExplainLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 34)
             userNickNameLabel.font = UIFont(name: "Noto Sans CJK KR Regular", size: 34)
             plantExplainLabelTopConstraint.constant = 16
+            wateringBtnTopConstraint.constant = 18
         }
         else if screenHeight == 844 {
             print("iPhone 12, 12pro")

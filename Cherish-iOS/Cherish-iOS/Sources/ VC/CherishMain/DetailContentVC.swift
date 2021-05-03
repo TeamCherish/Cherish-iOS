@@ -16,11 +16,14 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var headerView: UIView!
     @IBOutlet var cherishPeopleCountLabel: CustomLabel!
     @IBOutlet var cherishPeopleCV: UICollectionView!
+    @IBOutlet var cherishHeaderViewHeight: NSLayoutConstraint!
     var selectedIndexPath : IndexPath?
     var sendCount:Int = 0
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let userId: Int = UserDefaults.standard.integer(forKey: "userID")
     let fcmToken: String = UserDefaults.standard.string(forKey: "fcmToken")!
+    let screenWidth = UIScreen.main.bounds.size.width
+    let screenHeight = UIScreen.main.bounds.size.height
     var pushCherishId: Int = 0
     var pushCherishPhoneNumber: String = ""
     var mypageSelectedNickname: String = ""
@@ -398,7 +401,14 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
     
     //MARK: - sizeForItemAt
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 69, height: 91)
+        
+        if screenWidth >= 414 && screenHeight >= 896 {
+            cherishHeaderViewHeight.constant = 66.7
+            return CGSize(width: 76.2, height: 100.4)
+        }
+        else {
+            return CGSize(width: 69, height: 91)
+        }
     }
     
     

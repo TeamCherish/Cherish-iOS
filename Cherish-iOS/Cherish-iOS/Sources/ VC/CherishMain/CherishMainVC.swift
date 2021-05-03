@@ -79,7 +79,7 @@ extension CherishMainVC : OverlayContainerViewControllerDelegate {
             case .minimum:
                 return availableSpace * 0.17
             case .medium:
-                return availableSpace * 0.286
+                return availableSpace * 0.305
             case .maximum:
                 return availableSpace * 3/4
             }
@@ -90,7 +90,7 @@ extension CherishMainVC : OverlayContainerViewControllerDelegate {
             case .minimum:
                 return availableSpace * 0.165
             case .medium:
-                return availableSpace * 0.275
+                return availableSpace * 0.295
             case .maximum:
                 return availableSpace * 3/4
             }
