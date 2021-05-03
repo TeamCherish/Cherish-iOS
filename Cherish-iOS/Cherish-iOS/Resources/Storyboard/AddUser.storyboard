@@ -131,7 +131,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 상세 입력" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="XyP-Hj-Los" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="141.66666666666666" y="12.666666666666666" width="92" height="18.666666666666671"/>
+                                        <rect key="frame" x="139" y="10" width="97.333333333333314" height="24"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -302,7 +302,7 @@
                                 <rect key="frame" x="16" y="531" width="343" height="154"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(최대8글자)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0o-5z-5gA" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="81" y="114" width="54.666666666666657" height="24"/>
+                                <rect key="frame" x="81" y="114" width="59" height="24"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="textGrey"/>
                                 <nil key="highlightedColor"/>
@@ -313,7 +313,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(선택 사항)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxi-ut-YOD" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="59" y="203" width="51.333333333333343" height="24"/>
+                                <rect key="frame" x="59" y="203" width="55.666666666666657" height="24"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="textGrey"/>
                                 <nil key="highlightedColor"/>
@@ -473,7 +473,6 @@
                                 <rect key="frame" x="16" y="697" width="343" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="cbc-I5-Zgz"/>
-                                    <constraint firstAttribute="width" secondItem="NGw-cS-dGP" secondAttribute="height" multiplier="343:48" id="iFe-fz-afW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                 <state key="normal" title="시작하기">
@@ -488,21 +487,6 @@
                                     <action selector="startToMain:" destination="U4Q-xe-IxR" eventType="touchUpInside" id="qeq-UI-oPQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작하기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkt-AC-Xb1" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="158" y="709" width="59" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Mkt-AC-Xb1" secondAttribute="height" multiplier="59:24" id="Tg4-mj-vmo"/>
-                                    <constraint firstAttribute="height" constant="24" id="ra3-Lw-VfG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
-                                        <real key="value" value="-0.69999999999999996"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PkQ-rQ-mSl">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <subviews>
@@ -525,7 +509,6 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="ch3-QC-DIj" firstAttribute="centerY" secondItem="PkQ-rQ-mSl" secondAttribute="centerY" id="3w3-R3-6zu"/>
-                                    <constraint firstAttribute="height" constant="44" id="d5S-gs-fE2"/>
                                     <constraint firstAttribute="width" secondItem="PkQ-rQ-mSl" secondAttribute="height" multiplier="375:44" id="m4z-fQ-rrN"/>
                                     <constraint firstItem="ch3-QC-DIj" firstAttribute="centerX" secondItem="PkQ-rQ-mSl" secondAttribute="centerX" id="xct-N0-u8J"/>
                                 </constraints>
@@ -589,16 +572,14 @@
                         <viewLayoutGuide key="safeArea" id="uOL-H4-J9L"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Mkt-AC-Xb1" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="2M0-eo-O2r"/>
                             <constraint firstItem="PkQ-rQ-mSl" firstAttribute="trailing" secondItem="uOL-H4-J9L" secondAttribute="trailing" id="4JC-Ss-7Z2"/>
+                            <constraint firstItem="NGw-cS-dGP" firstAttribute="width" secondItem="jXI-6e-wH5" secondAttribute="width" multiplier="0.914667" id="7qz-EF-b8J"/>
                             <constraint firstItem="Msu-Ba-Cq7" firstAttribute="top" secondItem="yzy-LD-K9Q" secondAttribute="bottom" constant="17" id="AKU-EF-McT"/>
-                            <constraint firstItem="NGw-cS-dGP" firstAttribute="leading" secondItem="uOL-H4-J9L" secondAttribute="leading" constant="16" id="GAt-K3-e3a"/>
                             <constraint firstItem="yzy-LD-K9Q" firstAttribute="leading" secondItem="uOL-H4-J9L" secondAttribute="leading" constant="44" id="Izw-yi-9L6"/>
                             <constraint firstItem="0Tg-Qm-hoI" firstAttribute="top" secondItem="PkQ-rQ-mSl" secondAttribute="bottom" constant="49" id="Jdg-QN-EQK"/>
                             <constraint firstItem="Msu-Ba-Cq7" firstAttribute="leading" secondItem="uOL-H4-J9L" secondAttribute="leading" constant="105" id="PBo-IM-Q0m"/>
                             <constraint firstItem="uOL-H4-J9L" firstAttribute="trailing" secondItem="yzy-LD-K9Q" secondAttribute="trailing" constant="44" id="PSv-o0-HcH"/>
                             <constraint firstItem="uOL-H4-J9L" firstAttribute="bottom" secondItem="NGw-cS-dGP" secondAttribute="bottom" constant="33" id="PcQ-AH-biN"/>
-                            <constraint firstItem="uOL-H4-J9L" firstAttribute="trailing" secondItem="NGw-cS-dGP" secondAttribute="trailing" constant="16" id="QGP-Us-yio"/>
                             <constraint firstItem="GHF-YT-Sqc" firstAttribute="top" secondItem="0Tg-Qm-hoI" secondAttribute="bottom" id="Rqp-FG-vfA"/>
                             <constraint firstItem="uOL-H4-J9L" firstAttribute="trailing" secondItem="Msu-Ba-Cq7" secondAttribute="trailing" constant="104" id="VeP-3s-B8d"/>
                             <constraint firstItem="NGw-cS-dGP" firstAttribute="top" secondItem="oeJ-TW-ozj" secondAttribute="bottom" constant="38" id="ZHA-pp-r23"/>
@@ -611,16 +592,18 @@
                             <constraint firstItem="0Tg-Qm-hoI" firstAttribute="centerX" secondItem="jXI-6e-wH5" secondAttribute="centerX" id="jbd-RL-LQm"/>
                             <constraint firstItem="yzy-LD-K9Q" firstAttribute="height" secondItem="uOL-H4-J9L" secondAttribute="height" multiplier="0.391008" id="jxM-Nj-G7m"/>
                             <constraint firstItem="PkQ-rQ-mSl" firstAttribute="leading" secondItem="uOL-H4-J9L" secondAttribute="leading" id="lRn-6B-5Jk"/>
-                            <constraint firstItem="uOL-H4-J9L" firstAttribute="bottom" secondItem="Mkt-AC-Xb1" secondAttribute="bottom" constant="45" id="wtT-wn-UTh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="explanationLabel" destination="oeJ-TW-ozj" id="DwT-rG-8X1"/>
                         <outlet property="modifierBold" destination="GHF-YT-Sqc" id="Qzw-Ox-h3u"/>
                         <outlet property="modifierRegular" destination="0Tg-Qm-hoI" id="Ls3-J4-cvF"/>
+                        <outlet property="modifierRegularTopConstraint" destination="Jdg-QN-EQK" id="t4D-gZ-eJI"/>
                         <outlet property="plantBox" destination="Msu-Ba-Cq7" id="xwQ-ge-T2C"/>
                         <outlet property="resultPlantImgView" destination="yzy-LD-K9Q" id="U65-0L-wGz"/>
                         <outlet property="startBtn" destination="NGw-cS-dGP" id="t9N-eN-UV6"/>
+                        <outlet property="startBtnHeight" destination="cbc-I5-Zgz" id="cO1-fq-Paf"/>
+                        <outlet property="startBtnTopConstraint" destination="ZHA-pp-r23" id="6tm-XM-DUw"/>
                         <outlet property="topView" destination="PkQ-rQ-mSl" id="6y9-Nq-9BC"/>
                     </connections>
                 </viewController>
@@ -640,7 +623,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 등록 친구 선택" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIW-3M-rMJ" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="125.33333333333334" y="12.666666666666666" width="124.33333333333334" height="18.666666666666671"/>
+                                        <rect key="frame" x="122.00000000000001" y="10" width="131.33333333333337" height="24"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>

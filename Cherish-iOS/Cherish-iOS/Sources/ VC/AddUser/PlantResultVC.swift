@@ -17,6 +17,9 @@ class PlantResultVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var plantBox: UIImageView!
     @IBOutlet weak var modifierRegular: UILabel!
     @IBOutlet weak var modifierBold: UILabel!
+    @IBOutlet weak var modifierRegularTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var startBtnHeight: NSLayoutConstraint!
+    @IBOutlet weak var startBtnTopConstraint: NSLayoutConstraint!
     
     var modifier: String?
     var resultPlantImgUrl: String?
@@ -42,17 +45,33 @@ class PlantResultVC: UIViewController, UIGestureRecognizerDelegate {
     let dan: UIColor = UIColor(red: 125/255, green: 159/255, blue: 188/255, alpha: 1.0)
     
     func setConstraints() {
-        modifierRegular.translatesAutoresizingMaskIntoConstraints = false
-        var constraintTop : NSLayoutConstraint
-        if screenHeight <= 667 {
-            // 아이폰 7,8 이하
-            constraintTop = modifierRegular.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 20.0)
-            constraintTop.isActive = true
+        
+        if screenHeight == 896 { //11 Pro Max, 11, Xs Max, Xr
+            modifierRegularTopConstraint.constant = 65.0
+            startBtnHeight.constant = 54
+            startBtnTopConstraint.constant = 66
         }
-        else {
-            constraintTop = modifierRegular.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 49.0)
-            constraintTop.isActive = true
+        else if screenHeight == 926 { // 12 Pro Max
+            modifierRegularTopConstraint.constant = 69.0
+            startBtnHeight.constant = 54
+            startBtnTopConstraint.constant = 66
         }
+        else if screenHeight == 844 { // 12, 12 Pro
+            modifierRegularTopConstraint.constant = 54.0
+        }
+        else if screenHeight == 736 { // 6+, 6s+, 7+, 8+
+            modifierRegularTopConstraint.constant = 35.0
+        }
+        else if screenHeight == 667 { // 6, 6s, 7, 8, se 2
+            modifierRegularTopConstraint.constant = 20.0
+        }
+        else if screenHeight == 780 { // 12 mini
+            modifierRegularTopConstraint.constant = 43.0
+        }
+        else { // 812 -> 11 Pro, X, Xs
+            modifierRegularTopConstraint.constant = 49.0
+        }
+        
         modifierRegular.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         modifierRegular.widthAnchor.constraint(equalToConstant: 269)
         modifierRegular.heightAnchor.constraint(equalToConstant: 40)
