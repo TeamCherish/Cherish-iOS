@@ -22,11 +22,21 @@ class CherishTabBarController: UITabBarController {
         setTabBar()
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-
-        tabBar.frame.size.height = 55
-        tabBar.frame.origin.y = view.frame.height - 55
+    override func viewDidLayoutSubviews() {
+        if screenWidth >= 414 && screenHeight >= 896 {
+            super.viewWillLayoutSubviews()
+            
+            var tabFrame: CGRect = self.tabBar.frame
+            tabFrame.size.height = 96.6
+            tabFrame.origin.y = self.view.frame.size.height - 96.6
+            self.tabBar.frame = tabFrame
+        }
+        else {
+            var tabFrame: CGRect = self.tabBar.frame
+            tabFrame.size.height = 80
+            tabFrame.origin.y = self.view.frame.size.height - 80
+            self.tabBar.frame = tabFrame
+        }
     }
     
     // MARK: - 탭바 만드는 함수

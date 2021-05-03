@@ -77,9 +77,9 @@ extension CherishMainVC : OverlayContainerViewControllerDelegate {
             print("iPhone 11pro, 11proMax")
             switch Notches.allCases[index] {
             case .minimum:
-                return availableSpace * 0.16
+                return availableSpace * 0.17
             case .medium:
-                return availableSpace * 0.27
+                return availableSpace * 0.286
             case .maximum:
                 return availableSpace * 3/4
             }
@@ -88,9 +88,9 @@ extension CherishMainVC : OverlayContainerViewControllerDelegate {
             print("iPhone 12proMax")
             switch Notches.allCases[index] {
             case .minimum:
-                return availableSpace * 0.15
+                return availableSpace * 0.165
             case .medium:
-                return availableSpace * 0.26
+                return availableSpace * 0.275
             case .maximum:
                 return availableSpace * 3/4
             }

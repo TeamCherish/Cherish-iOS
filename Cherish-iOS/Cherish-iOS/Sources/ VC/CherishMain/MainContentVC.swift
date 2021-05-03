@@ -27,6 +27,7 @@ class MainContentVC: UIViewController {
     @IBOutlet var progressViewTopConstraint: NSLayoutConstraint!
     @IBOutlet var progressInnerViewTopConstraint: NSLayoutConstraint!
     @IBOutlet var blurBtnTopConstraint: NSLayoutConstraint!
+    @IBOutlet var plantExplainLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var blurBtn: UIVisualEffectView!{
         didSet{
             blurBtn.makeRounded(cornerRadius: 14.0)
@@ -764,11 +765,17 @@ class MainContentVC: UIViewController {
             blurBtnTopConstraint.constant = 530
             progressViewTopConstraint.constant = 140
             progressInnerViewTopConstraint.constant = 142
+            plantExplainLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 34)
+            userNickNameLabel.font = UIFont(name: "Noto Sans CJK KR Regular", size: 34)
+            plantExplainLabelTopConstraint.constant = 16
         }
         else if screenHeight == 926 {
             print("iPhone 12proMax")
             progressViewTopConstraint.constant = 150
             progressInnerViewTopConstraint.constant = 152
+            plantExplainLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 34)
+            userNickNameLabel.font = UIFont(name: "Noto Sans CJK KR Regular", size: 34)
+            plantExplainLabelTopConstraint.constant = 16
         }
         else if screenHeight == 844 {
             print("iPhone 12, 12pro")

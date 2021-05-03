@@ -235,6 +235,7 @@
                         <outlet property="dayCountLabel" destination="Otg-az-yW5" id="xZ4-9p-e0J"/>
                         <outlet property="growthPercentLabel" destination="7lJ-v4-Fdo" id="GqH-Wb-S86"/>
                         <outlet property="plantExplainLabel" destination="MqD-Yz-UwB" id="lsW-qY-OCZ"/>
+                        <outlet property="plantExplainLabelTopConstraint" destination="NVe-rU-BRG" id="lKo-MB-V9t"/>
                         <outlet property="plantGifView" destination="1LF-25-ssR" id="6rT-hv-l0E"/>
                         <outlet property="plantImageView" destination="1cl-cl-xvs" id="Wmv-vk-st5"/>
                         <outlet property="plantImageViewHeight" destination="OWd-Ud-SXZ" id="2Kt-Pk-1th"/>
@@ -272,7 +273,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 소중한 사람들" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWq-sY-NPK" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="16.000000000000007" y="30" width="104.66666666666669" height="16.333333333333329"/>
+                                        <rect key="frame" x="16" y="27.666666666666671" width="111" height="21"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="14"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -283,7 +284,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhZ-mV-MRR" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="124.66666666666667" y="29.666666666666671" width="0.0" height="17"/>
+                                        <rect key="frame" x="131" y="29.666666666666671" width="0.0" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="9cX-Kq-gGw"/>
                                         </constraints>
