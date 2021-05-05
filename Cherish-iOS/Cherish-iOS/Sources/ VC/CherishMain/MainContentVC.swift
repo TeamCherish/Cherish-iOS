@@ -86,8 +86,6 @@ class MainContentVC: UIViewController {
         // 식물상세페이지로 네비게이션 연결 후 탭바가 사라지기 때문에
         // popViewController 액션으로 다시 메인뷰로 돌아왔을 때 탭바가 나타나야 한다.
         self.tabBarController?.tabBar.isHidden = false
-//
-//        UserDefaults.standard.set(false, forKey: "plantIsSelected")
         LoadingHUD.hide()
     }
     
@@ -1019,7 +1017,8 @@ class MainContentVC: UIViewController {
         if UserDefaults.standard.integer(forKey: "selecteddDayData") > 0 {
             // D-day가 아닐경우 미리 물주기 금지
             noWateringDayAlert(title: "아직 목이 마르지 않아요")
-        }else if UserDefaults.standard.integer(forKey: "selecteddDayData") < 0{
+            
+        } else if UserDefaults.standard.integer(forKey: "selecteddDayData") < 0{
             // D+day일 경우 미루기가 없는 물주기 팝업
             let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpWatering", bundle: nil)
             if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpWatering_WithoutLaterVC") as? PopUpWatering_WithoutLaterVC{

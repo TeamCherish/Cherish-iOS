@@ -10,6 +10,7 @@ import UIKit
 class PopUpLaterVC: UIViewController {
     let date = [1,2,3,4,5,6,7] // 미루기 최대 7일
     var selectedDate : Int?
+    var reciever: Int = 0
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     //MARK: -@IBOutlet
@@ -34,7 +35,7 @@ class PopUpLaterVC: UIViewController {
             laterPickerView.dataSource = self
         }
     }
-//    @IBOutlet weak var laterCountingLabel: UILabel! ///(현재까지 미룬 횟수 n회)
+    //    @IBOutlet weak var laterCountingLabel: UILabel! ///(현재까지 미룬 횟수 n회)
     @IBOutlet weak var confirmBtn: UIButton!{
         didSet{
             confirmBtn.makeRounded(cornerRadius: 23.0)
@@ -48,7 +49,7 @@ class PopUpLaterVC: UIViewController {
     }
     
     
-
+    
     /// 물 줄 날짜, 미룬 횟수 셋팅
     func setWateringDate(){
         guard let originDate = UserDefaults.standard.string(forKey: "wateringDate") else { return }
@@ -85,7 +86,7 @@ class PopUpLaterVC: UIViewController {
     // 윤년 계산 함수
     func leapYear(year: String) -> Bool{
         var leapYearStatus: Bool
-
+        
         if (Int(year)! % 4) == 0 {
             if ((Int(year)! % 100) != 0){
                 leapYearStatus = true
@@ -103,8 +104,9 @@ class PopUpLaterVC: UIViewController {
     
     // Server-미루기
     func getLaterData(){
-        print(UserDefaults.standard.integer(forKey: "selectedFriendIdData"))
-        LaterService.shared.doLater(id: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), postpone: selectedDate ?? 1, is_limit_postpone_number: UserDefaults.standard.bool(forKey: "noMinusisPossible")) { (networkResult) -> (Void) in
+        reciever = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+        print(reciever)
+        LaterService.shared.doLater(id: reciever, postpone: selectedDate ?? 1, is_limit_postpone_number: UserDefaults.standard.bool(forKey: "noMinusisPossible")) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 if let dataMessage = data as? String{
@@ -113,10 +115,9 @@ class PopUpLaterVC: UIViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.appDel.isCherishPostponed = true
                 //메인뷰에 모달이 dismiss되었음을 알려주는 Noti
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
-                    NotificationCenter.default.post(name: .postPostponed, object: nil)
-                }
-
+                NotificationCenter.default.post(name: .postPostponed, object: reciever)
+                
+                
             case .requestErr(let msg):
                 if let message = msg as? String {
                     print(message)
@@ -169,7 +170,7 @@ extension PopUpLaterVC: UIPickerViewDelegate, UIPickerViewDataSource{
         let yeardateFormatter = DateFormatter()
         let monthdateFormatter = DateFormatter()
         let daydateFormatter = DateFormatter()
-
+        
         dateFormatter.dateFormat = "yy-MM-dd"
         
         let y = dateFormatter.date(from: originDate)
@@ -199,7 +200,7 @@ extension PopUpLaterVC: UIPickerViewDelegate, UIPickerViewDataSource{
                 changeDateMonthLabel.text = "\(int_month!)"
                 int_day = Int(day!)
             }
-        /// 2월(윤년 계산)
+            /// 2월(윤년 계산)
         }else if int_month == 2{
             if leapYearStatus{
                 if int_day! + date[row] > 29{
@@ -218,7 +219,7 @@ extension PopUpLaterVC: UIPickerViewDelegate, UIPickerViewDataSource{
                     int_day = Int(day!)
                 }
             }
-        /// 30일 까지 있는 달(4,6,9,11월)
+            /// 30일 까지 있는 달(4,6,9,11월)
         }else{
             if int_day! + date[row] > 30{
                 changeDateMonthLabel.text = "\(int_month!+1)"
