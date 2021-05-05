@@ -113,7 +113,9 @@ class PopUpLaterVC: UIViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.appDel.isCherishPostponed = true
                 //메인뷰에 모달이 dismiss되었음을 알려주는 Noti
-                NotificationCenter.default.post(name: .postPostponed, object: nil)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
+                    NotificationCenter.default.post(name: .postPostponed, object: nil)
+                }
 
             case .requestErr(let msg):
                 if let message = msg as? String {
