@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "scale" : "1x",
       "idiom" : "universal",
-      "filename" : "mainImgAmericanblue.png"
+      "filename" : "imgBlue3.png",
+      "scale" : "1x"
     },
     {
+      "filename" : "imgBlue3@2x.png",
       "scale" : "2x",
-      "filename" : "mainImgAmericanblue@2x.png",
       "idiom" : "universal"
     },
     {
       "scale" : "3x",
-      "idiom" : "universal",
-      "filename" : "mainImgAmericanblue@3x.png"
+      "filename" : "imgBlue3@3x.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {

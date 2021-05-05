@@ -182,9 +182,9 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
             // 셀이 눌렸다는 것을 알려주는 noti를 post!
             NotificationCenter.default.post(name: .cherishPeopleCellClicked, object: nil)
             appDel.isCherishPostponed = false
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0){ [self] in
-//                setCherishPeopleData()
-//            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0){ [self] in
+                setCherishPeopleData()
+            }
         }
         
     }

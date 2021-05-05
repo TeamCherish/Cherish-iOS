@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "mainImgSun.png",
-      "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "imgSun3.png",
+      "idiom" : "universal"
     },
     {
-      "filename" : "mainImgSun@2x.png",
       "scale" : "2x",
+      "filename" : "imgSun3@2x.png",
       "idiom" : "universal"
     },
     {
       "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "mainImgSun@3x.png"
+      "filename" : "imgSun3@3x.png"
     }
   ],
   "info" : {

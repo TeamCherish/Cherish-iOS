@@ -613,7 +613,7 @@ class MainContentVC: UIViewController {
                 else {
                     plantImageViewTopConstraint.constant = 142
                 }
-                self.plantImageView.image = UIImage(named: "mainImgAmericanblue")
+                self.plantImageView.image = UIImage(named: "imgBlue3")
                 self.view.backgroundColor = .diePlantGrey
             }
             else {
@@ -674,6 +674,7 @@ class MainContentVC: UIViewController {
                 plantImageView.layoutIfNeeded()
                 plantImageViewLeading.constant = 110
                 plantImageViewTrailing.constant = 12
+                
                 if screenHeight == 896 {
                     plantImageViewTopConstraint.constant = 150
                 }
@@ -681,9 +682,8 @@ class MainContentVC: UIViewController {
                     plantImageViewTopConstraint.constant = 180
                 }
                 else {
-                    plantImageViewTopConstraint.constant = 106
+                    plantImageViewTopConstraint.constant = 98
                 }
-                plantImageViewTopConstraint.constant = 98
                 self.plantImageView.image = UIImage(named: "imgRose3")
                 self.view.backgroundColor = .diePlantGrey
             }
@@ -771,7 +771,7 @@ class MainContentVC: UIViewController {
                     plantImageViewTrailing.constant = 8
                     plantImageViewTopConstraint.constant = 215
                 }
-                self.plantImageView.image = UIImage(named: "mainImgSun")
+                self.plantImageView.image = UIImage(named: "imgSun3")
                 self.view.backgroundColor = .diePlantGrey
             }
             else {
@@ -798,13 +798,13 @@ class MainContentVC: UIViewController {
             plantImageViewTrailing.constant = 0
             plantImageViewLeading.constant = 10
             if screenHeight == 896 {
-                plantImageViewTopConstraint.constant = 380
+                plantImageViewTopConstraint.constant = 400
             }
             else if screenHeight == 926 {
-                plantImageViewTopConstraint.constant = 410
+                plantImageViewTopConstraint.constant = 430
             }
             else if screenHeight == 844 {
-                plantImageViewTopConstraint.constant = 365
+                plantImageViewTopConstraint.constant = 375
             }
             else {
                 plantImageViewTopConstraint.constant = 322
@@ -821,7 +821,18 @@ class MainContentVC: UIViewController {
             self.plantImageView.image = UIImage(named: "imgStuki2")
             plantImageViewLeading.constant = 2
             plantImageViewTrailing.constant = 1
-            plantImageViewTopConstraint.constant = 268
+            if screenHeight == 896 {
+                plantImageViewTopConstraint.constant = 345
+            }
+            else if screenHeight == 926 {
+                plantImageViewTopConstraint.constant = 375
+            }
+            else if screenHeight == 844 {
+                plantImageViewTopConstraint.constant = 325
+            }
+            else {
+                plantImageViewTopConstraint.constant = 268
+            }
             view.backgroundColor = .stuckyBg
         }
         // 3단계
@@ -836,8 +847,22 @@ class MainContentVC: UIViewController {
                 plantImageView.layoutIfNeeded()
                 plantImageViewLeading.constant = 42
                 plantImageViewTrailing.constant = 0
-                plantImageViewTopConstraint.constant = 169
-                self.plantImageView.image = UIImage(named: "mainImgStuki")
+                if screenHeight == 896 {
+                    //11 pro max
+                    plantImageViewTopConstraint.constant = 225
+                }
+                else if screenHeight == 926 {
+                    //12 pro max
+                    plantImageViewTopConstraint.constant = 255
+                }
+                else if screenHeight == 844 {
+                    //12 pro 
+                    plantImageViewTopConstraint.constant = 205
+                }
+                else {
+                    plantImageViewTopConstraint.constant = 169
+                }
+                self.plantImageView.image = UIImage(named: "imgStuki3")
                 self.view.backgroundColor = .diePlantGrey
             }
             else {
