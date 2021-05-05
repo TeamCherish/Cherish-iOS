@@ -156,7 +156,7 @@ class MainContentVC: UIViewController {
             
             // 변수에 값 할당
             var selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
-            let selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
+            var selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
             
             //MARK: - 민들레일 때
             if selectedPlantName == "민들레" {
@@ -507,6 +507,7 @@ class MainContentVC: UIViewController {
         // 3단계
         else {
             // 시든 상태일때
+            selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
             if cherishResultData[selectedRowIndexPath].dDay <= 0 {
                 plantGifView.isHidden = true
                 plantImageView.frame.size = CGSize(width: 283, height: 0)
@@ -593,6 +594,7 @@ class MainContentVC: UIViewController {
         // 3단계
         else {
             // 시든 상태일때
+            selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
             if cherishResultData[selectedRowIndexPath].dDay <= 0 {
                 plantGifView.isHidden = true
                 plantImageView.frame.size = CGSize(width: 199, height: 0)
@@ -750,6 +752,7 @@ class MainContentVC: UIViewController {
         // 3단계
         else {
             // 시든 상태일때
+            selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
             if cherishResultData[selectedRowIndexPath].dDay <= 0 {
                 plantGifView.isHidden = true
                 if screenHeight == 926 {
@@ -826,6 +829,7 @@ class MainContentVC: UIViewController {
         // 3단계
         else {
             // 시든 상태일때
+            selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
             if cherishResultData[selectedRowIndexPath].dDay <= 0 {
                 plantGifView.isHidden = true
                 plantImageView.frame.size = CGSize(width: 291, height: 0)
