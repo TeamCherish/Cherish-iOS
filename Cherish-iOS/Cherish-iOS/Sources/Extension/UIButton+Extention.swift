@@ -5,7 +5,6 @@
 //  Created by 황지은 on 2021/01/08.
 //
 
-import Foundation
 import UIKit
 
 extension UIButton {
