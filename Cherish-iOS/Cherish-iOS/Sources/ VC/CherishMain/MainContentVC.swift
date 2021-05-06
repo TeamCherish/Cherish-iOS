@@ -86,8 +86,6 @@ class MainContentVC: UIViewController {
         // 식물상세페이지로 네비게이션 연결 후 탭바가 사라지기 때문에
         // popViewController 액션으로 다시 메인뷰로 돌아왔을 때 탭바가 나타나야 한다.
         self.tabBarController?.tabBar.isHidden = false
-//
-//        UserDefaults.standard.set(false, forKey: "plantIsSelected")
         LoadingHUD.hide()
     }
     
@@ -156,7 +154,7 @@ class MainContentVC: UIViewController {
             
             // 변수에 값 할당
             var selectedPlantName = UserDefaults.standard.string(forKey: "selectedPlantName")
-            let selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
+            var selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
             
             //MARK: - 민들레일 때
             if selectedPlantName == "민들레" {
@@ -507,6 +505,7 @@ class MainContentVC: UIViewController {
         // 3단계
         else {
             // 시든 상태일때
+            selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
             if cherishResultData[selectedRowIndexPath].dDay <= 0 {
                 plantGifView.isHidden = true
                 plantImageView.frame.size = CGSize(width: 283, height: 0)
@@ -593,6 +592,7 @@ class MainContentVC: UIViewController {
         // 3단계
         else {
             // 시든 상태일때
+            selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
             if cherishResultData[selectedRowIndexPath].dDay <= 0 {
                 plantGifView.isHidden = true
                 plantImageView.frame.size = CGSize(width: 199, height: 0)
@@ -613,7 +613,7 @@ class MainContentVC: UIViewController {
                 else {
                     plantImageViewTopConstraint.constant = 142
                 }
-                self.plantImageView.image = UIImage(named: "mainImgAmericanblue")
+                self.plantImageView.image = UIImage(named: "imgBlue3")
                 self.view.backgroundColor = .diePlantGrey
             }
             else {
@@ -674,6 +674,7 @@ class MainContentVC: UIViewController {
                 plantImageView.layoutIfNeeded()
                 plantImageViewLeading.constant = 110
                 plantImageViewTrailing.constant = 12
+                
                 if screenHeight == 896 {
                     plantImageViewTopConstraint.constant = 150
                 }
@@ -681,9 +682,8 @@ class MainContentVC: UIViewController {
                     plantImageViewTopConstraint.constant = 180
                 }
                 else {
-                    plantImageViewTopConstraint.constant = 106
+                    plantImageViewTopConstraint.constant = 98
                 }
-                plantImageViewTopConstraint.constant = 98
                 self.plantImageView.image = UIImage(named: "imgRose3")
                 self.view.backgroundColor = .diePlantGrey
             }
@@ -750,6 +750,7 @@ class MainContentVC: UIViewController {
         // 3단계
         else {
             // 시든 상태일때
+            selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
             if cherishResultData[selectedRowIndexPath].dDay <= 0 {
                 plantGifView.isHidden = true
                 if screenHeight == 926 {
@@ -770,7 +771,7 @@ class MainContentVC: UIViewController {
                     plantImageViewTrailing.constant = 8
                     plantImageViewTopConstraint.constant = 215
                 }
-                self.plantImageView.image = UIImage(named: "mainImgSun")
+                self.plantImageView.image = UIImage(named: "imgSun3")
                 self.view.backgroundColor = .diePlantGrey
             }
             else {
@@ -797,13 +798,13 @@ class MainContentVC: UIViewController {
             plantImageViewTrailing.constant = 0
             plantImageViewLeading.constant = 10
             if screenHeight == 896 {
-                plantImageViewTopConstraint.constant = 380
+                plantImageViewTopConstraint.constant = 400
             }
             else if screenHeight == 926 {
-                plantImageViewTopConstraint.constant = 410
+                plantImageViewTopConstraint.constant = 430
             }
             else if screenHeight == 844 {
-                plantImageViewTopConstraint.constant = 365
+                plantImageViewTopConstraint.constant = 375
             }
             else {
                 plantImageViewTopConstraint.constant = 322
@@ -820,12 +821,24 @@ class MainContentVC: UIViewController {
             self.plantImageView.image = UIImage(named: "imgStuki2")
             plantImageViewLeading.constant = 2
             plantImageViewTrailing.constant = 1
-            plantImageViewTopConstraint.constant = 268
+            if screenHeight == 896 {
+                plantImageViewTopConstraint.constant = 345
+            }
+            else if screenHeight == 926 {
+                plantImageViewTopConstraint.constant = 375
+            }
+            else if screenHeight == 844 {
+                plantImageViewTopConstraint.constant = 325
+            }
+            else {
+                plantImageViewTopConstraint.constant = 268
+            }
             view.backgroundColor = .stuckyBg
         }
         // 3단계
         else {
             // 시든 상태일때
+            selectedRowIndexPath = UserDefaults.standard.integer(forKey: "selectedRowIndexPath")
             if cherishResultData[selectedRowIndexPath].dDay <= 0 {
                 plantGifView.isHidden = true
                 plantImageView.frame.size = CGSize(width: 291, height: 0)
@@ -834,8 +847,22 @@ class MainContentVC: UIViewController {
                 plantImageView.layoutIfNeeded()
                 plantImageViewLeading.constant = 42
                 plantImageViewTrailing.constant = 0
-                plantImageViewTopConstraint.constant = 169
-                self.plantImageView.image = UIImage(named: "mainImgStuki")
+                if screenHeight == 896 {
+                    //11 pro max
+                    plantImageViewTopConstraint.constant = 225
+                }
+                else if screenHeight == 926 {
+                    //12 pro max
+                    plantImageViewTopConstraint.constant = 255
+                }
+                else if screenHeight == 844 {
+                    //12 pro 
+                    plantImageViewTopConstraint.constant = 205
+                }
+                else {
+                    plantImageViewTopConstraint.constant = 169
+                }
+                self.plantImageView.image = UIImage(named: "imgStuki3")
                 self.view.backgroundColor = .diePlantGrey
             }
             else {
@@ -1015,7 +1042,8 @@ class MainContentVC: UIViewController {
         if UserDefaults.standard.integer(forKey: "selecteddDayData") > 0 {
             // D-day가 아닐경우 미리 물주기 금지
             noWateringDayAlert(title: "아직 목이 마르지 않아요")
-        }else if UserDefaults.standard.integer(forKey: "selecteddDayData") < 0{
+            
+        } else if UserDefaults.standard.integer(forKey: "selecteddDayData") < 0{
             // D+day일 경우 미루기가 없는 물주기 팝업
             let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpWatering", bundle: nil)
             if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpWatering_WithoutLaterVC") as? PopUpWatering_WithoutLaterVC{
