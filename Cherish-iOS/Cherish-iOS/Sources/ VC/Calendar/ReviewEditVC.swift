@@ -167,7 +167,7 @@ class ReviewEditVC: UIViewController{
             keywordCountingLabel.text = "0/"
             print(edit_keyword)
             /// 컬렉션 뷰 데이터 업데이트
-            keywordCollectionView.reloadData()
+            keywordCollectionView.insertItems(at: [IndexPath(item: edit_keyword.count-1, section: 0)])
             /// 키워드 3개가 다 입력되면 키보드 내림
             if edit_keyword.count >= 3 {
                 self.view.endEditing(true)
@@ -350,8 +350,7 @@ extension ReviewEditVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         /// 키워드 터치시 삭제
         edit_keyword.remove(at: indexPath.row)
-        keywordCollectionView.reloadData()
-        
+        keywordCollectionView.deleteItems(at: [IndexPath(item: indexPath.row, section: 0)])
         /// 키워드를 삭제했을 때 메모도 없고 키워드가 0개이면
         if edit_keyword.count == 0 && memoTextView.text == "메모를 입력해주세요!" {
             setBtnNotText()

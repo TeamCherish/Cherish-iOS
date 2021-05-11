@@ -79,7 +79,6 @@ class CalendarVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-//        memoShowView.isHidden = true
         getCalendarData()
         cal_Style()
         defineCalStatus()
@@ -185,7 +184,7 @@ class CalendarVC: UIViewController {
     
     /// 식물 상세보기 메모 버튼->캘린더 이동시 해당 메모가 작성된 날짜 및 메모를 불러오기
     func memoMode() {
-        calendarOrigin.reloadData()
+        calendarOrigin.reloadData() /// 캘린더 자체는 reloadData() 써줘야함
         calendarOrigin.select(formatter.date(from: memoToCalendarDate ?? "2020-12-26"), scrollToDate: true)
         for i in 0...(fetchCalendar.count - 1) {
             if memoToCalendarDate == fetchCalendar[i].waterDate{
@@ -196,7 +195,7 @@ class CalendarVC: UIViewController {
                 memoDateLabel.text = formatter.string(from: memoToCalendarDateTemp!)
                 memoTextLabel.text = fetchCalendar[i].review
                 n = i
-                calendarKeywordCollectionView.reloadData()
+                calendarKeywordCollectionView.reloadSections(IndexSet(0...0))
                 calendarKeywordCollectionView.delegate = self
                 calendarKeywordCollectionView.dataSource = self
             }
@@ -206,7 +205,7 @@ class CalendarVC: UIViewController {
     /// 캘린더 모드로 진입하여 메모 수정한 뒤에 데이터 리로드를 위한 함수
     func calendarModeForEdit() {
         if wasWatering{
-            calendarOrigin.reloadData()
+            calendarOrigin.reloadData() /// 캘린더 자체는 reloadData() 써줘야함
             for i in 0...(fetchCalendar.count - 1) {
                 if memoToCalendarDate == fetchCalendar[i].waterDate{
                     memoShowView.isHidden = false
@@ -216,7 +215,7 @@ class CalendarVC: UIViewController {
                     memoDateLabel.text = formatter.string(from: memoToCalendarDateTemp!)
                     memoTextLabel.text = fetchCalendar[i].review
                     n = i
-                    calendarKeywordCollectionView.reloadData()
+                    calendarKeywordCollectionView.reloadSections(IndexSet(0...0))
                     calendarKeywordCollectionView.delegate = self
                     calendarKeywordCollectionView.dataSource = self
                 }
@@ -224,7 +223,7 @@ class CalendarVC: UIViewController {
         }
     }
     
-    func cal_Status(){
+    func cal_Status() {
         if calendarStatus == "memo"{
             if fetchCalendar.count == 0 {
                 self.navigationController?.popViewController(animated: true)
@@ -239,7 +238,6 @@ class CalendarVC: UIViewController {
     /// 캘린더 스타일
     func cal_Style() {
         /// 캘린더 헤더 부분
-        
         calendarOrigin.headerHeight = 66
         calendarOrigin.weekdayHeight = 41
         calendarOrigin.appearance.headerMinimumDissolvedAlpha = 0.0 /// 헤더 좌,우측 흐릿한 글씨 삭제
@@ -310,12 +308,11 @@ class CalendarVC: UIViewController {
                             keyword.append(contentsOf: [
                                 CalendarKeyword(keyword1: calendarResult.water[i].keyword1, keyword2: calendarResult.water[i].keyword2, keyword3: calendarResult.water[i].keyword3)
                             ])
-//                            print(calendarResult.water[i].waterDate)
                             watering_Events.append(formatter.date(from: calendarResult.water[i].waterDate)!)
                         }
                         futurewatering_Events.append(formatter.date(from: calendarResult.futureWaterDate)!)
                     }
-//                    print(keyword)
+                    /// 캘린더 자체는 reloadData() 써줘야함
                     calendarOrigin.reloadData()
                 }
             case .requestErr(_):
@@ -436,7 +433,7 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
                     memoDateLabel.text = formatter.string(from: date)
                     memoTextLabel.text = fetchCalendar[i].review
                     n = i
-                    calendarKeywordCollectionView.reloadData()
+                    calendarKeywordCollectionView.reloadSections(IndexSet(0...0))
                     calendarKeywordCollectionView.delegate = self
                     calendarKeywordCollectionView.dataSource = self
                     break

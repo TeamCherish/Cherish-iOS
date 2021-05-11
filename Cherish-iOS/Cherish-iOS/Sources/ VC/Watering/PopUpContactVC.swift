@@ -100,7 +100,7 @@ class PopUpContactVC: UIViewController {
                         keyword.append(checkData.result.keyword3)
                     }
                     print(keyword)
-                    keywordShowCollectionView.reloadData()
+                    keywordShowCollectionView.reloadSections(IndexSet(0...0))
                 }
             case .requestErr(_):
                 print("requestErr")
