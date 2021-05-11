@@ -134,25 +134,7 @@ class CalendarVC: UIViewController {
     
     //MARK: -사용자 정의 함수
     
-    /// 달력 좌우 페이지 넘기는 버튼
-    private func moveCurrentPage(moveUp: Bool) {
-        dateComponents.month = moveUp ? 1 : -1
-        self.currentPage = calendarCurrent.date(byAdding: dateComponents, to: self.currentPage ?? self.today)
-        self.calendarOrigin.setCurrentPage(self.currentPage!, animated: true)
-    }
-    
-    func defineCalStatus(){
-        // 달력버튼 클릭시 .month(true), 메모 클릭시 .week(false)
-        if calendarStatus == "calendar" {
-            monthCalendar()
-        }else{
-            weekCalendar()
-            memoBtnstatus = false
-            memoBtn.setImage(UIImage(named: "icUpCalendar"), for: .normal)
-        }
-    }
-    
-    //MARK: -스크린 사이즈가 다른 기기를 위한 AutoLayout 변경
+    /// -스크린 사이즈가 다른 기기를 위한 AutoLayout 변경
     func forVarietyPhones(){
         //SE2(8)
         if UIDevice.current.isiPhoneSE2{
@@ -165,73 +147,6 @@ class CalendarVC: UIViewController {
         //8+
         if UIDevice.current.isiPhone8Plus{
             memoViewBotAnchor.constant = 22
-        }
-    }
-    
-    /// 주간 달력
-    func monthCalendar(){
-        self.calendarOrigin?.setScope(.month, animated: true)
-        self.wateredLabel.isHidden = false
-        self.toWaterLabel.isHidden = false
-    }
-    
-    /// 월간 달력
-    func weekCalendar(){
-        self.calendarOrigin?.setScope(.week, animated: true)
-        self.wateredLabel.isHidden = true
-        self.toWaterLabel.isHidden = true
-    }
-    
-    /// 식물 상세보기 메모 버튼->캘린더 이동시 해당 메모가 작성된 날짜 및 메모를 불러오기
-    func memoMode() {
-        calendarOrigin.reloadData() /// 캘린더 자체는 reloadData() 써줘야함
-        calendarOrigin.select(formatter.date(from: memoToCalendarDate ?? "2020-12-26"), scrollToDate: true)
-        for i in 0...(fetchCalendar.count - 1) {
-            if memoToCalendarDate == fetchCalendar[i].waterDate{
-                memoShowView.isHidden = false
-                formatter.dateFormat = "yyyy-MM-dd"
-                memoToCalendarDateTemp = formatter.date(from: fetchCalendar[i].waterDate)
-                formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
-                memoDateLabel.text = formatter.string(from: memoToCalendarDateTemp!)
-                memoTextLabel.text = fetchCalendar[i].review
-                n = i
-                calendarKeywordCollectionView.reloadSections(IndexSet(0...0))
-                calendarKeywordCollectionView.delegate = self
-                calendarKeywordCollectionView.dataSource = self
-            }
-        }
-    }
-    
-    /// 캘린더 모드로 진입하여 메모 수정한 뒤에 데이터 리로드를 위한 함수
-    func calendarModeForEdit() {
-        if wasWatering{
-            calendarOrigin.reloadData() /// 캘린더 자체는 reloadData() 써줘야함
-            for i in 0...(fetchCalendar.count - 1) {
-                if memoToCalendarDate == fetchCalendar[i].waterDate{
-                    memoShowView.isHidden = false
-                    formatter.dateFormat = "yyyy-MM-dd"
-                    memoToCalendarDateTemp = formatter.date(from: fetchCalendar[i].waterDate)
-                    formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
-                    memoDateLabel.text = formatter.string(from: memoToCalendarDateTemp!)
-                    memoTextLabel.text = fetchCalendar[i].review
-                    n = i
-                    calendarKeywordCollectionView.reloadSections(IndexSet(0...0))
-                    calendarKeywordCollectionView.delegate = self
-                    calendarKeywordCollectionView.dataSource = self
-                }
-            }
-        }
-    }
-    
-    func cal_Status() {
-        if calendarStatus == "memo"{
-            if fetchCalendar.count == 0 {
-                self.navigationController?.popViewController(animated: true)
-            }else{
-                memoMode()
-            }
-        }else{
-            calendarModeForEdit()
         }
     }
     
@@ -262,6 +177,91 @@ class CalendarVC: UIViewController {
         // day 폰트 설정
         calendarOrigin.appearance.titleFont = UIFont(name: "Roboto-Regular", size: 14)
         
+    }
+    
+    /// 달력 좌우 페이지 넘기는 버튼
+    private func moveCurrentPage(moveUp: Bool) {
+        dateComponents.month = moveUp ? 1 : -1
+        self.currentPage = calendarCurrent.date(byAdding: dateComponents, to: self.currentPage ?? self.today)
+        self.calendarOrigin.setCurrentPage(self.currentPage!, animated: true)
+    }
+    
+    // 달력버튼 클릭시 true(.month), 메모 클릭시 false(.week)
+    func defineCalStatus(){
+        if calendarStatus == "calendar" {
+            monthCalendar()
+        }else{
+            weekCalendar()
+            memoBtnstatus = false
+            memoBtn.setImage(UIImage(named: "icUpCalendar"), for: .normal)
+        }
+    }
+    
+    /// 주간 달력
+    func monthCalendar(){
+        self.calendarOrigin?.setScope(.month, animated: true)
+        self.wateredLabel.isHidden = false
+        self.toWaterLabel.isHidden = false
+    }
+    
+    /// 월간 달력
+    func weekCalendar(){
+        self.calendarOrigin?.setScope(.week, animated: true)
+        self.wateredLabel.isHidden = true
+        self.toWaterLabel.isHidden = true
+    }
+    
+    // 캘린더가 어떻게 보여야하는지 분기처리(월간,주간)
+    func cal_Status() {
+        if calendarStatus == "memo"{
+            // 삭제해서 데이터가 0개면 pop 한 번 더 시켜줘야 함
+            if fetchCalendar.count == 0 {
+                self.navigationController?.popViewController(animated: true)
+            }else{
+                memoMode()
+            }
+        }else{
+            calendarModeForEdit()
+        }
+    }
+    /// 1. 식물 상세보기 메모 버튼->캘린더 이동시 해당 메모가 작성된 날짜 및 메모를 불러오기
+    func memoMode() {
+        calendarOrigin.reloadData() /// 캘린더 자체는 reloadData() 써줘야함
+        calendarOrigin.select(formatter.date(from: memoToCalendarDate ?? "2020-12-26"), scrollToDate: true)
+        for i in 0...(fetchCalendar.count - 1) {
+            if memoToCalendarDate == fetchCalendar[i].waterDate{
+                memoShowView.isHidden = false
+                formatter.dateFormat = "yyyy-MM-dd"
+                memoToCalendarDateTemp = formatter.date(from: fetchCalendar[i].waterDate)
+                formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
+                memoDateLabel.text = formatter.string(from: memoToCalendarDateTemp!)
+                memoTextLabel.text = fetchCalendar[i].review
+                n = i
+                calendarKeywordCollectionView.reloadSections(IndexSet(0...0))
+                calendarKeywordCollectionView.delegate = self
+                calendarKeywordCollectionView.dataSource = self
+            }
+        }
+    }
+    /// 2. 캘린더 모드로 진입하여 메모 수정한 뒤에 데이터 리로드를 위한 함수
+    func calendarModeForEdit() {
+        if wasWatering{
+            calendarOrigin.reloadData() /// 캘린더 자체는 reloadData() 써줘야함
+            for i in 0...(fetchCalendar.count - 1) {
+                if memoToCalendarDate == fetchCalendar[i].waterDate{
+                    memoShowView.isHidden = false
+                    formatter.dateFormat = "yyyy-MM-dd"
+                    memoToCalendarDateTemp = formatter.date(from: fetchCalendar[i].waterDate)
+                    formatter.dateFormat = "yyyy년 MM월 dd일" /// 시각적으로 보일 때에는 년,월,일 포함하여 파싱
+                    memoDateLabel.text = formatter.string(from: memoToCalendarDateTemp!)
+                    memoTextLabel.text = fetchCalendar[i].review
+                    n = i
+                    calendarKeywordCollectionView.reloadSections(IndexSet(0...0))
+                    calendarKeywordCollectionView.delegate = self
+                    calendarKeywordCollectionView.dataSource = self
+                }
+            }
+        }
     }
     
     /// 캘린더 서버 통신
@@ -366,7 +366,7 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
         let eventScaleFactor: CGFloat = 1.8
         cell.eventIndicator.transform = CGAffineTransform(scaleX: eventScaleFactor, y: eventScaleFactor)
     }
-
+    
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventOffsetFor date: Date) -> CGPoint {
         return CGPoint(x: 0, y: 3)
     }
@@ -388,7 +388,7 @@ extension CalendarVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelega
         
         return 0
     }
-
+    
     /// 물 준 날, 물 주는 날 Default Event Dot 색상 분기처리 - FSCalendarDelegateAppearance
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]?{
         if self.watering_Events.contains(date){

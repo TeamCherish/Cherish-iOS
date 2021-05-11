@@ -11,14 +11,13 @@ class SignUpGenderVC: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK: -변수 선언부
     var genderPicker = UIPickerView()
-//    var genderPickerStatus : Bool = false
     var agePicker = UIPickerView()
-//    var agePickerStatus : Bool = false
     let gender = ["여성","남성"]
     let formatter = DateFormatter()
     var limit: String?
     var limit_year : Int?
     var forSending = ["","",""]
+    
     //MARK: -@IBOutlet
     @IBOutlet weak var genderTextField: UITextField!{
         didSet{
@@ -57,7 +56,6 @@ class SignUpGenderVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        //self.forChangeImageView.image = UIImage(named: "joinCircleUnselected")
         UIView.animate(withDuration: 0.3, animations: {
             self.beforeImageView.image = UIImage(named: "joinCircleUnselected")
         },completion: {finished in
@@ -68,17 +66,10 @@ class SignUpGenderVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     //MARK: -사용자 정의 함수
-    ///화면 터치시 키보드 내리기
+    //화면 터치시 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-//    func blankAlert(title: String, message: String) {
-//        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//        let okAction = UIAlertAction(title: "확인",style: .default)
-//        alert.addAction(okAction)
-//        present(alert, animated: true)
-//    }
     
     func pickerSetting(){
         genderPicker.delegate = self

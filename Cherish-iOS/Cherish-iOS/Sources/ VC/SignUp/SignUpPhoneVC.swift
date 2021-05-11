@@ -80,7 +80,7 @@ class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
         })
     }
     
-    ///화면 터치시 키보드 내리기
+    //화면 터치시 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -128,18 +128,18 @@ class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
         MessageAuthService.shared.messageAuth(phone: phoneTextField.text!) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
-                authNumber = data as? Int // 보낸 인증번호
+                authNumber = data as? Int /// 보낸 인증번호
                 
-                isSending = true // 문자 보냈음
+                isSending = true /// 문자 보냈음
                 
-                // 번호 입력 부 수정 못하게 비활성화
+                /// 번호 입력 부 수정 못하게 비활성화
                 phoneTextField.isEnabled = false
                                 
                 UIView.animate(withDuration: 0.5, delay: 0, options: .allowUserInteraction, animations: {
                     phoneTextField.textColor = .textGrey
-                    requestMessageBtn.alpha = 0 // 원래 있던 인증번호보내기 버튼 사라지게 하기
+                    requestMessageBtn.alpha = 0 /// 원래 있던 인증번호보내기 버튼 사라지게 하기
                 }, completion: { _ in
-                    // 입력 텍스트 필드 및 재전송 버튼 보이기
+                    /// 입력 텍스트 필드 및 재전송 버튼 보이기
                     UIView.animate(withDuration: 1, delay: 0, options: .allowUserInteraction, animations: {
                         initialSetting(alpha: 1)
                         animateGo()
@@ -199,7 +199,6 @@ class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
 }
 
 //MARK: -Protocols
-/// 1
 extension SignUpPhoneVC: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == typingMessageTextField{
@@ -211,7 +210,7 @@ extension SignUpPhoneVC: UITextFieldDelegate{
         }
     }
     
-    ///Return 눌렀을 때 키보드 내리기
+    // Return 눌렀을 때 키보드 내리기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

@@ -25,12 +25,12 @@ class PopUpWateringVC: UIViewController {
             laterBtn.setTitleColor(.textGrey, for: .normal)
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
-    /// 다음에 할게요 선택시 1~7일 선택 팝업으로 이동
+    // 다음에 할게요 선택시 1~7일 선택 팝업으로 이동
     func goToLatering(){
         guard let pvc = self.presentingViewController else {return}
         self.dismiss(animated: true) {
@@ -47,7 +47,7 @@ class PopUpWateringVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    /// 물주기 버튼
+    // 물주기 버튼
     @IBAction func moveToContact(_ sender: Any) {
         guard let pvc = self.presentingViewController else {return}
         self.dismiss(animated: true) {
@@ -60,9 +60,9 @@ class PopUpWateringVC: UIViewController {
         }
     }
     
-    /// 다음에할게요 버튼
+    // 다음에할게요 버튼
     @IBAction func moveToLater(_ sender: Any) {
-        /// 선택한 사람에 대해서 물주기 횟수를 체크
+        // 선택한 사람에 대해서 물주기 횟수를 체크
         LaterService.shared.checkLater(id: UserDefaults.standard.integer(forKey: "selectedFriendIdData")) { (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):

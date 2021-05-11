@@ -16,20 +16,20 @@ class PopUpWatering_WithoutLaterVC: UIViewController {
         }
     }
     @IBOutlet weak var wateringBtn: UIButton!{
-        
         didSet{
             wateringBtn.makeRounded(cornerRadius: 25.0)
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
+    
+    // 뒤로가기 버튼
     @IBAction func backAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    /// 물주기 버튼
+    // 물주기 버튼
     @IBAction func goToWatering(_ sender: Any) {
         guard let pvc = self.presentingViewController else {return}
         self.dismiss(animated: true) {

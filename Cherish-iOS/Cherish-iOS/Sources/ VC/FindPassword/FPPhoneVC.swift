@@ -173,7 +173,7 @@ extension FPPhoneVC: UITextFieldDelegate{
             labelStatus(pass: false, color: .pinkSub, text: "올바르지 않은 인증번호입니다")
         }
     }
-    ///Return 눌렀을 때 키보드 내리기
+    // Return 눌렀을 때 키보드 내리기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
