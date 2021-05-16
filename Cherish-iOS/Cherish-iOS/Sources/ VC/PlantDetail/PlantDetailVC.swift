@@ -67,6 +67,7 @@ class PlantDetailVC: UIViewController {
     var myCherishIsSelected: Bool = false
     var myCherishIdx: Int = UserDefaults.standard.integer(forKey: "selectedCherish")
     
+    
     /// ScreenSize 가져오는 변수들
     let screenWidth = UIScreen.main.bounds.size.width
     let screenHeight = UIScreen.main.bounds.size.height
@@ -76,6 +77,8 @@ class PlantDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("뷰디드로드에서 출력해보삼", myCherishIdx)
+        print("그냥 생짜로 출력?", UserDefaults.standard.integer(forKey: "selectedCherish"))
         setControllers()
         defineFirstPlantCardBtnStatus()
         
@@ -136,7 +139,7 @@ class PlantDetailVC: UIViewController {
     }
     
     func getPlantDataFromMyPage(cherishId: Int) {
-        PlantDetailService.shared.inquirePlantDetailView(friendsIdx: cherishId) {
+        PlantDetailService.shared.inquirePlantDetailView(friendsIdx: UserDefaults.standard.integer(forKey: "selectedCherish")) {
             [self](netwokResult) -> (Void) in
             switch netwokResult {
             case .success(let data):

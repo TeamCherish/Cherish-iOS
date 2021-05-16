@@ -195,12 +195,13 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         UserDefaults.standard.set(keyId, forKey: "selectedCherish")
+        print("마페 검색뷰에서 보내는 selectedCherish", keyId)
         
         // plantIsSelected 값 UserDefaults에 넣기
         UserDefaults.standard.set(plantIsSelected, forKey: "plantIsSelected")
         UserDefaults.standard.set(plantIsSelected, forKey: "calendarPlantIsSelected")
         print(UserDefaults.standard.bool(forKey: "plantIsSelected"))
-        print(UserDefaults.standard.integer(forKey: "selectedCherish"))
+//        print(UserDefaults.standard.integer(forKey: "selectedCherish"))
         
         self.navigationController?.pushViewController(dvc, animated: true)
     }
