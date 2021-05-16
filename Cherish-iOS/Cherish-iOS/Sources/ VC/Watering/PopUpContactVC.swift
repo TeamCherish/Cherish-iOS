@@ -37,7 +37,7 @@ class PopUpContactVC: UIViewController {
         getRecentKeyword()
     }
     
-    //MARK: - Call Material
+    //MARK: - 전화
     func showCallAlert() {
         guard let url = NSURL(string: "tel://" + phoneNumber),
               UIApplication.shared.canOpenURL(url as URL) else {
@@ -56,7 +56,6 @@ class PopUpContactVC: UIViewController {
             }
         }
     }
-    
     func addNotifObserver() {
         let selector = #selector(appDidBecomeActive)
         let notifName = UIApplication.didBecomeActiveNotification
@@ -100,7 +99,7 @@ class PopUpContactVC: UIViewController {
                         keyword.append(checkData.result.keyword3)
                     }
                     print(keyword)
-                    keywordShowCollectionView.reloadData()
+                    keywordShowCollectionView.reloadSections(IndexSet(0...0))
                 }
             case .requestErr(_):
                 print("requestErr")
@@ -139,10 +138,11 @@ class PopUpContactVC: UIViewController {
     @IBAction func backBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    // 전화걸기
     @IBAction func calling(_ sender: Any) {
         showCallAlert()
     }
-    
+    // 카카오톡 연결
     @IBAction func kakoTalking(_ sender: Any) {
         let kakaoTalk = "kakaotalk://"
         let kakaoTalkURL = NSURL(string: kakaoTalk)
@@ -167,6 +167,7 @@ class PopUpContactVC: UIViewController {
             print("No kakaostory installed.")
         }
     }
+    // 메시지 보내기
     @IBAction func messaging(_ sender: Any) {
         let messageComposer = MFMessageComposeViewController()
         messageComposer.messageComposeDelegate = self
@@ -181,7 +182,7 @@ class PopUpContactVC: UIViewController {
 }
 
 //MARK: -Protocol Extension
-/// 1
+// 1
 extension PopUpContactVC: CXCallObserverDelegate{
     func callObserver(_ callObserver: CXCallObserver, callChanged call: CXCall) {
         /// 통화를 하게 되면
@@ -199,13 +200,13 @@ extension PopUpContactVC: CXCallObserverDelegate{
             print("Call button pressed")
             UserDefaults.standard.set(true, forKey: "reviewNotYet")
             
-            // 푸시알람기능을 위해 전화연결을 했음을 알려주는 서버 연결
+            /// 푸시알람기능을 위해 전화연결을 했음을 알려주는 서버 연결
             postPushReview(cherishIdx: reciever)
         }
     }
 }
 
-/// 2
+// 2
 extension PopUpContactVC: MFMessageComposeViewControllerDelegate{
     /// 메시지 전송 결과
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
@@ -221,7 +222,7 @@ extension PopUpContactVC: MFMessageComposeViewControllerDelegate{
                     }
                 }
             }
-            // 푸시알람기능을 위해 문자연결을 했음을 알려주는 서버 연결
+            /// 푸시알람기능을 위해 문자연결을 했음을 알려주는 서버 연결
             postPushReview(cherishIdx: reciever)
             UserDefaults.standard.set(true, forKey: "reviewNotYet")
             print("전송 완료")
@@ -239,7 +240,7 @@ extension PopUpContactVC: MFMessageComposeViewControllerDelegate{
     }
 }
 
-/// 3
+// 3
 extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -254,7 +255,7 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         return cell
     }
     
-    //MARK: - Cell 사이즈
+    // Cell 사이즈
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         let label = UILabel(frame: CGRect.zero)
@@ -264,16 +265,16 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         return CGSize(width: label.frame.width+15, height: collectionView.frame.height)
     }
 
-    //MARK: - Cell간의 좌우간격 지정
+    // Cell간의 좌우간격 지정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
     {
         return 7
     }
 
-    //MARK: - 마진
+    // 마진
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {
-        // Cell 가운데 정렬
+        /// Cell 가운데 정렬
         let edgeInsets = (keywordShowCollectionView.frame.width  - (CGFloat(total ?? 0)) - (CGFloat(keyword.count-1) * 7)) / 2
         return UIEdgeInsets(top: 0, left: CGFloat(edgeInsets), bottom: 0, right: 0);
     }

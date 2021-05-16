@@ -10,6 +10,7 @@ import UIKit
 class PopUpLaterVC: UIViewController {
     let date = [1,2,3,4,5,6,7] // 미루기 최대 7일
     var selectedDate : Int?
+    var reciever: Int = 0
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     //MARK: -@IBOutlet
@@ -34,22 +35,21 @@ class PopUpLaterVC: UIViewController {
             laterPickerView.dataSource = self
         }
     }
-//    @IBOutlet weak var laterCountingLabel: UILabel! ///(현재까지 미룬 횟수 n회)
+    
     @IBOutlet weak var confirmBtn: UIButton!{
         didSet{
             confirmBtn.makeRounded(cornerRadius: 23.0)
             confirmBtn.backgroundColor = .btnGrey
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setWateringDate()
         setPickerDate()
-    }
+    }    
     
-    
-
-    /// 물 줄 날짜, 미룬 횟수 셋팅
+    // 물 줄 날짜, 미룬 횟수 셋팅
     func setWateringDate(){
         guard let originDate = UserDefaults.standard.string(forKey: "wateringDate") else { return }
         
@@ -73,10 +73,9 @@ class PopUpLaterVC: UIViewController {
         
         self.changeDateMonthLabel.text = String(int_month!)
         self.changeDateDayLabel.text = String(int_day!+1) // 1일 미루었을 때의 날짜
-        //self.laterCountingLabel.text = UserDefaults.standard.string(forKey: "laterNumUntilNow")
     }
     
-    /// PickerView가 처음에 1이 선택된 상태고 그걸 future_water_date에 적용해놔야 하므로 didSelectRow 미리 호출
+    // PickerView가 처음에 1이 선택된 상태고 그걸 future_water_date에 적용해놔야 하므로 didSelectRow 미리 호출
     func setPickerDate(){
         laterPickerView.selectRow(0, inComponent: 0, animated: true)
         pickerView(laterPickerView, didSelectRow: 0, inComponent: 0)
@@ -85,7 +84,7 @@ class PopUpLaterVC: UIViewController {
     // 윤년 계산 함수
     func leapYear(year: String) -> Bool{
         var leapYearStatus: Bool
-
+        
         if (Int(year)! % 4) == 0 {
             if ((Int(year)! % 100) != 0){
                 leapYearStatus = true
@@ -103,8 +102,9 @@ class PopUpLaterVC: UIViewController {
     
     // Server-미루기
     func getLaterData(){
-        print(UserDefaults.standard.integer(forKey: "selectedFriendIdData"))
-        LaterService.shared.doLater(id: UserDefaults.standard.integer(forKey: "selectedFriendIdData"), postpone: selectedDate ?? 1, is_limit_postpone_number: UserDefaults.standard.bool(forKey: "noMinusisPossible")) { (networkResult) -> (Void) in
+        reciever = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+        print(reciever)
+        LaterService.shared.doLater(id: reciever, postpone: selectedDate ?? 1, is_limit_postpone_number: UserDefaults.standard.bool(forKey: "noMinusisPossible")) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 if let dataMessage = data as? String{
@@ -112,9 +112,10 @@ class PopUpLaterVC: UIViewController {
                 }
                 self.dismiss(animated: true, completion: nil)
                 self.appDel.isCherishPostponed = true
-                //메인뷰에 모달이 dismiss되었음을 알려주는 Noti
-                NotificationCenter.default.post(name: .postPostponed, object: nil)
-
+                /// 메인뷰에 모달이 dismiss되었음을 알려주는 Noti
+                NotificationCenter.default.post(name: .postPostponed, object: reciever)
+                
+                
             case .requestErr(let msg):
                 if let message = msg as? String {
                     print(message)
@@ -133,8 +134,8 @@ class PopUpLaterVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func completeLatering(_ sender: Any) {
+        /// 시드는 모션 뷰로 이동
         getLaterData()
-        // 시드는 모션 뷰로 이동
     }
     
     
@@ -142,32 +143,32 @@ class PopUpLaterVC: UIViewController {
 
 //MARK: -Protocols
 extension PopUpLaterVC: UIPickerViewDelegate, UIPickerViewDataSource{
-    /// 하나의 PickerView 안에 몇 개의 선택 가능한 리스트를 표시할 것인지
+    // 하나의 PickerView 안에 몇 개의 선택 가능한 리스트를 표시할 것인지
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
     
-    /// PickerView에 표시될 항목의 개수를 반환하는 메서드
+    // PickerView에 표시될 항목의 개수를 반환하는 메서드
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return date.count
     }
     
-    /// PickerView 각 선택 항목의 Title들을 정해주는 메서드
+    // PickerView 각 선택 항목의 Title들을 정해주는 메서드
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return String(date[row])
     }
     
-    /// PickerView의 didSelectRow
+    // PickerView의 didSelectRow
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         guard let originDate = UserDefaults.standard.string(forKey: "wateringDate") else { return }
         
-        // 년도, 월, 일로 쪼개기
+        /// 년도, 월, 일로 쪼개기
         let dateFormatter = DateFormatter()
         let yeardateFormatter = DateFormatter()
         let monthdateFormatter = DateFormatter()
         let daydateFormatter = DateFormatter()
-
+        
         dateFormatter.dateFormat = "yy-MM-dd"
         
         let y = dateFormatter.date(from: originDate)
@@ -197,7 +198,7 @@ extension PopUpLaterVC: UIPickerViewDelegate, UIPickerViewDataSource{
                 changeDateMonthLabel.text = "\(int_month!)"
                 int_day = Int(day!)
             }
-        /// 2월(윤년 계산)
+            /// 2월(윤년 계산)
         }else if int_month == 2{
             if leapYearStatus{
                 if int_day! + date[row] > 29{
@@ -216,7 +217,7 @@ extension PopUpLaterVC: UIPickerViewDelegate, UIPickerViewDataSource{
                     int_day = Int(day!)
                 }
             }
-        /// 30일 까지 있는 달(4,6,9,11월)
+            /// 30일 까지 있는 달(4,6,9,11월)
         }else{
             if int_day! + date[row] > 30{
                 changeDateMonthLabel.text = "\(int_month!+1)"
@@ -227,6 +228,7 @@ extension PopUpLaterVC: UIPickerViewDelegate, UIPickerViewDataSource{
             }
         }
         changeDateDayLabel.text = "\(int_day! + date[row])"
-        selectedDate = date[row] /// 서버 통신을 위해 선택된 날짜 저장
+        /// 서버 통신을 위해 선택된 날짜 저장
+        selectedDate = date[row]
     }
 }

@@ -58,8 +58,8 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
         textFeildRight()
     }
     
-    //MARK: -사용자 정의 함수
-    ///화면 터치시 키보드 내리기
+    //MARK: - 사용자 정의 함수
+    //화면 터치시 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -137,7 +137,7 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
         passwordStatus = correct
     }
     
-    //MARK: -@IBAction
+    // MARK: - @IBAction
     @IBAction func nextPage(_ sender: Any) {
         if isEmail == true{
             // 이메일 중복확인이 끝났고 비밀번호도 입력이 끝났다면
@@ -148,17 +148,17 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
             }else{
-                //비밀번호를 입력해주세요
+                ///비밀번호를 입력해주세요
             }
         }else{
             // 이메일 중복확인을 아직 안했다면
             if isPossibleEmail == true {
-                // 이메일 중복 체크 코드
+                /// 이메일 중복 체크 코드
                 CheckEmailService.shared.checkEmail(email: emailTextField.text!) { [self] (networkResult) -> (Void) in
                     switch networkResult {
                     case .success(_):
                         
-                        // 이메일 수정 못하게 Enable
+                        /// 이메일 수정 못하게 Enable
                         emailTextField.isEnabled = false
                         
                         UIView.animate(withDuration: 1, delay: 0, options: .allowUserInteraction, animations: {
@@ -174,13 +174,13 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
                         emailCheckLabel.text = "사용가능한 이메일입니다."
                         emailCheckLabel.textColor = .seaweed
                         
-                        isEmail = true // 중복 검사 완료
+                        isEmail = true /// 중복 검사 완료
                     
                     case .requestErr(let msg):
                         if let message = msg as? String {
                             emailCheckLabel.text = "이미 등록된 이메일입니다."
                             emailCheckLabel.textColor = .pinkSub
-                            isEmail = false // 중복 검사 불통과
+                            isEmail = false /// 중복 검사 불통과
                             print(message)
                         }
                     case .pathErr:
@@ -197,17 +197,17 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK: -Secure Text Entry
     // First Eye
-    // 터치하고 있으면 비밀번호 보여주기
+    /// 터치하고 있으면 비밀번호 보여주기
     @IBAction func firstEyeTouch(_ sender: Any) {
         passwordTextField.isSecureTextEntry = false
         firstEyeBtn.setImage(UIImage(named: "eye"), for: .normal)
     }
-    // 버튼에서 손을 떼면 다시 감추기
+    /// 버튼에서 손을 떼면 다시 감추기
     @IBAction func firstEyeAway(_ sender: Any) {
         passwordTextField.isSecureTextEntry = true
         firstEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
     }
-    // 터치를 유지한채로 버튼 영역 밖으로 벗어났을 경우
+    /// 터치를 유지한채로 버튼 영역 밖으로 벗어났을 경우
     @IBAction func firstEyeTouchAway(_ sender: Any) {
         passwordTextField.isSecureTextEntry = true
         firstEyeBtn.setImage(UIImage(named: "eyeOff"), for: .normal)
@@ -235,7 +235,6 @@ class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
 }
 
 //MARK: -Protocols
-/// 1
 extension SignUpAccountVC: UITextFieldDelegate{
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -251,9 +250,9 @@ extension SignUpAccountVC: UITextFieldDelegate{
                 greenBtn()
             }
         }
-        // 1번 텍스트 필드
+        /// 1번 텍스트 필드
         else if textField == passwordTextField{
-            // 비밀번호가 영문 ,숫자,특수문자 포함 8글자인지
+            /// 비밀번호가 영문 ,숫자,특수문자 포함 8글자인지
             passwordCheckLabel.isHidden = false
             let passRegEx = "^(?=.*[a-z])(?=.*[0-9])(?=.*[\\[\\]~!@#$%^&*()=+{}:?,<>/._-]).{8,}$"
             let passTest = NSPredicate(format: "SELF MATCHES %@", passRegEx)
@@ -261,17 +260,17 @@ extension SignUpAccountVC: UITextFieldDelegate{
                 pwFormLabel(text: "사용하실 수 없는 비밀번호입니다.", color: .pinkSub, form: false)
             }else{
                 pwFormLabel(text: "사용가능한 비밀번호입니다.", color: .seaweed, form: true)
-                // 1번,2번 다 입력했는데 1번이 의도치 않게 오타나서 1번을 2번과 일치하게 바꾸면
-                // 1번 텍스트 필드에서도 일치 검사를 해야하는 상황이 있음
+                /// 1번,2번 다 입력했는데 1번이 의도치 않게 오타나서 1번을 2번과 일치하게 바꾸면
+                /// 1번 텍스트 필드에서도 일치 검사를 해야하는 상황이 있음
                 if textField.text == passwordCheckTextField.text {
                     pwCorrectLabel(text: "비밀번호가 일치합니다.", color: .seaweed, correct: true)
                     greenBtn()
                 }
             }
         }
-        // 2번 텍스트 필드
+        /// 2번 텍스트 필드
         else if textField == passwordCheckTextField{
-            // 형식을 통과했으며, 비밀번호가 일치하는지
+            /// 형식을 통과했으며, 비밀번호가 일치하는지
             if passwordFormStatus == true {
                 if passwordTextField.text == textField.text {
                     pwCorrectLabel(text: "비밀번호가 일치합니다.", color: .seaweed, correct: true)
@@ -284,7 +283,7 @@ extension SignUpAccountVC: UITextFieldDelegate{
         }
     }
     
-    ///Return 눌렀을 때 키보드 내리기
+    /// Return 눌렀을 때 키보드 내리기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

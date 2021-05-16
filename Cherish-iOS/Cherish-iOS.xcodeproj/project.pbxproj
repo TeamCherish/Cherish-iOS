@@ -551,8 +551,6 @@
 				33851C73259A5541005BCFFD /* AppDelegate.swift */,
 				33851C75259A5541005BCFFD /* SceneDelegate.swift */,
 				33851C7C259A5542005BCFFD /* Assets.xcassets */,
-				5488921D25A593BC003839FC /* CalendarStoryboard */,
-				548DF15525A1A0000081FCD1 /* WateringStoryboard */,
 				33851C8A259A5AE2005BCFFD /* Storyboard */,
 				33851C8B259A5AEE005BCFFD /* APIService */,
 				3317777D25B0568600CC1030 /* Gif */,
@@ -577,6 +575,8 @@
 		33851C8A259A5AE2005BCFFD /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				54E1BA26264AFC4F0076C306 /* Watering */,
+				5488922025A59486003839FC /* Calendar.storyboard */,
 				33E874E725A04832001F84FE /* TabBar.storyboard */,
 				33E874DF25A04746001F84FE /* CherishMain.storyboard */,
 				33E874DC25A04569001F84FE /* MyPage.storyboard */,
@@ -897,14 +897,6 @@
 			path = Watering;
 			sourceTree = "<group>";
 		};
-		5488921D25A593BC003839FC /* CalendarStoryboard */ = {
-			isa = PBXGroup;
-			children = (
-				5488922025A59486003839FC /* Calendar.storyboard */,
-			);
-			path = CalendarStoryboard;
-			sourceTree = "<group>";
-		};
 		5488922325A594B9003839FC /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -921,17 +913,6 @@
 				5488923525A5E962003839FC /* CalendarKeywordCVCell.xib */,
 			);
 			path = Calendar;
-			sourceTree = "<group>";
-		};
-		548DF15525A1A0000081FCD1 /* WateringStoryboard */ = {
-			isa = PBXGroup;
-			children = (
-				548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */,
-				548DF17125A1BB6D0081FCD1 /* PopUpContact.storyboard */,
-				548DF17A25A1EE610081FCD1 /* Review.storyboard */,
-				548DF19525A2E1620081FCD1 /* PopUpLater.storyboard */,
-			);
-			path = WateringStoryboard;
 			sourceTree = "<group>";
 		};
 		548DF16525A1B3E60081FCD1 /* Watering */ = {
@@ -1040,6 +1021,17 @@
 				5491593925DBF78B008104FC /* SignUpNicknameVC.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		54E1BA26264AFC4F0076C306 /* Watering */ = {
+			isa = PBXGroup;
+			children = (
+				548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */,
+				548DF17125A1BB6D0081FCD1 /* PopUpContact.storyboard */,
+				548DF17A25A1EE610081FCD1 /* Review.storyboard */,
+				548DF19525A2E1620081FCD1 /* PopUpLater.storyboard */,
+			);
+			path = Watering;
 			sourceTree = "<group>";
 		};
 		9214410025ACE5B000853E53 /* AddUser */ = {
@@ -1559,7 +1551,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -1567,7 +1559,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1583,7 +1575,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -1591,7 +1583,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

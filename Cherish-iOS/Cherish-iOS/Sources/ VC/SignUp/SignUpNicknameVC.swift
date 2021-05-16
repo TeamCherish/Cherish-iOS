@@ -71,7 +71,7 @@ class SignUpNicknameVC: UIViewController,SFSafariViewControllerDelegate, UIGestu
         if let textField = notification.object as? UITextField {
             if let text = textField.text {
                 
-                // 닉네임이 있어야 버튼 초록색
+                /// 닉네임이 있어야 버튼 초록색
                 if text.count > 0 {
                     greenBtn()
                 }else{
@@ -79,11 +79,11 @@ class SignUpNicknameVC: UIViewController,SFSafariViewControllerDelegate, UIGestu
                 }
                 
                 if text.count > maxLength_nickname {
-                    // 5글자 넘어가면 자동으로 키보드 내려감
+                    /// 5글자 넘어가면 자동으로 키보드 내려감
                     textField.resignFirstResponder()
                 }
                 
-                // 초과되는 텍스트 제거
+                /// 초과되는 텍스트 제거
                 if text.count >= maxLength_nickname {
                     let index = text.index(text.startIndex, offsetBy: maxLength_nickname)
                     let newString = text[text.startIndex..<index]
@@ -179,10 +179,8 @@ class SignUpNicknameVC: UIViewController,SFSafariViewControllerDelegate, UIGestu
 extension SignUpNicknameVC: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return false }
-        
-        //let newKeywordLength = text.count + string.utf16.count - range.length
-        
-        /// 최대 글자 수 8
+         
+        // 최대 글자 수 8
         if text.count >= maxLength_nickname && range.length == 0 && range.location < maxLength_nickname {
             return false
         }
@@ -200,7 +198,7 @@ extension SignUpNicknameVC: UITextFieldDelegate{
         }
     }
     
-    ///Return 눌렀을 때 키보드 내리기
+    // Return 눌렀을 때 키보드 내리기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

@@ -97,7 +97,7 @@ class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
         checkingLabel.textColor = color
         passwordFormStatus = form
         
-        // 체크 텍스트필드에 입력한 뒤 위에꺼를 수정하러 온거면 일치 체크해주기
+        /// 체크 텍스트필드에 입력한 뒤 위에꺼를 수정하러 온거면 일치 체크해주기
         if (form == true || passwordFormStatus == true) && passwordStatus  == true {
             if enterPWTextField.text == enterAgainTextField.text {
                 pwCorrectLabel(text: "비밀번호가 일치합니다.", color: .seaweed, correct: true)
@@ -115,7 +115,6 @@ class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     //MARK: -@IBAction
-    
     // 비밀번호 보이게 하기-입력 부
     // 터치하고 있으면 비밀번호 보여주기
     @IBAction func firstEyeTouch(_ sender: Any) {
@@ -186,7 +185,7 @@ class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
 
 //MARK: -Protocols
 extension FPNewPasswordVC: UITextFieldDelegate{
-    ///Return 눌렀을 때 키보드 내리기
+    // Return 눌렀을 때 키보드 내리기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

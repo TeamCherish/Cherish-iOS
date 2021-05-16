@@ -85,7 +85,7 @@ class FPEmailVC: UIViewController, UIGestureRecognizerDelegate {
     @IBAction func nextAction(_ sender: Any) {
         // 이메일 입력이 되었다면
         if isTyped{
-            // 해당 이메일로 메시지 전송
+            /// 해당 이메일로 메시지 전송
             FindPasswordService.shared.findPassword(email: emailTextField.text!) { [self] (networkResult) -> (Void) in
                 switch networkResult {
                 case .success(let data):
@@ -117,7 +117,7 @@ class FPEmailVC: UIViewController, UIGestureRecognizerDelegate {
 //MARK: -Protocols
 extension FPEmailVC: UITextFieldDelegate{
 
-    ///Return 눌렀을 때 키보드 내리기
+    // Return 눌렀을 때 키보드 내리기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

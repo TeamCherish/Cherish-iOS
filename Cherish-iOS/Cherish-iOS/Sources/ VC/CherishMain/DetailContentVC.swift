@@ -25,6 +25,7 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
     let screenWidth = UIScreen.main.bounds.size.width
     let screenHeight = UIScreen.main.bounds.size.height
     var pushCherishId: Int = 0
+    var wateringLaterCherishId: Int = 0
     var pushCherishPhoneNumber: String = ""
     var mypageSelectedNickname: String = ""
     
@@ -73,8 +74,8 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
     
     func addNotificationObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillAppear), name: .addUser, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadDataWhenFinishWateringOrPostponed), name: .postToReloadMainCell, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadDataWhenFinishWateringOrPostponed), name: .postPostponed, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadDataWhenFinishWatering), name: .postToReloadMainCell, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadDataWhenPostponed), name: .postPostponed, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(whenPushClickedViewUpdate), name: .pushSelected, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(whenWateringInMypage), name: .mypageWatering, object: nil)
     }
@@ -134,12 +135,58 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     //MARK: - 물주기 후 정보를 reload하는 objc 함수
-    @objc func reloadDataWhenFinishWateringOrPostponed() {
+    @objc func reloadDataWhenFinishWatering() {
         setCherishPeopleData()
-        
+    }
+    
+    @objc func reloadDataWhenPostponed(_ notification: Notification) {
         if appDel.isCherishPostponed == true {
+            let idData:Int = Int(notification.object as! Int)
+            
+            // UserDefaults의 선택된 친구 값도 바꿔준다!
+            UserDefaults.standard.set(idData, forKey: "selectedFriendIdData")
+            MainService.shared.inquireMainView(idx: userId) { [self]
+                (networkResult) -> (Void) in
+                switch networkResult {
+                case .success(let data):
+                    if let mainResultData = data as? MainData {
+                        cherishPeopleData = mainResultData.result
+                        
+                        for i in 0...cherishPeopleData.count - 1 {
+                            if cherishPeopleData[i].id == idData {
+                                wateringLaterCherishId = i + 1
+                            }
+                        }
+                        print(wateringLaterCherishId)
+                        
+                        // 미루기를 한 친구(cherishId)를 클릭한 상태가 되기 위해 노티를 받아
+                        // 바텀시트 컬렉션뷰의 선택된 셀 정보를 바꿔준다.
+                        cherishPeopleCV.selectItem(at: IndexPath(item: wateringLaterCherishId, section: 0), animated: true, scrollPosition: .top)
+                        collectionView(self.cherishPeopleCV, didSelectItemAt: IndexPath(item: wateringLaterCherishId, section: 0))
+                    }
+                case .requestErr(let msg):
+                    if let message = msg as? String {
+                        print(message)
+                    }
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            }
+            
+            
+            // MainContentVC에서도 푸시알림이 온 친구로 뷰 정보가 업데이트되어야하기 때문에
+            // 셀이 눌렸다는 것을 알려주는 noti를 post!
+            NotificationCenter.default.post(name: .cherishPeopleCellClicked, object: nil)
             appDel.isCherishPostponed = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0){ [self] in
+                setCherishPeopleData()
+            }
         }
+        
     }
     
     

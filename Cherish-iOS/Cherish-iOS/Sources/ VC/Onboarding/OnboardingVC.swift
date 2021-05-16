@@ -163,7 +163,7 @@ extension OnboardingVC: UIScrollViewDelegate{
     
     //MARK: - scroll animation이 끝나고 적용되는 함수
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        /// scrollAnimation이 끝나고 pageControl의 현재 페이지를 animation이 끝난 상태값으로 바꿔준다.
+        // scrollAnimation이 끝나고 pageControl의 현재 페이지를 animation이 끝난 상태값으로 바꿔준다.
         onboardingPageControl.currentPage = Int(round(onboardingCV.contentOffset.x / onboardingCV.frame.size.width))
     }
 }

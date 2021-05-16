@@ -1,19 +1,19 @@
 {
   "images" : [
     {
+      "filename" : "imgStuki3.png",
       "scale" : "1x",
-      "filename" : "mainImgRosemary.png",
       "idiom" : "universal"
     },
     {
-      "filename" : "mainImgRosemary@2x.png",
+      "scale" : "2x",
       "idiom" : "universal",
-      "scale" : "2x"
+      "filename" : "imgStuki3@2x.png"
     },
     {
+      "filename" : "imgStuki3@3x.png",
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "mainImgRosemary@3x.png"
+      "scale" : "3x"
     }
   ],
   "info" : {

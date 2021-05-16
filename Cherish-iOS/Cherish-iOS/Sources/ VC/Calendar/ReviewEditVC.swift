@@ -8,14 +8,14 @@
 import UIKit
 
 class ReviewEditVC: UIViewController{
-    var space: String? /// 메모 내용
-    var edit_keyword = [String]() /// 키워드 배열
-    var edit_date : String? /// 메모 작성 날짜
+    var space: String? // 메모 내용
+    var edit_keyword = [String]() // 키워드 배열
+    var edit_date : String? // 메모 작성 날짜
     var dateForServer : String?
     var reciever: Int = 0
     var contentStatus: Bool = true
-    let maxLength_keyword  = 5 /// 키워드 최대 입력 5글자
-    let maxLength_memo  = 100 /// 메모 최대 입력 100글자
+    let maxLength_keyword  = 5 // 키워드 최대 입력 5글자
+    let maxLength_memo  = 100 // 메모 최대 입력 100글자
     
     @IBOutlet weak var editMemoDateLabel: CustomLabel!
     @IBOutlet weak var keywordTextField: UITextField!{
@@ -23,7 +23,7 @@ class ReviewEditVC: UIViewController{
             keywordTextField.delegate = self
             keywordTextField.addLeftPadding()
             keywordTextField.addLeftPadding()
-            textFieldDoneBtnMake(text_field: keywordTextField) //Done
+            textFieldDoneBtnMake(text_field: keywordTextField) // Done
             keywordTextField.backgroundColor = .inputGrey
             keywordTextField.attributedPlaceholder = NSAttributedString(string: "키워드로 표현해주세요!", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderGrey])
             keywordTextField.makeRounded(cornerRadius: 8)
@@ -50,7 +50,7 @@ class ReviewEditVC: UIViewController{
             memoTextView.delegate = self
             memoTextView.makeRounded(cornerRadius: 10.0)
             memoTextView.backgroundColor = .inputGrey
-            /// TextView 커서 Padding
+            // TextView 커서 Padding
             memoTextView.textContainerInset = UIEdgeInsets(top: 14, left: 16, bottom: 55, right: 15);
         }
     }
@@ -97,14 +97,13 @@ class ReviewEditVC: UIViewController{
                 
                 keywordCountingLabel.text =  "\(text.count)"+"/"
                 
+                /// 5글자 넘어가면 자동으로 키보드 내려감
                 if text.count > maxLength_keyword {
-                    // 5글자 넘어가면 자동으로 키보드 내려감
                     textField.resignFirstResponder()
                     keywordCountingLabel.text =  "5/"
                 }
                 
-                
-                // 초과되는 텍스트 제거
+                /// 초과되는 텍스트 제거
                 if text.count >= maxLength_keyword {
                     let index = text.index(text.startIndex, offsetBy: maxLength_keyword)
                     let newString = text[text.startIndex..<index]
@@ -122,13 +121,13 @@ class ReviewEditVC: UIViewController{
                 
                 memoCountingLabel.text = "\(text.count)"+"/"
                 
+                /// 100글자 넘어가면 자동으로 키보드 내려감
                 if text.count > maxLength_memo {
-                    // 100글자 넘어가면 자동으로 키보드 내려감
                     textView.resignFirstResponder()
                     memoCountingLabel.text = "100/"
                 }
                 
-                // 초과되는 텍스트 제거
+                /// 초과되는 텍스트 제거
                 if text.count >= maxLength_memo {
                     let index = text.index(text.startIndex, offsetBy: maxLength_memo)
                     let newString = text[text.startIndex..<index]
@@ -138,7 +137,8 @@ class ReviewEditVC: UIViewController{
             }
         }
     }
-    /// 키보드 Done 버튼 생성
+    
+    // 키보드 Done 버튼 생성
     func textFieldDoneBtnMake(text_field : UITextField)
     {
         let ViewForDoneButtonOnKeyboard:UIToolbar = UIToolbar(frame: CGRect(x:0,y:0,width: UIScreen.main.bounds.width,height: 50))
@@ -152,11 +152,11 @@ class ReviewEditVC: UIViewController{
         text_field.inputAccessoryView = ViewForDoneButtonOnKeyboard
     }
     
-    /// Done 버튼 클릭 시 이벤트
+    // Done 버튼 클릭 시 이벤트
     @objc func doneBtnFromKeyboardClicked (sender: Any) {
         print("Done Button Clicked.")
         
-        // 뭐라도 입력해야 키워드 등록
+        /// 뭐라도 입력해야 키워드 등록
         if keywordTextField.text != ""{
             /// 키워드 배열에 저장
             edit_keyword.append(keywordTextField.text!)
@@ -167,7 +167,7 @@ class ReviewEditVC: UIViewController{
             keywordCountingLabel.text = "0/"
             print(edit_keyword)
             /// 컬렉션 뷰 데이터 업데이트
-            keywordCollectionView.reloadData()
+            keywordCollectionView.insertItems(at: [IndexPath(item: edit_keyword.count-1, section: 0)])
             /// 키워드 3개가 다 입력되면 키보드 내림
             if edit_keyword.count >= 3 {
                 self.view.endEditing(true)
@@ -180,11 +180,12 @@ class ReviewEditVC: UIViewController{
         memoCountingLabel.text = "\(String(memoTextView.text.count))"+"/"
         editMemoDateLabel.text = edit_date
     }
-    ///Alert
+    
+    // Alert
     func normalAlert(title: String?, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        // Alert의 '확인'을 누르면 dismiss
+        /// Alert의 '확인'을 누르면 dismiss
         let okAction = UIAlertAction(title: "확인",style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
@@ -194,7 +195,7 @@ class ReviewEditVC: UIViewController{
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let confirm = UIAlertAction(title: "삭제",style: .destructive) { [self] (action) in
-            // DELETE 서버 통신
+            /// DELETE 서버 통신
             CalendarService.shared.reviewDelete(CherishId: reciever, water_date: dateForServer!) { (networkResult) -> (Void) in
                 
                 switch networkResult {
@@ -224,8 +225,8 @@ class ReviewEditVC: UIViewController{
         present(alert, animated: true)
     }
     
+    // 마이페이지에서 온건지 메인에서 온건지
     func decideMainMyPage(){
-        // 마이페이지에서 온건지 메인에서 온건지
         if UserDefaults.standard.bool(forKey: "plantIsSelected") == true{
             reciever = UserDefaults.standard.integer(forKey: "selectedCherish")
         }else{
@@ -233,7 +234,7 @@ class ReviewEditVC: UIViewController{
         }
     }
     
-    /// 아무것도 안썼을 때 보더만 있는 등록완료 버튼
+    // 아무것도 안썼을 때 보더만 있는 등록완료 버튼
     func setBtnNotText(){
         completeBtn.backgroundColor = .white
         completeBtn.layer.borderColor = UIColor.seaweed.cgColor
@@ -242,7 +243,7 @@ class ReviewEditVC: UIViewController{
         contentStatus = false
     }
     
-    /// 무언가를 썼을 때 채워진 등록완료 버튼
+    // 무언가를 썼을 때 채워진 등록완료 버튼
     func setBtnYesText(){
         completeBtn.backgroundColor = .seaweed
         completeBtn.titleLabel?.textColor = .white
@@ -294,7 +295,7 @@ class ReviewEditVC: UIViewController{
 }
 
 //MARK: -Protocols
-/// 1
+// 1
 extension ReviewEditVC: UITextFieldDelegate,UITextViewDelegate{
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -344,14 +345,13 @@ extension ReviewEditVC: UITextFieldDelegate,UITextViewDelegate{
     
 }
 
-///2
+// 2
 extension ReviewEditVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         /// 키워드 터치시 삭제
         edit_keyword.remove(at: indexPath.row)
-        keywordCollectionView.reloadData()
-        
+        keywordCollectionView.deleteItems(at: [IndexPath(item: indexPath.row, section: 0)])
         /// 키워드를 삭제했을 때 메모도 없고 키워드가 0개이면
         if edit_keyword.count == 0 && memoTextView.text == "메모를 입력해주세요!" {
             setBtnNotText()
