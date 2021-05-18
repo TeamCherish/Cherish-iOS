@@ -168,6 +168,7 @@ class MainContentVC: UIViewController {
                     wateringGifView.isHidden = false
                     wateringGifView.alpha = 1.0
                     wateringGifPlay(.dandelionBg)
+//                    plantImageView.loadGif(name: "")
                     
                     // gif 물주기 모션뷰가 끝나고 나타날 뷰
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
