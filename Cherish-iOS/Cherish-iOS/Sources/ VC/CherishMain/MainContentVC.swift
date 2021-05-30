@@ -28,6 +28,7 @@ class MainContentVC: UIViewController {
     @IBOutlet var progressInnerViewTopConstraint: NSLayoutConstraint!
     @IBOutlet var blurBtnTopConstraint: NSLayoutConstraint!
     @IBOutlet var plantExplainLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet var userNicknameLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet var wateringBtnTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var blurBtn: UIVisualEffectView!{
         didSet{
@@ -915,7 +916,7 @@ class MainContentVC: UIViewController {
     
     //MARK: - 기기 사이즈에 맞춰 오토레이아웃 코드로 잡는 함수
     func setAutolayout() {
-    
+        
         if screenHeight == 896 {
             print("iPhone 11pro, 11proMax")
             blurBtnTopConstraint.constant = 530
@@ -923,7 +924,8 @@ class MainContentVC: UIViewController {
             progressInnerViewTopConstraint.constant = 142
             plantExplainLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 34)
             userNickNameLabel.font = UIFont(name: "Noto Sans CJK KR Regular", size: 34)
-            plantExplainLabelTopConstraint.constant = 16
+            plantExplainLabelTopConstraint.constant = 6
+            userNicknameLabelTopConstraint.constant = -8
             wateringBtnTopConstraint.constant = 18
         }
         else if screenHeight == 926 {
@@ -932,7 +934,8 @@ class MainContentVC: UIViewController {
             progressInnerViewTopConstraint.constant = 162
             plantExplainLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 34)
             userNickNameLabel.font = UIFont(name: "Noto Sans CJK KR Regular", size: 34)
-            plantExplainLabelTopConstraint.constant = 16
+            plantExplainLabelTopConstraint.constant = 6
+            userNicknameLabelTopConstraint.constant = -8
             wateringBtnTopConstraint.constant = 18
         }
         else if screenHeight == 844 {
