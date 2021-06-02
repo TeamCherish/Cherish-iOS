@@ -142,7 +142,7 @@ class MainContentVC: UIViewController {
             }
             
             else {
-                // IBOutlet에 값 할당
+                // IBOutlet에 값 할당해줌
                 DispatchQueue.main.async {
                     self.userNickNameLabel.text = UserDefaults.standard.string(forKey: "selectedNickNameData")
                     self.customProgressBarView(UserDefaults.standard.integer(forKey: "selectedGrowthData"))
@@ -432,9 +432,10 @@ class MainContentVC: UIViewController {
             case .success(_):
                 self.view.backgroundColor = .diePlantGrey
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    UIView.transition(with: self.wateringGifView, duration: 1, options: .curveEaseInOut, animations: { [self] in
+                    UIView.transition(with: self.wateringGifView, duration: 1, options: .curveEaseOut, animations: { [self] in
                         wateringGifView.alpha = 0
                         wateringGifView.layoutIfNeeded()
+                        
                         
                     }, completion: { finished in
                         self.wateringGifView.frame.origin.x = 10
