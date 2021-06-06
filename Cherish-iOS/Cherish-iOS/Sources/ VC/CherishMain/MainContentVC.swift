@@ -197,8 +197,6 @@ class MainContentVC: UIViewController {
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
                     dandelionGrowth()
-                    //                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
-                    
                     self.view.backgroundColor = .diePlantGrey
                 }
                 //default
