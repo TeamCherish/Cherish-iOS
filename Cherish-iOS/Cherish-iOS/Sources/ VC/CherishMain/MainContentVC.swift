@@ -557,10 +557,6 @@ class MainContentVC: UIViewController {
                 plantImageView.isHidden = true
                 plantGifView.isHidden = false
                 plantGifPlay(.dandelionBg, "min_iOS")
-//                let filePath = Bundle.main.url(forResource: "min_iOS", withExtension: "gif")!
-//                let downsampledMinGif = downsample(imageAt: filePath, to: plantGifView.bounds.size)
-//                plantGifView.image = downsampledMinGif
-////                self.plantGifView.image = UIImage.gif(name: "min_iOS")!
                 self.view.backgroundColor = .dandelionBg
             }
         }
@@ -647,8 +643,7 @@ class MainContentVC: UIViewController {
                 // 3단계
                 plantImageView.isHidden = true
                 plantGifView.isHidden = false
-                self.plantGifView.image = UIImage.gif(name: "blue_iOS")!
-                self.view.backgroundColor = .americanBlueBg
+                plantGifPlay(.americanBlueBg, "blue_iOS")
             }
         }
     }
@@ -718,8 +713,7 @@ class MainContentVC: UIViewController {
                 // 3단계
                 plantImageView.isHidden = true
                 plantGifView.isHidden = false
-                self.plantGifView.image = UIImage.gif(name: "rose_iOS")!
-                view.backgroundColor = .rosemaryBg
+                plantGifPlay(.rosemaryBg, "rose_iOS")
             }
         }
     }
@@ -805,8 +799,7 @@ class MainContentVC: UIViewController {
                 // 3단계
                 plantImageView.isHidden = true
                 plantGifView.isHidden = false
-                self.plantGifView.image = UIImage.gif(name: "sun_iOS")!
-                self.view.backgroundColor = .cactusBg
+                plantGifPlay(.cactusBg, "sun_iOS")
             }
         }
     }
@@ -896,8 +889,7 @@ class MainContentVC: UIViewController {
                 // 3단계
                 plantImageView.isHidden = true
                 plantGifView.isHidden = false
-                self.plantGifView.image = UIImage.gif(name: "stuki_iOS")!
-                self.view.backgroundColor = .stuckyBg
+                plantGifPlay(.stuckyBg, "stuki_iOS")
             }
         }
     }
@@ -1054,35 +1046,6 @@ class MainContentVC: UIViewController {
         self.customProgressBarView(UserDefaults.standard.integer(forKey: "selectedGrowthData"))
         self.growthPercentLabel.text = "\(UserDefaults.standard.integer(forKey: "selectedGrowthData"))%"
         self.plantExplainLabel.text = UserDefaults.standard.string(forKey: "selectedModifierData")
-    }
-    
-    //MARK: - UIImage DownSampling func
-    func downsample(imageAt imageURL: URL,
-                    to pointSize: CGSize,
-                    scale: CGFloat = UIScreen.main.scale) -> UIImage? {
-
-        // Create an CGImageSource that represent an image
-        let imageSourceOptions = [kCGImageSourceShouldCache: false] as CFDictionary
-        guard let imageSource = CGImageSourceCreateWithURL(imageURL as CFURL, imageSourceOptions) else {
-            return nil
-        }
-        
-        // Calculate the desired dimension
-        let maxDimensionInPixels = max(pointSize.width, pointSize.height) * scale
-        
-        // Perform downsampling
-        let downsampleOptions = [
-            kCGImageSourceCreateThumbnailFromImageAlways: true,
-            kCGImageSourceShouldCacheImmediately: true,
-            kCGImageSourceCreateThumbnailWithTransform: true,
-            kCGImageSourceThumbnailMaxPixelSize: maxDimensionInPixels
-        ] as CFDictionary
-        guard let downsampledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampleOptions) else {
-            return nil
-        }
-        
-        // Return the downsampled image as UIImage
-        return UIImage(cgImage: downsampledImage)
     }
     
     
