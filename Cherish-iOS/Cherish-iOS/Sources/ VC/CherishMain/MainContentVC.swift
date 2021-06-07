@@ -169,7 +169,6 @@ class MainContentVC: UIViewController {
                     wateringGifView.isHidden = false
                     wateringGifView.alpha = 1.0
                     wateringGifPlay(.dandelionBg)
-//                    plantImageView.loadGif(name: "")
                     
                     // gif 물주기 모션뷰가 끝나고 나타날 뷰
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
@@ -452,6 +451,29 @@ class MainContentVC: UIViewController {
     }
     
     
+    //MARK: - kingfisher를 사용해서 물주기 모션 효과MA gif를 play
+    func plantGifPlay(_ backgroundColor: UIColor, _ resource: String) {
+        
+        let filePath:String? = Bundle.main.path(forResource: resource, ofType: "gif")
+        let url = URL(fileURLWithPath: filePath!)
+        self.view.backgroundColor = backgroundColor
+        plantGifView.kf.setImage(
+            with: url,
+            placeholder: UIImage(),
+            options: [
+                .cacheOriginalImage,
+            ])
+        {
+            result in
+            switch result {
+            case .success(_):
+                self.view.backgroundColor = backgroundColor
+            case .failure(let error):
+                print("Job failed: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     //MARK: - 민들레 3단계 성장
     func dandelionGrowth() {
         
@@ -534,7 +556,11 @@ class MainContentVC: UIViewController {
                 // 3단계
                 plantImageView.isHidden = true
                 plantGifView.isHidden = false
-                self.plantGifView.image = UIImage.gif(name: "min_iOS")!
+                plantGifPlay(.dandelionBg, "min_iOS")
+//                let filePath = Bundle.main.url(forResource: "min_iOS", withExtension: "gif")!
+//                let downsampledMinGif = downsample(imageAt: filePath, to: plantGifView.bounds.size)
+//                plantGifView.image = downsampledMinGif
+////                self.plantGifView.image = UIImage.gif(name: "min_iOS")!
                 self.view.backgroundColor = .dandelionBg
             }
         }
@@ -1028,6 +1054,35 @@ class MainContentVC: UIViewController {
         self.customProgressBarView(UserDefaults.standard.integer(forKey: "selectedGrowthData"))
         self.growthPercentLabel.text = "\(UserDefaults.standard.integer(forKey: "selectedGrowthData"))%"
         self.plantExplainLabel.text = UserDefaults.standard.string(forKey: "selectedModifierData")
+    }
+    
+    //MARK: - UIImage DownSampling func
+    func downsample(imageAt imageURL: URL,
+                    to pointSize: CGSize,
+                    scale: CGFloat = UIScreen.main.scale) -> UIImage? {
+
+        // Create an CGImageSource that represent an image
+        let imageSourceOptions = [kCGImageSourceShouldCache: false] as CFDictionary
+        guard let imageSource = CGImageSourceCreateWithURL(imageURL as CFURL, imageSourceOptions) else {
+            return nil
+        }
+        
+        // Calculate the desired dimension
+        let maxDimensionInPixels = max(pointSize.width, pointSize.height) * scale
+        
+        // Perform downsampling
+        let downsampleOptions = [
+            kCGImageSourceCreateThumbnailFromImageAlways: true,
+            kCGImageSourceShouldCacheImmediately: true,
+            kCGImageSourceCreateThumbnailWithTransform: true,
+            kCGImageSourceThumbnailMaxPixelSize: maxDimensionInPixels
+        ] as CFDictionary
+        guard let downsampledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampleOptions) else {
+            return nil
+        }
+        
+        // Return the downsampled image as UIImage
+        return UIImage(cgImage: downsampledImage)
     }
     
     
