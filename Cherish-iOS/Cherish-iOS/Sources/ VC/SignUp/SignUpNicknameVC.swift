@@ -37,8 +37,9 @@ class SignUpNicknameVC: UIViewController,SFSafariViewControllerDelegate, UIGestu
     @IBAction func startCherish(_ sender: Any) {
         if let nickName = nickNameTextField.text {
             signUpInfo.nickName = nickName
-            if let email = signUpInfo.nickName, let password = signUpInfo.password, let phone = signUpInfo.phone, let nickName = signUpInfo.nickName {
+            if let email = signUpInfo.email, let password = signUpInfo.password, let phone = signUpInfo.phone, let nickName = signUpInfo.nickName {
                 // 성별, 생년원일 수집 개인정보보호정책에 의해 잠시 중단
+                print(email, password, phone, nickName)
                 SignUpService.shared.doSignUp(email: email, password: password, phone: phone, sex: "True", birth: "0000-00-00", nickname: nickName) { [self] (networkResult) -> (Void) in
                     switch networkResult {
                     case .success(_):
@@ -63,8 +64,10 @@ class SignUpNicknameVC: UIViewController,SFSafariViewControllerDelegate, UIGestu
                     }
                 }
             } else {
-                self.basicAlert(title: "Cherish", message: "닉네임을 입력해주세요!")
+                print("정보 누락")
             }
+        } else {
+            self.basicAlert(title: "닉네임을 입력해주세요!", message: nil)
         }
     }
     @IBAction func privacyPageAction(_ sender: Any) {

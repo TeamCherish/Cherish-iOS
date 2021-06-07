@@ -103,6 +103,8 @@ class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
             }
+        } else {
+            self.basicAlert(title: "인증을 완료해주세요!", message: nil)
         }
     }
 }
