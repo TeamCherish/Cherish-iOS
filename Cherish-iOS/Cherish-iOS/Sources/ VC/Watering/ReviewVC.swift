@@ -22,26 +22,11 @@ class ReviewVC: UIViewController {
     @IBOutlet weak var keywordTextField: UITextField!{
         didSet{
             keywordTextField.delegate = self
-            keywordTextField.addLeftPadding()
-            keywordTextField.addLeftPadding()
-            textFieldDoneBtnMake(text_field: keywordTextField) //Done
-            keywordTextField.backgroundColor = .inputGrey
-            keywordTextField.attributedPlaceholder = NSAttributedString(string: "키워드로 표현해주세요!", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderGrey])
-            keywordTextField.makeRounded(cornerRadius: 8)
         }
     }
-    @IBOutlet weak var keywordCountingLabel: UILabel!{
-        didSet{
-            keywordCountingLabel.textColor = .black
-        }
-    }
-    @IBOutlet weak var keywordLimitLabel: UILabel!{
-        didSet{
-            keywordLimitLabel.textColor = .placeholderGrey
-        }
-    }
-    @IBOutlet weak var keywordCollectionView: UICollectionView!
-    {
+    @IBOutlet weak var keywordCountingLabel: UILabel!
+    @IBOutlet weak var keywordLimitLabel: UILabel!
+    @IBOutlet weak var keywordCollectionView: UICollectionView! {
         didSet{
             keywordCollectionView.delegate = self
             keywordCollectionView.dataSource = self
@@ -50,35 +35,12 @@ class ReviewVC: UIViewController {
     @IBOutlet weak var memoTextView: UITextView!{
         didSet{
             memoTextView.delegate = self
-            memoTextView.makeRounded(cornerRadius: 10.0)
-            memoTextView.backgroundColor = .inputGrey
-            /// TextView 커서 Padding
-            memoTextView.textContainerInset = UIEdgeInsets(top: 14, left: 16, bottom: 55, right: 15);
         }
     }
-    @IBOutlet weak var memoCountingLabel: UILabel!{
-        didSet{
-            memoCountingLabel.textColor = .black
-        }
-    }
-    @IBOutlet weak var memoLimitLabel: UILabel!{
-        didSet{
-            memoLimitLabel.textColor = .placeholderGrey
-        }
-    }
-    
-    @IBOutlet weak var submit: UIButton!{
-        didSet{
-            submit.makeRounded(cornerRadius: 25.0)
-        }
-    }
-    @IBOutlet weak var skip: UIButton!{
-        didSet{
-            skip.makeRounded(cornerRadius: 25.0)
-            skip.backgroundColor = .inputGrey
-            skip.tintColor = .placeholderGrey
-        }
-    }
+    @IBOutlet weak var memoCountingLabel: UILabel!
+    @IBOutlet weak var memoLimitLabel: UILabel!
+    @IBOutlet weak var submit: UIButton!
+    @IBOutlet weak var skip: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,14 +49,122 @@ class ReviewVC: UIViewController {
             print("iPhoneSE2")
             keyboardUP() /// 키보드 올릴 때 사용
         }
+        setStyle()
         setNamingLabel()
         setBtnNotText()
         addLetterCountNoti() // 글자 수 검사 노티
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
+    deinit {
         NotificationCenter.default.removeObserver(self) //  self에 등록된 옵저버 전체 제거
+    }
+    
+    // 등록완료
+    @IBAction func submitReview(_ sender: Any) {
+        if contentStatus {
+            // 마이페이지에서 온건지 메인에서 온건지
+            if UserDefaults.standard.bool(forKey: "plantIsSelected") == true{
+                reciever = UserDefaults.standard.integer(forKey: "selectedCherish")
+            }else{
+                reciever = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+            }
+            
+            // 키워드 부족한건 ""로 채움
+            for _ in 0..<3-keyword.count {
+                keyword.append("")
+            }
+            
+            UserDefaults.standard.set(false, forKey: "reviewNotYet")
+            
+            // .POST (메모 입력 안했으면 Placeholder 상태니까 삼항연산 이용해서 처리)
+            WateringReviewService.shared.wateringReview(review: memoTextView.text == "메모를 입력해주세요!" ? nil:memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: reciever) { [self] (networkResult) -> (Void) in
+                switch networkResult {
+                case .success(let data):
+                    print(data)
+                    if UserDefaults.standard.bool(forKey: "plantIsSelected") == false {
+                        NotificationCenter.default.post(name: .wateringReport, object:reciever)
+                    }
+                    self.dismiss(animated: true, completion: {
+                        NotificationCenter.default.post(name: .popToMainView, object: nil)
+                        UserDefaults.standard.set(false, forKey: "plantIsSelected")
+                    })
+                case .requestErr(_):
+                    print("requestErr")
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            }
+        }else{
+            self.basicAlert(title: nil, message: "키워드 또는 메모를 입력 후 \n 등록을 완료해주세요!")
+        }
+    }
+    
+    @IBAction func submitLater(_ sender: Any) {
+        
+        // 마이페이지에서 온건지 메인에서 온건지
+        if UserDefaults.standard.bool(forKey: "plantIsSelected") == true{
+            reciever = UserDefaults.standard.integer(forKey: "selectedCherish")
+        }else{
+            reciever = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
+        }
+        
+        UserDefaults.standard.set(false, forKey: "reviewNotYet")
+        
+        // .POST nil값은 Resources/APIService/Watering/WateringReviewService에서 nil병합 연산자 이용
+        WateringReviewService.shared.wateringReview(review: nil, keyword1: nil, keyword2: nil, keyword3: nil, CherishId: reciever) { [self] (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                print(data)
+                if UserDefaults.standard.bool(forKey: "plantIsSelected") == false {
+                    NotificationCenter.default.post(name: .wateringReport, object:reciever)
+                }
+                self.dismiss(animated: true, completion: {
+                    NotificationCenter.default.post(name: .popToMainView, object: nil)
+                    UserDefaults.standard.set(false, forKey: "plantIsSelected")
+                })
+            case .requestErr(_):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+}
+
+extension ReviewVC {
+    func setStyle() {
+        keywordTextField.addLeftPadding()
+        keywordTextField.addLeftPadding()
+        
+        textFieldDoneBtnMake(text_field: keywordTextField) //Done
+        
+        keywordTextField.backgroundColor = .inputGrey
+        keywordTextField.attributedPlaceholder = NSAttributedString(string: "키워드로 표현해주세요!", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderGrey])
+        keywordTextField.makeRounded(cornerRadius: 8)
+        keywordCountingLabel.textColor = .black
+        keywordLimitLabel.textColor = .placeholderGrey
+        
+        memoTextView.makeRounded(cornerRadius: 10.0)
+        memoTextView.backgroundColor = .inputGrey
+        /// TextView 커서 Padding
+        memoTextView.textContainerInset = UIEdgeInsets(top: 14, left: 16, bottom: 55, right: 15);
+        
+        memoCountingLabel.textColor = .black
+        memoLimitLabel.textColor = .placeholderGrey
+        
+        submit.makeRounded(cornerRadius: 25.0)
+        
+        skip.makeRounded(cornerRadius: 25.0)
+        skip.backgroundColor = .inputGrey
+        skip.tintColor = .placeholderGrey
     }
     
     // 글자 수 검사 노티들 가진 함수
@@ -235,85 +305,6 @@ class ReviewVC: UIViewController {
         submit.titleLabel?.textColor = .white
         contentStatus = true
     }
-    
-    // 등록완료
-    @IBAction func submitReview(_ sender: Any) {
-        if contentStatus {
-            // 마이페이지에서 온건지 메인에서 온건지
-            if UserDefaults.standard.bool(forKey: "plantIsSelected") == true{
-                reciever = UserDefaults.standard.integer(forKey: "selectedCherish")
-            }else{
-                reciever = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
-            }
-            
-            // 키워드 부족한건 ""로 채움
-            for _ in 0..<3-keyword.count {
-                keyword.append("")
-            }
-            
-            UserDefaults.standard.set(false, forKey: "reviewNotYet")
-            
-            // .POST (메모 입력 안했으면 Placeholder 상태니까 삼항연산 이용해서 처리)
-            WateringReviewService.shared.wateringReview(review: memoTextView.text == "메모를 입력해주세요!" ? nil:memoTextView.text, keyword1: keyword[0], keyword2: keyword[1], keyword3: keyword[2], CherishId: reciever) { [self] (networkResult) -> (Void) in
-                switch networkResult {
-                case .success(let data):
-                    print(data)
-                    if UserDefaults.standard.bool(forKey: "plantIsSelected") == false {
-                    NotificationCenter.default.post(name: .wateringReport, object:reciever)
-                }
-                self.dismiss(animated: true, completion: {
-                    NotificationCenter.default.post(name: .popToMainView, object: nil)
-                    UserDefaults.standard.set(false, forKey: "plantIsSelected")
-                })
-                case .requestErr(_):
-                    print("requestErr")
-                case .pathErr:
-                    print("pathErr")
-                case .serverErr:
-                    print("serverErr")
-                case .networkFail:
-                    print("networkFail")
-                }
-            }
-        }else{
-            self.basicAlert(title: nil, message: "키워드 또는 메모를 입력 후 \n 등록을 완료해주세요!")
-        }
-    }
-    
-    @IBAction func submitLater(_ sender: Any) {
-        
-        // 마이페이지에서 온건지 메인에서 온건지
-        if UserDefaults.standard.bool(forKey: "plantIsSelected") == true{
-            reciever = UserDefaults.standard.integer(forKey: "selectedCherish")
-        }else{
-            reciever = UserDefaults.standard.integer(forKey: "selectedFriendIdData")
-        }
-
-        UserDefaults.standard.set(false, forKey: "reviewNotYet")
-        
-        // .POST nil값은 Resources/APIService/Watering/WateringReviewService에서 nil병합 연산자 이용
-        WateringReviewService.shared.wateringReview(review: nil, keyword1: nil, keyword2: nil, keyword3: nil, CherishId: reciever) { [self] (networkResult) -> (Void) in
-            switch networkResult {
-            case .success(let data):
-                print(data)
-                if UserDefaults.standard.bool(forKey: "plantIsSelected") == false {
-                    NotificationCenter.default.post(name: .wateringReport, object:reciever)
-                }
-                self.dismiss(animated: true, completion: {
-                    NotificationCenter.default.post(name: .popToMainView, object: nil)
-                    UserDefaults.standard.set(false, forKey: "plantIsSelected")
-                })
-            case .requestErr(_):
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
-            }
-        }
-    }
 }
 
 //MARK: -Protocols
@@ -335,7 +326,7 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
     func textViewDidEndEditing(_ textView: UITextView) {
         if memoTextView.text == "" {
             textViewPlaceholder()
-        }else if textView.text.count > 0 {
+         }else if textView.text.count > 0 {
             setBtnYesText()
         }
     }
@@ -344,8 +335,7 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
         if memoTextView.text == "메모를 입력해주세요!" {
             memoTextView.text = ""
             memoTextView.textColor = .black
-        }
-        else if memoTextView.text == "" {
+        } else if memoTextView.text == "" {
             memoTextView.text = "메모를 입력해주세요!"
             memoTextView.textColor = .placeholderGrey
             if keyword.count == 0{
@@ -399,8 +389,8 @@ extension ReviewVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         label.text = keyword[indexPath.row]
         label.sizeToFit()
         let cellSize = label.frame.width+25
-
+        
         return CGSize(width: cellSize, height: 29)
-
+        
     }
 }

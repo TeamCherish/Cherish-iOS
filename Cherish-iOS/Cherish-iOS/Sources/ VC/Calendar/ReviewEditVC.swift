@@ -21,24 +21,10 @@ class ReviewEditVC: UIViewController{
     @IBOutlet weak var keywordTextField: UITextField!{
         didSet{
             keywordTextField.delegate = self
-            keywordTextField.addLeftPadding()
-            keywordTextField.addLeftPadding()
-            textFieldDoneBtnMake(text_field: keywordTextField) // Done
-            keywordTextField.backgroundColor = .inputGrey
-            keywordTextField.attributedPlaceholder = NSAttributedString(string: "키워드로 표현해주세요!", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderGrey])
-            keywordTextField.makeRounded(cornerRadius: 8)
         }
     }
-    @IBOutlet weak var keywordCountingLabel: UILabel!{
-        didSet{
-            keywordCountingLabel.textColor = .black
-        }
-    }
-    @IBOutlet weak var keywordLimitLabel: CustomLabel!{
-        didSet{
-            keywordLimitLabel.textColor = .placeholderGrey
-        }
-    }
+    @IBOutlet weak var keywordCountingLabel: UILabel!
+    @IBOutlet weak var keywordLimitLabel: CustomLabel!
     @IBOutlet weak var keywordCollectionView: UICollectionView!{
         didSet{
             keywordCollectionView.delegate = self
@@ -48,42 +34,89 @@ class ReviewEditVC: UIViewController{
     @IBOutlet weak var memoTextView: UITextView!{
         didSet{
             memoTextView.delegate = self
-            memoTextView.makeRounded(cornerRadius: 10.0)
-            memoTextView.backgroundColor = .inputGrey
-            // TextView 커서 Padding
-            memoTextView.textContainerInset = UIEdgeInsets(top: 14, left: 16, bottom: 55, right: 15);
         }
     }
-    @IBOutlet weak var memoCountingLabel: UILabel!{
-        didSet{
-            memoCountingLabel.textColor = .black
-        }
-    }
-    @IBOutlet weak var memoLimitLabel: CustomLabel!{
-        didSet{
-            memoLimitLabel.textColor = .placeholderGrey
-        }
-    }
-    @IBOutlet weak var completeBtn: UIButton!{
-        didSet{
-            completeBtn.makeRounded(cornerRadius: 25.0)
-        }
-    }
+    @IBOutlet weak var memoCountingLabel: UILabel!
+    @IBOutlet weak var memoLimitLabel: CustomLabel!
+    @IBOutlet weak var completeBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setStyle()
         loadMemo()
         textViewPlaceholder()
         addLetterCountNoti() //글자 수 검사 노티
         decideMainMyPage()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
+    deinit {
         NotificationCenter.default.removeObserver(self) //  self에 등록된 옵저버 전체 제거
     }
     
+    @IBAction func moveToBack(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func deleteMemo(_ sender: Any) {
+        deleteAlert(title: "정말로 메모를 삭제하시겠어요?", message: "삭제된 메모는 되돌릴 수 없어요")
+    }
+    @IBAction func completeEdit(_ sender: Any) {
+        if contentStatus{
+            if edit_keyword.count == 0 {
+                edit_keyword = ["","",""]
+            }
+            if edit_keyword.count == 1 {
+                edit_keyword.append("")
+                edit_keyword.append("")
+            }
+            if edit_keyword.count == 2 {
+                edit_keyword.append("")
+            }
+            if memoTextView.text == "메모를 입력해주세요!"{
+                memoTextView.text = ""
+            }
+            CalendarService.shared.reviewEdit(CherishId: reciever, water_date: dateForServer!, review: memoTextView.text, keyword1: edit_keyword[0], keyword2: edit_keyword[1], keyword3: edit_keyword[2]) { (networkResult) -> (Void) in
+                
+                switch networkResult {
+                case .success(_):
+                    self.navigationController?.popViewController(animated: true)
+                    print("success")
+                case .requestErr(_):
+                    print("requestErr")
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            }
+        }else{
+            self.basicAlert(title: nil, message: "키워드 또는 메모를 입력 후 \n 등록을 완료해주세요!")
+        }
+    }
+}
+
+extension ReviewEditVC {
     //MARK: -사용자 정의 함수
+    func setStyle() {
+        keywordTextField.addLeftPadding()
+        keywordTextField.addLeftPadding()
+        textFieldDoneBtnMake(text_field: keywordTextField) // Done
+        keywordTextField.backgroundColor = .inputGrey
+        keywordTextField.attributedPlaceholder = NSAttributedString(string: "키워드로 표현해주세요!", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderGrey])
+        keywordTextField.makeRounded(cornerRadius: 8)
+        keywordCountingLabel.textColor = .black
+        keywordLimitLabel.textColor = .placeholderGrey
+        memoTextView.makeRounded(cornerRadius: 10.0)
+        memoTextView.backgroundColor = .inputGrey
+        // TextView 커서 Padding
+        memoTextView.textContainerInset = UIEdgeInsets(top: 14, left: 16, bottom: 55, right: 15)
+        memoCountingLabel.textColor = .black
+        memoLimitLabel.textColor = .placeholderGrey
+        completeBtn.makeRounded(cornerRadius: 25.0)
+    }
+    
     // 글자 수 검사 노티들 가진 함수
     func addLetterCountNoti(){
         NotificationCenter.default.addObserver(self, selector: #selector(textfieldDidChange(_:)), name: UITextField.textDidChangeNotification, object: nil)
@@ -239,49 +272,6 @@ class ReviewEditVC: UIViewController{
         completeBtn.backgroundColor = .seaweed
         completeBtn.titleLabel?.textColor = .white
         contentStatus = true
-    }
-    
-    @IBAction func moveToBack(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func deleteMemo(_ sender: Any) {
-        deleteAlert(title: "정말로 메모를 삭제하시겠어요?", message: "삭제된 메모는 되돌릴 수 없어요")
-    }
-    @IBAction func completeEdit(_ sender: Any) {
-        if contentStatus{
-            if edit_keyword.count == 0 {
-                edit_keyword = ["","",""]
-            }
-            if edit_keyword.count == 1 {
-                edit_keyword.append("")
-                edit_keyword.append("")
-            }
-            if edit_keyword.count == 2 {
-                edit_keyword.append("")
-            }
-            if memoTextView.text == "메모를 입력해주세요!"{
-                memoTextView.text = ""
-            }
-            CalendarService.shared.reviewEdit(CherishId: reciever, water_date: dateForServer!, review: memoTextView.text, keyword1: edit_keyword[0], keyword2: edit_keyword[1], keyword3: edit_keyword[2]) { (networkResult) -> (Void) in
-                
-                switch networkResult {
-                case .success(_):
-                    self.navigationController?.popViewController(animated: true)
-                    print("success")
-                case .requestErr(_):
-                    print("requestErr")
-                case .pathErr:
-                    print("pathErr")
-                case .serverErr:
-                    print("serverErr")
-                case .networkFail:
-                    print("networkFail")
-                }
-            }
-        }else{
-            self.basicAlert(title: nil, message: "키워드 또는 메모를 입력 후 \n 등록을 완료해주세요!")
-        }
     }
 }
 

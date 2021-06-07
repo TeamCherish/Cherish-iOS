@@ -8,6 +8,7 @@
 import UIKit
 
 class OnboardingVC: UIViewController {
+    private var indexOfCellBeforeDragging = 0
     
     @IBOutlet weak var skipBtn: UIButton!
     @IBOutlet weak var onboardingPageControl: UIPageControl!
@@ -35,6 +36,22 @@ class OnboardingVC: UIViewController {
         setPhoneResolution()
     }
     
+    @IBAction func skipToLoginView(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(identifier: "LoginVC") as? LoginVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    @IBAction func moveToLoginView(_ sender: UIButton) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(identifier: "LoginVC") as? LoginVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+}
+
+extension OnboardingVC {
     func setPhoneResolution(){
         if UIDevice.current.isiPhoneSE2 {
             pageControllerTopAnchor.constant = 30
@@ -54,9 +71,7 @@ class OnboardingVC: UIViewController {
         }
     }
     
-    // 페이징 관련 index 정의 함수
-    private var indexOfCellBeforeDragging = 0
-    
+    // MARK: - 페이징 관련 index 정의 함수
     // 오른쪽으로 넘길 때
     private func indexOfMajorCell() -> Int {
         let itemWidth = onboardingCV.frame.size.width
@@ -74,22 +89,7 @@ class OnboardingVC: UIViewController {
         let safeIndex = max(0, min(onboardingData.count - 1, back_index))
         return safeIndex
     }
-    
-    @IBAction func skipToLoginView(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(identifier: "LoginVC") as? LoginVC {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-    
-    @IBAction func moveToLoginView(_ sender: UIButton) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(identifier: "LoginVC") as? LoginVC {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
 }
-
 
 extension OnboardingVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

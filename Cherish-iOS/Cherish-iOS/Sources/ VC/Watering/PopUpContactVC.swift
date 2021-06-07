@@ -11,8 +11,8 @@ import CallKit
 import Alamofire
 
 class PopUpContactVC: UIViewController {
-    var keyword = [String]()
     let callObserver = CXCallObserver()
+    var keyword = [String]()
     var didDetectOutgoingCall = false
     var total: CGFloat? = 0
     var reciever: Int = 0
@@ -37,6 +37,54 @@ class PopUpContactVC: UIViewController {
         getRecentKeyword()
     }
     
+    //MARK: -@IBAction
+    @IBAction func backBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    // 전화걸기
+    @IBAction func calling(_ sender: Any) {
+        showCallAlert()
+    }
+    // 카카오톡 연결
+    @IBAction func kakoTalking(_ sender: Any) {
+        let kakaoTalk = "kakaotalk://"
+        let kakaoTalkURL = NSURL(string: kakaoTalk)
+        guard let pvc = self.presentingViewController else {return}
+        
+        if UIApplication.shared.canOpenURL(kakaoTalkURL! as URL) {
+            /// 연락 수단 선택 창 dismiss
+            self.dismiss(animated: true){
+                UIApplication.shared.open(kakaoTalkURL! as URL){ [self]_ in
+                    let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
+                    if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
+                        vc.modalPresentationStyle = .fullScreen
+                        pvc.present(vc, animated: true, completion: nil)
+                        UserDefaults.standard.set(true, forKey: "reviewNotYet")
+                    }
+                    // 푸시알람기능을 위해 카톡 연결을 했음을 알려주는 서버 연결
+                    postPushReview(cherishIdx: reciever)
+                }
+            }
+        }
+        else {
+            print("No kakaostory installed.")
+        }
+    }
+    // 메시지 보내기
+    @IBAction func messaging(_ sender: Any) {
+        let messageComposer = MFMessageComposeViewController()
+        messageComposer.messageComposeDelegate = self
+        if MFMessageComposeViewController.canSendText(){
+            messageComposer.recipients = [phoneNumber]
+            messageComposer.body = ""
+            messageComposer.modalPresentationStyle = .currentContext
+            self.present(messageComposer, animated: true)
+        }
+    }
+    
+}
+
+extension PopUpContactVC {
     //MARK: - 전화
     func showCallAlert() {
         guard let url = NSURL(string: "tel://" + phoneNumber),
@@ -132,53 +180,6 @@ class PopUpContactVC: UIViewController {
             }
         }
     }
-
-    
-    //MARK: -@IBAction
-    @IBAction func backBtn(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    // 전화걸기
-    @IBAction func calling(_ sender: Any) {
-        showCallAlert()
-    }
-    // 카카오톡 연결
-    @IBAction func kakoTalking(_ sender: Any) {
-        let kakaoTalk = "kakaotalk://"
-        let kakaoTalkURL = NSURL(string: kakaoTalk)
-        guard let pvc = self.presentingViewController else {return}
-        
-        if UIApplication.shared.canOpenURL(kakaoTalkURL! as URL) {
-            /// 연락 수단 선택 창 dismiss
-            self.dismiss(animated: true){
-                UIApplication.shared.open(kakaoTalkURL! as URL){ [self]_ in
-                    let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
-                    if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
-                        vc.modalPresentationStyle = .fullScreen
-                        pvc.present(vc, animated: true, completion: nil)
-                        UserDefaults.standard.set(true, forKey: "reviewNotYet")
-                    }
-                    // 푸시알람기능을 위해 카톡 연결을 했음을 알려주는 서버 연결
-                    postPushReview(cherishIdx: reciever)
-                }
-            }
-        }
-        else {
-            print("No kakaostory installed.")
-        }
-    }
-    // 메시지 보내기
-    @IBAction func messaging(_ sender: Any) {
-        let messageComposer = MFMessageComposeViewController()
-        messageComposer.messageComposeDelegate = self
-        if MFMessageComposeViewController.canSendText(){
-            messageComposer.recipients = [phoneNumber]
-            messageComposer.body = ""
-            messageComposer.modalPresentationStyle = .currentContext
-            self.present(messageComposer, animated: true)
-        }
-    }
-    
 }
 
 //MARK: -Protocol Extension
@@ -264,13 +265,13 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         total? += label.frame.width+15
         return CGSize(width: label.frame.width+15, height: collectionView.frame.height)
     }
-
+    
     // Cell간의 좌우간격 지정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
     {
         return 7
     }
-
+    
     // 마진
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {

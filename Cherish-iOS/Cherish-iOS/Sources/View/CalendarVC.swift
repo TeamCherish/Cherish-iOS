@@ -34,23 +34,14 @@ class CalendarVC: UIViewController {
     }()
     
     //MARK: -@IBOutlet
-    @IBOutlet weak var wholeCalendarView: UIView!{
-        didSet{
-            wholeCalendarView.makeRounded(cornerRadius: 20.0)
-        }
-    }
-    @IBOutlet weak var memoView: UIView!{
-        didSet{
-            memoView.makeRounded(cornerRadius: 20.0)
-        }
-    }
+    @IBOutlet weak var wholeCalendarView: UIView!
+    @IBOutlet weak var memoView: UIView!
     @IBOutlet weak var calendarOrigin: FSCalendar!{
         didSet{
             calendarOrigin.delegate = self
             calendarOrigin.dataSource = self
         }
     }
-    
     @IBOutlet weak var keywordCVTopAnchor: NSLayoutConstraint!
     @IBOutlet weak var keywordCVBotAnchor: NSLayoutConstraint!
     @IBOutlet weak var memoBtnTopAnchor: NSLayoutConstraint!
@@ -73,6 +64,7 @@ class CalendarVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setStyle()
         forVarietyPhones()
         memoShowView.isHidden = true
     }
@@ -130,9 +122,14 @@ class CalendarVC: UIViewController {
     @IBAction func moveToPrev(_ sender: Any) {
         self.moveCurrentPage(moveUp: false)
     }
-    
-    
+}
+
+extension CalendarVC {
     //MARK: -사용자 정의 함수
+    func setStyle() {
+        wholeCalendarView.makeRounded(cornerRadius: 20.0)
+        memoView.makeRounded(cornerRadius: 20.0)
+    }
     
     /// -스크린 사이즈가 다른 기기를 위한 AutoLayout 변경
     func forVarietyPhones(){
