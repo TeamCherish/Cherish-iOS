@@ -196,8 +196,7 @@ class ReviewVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    @objc
-    func keyboardWillShow(_ sender: Notification) {
+    @objc func keyboardWillShow(_ sender: Notification) {
         /// 텍스트 뷰 입력할 때에만 키보드 올리면 됨
         if memoTextView.isFirstResponder{
             UIView.animate(withDuration: 2.0, animations: {
@@ -206,26 +205,13 @@ class ReviewVC: UIViewController {
         }
     }
     
-    @objc
-    func keyboardWillHide(_ sender: Notification) {
+    @objc func keyboardWillHide(_ sender: Notification) {
         /// 텍스트 뷰 입력할 때에만 키보드 올리면 됨
         if memoTextView.isFirstResponder{
             UIView.animate(withDuration: 2.0, animations: {
                 self.view.transform = CGAffineTransform(translationX: 0, y: 0)
             })
         }
-    }
-    
-    //MARK:- Alert
-    func nomoreKeyword(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        // Alert의 '확인'을 누르면 dismiss
-        let okAction = UIAlertAction(title: "확인",style: .default) { (action) in
-            alert.dismiss(animated: true, completion: nil)
-        }
-        alert.addAction(okAction)
-        present(alert, animated: true)
     }
     
     func setNamingLabel(){
@@ -248,13 +234,6 @@ class ReviewVC: UIViewController {
         submit.backgroundColor = .seaweed
         submit.titleLabel?.textColor = .white
         contentStatus = true
-    }
-    
-    func contentAlert(message: String) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인",style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true)
     }
     
     // 등록완료
@@ -297,7 +276,7 @@ class ReviewVC: UIViewController {
                 }
             }
         }else{
-            contentAlert(message: "키워드 또는 메모를 입력 후 \n 등록을 완료해주세요!")
+            self.basicAlert(title: nil, message: "키워드 또는 메모를 입력 후 \n 등록을 완료해주세요!")
         }
     }
     
@@ -344,7 +323,7 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         /// 키워드가 이미 3개인데 사용자가 입력하려한다면 막음
         if keyword.count >= 3 {
-            nomoreKeyword(title: "", message: "키워드는 3개까지 입력할 수 있어요!")
+            self.basicAlert(title: nil, message: "키워드는 3개까지 입력할 수 있어요!")
             self.view.endEditing(true) /// 알림창 후 키보드 내림
         }
     }

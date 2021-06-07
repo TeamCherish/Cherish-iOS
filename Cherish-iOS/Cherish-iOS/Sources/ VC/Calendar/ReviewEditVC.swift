@@ -181,16 +181,7 @@ class ReviewEditVC: UIViewController{
         editMemoDateLabel.text = edit_date
     }
     
-    // Alert
-    func normalAlert(title: String?, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        /// Alert의 '확인'을 누르면 dismiss
-        let okAction = UIAlertAction(title: "확인",style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
-    
+    // 메모 삭제
     func deleteAlert(title: String, message: String) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -289,7 +280,7 @@ class ReviewEditVC: UIViewController{
                 }
             }
         }else{
-            normalAlert(title: nil, message: "키워드 또는 메모를 입력 후 \n 등록을 완료해주세요!")
+            self.basicAlert(title: nil, message: "키워드 또는 메모를 입력 후 \n 등록을 완료해주세요!")
         }
     }
 }
@@ -301,7 +292,7 @@ extension ReviewEditVC: UITextFieldDelegate,UITextViewDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         /// 키워드가 이미 3개인데 사용자가 입력하려한다면 막음
         if edit_keyword.count >= 3 {
-            normalAlert(title: "", message: "키워드는 3개까지 쓸 수 있어요!")
+            self.basicAlert(title: nil, message: "키워드는 3개까지 쓸 수 있어요!")
             self.view.endEditing(true) /// 알림창 후 키보드 내림
         }
     }
