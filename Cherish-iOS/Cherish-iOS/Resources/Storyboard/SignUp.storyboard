@@ -39,7 +39,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원가입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sc3-qb-Nmm" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="158" y="10" width="59" height="24"/>
+                                        <rect key="frame" x="159.66666666666666" y="12.666666666666666" width="55.666666666666657" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -61,7 +61,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일을 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwG-rO-oEB" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="161" width="189.66666666666666" height="29.666666666666657"/>
+                                <rect key="frame" x="16" y="161" width="178.66666666666666" height="23.333333333333343"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="20"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -72,7 +72,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ex) cherish@naver.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rua-uz-FjC">
-                                <rect key="frame" x="16" y="194.66666666666666" width="343" height="44"/>
+                                <rect key="frame" x="16" y="188.33333333333334" width="343" height="44"/>
                                 <color key="backgroundColor" name="mypageBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Ycs-8W-Ow5"/>
@@ -82,7 +82,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용가능한 이메일입니다." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Og-7H-GaN" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="230.66666666666663" y="238.66666666666666" width="128.33333333333337" height="17.999999999999972"/>
+                                <rect key="frame" x="238" y="232.33333333333334" width="121" height="14"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="seaweed"/>
                                 <nil key="highlightedColor"/>
@@ -93,7 +93,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호를 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cf2-LH-e9p" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="276.66666666666669" width="208.33333333333334" height="29.666666666666686"/>
+                                <rect key="frame" x="16" y="270.33333333333331" width="196" height="23.333333333333314"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="20"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -104,21 +104,21 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="영문, 숫자, 특수문자 포함 8자이상" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l6g-fl-rw9">
-                                <rect key="frame" x="16" y="310.33333333333331" width="343" height="44"/>
+                                <rect key="frame" x="16" y="297.66666666666669" width="343" height="44"/>
                                 <color key="backgroundColor" name="mypageBackground"/>
                                 <color key="textColor" name="black"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 다시 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZDm-eq-3ma">
-                                <rect key="frame" x="16" y="367.33333333333331" width="343" height="44"/>
+                                <rect key="frame" x="16" y="354.66666666666669" width="343" height="44"/>
                                 <color key="backgroundColor" name="mypageBackground"/>
                                 <color key="textColor" name="black"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용가능한 비밀번호입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXh-br-Xn2" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="219.66666666666663" y="411.33333333333331" width="139.33333333333337" height="18"/>
+                                <rect key="frame" x="227.66666666666663" y="398.66666666666669" width="131.33333333333337" height="14"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="seaweed"/>
                                 <nil key="highlightedColor"/>
@@ -129,7 +129,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKJ-5x-4V1">
-                                <rect key="frame" x="325" y="320.33333333333331" width="24" height="24"/>
+                                <rect key="frame" x="325" y="307.66666666666669" width="24" height="24"/>
                                 <state key="normal" image="eyeOff"/>
                                 <connections>
                                     <action selector="firstEyeAway:" destination="xkf-fx-ibr" eventType="touchUpInside" id="adW-Ry-dXA"/>
@@ -138,7 +138,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5k-X7-utb">
-                                <rect key="frame" x="325" y="377.33333333333331" width="24" height="24"/>
+                                <rect key="frame" x="325" y="364.66666666666669" width="24" height="24"/>
                                 <state key="normal" image="eyeOff"/>
                                 <connections>
                                     <action selector="secondEyeAway:" destination="xkf-fx-ibr" eventType="touchUpInside" id="6rx-IV-P2M"/>
@@ -231,7 +231,6 @@
         <!--Sign Up PhoneVC-->
         <scene sceneID="PRU-TM-BW5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bfn-2V-bnI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SignUpPhoneVC" id="esr-Ib-Z3R" customClass="SignUpPhoneVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nGJ-zh-rws">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -249,7 +248,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원가입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ja2-Tm-lgi" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="158" y="10" width="59" height="24"/>
+                                        <rect key="frame" x="159.66666666666666" y="12.666666666666666" width="55.666666666666657" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -271,7 +270,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호를 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcT-6f-aKk" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="161" width="208.33333333333334" height="29.666666666666657"/>
+                                <rect key="frame" x="16" y="161" width="196" height="23.333333333333343"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="20"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -282,7 +281,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ex) 010 1234 5678" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6HT-ss-BEP">
-                                <rect key="frame" x="16" y="194.66666666666666" width="343" height="44"/>
+                                <rect key="frame" x="16" y="188.33333333333334" width="343" height="44"/>
                                 <color key="backgroundColor" name="mypageBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="PbK-cz-c1V"/>
@@ -292,7 +291,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호를 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="448-DH-Pzd" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="276.66666666666669" width="208.33333333333334" height="29.666666666666686"/>
+                                <rect key="frame" x="16" y="270.33333333333331" width="196" height="23.333333333333314"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="20"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -303,14 +302,14 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="인증번호 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bob-yC-3oG">
-                                <rect key="frame" x="16" y="310.33333333333331" width="343" height="44"/>
+                                <rect key="frame" x="16" y="297.66666666666669" width="343" height="44"/>
                                 <color key="backgroundColor" name="mypageBackground"/>
                                 <color key="textColor" name="black"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="one-time-code"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arC-r9-PuP">
-                                <rect key="frame" x="16" y="266.66666666666669" width="343" height="44"/>
+                                <rect key="frame" x="16" y="260.33333333333331" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5U2-zE-y57"/>
                                 </constraints>
@@ -323,7 +322,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qX-T8-RV5">
-                                <rect key="frame" x="16" y="382.33333333333331" width="343" height="44"/>
+                                <rect key="frame" x="16" y="369.66666666666669" width="343" height="44"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                 <state key="normal" title="재발송">
                                     <color key="titleColor" name="textGrey"/>
@@ -365,7 +364,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="올바르지 않은 인증번호입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gb-Ha-9uG" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="205.33333333333337" y="426.33333333333331" width="153.66666666666663" height="18"/>
+                                <rect key="frame" x="214" y="413.66666666666669" width="145" height="14"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="pinkSub"/>
                                 <nil key="highlightedColor"/>
@@ -419,13 +418,13 @@
                         <outlet property="typingMessageTextField" destination="bob-yC-3oG" id="wV3-a9-44V"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bfn-2V-bnI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1397" y="100"/>
         </scene>
         <!--Sign Up GenderVC-->
         <scene sceneID="qij-ua-IHb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RuT-QN-GWw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SignUpGenderVC" id="Hk8-9i-zyd" customClass="SignUpGenderVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Js7-XB-TCS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -444,7 +443,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원가입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBH-pW-WJ4" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="158" y="10" width="59" height="24"/>
+                                        <rect key="frame" x="159.66666666666666" y="12.666666666666666" width="55.666666666666657" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -466,13 +465,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성별을 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="liE-Dk-MGc">
-                                <rect key="frame" x="16" y="161" width="171.33333333333334" height="29.666666666666657"/>
+                                <rect key="frame" x="16" y="161" width="161.33333333333334" height="23.333333333333343"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="20"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="여성" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zxx-Bc-WWi">
-                                <rect key="frame" x="16" y="194.66666666666666" width="343" height="44"/>
+                                <rect key="frame" x="16" y="188.33333333333334" width="343" height="44"/>
                                 <color key="backgroundColor" name="mypageBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="faa-m8-cGx"/>
@@ -482,13 +481,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나이(출생년도)를 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJ4-hy-B5E">
-                                <rect key="frame" x="16" y="276.66666666666669" width="259.33333333333331" height="29.666666666666686"/>
+                                <rect key="frame" x="16" y="270.33333333333331" width="241" height="23.333333333333314"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="20"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="2021" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IyY-9q-Mwd">
-                                <rect key="frame" x="16" y="310.33333333333331" width="343" height="44"/>
+                                <rect key="frame" x="16" y="297.66666666666669" width="343" height="44"/>
                                 <color key="backgroundColor" name="mypageBackground"/>
                                 <color key="textColor" name="black"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
@@ -508,7 +507,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cherish의 더 나은 서비스를 위해 활용됩니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tM6-U5-P82">
-                                <rect key="frame" x="73" y="656" width="229" height="18"/>
+                                <rect key="frame" x="79.333333333333329" y="660" width="216.66666666666669" height="14"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -565,6 +564,7 @@
                         <outlet property="nextBtn" destination="lu3-hh-kDH" id="cAs-qJ-TE4"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RuT-QN-GWw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-47" y="1250"/>
         </scene>
@@ -590,7 +590,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원가입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4U-bd-juq" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="158" y="10" width="59" height="24"/>
+                                        <rect key="frame" x="159.66666666666666" y="12.666666666666666" width="55.666666666666657" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -612,7 +612,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용할 닉네임을 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIv-Ca-c8L" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="15.999999999999986" y="161" width="250.66666666666663" height="29.666666666666657"/>
+                                <rect key="frame" x="16.000000000000014" y="161" width="236.33333333333337" height="23.333333333333343"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="20"/>
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
@@ -623,7 +623,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="최대 8글자" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hxj-8L-9MP">
-                                <rect key="frame" x="16" y="194.66666666666666" width="343" height="44"/>
+                                <rect key="frame" x="16" y="188.33333333333334" width="343" height="44"/>
                                 <color key="backgroundColor" name="mypageBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="8G3-D4-O7e"/>
@@ -633,7 +633,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용하실 수 있는 닉네임입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9A-lY-iq5" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="202" y="238.66666666666666" width="157" height="17.999999999999972"/>
+                                <rect key="frame" x="210.66666666666663" y="232.33333333333334" width="148.33333333333337" height="14"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="seaweed"/>
                                 <nil key="highlightedColor"/>
@@ -644,13 +644,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0LR-st-dIf">
-                                <rect key="frame" x="47" y="633" width="281.33333333333331" height="36"/>
+                                <rect key="frame" x="53.666666666666657" y="633" width="267.66666666666674" height="36"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebw-sa-te6">
-                                        <rect key="frame" x="0.0" y="0.0" width="281.33333333333331" height="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="267.66666666666669" height="14"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="'시작하기'버튼을 누르면 cherish의 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sf5-i2-yvD" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="178" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="170" height="14"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                 <color key="textColor" name="black"/>
                                                 <nil key="highlightedColor"/>
@@ -661,7 +661,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2x-pR-3f1">
-                                                <rect key="frame" x="178" y="0.0" width="92" height="18"/>
+                                                <rect key="frame" x="170" y="0.0" width="87" height="14"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="12"/>
                                                 <state key="normal" title="개인정보보호 정책">
                                                     <color key="titleColor" name="seaweed"/>
@@ -676,7 +676,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="과" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vV8-1s-l04" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="270" y="0.0" width="11.333333333333314" height="18"/>
+                                                <rect key="frame" x="257" y="0.0" width="10.666666666666686" height="14"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                 <color key="textColor" name="black"/>
                                                 <nil key="highlightedColor"/>
@@ -689,10 +689,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9B-WJ-Mce">
-                                        <rect key="frame" x="12.333333333333343" y="18" width="256.66666666666663" height="18"/>
+                                        <rect key="frame" x="13" y="14" width="242" height="22"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucu-Ks-e3X">
-                                                <rect key="frame" x="0.0" y="0.0" width="85" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="22"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="12"/>
                                                 <state key="normal" title="서비스 이용 약관">
                                                     <color key="titleColor" name="seaweed"/>
@@ -707,7 +707,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="을 읽고 동의한 것으로 간주합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wg9-ie-H6K" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="84.999999999999986" y="0.0" width="171.66666666666663" height="18"/>
+                                                <rect key="frame" x="80" y="0.0" width="162" height="22"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                 <color key="textColor" name="black"/>
                                                 <nil key="highlightedColor"/>
