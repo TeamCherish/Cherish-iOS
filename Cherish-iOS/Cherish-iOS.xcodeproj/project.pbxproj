@@ -106,6 +106,8 @@
 		54425C3A25AF520A00E62BAB /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C3925AF520A00E62BAB /* CalendarService.swift */; };
 		54425C3D25AF58BF00E62BAB /* FetchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C3C25AF58BF00E62BAB /* FetchCalendar.swift */; };
 		54425C4025AF5EBA00E62BAB /* CalendarKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C3F25AF5EBA00E62BAB /* CalendarKeyword.swift */; };
+		54426780266E672000A2A65F /* SignUpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5442677F266E672000A2A65F /* SignUpInfo.swift */; };
+		54426782266E7E4900A2A65F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54426781266E7E4900A2A65F /* UIViewController+Extension.swift */; };
 		546A247025ACD32800F869E2 /* WateringReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A246F25ACD32800F869E2 /* WateringReviewService.swift */; };
 		5478343625A76EBC0021C32B /* UIDevice+ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478343525A76EBC0021C32B /* UIDevice+ScreenSize.swift */; };
 		5478343A25A82B060021C32B /* ReviewEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478343925A82B060021C32B /* ReviewEditVC.swift */; };
@@ -302,6 +304,8 @@
 		54425C3925AF520A00E62BAB /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
 		54425C3C25AF58BF00E62BAB /* FetchCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCalendar.swift; sourceTree = "<group>"; };
 		54425C3F25AF5EBA00E62BAB /* CalendarKeyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarKeyword.swift; sourceTree = "<group>"; };
+		5442677F266E672000A2A65F /* SignUpInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfo.swift; sourceTree = "<group>"; };
+		54426781266E7E4900A2A65F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		546A246F25ACD32800F869E2 /* WateringReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReviewService.swift; sourceTree = "<group>"; };
 		5478343525A76EBC0021C32B /* UIDevice+ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+ScreenSize.swift"; sourceTree = "<group>"; };
 		5478343925A82B060021C32B /* ReviewEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewEditVC.swift; sourceTree = "<group>"; };
@@ -595,9 +599,9 @@
 		33851C8B259A5AEE005BCFFD /* APIService */ = {
 			isa = PBXGroup;
 			children = (
-				54AE98AD25F3739C00993EA3 /* FindPassword */,
 				33851C92259A5B68005BCFFD /* APIConstants.swift */,
 				33851C98259A5C00005BCFFD /* NetworkResult.swift */,
+				54AE98AD25F3739C00993EA3 /* FindPassword */,
 				3317778425B0915B00CC1030 /* Mypage */,
 				92911FC225DD0AE800B4A95F /* PlantCard */,
 				54425C3825AF51F200E62BAB /* Calendar */,
@@ -708,6 +712,7 @@
 				337A5CBC25A868C000578130 /* UIButton+Extention.swift */,
 				3317777725B042C200CC1030 /* UIImage+Extension.swift */,
 				333DC23C25FA4D8200120B1E /* UIWindow+Extension.swift */,
+				54426781266E7E4900A2A65F /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -864,6 +869,14 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
+		5442677E266E671200A2A65F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5442677F266E672000A2A65F /* SignUpInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		5478344925AB65250021C32B /* ShowMore */ = {
 			isa = PBXGroup;
 			children = (
@@ -1015,10 +1028,11 @@
 		54D223F625DA294E003A1496 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				5442677E266E671200A2A65F /* Model */,
 				54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */,
 				54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */,
-				5491593325DBB1C0008104FC /* SignUpGenderVC.swift */,
 				5491593925DBF78B008104FC /* SignUpNicknameVC.swift */,
+				5491593325DBB1C0008104FC /* SignUpGenderVC.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1268,6 +1282,7 @@
 				9244DF1225AB92220014FF5D /* LoadingPopUpVC.swift in Sources */,
 				33805F8325AC62B3005CED0F /* LoginData.swift in Sources */,
 				33CAF85225A249DC0050DE29 /* CherishMainNC.swift in Sources */,
+				54426782266E7E4900A2A65F /* UIViewController+Extension.swift in Sources */,
 				33EAA2F325B180C000E75F95 /* SplashVC.swift in Sources */,
 				5488922525A594CF003839FC /* CalendarVC.swift in Sources */,
 				548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */,
@@ -1331,6 +1346,7 @@
 				33E874F725A04A56001F84FE /* CherishMainVC.swift in Sources */,
 				336C6D9325E63EAD003865C3 /* ShowMoreNC.swift in Sources */,
 				332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */,
+				54426780266E672000A2A65F /* SignUpInfo.swift in Sources */,
 				92B0F9E225AEE41600AA411A /* FetchedContact.swift in Sources */,
 				33CAF85625A2674A0050DE29 /* CircularProgressView.swift in Sources */,
 				33805F8925AC739D005CED0F /* MainService.swift in Sources */,

@@ -9,20 +9,12 @@ import UIKit
 
 class PopUpWatering_WithoutLaterVC: UIViewController {
     //MARK: -@IBOutlet
-    @IBOutlet weak var popupWithoutLaterView: UIView!{
-        didSet{
-            popupWithoutLaterView.dropShadow(color: UIColor.blue, offSet: CGSize(width: 0, height: 4), opacity: 0.25, radius: 4)
-            popupWithoutLaterView.makeRounded(cornerRadius: 20.0)
-        }
-    }
-    @IBOutlet weak var wateringBtn: UIButton!{
-        didSet{
-            wateringBtn.makeRounded(cornerRadius: 25.0)
-        }
-    }
+    @IBOutlet weak var popupWithoutLaterView: UIView!
+    @IBOutlet weak var wateringBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setStyle()
     }
     
     // 뒤로가기 버튼
@@ -42,4 +34,9 @@ class PopUpWatering_WithoutLaterVC: UIViewController {
         }
     }
     
+    func setStyle() {
+        popupWithoutLaterView.dropShadow(color: UIColor.blue, offSet: CGSize(width: 0, height: 4), opacity: 0.25, radius: 4)
+        popupWithoutLaterView.makeRounded(cornerRadius: 20.0)
+        wateringBtn.makeRounded(cornerRadius: 25.0)
+    }
 }

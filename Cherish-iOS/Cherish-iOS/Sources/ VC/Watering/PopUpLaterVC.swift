@@ -14,21 +14,11 @@ class PopUpLaterVC: UIViewController {
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     //MARK: -@IBOutlet
-    @IBOutlet weak var laterView: UIView!{
-        didSet{
-            laterView.dropShadow(color: .black, offSet: CGSize(width: 0, height: 4), opacity: 0.25, radius: 4)
-            laterView.makeRounded(cornerRadius: 20.0)
-        }
-    }
+    @IBOutlet weak var laterView: UIView!
     @IBOutlet weak var changeDateMonthLabel: UILabel!
     @IBOutlet weak var changeDateDayLabel: UILabel!
-    @IBOutlet weak var selectDateLabel: UILabel!{
-        didSet{
-            selectDateLabel.backgroundColor = .inputGrey
-            selectDateLabel.makeRounded(cornerRadius: 6)
-        }
-    }
-    
+    @IBOutlet weak var selectDateLabel: UILabel!
+    @IBOutlet weak var confirmBtn: UIButton!
     @IBOutlet weak var laterPickerView: UIPickerView!{
         didSet{
             laterPickerView.delegate = self
@@ -36,18 +26,31 @@ class PopUpLaterVC: UIViewController {
         }
     }
     
-    @IBOutlet weak var confirmBtn: UIButton!{
-        didSet{
-            confirmBtn.makeRounded(cornerRadius: 23.0)
-            confirmBtn.backgroundColor = .btnGrey
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setStyle()
         setWateringDate()
         setPickerDate()
-    }    
+    }
+    
+    @IBAction func backBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func completeLatering(_ sender: Any) {
+        /// 시드는 모션 뷰로 이동
+        getLaterData()
+    }
+}
+
+extension PopUpLaterVC {
+    func setStyle() {
+        laterView.dropShadow(color: .black, offSet: CGSize(width: 0, height: 4), opacity: 0.25, radius: 4)
+        laterView.makeRounded(cornerRadius: 20.0)
+        selectDateLabel.backgroundColor = .inputGrey
+        selectDateLabel.makeRounded(cornerRadius: 6)
+        confirmBtn.makeRounded(cornerRadius: 23.0)
+        confirmBtn.backgroundColor = .btnGrey
+    }
     
     // 물 줄 날짜, 미룬 횟수 셋팅
     func setWateringDate(){
@@ -129,16 +132,6 @@ class PopUpLaterVC: UIViewController {
             }
         }
     }
-    
-    @IBAction func backBtn(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    @IBAction func completeLatering(_ sender: Any) {
-        /// 시드는 모션 뷰로 이동
-        getLaterData()
-    }
-    
-    
 }
 
 //MARK: -Protocols
