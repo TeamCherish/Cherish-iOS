@@ -848,6 +848,9 @@
                                             <constraint firstAttribute="width" secondItem="gao-dN-UsL" secondAttribute="height" multiplier="1:1" id="gfn-6f-hi9"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="icn_back"/>
+                                        <connections>
+                                            <action selector="touchUpToBackSwipe:" destination="uCr-4g-uPm" eventType="touchUpInside" id="J5i-Mu-mPC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
