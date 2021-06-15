@@ -33,6 +33,7 @@
 		334130CB2620750700A68ED2 /* sun_iOS.gif in Resources */ = {isa = PBXBuildFile; fileRef = 334130C62620750700A68ED2 /* sun_iOS.gif */; };
 		3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3346B34625AB77E300EF5E14 /* AlarmVC.swift */; };
 		3356C2A62631BBAB00B1F416 /* OpenSourceContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3356C2A52631BBAB00B1F416 /* OpenSourceContentVC.swift */; };
+		335816322678EAD700FD4E29 /* UpdateWateringPushService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335816312678EAD700FD4E29 /* UpdateWateringPushService.swift */; };
 		335B3A3025EF805400DD7A6F /* LoginNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B3A2F25EF805400DD7A6F /* LoginNC.swift */; };
 		335B8FE825F797A800A03640 /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B8FE725F797A800A03640 /* ImageFileManager.swift */; };
 		335D8F4025F4CDD600FE4C7F /* MainPlantConditionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335D8F3F25F4CDD600FE4C7F /* MainPlantConditionData.swift */; };
@@ -227,6 +228,7 @@
 		3346B34325AB653D00EF5E14 /* Cherish-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cherish-iOS.entitlements"; sourceTree = "<group>"; };
 		3346B34625AB77E300EF5E14 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
 		3356C2A52631BBAB00B1F416 /* OpenSourceContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceContentVC.swift; sourceTree = "<group>"; };
+		335816312678EAD700FD4E29 /* UpdateWateringPushService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWateringPushService.swift; sourceTree = "<group>"; };
 		335B3A2F25EF805400DD7A6F /* LoginNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNC.swift; sourceTree = "<group>"; };
 		335B8FE725F797A800A03640 /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
 		335D8F3F25F4CDD600FE4C7F /* MainPlantConditionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPlantConditionData.swift; sourceTree = "<group>"; };
@@ -736,6 +738,7 @@
 				33CD994D25D9993F00C3BD1C /* PushReviewService.swift */,
 				33CD995525D9A0CD00C3BD1C /* FCMTokenUpdateService.swift */,
 				339854CE2635B69E0002E6F0 /* FCMTokenDeleteService.swift */,
+				335816312678EAD700FD4E29 /* UpdateWateringPushService.swift */,
 			);
 			path = PushAlarm;
 			sourceTree = "<group>";
@@ -1294,6 +1297,7 @@
 				9214410225ACE7BD00853E53 /* AddUserService.swift in Sources */,
 				923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */,
 				33CD995625D9A0CD00C3BD1C /* FCMTokenUpdateService.swift in Sources */,
+				335816322678EAD700FD4E29 /* UpdateWateringPushService.swift in Sources */,
 				33E874FB25A04A81001F84FE /* MyPageVC.swift in Sources */,
 				33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */,
 				33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */,

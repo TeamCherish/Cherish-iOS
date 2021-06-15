@@ -132,7 +132,27 @@ class PopUpContactVC: UIViewController {
             }
         }
     }
-
+    
+    func updateWateringPush(cherishIdx: Int) {
+        UpdateWateringPushService.shared.updateWateringPush(cherishId: cherishIdx) {
+            (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                print(data)
+            case .requestErr(let msg):
+                if let message = msg as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
     
     //MARK: -@IBAction
     @IBAction func backBtn(_ sender: Any) {
@@ -160,6 +180,8 @@ class PopUpContactVC: UIViewController {
                     }
                     // 푸시알람기능을 위해 카톡 연결을 했음을 알려주는 서버 연결
                     postPushReview(cherishIdx: reciever)
+                    // 물주기 푸시알람 업데이트를 위해 카톡 연결을 했음을 알려주는 서버 연결
+                    updateWateringPush(cherishIdx: reciever)
                 }
             }
         }
@@ -202,6 +224,8 @@ extension PopUpContactVC: CXCallObserverDelegate{
             
             /// 푸시알람기능을 위해 전화연결을 했음을 알려주는 서버 연결
             postPushReview(cherishIdx: reciever)
+            // 물주기 푸시알람 업데이트를 위해 카톡 연결을 했음을 알려주는 서버 연결
+            updateWateringPush(cherishIdx: reciever)
         }
     }
 }
@@ -224,6 +248,8 @@ extension PopUpContactVC: MFMessageComposeViewControllerDelegate{
             }
             /// 푸시알람기능을 위해 문자연결을 했음을 알려주는 서버 연결
             postPushReview(cherishIdx: reciever)
+            // 물주기 푸시알람 업데이트를 위해 카톡 연결을 했음을 알려주는 서버 연결
+            updateWateringPush(cherishIdx: reciever)
             UserDefaults.standard.set(true, forKey: "reviewNotYet")
             print("전송 완료")
             break
@@ -264,13 +290,13 @@ extension PopUpContactVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         total? += label.frame.width+15
         return CGSize(width: label.frame.width+15, height: collectionView.frame.height)
     }
-
+    
     // Cell간의 좌우간격 지정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
     {
         return 7
     }
-
+    
     // 마진
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {

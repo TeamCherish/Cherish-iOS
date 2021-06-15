@@ -32,4 +32,5 @@ struct APIConstants {
     static let checkPhoneURL = baseURL + "cherish/checkPhone" // 이미 등록된 번호인지 확인하는 API
     static let findPasswordURL = baseURL + "login/findPassword" // 비밀번호 찾기-인증번호
     static let updatePasswordURL = baseURL + "login/updatePassword" // 비밀번호 찾기-새 비밀번호
+    static let updateWateringPushURL = baseURL + "push" // 물줄 때마다 물주기 알림 정보를 업데이트 해주는 API
 }
