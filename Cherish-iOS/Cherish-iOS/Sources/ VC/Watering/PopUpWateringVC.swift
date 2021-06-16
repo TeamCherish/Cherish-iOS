@@ -9,38 +9,13 @@ import UIKit
 
 class PopUpWateringVC: UIViewController {
     //MARK: -@IBOutlet
-    @IBOutlet weak var popupWaterView: UIView!{
-        didSet{
-            popupWaterView.dropShadow(color: UIColor.blue, offSet: CGSize(width: 0, height: 50), opacity: 1, radius: 4)
-            popupWaterView.makeRounded(cornerRadius: 20.0)
-        }
-    }
-    @IBOutlet weak var wateringBtn: UIButton!{
-        didSet{
-            wateringBtn.makeRounded(cornerRadius: 25.0)
-        }
-    }
-    @IBOutlet weak var laterBtn: UIButton!{
-        didSet{
-            laterBtn.setTitleColor(.textGrey, for: .normal)
-        }
-    }
+    @IBOutlet weak var popupWaterView: UIView!
+    @IBOutlet weak var wateringBtn: UIButton!
+    @IBOutlet weak var laterBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    // 다음에 할게요 선택시 1~7일 선택 팝업으로 이동
-    func goToLatering(){
-        guard let pvc = self.presentingViewController else {return}
-        self.dismiss(animated: true) {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpLater", bundle: nil)
-            if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpLaterVC") as? PopUpLaterVC{
-                vc.modalPresentationStyle = .overFullScreen
-                vc.modalTransitionStyle = .crossDissolve
-                pvc.self.present(vc, animated: true, completion: nil)
-            }
-        }
+        setStyle()
     }
     
     @IBAction func backBtn(_ sender: Any) {
@@ -83,6 +58,26 @@ class PopUpWateringVC: UIViewController {
                 print("serverErr")
             case .networkFail:
                 print("networkFail")
+            }
+        }
+    }
+    
+    func setStyle() {
+        popupWaterView.dropShadow(color: UIColor.blue, offSet: CGSize(width: 0, height: 50), opacity: 1, radius: 4)
+        popupWaterView.makeRounded(cornerRadius: 20.0)
+        wateringBtn.makeRounded(cornerRadius: 25.0)
+        laterBtn.setTitleColor(.textGrey, for: .normal)
+        laterBtn.setTitleColor(.textGrey, for: .normal)
+    }
+    // 다음에 할게요 선택시 1~7일 선택 팝업으로 이동
+    func goToLatering(){
+        guard let pvc = self.presentingViewController else {return}
+        self.dismiss(animated: true) {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "PopUpLater", bundle: nil)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "PopUpLaterVC") as? PopUpLaterVC{
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                pvc.self.present(vc, animated: true, completion: nil)
             }
         }
     }
