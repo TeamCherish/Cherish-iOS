@@ -591,9 +591,9 @@
 				92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */,
 				33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */,
 				337A5CB425A8543600578130 /* Login.storyboard */,
-				54D223F325DA2912003A1496 /* SignUp.storyboard */,
 				5491594525DCD32B008104FC /* FindPassword.storyboard */,
 				548F26872612F52F0055C5E1 /* Onboarding.storyboard */,
+				54D223F325DA2912003A1496 /* SignUp.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1571,7 +1571,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -1595,7 +1595,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;

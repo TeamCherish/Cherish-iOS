@@ -30,7 +30,7 @@
         <scene sceneID="CXm-aR-H0V">
             <objects>
                 <viewController storyboardIdentifier="NoPlantVC" title="NoPlantVC" id="KIw-wm-jvz" customClass="NoPlantVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="l5T-SB-K7m">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="NoPlantVC" id="l5T-SB-K7m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
