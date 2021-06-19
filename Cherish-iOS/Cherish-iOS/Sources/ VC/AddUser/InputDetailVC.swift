@@ -288,36 +288,18 @@ class InputDetailVC: UIViewController {
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         toolbar.setItems([flexibleSpace, doneBtnBirth], animated: true)
         toolbar2.setItems([flexibleSpace, doneBtnPeriod], animated: true)
-        
-        // alarm time
-//        alarmTimePicker.addTarget(self, action: #selector(changed), for: .valueChanged)
-        
-//        alarmPikcer.addTarget(self, action: #selector(changed), for: .valueChanged)
-        
+                
         // assign toolbar
         birthTextField.inputAccessoryView = toolbar
         alarmPeriodTextField.inputAccessoryView = toolbar2
         
         // assign picker to the textField
-//        birthTextField.inputView = datePicker
         birthTextField.inputView = birthPicker
         alarmPeriodTextField.inputView = periodPicker
-        
-        // datePicker mode
-//        datePicker.datePickerMode = .date
-//        datePicker.locale = NSLocale(localeIdentifier: "ko_KO") as Locale
-//        datePicker.preferredDatePickerStyle = .wheels
-        
         
     }
     
     @objc func donePressedBirth() {
-        //formatter
-//        let formatter = DateFormatter()
-//        formatter.dateStyle = .medium
-//        formatter.timeStyle = .none
-//
-//        birthTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
         enableCompleteBtn()
     }
@@ -348,7 +330,7 @@ class InputDetailVC: UIViewController {
 }
 
 //MARK: - PickerView DataSource, Delegate
-///pickerView 여러개에 대해 각각 datasource 수정ㅎ려면 어떡해야돼??
+
 extension InputDetailVC: UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

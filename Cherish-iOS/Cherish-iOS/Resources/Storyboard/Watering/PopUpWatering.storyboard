@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -33,7 +33,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBZ-zl-X6z">
-                                        <rect key="frame" x="17.666666666666657" y="281" width="280" height="48"/>
+                                        <rect key="frame" x="17.666666666666657" y="286" width="280" height="48"/>
                                         <color key="backgroundColor" name="seaweed"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="lBZ-zl-X6z" secondAttribute="height" multiplier="280:48" id="8P6-bd-I5y"/>
@@ -53,7 +53,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgO-R7-m0c">
-                                        <rect key="frame" x="111" y="346" width="93" height="36"/>
+                                        <rect key="frame" x="113.66666666666666" y="351" width="88" height="31"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <state key="normal" title="다음에 할게요"/>
                                         <userDefinedRuntimeAttributes>
@@ -66,7 +66,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고민하기보다 일단 해보는거에요. 시시콜콜한 이야기도 좋아요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdA-fJ-HQx" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="62" y="203.33333333333331" width="191" height="41.666666666666657"/>
+                                        <rect key="frame" x="67.000000000000014" y="217.33333333333331" width="181.33333333333337" height="32.666666666666657"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -77,7 +77,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wateringImg" translatesAutoresizingMaskIntoConstraints="NO" id="4S3-JA-22C">
-                                        <rect key="frame" x="90" y="56.333333333333314" width="135" height="140"/>
+                                        <rect key="frame" x="90" y="70.333333333333314" width="135" height="140"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="140" id="JAy-80-I25"/>
                                             <constraint firstAttribute="width" secondItem="4S3-JA-22C" secondAttribute="height" multiplier="135:140" id="tFr-Q1-njW"/>
@@ -137,7 +137,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8M0-UN-kuV">
-                                        <rect key="frame" x="17.666666666666657" y="324.66666666666663" width="280" height="48"/>
+                                        <rect key="frame" x="17.666666666666657" y="315.66666666666663" width="280" height="48"/>
                                         <color key="backgroundColor" name="seaweed"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="8M0-UN-kuV" secondAttribute="height" multiplier="280:48" id="4vm-z5-0yw"/>
@@ -157,7 +157,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고민하기보다 일단 해보는거에요. 시시콜콜한 이야기도 좋아요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jd8-lz-n0I" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="62" y="246.99999999999997" width="191" height="41.666666666666657"/>
+                                        <rect key="frame" x="67.000000000000014" y="246.99999999999997" width="181.33333333333337" height="32.666666666666657"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>

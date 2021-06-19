@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UXc-v4-HSL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UXc-v4-HSL">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -40,7 +40,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물캘린더" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahw-pX-7ec" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="150.66666666666666" y="10" width="73.666666666666657" height="24"/>
+                                        <rect key="frame" x="153" y="12.666666666666666" width="69.333333333333314" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -95,16 +95,16 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="TGP-ny-lCB">
-                                                <rect key="frame" x="186" y="357" width="133" height="18"/>
+                                                <rect key="frame" x="190.66666666666663" y="357" width="128.33333333333337" height="18"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9Zk-72-Zow">
-                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="18"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="52" height="14"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icWateringCalendar" translatesAutoresizingMaskIntoConstraints="NO" id="bLC-hL-6rW">
-                                                                <rect key="frame" x="0.0" y="0.0" width="9" height="18"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="9" height="14"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물 준 날" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeP-hU-oY7" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                                <rect key="frame" x="14" y="0.0" width="40" height="18"/>
+                                                                <rect key="frame" x="14" y="0.0" width="38" height="14"/>
                                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -117,13 +117,13 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b2l-ny-liI">
-                                                        <rect key="frame" x="68" y="0.0" width="65" height="18"/>
+                                                        <rect key="frame" x="66.000000000000028" y="0.0" width="62.333333333333343" height="14"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icWateringLaterCalendar" translatesAutoresizingMaskIntoConstraints="NO" id="h9B-tg-j0S">
-                                                                <rect key="frame" x="0.0" y="0.0" width="9" height="18"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="9" height="14"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물 주는 날" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cV0-FF-lLA" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                                <rect key="frame" x="14" y="0.0" width="51" height="18"/>
+                                                                <rect key="frame" x="14.000000000000004" y="0.0" width="48.333333333333343" height="14"/>
                                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -174,7 +174,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021년 1월 6일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9f-V6-OcS">
-                                                <rect key="frame" x="16" y="22" width="108" height="24"/>
+                                                <rect key="frame" x="16" y="22" width="104" height="18.666666666666671"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="750" constant="24" id="szn-gj-cEZ"/>
                                                 </constraints>
@@ -183,14 +183,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6d-zt-hcf">
-                                                <rect key="frame" x="273" y="10" width="48" height="48"/>
+                                                <rect key="frame" x="273" y="7.3333333333333712" width="48" height="48"/>
                                                 <state key="normal" image="icMemoPencil"/>
                                                 <connections>
                                                     <action selector="moveToEdit:" destination="76L-gG-wN1" eventType="touchUpInside" id="EgD-Ix-iUj"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jXT-xv-tX7">
-                                                <rect key="frame" x="0.0" y="60" width="335" height="28"/>
+                                                <rect key="frame" x="0.0" y="54.666666666666629" width="335" height="28"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fiP-9t-esQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="28"/>
@@ -223,10 +223,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hw3-Uv-0s2">
-                                                <rect key="frame" x="16" y="98" width="298" height="66"/>
+                                                <rect key="frame" x="16" y="92.666666666666629" width="298" height="71.333333333333314"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5t-Nm-AYg" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="298" height="66"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="298" height="71.333333333333329"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" priority="250" constant="66" id="ssd-dT-9SL"/>
                                                         </constraints>
