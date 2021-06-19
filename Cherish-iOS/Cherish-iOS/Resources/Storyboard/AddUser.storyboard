@@ -106,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iFz-pd-gZ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2047.2" y="-993.10344827586209"/>
+            <point key="canvasLocation" x="2841" y="-993"/>
         </scene>
         <!--Input DetailVC-->
         <scene sceneID="mg7-hI-jBx">
@@ -770,22 +770,22 @@
             </objects>
             <point key="canvasLocation" x="1104.8" y="-300"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Add UserNC-->
         <scene sceneID="4OD-Us-QhC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="BvU-9H-NDf" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AddUserNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="BvU-9H-NDf" customClass="AddUserNC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cD1-vr-2Fv">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="KIw-wm-jvz" kind="relationship" relationship="rootViewController" id="pZa-Fs-vKQ"/>
+                        <segue destination="KIw-wm-jvz" kind="relationship" relationship="rootViewController" id="KEY-62-x2x"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28j-Vi-I79" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1104.8" y="-993.10344827586209"/>
+            <point key="canvasLocation" x="1974" y="-993"/>
         </scene>
     </scenes>
     <resources>

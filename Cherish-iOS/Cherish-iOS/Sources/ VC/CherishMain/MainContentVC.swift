@@ -995,7 +995,7 @@ class MainContentVC: UIViewController {
     
     //MARK: - 메인의 친구 별 물주기, 시들기 상태를 저장할 수 있도록 cherishResultData에 데이터를 할당
     func setMainResultData() {
-        
+        print("watering함수 실행!")
         cherishResultData.removeAll()
         for i in 0...cherishPeopleData.count - 1 {
             cherishResultData.append(MainPlantConditionData(id: cherishPeopleData[i].id, dDay: cherishPeopleData[i].dDay, isWatering: false, isWithered: false))
@@ -1054,6 +1054,7 @@ class MainContentVC: UIViewController {
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "PlantDetail", bundle: nil)
         if let vc = storyBoard.instantiateViewController(identifier: "PlantDetailVC") as? PlantDetailVC {
+            
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

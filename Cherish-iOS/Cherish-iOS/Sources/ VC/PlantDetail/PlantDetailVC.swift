@@ -84,18 +84,16 @@ class PlantDetailVC: UIViewController {
         
         myCherishIsSelected = UserDefaults.standard.bool(forKey: "plantIsSelected")
         
-        
         if myCherishIsSelected == true {
             getPlantDataFromMyPage(cherishId: myCherishIdx)
         }
         else {
             getPlantDetailData()
         }
-        
         makeDelegates()
         makeCornerRadiusView()
         setAutoLayoutByScreenSize()
-        
+        print("why...")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,10 +108,16 @@ class PlantDetailVC: UIViewController {
             getPlantDetailData()
         }
         NotificationCenter.default.addObserver(self, selector: #selector(popToMainView), name: .popToMainView, object: nil)
+        print("why... viewwillappear")
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        print("viewDidAppear")
         LoadingHUD.hide()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: .popToMainView, object: nil)
     }
     
     //MARK: - NC,TC 속성 정의함수
@@ -129,11 +133,13 @@ class PlantDetailVC: UIViewController {
     }
     
     @objc func popToMainView() {
+        print("problem?")
         // 마이페이지에서 온건지 메인에서 온건지
         if UserDefaults.standard.bool(forKey: "plantIsSelected") == true{
             self.tabBarController?.selectedIndex = 0
             NotificationCenter.default.post(name: .mypageWatering, object: UserDefaults.standard.integer(forKey: "selectedCherish"))            
         }else{
+            print("problem? popViewController")
             self.navigationController?.popViewController(animated: true)
         }
     }

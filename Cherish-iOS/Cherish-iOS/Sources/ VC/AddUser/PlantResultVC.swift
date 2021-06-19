@@ -80,7 +80,6 @@ class PlantResultVC: UIViewController, UIGestureRecognizerDelegate {
         if let tabBarVC = tabBarStoyboard.instantiateViewController(identifier: "CherishTabBarController") as? CherishTabBarController {
             
             self.navigationController?.pushViewController(tabBarVC, animated: true)
-            self.navigationController?.setViewControllers([tabBarVC], animated: false)
         }
     }
     
@@ -111,6 +110,9 @@ class PlantResultVC: UIViewController, UIGestureRecognizerDelegate {
         
         if rootviewController is SplashVC {
             print("루트 뷰컨이 LoginNC에요")
+            goToCherishMainView()
+        }
+        else if rootviewController is NoPlantVC {
             goToCherishMainView()
         }
         else {

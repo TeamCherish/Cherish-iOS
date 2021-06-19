@@ -49,7 +49,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                             print("첫 로드 : 등록된 식물이 없어요 뷰")
                             UserDefaults.standard.set(true,forKey: "autoLogin")
                             let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
-                            let initialViewController = storyBoard.instantiateViewController(withIdentifier: "NoPlantVC")
+                            let initialViewController = storyBoard.instantiateViewController(withIdentifier: "AddUserNC")
                             self.window?.rootViewController = initialViewController
                             self.window?.makeKeyAndVisible()
                             UIApplication.shared.registerForRemoteNotifications()
