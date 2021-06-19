@@ -11,6 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let userID = UserDefaults.standard.integer(forKey: "userID")
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -21,16 +22,51 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // 자동 로그인이 될 때 첫 Scnene을 메인뷰로
         if (UserDefaults.standard.string(forKey: "loginEmail") != nil) == true {
             appDel.isLoginManually = false
-            print("첫 로드 : 메인뷰")
             // 등록된 식물 0일 때, noplnatView로 띄우기!!
-            
-            
-            UserDefaults.standard.set(true,forKey: "autoLogin")
-            let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController")
-            self.window?.rootViewController = initialViewController
-            self.window?.makeKeyAndVisible()
-            UIApplication.shared.registerForRemoteNotifications()
+            // 유저 idx 기반으로 메인뷰에 등록된 소중한 사람이 있는지 조회
+            MainService.shared.inquireMainView(idx: userID){ [self]
+                (networkResult) -> (Void) in
+                switch networkResult {
+                case .success(let data):
+                    if let mainData = data as? MainData {
+                        print(userID)
+                        
+                        // 등록된 소중한 사람의 수가 존재한다면
+                        if mainData.totalCherish > 0 {
+                            
+                            // 메인뷰로 이동
+                            print("첫 로드 : 메인뷰")
+                            UserDefaults.standard.set(true,forKey: "autoLogin")
+                            let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
+                            let initialViewController = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController")
+                            self.window?.rootViewController = initialViewController
+                            self.window?.makeKeyAndVisible()
+                            UIApplication.shared.registerForRemoteNotifications()
+                        }
+                        
+                        // 소중한 사람이 한명도 등록되지 않았다면
+                        else {
+                            print("첫 로드 : 등록된 식물이 없어요 뷰")
+                            UserDefaults.standard.set(true,forKey: "autoLogin")
+                            let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
+                            let initialViewController = storyBoard.instantiateViewController(withIdentifier: "AddUserNC")
+                            self.window?.rootViewController = initialViewController
+                            self.window?.makeKeyAndVisible()
+                            UIApplication.shared.registerForRemoteNotifications()
+                        }
+                    }
+                case .requestErr(let msg):
+                    if let message = msg as? String {
+                        print(message)
+                    }
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            }
         }
         // 자동 로그인이 아닐 때는 첫 Scnene을 로그인뷰로
         else {

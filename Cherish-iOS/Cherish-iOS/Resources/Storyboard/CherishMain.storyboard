@@ -497,10 +497,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ACK-zb-WlM" kind="relationship" relationship="rootViewController" id="zNb-1p-c8O"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OBd-ZA-fsQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1804" y="-236"/>
+            <point key="canvasLocation" x="-1769" y="129"/>
         </scene>
         <!--Main SplashVC-->
         <scene sceneID="h2q-OK-FI1">

@@ -56,18 +56,18 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
         
         //식물 추가했을 때 reload
         if appDel.isCherishAdded == true {
-            setCherishPeopleData()
+            setCherishPeopleDataWithGesture()
             appDel.isCherishAdded = false
         }
         
         //식물 삭제했을 때 reload
         if appDel.isCherishDeleted == true {
-            setCherishPeopleData()
+            setCherishPeopleDataWithGesture()
         }
         
         //식물 수정했을 때 reload
         if appDel.isCherishEdited == true {
-            setCherishPeopleData()
+            setCherishPeopleDataWithGesture()
             appDel.isCherishEdited = false
         }
     }
@@ -90,6 +90,46 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK: - 메인뷰 데이터 받아오는 함수
     func setCherishPeopleData() {
+        
+        MainService.shared.inquireMainView(idx: userId) { [self]
+            (networkResult) -> (Void) in
+            switch networkResult {
+            case .success(let data):
+                if let mainResultData = data as? MainData {
+                    cherishPeopleData = mainResultData.result
+                    cherishPeopleCountLabel.text = "\(cherishPeopleData.count)"
+                    self.cherishPeopleCV.reloadData()
+                    UserDefaults.standard.set(cherishPeopleData.count, forKey: "cherishPeopleDataCount")
+                    
+                    // 남은 식물이 한개도 없을 때 식물 추가뷰를 띄워준다.
+                    if cherishPeopleData.count == 0 {
+                        let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
+                        if let vc = storyBoard.instantiateViewController(identifier: "NoPlantVC") as? NoPlantVC {
+                            
+                            self.navigationController?.pushViewController(vc, animated: false)
+                            
+                            // 등록된 식물이 하나도 없을 경우에 탭바를 숨김
+                            self.tabBarController?.tabBar.isHidden = true
+                        }
+                    }
+                }
+            case .requestErr(let msg):
+                if let message = msg as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
+    
+    //MARK: - 메인뷰 데이터 받아오는 함수
+    func setCherishPeopleDataWithGesture() {
         
         MainService.shared.inquireMainView(idx: userId) { [self]
             (networkResult) -> (Void) in
@@ -133,6 +173,7 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
             }
         }
     }
+    
     
     //MARK: - 물주기 후 정보를 reload하는 objc 함수
     @objc func reloadDataWhenFinishWatering() {
