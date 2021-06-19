@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ODG-3f-nVc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ODG-3f-nVc">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -160,7 +160,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="EIW-TP-04R">
-                                <rect key="frame" x="24" y="106" width="67" height="10"/>
+                                <rect key="frame" x="24" y="106" width="48" height="10"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joinCircleSelected" translatesAutoresizingMaskIntoConstraints="NO" id="aRf-FM-dUC">
                                         <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
@@ -170,9 +170,6 @@
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joinCircleUnselected" translatesAutoresizingMaskIntoConstraints="NO" id="R6e-Lp-QGH">
                                         <rect key="frame" x="38" y="0.0" width="10" height="10"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joinCircleUnselected" translatesAutoresizingMaskIntoConstraints="NO" id="7pi-HH-XxF">
-                                        <rect key="frame" x="57" y="0.0" width="10" height="10"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
@@ -353,19 +350,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Vf1-86-y7U">
-                                <rect key="frame" x="24" y="106" width="67" height="10"/>
+                                <rect key="frame" x="24" y="106" width="48" height="10"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joinCircleSelected" translatesAutoresizingMaskIntoConstraints="NO" id="DyW-ls-E4M">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joinCircleUnselected" translatesAutoresizingMaskIntoConstraints="NO" id="dIn-cH-4FQ">
                                         <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joinCircleUnselected" translatesAutoresizingMaskIntoConstraints="NO" id="dIn-cH-4FQ">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joinCircleSelected" translatesAutoresizingMaskIntoConstraints="NO" id="DyW-ls-E4M">
                                         <rect key="frame" x="19" y="0.0" width="10" height="10"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joinCircleUnselected" translatesAutoresizingMaskIntoConstraints="NO" id="Seo-gw-5gK">
                                         <rect key="frame" x="38" y="0.0" width="10" height="10"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joinCircleUnselected" translatesAutoresizingMaskIntoConstraints="NO" id="ydB-kh-9xP">
-                                        <rect key="frame" x="57" y="0.0" width="10" height="10"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
@@ -415,9 +409,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="afterImageView" destination="dIn-cH-4FQ" id="0ZN-8b-BnF"/>
                         <outlet property="authCheckLabel" destination="8gb-Ha-9uG" id="K9e-Xu-QzI"/>
-                        <outlet property="beforeImageView" destination="DyW-ls-E4M" id="vho-mU-G9o"/>
                         <outlet property="nextBtn" destination="1hb-VV-eKa" id="h4e-Ob-Xdh"/>
                         <outlet property="phoneTextField" destination="6HT-ss-BEP" id="eJI-Lv-1cf"/>
                         <outlet property="pleaseTypingLabel" destination="448-DH-Pzd" id="mEp-4K-a9D"/>
@@ -574,7 +566,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RuT-QN-GWw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2107" y="100"/>
+            <point key="canvasLocation" x="-47" y="1250"/>
         </scene>
         <!--Sign Up NicknameVC-->
         <scene sceneID="Epd-ZS-YIR">
@@ -752,19 +744,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Dwf-dY-ksD">
-                                <rect key="frame" x="24" y="106" width="67" height="10"/>
+                                <rect key="frame" x="24" y="106" width="48" height="10"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joinCircleUnselected" translatesAutoresizingMaskIntoConstraints="NO" id="R3u-ki-YDa">
                                         <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joinCircleUnselected" translatesAutoresizingMaskIntoConstraints="NO" id="Oo6-YO-Alz">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joinCircleUnselected" translatesAutoresizingMaskIntoConstraints="NO" id="ksZ-XJ-HQp">
                                         <rect key="frame" x="19" y="0.0" width="10" height="10"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joinCircleSelected" translatesAutoresizingMaskIntoConstraints="NO" id="MGI-GR-ioh">
                                         <rect key="frame" x="38" y="0.0" width="10" height="10"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joinCircleUnselected" translatesAutoresizingMaskIntoConstraints="NO" id="ksZ-XJ-HQp">
-                                        <rect key="frame" x="57" y="0.0" width="10" height="10"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
@@ -792,8 +781,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="afterImageView" destination="ksZ-XJ-HQp" id="KiV-Mh-Q6B"/>
-                        <outlet property="beforeImageView" destination="MGI-GR-ioh" id="dO5-PC-MWI"/>
                         <outlet property="nickNameCheckLabel" destination="z9A-lY-iq5" id="h4p-ZY-GGz"/>
                         <outlet property="nickNameTextField" destination="Hxj-8L-9MP" id="HFT-VI-Bwt"/>
                         <outlet property="privacyPolicyBtn" destination="T2x-pR-3f1" id="EqK-Dk-Ky8"/>
@@ -803,7 +790,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fY-h9-ry2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2807" y="100"/>
+            <point key="canvasLocation" x="2108" y="100"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vup-DF-fKm">

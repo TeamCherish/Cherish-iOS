@@ -10,131 +10,42 @@ import MessageUI
 
 class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
     //MARK: -변수 선언부
-    var forSending = ["",""]
+    let signUpInfo = SignUpInfo.shared
     var authNumber: Int?
-    var isSending: Bool? = false
-    var isAuth: Bool? = false
+    var isSending: Bool = false
+    var isAuth: Bool = false
     
     //MARK: -@IBOutlet
-    @IBOutlet weak var phoneTextField: UITextField!{
-        didSet{
-            phoneTextField.makeRounded(cornerRadius: 8)
-            phoneTextField.addLeftPadding()
-            phoneTextField.backgroundColor = .inputGrey
-        }
-    }
-    @IBOutlet weak var requestMessageBtn: UIButton!{
-        didSet{
-            requestMessageBtn.makeRounded(cornerRadius: 8)
-            requestMessageBtn.layer.borderColor = UIColor.textGrey.cgColor
-            requestMessageBtn.layer.borderWidth  = 1.0
-        }
-    }
+    @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var requestMessageBtn: UIButton!
     @IBOutlet weak var pleaseTypingLabel: CustomLabel!
-    @IBOutlet weak var typingMessageTextField: UITextField!{
-        didSet{
-            typingMessageTextField.makeRounded(cornerRadius: 8)
-            typingMessageTextField.addLeftPadding()
-            typingMessageTextField.backgroundColor = .inputGrey
+    @IBOutlet weak var typingMessageTextField: UITextField! {
+        didSet {
             typingMessageTextField.delegate = self
         }
     }
-    @IBOutlet weak var authCheckLabel: UILabel!{
-        didSet{
-            authCheckLabel.isHidden = true
-        }
-    }
-    @IBOutlet weak var resendMessageBtn: UIButton!{
-        didSet{
-            resendMessageBtn.makeRounded(cornerRadius: 8)
-            resendMessageBtn.layer.borderColor = UIColor.textGrey.cgColor
-            resendMessageBtn.layer.borderWidth  = 1.0
-        }
-    }
-    @IBOutlet weak var nextBtn: UIButton!{
-        didSet{
-            nextBtn.makeRounded(cornerRadius: 25.0)
-            nextBtn.backgroundColor = .inputGrey
-        }
-    }
-    @IBOutlet weak var beforeImageView: UIImageView!
-    @IBOutlet weak var afterImageView: UIImageView!
+    @IBOutlet weak var authCheckLabel: UILabel!
+    @IBOutlet weak var resendMessageBtn: UIButton!
+    @IBOutlet weak var nextBtn: UIButton!
     
     //MARK: -viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-        print(forSending)
+        setStyle()
         initialSetting(alpha: 0)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        //self.forChangeImageView.image = UIImage(named: "joinCircleUnselected")
-        UIView.animate(withDuration: 0.3, animations: {
-            self.beforeImageView.image = UIImage(named: "joinCircleUnselected")
-        },completion: {finished in
-            UIView.animate(withDuration: 0.5, animations: {
-                self.afterImageView.image = UIImage(named: "joinCircleSelected")
-            })
-        })
-    }
-    
-    //화면 터치시 키보드 내리기
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
-    //MARK: -사용자 정의 함수
-    func initialSetting(alpha: CGFloat){
-        pleaseTypingLabel.alpha = alpha
-        typingMessageTextField.alpha = alpha
-        resendMessageBtn.alpha = alpha
-    }
-    
-    // 인증번호 입력 등장 애니메이션
-    func animateGo(){
-        self.pleaseTypingLabel.transform = CGAffineTransform(translationX: 0, y: -10)
-        self.typingMessageTextField.transform = CGAffineTransform(translationX: 0, y: -10)
-        self.resendMessageBtn.transform = CGAffineTransform(translationX: 0, y: -10)
-    }
-    
-    // 초록색으로 채워진 버튼
-    func greenBtn(){
-        nextBtn.backgroundColor = .seaweed
-        nextBtn.setTitleColor(.white, for: .normal)
-    }
-    
-    // 인증 UI 관련 메소드
-    func authLabel(see: Bool, text: String, color: UIColor, authStatus: Bool) {
-        authCheckLabel.isHidden = see
-        authCheckLabel.text = text
-        authCheckLabel.textColor = color
-        isAuth = authStatus
-    }
-    
-    // 인증번호 전송 성공 Alert
-    func authAlert(title: String) {
-        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인",style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
-    
-    //MARK: -@IBAction
-    
+    // MARK: -@IBAction
     // 인증번호 받기 버튼
     @IBAction func receiveMessage(_ sender: Any) {
         MessageAuthService.shared.messageAuth(phone: phoneTextField.text!) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 authNumber = data as? Int /// 보낸 인증번호
-                
                 isSending = true /// 문자 보냈음
+                phoneTextField.isEnabled = false /// 번호 입력 부 수정 못하게 비활성화
                 
-                /// 번호 입력 부 수정 못하게 비활성화
-                phoneTextField.isEnabled = false
-                                
                 UIView.animate(withDuration: 0.5, delay: 0, options: .allowUserInteraction, animations: {
                     phoneTextField.textColor = .textGrey
                     requestMessageBtn.alpha = 0 /// 원래 있던 인증번호보내기 버튼 사라지게 하기
@@ -163,7 +74,7 @@ class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
         MessageAuthService.shared.messageAuth(phone: phoneTextField.text!) { [self] (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
-                authAlert(title: "인증번호가 재전송 되었습니다.")
+                self.basicAlert(title: "인증번호가 재전송 되었습니다.", message: nil)
                 authNumber = data as? Int
                 isSending = true
                 
@@ -185,16 +96,69 @@ class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
     }
     @IBAction func nextAction(_ sender: Any) {
         // 인증완료 되었으면 넘기기
-        if isSending == true{
-            if isAuth == true{
-                if let vc = self.storyboard?.instantiateViewController(identifier: "SignUpGenderVC") as? SignUpGenderVC {
-                    vc.forSending[0] = forSending[0]
-                    vc.forSending[1] = forSending[1]
-                    vc.forSending[2] = phoneTextField.text!
+        if isSending && isAuth {
+            if let vc = self.storyboard?.instantiateViewController(identifier: "SignUpNicknameVC") as? SignUpNicknameVC {
+                if let phone = phoneTextField.text {
+                    signUpInfo.phone = phone
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
             }
+        } else {
+            self.basicAlert(title: "인증을 완료해주세요!", message: nil)
         }
+    }
+}
+
+extension SignUpPhoneVC {
+    //화면 터치시 키보드 내리기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    //MARK: -사용자 정의 함수
+    func setStyle() {
+        phoneTextField.makeRounded(cornerRadius: 8)
+        phoneTextField.addLeftPadding()
+        phoneTextField.backgroundColor = .inputGrey
+        requestMessageBtn.makeRounded(cornerRadius: 8)
+        requestMessageBtn.layer.borderColor = UIColor.textGrey.cgColor
+        requestMessageBtn.layer.borderWidth  = 1.0
+        typingMessageTextField.makeRounded(cornerRadius: 8)
+        typingMessageTextField.addLeftPadding()
+        typingMessageTextField.backgroundColor = .inputGrey
+        authCheckLabel.isHidden = true
+        resendMessageBtn.makeRounded(cornerRadius: 8)
+        resendMessageBtn.layer.borderColor = UIColor.textGrey.cgColor
+        resendMessageBtn.layer.borderWidth  = 1.0
+        nextBtn.makeRounded(cornerRadius: 25.0)
+        nextBtn.backgroundColor = .inputGrey
+    }
+    
+    func initialSetting(alpha: CGFloat){
+        pleaseTypingLabel.alpha = alpha
+        typingMessageTextField.alpha = alpha
+        resendMessageBtn.alpha = alpha
+    }
+    
+    // 인증번호 입력 등장 애니메이션
+    func animateGo(){
+        self.pleaseTypingLabel.transform = CGAffineTransform(translationX: 0, y: -10)
+        self.typingMessageTextField.transform = CGAffineTransform(translationX: 0, y: -10)
+        self.resendMessageBtn.transform = CGAffineTransform(translationX: 0, y: -10)
+    }
+    
+    // 초록색으로 채워진 버튼
+    func greenBtn(){
+        nextBtn.backgroundColor = .seaweed
+        nextBtn.setTitleColor(.white, for: .normal)
+    }
+    
+    // 인증 UI 관련 메소드
+    func authLabel(see: Bool, text: String, color: UIColor, authStatus: Bool) {
+        authCheckLabel.isHidden = see
+        authCheckLabel.text = text
+        authCheckLabel.textColor = color
+        isAuth = authStatus
     }
 }
 

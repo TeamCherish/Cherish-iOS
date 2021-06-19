@@ -21,10 +21,24 @@ class NoPlantVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
         guard let dvc = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else {return}
-        print("아직 식물 없으요")
+        setFirstVC()
         // Do any additional setup after loading the view.
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    func setFirstVC() {
+        let vc = (self.storyboard?.instantiateViewController(identifier: "NoPlantVC"))! as NoPlantVC
+        
+        // 스플래시 후 CherishMainVC로 push를 하고나서 루트 뷰컨을 CherishMainVC로 변경해줌
+        // --> 홈탭이 눌려도 스플래시뷰로 이동되지 않게 아예 루트뷰컨을 변경한 것임
+        self.navigationController?.setViewControllers([vc], animated: false)
+    }
+    
     
     @IBAction func touchUpToAddNC(_ sender: UIButton) {
         guard let dvc = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else {return}

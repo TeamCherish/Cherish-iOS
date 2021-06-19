@@ -33,6 +33,7 @@
 		334130CB2620750700A68ED2 /* sun_iOS.gif in Resources */ = {isa = PBXBuildFile; fileRef = 334130C62620750700A68ED2 /* sun_iOS.gif */; };
 		3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3346B34625AB77E300EF5E14 /* AlarmVC.swift */; };
 		3356C2A62631BBAB00B1F416 /* OpenSourceContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3356C2A52631BBAB00B1F416 /* OpenSourceContentVC.swift */; };
+		335816322678EAD700FD4E29 /* UpdateWateringPushService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335816312678EAD700FD4E29 /* UpdateWateringPushService.swift */; };
 		335B3A3025EF805400DD7A6F /* LoginNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B3A2F25EF805400DD7A6F /* LoginNC.swift */; };
 		335B8FE825F797A800A03640 /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B8FE725F797A800A03640 /* ImageFileManager.swift */; };
 		335D8F4025F4CDD600FE4C7F /* MainPlantConditionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335D8F3F25F4CDD600FE4C7F /* MainPlantConditionData.swift */; };
@@ -106,6 +107,8 @@
 		54425C3A25AF520A00E62BAB /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C3925AF520A00E62BAB /* CalendarService.swift */; };
 		54425C3D25AF58BF00E62BAB /* FetchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C3C25AF58BF00E62BAB /* FetchCalendar.swift */; };
 		54425C4025AF5EBA00E62BAB /* CalendarKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54425C3F25AF5EBA00E62BAB /* CalendarKeyword.swift */; };
+		54426780266E672000A2A65F /* SignUpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5442677F266E672000A2A65F /* SignUpInfo.swift */; };
+		54426782266E7E4900A2A65F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54426781266E7E4900A2A65F /* UIViewController+Extension.swift */; };
 		546A247025ACD32800F869E2 /* WateringReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A246F25ACD32800F869E2 /* WateringReviewService.swift */; };
 		5478343625A76EBC0021C32B /* UIDevice+ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478343525A76EBC0021C32B /* UIDevice+ScreenSize.swift */; };
 		5478343A25A82B060021C32B /* ReviewEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5478343925A82B060021C32B /* ReviewEditVC.swift */; };
@@ -227,6 +230,7 @@
 		3346B34325AB653D00EF5E14 /* Cherish-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cherish-iOS.entitlements"; sourceTree = "<group>"; };
 		3346B34625AB77E300EF5E14 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
 		3356C2A52631BBAB00B1F416 /* OpenSourceContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceContentVC.swift; sourceTree = "<group>"; };
+		335816312678EAD700FD4E29 /* UpdateWateringPushService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWateringPushService.swift; sourceTree = "<group>"; };
 		335B3A2F25EF805400DD7A6F /* LoginNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNC.swift; sourceTree = "<group>"; };
 		335B8FE725F797A800A03640 /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
 		335D8F3F25F4CDD600FE4C7F /* MainPlantConditionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPlantConditionData.swift; sourceTree = "<group>"; };
@@ -302,6 +306,8 @@
 		54425C3925AF520A00E62BAB /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
 		54425C3C25AF58BF00E62BAB /* FetchCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCalendar.swift; sourceTree = "<group>"; };
 		54425C3F25AF5EBA00E62BAB /* CalendarKeyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarKeyword.swift; sourceTree = "<group>"; };
+		5442677F266E672000A2A65F /* SignUpInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfo.swift; sourceTree = "<group>"; };
+		54426781266E7E4900A2A65F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		546A246F25ACD32800F869E2 /* WateringReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReviewService.swift; sourceTree = "<group>"; };
 		5478343525A76EBC0021C32B /* UIDevice+ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+ScreenSize.swift"; sourceTree = "<group>"; };
 		5478343925A82B060021C32B /* ReviewEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewEditVC.swift; sourceTree = "<group>"; };
@@ -585,9 +591,9 @@
 				92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */,
 				33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */,
 				337A5CB425A8543600578130 /* Login.storyboard */,
-				54D223F325DA2912003A1496 /* SignUp.storyboard */,
 				5491594525DCD32B008104FC /* FindPassword.storyboard */,
 				548F26872612F52F0055C5E1 /* Onboarding.storyboard */,
+				54D223F325DA2912003A1496 /* SignUp.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -595,9 +601,9 @@
 		33851C8B259A5AEE005BCFFD /* APIService */ = {
 			isa = PBXGroup;
 			children = (
-				54AE98AD25F3739C00993EA3 /* FindPassword */,
 				33851C92259A5B68005BCFFD /* APIConstants.swift */,
 				33851C98259A5C00005BCFFD /* NetworkResult.swift */,
+				54AE98AD25F3739C00993EA3 /* FindPassword */,
 				3317778425B0915B00CC1030 /* Mypage */,
 				92911FC225DD0AE800B4A95F /* PlantCard */,
 				54425C3825AF51F200E62BAB /* Calendar */,
@@ -708,6 +714,7 @@
 				337A5CBC25A868C000578130 /* UIButton+Extention.swift */,
 				3317777725B042C200CC1030 /* UIImage+Extension.swift */,
 				333DC23C25FA4D8200120B1E /* UIWindow+Extension.swift */,
+				54426781266E7E4900A2A65F /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -736,6 +743,7 @@
 				33CD994D25D9993F00C3BD1C /* PushReviewService.swift */,
 				33CD995525D9A0CD00C3BD1C /* FCMTokenUpdateService.swift */,
 				339854CE2635B69E0002E6F0 /* FCMTokenDeleteService.swift */,
+				335816312678EAD700FD4E29 /* UpdateWateringPushService.swift */,
 			);
 			path = PushAlarm;
 			sourceTree = "<group>";
@@ -862,6 +870,14 @@
 				54425C3925AF520A00E62BAB /* CalendarService.swift */,
 			);
 			path = Calendar;
+			sourceTree = "<group>";
+		};
+		5442677E266E671200A2A65F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5442677F266E672000A2A65F /* SignUpInfo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5478344925AB65250021C32B /* ShowMore */ = {
@@ -1015,10 +1031,11 @@
 		54D223F625DA294E003A1496 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				5442677E266E671200A2A65F /* Model */,
 				54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */,
 				54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */,
-				5491593325DBB1C0008104FC /* SignUpGenderVC.swift */,
 				5491593925DBF78B008104FC /* SignUpNicknameVC.swift */,
+				5491593325DBB1C0008104FC /* SignUpGenderVC.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1268,6 +1285,7 @@
 				9244DF1225AB92220014FF5D /* LoadingPopUpVC.swift in Sources */,
 				33805F8325AC62B3005CED0F /* LoginData.swift in Sources */,
 				33CAF85225A249DC0050DE29 /* CherishMainNC.swift in Sources */,
+				54426782266E7E4900A2A65F /* UIViewController+Extension.swift in Sources */,
 				33EAA2F325B180C000E75F95 /* SplashVC.swift in Sources */,
 				5488922525A594CF003839FC /* CalendarVC.swift in Sources */,
 				548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */,
@@ -1294,6 +1312,7 @@
 				9214410225ACE7BD00853E53 /* AddUserService.swift in Sources */,
 				923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */,
 				33CD995625D9A0CD00C3BD1C /* FCMTokenUpdateService.swift in Sources */,
+				335816322678EAD700FD4E29 /* UpdateWateringPushService.swift in Sources */,
 				33E874FB25A04A81001F84FE /* MyPageVC.swift in Sources */,
 				33851C9D259A5C25005BCFFD /* GenericResponse.swift in Sources */,
 				33851C93259A5B68005BCFFD /* APIConstants.swift in Sources */,
@@ -1331,6 +1350,7 @@
 				33E874F725A04A56001F84FE /* CherishMainVC.swift in Sources */,
 				336C6D9325E63EAD003865C3 /* ShowMoreNC.swift in Sources */,
 				332CC7C125A72A4800D0047D /* MypageContactData.swift in Sources */,
+				54426780266E672000A2A65F /* SignUpInfo.swift in Sources */,
 				92B0F9E225AEE41600AA411A /* FetchedContact.swift in Sources */,
 				33CAF85625A2674A0050DE29 /* CircularProgressView.swift in Sources */,
 				33805F8925AC739D005CED0F /* MainService.swift in Sources */,
@@ -1551,7 +1571,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -1559,7 +1579,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1575,7 +1595,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -1583,7 +1603,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

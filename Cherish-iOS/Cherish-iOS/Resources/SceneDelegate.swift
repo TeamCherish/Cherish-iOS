@@ -20,16 +20,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // 자동 로그인이 될 때 첫 Scnene을 메인뷰로
         if (UserDefaults.standard.string(forKey: "loginEmail") != nil) == true {
-            
             appDel.isLoginManually = false
             print("첫 로드 : 메인뷰")
+            // 등록된 식물 0일 때, noplnatView로 띄우기!!
+            
+            
             UserDefaults.standard.set(true,forKey: "autoLogin")
             let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController")
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
             UIApplication.shared.registerForRemoteNotifications()
-            
         }
         // 자동 로그인이 아닐 때는 첫 Scnene을 로그인뷰로
         else {

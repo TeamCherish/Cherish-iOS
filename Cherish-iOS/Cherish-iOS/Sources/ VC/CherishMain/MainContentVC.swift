@@ -28,6 +28,7 @@ class MainContentVC: UIViewController {
     @IBOutlet var progressInnerViewTopConstraint: NSLayoutConstraint!
     @IBOutlet var blurBtnTopConstraint: NSLayoutConstraint!
     @IBOutlet var plantExplainLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet var userNicknameLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet var wateringBtnTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var blurBtn: UIVisualEffectView!{
         didSet{
@@ -141,7 +142,7 @@ class MainContentVC: UIViewController {
             }
             
             else {
-                // IBOutlet에 값 할당
+                // IBOutlet에 값 할당해줌
                 DispatchQueue.main.async {
                     self.userNickNameLabel.text = UserDefaults.standard.string(forKey: "selectedNickNameData")
                     self.customProgressBarView(UserDefaults.standard.integer(forKey: "selectedGrowthData"))
@@ -195,8 +196,6 @@ class MainContentVC: UIViewController {
                     plantImageView.isHidden = false
                     plantGifView.isHidden = false
                     dandelionGrowth()
-                    //                        self.plantGifView.image = UIImage.gif(name: "die_min_iOS")!
-                    
                     self.view.backgroundColor = .diePlantGrey
                 }
                 //default
@@ -430,9 +429,10 @@ class MainContentVC: UIViewController {
             case .success(_):
                 self.view.backgroundColor = .diePlantGrey
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    UIView.transition(with: self.wateringGifView, duration: 1, options: .curveEaseInOut, animations: { [self] in
+                    UIView.transition(with: self.wateringGifView, duration: 1, options: .curveEaseOut, animations: { [self] in
                         wateringGifView.alpha = 0
                         wateringGifView.layoutIfNeeded()
+                        
                         
                     }, completion: { finished in
                         self.wateringGifView.frame.origin.x = 10
@@ -450,6 +450,29 @@ class MainContentVC: UIViewController {
         }
     }
     
+    
+    //MARK: - kingfisher를 사용해서 물주기 모션 효과MA gif를 play
+    func plantGifPlay(_ backgroundColor: UIColor, _ resource: String) {
+        
+        let filePath:String? = Bundle.main.path(forResource: resource, ofType: "gif")
+        let url = URL(fileURLWithPath: filePath!)
+        self.view.backgroundColor = backgroundColor
+        plantGifView.kf.setImage(
+            with: url,
+            placeholder: UIImage(),
+            options: [
+                .cacheOriginalImage,
+            ])
+        {
+            result in
+            switch result {
+            case .success(_):
+                self.view.backgroundColor = backgroundColor
+            case .failure(let error):
+                print("Job failed: \(error.localizedDescription)")
+            }
+        }
+    }
     
     //MARK: - 민들레 3단계 성장
     func dandelionGrowth() {
@@ -533,7 +556,7 @@ class MainContentVC: UIViewController {
                 // 3단계
                 plantImageView.isHidden = true
                 plantGifView.isHidden = false
-                self.plantGifView.image = UIImage.gif(name: "min_iOS")!
+                plantGifPlay(.dandelionBg, "min_iOS")
                 self.view.backgroundColor = .dandelionBg
             }
         }
@@ -620,8 +643,7 @@ class MainContentVC: UIViewController {
                 // 3단계
                 plantImageView.isHidden = true
                 plantGifView.isHidden = false
-                self.plantGifView.image = UIImage.gif(name: "blue_iOS")!
-                self.view.backgroundColor = .americanBlueBg
+                plantGifPlay(.americanBlueBg, "blue_iOS")
             }
         }
     }
@@ -691,8 +713,7 @@ class MainContentVC: UIViewController {
                 // 3단계
                 plantImageView.isHidden = true
                 plantGifView.isHidden = false
-                self.plantGifView.image = UIImage.gif(name: "rose_iOS")!
-                view.backgroundColor = .rosemaryBg
+                plantGifPlay(.rosemaryBg, "rose_iOS")
             }
         }
     }
@@ -778,8 +799,7 @@ class MainContentVC: UIViewController {
                 // 3단계
                 plantImageView.isHidden = true
                 plantGifView.isHidden = false
-                self.plantGifView.image = UIImage.gif(name: "sun_iOS")!
-                self.view.backgroundColor = .cactusBg
+                plantGifPlay(.cactusBg, "sun_iOS")
             }
         }
     }
@@ -869,8 +889,7 @@ class MainContentVC: UIViewController {
                 // 3단계
                 plantImageView.isHidden = true
                 plantGifView.isHidden = false
-                self.plantGifView.image = UIImage.gif(name: "stuki_iOS")!
-                self.view.backgroundColor = .stuckyBg
+                plantGifPlay(.stuckyBg, "stuki_iOS")
             }
         }
     }
@@ -914,7 +933,7 @@ class MainContentVC: UIViewController {
     
     //MARK: - 기기 사이즈에 맞춰 오토레이아웃 코드로 잡는 함수
     func setAutolayout() {
-    
+        
         if screenHeight == 896 {
             print("iPhone 11pro, 11proMax")
             blurBtnTopConstraint.constant = 530
@@ -922,7 +941,8 @@ class MainContentVC: UIViewController {
             progressInnerViewTopConstraint.constant = 142
             plantExplainLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 34)
             userNickNameLabel.font = UIFont(name: "Noto Sans CJK KR Regular", size: 34)
-            plantExplainLabelTopConstraint.constant = 16
+            plantExplainLabelTopConstraint.constant = 6
+            userNicknameLabelTopConstraint.constant = -8
             wateringBtnTopConstraint.constant = 18
         }
         else if screenHeight == 926 {
@@ -931,7 +951,8 @@ class MainContentVC: UIViewController {
             progressInnerViewTopConstraint.constant = 162
             plantExplainLabel.font = UIFont(name: "Noto Sans CJK KR Bold", size: 34)
             userNickNameLabel.font = UIFont(name: "Noto Sans CJK KR Regular", size: 34)
-            plantExplainLabelTopConstraint.constant = 16
+            plantExplainLabelTopConstraint.constant = 6
+            userNicknameLabelTopConstraint.constant = -8
             wateringBtnTopConstraint.constant = 18
         }
         else if screenHeight == 844 {
