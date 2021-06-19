@@ -34,8 +34,6 @@ class PlantResultVC: UIViewController, UIGestureRecognizerDelegate {
         addNavigationSwipeGuesture()
         setConstraints()
         setPlantLabel()
-//        NotificationCenter.default.addObserver(self, selector: #selector(setPlantLabel), name: .sendPlantResult, object: nil)
-        // Do any additional setup after loading the view.
     }
     
     let rose: UIColor = UIColor(red: 241/255, green: 176/255, blue: 188/255, alpha: 1.0)

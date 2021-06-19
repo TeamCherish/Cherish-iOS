@@ -23,7 +23,6 @@ class InputDetailVC: UIViewController {
     
     //MARK: - 변수 지정
     
-//    let datePicker = UIDatePicker()
     var birthPicker = UIPickerView()
     var periodPicker = UIPickerView()
     
@@ -51,7 +50,6 @@ class InputDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-//        setBirthPickerData()
         setConstraints()
         completeBtn.isEnabled = false
         setTextField()
@@ -89,16 +87,13 @@ class InputDetailVC: UIViewController {
         var nicknameText = ""
         var birthText = ""
         
-        // 식물애칭 관련 -> 테스트를 해보자! 식물 애칭 설정 안하고 넘어갔을 때 그냥 실명으로 잘 추가가 되는지~ -> 이름은 잘 넘어감
         if nicknameTextField.text?.isEmpty == true {
             nicknameText = givenName!
         }
         else {
             nicknameText = nicknameTextField.text!
         }
-        
-        // 생일 입력 관련 -> 생일도 테스트 해보자! 0000-00-00 으로 잘 넘어가는지~
-        // -> 생일은 invalid date로 넘어감 -> 왜냐~~~~~~ 서버한테 물어보자
+    
         if birthTextField.text == "" {
             birthText = "0000.00.00"
         }
@@ -106,7 +101,7 @@ class InputDetailVC: UIViewController {
             birthText = serverBirth
             print(serverBirth)
         }
-        print(convertedAlarmTime)
+        print("알람시간 \(convertedAlarmTime)")
         guard let nameText = givenName,
               let phonenumberText = givenPhoneNumber,
               let timeText = convertedAlarmTime,
@@ -141,7 +136,6 @@ class InputDetailVC: UIViewController {
                         print("식물매칭중 사진",resultData.plant.imageURL)
                         print("식물매칭중 꽃말",resultData.plant.flowerMeaning)
                         
-                        //                        NotificationCenter.default.post(name: .sendPlantResult, object: nil)
                         self.present(loadingVC, animated: false, completion: nil)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             self.dismiss(animated: false) {
@@ -162,13 +156,6 @@ class InputDetailVC: UIViewController {
             }
         }
     }
-    
-//    @objc func moveToResultVC() {
-//        guard let dvc = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else { return }
-//        self.dismiss(animated: false) {
-//            self.navigationController?.pushViewController(dvc, animated: true)
-//        }
-//    }
     
     //MARK: - 함수 모음
     
@@ -203,21 +190,9 @@ class InputDetailVC: UIViewController {
             else {
                 self.phoneTextField.text = "0" + phoneNumInt!.withHypen
             }
-//            self.phoneTextField.text = phoneNumber
         }
     }
-    
-    //MARK: - UISwitch Custom
-//    func setSwitch() {
-//        stateSwitch.tintColor = UIColor.seaweed
-//        stateSwitch.onTintColor = UIColor.seaweed
-//        stateSwitch.transform = CGAffineTransform(scaleX: 0.8, y: 0.74)
-//    }
-    
-    // 생일 picker 미래로 설정 못하게
-//    func setBirthPickerData() {
-//        self.datePicker.maximumDate = Date()
-//    }
+
 
     //MARK: - 필요한 값 다 채워지면 완료 버튼 enable
     func enableCompleteBtn() {
@@ -315,18 +290,6 @@ class InputDetailVC: UIViewController {
         }
         enableCompleteBtn()
     }
-    
-    
-//    @objc func changed() {
-//        let dateformatter = DateFormatter()
-//        dateformatter.dateStyle = .none
-//        dateformatter.timeStyle = .short
-//        let date = dateformatter.string(from: alarmTimePicker.date)
-//        alarmTimeTextField.text = date
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "HH"
-//        enableCompleteBtn()
-//    }
 }
 
 //MARK: - PickerView DataSource, Delegate
@@ -428,9 +391,7 @@ extension InputDetailVC: UIPickerViewDelegate {
         else if pickerView == periodPicker {
             checkPicker = 1
             let selectedNum = pickerView.selectedRow(inComponent: 1)
-//            let selectedPeriod = pickerView.selectedRow(inComponent: 2)
             let realNum = num[selectedNum]
-//            let realPeriod = period[selectedPeriod]
             self.cycle_date = Int(num[selectedNum])!
             let fullData = "Every "+realNum+" day"
             self.alarmPeriodTextField.text = fullData
@@ -444,17 +405,25 @@ extension InputDetailVC: UIPickerViewDelegate {
             self.alarmTimeTextField.text = fullAlarmTime
             
             // 알람 시간 파싱
-            var convertTime = 0
             switch realAMPM {
             case "AM":
-                convertedAlarmTime = realTime+":00"
+                if realTime == "12" {
+                    convertedAlarmTime = "24:00"
+                }
+                else {
+                    convertedAlarmTime = realTime+":00"
+                }
             case "PM":
-                convertTime = Int(realTime)! + 12
-                var realConvertedTime = String(convertTime)
-                convertedAlarmTime = realConvertedTime+":00"
+                if realTime == "12" {
+                    convertedAlarmTime = "12:00"
+                }
+                else {
+                    convertedAlarmTime = String((Int(realTime)! + 12))+":00"
+                }
             default:
-                convertTime = 0
+                convertedAlarmTime = "0:00"
             }
+            print("알람시간 \(convertedAlarmTime)")
             enableCompleteBtn()
         }
     }

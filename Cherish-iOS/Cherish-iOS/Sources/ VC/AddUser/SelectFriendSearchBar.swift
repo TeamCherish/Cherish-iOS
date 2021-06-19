@@ -74,15 +74,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         filteredData = friendList
         nextBtn.layer.zPosition = 1
         self.view.bringSubviewToFront(nextBtn)
-        //Array
-        //        NotificationCenter.default.addObserver(self, selector: #selector(activeNextBtn(_:)), name: .radioBtnClicked, object: nil)
     }
-    
-    //    @objc func activeNextBtn(_ notification: Notification) {
-    //        self.nextBtn.isEnabled = true
-    //        self.nextBtn.setImage(UIImage(named: "btn_next_selected"), for: .normal)
-    //        self.nextLabel.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
-    //    }
     
     override func viewWillAppear(_ animated: Bool) {
         requestAccess(completionHandler: {_ in })
@@ -277,7 +269,6 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func setSearchBar() {
-//        var imageView = UIImageView
         let frame = CGRect(x: 0, y: 0, width: 343, height: 44)
         searchBar.frame = frame
         searchBar.placeholder = "친구 검색"
