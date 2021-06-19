@@ -36,6 +36,7 @@ class PlantEditVC: UIViewController {
     let ampm = ["AM", "PM"]
     var cycle_date = 0
     var convertedAlarmTime: String?
+    var unEditedTime: String?
     
     var checkPicker: Int = 0
     
@@ -172,13 +173,23 @@ class PlantEditVC: UIViewController {
                     // 알람시간 파싱
                     var noticeTimeHr = 0
                     var noticeTime = plantData.cherishDetail.noticeTime
+                    self.unEditedTime = plantData.cherishDetail.noticeTime
+                    print("알람시간 \(noticeTime)")
                     let noticeTimeArr = noticeTime.components(separatedBy: ":")
                     noticeTimeHr = Int(noticeTimeArr[0])!
-                    if noticeTimeHr <= 12 {
+                    if noticeTimeHr == 12 {
+                        self.parsedAlarm = String(noticeTimeHr) + ":00 PM"
+                    }
+                    else if noticeTimeHr < 12 {
                         self.parsedAlarm = String(noticeTimeHr) + ":00 AM"
                     }
                     else {
-                        self.parsedAlarm = String(noticeTimeHr-12) + ":00 PM"
+                        if noticeTimeHr == 24 {
+                            self.parsedAlarm = String(noticeTimeHr-12) + ":00 AM"
+                        }
+                        else {
+                            self.parsedAlarm = String(noticeTimeHr-12) + ":00 PM"
+                        }
                     }
                 
                     self.nicknameTextField.text = plantData.cherishDetail.nickname
@@ -208,7 +219,6 @@ class PlantEditVC: UIViewController {
 
                     self.periodTextField.text = self.parsedPeriod
                     self.alarmTimeTextField.text = self.parsedAlarm
-//                    self.phoneTextField.text = plantData.cherishDetail.phone
                 }
             case .requestErr(_):
                 print("requestErr")
@@ -221,11 +231,6 @@ class PlantEditVC: UIViewController {
             }
         }
     }
-    
-    // 생일 picker 미래로 설정 못하게
-//    func setBirthPickerData() {
-//        self.birthPicker.maximumDate = Date()
-//    }
     
     // MARK: - 텍스트필드 안에 picker 넣기
     func createPicker() {
@@ -255,17 +260,9 @@ class PlantEditVC: UIViewController {
         birthTextField.inputView = birthPicker
         periodTextField.inputView = periodPicker
         
-        // birthPicker mode
-//        birthPicker.datePickerMode = .date
-//        birthPicker.preferredDatePickerStyle = .wheels
     }
     
     @objc func donePressedBirth() {
-//        let formatter = DateFormatter()
-//        formatter.dateStyle = .medium
-//        formatter.timeStyle = .none
-//
-//        birthTextField.text = formatter.string(from: birthPicker.date)
         self.view.endEditing(true)
         textFieldEvent += 1
     }
@@ -340,32 +337,9 @@ class PlantEditVC: UIViewController {
         
         let water_notice = true
         
-        // 식물 알람 시간 수정 안했을 때 파싱
+        // 식물 알람 시간 수정 안했을 때
         if delegateCheck == 0 {
-            // 텍필.텍스트 값을 배열에 넣고 띄어쓰기로 슬라이스
-            var alarmTimeArr: [String] = []
-            var alarmHrArr: [Character] = []
-            var alarmHrInt: Int = 0
-            alarmTimeArr = (alarmTimeTextField.text?.components(separatedBy: " "))!
-
-            // if 두번째원소 == "AM"
-                // convert웅앵 = 첫번째원소
-            if alarmTimeArr[1] == "AM" {
-                convertedAlarmTime = alarmTimeArr[0]
-                print("수정 안하고 AM일 때")
-                print(convertedAlarmTime)
-            }
-            // else (두번째원소 == "PM"
-                // 첫번째 원소를 배열로 만든다.
-                // 그 배열의 첫번째 원소를 정수로 타입캐스팅한다.
-                // 그리고 그 정수에 12를 더하고 ": 00" 붙여서 converted에 저장
-            else if alarmTimeArr[1] == "PM" {
-                alarmHrArr = Array(alarmTimeArr[0])
-                alarmHrInt = Int(String(alarmHrArr[0]))! + 12 // char to int 한번에 못한다리~
-                convertedAlarmTime = String(alarmHrInt)+":00"
-                print("수정하고 PM일 때")
-                print(convertedAlarmTime)
-            }
+            convertedAlarmTime = self.unEditedTime
         }
         
         // Alert message
@@ -512,7 +486,6 @@ extension PlantEditVC: UIPickerViewDelegate {
         else if pickerView == periodPicker {
             checkPicker = 1
             let selectedNum = pickerView.selectedRow(inComponent: 1)
-//            let selectedPeriod = pickerView.selectedRow(inComponent: 2)
             let realNum = num[selectedNum]
             let fullData = "Every "+realNum+" day"
             self.cycle_date = Int(realNum)!
@@ -529,20 +502,27 @@ extension PlantEditVC: UIPickerViewDelegate {
             self.alarmTimeTextField.text = fullAlarmTime
 
             // 알람 시간 파싱
-            var convertTime = 0
             switch realAMPM {
             case "AM":
-                convertedAlarmTime = realTime+":00"
+                if realTime == "12" {
+                    convertedAlarmTime = "24:00"
+                }
+                else {
+                    convertedAlarmTime = realTime+":00"
+                }
                 print("수정하고 AM일 때")
                 print(self.convertedAlarmTime)
             case "PM":
-                convertTime = Int(realTime)! + 12
-                var realConvertedTime = String(convertTime)
-                convertedAlarmTime = realConvertedTime+":00"
+                if realTime == "12" {
+                    convertedAlarmTime = "12:00"
+                }
+                else {
+                    convertedAlarmTime = String((Int(realTime)! + 12))+":00"
+                }
                 print("수정하고 PM일 때")
                 print(self.convertedAlarmTime)
             default:
-                convertTime = 0
+                convertedAlarmTime = "0:00"
             }
         }
     }
