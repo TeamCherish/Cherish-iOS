@@ -2,7 +2,7 @@
 //  AddUserNC.swift
 //  Cherish-iOS
 //
-//  Created by 황지은 on 2021/01/15.
+//  Created by 황지은 on 2021/06/19.
 //
 
 import UIKit

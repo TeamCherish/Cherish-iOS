@@ -13,6 +13,7 @@ class NoPlantVC: UIViewController {
         didSet{
             addBtn.backgroundColor = .seaweed
             addBtn.makeRounded(cornerRadius: 25.0)
+            addBtn.isEnabled = true
         }
     }
     override func viewDidLoad() {
@@ -21,7 +22,7 @@ class NoPlantVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
         guard let dvc = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else {return}
-        setFirstVC()
+        //setFirstVC()
         // Do any additional setup after loading the view.
 
     }
@@ -41,7 +42,8 @@ class NoPlantVC: UIViewController {
     
     
     @IBAction func touchUpToAddNC(_ sender: UIButton) {
-        guard let dvc = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else {return}
+        print("hello")
+    //    guard let dvc = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else {return}
         
         if let vc = self.storyboard?.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar {
             self.navigationController?.pushViewController(vc, animated: true)
