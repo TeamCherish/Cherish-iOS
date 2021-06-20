@@ -39,8 +39,6 @@ struct LoginService {
         }
     }
     
-    
-    
     private func judgeData(status: Int, data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(GenericResponse<LoginData>.self, from: data) else {
