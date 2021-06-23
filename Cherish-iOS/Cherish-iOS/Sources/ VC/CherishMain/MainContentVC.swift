@@ -62,7 +62,7 @@ class MainContentVC: UIViewController {
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         LoadingHUD.show()
-        
+        setAutolayout()
         // 식물카드로 넘어갈 때 경우의 수 나누기 위해 false로 바꾼다.
         UserDefaults.standard.set(false, forKey: "plantIsSelected")
         
