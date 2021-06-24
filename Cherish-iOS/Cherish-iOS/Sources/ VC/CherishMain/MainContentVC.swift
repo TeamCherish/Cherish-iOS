@@ -83,7 +83,6 @@ class MainContentVC: UIViewController {
                 view.backgroundColor = .white
             }
         }
-        
         // 식물상세페이지로 네비게이션 연결 후 탭바가 사라지기 때문에
         // popViewController 액션으로 다시 메인뷰로 돌아왔을 때 탭바가 나타나야 한다.
         self.tabBarController?.tabBar.isHidden = false
