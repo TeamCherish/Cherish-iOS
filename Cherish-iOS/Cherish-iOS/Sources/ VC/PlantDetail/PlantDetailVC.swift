@@ -93,7 +93,6 @@ class PlantDetailVC: UIViewController {
         makeDelegates()
         makeCornerRadiusView()
         setAutoLayoutByScreenSize()
-        print("why...")
     }
     
     override func viewWillAppear(_ animated: Bool) {

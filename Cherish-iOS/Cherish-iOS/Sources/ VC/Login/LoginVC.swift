@@ -36,6 +36,10 @@ class LoginVC: UIViewController {
         keyboardObserver()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        keyboardObserver()
+    }
+    
     func makeDelegate() {
         loginEmailTextField.delegate = self
         loginPwTextField.delegate = self
@@ -262,7 +266,6 @@ class LoginVC: UIViewController {
                     UserDefaults.standard.set(loginData.userNickname, forKey: "UserNickname")
                     UserDefaults.standard.set(loginData.token, forKey: "token")
                     
-                    
                     // 로그인 성공 시
                     // 유저 idx 기반으로 메인뷰에 등록된 소중한 사람이 있는지 조회
                     MainService.shared.inquireMainView(idx: loginData.userID){ [self]
@@ -361,11 +364,20 @@ extension LoginVC: UITextFieldDelegate {
     }
     
     @objc func keyboardWillShow(_ notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue { UIView.animate(withDuration: 0.3, animations: {
-                                                                                                                                            self.view.transform = CGAffineTransform(translationX: 0, y: -50) }) }
+//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue { UIView.animate(withDuration: 0.3, animations: {
+//                                                                                                                                            self.view.transform = CGAffineTransform(translationX: 0, y: -50) }) }
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                if self.view.frame.origin.y == 0 {
+                    self.view.frame.origin.y -= 50
+                }
+            }
         
     }
     
-    @objc func keyboardWillDisappear(_ notification: NSNotification){ self.view.transform = .identity
+    @objc func keyboardWillDisappear(_ notification: NSNotification){ //self.view.transform = .identity
+//        self.view.transform = CGAffineTransform(translationX: 0, y: 0)
+        if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y = 0
+            }
     }
 }
