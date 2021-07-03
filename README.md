@@ -2,7 +2,6 @@
 <img src="https://user-images.githubusercontent.com/42789819/104716209-f1cfa800-576a-11eb-8275-3d2e69cce546.png">
 
 <br>
-<br>
 
 ## <img width=20px src=https://user-images.githubusercontent.com/42789819/115147514-42221300-a096-11eb-9526-a68b8094f79c.png>  Project
 **당신의 소중한 사람들을 위한 연락관리 서비스, Cherish**
@@ -13,7 +12,6 @@
 
 [<img width=150px src=https://user-images.githubusercontent.com/42789819/115149387-d42e1980-a09e-11eb-88e3-94ca9b5b604b.png>](https://apps.apple.com/us/app/id1557601516)
 
-<br>
 <br>
 
 ## Cherish iOS Developers
@@ -29,7 +27,6 @@
   </tr>
 </table>
 
-<br>
 <br>
 
 ## Development Environment and Using Library
@@ -57,7 +54,6 @@
   | MessageUI | 연락하기-메시지 |
   | Contacts | 연락처 가져오기 |
   
-<br>
 <br>
 
  ## Coding Convention 
@@ -284,7 +280,6 @@ if (condition){
 </details>
  
 <br>
-<br>
 
 ## Github mangement
 
@@ -391,17 +386,12 @@ git push or git push origin main
 </div>
 </details>
   
-  
-  <br>
-   <br>
+<br>
 
  ## Service workflow
  <img width=100% src=https://user-images.githubusercontent.com/42789819/115150061-bca46000-a0a1-11eb-8354-990412c70381.jpg>
 
-
-
 <br>
- <br>
  
 ## Task
 > [Cherish iOS 개발 일지📔 및 칸반보드👨‍🏫 ](https://www.notion.so/iOS-6d2c0ea99df5403eaa7154b42a1cae4c)
@@ -422,7 +412,6 @@ git push or git push origin main
 | ShowMore | <img width=10px src=https://user-images.githubusercontent.com/42789819/115147514-42221300-a096-11eb-9526-a68b8094f79c.png> | 황지은,이원석 |
 | View Connection | <img width=10px src=https://user-images.githubusercontent.com/42789819/115147514-42221300-a096-11eb-9526-a68b8094f79c.png> | 황지은 |
 
-<br>
 <br>
  
  ## App Description
@@ -584,7 +573,6 @@ git push or git push origin main
  
 
 <br>
- <br>
 
 ## Our Extension
 ```Swift
@@ -611,5 +599,4 @@ UIImage+Extension.swift
 ```
 
 
-<br>
 <br>
