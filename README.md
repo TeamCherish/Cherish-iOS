@@ -1,23 +1,35 @@
 
 <img src="https://user-images.githubusercontent.com/42789819/104716209-f1cfa800-576a-11eb-8275-3d2e69cce546.png">
 
+<br>
 
-## 🪴 Project
+## <img width=20px src=https://user-images.githubusercontent.com/42789819/115147514-42221300-a096-11eb-9526-a68b8094f79c.png>  Project
 **당신의 소중한 사람들을 위한 연락관리 서비스, Cherish**
-> SOPT 27th APPJAM </b>
->
-> 프로젝트 기간: 2020.12.26 ~ 2021.01.16  
-> Release : Comming Soon..!
+> **SOPT 27th APPJAM**  
+> **프로젝트 기간: 2020.12.26 ~ 2021.01.16**  
+> **추가 개발 및 유지보수 기간: 2021.02.03 ~ 2021.06.20**  
+> **Released : 2021.07.03**
 
-
-<img style="border: 0px solid black !important; border-radius:20px; " src="https://user-images.githubusercontent.com/42789819/115145400-4ea16e00-a08c-11eb-97af-38a4854aa067.png" width="200px" height = "200px" /> 
-
-<!-- [<img width=150px src=https://user-images.githubusercontent.com/42789819/115149387-d42e1980-a09e-11eb-88e3-94ca9b5b604b.png>](앱스토어링크) -->
+[<img width=150px src=https://user-images.githubusercontent.com/42789819/115149387-d42e1980-a09e-11eb-88e3-94ca9b5b604b.png>](https://apps.apple.com/us/app/id1557601516)
 
 <br>
+
+## Cherish iOS Developers
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/hwangji-dev"><img src="https://user-images.githubusercontent.com/63224278/103209152-b436e680-4945-11eb-91e4-bd8622e442e2.png" width="100px;" alt=""/><br /><sub><b>hwangji-dev</b></sub></a><br /><a href="https://github.com/TeamCherish/Cherish-iOS/commits?author=hwangji-dev" title="Code">📱</a></td>
+    <td align="center"><a href="https://github.com/snowedev"><img src="https://user-images.githubusercontent.com/63224278/103280936-ee22ee00-4a14-11eb-9161-aa5249d74f20.png" width="100px;" alt=""/><br /><sub><b>snowedev</b></sub></a><br /><a href="https://github.com/TeamCherish/Cherish-iOS/commits?author=snowedev" title="Code">📱</a></td>
+    <td align="center"><a href="https://github.com/seohyun-106"><img src="https://user-images.githubusercontent.com/63224278/103281341-e9ab0500-4a15-11eb-877b-e9c384c7de88.png" width="100px;" alt=""/><br /><sub><b>seohyun-106</b></sub></a><br /><a href="https://github.com/TeamCherish/Cherish-iOS/commits?author=seohyun-106" title="Code">📱</a></td>
+  </tr>
+</table>
+
 <br>
 
-## 🛠 개발 환경 및 사용한 라이브러리 (Development Environment and Using Library)
+## Development Environment and Using Library
 
 * Development Environment  
 ![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg) ![iOS](https://img.shields.io/badge/Platform-iOS-black.svg)
@@ -34,44 +46,62 @@
   | Firebase/Analytics | 앱 데이터 분석 | - |
   | Firebase/Messaging | Push 알림 | - |
 
-* 📱 AutoLayout  
-  iPhone SE2 ~ 
-
-
+* Using framework
+  | 프레임워크(Framework) | 목적(Purpose) |
+  |:---:|:----------:|
+  | UIKit | - |
+  | CallKit | 연락하기-전화 |
+  | MessageUI | 연락하기-메시지 |
+  | Contacts | 연락처 가져오기 |
+  
 <br>
-<br>
 
- ## 📄 Coding Convention 
+ ## Coding Convention 
  <details>
  <summary> 🗂 폴더구조 </summary>
  <div markdown="1">       
 
 
 ---
+```markdown
 
-**Resources**
-* AppDelegate
-* SceneDelegate
-* Assets.xcassets
-* Storyboard
-* APIService
-    * APIConstant
-* Font
+🗂 Resources
 
-**Sources**
-* VC
-* Class
-* Cell
-* Model
-    * GenericResponse
-* Extension
-            
-**Info.plist**
+    - AppDelegate
 
-<br>
+    - SceneDelegate
 
-<img width="265" alt="Sources" src="https://user-images.githubusercontent.com/63224278/103536269-89b0d480-4ed5-11eb-9202-0ed38090b499.png">
+    - Assets
+    
+    - APIServices 🗂
 
+    - Storyboards 🗂
+
+    - Font 🗂
+
+🗂 Sources
+
+    - VC 🗂
+
+        - CherishMain 🗂
+
+        - Watering 🗂
+
+        - AddUser 🗂
+
+        - ...
+
+    - Class 🗂
+
+    - Cell 🗂
+
+    - Model 🗂
+
+    - Extension 🗂
+
+info.plist
+
+```
 <br>
  </div>
  </details>
@@ -89,8 +119,6 @@
 
 - 파일 네이밍 시, 접두에 스토리보드이름을 붙여서 네이밍합니다.
     -  (ex. 스토리보드 이름이 Main, Watering이라고 가정했을 때 cell파일 생성 시 MainBlahblahCVC, WateringBlahblahTVC와 같이 네이밍합니다.)
-        
-👉🏻 [자세히](https://github.com/TeamCherish/Cherish-iOS/wiki/CodingConvention)
 
  </div>
  </details>
@@ -110,17 +138,17 @@
 
 - 클래스 이름에는 접두사를 붙이지 않습니다.
 
- 좋은 예 >
+  <kbd>좋은 예</kbd>
 
-  ```swift
-  class CherishTVC: UITableViewCell
-  ```
+    ```swift
+    class CherishTVC: UITableViewCell
+    ```
 
- 나쁜 예 >
+  <kbd>나쁜 예</kbd>
 
-  ```swift
-  struct cherishCVCInfo { }
-  ```
+    ```swift
+    struct cherishCVCInfo { }
+    ```
 
 **함수 & 변수 & 상수**
 
@@ -135,22 +163,22 @@
 
 - 테이블 뷰 셀은 **TVC**, 컬렉션뷰 셀은 **CVC**로 줄여서 네이밍합니다.
 
- 좋은 예 >
+  <kbd>좋은 예</kbd>
 
-  ```swift
-  @IBOutlet weak var wateringBtn: UIButton!
-  @IBOutlet weak var cherishMainView: UIView!
-  @IBOutlet weak var cherishTV: UITableView!
-  ```
+    ```swift
+    @IBOutlet weak var wateringBtn: UIButton!
+    @IBOutlet weak var cherishMainView: UIView!
+    @IBOutlet weak var cherishTV: UITableView!
+    ```
 
- 나쁜 예 >
+  <kbd>나쁜 예</kbd>
 
-  ```swift
-  @IBOutlet weak var ScrollView: UIScrollView!
-  @IBOutlet weak var cherishcollectionview: UICollectionView!
-  @IBOutlet weak var tagcollectionview: UICollectionView!
-  @IBOutlet weak var tableview: UITableView!
-  ```
+    ```swift
+    @IBOutlet weak var ScrollView: UIScrollView!
+    @IBOutlet weak var cherishcollectionview: UICollectionView!
+    @IBOutlet weak var tagcollectionview: UICollectionView!
+    @IBOutlet weak var tableview: UITableView!
+    ```
 <br>
 
 </div>
@@ -186,26 +214,27 @@
 - , 뒤에 반드시 띄어쓰기를 합니다.
 - 함수끼리 1줄 개행합니다.
 - 중괄호는 아래와 같은 형식으로 사용합니다.
-```swift
-if (condition){
+  ```swift
+  if (condition){
 
-  Statements
-  /*
-  ...
-  */
-  
-}
-```
+    Statements
+    /*
+    ...
+    */
+    
+  }
+  ```
 </div>
 </details>
  
- 
+
+👉🏻 [Coding Convention 한 눈에 보기](https://github.com/TeamCherish/Cherish-iOS/wiki/CodingConvention)  
+👉🏻 다음 [Style Guide](https://github.com/StyleShare/swift-style-guide)를 참고헀습니다.
+
 <br>
 
- 다음 스타일 Guide를 참고헀습니다. 👉🏻[Style Guide](https://github.com/StyleShare/swift-style-guide)
 
-
-## ✉️ Commit Messge Rules
+## Commit Messge Rules
 <details>
 <summary> 아요체리🍒 들의  Git Commit Message Rules </summary>
 <div markdown="1">       
@@ -213,45 +242,43 @@ if (condition){
 
 ---
 
-- 반영사항을 바로 확인할 수 있도록 작은 기능 하나라도 구현되면 커밋을 권장합니다.
-- 커밋할 땐 **iOS 슬랙에 노티**합니다.
-- 기능 구현이 완벽하지 않을 땐, 각자 브랜치에 커밋을 해주세요.
+> 반영사항을 바로 확인할 수 있도록 작은 기능 하나라도 구현되면 커밋을 권장합니다.  
+> 커밋할 땐 **iOS 슬랙에 노티**합니다.  
+> 기능 구현이 완벽하지 않을 땐, 각자 브랜치에 커밋을 해주세요.  
 <br>
 
 
-### 📜 커밋 메시지 명령어 모음
-
-```
-- feat    : 기능 (새로운 기능)
-- fix     : 버그 (버그 수정)
-- refactor: 리팩토링
-- style   : 스타일 (코드 형식, 세미콜론 추가: 비즈니스 로직에 변경 없음)
-- docs    : 문서 (문서 추가, 수정, 삭제)
-- test    : 테스트 (테스트 코드 추가, 수정, 삭제: 비즈니스 로직에 변경 없음)
-- chore   : 기타 변경사항 (빌드 스크립트 수정 등)
-```
+**커밋 메시지 명령어 모음**
+* ```
+  - feat    : 기능 (새로운 기능)
+  - fix     : 버그 (버그 수정)
+  - refactor: 리팩토링
+  - style   : 스타일 (코드 형식, 세미콜론 추가: 비즈니스 로직에 변경 없음)
+  - docs    : 문서 (문서 추가, 수정, 삭제)
+  - test    : 테스트 (테스트 코드 추가, 수정, 삭제: 비즈니스 로직에 변경 없음)
+  - chore   : 기타 변경사항 (빌드 스크립트 수정 등)
+  ```
 <br>
 
-### ℹ️ 커밋 메세지 형식
-  - `[커밋메세지] 설명` 형식으로 커밋 메시지를 작성합니다.
-  - 커밋 메시지는 영어 사용을 권장합니다.
+**커밋 메세지 형식**
+- `[커밋메세지] 설명` 형식으로 커밋 메시지를 작성합니다.
+- 커밋 메시지는 영어 사용을 권장합니다.  
+  <kbd>좋은 예</kbd>
 
-좋은 예 > 
+    ```
+    [Feat] fetchcontacts!
+    ```
+  <kbd>나쁜 예</kbd>
 
-```
-  [Feat] fetchcontacts
-```
-
-나쁜 예 >
-```
-  연락처 동기화 기능 추가
-```
-
+    ```
+    연락처 동기화 기능 추가
+    ```
 </div>
 </details>
  
+<br>
 
-## 💻 Github mangement
+## Github mangement
 
 <details>
 <summary> 아요체리🍒들의  WorkFlow : Gitflow Workflow </summary>
@@ -260,24 +287,17 @@ if (condition){
 
 ---
 
-- main 브랜치
-
- 메인(main): 메인 브랜치
-
- 기능(cherish뷰이름): 기능별 (뷰별) 로컬 브랜치 
+```
+- main
+- dev
+─ cherishMainView(각 Local Branch)
+─ cherishAddView    
+─ cherishWateringView
+```
 
 - 커밋 메세지는 다른 사람들이 봐도 이해할 수 있게 써주세요.
 
 - 풀리퀘스트를 통해 코드 리뷰를 해보아요.
-
-<br>
-
-```
-- Main
-   ├── cherishMainView(각 Local Branch)
-   ├── cherishAddView    
-   └── cherishWateringView
-```
 
 <br>
 
@@ -356,19 +376,14 @@ git push or git push origin main
 </div>
 </details>
   
-  
-  <br>
-   <br>
+<br>
 
- ## 서비스 workflow
+ ## Service workflow
  <img width=100% src=https://user-images.githubusercontent.com/42789819/115150061-bca46000-a0a1-11eb-8354-990412c70381.jpg>
 
-
-
 <br>
- <br>
  
-## 기능별 개발여부 + 담당자
+## Task
 > [Cherish iOS 개발 일지📔 및 칸반보드👨‍🏫 ](https://www.notion.so/iOS-6d2c0ea99df5403eaa7154b42a1cae4c)
 
 
@@ -388,8 +403,8 @@ git push or git push origin main
 | View Connection | <img width=10px src=https://user-images.githubusercontent.com/42789819/115147514-42221300-a096-11eb-9526-a68b8094f79c.png> | 황지은 |
 
 <br>
-<br>
  
+ ## App Description
  ### `Splash->Onboarding->로그인`
  <img width="1306" alt="image" src="https://user-images.githubusercontent.com/42789819/115146027-d2108e80-a08f-11eb-9646-a3818cf51cb8.png">
 
@@ -548,9 +563,8 @@ git push or git push origin main
  
 
 <br>
- <br>
 
-## Extension을 통해 작성한 메소드 설명  
+## Our Extension
 ```Swift
 // 기기별 사이즈를 알기 위한 Extension
 UIDevice+ScreenSize.swift
@@ -575,17 +589,4 @@ UIImage+Extension.swift
 ```
 
 
-<br>
-<br>
- 
-
-## <img width=20px src=https://user-images.githubusercontent.com/42789819/115146245-9cb87080-a090-11eb-9762-1a686d8fc737.png> Cherish iOS Dev
-
-
-| 황지은 | 이원석 | 장서현 |
-|:---:|:---------:|:-------:|
-| <img src="https://user-images.githubusercontent.com/63224278/103209152-b436e680-4945-11eb-91e4-bd8622e442e2.png" width="200px" />  | <img src="https://user-images.githubusercontent.com/63224278/103280936-ee22ee00-4a14-11eb-9161-aa5249d74f20.png" width="200px" height = "200px" />  | <img src="https://user-images.githubusercontent.com/63224278/103281341-e9ab0500-4a15-11eb-877b-e9c384c7de88.png" width="200px" />  |
-| [hwangji-dev](https://github.com/hwangJi-dev) | [snowedev](https://github.com/snowedev) |[seohyun-106](https://github.com/seohyun-106) |
-
-<br>
 <br>
