@@ -44,7 +44,7 @@ class PlantDetailPopUpExplainVC: UIViewController {
         print("Offset: \(proportionalOffset)")
         let index = Int(round(proportionalOffset))
         print("index: \(index)")
-        let safeIndex = max(0, min(3, index))
+        let safeIndex = max(0, min(4, index))
         print("safteIndex: \(safeIndex)")
         return safeIndex
     }
@@ -54,7 +54,7 @@ class PlantDetailPopUpExplainVC: UIViewController {
         let itemWidth = plantExplainCV.frame.size.width
         let proportionalOffset = (plantExplainCV.contentOffset.x / itemWidth)
         let back_index = Int(floor(proportionalOffset))
-        let safeIndex = max(0, min(3, back_index))
+        let safeIndex = max(0, min(4, back_index))
         return safeIndex
     }
     
@@ -195,49 +195,13 @@ extension PlantDetailPopUpExplainVC : UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 260, height: 283)
+        return CGSize(width: collectionView.frame.width, height: 283)
     }
     
     
 }
-//MARK: - collectionView Horizontal Scrolling Magnetic Effect
-extension UICollectionView {
-    func scrollToNearestVisibleCollectionViewCell() {
-        self.decelerationRate = UIScrollView.DecelerationRate.fast
-        let visibleCenterPositionOfScrollView = Float(self.contentOffset.x + (self.bounds.size.width / 1.5))
-        var closestCellIndex = -1
-        var closestDistance: Float = .greatestFiniteMagnitude
-        for i in 0..<self.visibleCells.count {
-            let cell = self.visibleCells[i]
-            let cellWidth = cell.bounds.size.width
-            let cellCenter = Float(cell.frame.origin.x + cellWidth / 2)
-
-            // Now calculate closest cell
-            let distance: Float = fabsf(visibleCenterPositionOfScrollView - cellCenter)
-            if distance < closestDistance {
-                closestDistance = distance
-                closestCellIndex = self.indexPath(for: cell)!.row
-            }
-        }
-        if closestCellIndex != -1 {
-            self.scrollToItem(at: IndexPath(row: closestCellIndex, section: 0), at: .centeredHorizontally, animated: true)
-        }
-    }
-}
-//MARK: - collectionView Horizontal Scrolling Magnetic Effect 적용
+//MARK: - collectionView Horizontal Paging Effect 적용
 extension PlantDetailPopUpExplainVC : UIScrollViewDelegate {
-    
-//    /// collectionView magnetic scrolling Effect
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        self.plantExplainCV.scrollToNearestVisibleCollectionViewCell()
-//    }
-//
-//    /// collectionView magnetic scrolling Effect
-//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        if !decelerate {
-//            self.plantExplainCV.scrollToNearestVisibleCollectionViewCell()
-//        }
-//    }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         indexOfCellBeforeDragging = indexOfMajorCell()
@@ -251,7 +215,6 @@ extension PlantDetailPopUpExplainVC : UIScrollViewDelegate {
             plantExplainCV.collectionViewLayout.collectionView!.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }else{
             let indexOfBeforCell = self.indexOfBeforCell()
-            
             let indexPath = IndexPath(row: indexOfBeforCell, section: 0)
             plantExplainCV.collectionViewLayout.collectionView!.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
@@ -259,7 +222,6 @@ extension PlantDetailPopUpExplainVC : UIScrollViewDelegate {
     
     //MARK: - scroll animation이 끝나고 적용되는 함수
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        
         /// scrollAnimation이 끝나고 pageControl의 현재 페이지를 animation이 끝난 상태값으로 바꿔준다.
         plantExplainPageControl.currentPage = Int(plantExplainCV.contentOffset.x) / Int(plantExplainCV.frame.width)
     }
