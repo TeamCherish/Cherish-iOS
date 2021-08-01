@@ -8,7 +8,6 @@
 import UIKit
 import Contacts
 import Alamofire
-import Kingfisher
 import OverlayContainer
 
 class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
