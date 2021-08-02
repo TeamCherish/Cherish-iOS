@@ -99,15 +99,11 @@ class InputDetailVC: UIViewController {
         }
         else {
             birthText = serverBirth
-            print(serverBirth)
         }
-        print("알람시간 \(convertedAlarmTime)")
         guard let nameText = givenName,
               let phonenumberText = givenPhoneNumber,
               let timeText = convertedAlarmTime,
               let periodText = alarmPeriodTextField.text else { return }
-        
-        print(birthText)
 
         let alarmState = true
         
@@ -129,12 +125,6 @@ class InputDetailVC: UIViewController {
                         UserDefaults.standard.set(resultData.plant.explanation , forKey: "resultExplanation")
                         UserDefaults.standard.set(resultData.plant.imageURL, forKey: "resultImgURL")
                         UserDefaults.standard.set(resultData.plant.flowerMeaning, forKey: "flowerMeaning")
-                        
-                        print("식물매칭중 id",resultData.plant.id)
-                        print("식물매칭중 modifier",resultData.plant.modifier)
-                        print("식물매칭중 설명",resultData.plant.explanation)
-                        print("식물매칭중 사진",resultData.plant.imageURL)
-                        print("식물매칭중 꽃말",resultData.plant.flowerMeaning)
                         
                         self.present(loadingVC, animated: false, completion: nil)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -184,11 +174,12 @@ class InputDetailVC: UIViewController {
         if let phoneNumber = self.givenPhoneNumber {
             let phoneNumInt = Int(phoneNumber)
             let phoneNumArr = Array(phoneNumber)
+            let phoneNumWithHypen = phoneNumInt?.withHypen ?? "00-0000-0000"
             if phoneNumArr.count > 11 {
                 self.phoneTextField.text = phoneNumber
             }
             else {
-                self.phoneTextField.text = "0" + phoneNumInt!.withHypen
+                self.phoneTextField.text = "0" + phoneNumWithHypen
             }
         }
     }

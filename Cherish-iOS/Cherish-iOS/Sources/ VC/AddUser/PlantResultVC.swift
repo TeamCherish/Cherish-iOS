@@ -124,20 +124,21 @@ class PlantResultVC: UIViewController, UIGestureRecognizerDelegate {
     func setPlantLabel() {
         let font = UIFont(name: "Noto Sans CJK KR Bold", size: 28)
         
-        // 이미지 받아오기
-        let url = URL(string: UserDefaults.standard.string(forKey: "resultImgURL")!)
-        print(url)
+        /// 이미지 받아오기
         
-        let data = try? Data(contentsOf: url!)
-        self.resultPlantImgView.image = UIImage(data: data!)
+        if let url = URL(string: UserDefaults.standard.string(forKey: "resultImageURL") ?? "") {
+//            let data = try? Data(contentsOf: url)
+            if let data = try? Data(contentsOf: url) {
+                self.resultPlantImgView.image = UIImage(data: data)
+            }
+        }
         
         let modifierArr = UserDefaults.standard.string(forKey: "resultModifier")?.components(separatedBy: "\n")
 
-        self.modifierRegular.text = modifierArr![0]
-        self.modifierBold.text = modifierArr![1]
+        self.modifierRegular.text = modifierArr?[0]
+        self.modifierBold.text = modifierArr?[1]
         
         self.explanationLabel.text = UserDefaults.standard.string(forKey: "resultExplanation")
-        print(UserDefaults.standard.string(forKey: "resultExplanation"))
         
         // 식물 종류 따라 라벨, 버튼 색깔 바꾸기
         let plantId = UserDefaults.standard.integer(forKey: "resultPlantId")
