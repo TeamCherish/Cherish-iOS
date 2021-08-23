@@ -189,19 +189,19 @@ class LoginVC: UIViewController {
         
         switch CNContactStore.authorizationStatus(for: .contacts) {
         /// 권한을 허용했을 때
-        case .authorized:
+        case .authorized: 
             // 이름 합치기
-            for i in 0...deviceContacts.count - 1 {
-                fetchedName.append((deviceContacts[i].lastName)+(deviceContacts[i].fristName))
-                deviceContacts[i].telephone = deviceContacts[i].telephone.components(separatedBy: ["-","/","/"]).joined()
-                
-                self.cherishContacts.append(contentsOf: [
-                    Friend(name: fetchedName[i], phoneNumber: deviceContacts[i].telephone, selected: false)
-                ])
+            if (deviceContacts.count != 0) {
+                for i in 0...deviceContacts.count - 1 {
+                    fetchedName.append((deviceContacts[i].lastName)+(deviceContacts[i].fristName))
+                    deviceContacts[i].telephone = deviceContacts[i].telephone.components(separatedBy: ["-","/","/"]).joined()
+                    
+                    self.cherishContacts.append(contentsOf: [
+                        Friend(name: fetchedName[i], phoneNumber: deviceContacts[i].telephone, selected: false)
+                    ])
+                }
+                UserDefaults.standard.set(try? PropertyListEncoder().encode(cherishContacts), forKey: "userContacts")
             }
-            
-            UserDefaults.standard.set(try? PropertyListEncoder().encode(cherishContacts), forKey: "userContacts")
-            
         case .notDetermined:
             print("notDetermined")
         case .restricted:
@@ -209,7 +209,6 @@ class LoginVC: UIViewController {
         case .denied:
             print("denied")
         }
-        
     }
     
     
@@ -364,20 +363,20 @@ extension LoginVC: UITextFieldDelegate {
     }
     
     @objc func keyboardWillShow(_ notification: NSNotification) {
-//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue { UIView.animate(withDuration: 0.3, animations: {
-//                                                                                                                                            self.view.transform = CGAffineTransform(translationX: 0, y: -50) }) }
+        //        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue { UIView.animate(withDuration: 0.3, animations: {
+        //                                                                                                                                            self.view.transform = CGAffineTransform(translationX: 0, y: -50) }) }
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                if self.view.frame.origin.y == 0 {
-                    self.view.frame.origin.y -= 50
-                }
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= 50
             }
+        }
         
     }
     
     @objc func keyboardWillDisappear(_ notification: NSNotification){ //self.view.transform = .identity
-//        self.view.transform = CGAffineTransform(translationX: 0, y: 0)
+        //        self.view.transform = CGAffineTransform(translationX: 0, y: 0)
         if self.view.frame.origin.y != 0 {
-                self.view.frame.origin.y = 0
-            }
+            self.view.frame.origin.y = 0
+        }
     }
 }
