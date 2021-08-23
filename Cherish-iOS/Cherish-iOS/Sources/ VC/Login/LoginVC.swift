@@ -208,6 +208,8 @@ class LoginVC: UIViewController {
             print("restricted")
         case .denied:
             print("denied")
+        @unknown default:
+            fatalError()
         }
     }
     
