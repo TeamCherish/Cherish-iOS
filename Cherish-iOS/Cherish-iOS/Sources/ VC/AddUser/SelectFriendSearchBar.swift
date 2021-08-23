@@ -15,7 +15,8 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
-
+    @IBOutlet var noContactsView: UIView!
+    
     var friendList: [Friend] = []
     
     var index: Int = 0
@@ -69,6 +70,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         tableView.register(UINib(nibName: radioButton, bundle: nil), forCellReuseIdentifier: radioButton)
         resetSelectFriendVC()
         setSearchBar()
+        noContactsView.isHidden = true
         checkContactArray()
         requestAccess(completionHandler: {_ in })
         filteredData = friendList
@@ -79,7 +81,6 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         requestAccess(completionHandler: {_ in })
     }
-    
     
     //MARK: - 체리쉬 앱 연락처 동기화 여부 검사 함수
     func requestAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
@@ -127,7 +128,7 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
     }
     
     //MARK: - 체리쉬 앱 연락처를 가져오는 함수
-    func checkContactArray() {
+    @objc func checkContactArray() {
         let store = CNContactStore()
         store.requestAccess(for: .contacts) { [self] (granted, error) in
             if let error = error {
@@ -143,7 +144,6 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
                     try store.enumerateContacts(with: request, usingBlock: { [self] (contact, stopPointer) in
                         deviceContacts.append(FetchedContact(fristName: contact.givenName, lastName: contact.familyName, telephone: contact.phoneNumbers.first?.value.stringValue ?? ""))
                     })
-                    print("저장?")
                     makeCherishContacts()
                 } catch let error {
                     print("Failed to enumerate contact", error)
@@ -163,30 +163,35 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
         /// 권한을 허용했을 때
         case .authorized:
             // 이름 합치기
-            for i in 0...deviceContacts.count - 1 {
-                fetchedName.append((deviceContacts[i].lastName)+(deviceContacts[i].fristName))
-                deviceContacts[i].telephone = deviceContacts[i].telephone.components(separatedBy: ["-","/","/"]).joined()
-                
-                self.cherishContacts.append(contentsOf: [
-                    Friend(name: fetchedName[i], phoneNumber: deviceContacts[i].telephone, selected: false)
-                ])
+            if (deviceContacts.count != 0) {
+                for i in 0...deviceContacts.count - 1 {
+                    fetchedName.append((deviceContacts[i].lastName)+(deviceContacts[i].fristName))
+                    deviceContacts[i].telephone = deviceContacts[i].telephone.components(separatedBy: ["-","/","/"]).joined()
+                    
+                    self.cherishContacts.append(contentsOf: [
+                        Friend(name: fetchedName[i], phoneNumber: deviceContacts[i].telephone, selected: false)
+                    ])
+                }
+                UserDefaults.standard.set(try? PropertyListEncoder().encode(cherishContacts), forKey: "userContacts")
+                getContacts()
             }
-            UserDefaults.standard.set(try? PropertyListEncoder().encode(cherishContacts), forKey: "userContacts")
-            getContacts()
-            
+            else {
+                tableView.isHidden = true
+                noContactsView.isHidden = false
+            }
         case .notDetermined:
             print("notDetermined")
         case .restricted:
             print("restricted")
         case .denied:
             print("denied")
+        @unknown default:
+            fatalError()
         }
-        
     }
     
     //MARK: - 체리쉬 앱 연락처를 가져오는 함수
     func getContacts() {
-        print("hello")
         if let data = UserDefaults.standard.value(forKey: "userContacts") as? Data {
             let contacts = try? PropertyListDecoder().decode([Friend].self, from: data)
 

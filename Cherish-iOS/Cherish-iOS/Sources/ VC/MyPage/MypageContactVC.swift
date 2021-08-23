@@ -11,6 +11,8 @@ import Contacts
 class MypageContactVC: UIViewController {
 
     @IBOutlet var mypageContactTV: MyOwnTableView!
+    @IBOutlet var noContactView: UIView!
+    @IBOutlet var noContactsImageViewTopConstraints: NSLayoutConstraint!
     var mypageContactArray: [Friend] = []
     
     var deviceContacts = [FetchedContact]()
@@ -21,6 +23,7 @@ class MypageContactVC: UIViewController {
         super.viewDidLoad()
         self.view.translatesAutoresizingMaskIntoConstraints = false
         UserDefaults.standard.removeObject(forKey: "mypagePlantVC")
+        noContactView.isHidden = true
         checkContactArray()
         requestAccess(completionHandler: {_ in })
         mypageContactTV.delegate = self
@@ -96,7 +99,6 @@ class MypageContactVC: UIViewController {
                     try store.enumerateContacts(with: request, usingBlock: { [self] (contact, stopPointer) in
                         deviceContacts.append(FetchedContact(fristName: contact.givenName, lastName: contact.familyName, telephone: contact.phoneNumbers.first?.value.stringValue ?? ""))
                     })
-                    print("저장?")
                     makeCherishContacts()
                 } catch let error {
                     print("Failed to enumerate contact", error)
@@ -116,16 +118,21 @@ class MypageContactVC: UIViewController {
         /// 권한을 허용했을 때
         case .authorized:
             // 이름 합치기
-            for i in 0...deviceContacts.count - 1 {
-                fetchedName.append((deviceContacts[i].lastName)+(deviceContacts[i].fristName))
-                deviceContacts[i].telephone = deviceContacts[i].telephone.components(separatedBy: ["-","/","/"]).joined()
-                
-                self.cherishContacts.append(contentsOf: [
-                    Friend(name: fetchedName[i], phoneNumber: deviceContacts[i].telephone, selected: false)
-                ])
+            if (deviceContacts.count != 0) {
+                for i in 0...deviceContacts.count - 1 {
+                    fetchedName.append((deviceContacts[i].lastName)+(deviceContacts[i].fristName))
+                    deviceContacts[i].telephone = deviceContacts[i].telephone.components(separatedBy: ["-","/","/"]).joined()
+                    
+                    self.cherishContacts.append(contentsOf: [
+                        Friend(name: fetchedName[i], phoneNumber: deviceContacts[i].telephone, selected: false)
+                    ])
+                }
+                UserDefaults.standard.set(try? PropertyListEncoder().encode(cherishContacts), forKey: "userContacts")
+                setContactData()
             }
-            UserDefaults.standard.set(try? PropertyListEncoder().encode(cherishContacts), forKey: "userContacts")
-            setContactData()
+            else {
+                noContactView.isHidden = false
+            }
             
         case .notDetermined:
             print("notDetermined")
@@ -133,8 +140,9 @@ class MypageContactVC: UIViewController {
             print("restricted")
         case .denied:
             print("denied")
+        @unknown default:
+            fatalError()
         }
-        
     }
     
     

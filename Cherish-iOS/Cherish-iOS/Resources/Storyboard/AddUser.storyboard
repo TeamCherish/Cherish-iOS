@@ -131,7 +131,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 상세 입력" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="XyP-Hj-Los" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="139" y="10" width="97.333333333333314" height="24"/>
+                                        <rect key="frame" x="141.66666666666666" y="12.666666666666666" width="92" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -302,7 +302,7 @@
                                 <rect key="frame" x="16" y="531" width="343" height="154"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(최대8글자)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0o-5z-5gA" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="81" y="114" width="59" height="24"/>
+                                <rect key="frame" x="81" y="114" width="54.666666666666657" height="24"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="textGrey"/>
                                 <nil key="highlightedColor"/>
@@ -313,7 +313,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(선택 사항)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxi-ut-YOD" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                <rect key="frame" x="59" y="203" width="55.666666666666657" height="24"/>
+                                <rect key="frame" x="59" y="203" width="51.333333333333343" height="24"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                 <color key="textColor" name="textGrey"/>
                                 <nil key="highlightedColor"/>
@@ -623,7 +623,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 등록 친구 선택" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIW-3M-rMJ" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="122.00000000000001" y="10" width="131.33333333333337" height="24"/>
+                                        <rect key="frame" x="125.33333333333334" y="12.666666666666666" width="124.33333333333334" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -742,26 +742,69 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aNY-rL-OKL">
+                                <rect key="frame" x="0.0" y="124" width="375" height="688"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소록에서 연락처를 등록해주세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAr-Z3-Nbg" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="35.666666666666657" y="352" width="303.66666666666674" height="25.666666666666686"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="characterSpacing">
+                                                <real key="value" value="-0.55000000000000004"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_noplant_view" translatesAutoresizingMaskIntoConstraints="NO" id="ojl-bP-giw">
+                                        <rect key="frame" x="110.66666666666669" y="130" width="154" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="ALv-pX-r5B"/>
+                                            <constraint firstAttribute="width" constant="154" id="XyI-Zr-YMI"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록된 연락처가 없어요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hy-r6-oT6">
+                                        <rect key="frame" x="114.00000000000001" y="379.66666666666669" width="147.33333333333337" height="18.666666666666686"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                        <color key="textColor" name="textGrey"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="yAr-Z3-Nbg" firstAttribute="top" secondItem="ojl-bP-giw" secondAttribute="bottom" constant="22" id="A1H-bv-Prs"/>
+                                    <constraint firstItem="ojl-bP-giw" firstAttribute="top" secondItem="aNY-rL-OKL" secondAttribute="top" constant="130" id="Bjs-W8-U9o"/>
+                                    <constraint firstItem="ojl-bP-giw" firstAttribute="centerX" secondItem="aNY-rL-OKL" secondAttribute="centerX" id="IVI-6d-Unn"/>
+                                    <constraint firstItem="yAr-Z3-Nbg" firstAttribute="centerX" secondItem="aNY-rL-OKL" secondAttribute="centerX" id="ZEv-ZS-TgN"/>
+                                    <constraint firstItem="1Hy-r6-oT6" firstAttribute="centerX" secondItem="aNY-rL-OKL" secondAttribute="centerX" id="u6t-tP-UKJ"/>
+                                    <constraint firstItem="1Hy-r6-oT6" firstAttribute="top" secondItem="yAr-Z3-Nbg" secondAttribute="bottom" constant="2" id="uDE-mc-m41"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZHT-MK-egi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="qRG-KP-b1O" secondAttribute="bottom" id="9rm-Sl-jhc"/>
+                            <constraint firstItem="aNY-rL-OKL" firstAttribute="top" secondItem="Pgt-jF-36Z" secondAttribute="bottom" constant="36" id="C8w-u4-nEJ"/>
                             <constraint firstItem="ZHT-MK-egi" firstAttribute="bottom" secondItem="lRC-ne-zl0" secondAttribute="bottom" constant="33" id="E7S-vF-bpo"/>
+                            <constraint firstAttribute="trailing" secondItem="aNY-rL-OKL" secondAttribute="trailing" id="EUQ-fr-0c7"/>
                             <constraint firstItem="qRG-KP-b1O" firstAttribute="leading" secondItem="ZHT-MK-egi" secondAttribute="leading" constant="16" id="M3c-06-APq"/>
                             <constraint firstItem="Pgt-jF-36Z" firstAttribute="trailing" secondItem="ZHT-MK-egi" secondAttribute="trailing" id="NJk-8F-MMY"/>
                             <constraint firstItem="ZHT-MK-egi" firstAttribute="trailing" secondItem="lRC-ne-zl0" secondAttribute="trailing" constant="16" id="RCg-m2-3C0"/>
                             <constraint firstItem="Pgt-jF-36Z" firstAttribute="top" secondItem="ZHT-MK-egi" secondAttribute="top" id="baP-Y4-R3Z"/>
+                            <constraint firstAttribute="bottom" secondItem="aNY-rL-OKL" secondAttribute="bottom" id="dgz-PG-Ks1"/>
                             <constraint firstItem="lRC-ne-zl0" firstAttribute="leading" secondItem="ZHT-MK-egi" secondAttribute="leading" constant="16" id="eB3-MP-A8u"/>
                             <constraint firstItem="Pgt-jF-36Z" firstAttribute="leading" secondItem="ZHT-MK-egi" secondAttribute="leading" id="eZ9-eF-mn8"/>
                             <constraint firstItem="qRG-KP-b1O" firstAttribute="top" secondItem="Pgt-jF-36Z" secondAttribute="bottom" constant="36" id="fEg-7b-EE5"/>
                             <constraint firstItem="ZHT-MK-egi" firstAttribute="trailing" secondItem="qRG-KP-b1O" secondAttribute="trailing" constant="16" id="hao-YJ-w2Q"/>
+                            <constraint firstItem="aNY-rL-OKL" firstAttribute="leading" secondItem="ZHT-MK-egi" secondAttribute="leading" id="lJh-mo-p9T"/>
                             <constraint firstItem="lRC-ne-zl0" firstAttribute="centerX" secondItem="qCe-J9-pfm" secondAttribute="centerX" id="qHU-kb-AWw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aZ3-nD-L9A"/>
                     <connections>
                         <outlet property="nextBtn" destination="lRC-ne-zl0" id="pmJ-If-26C"/>
+                        <outlet property="noContactsView" destination="aNY-rL-OKL" id="aPy-Fq-FAK"/>
                         <outlet property="searchBar" destination="IUJ-Hk-aUc" id="vZJ-7m-6vS"/>
                         <outlet property="tableView" destination="qRG-KP-b1O" id="aiL-gN-Sie"/>
                     </connections>

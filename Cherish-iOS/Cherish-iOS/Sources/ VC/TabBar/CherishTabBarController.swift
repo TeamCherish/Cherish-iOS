@@ -25,14 +25,22 @@ class CherishTabBarController: UITabBarController {
     override func viewDidLayoutSubviews() {
         if screenWidth >= 414 && screenHeight >= 896 {
             super.viewWillLayoutSubviews()
-            
             var tabFrame: CGRect = self.tabBar.frame
+            self.tabBar.frame.size.height = 55
             tabFrame.size.height = 96.6
             tabFrame.origin.y = self.view.frame.size.height - 96.6
             self.tabBar.frame = tabFrame
         }
+        else if screenWidth == 375 && screenHeight == 667 {
+            var tabFrame: CGRect = self.tabBar.frame
+            self.tabBar.frame.size.height = 49
+            tabFrame.size.height = 49
+            tabFrame.origin.y = self.view.frame.size.height - 49
+            self.tabBar.frame = tabFrame
+        }
         else {
             var tabFrame: CGRect = self.tabBar.frame
+            self.tabBar.frame.size.height = 49
             tabFrame.size.height = 80
             tabFrame.origin.y = self.view.frame.size.height - 80
             self.tabBar.frame = tabFrame
@@ -44,7 +52,6 @@ class CherishTabBarController: UITabBarController {
     func setTabBar() {
         
         self.tabBar.tintColor = UIColor.black
-        self.tabBar.frame.size.height = 55
         
         
         /// 마이페이지탭
