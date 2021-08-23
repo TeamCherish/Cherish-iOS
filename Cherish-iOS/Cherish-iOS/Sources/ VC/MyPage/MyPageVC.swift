@@ -112,7 +112,8 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK: - 상태바 백그라운드 컬러 변경
     func changeStatusBarBackgroundColor(_ Color : String) {
-        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+        var statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+        statusBarView.frame.size = CGSize(width: screenWidth, height: 50)
         let statusBarColor = UIColor(named: Color)
         statusBarView.backgroundColor = statusBarColor
         view.addSubview(statusBarView)
@@ -264,7 +265,6 @@ extension MyPageVC: UIScrollViewDelegate {
         
         if scrollView == mypageExternalSV {
             if !changingIndex{
-                print("segment")
                 segmentView.setIndex(index: Int(round(mypageExternalSV.contentOffset.x / mypageExternalSV.frame.size.width)))
             }
             
@@ -292,7 +292,7 @@ extension MyPageVC: UIScrollViewDelegate {
                 
                 /// segment뷰가 NaviBar와 닿았고 scrollView가 plantSV일 때
                 if scrollView == plantSV && contactSV.contentOffset.y < d {
-                    
+                    print("hello")
                     // NaviBar와 StatusBar의 백그라운드를 white로 변경
                     mypageNaviView.backgroundColor = .white
                     changeStatusBarBackgroundColor("white")
@@ -315,15 +315,12 @@ extension MyPageVC: UIScrollViewDelegate {
                     // floatingBtn 띄우기
                     setFloatingBtnOffset(addFloatingBtn, false, 300, off + 580, addFloatingBtn.frame.size.width, addFloatingBtn.frame.size.height)
 
-                    
                     plantSV.contentOffset.y = d
                 }
             }
             else {
-                
                 plantSV.contentOffset.y = scrollView.contentOffset.y
                 contactSV.contentOffset.y = scrollView.contentOffset.y
-                
                 
                 // segment뷰가 NaviBar와 닿았을 때 NaviBar와 StatusBar의 백그라운드를 mypageBackground로 변경
                 mypageNaviView.backgroundColor = .mypageBackgroundGrey
@@ -339,14 +336,11 @@ extension MyPageVC: UIScrollViewDelegate {
                 /// scrollView가 원래 자리로 돌아왔을 때
                 if scrollView.contentOffset.y <= 0 {
                     
-                    
                     headerTopConstraint.constant = 0
                     headerHeightConstraint.constant = 321 - scrollView.contentOffset.y
-                    
                 }
                 else {
                     headerTopConstraint.constant = -scrollView.contentOffset.y
-                    
                 }
                 
             }
