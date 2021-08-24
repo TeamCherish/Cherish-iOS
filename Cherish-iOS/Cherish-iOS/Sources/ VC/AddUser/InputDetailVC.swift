@@ -125,7 +125,7 @@ class InputDetailVC: UIViewController {
                         UserDefaults.standard.set(resultData.plant.explanation , forKey: "resultExplanation")
                         UserDefaults.standard.set(resultData.plant.imageURL, forKey: "resultImgURL")
                         UserDefaults.standard.set(resultData.plant.flowerMeaning, forKey: "flowerMeaning")
-                        
+
                         self.present(loadingVC, animated: false, completion: nil)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             self.dismiss(animated: false) {
