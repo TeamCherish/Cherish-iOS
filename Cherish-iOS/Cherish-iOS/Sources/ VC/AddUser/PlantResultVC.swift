@@ -126,8 +126,7 @@ class PlantResultVC: UIViewController, UIGestureRecognizerDelegate {
         
         /// 이미지 받아오기
         
-        if let url = URL(string: UserDefaults.standard.string(forKey: "resultImageURL") ?? "") {
-//            let data = try? Data(contentsOf: url)
+        if let url = URL(string: UserDefaults.standard.string(forKey: "resultImgURL") ?? "") {
             if let data = try? Data(contentsOf: url) {
                 self.resultPlantImgView.image = UIImage(data: data)
             }
