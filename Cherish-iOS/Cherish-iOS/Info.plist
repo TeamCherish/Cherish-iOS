@@ -36,8 +36,10 @@
 		<true/>
 	</dict>
 	<key>NSContactsUsageDescription</key>
-	<string>다음 작업을 위해 Cherish가 사용자의 연락처에 접근하는 것을 허용합니다.
-해당 데이터는 Cherish의 서버로 업로드 될 수 있으나, Cherish 이외의 용도로는 사용되지 않습니다.</string>
+	<string>
+연락처 동기화를 통해 식물 등록을 위한 친구를 찾고 전화와 메시지를 보낼 수 있게 합니다.
+
+해당 데이터는 Cherish의 서버로 업로드될 수 있으나, 상기 외의 용도로는 사용되지 않습니다.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Medium.ttf</string>
