@@ -40,12 +40,12 @@
 
   ```ruby
   # Pods for Cherish-iOS
-  pod 'Alamofire','~> 5.4.1' # 서버 통신
-  pod 'Kingfisher'					 # 이미지 캐싱
-  pod 'FSCalendar'					 # 캘린더 구현
-  pod 'OverlayContainer'		 # BottomSheet 애니메이션
-  pod 'Firebase/Analytics'	 # 앱 데이터 분석
-  pod 'Firebase/Messaging'	 # 푸시 알림
+  pod 'Alamofire','~> 5.4.1'  # 서버 통신
+  pod 'Kingfisher'            # 이미지 캐싱
+  pod 'FSCalendar'            # 캘린더 구현
+  pod 'OverlayContainer'      # BottomSheet 애니메이션
+  pod 'Firebase/Analytics'    # 앱 데이터 분석
+  pod 'Firebase/Messaging'    # 푸시 알림
   ```
 
 <br>
