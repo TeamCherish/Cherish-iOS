@@ -321,7 +321,7 @@
 		5478347125AC75950021C32B /* WateringDayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringDayData.swift; sourceTree = "<group>"; };
 		5478347425AC77600021C32B /* WateringDayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringDayService.swift; sourceTree = "<group>"; };
 		5488922025A59486003839FC /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
-		5488922425A594CF003839FC /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarVC.swift; path = "Cherish-iOS/Sources/View/CalendarVC.swift"; sourceTree = SOURCE_ROOT; };
+		5488922425A594CF003839FC /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarVC.swift; path = "Cherish-iOS/Screens/Calendar/Controllers/CalendarVC.swift"; sourceTree = SOURCE_ROOT; };
 		5488923425A5E962003839FC /* CalendarKeywordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarKeywordCVCell.swift; sourceTree = "<group>"; };
 		5488923525A5E962003839FC /* CalendarKeywordCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarKeywordCVCell.xib; sourceTree = "<group>"; };
 		548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUpWatering.storyboard; sourceTree = "<group>"; };
@@ -436,29 +436,12 @@
 			path = Mypage;
 			sourceTree = "<group>";
 		};
-		332CC7AD25A7015100D0047D /* Mypage */ = {
+		332CC7BB25A707AF00D0047D /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				332CC7AF25A7018400D0047D /* MypagePlantTVC.swift */,
-				332CC7B225A701A400D0047D /* MypageContactTVC.swift */,
-				92824D9325B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift */,
-				92824D9A25B16E94003D7678 /* SearchPlantCell.swift */,
-				92824D9B25B16E94003D7678 /* SearchPlantCell.xib */,
-				9291202125E3ACCE00B4A95F /* MySearchPlantCell.swift */,
-			);
-			path = Mypage;
-			sourceTree = "<group>";
-		};
-		332CC7BB25A707AF00D0047D /* Mypage */ = {
-			isa = PBXGroup;
-			children = (
-				332CC7BC25A707BD00D0047D /* MypagePlantData.swift */,
-				332CC7C025A72A4800D0047D /* MypageContactData.swift */,
 				3317778A25B0921500CC1030 /* MypageData.swift */,
-				9291202B25E67C7A00B4A95F /* MyPlantData.swift */,
-				333DC25325FA7C8D00120B1E /* SearchMypageFriendData.swift */,
 			);
-			path = Mypage;
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		333B138C26306ED400DAEB6E /* OpenSourceVC */ = {
@@ -481,8 +464,8 @@
 		337A5CB725A8544D00578130 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				337A5CB825A8545E00578130 /* LoginVC.swift */,
-				335B3A2F25EF805400DD7A6F /* LoginNC.swift */,
+				545975F226E88E25008336A9 /* Controllers */,
+				5459760326E88F19008336A9 /* Storyboards */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -507,8 +490,8 @@
 			isa = PBXGroup;
 			children = (
 				33805F8825AC739D005CED0F /* MainService.swift */,
-				33805F9625ACE24E005CED0F /* PlantDetailService.swift */,
 				33EAA2EE25B17D3D00E75F95 /* PlantDetailCardService.swift */,
+				33805F9625ACE24E005CED0F /* PlantDetailService.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -517,8 +500,6 @@
 			isa = PBXGroup;
 			children = (
 				33805F8D25AC73B1005CED0F /* MainData.swift */,
-				33201B1425AE419F001A94E4 /* MainSelectedData.swift */,
-				335D8F3F25F4CDD600FE4C7F /* MainPlantConditionData.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -544,179 +525,97 @@
 		33851C72259A5541005BCFFD /* Cherish-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				5459760C26E890FD008336A9 /* Global */,
+				545975E626E88D53008336A9 /* Network */,
+				545975E726E88D5D008336A9 /* Screens */,
+				545975E526E88D47008336A9 /* Supports */,
 				3346B34325AB653D00EF5E14 /* Cherish-iOS.entitlements */,
-				33851C88259A5AC5005BCFFD /* Resources */,
-				33851C89259A5AD6005BCFFD /* Sources */,
-				33851C81259A5542005BCFFD /* Info.plist */,
-				33201B2125AF3F23001A94E4 /* GoogleService-Info.plist */,
 			);
 			path = "Cherish-iOS";
 			sourceTree = "<group>";
 		};
-		33851C88259A5AC5005BCFFD /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				33851C73259A5541005BCFFD /* AppDelegate.swift */,
-				33851C75259A5541005BCFFD /* SceneDelegate.swift */,
-				33851C7C259A5542005BCFFD /* Assets.xcassets */,
-				33851C8A259A5AE2005BCFFD /* Storyboard */,
-				33851C8B259A5AEE005BCFFD /* APIService */,
-				3317777D25B0568600CC1030 /* Gif */,
-				33851C8C259A5AF6005BCFFD /* Font */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		33851C89259A5AD6005BCFFD /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				33851C8D259A5B0E005BCFFD /*  VC */,
-				33851C8F259A5B18005BCFFD /* Cell */,
-				33851C90259A5B1F005BCFFD /* Model */,
-				33851C8E259A5B14005BCFFD /* Class */,
-				33CAF85825A267500050DE29 /* View */,
-				33851C91259A5B23005BCFFD /* Extension */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		33851C8A259A5AE2005BCFFD /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				54E1BA26264AFC4F0076C306 /* Watering */,
-				5488922025A59486003839FC /* Calendar.storyboard */,
-				33E874E725A04832001F84FE /* TabBar.storyboard */,
-				33E874DF25A04746001F84FE /* CherishMain.storyboard */,
-				33E874DC25A04569001F84FE /* MyPage.storyboard */,
-				33E874E325A047DE001F84FE /* ShowMore.storyboard */,
-				33851C7E259A5542005BCFFD /* LaunchScreen.storyboard */,
-				92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */,
-				33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */,
-				337A5CB425A8543600578130 /* Login.storyboard */,
-				5491594525DCD32B008104FC /* FindPassword.storyboard */,
-				548F26872612F52F0055C5E1 /* Onboarding.storyboard */,
-				54D223F325DA2912003A1496 /* SignUp.storyboard */,
-			);
-			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		33851C8B259A5AEE005BCFFD /* APIService */ = {
+		33851C8B259A5AEE005BCFFD /* APIServices */ = {
 			isa = PBXGroup;
 			children = (
 				33851C92259A5B68005BCFFD /* APIConstants.swift */,
 				33851C98259A5C00005BCFFD /* NetworkResult.swift */,
+				9214410025ACE5B000853E53 /* AddUser */,
+				54425C3825AF51F200E62BAB /* Calendar */,
 				54AE98AD25F3739C00993EA3 /* FindPassword */,
+				33805F7C25AC61F8005CED0F /* Login */,
+				33805F8725AC7387005CED0F /* Main */,
 				3317778425B0915B00CC1030 /* Mypage */,
 				92911FC225DD0AE800B4A95F /* PlantCard */,
-				54425C3825AF51F200E62BAB /* Calendar */,
-				9214410025ACE5B000853E53 /* AddUser */,
-				5478346D25AC72C40021C32B /* Watering */,
-				33805F8725AC7387005CED0F /* Main */,
-				5491595625DE67EC008104FC /* SignUp */,
 				33CD994725D9991000C3BD1C /* PushAlarm */,
-				33805F7C25AC61F8005CED0F /* Login */,
 				336C6D9825E64B34003865C3 /* ShowMore */,
+				5491595625DE67EC008104FC /* SignUp */,
+				5478346D25AC72C40021C32B /* Watering */,
 			);
-			path = APIService;
+			path = APIServices;
 			sourceTree = "<group>";
 		};
 		33851C8C259A5AF6005BCFFD /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				33E874D925A043F1001F84FE /* Roboto-Black.ttf */,
-				3317778D25B0AAC200CC1030 /* Roboto-Medium.ttf */,
-				33E874D625A043CF001F84FE /* Roboto-Bold.ttf */,
-				33E874D325A043B4001F84FE /* NotoSansCJKkr-Light.otf */,
 				33E874D025A0437A001F84FE /* NotoSansCJKkr-Bold.otf */,
+				33E874D325A043B4001F84FE /* NotoSansCJKkr-Light.otf */,
 				33E874CD25A04361001F84FE /* NotoSansCJKkr-Medium.otf */,
-				33E874CA25A0434B001F84FE /* Roboto-Regular.ttf */,
 				33E874C725A04332001F84FE /* NotoSansCJKkr-Regular.otf */,
+				33E874D925A043F1001F84FE /* Roboto-Black.ttf */,
+				33E874D625A043CF001F84FE /* Roboto-Bold.ttf */,
+				3317778D25B0AAC200CC1030 /* Roboto-Medium.ttf */,
+				33E874CA25A0434B001F84FE /* Roboto-Regular.ttf */,
 			);
 			path = Font;
-			sourceTree = "<group>";
-		};
-		33851C8D259A5B0E005BCFFD /*  VC */ = {
-			isa = PBXGroup;
-			children = (
-				548F268A2612F53B0055C5E1 /* Onboarding */,
-				33D094D825F575BC0016BD4E /* Splash */,
-				5491594825DCD335008104FC /* FindPassword */,
-				54D223F625DA294E003A1496 /* SignUp */,
-				337A5CB725A8544D00578130 /* Login */,
-				5488922325A594B9003839FC /* Calendar */,
-				548DF16525A1B3E60081FCD1 /* Watering */,
-				923F8CDD25A1C2A900EA04E5 /* AddUser */,
-				33E874EA25A04860001F84FE /* TabBar */,
-				33E874F325A049A7001F84FE /* CherishMain */,
-				33EDFBB725A1B549006367A7 /* PlantDetail */,
-				33E874F425A049AE001F84FE /* MyPage */,
-				33E874F525A049B7001F84FE /* ShowMore */,
-			);
-			path = " VC";
 			sourceTree = "<group>";
 		};
 		33851C8E259A5B14005BCFFD /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				332CC7A825A6F41E00D0047D /* CustomSegmentedControl.swift */,
-				332CC7A725A6F41E00D0047D /* MyPageUtils.swift */,
-				33E8750325A04D1E001F84FE /* CustomLabel.swift */,
 				33E8751225A05623001F84FE /* CircularProgressBar.swift */,
-				33E8754B25A0D272001F84FE /* ProgressBarView.swift */,
 				548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */,
+				33E8750325A04D1E001F84FE /* CustomLabel.swift */,
 				5491593025DBADC6008104FC /* CustomPageControl.swift */,
+				332CC7A825A6F41E00D0047D /* CustomSegmentedControl.swift */,
 				335B8FE725F797A800A03640 /* ImageFileManager.swift */,
+				332CC7A725A6F41E00D0047D /* MyPageUtils.swift */,
+				33E8754B25A0D272001F84FE /* ProgressBarView.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
 		};
-		33851C8F259A5B18005BCFFD /* Cell */ = {
+		33851C90259A5B1F005BCFFD /* APIModels */ = {
 			isa = PBXGroup;
 			children = (
-				548F268E2613104E0055C5E1 /* Onboarding */,
-				5478344925AB65250021C32B /* ShowMore */,
-				332CC7AD25A7015100D0047D /* Mypage */,
-				5488923125A5E748003839FC /* Calendar */,
-				92B2305F25A30DBD0024B8A8 /* AddUser */,
-				33FDB79E25A2900C00F1EC6F /* PlantDetail */,
-				548DF17725A1C1480081FCD1 /* Watering */,
-				33E8753325A07A63001F84FE /* CherishMain */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		33851C90259A5B1F005BCFFD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				548F2698261330BC0055C5E1 /* Onboarding */,
-				54AE98B625F3B0DD00993EA3 /* FindPassword */,
-				5491595D25DE792F008104FC /* SignUp */,
-				33CD995025D999EB00C3BD1C /* PushAlarm */,
+				33851C9C259A5C25005BCFFD /* GenericResponse.swift */,
+				92B2306325A30F270024B8A8 /* AddUser */,
 				54425C3325AF519E00E62BAB /* Calendar */,
 				92B0F9E025AEE40600AA411A /* Contact */,
-				5478346525AC6A690021C32B /* Watering */,
-				33805F8C25AC73A5005CED0F /* Main */,
+				54AE98B625F3B0DD00993EA3 /* FindPassword */,
 				33805F8125AC62A9005CED0F /* Login */,
-				332CC7BB25A707AF00D0047D /* Mypage */,
-				92B2306325A30F270024B8A8 /* AddUser */,
+				33805F8C25AC73A5005CED0F /* Main */,
+				332CC7BB25A707AF00D0047D /* MyPage */,
+				548F2698261330BC0055C5E1 /* Onboarding */,
 				33D0025525A2914600E97811 /* PlantDetail */,
-				33851C9C259A5C25005BCFFD /* GenericResponse.swift */,
+				33CD995025D999EB00C3BD1C /* PushAlarm */,
+				5491595D25DE792F008104FC /* SignUp */,
+				5478346525AC6A690021C32B /* Watering */,
 			);
-			path = Model;
+			path = APIModels;
 			sourceTree = "<group>";
 		};
 		33851C91259A5B23005BCFFD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				5478343525A76EBC0021C32B /* UIDevice+ScreenSize.swift */,
-				33E8750625A04DA2001F84FE /* UIColor+Additions.swift */,
 				33E8754825A09440001F84FE /* NotificationName.swift */,
-				548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */,
-				548DF16E25A1B4AB0081FCD1 /* UITextField+Extension.swift */,
 				337A5CBC25A868C000578130 /* UIButton+Extention.swift */,
+				33E8750625A04DA2001F84FE /* UIColor+Additions.swift */,
+				5478343525A76EBC0021C32B /* UIDevice+ScreenSize.swift */,
 				3317777725B042C200CC1030 /* UIImage+Extension.swift */,
-				333DC23C25FA4D8200120B1E /* UIWindow+Extension.swift */,
+				548DF16E25A1B4AB0081FCD1 /* UITextField+Extension.swift */,
+				548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */,
 				54426781266E7E4900A2A65F /* UIViewController+Extension.swift */,
+				333DC23C25FA4D8200120B1E /* UIWindow+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -742,9 +641,9 @@
 		33CD994725D9991000C3BD1C /* PushAlarm */ = {
 			isa = PBXGroup;
 			children = (
-				33CD994D25D9993F00C3BD1C /* PushReviewService.swift */,
-				33CD995525D9A0CD00C3BD1C /* FCMTokenUpdateService.swift */,
 				339854CE2635B69E0002E6F0 /* FCMTokenDeleteService.swift */,
+				33CD995525D9A0CD00C3BD1C /* FCMTokenUpdateService.swift */,
+				33CD994D25D9993F00C3BD1C /* PushReviewService.swift */,
 				335816312678EAD700FD4E29 /* UpdateWateringPushService.swift */,
 			);
 			path = PushAlarm;
@@ -761,12 +660,11 @@
 		33D0025525A2914600E97811 /* PlantDetail */ = {
 			isa = PBXGroup;
 			children = (
-				33805F9925ACE78A005CED0F /* PlantDetailData.swift */,
-				33D0026E25A30AB700E97811 /* PlantDetailExplainData.swift */,
-				33201B0F25AE2EBC001A94E4 /* PlantDetailCardData.swift */,
 				92911FD625DFA15800B4A95F /* DeletePlantData.swift */,
-				92911FE125DFC72600B4A95F /* GetPlantData.swift */,
 				92911FEB25DFDF5800B4A95F /* EditPlantData.swift */,
+				92911FE125DFC72600B4A95F /* GetPlantData.swift */,
+				33201B0F25AE2EBC001A94E4 /* PlantDetailCardData.swift */,
+				33805F9925ACE78A005CED0F /* PlantDetailData.swift */,
 			);
 			path = PlantDetail;
 			sourceTree = "<group>";
@@ -774,8 +672,7 @@
 		33D094D825F575BC0016BD4E /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				33EAA2F225B180C000E75F95 /* SplashVC.swift */,
-				33D094D925F575DF0016BD4E /* MainSplashVC.swift */,
+				545975ED26E88DE7008336A9 /* Controllers */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -783,7 +680,8 @@
 		33E874EA25A04860001F84FE /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				33E874EB25A04892001F84FE /* CherishTabBarController.swift */,
+				545975FA26E88E70008336A9 /* Storyboards */,
+				545975F926E88E6C008336A9 /* Controllers */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -791,12 +689,9 @@
 		33E874F325A049A7001F84FE /* CherishMain */ = {
 			isa = PBXGroup;
 			children = (
-				33E874F625A04A56001F84FE /* CherishMainVC.swift */,
-				33E8752525A05D34001F84FE /* MainContentVC.swift */,
-				33E8751F25A05CE5001F84FE /* BackdropVC.swift */,
-				33E8752225A05CFC001F84FE /* DetailContentVC.swift */,
-				33CAF85125A249DC0050DE29 /* CherishMainNC.swift */,
-				3346B34625AB77E300EF5E14 /* AlarmVC.swift */,
+				5459760B26E89017008336A9 /* Cells */,
+				545975FB26E88E78008336A9 /* Controllers */,
+				545975FC26E88E7D008336A9 /* Storyboards */,
 			);
 			path = CherishMain;
 			sourceTree = "<group>";
@@ -804,13 +699,9 @@
 		33E874F425A049AE001F84FE /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				33E874FA25A04A81001F84FE /* MyPageVC.swift */,
-				332CC7B525A7027D00D0047D /* MypagePlantVC.swift */,
-				332CC7B825A7028A00D0047D /* MypageContactVC.swift */,
-				92824DA125B19A7F003D7678 /* MypageNC.swift */,
-				92911FCE25DEAC6A00B4A95F /* MyPageSearchVC.swift */,
-				9291201B25E3970A00B4A95F /* MyPageSearchPlantVC.swift */,
-				9291201E25E3971C00B4A95F /* MyPageSearchContactVC.swift */,
+				5459760526E88FB6008336A9 /* Cells */,
+				545975FF26E88E96008336A9 /* Controllers */,
+				5459760026E88E9E008336A9 /* Storyboards */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -818,40 +709,19 @@
 		33E874F525A049B7001F84FE /* ShowMore */ = {
 			isa = PBXGroup;
 			children = (
-				338CB6C525E527840089E182 /* NewShowMoreVC.swift */,
-				336C6D9225E63EAD003865C3 /* ShowMoreNC.swift */,
-				336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */,
-				548F26B726138A310055C5E1 /* AboutCherishVC.swift */,
-				333B138926306C8C00DAEB6E /* OpenSourcesVC.swift */,
-				3356C2A52631BBAB00B1F416 /* OpenSourceContentVC.swift */,
+				5459760426E88F87008336A9 /* Cells */,
+				5459760226E88EBA008336A9 /* Storyboards */,
+				5459760126E88EA7008336A9 /* Controllers */,
 			);
 			path = ShowMore;
-			sourceTree = "<group>";
-		};
-		33E8753325A07A63001F84FE /* CherishMain */ = {
-			isa = PBXGroup;
-			children = (
-				33E8753425A07A7F001F84FE /* CherishPeopleCVC.swift */,
-				33E8754125A08CFE001F84FE /* CherishSelectPersonCVC.swift */,
-			);
-			path = CherishMain;
 			sourceTree = "<group>";
 		};
 		33EDFBB725A1B549006367A7 /* PlantDetail */ = {
 			isa = PBXGroup;
 			children = (
-				33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */,
-				33D0026525A3036800E97811 /* PlantDetailPopUpExplainVC.swift */,
-				92911FBF25DCF37800B4A95F /* PlantEditVC.swift */,
-			);
-			path = PlantDetail;
-			sourceTree = "<group>";
-		};
-		33FDB79E25A2900C00F1EC6F /* PlantDetail */ = {
-			isa = PBXGroup;
-			children = (
-				33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */,
-				33D0026825A3093500E97811 /* PlantExplainCVC.swift */,
+				5459760926E88FF9008336A9 /* Cells */,
+				545975FD26E88E88008336A9 /* Controllers */,
+				545975FE26E88E8E008336A9 /* Storyboards */,
 			);
 			path = PlantDetail;
 			sourceTree = "<group>";
@@ -860,8 +730,6 @@
 			isa = PBXGroup;
 			children = (
 				54425C3425AF51CB00E62BAB /* CalendarSeeData.swift */,
-				54425C3C25AF58BF00E62BAB /* FetchCalendar.swift */,
-				54425C3F25AF5EBA00E62BAB /* CalendarKeyword.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -874,32 +742,447 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
-		5442677E266E671200A2A65F /* Model */ = {
+		545975E526E88D47008336A9 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				33851C81259A5542005BCFFD /* Info.plist */,
+				33201B2125AF3F23001A94E4 /* GoogleService-Info.plist */,
+				33851C73259A5541005BCFFD /* AppDelegate.swift */,
+				33851C75259A5541005BCFFD /* SceneDelegate.swift */,
+				33851C7C259A5542005BCFFD /* Assets.xcassets */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		545975E626E88D53008336A9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				33851C90259A5B1F005BCFFD /* APIModels */,
+				33851C8B259A5AEE005BCFFD /* APIServices */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		545975E726E88D5D008336A9 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				923F8CDD25A1C2A900EA04E5 /* AddUser */,
+				5488922325A594B9003839FC /* Calendar */,
+				33E874F325A049A7001F84FE /* CherishMain */,
+				5491594825DCD335008104FC /* FindPassword */,
+				337A5CB725A8544D00578130 /* Login */,
+				33E874F425A049AE001F84FE /* MyPage */,
+				548F268A2612F53B0055C5E1 /* Onboarding */,
+				33EDFBB725A1B549006367A7 /* PlantDetail */,
+				33E874F525A049B7001F84FE /* ShowMore */,
+				54D223F625DA294E003A1496 /* SignUp */,
+				33D094D825F575BC0016BD4E /* Splash */,
+				33E874EA25A04860001F84FE /* TabBar */,
+				548DF16525A1B3E60081FCD1 /* Watering */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		545975E826E88DA9008336A9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				548F2693261310790055C5E1 /* OnboardingCVCell.swift */,
+				548F2694261310790055C5E1 /* OnboardingCVCell.xib */,
+				548F26A5261336640055C5E1 /* OnboardingLastCVCell.swift */,
+				548F26A6261336640055C5E1 /* OnboardingLastCVCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		545975E926E88DAF008336A9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				548F26872612F52F0055C5E1 /* Onboarding.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		545975EA26E88DB5008336A9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				548F26AA261339E30055C5E1 /* OnboardingNC.swift */,
+				548F268B2612F55A0055C5E1 /* OnboardingVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		545975ED26E88DE7008336A9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				33D094D925F575DF0016BD4E /* MainSplashVC.swift */,
+				33EAA2F225B180C000E75F95 /* SplashVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		545975EE26E88DFB008336A9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5491594925DCD360008104FC /* FPEmailVC.swift */,
+				5491595025DCD65A008104FC /* FPNewPasswordVC.swift */,
+				5491594D25DCD647008104FC /* FPPhoneVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		545975EF26E88E02008336A9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5491594525DCD32B008104FC /* FindPassword.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		545975F026E88E0D008336A9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */,
+				5491593325DBB1C0008104FC /* SignUpGenderVC.swift */,
+				5491593925DBF78B008104FC /* SignUpNicknameVC.swift */,
+				54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		545975F126E88E16008336A9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				54D223F325DA2912003A1496 /* SignUp.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		545975F226E88E25008336A9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				335B3A2F25EF805400DD7A6F /* LoginNC.swift */,
+				337A5CB825A8545E00578130 /* LoginVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		545975F326E88E2F008336A9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5488922425A594CF003839FC /* CalendarVC.swift */,
+				5478343925A82B060021C32B /* ReviewEditVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		545975F426E88E3A008336A9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				548DF17425A1BB7F0081FCD1 /* PopUpContactVC.swift */,
+				548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */,
+				5490352C25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift */,
+				548DF16B25A1B4390081FCD1 /* PopUpWateringVC.swift */,
+				548DF17D25A1EE730081FCD1 /* ReviewVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		545975F526E88E41008336A9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5488922025A59486003839FC /* Calendar.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		545975F626E88E47008336A9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				548DF17125A1BB6D0081FCD1 /* PopUpContact.storyboard */,
+				548DF19525A2E1620081FCD1 /* PopUpLater.storyboard */,
+				548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */,
+				548DF17A25A1EE610081FCD1 /* Review.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		545975F726E88E54008336A9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				339DC565267DEC3300BC5665 /* AddUserNC.swift */,
+				339DC567267DF19300BC5665 /* AddUserSplashVC.swift */,
+				923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */,
+				9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */,
+				92B0FA2B25B0F6A800AA411A /* NoPlantVC.swift */,
+				9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */,
+				92DCC3DE25A8504F00160523 /* SelectFriendSearchBar.swift */,
+				923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		545975F826E88E60008336A9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		545975F926E88E6C008336A9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				33E874EB25A04892001F84FE /* CherishTabBarController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		545975FA26E88E70008336A9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				33E874E725A04832001F84FE /* TabBar.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		545975FB26E88E78008336A9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3346B34625AB77E300EF5E14 /* AlarmVC.swift */,
+				33E8751F25A05CE5001F84FE /* BackdropVC.swift */,
+				33CAF85125A249DC0050DE29 /* CherishMainNC.swift */,
+				33E874F625A04A56001F84FE /* CherishMainVC.swift */,
+				33E8752225A05CFC001F84FE /* DetailContentVC.swift */,
+				33E8752525A05D34001F84FE /* MainContentVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		545975FC26E88E7D008336A9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				33E874DF25A04746001F84FE /* CherishMain.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		545975FD26E88E88008336A9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				33D0026525A3036800E97811 /* PlantDetailPopUpExplainVC.swift */,
+				33EDFBB925A1B96D006367A7 /* PlantDetailVC.swift */,
+				92911FBF25DCF37800B4A95F /* PlantEditVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		545975FE26E88E8E008336A9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				33EDFBB425A1B533006367A7 /* PlantDetail.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		545975FF26E88E96008336A9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				332CC7B825A7028A00D0047D /* MypageContactVC.swift */,
+				92824DA125B19A7F003D7678 /* MypageNC.swift */,
+				332CC7B525A7027D00D0047D /* MypagePlantVC.swift */,
+				9291201E25E3971C00B4A95F /* MyPageSearchContactVC.swift */,
+				9291201B25E3970A00B4A95F /* MyPageSearchPlantVC.swift */,
+				92911FCE25DEAC6A00B4A95F /* MyPageSearchVC.swift */,
+				33E874FA25A04A81001F84FE /* MyPageVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5459760026E88E9E008336A9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				33E874DC25A04569001F84FE /* MyPage.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5459760126E88EA7008336A9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				548F26B726138A310055C5E1 /* AboutCherishVC.swift */,
+				338CB6C525E527840089E182 /* NewShowMoreVC.swift */,
+				336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */,
+				3356C2A52631BBAB00B1F416 /* OpenSourceContentVC.swift */,
+				333B138926306C8C00DAEB6E /* OpenSourcesVC.swift */,
+				336C6D9225E63EAD003865C3 /* ShowMoreNC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5459760226E88EBA008336A9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				33E874E325A047DE001F84FE /* ShowMore.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5459760326E88F19008336A9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				337A5CB425A8543600578130 /* Login.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5459760426E88F87008336A9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				338CB6C825E5281C0089E182 /* NewShowMore */,
+				333B138C26306ED400DAEB6E /* OpenSourceVC */,
+				5478345025AB7D8E0021C32B /* ShowMoreNotImageTVC.swift */,
+				5478344A25AB65C20021C32B /* ShowMoreTVC.swift */,
+				5478344B25AB65C20021C32B /* ShowMoreTVC.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5459760526E88FB6008336A9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				332CC7B225A701A400D0047D /* MypageContactTVC.swift */,
+				332CC7AF25A7018400D0047D /* MypagePlantTVC.swift */,
+				92824D9325B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift */,
+				9291202125E3ACCE00B4A95F /* MySearchPlantCell.swift */,
+				92824D9A25B16E94003D7678 /* SearchPlantCell.swift */,
+				92824D9B25B16E94003D7678 /* SearchPlantCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5459760726E88FD2008336A9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5488923425A5E962003839FC /* CalendarKeywordCVCell.swift */,
+				5488923525A5E962003839FC /* CalendarKeywordCVCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5459760826E88FE3008336A9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				92DCC3E825A85D7100160523 /* SelectFriendCell.swift */,
+				92DCC3E925A85D7100160523 /* SelectFriendCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5459760926E88FF9008336A9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				33FDB79F25A2904000F1EC6F /* KeywordCVCell.swift */,
+				33D0026825A3093500E97811 /* PlantExplainCVC.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5459760A26E89006008336A9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */,
+				548DF18B25A227A00081FCD1 /* KeywordCVC.swift */,
+				54425C2825AE32E100E62BAB /* KeywordReviewEditCVC.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5459760B26E89017008336A9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				33E8753425A07A7F001F84FE /* CherishPeopleCVC.swift */,
+				33E8754125A08CFE001F84FE /* CherishSelectPersonCVC.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5459760C26E890FD008336A9 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				5459760D26E8935E008336A9 /* AppModels */,
+				33851C8C259A5AF6005BCFFD /* Font */,
+				33CAF85825A267500050DE29 /* View */,
+				33851C91259A5B23005BCFFD /* Extension */,
+				33851C8E259A5B14005BCFFD /* Class */,
+				3317777D25B0568600CC1030 /* Gif */,
+				33851C7E259A5542005BCFFD /* LaunchScreen.storyboard */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		5459760D26E8935E008336A9 /* AppModels */ = {
+			isa = PBXGroup;
+			children = (
+				5459760F26E893BF008336A9 /* Calendar */,
+				5459761026E893DC008336A9 /* Main */,
+				5459761126E893F8008336A9 /* MyPage */,
+				5459761226E89434008336A9 /* PlantDetail */,
+				5459760E26E893B7008336A9 /* SignUp */,
+			);
+			path = AppModels;
+			sourceTree = "<group>";
+		};
+		5459760E26E893B7008336A9 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
 				5442677F266E672000A2A65F /* SignUpInfo.swift */,
 			);
-			path = Model;
+			path = SignUp;
 			sourceTree = "<group>";
 		};
-		5478344925AB65250021C32B /* ShowMore */ = {
+		5459760F26E893BF008336A9 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				333B138C26306ED400DAEB6E /* OpenSourceVC */,
-				338CB6C825E5281C0089E182 /* NewShowMore */,
-				5478344A25AB65C20021C32B /* ShowMoreTVC.swift */,
-				5478344B25AB65C20021C32B /* ShowMoreTVC.xib */,
-				5478345025AB7D8E0021C32B /* ShowMoreNotImageTVC.swift */,
+				54425C3C25AF58BF00E62BAB /* FetchCalendar.swift */,
+				54425C3F25AF5EBA00E62BAB /* CalendarKeyword.swift */,
 			);
-			path = ShowMore;
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		5459761026E893DC008336A9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				33201B1425AE419F001A94E4 /* MainSelectedData.swift */,
+				335D8F3F25F4CDD600FE4C7F /* MainPlantConditionData.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		5459761126E893F8008336A9 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				332CC7BC25A707BD00D0047D /* MypagePlantData.swift */,
+				332CC7C025A72A4800D0047D /* MypageContactData.swift */,
+				9291202B25E67C7A00B4A95F /* MyPlantData.swift */,
+				333DC25325FA7C8D00120B1E /* SearchMypageFriendData.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		5459761226E89434008336A9 /* PlantDetail */ = {
+			isa = PBXGroup;
+			children = (
+				33D0026E25A30AB700E97811 /* PlantDetailExplainData.swift */,
+			);
+			path = PlantDetail;
 			sourceTree = "<group>";
 		};
 		5478346525AC6A690021C32B /* Watering */ = {
 			isa = PBXGroup;
 			children = (
 				5478346A25AC6DF50021C32B /* LaterCheckData.swift */,
-				5478347125AC75950021C32B /* WateringDayData.swift */,
 				54425C2025ADBD9600E62BAB /* RecentKeywordData.swift */,
+				5478347125AC75950021C32B /* WateringDayData.swift */,
 			);
 			path = Watering;
 			sourceTree = "<group>";
@@ -908,9 +1191,9 @@
 			isa = PBXGroup;
 			children = (
 				5478346E25AC72F90021C32B /* LaterService.swift */,
+				54425C2325ADBE0700E62BAB /* RecentKeywordService.swift */,
 				5478347425AC77600021C32B /* WateringDayService.swift */,
 				546A246F25ACD32800F869E2 /* WateringReviewService.swift */,
-				54425C2325ADBE0700E62BAB /* RecentKeywordService.swift */,
 			);
 			path = Watering;
 			sourceTree = "<group>";
@@ -918,17 +1201,9 @@
 		5488922325A594B9003839FC /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				5488922425A594CF003839FC /* CalendarVC.swift */,
-				5478343925A82B060021C32B /* ReviewEditVC.swift */,
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
-		5488923125A5E748003839FC /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				5488923425A5E962003839FC /* CalendarKeywordCVCell.swift */,
-				5488923525A5E962003839FC /* CalendarKeywordCVCell.xib */,
+				5459760726E88FD2008336A9 /* Cells */,
+				545975F326E88E2F008336A9 /* Controllers */,
+				545975F526E88E41008336A9 /* Storyboards */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -936,21 +1211,9 @@
 		548DF16525A1B3E60081FCD1 /* Watering */ = {
 			isa = PBXGroup;
 			children = (
-				548DF16B25A1B4390081FCD1 /* PopUpWateringVC.swift */,
-				548DF17425A1BB7F0081FCD1 /* PopUpContactVC.swift */,
-				548DF17D25A1EE730081FCD1 /* ReviewVC.swift */,
-				548DF19825A2E1780081FCD1 /* PopUpLaterVC.swift */,
-				5490352C25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift */,
-			);
-			path = Watering;
-			sourceTree = "<group>";
-		};
-		548DF17725A1C1480081FCD1 /* Watering */ = {
-			isa = PBXGroup;
-			children = (
-				548DF18B25A227A00081FCD1 /* KeywordCVC.swift */,
-				548DF1A725A395D20081FCD1 /* KeywordCanDeleteCVC.swift */,
-				54425C2825AE32E100E62BAB /* KeywordReviewEditCVC.swift */,
+				5459760A26E89006008336A9 /* Cells */,
+				545975F626E88E47008336A9 /* Storyboards */,
+				545975F426E88E3A008336A9 /* Controllers */,
 			);
 			path = Watering;
 			sourceTree = "<group>";
@@ -958,19 +1221,9 @@
 		548F268A2612F53B0055C5E1 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				548F26AA261339E30055C5E1 /* OnboardingNC.swift */,
-				548F268B2612F55A0055C5E1 /* OnboardingVC.swift */,
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		548F268E2613104E0055C5E1 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				548F2693261310790055C5E1 /* OnboardingCVCell.swift */,
-				548F2694261310790055C5E1 /* OnboardingCVCell.xib */,
-				548F26A5261336640055C5E1 /* OnboardingLastCVCell.swift */,
-				548F26A6261336640055C5E1 /* OnboardingLastCVCell.xib */,
+				545975EA26E88DB5008336A9 /* Controllers */,
+				545975E926E88DAF008336A9 /* Storyboards */,
+				545975E826E88DA9008336A9 /* Cells */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -986,9 +1239,8 @@
 		5491594825DCD335008104FC /* FindPassword */ = {
 			isa = PBXGroup;
 			children = (
-				5491594925DCD360008104FC /* FPEmailVC.swift */,
-				5491594D25DCD647008104FC /* FPPhoneVC.swift */,
-				5491595025DCD65A008104FC /* FPNewPasswordVC.swift */,
+				545975EE26E88DFB008336A9 /* Controllers */,
+				545975EF26E88E02008336A9 /* Storyboards */,
 			);
 			path = FindPassword;
 			sourceTree = "<group>";
@@ -996,9 +1248,9 @@
 		5491595625DE67EC008104FC /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				5491593C25DC13A5008104FC /* SignUpService.swift */,
 				5491595825DE73EB008104FC /* CheckEmailService.swift */,
 				5491596225E15059008104FC /* MessageAuthService.swift */,
+				5491593C25DC13A5008104FC /* SignUpService.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1006,9 +1258,9 @@
 		5491595D25DE792F008104FC /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				5491593F25DC1641008104FC /* SignUpData.swift */,
 				5491595E25DE794B008104FC /* CheckEmailData.swift */,
 				5491596525E15102008104FC /* MessageAuthData.swift */,
+				5491593F25DC1641008104FC /* SignUpData.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1016,8 +1268,8 @@
 		54AE98AD25F3739C00993EA3 /* FindPassword */ = {
 			isa = PBXGroup;
 			children = (
-				54AE98AE25F373B400993EA3 /* UpdatePasswordService.swift */,
 				54AE98BA25F3B16500993EA3 /* FindPasswordService.swift */,
+				54AE98AE25F373B400993EA3 /* UpdatePasswordService.swift */,
 			);
 			path = FindPassword;
 			sourceTree = "<group>";
@@ -1033,24 +1285,10 @@
 		54D223F625DA294E003A1496 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				5442677E266E671200A2A65F /* Model */,
-				54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */,
-				54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */,
-				5491593925DBF78B008104FC /* SignUpNicknameVC.swift */,
-				5491593325DBB1C0008104FC /* SignUpGenderVC.swift */,
+				545975F126E88E16008336A9 /* Storyboards */,
+				545975F026E88E0D008336A9 /* Controllers */,
 			);
 			path = SignUp;
-			sourceTree = "<group>";
-		};
-		54E1BA26264AFC4F0076C306 /* Watering */ = {
-			isa = PBXGroup;
-			children = (
-				548DF15625A1A0470081FCD1 /* PopUpWatering.storyboard */,
-				548DF17125A1BB6D0081FCD1 /* PopUpContact.storyboard */,
-				548DF17A25A1EE610081FCD1 /* Review.storyboard */,
-				548DF19525A2E1620081FCD1 /* PopUpLater.storyboard */,
-			);
-			path = Watering;
 			sourceTree = "<group>";
 		};
 		9214410025ACE5B000853E53 /* AddUser */ = {
@@ -1065,14 +1303,9 @@
 		923F8CDD25A1C2A900EA04E5 /* AddUser */ = {
 			isa = PBXGroup;
 			children = (
-				923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */,
-				923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */,
-				92DCC3DE25A8504F00160523 /* SelectFriendSearchBar.swift */,
-				9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */,
-				9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */,
-				92B0FA2B25B0F6A800AA411A /* NoPlantVC.swift */,
-				339DC565267DEC3300BC5665 /* AddUserNC.swift */,
-				339DC567267DF19300BC5665 /* AddUserSplashVC.swift */,
+				5459760826E88FE3008336A9 /* Cells */,
+				545975F726E88E54008336A9 /* Controllers */,
+				545975F826E88E60008336A9 /* Storyboards */,
 			);
 			path = AddUser;
 			sourceTree = "<group>";
@@ -1081,8 +1314,8 @@
 			isa = PBXGroup;
 			children = (
 				92911FD925DFA28B00B4A95F /* DeletePlantService.swift */,
-				92911FDE25DFC57900B4A95F /* GetPlantDataService.swift */,
 				92911FE425DFDE7A00B4A95F /* EditPlantService.swift */,
+				92911FDE25DFC57900B4A95F /* GetPlantDataService.swift */,
 			);
 			path = PlantCard;
 			sourceTree = "<group>";
@@ -1095,21 +1328,12 @@
 			path = Contact;
 			sourceTree = "<group>";
 		};
-		92B2305F25A30DBD0024B8A8 /* AddUser */ = {
-			isa = PBXGroup;
-			children = (
-				92DCC3E825A85D7100160523 /* SelectFriendCell.swift */,
-				92DCC3E925A85D7100160523 /* SelectFriendCell.xib */,
-			);
-			path = AddUser;
-			sourceTree = "<group>";
-		};
 		92B2306325A30F270024B8A8 /* AddUser */ = {
 			isa = PBXGroup;
 			children = (
-				92B2306425A30F390024B8A8 /* Friend.swift */,
 				92B0F9D825AEB15400AA411A /* AddUserData.swift */,
 				927DE44125F5F6C500B73129 /* CheckPhoneData.swift */,
+				92B2306425A30F390024B8A8 /* Friend.swift */,
 			);
 			path = AddUser;
 			sourceTree = "<group>";
@@ -1502,7 +1726,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1557,7 +1781,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1577,8 +1801,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
-				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				INFOPLIST_FILE = "Cherish-iOS/Supports/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1601,8 +1825,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
-				INFOPLIST_FILE = "Cherish-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				INFOPLIST_FILE = "Cherish-iOS/Supports/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

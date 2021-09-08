@@ -19,6 +19,7 @@
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
+
 <table>
   <tr>
     <td align="center"><a href="https://github.com/hwangji-dev"><img src="https://user-images.githubusercontent.com/63224278/103209152-b436e680-4945-11eb-91e4-bd8622e442e2.png" width="100px;" alt=""/><br /><sub><b>hwangji-dev</b></sub></a><br /><a href="https://github.com/TeamCherish/Cherish-iOS/commits?author=hwangji-dev" title="Code">📱</a></td>
@@ -37,23 +38,16 @@
 
 * Using Library  
 
-  | 라이브러리(Library) | 목적(Purpose) | 버전(Version) |
-  |:---:|:----------:|:----:|
-  | Alamofire   | 서버 통신 | 5.4.1 |
-  | Kingfisher  | 이미지 처리 | 5.15.8 |
-  | FSCalendar  | 캘린더 뷰 만들기 | 2.8.2 |
-  | OverlayContainer  | BottomSheet애니메이션  | - |
-  | Firebase/Analytics | 앱 데이터 분석 | - |
-  | Firebase/Messaging | Push 알림 | - |
+  ```ruby
+  # Pods for Cherish-iOS
+  pod 'Alamofire','~> 5.4.1'  # 서버 통신
+  pod 'Kingfisher'            # 이미지 캐싱
+  pod 'FSCalendar'            # 캘린더 구현
+  pod 'OverlayContainer'      # BottomSheet 애니메이션
+  pod 'Firebase/Analytics'    # 앱 데이터 분석
+  pod 'Firebase/Messaging'    # 푸시 알림
+  ```
 
-* Using framework
-  | 프레임워크(Framework) | 목적(Purpose) |
-  |:---:|:----------:|
-  | UIKit | - |
-  | CallKit | 연락하기-전화 |
-  | MessageUI | 연락하기-메시지 |
-  | Contacts | 연락처 가져오기 |
-  
 <br>
 
  ## Coding Convention 
@@ -64,66 +58,35 @@
 
 ---
 ```markdown
+🗂 Global
+    - AppModels 🗂
+    - Font 🗂
+    - View 🗂
+    - Extension 🗂
+    - Class 🗂
+    - Gif 🗂
 
-🗂 Resources
-
-    - AppDelegate
-
-    - SceneDelegate
-
-    - Assets
-    
+🗂 Network
+    - APIModels 🗂
     - APIServices 🗂
 
-    - Storyboards 🗂
+🗂 Screens
+    - AddUser 🗂
+        - Cells 🗂
+        - Controller 🗂
+        - Storyboards 🗂
+    - ...
 
-    - Font 🗂
-
-🗂 Sources
-
-    - VC 🗂
-
-        - CherishMain 🗂
-
-        - Watering 🗂
-
-        - AddUser 🗂
-
-        - ...
-
-    - Class 🗂
-
-    - Cell 🗂
-
-    - Model 🗂
-
-    - Extension 🗂
-
-info.plist
-
+🗂 Supports
+    - info.plist
+    - GoogleService-Info.plist
+    - AppDelegate.swift
+    - SceneDelegate.swift
+    - Assets.xcassets
 ```
 <br>
  </div>
  </details>
- 
- 
- <details>
- <summary> ⚙️ 폴더링 규칙 </summary>
- <div markdown="1"> 
- 
- 
---- 
-
-- 폴더링 한 후 Sources 폴더에 있는 파일들은 각 파일 하위에 자신 스토리보드 이름에 해당하는 폴더를 만들어 관리합니다. 
-  <img width="265" alt="Sources" src="https://user-images.githubusercontent.com/63224278/103536203-6b4ad900-4ed5-11eb-9614-b4731aa3773a.png">
-
-- 파일 네이밍 시, 접두에 스토리보드이름을 붙여서 네이밍합니다.
-    -  (ex. 스토리보드 이름이 Main, Watering이라고 가정했을 때 cell파일 생성 시 MainBlahblahCVC, WateringBlahblahTVC와 같이 네이밍합니다.)
-
- </div>
- </details>
-
-
 
 <details>
 <summary> 🖋 네이밍 </summary>
@@ -183,15 +146,15 @@ info.plist
 
 </div>
 </details>
+
  
- 
- 
+
  <details>
  <summary> 🏷 주석 </summary>
  <div markdown="1">       
  
- 
- ---
+
+---
 
  - `// MARK:` 를 사용해서 연관된 코드를 구분짓습니다.
  - `///` 를 사용해서 문서화에 사용되는 주석을 남깁니다. (ex. /// 사용자 프로필을 그려주는 뷰)
@@ -216,7 +179,7 @@ info.plist
 - 중괄호는 아래와 같은 형식으로 사용합니다.
   ```swift
   if (condition){
-
+  
     Statements
     /*
     ...
@@ -224,9 +187,9 @@ info.plist
     
   }
   ```
-</div>
-</details>
- 
+  </div>
+  </details>
+
 
 👉🏻 [Coding Convention 한 눈에 보기](https://github.com/TeamCherish/Cherish-iOS/wiki/CodingConvention)  
 👉🏻 다음 [Style Guide](https://github.com/StyleShare/swift-style-guide)를 참고헀습니다.
@@ -258,7 +221,7 @@ info.plist
   - test    : 테스트 (테스트 코드 추가, 수정, 삭제: 비즈니스 로직에 변경 없음)
   - chore   : 기타 변경사항 (빌드 스크립트 수정 등)
   ```
-<br>
+  <br>
 
 **커밋 메세지 형식**
 - `[커밋메세지] 설명` 형식으로 커밋 메시지를 작성합니다.
@@ -273,9 +236,9 @@ info.plist
     ```
     연락처 동기화 기능 추가
     ```
-</div>
-</details>
- 
+  </div>
+  </details>
+
 <br>
 
 ## Github mangement
@@ -375,14 +338,14 @@ git push or git push origin main
 ```
 </div>
 </details>
-  
+
 <br>
 
  ## Service workflow
  <img width=100% src=https://user-images.githubusercontent.com/42789819/115150061-bca46000-a0a1-11eb-8354-990412c70381.jpg>
 
 <br>
- 
+
 ## Task
 > [Cherish iOS 개발 일지📔 및 칸반보드👨‍🏫 ](https://www.notion.so/iOS-6d2c0ea99df5403eaa7154b42a1cae4c)
 
@@ -403,7 +366,7 @@ git push or git push origin main
 | View Connection | <img width=10px src=https://user-images.githubusercontent.com/42789819/115147514-42221300-a096-11eb-9526-a68b8094f79c.png> | 황지은 |
 
 <br>
- 
+
  ## App Description
  ### `Splash->Onboarding->로그인`
  <img width="1306" alt="image" src="https://user-images.githubusercontent.com/42789819/115146027-d2108e80-a08f-11eb-9646-a3818cf51cb8.png">
@@ -414,7 +377,7 @@ git push or git push origin main
 
 <br>
 
- 
+
  ### `회원가입`
  <img width="1106" alt="image" src="https://user-images.githubusercontent.com/42789819/115150093-d9d92e80-a0a1-11eb-8e6f-8e20c5d9bd75.png">
 
@@ -477,11 +440,10 @@ git push or git push origin main
     * 리뷰에서는 최대 5글자, 최대 3개의 키워드를 등록할 수 있고 100자 제한의 메모를 작성할 수 있습니다.
     * 연락, 키워드 작성, 리뷰 작성 여부에 따라 각각 애정도 8%가 상승합니다.
     
-    
 * 물주기를 성공하면 메인뷰의 식물은 물주기 모션에 진입합니다.
-    
+  
 * 미루기는 D-day가 되었을 때 가능하며 한번에 1~7일을 미룰 수 있습니다.
-    
+  
 * 물주기를 하지 않거나 미루지 않은 채로 D-day가 지나가면 식물은 시둘게 됩니다.
   * 이때는 미루기를 할 수 없습니다. 
 
@@ -560,7 +522,7 @@ git push or git push origin main
 * 물주기 푸쉬 알림을 On, Off할 수 있습니다.
 
 * 로그아웃 및 회원 탈퇴를 할 수 있습니다.
- 
+
 
 <br>
 
