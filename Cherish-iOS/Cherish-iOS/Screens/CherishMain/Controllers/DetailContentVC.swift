@@ -234,12 +234,18 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
     @objc func whenPushClickedViewUpdate(_ notification: Notification) {
         
         let idData:Int = Int(notification.object as! String)!
-        print("푸시",idData)
+        print("푸시", idData)
         
-        for i in 0...cherishPeopleData.count - 1 {
-            if cherishPeopleData[i].id == idData {
-                pushCherishId = i + 1
-                pushCherishPhoneNumber = cherishPeopleData[i].phone
+        if cherishPeopleData.count == 0 {
+            setCherishPeopleData()
+        }
+        
+        if cherishPeopleData.count >= 1 {
+            for i in 0...cherishPeopleData.count - 1 {
+                if cherishPeopleData[i].id == idData {
+                    pushCherishId = i + 1
+                    pushCherishPhoneNumber = cherishPeopleData[i].phone
+                }
             }
         }
         
@@ -268,11 +274,18 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
         let idData: Int = notification.object as! Int
         print("마이페이지에서물주기",idData)
         
-        for i in 0...cherishPeopleData.count - 1 {
-            if cherishPeopleData[i].id == idData {
-                pushCherishId = i + 1
-                pushCherishPhoneNumber = cherishPeopleData[i].phone
-                mypageSelectedNickname = cherishPeopleData[i].nickname
+        if cherishPeopleData.count == 0 {
+            setCherishPeopleData()
+        }
+        
+        if cherishPeopleData.count >= 1 {
+            
+            for i in 0...cherishPeopleData.count - 1 {
+                if cherishPeopleData[i].id == idData {
+                    pushCherishId = i + 1
+                    pushCherishPhoneNumber = cherishPeopleData[i].phone
+                    mypageSelectedNickname = cherishPeopleData[i].nickname
+                }
             }
         }
         
