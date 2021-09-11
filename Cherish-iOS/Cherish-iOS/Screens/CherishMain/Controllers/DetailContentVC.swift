@@ -392,9 +392,11 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     }
                     
                     /// 이미지 url 처리
-                    let url = URL(string: cherishPeopleData[0].thumbnailImageURL)
-                    let imageData = try? Data(contentsOf: url!)
-                    firstCell.plantImageView.image = UIImage(data: imageData!)
+                    if let url = URL(string: cherishPeopleData[0].thumbnailImageURL) {
+                        if let imageData = try? Data(contentsOf: url) {
+                            firstCell.plantImageView.image = UIImage(data: imageData)
+                        }
+                    }
                 }
                 
                 // 셀이 한번 이상 눌린 상태
@@ -430,9 +432,11 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                     }
                     
                     /// 이미지 url 처리
-                    let url = URL(string: UserDefaults.standard.string(forKey:"selectedPlantNameData")!)
-                    let imageData = try? Data(contentsOf: url!)
-                    firstCell.plantImageView.image = UIImage(data: imageData!)
+                    if let url = URL(string: UserDefaults.standard.string(forKey:"selectedPlantNameData") ?? "https://cherish-bucket.s3.ap-northeast-2.amazonaws.com/thumbnail/circle_blue%403x.png") {
+                        if let imageData = try? Data(contentsOf: url) {
+                            firstCell.plantImageView.image = UIImage(data: imageData)
+                        }
+                    }
                 }
             }
             return firstCell
@@ -462,14 +466,16 @@ extension DetailContentVC:UICollectionViewDelegate, UICollectionViewDataSource, 
                 /// 이미지 url 처리
                 DispatchQueue.global(qos: .default).async(execute: { [self]() -> Void in
                     
-                    let url = URL(string: cherishPeopleData[indexPath.row - 1].thumbnailImageURL)
-                    let imageData = try? Data(contentsOf: url!)
-                    DispatchQueue.main.async(execute: {() -> Void in
-                        
-                        if(cell.tag == indexPath.row) {
-                            cell.cherishPlantImageView.image = UIImage(data: imageData!)
+                    if let url = URL(string: cherishPeopleData[indexPath.row - 1].thumbnailImageURL) {
+                        if let imageData = try? Data(contentsOf: url) {
+                            DispatchQueue.main.async(execute: {() -> Void in
+                                
+                                if(cell.tag == indexPath.row) {
+                                    cell.cherishPlantImageView.image = UIImage(data: imageData)
+                                }
+                            })
                         }
-                    })
+                    }
                 })
                 
                 /// 선택된 친구셀 블러처리
