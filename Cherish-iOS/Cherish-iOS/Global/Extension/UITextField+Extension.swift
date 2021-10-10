@@ -8,6 +8,16 @@
 import UIKit
 
 extension UITextField{
+    /// Texfield를 진동온 것처럼 흔들리게 합니다.
+    func shake() {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        animation.duration = 0.3
+        animation.values = [-5.0, 5.0, -5.0, 5.0 ,-2.0, 2.0, 0.0 ]
+        layer.add(animation, forKey: "shake")
+    }
+    
+    // FIXME: CherishTextField 사용으로 통일하면 어차피 내부 inset 적용할 수 있다 코드 통일되면 밑에 다 지울 것
     func addLeftPadding() {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: self.frame.height))
         self.leftView = paddingView
