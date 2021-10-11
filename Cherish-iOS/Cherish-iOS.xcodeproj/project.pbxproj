@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -148,8 +148,6 @@
 		548F26B826138A310055C5E1 /* AboutCherishVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548F26B726138A310055C5E1 /* AboutCherishVC.swift */; };
 		5490352D25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5490352C25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift */; };
 		5491593125DBADC6008104FC /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593025DBADC6008104FC /* CustomPageControl.swift */; };
-		5491593425DBB1C0008104FC /* SignUpGenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593325DBB1C0008104FC /* SignUpGenderVC.swift */; };
-		5491593A25DBF78B008104FC /* SignUpNicknameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593925DBF78B008104FC /* SignUpNicknameVC.swift */; };
 		5491593D25DC13A6008104FC /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593C25DC13A5008104FC /* SignUpService.swift */; };
 		5491594025DC1641008104FC /* SignUpData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491593F25DC1641008104FC /* SignUpData.swift */; };
 		5491594625DCD32B008104FC /* FindPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5491594525DCD32B008104FC /* FindPassword.storyboard */; };
@@ -165,9 +163,21 @@
 		54AE98B825F3B0F900993EA3 /* FindPasswordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AE98B725F3B0F900993EA3 /* FindPasswordData.swift */; };
 		54AE98BB25F3B16500993EA3 /* FindPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AE98BA25F3B16500993EA3 /* FindPasswordService.swift */; };
 		54AE98BE25F3C02900993EA3 /* WithdrawalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AE98BD25F3C02900993EA3 /* WithdrawalService.swift */; };
-		54D223F425DA2912003A1496 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54D223F325DA2912003A1496 /* SignUp.storyboard */; };
-		54D223FC25DA30EA003A1496 /* SignUpAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */; };
-		54D2241325DA3607003A1496 /* SignUpPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */; };
+		54D8D627271185C2002BD09C /* CherishTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D626271185C2002BD09C /* CherishTextField.swift */; };
+		54D8D62A271186BB002BD09C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 54D8D629271186BB002BD09C /* SnapKit */; };
+		54D8D62D271186E7002BD09C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 54D8D62C271186E7002BD09C /* Then */; };
+		54D8D62F27118C7B002BD09C /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D62E27118C7B002BD09C /* UIFont+.swift */; };
+		54D8D63327118E75002BD09C /* LetterSpacing+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D63227118E75002BD09C /* LetterSpacing+.swift */; };
+		54D8D635271190C4002BD09C /* SignUpAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D634271190C4002BD09C /* SignUpAccountVC.swift */; };
+		54D8D63A2711BAE2002BD09C /* BackNaviView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D6392711BAE2002BD09C /* BackNaviView.swift */; };
+		54D8D63C2711C095002BD09C /* MakeVibrate+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D63B2711C095002BD09C /* MakeVibrate+.swift */; };
+		54D8D63E2711C3F2002BD09C /* Adjusted+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D63D2711C3F2002BD09C /* Adjusted+.swift */; };
+		54D8D6402711D7F6002BD09C /* SignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D63F2711D7F6002BD09C /* SignUpTextField.swift */; };
+		54D8D6422711DC60002BD09C /* CherishBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D6412711DC60002BD09C /* CherishBtn.swift */; };
+		54D8D64A271283D0002BD09C /* SignUpPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D649271283D0002BD09C /* SignUpPhoneVC.swift */; };
+		54D8D64C27128B17002BD09C /* SignUpDotStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D64B27128B17002BD09C /* SignUpDotStackView.swift */; };
+		54D8D64E2712ACBB002BD09C /* SignUpNicknameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D64D2712ACBB002BD09C /* SignUpNicknameVC.swift */; };
+		54D8D6502712D161002BD09C /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D64F2712D161002BD09C /* UILabel+.swift */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
 		9214410225ACE7BD00853E53 /* AddUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9214410125ACE7BD00853E53 /* AddUserService.swift */; };
 		923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */; };
@@ -348,8 +358,6 @@
 		548F26B726138A310055C5E1 /* AboutCherishVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCherishVC.swift; sourceTree = "<group>"; };
 		5490352C25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWatering_WithoutLaterVC.swift; sourceTree = "<group>"; };
 		5491593025DBADC6008104FC /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
-		5491593325DBB1C0008104FC /* SignUpGenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpGenderVC.swift; sourceTree = "<group>"; };
-		5491593925DBF78B008104FC /* SignUpNicknameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNicknameVC.swift; sourceTree = "<group>"; };
 		5491593C25DC13A5008104FC /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		5491593F25DC1641008104FC /* SignUpData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpData.swift; sourceTree = "<group>"; };
 		5491594525DCD32B008104FC /* FindPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FindPassword.storyboard; sourceTree = "<group>"; };
@@ -365,9 +373,19 @@
 		54AE98B725F3B0F900993EA3 /* FindPasswordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordData.swift; sourceTree = "<group>"; };
 		54AE98BA25F3B16500993EA3 /* FindPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordService.swift; sourceTree = "<group>"; };
 		54AE98BD25F3C02900993EA3 /* WithdrawalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalService.swift; sourceTree = "<group>"; };
-		54D223F325DA2912003A1496 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
-		54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAccountVC.swift; sourceTree = "<group>"; };
-		54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneVC.swift; sourceTree = "<group>"; };
+		54D8D626271185C2002BD09C /* CherishTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishTextField.swift; sourceTree = "<group>"; };
+		54D8D62E27118C7B002BD09C /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		54D8D63227118E75002BD09C /* LetterSpacing+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LetterSpacing+.swift"; sourceTree = "<group>"; };
+		54D8D634271190C4002BD09C /* SignUpAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAccountVC.swift; sourceTree = "<group>"; };
+		54D8D6392711BAE2002BD09C /* BackNaviView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackNaviView.swift; sourceTree = "<group>"; };
+		54D8D63B2711C095002BD09C /* MakeVibrate+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MakeVibrate+.swift"; sourceTree = "<group>"; };
+		54D8D63D2711C3F2002BD09C /* Adjusted+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Adjusted+.swift"; sourceTree = "<group>"; };
+		54D8D63F2711D7F6002BD09C /* SignUpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextField.swift; sourceTree = "<group>"; };
+		54D8D6412711DC60002BD09C /* CherishBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherishBtn.swift; sourceTree = "<group>"; };
+		54D8D649271283D0002BD09C /* SignUpPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneVC.swift; sourceTree = "<group>"; };
+		54D8D64B27128B17002BD09C /* SignUpDotStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDotStackView.swift; sourceTree = "<group>"; };
+		54D8D64D2712ACBB002BD09C /* SignUpNicknameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNicknameVC.swift; sourceTree = "<group>"; };
+		54D8D64F2712D161002BD09C /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		9214410125ACE7BD00853E53 /* AddUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserService.swift; sourceTree = "<group>"; };
 		923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailVC.swift; sourceTree = "<group>"; };
 		923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendVC.swift; sourceTree = "<group>"; };
@@ -409,6 +427,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */,
+				54D8D62D271186E7002BD09C /* Then in Frameworks */,
+				54D8D62A271186BB002BD09C /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +592,9 @@
 		33851C8E259A5B14005BCFFD /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				54D8D6392711BAE2002BD09C /* BackNaviView.swift */,
+				54D8D6412711DC60002BD09C /* CherishBtn.swift */,
+				54D8D626271185C2002BD09C /* CherishTextField.swift */,
 				33E8751225A05623001F84FE /* CircularProgressBar.swift */,
 				548DF1AC25A4260E0081FCD1 /* CollectionViewAlign.swift */,
 				33E8750325A04D1E001F84FE /* CustomLabel.swift */,
@@ -607,11 +630,16 @@
 		33851C91259A5B23005BCFFD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				54D8D63D2711C3F2002BD09C /* Adjusted+.swift */,
+				54D8D63227118E75002BD09C /* LetterSpacing+.swift */,
+				54D8D63B2711C095002BD09C /* MakeVibrate+.swift */,
 				33E8754825A09440001F84FE /* NotificationName.swift */,
 				337A5CBC25A868C000578130 /* UIButton+Extention.swift */,
 				33E8750625A04DA2001F84FE /* UIColor+Additions.swift */,
 				5478343525A76EBC0021C32B /* UIDevice+ScreenSize.swift */,
+				54D8D62E27118C7B002BD09C /* UIFont+.swift */,
 				3317777725B042C200CC1030 /* UIImage+Extension.swift */,
+				54D8D64F2712D161002BD09C /* UILabel+.swift */,
 				548DF16E25A1B4AB0081FCD1 /* UITextField+Extension.swift */,
 				548DF16225A1B3A80081FCD1 /* UIView+Extension.swift */,
 				54426781266E7E4900A2A65F /* UIViewController+Extension.swift */,
@@ -841,20 +869,11 @@
 		545975F026E88E0D008336A9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				54D223FB25DA30EA003A1496 /* SignUpAccountVC.swift */,
-				5491593325DBB1C0008104FC /* SignUpGenderVC.swift */,
-				5491593925DBF78B008104FC /* SignUpNicknameVC.swift */,
-				54D2241225DA3607003A1496 /* SignUpPhoneVC.swift */,
+				54D8D634271190C4002BD09C /* SignUpAccountVC.swift */,
+				54D8D649271283D0002BD09C /* SignUpPhoneVC.swift */,
+				54D8D64D2712ACBB002BD09C /* SignUpNicknameVC.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		545975F126E88E16008336A9 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				54D223F325DA2912003A1496 /* SignUp.storyboard */,
-			);
-			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		545975F226E88E25008336A9 /* Controllers */ = {
@@ -1285,10 +1304,19 @@
 		54D223F625DA294E003A1496 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				545975F126E88E16008336A9 /* Storyboards */,
+				54D8D6512712DDE1002BD09C /* PrivateClass */,
 				545975F026E88E0D008336A9 /* Controllers */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		54D8D6512712DDE1002BD09C /* PrivateClass */ = {
+			isa = PBXGroup;
+			children = (
+				54D8D64B27128B17002BD09C /* SignUpDotStackView.swift */,
+				54D8D63F2711D7F6002BD09C /* SignUpTextField.swift */,
+			);
+			path = PrivateClass;
 			sourceTree = "<group>";
 		};
 		9214410025ACE5B000853E53 /* AddUser */ = {
@@ -1373,6 +1401,10 @@
 			dependencies = (
 			);
 			name = "Cherish-iOS";
+			packageProductDependencies = (
+				54D8D629271186BB002BD09C /* SnapKit */,
+				54D8D62C271186E7002BD09C /* Then */,
+			);
 			productName = "Cherish-iOS";
 			productReference = 33851C70259A5541005BCFFD /* Cherish-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -1400,6 +1432,10 @@
 				Base,
 			);
 			mainGroup = 33851C67259A5541005BCFFD;
+			packageReferences = (
+				54D8D628271186BB002BD09C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				54D8D62B271186E7002BD09C /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = 33851C71259A5541005BCFFD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1423,7 +1459,6 @@
 				334130C92620750700A68ED2 /* min_iOS.gif in Resources */,
 				33E874E825A04832001F84FE /* TabBar.storyboard in Resources */,
 				33E874C825A04332001F84FE /* NotoSansCJKkr-Regular.otf in Resources */,
-				54D223F425DA2912003A1496 /* SignUp.storyboard in Resources */,
 				33E874CB25A0434B001F84FE /* Roboto-Regular.ttf in Resources */,
 				33851C7D259A5542005BCFFD /* Assets.xcassets in Resources */,
 				5488923725A5E962003839FC /* CalendarKeywordCVCell.xib in Resources */,
@@ -1521,6 +1556,7 @@
 				92911FDF25DFC57900B4A95F /* GetPlantDataService.swift in Sources */,
 				333B138A26306C8C00DAEB6E /* OpenSourcesVC.swift in Sources */,
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,
+				54D8D6502712D161002BD09C /* UILabel+.swift in Sources */,
 				5478343A25A82B060021C32B /* ReviewEditVC.swift in Sources */,
 				33D094DA25F575DF0016BD4E /* MainSplashVC.swift in Sources */,
 				33805F8E25AC73B1005CED0F /* MainData.swift in Sources */,
@@ -1529,6 +1565,7 @@
 				548DF18D25A227A00081FCD1 /* KeywordCVC.swift in Sources */,
 				923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */,
 				33E8750725A04DA2001F84FE /* UIColor+Additions.swift in Sources */,
+				54D8D6402711D7F6002BD09C /* SignUpTextField.swift in Sources */,
 				332CC7A925A6F41E00D0047D /* MyPageUtils.swift in Sources */,
 				9244DF0C25AB90F00014FF5D /* PlantResultVC.swift in Sources */,
 				332CC7B025A7018400D0047D /* MypagePlantTVC.swift in Sources */,
@@ -1553,8 +1590,10 @@
 				337A5CBD25A868C000578130 /* UIButton+Extention.swift in Sources */,
 				54425C4025AF5EBA00E62BAB /* CalendarKeyword.swift in Sources */,
 				9291201F25E3971C00B4A95F /* MyPageSearchContactVC.swift in Sources */,
+				54D8D627271185C2002BD09C /* CherishTextField.swift in Sources */,
 				92824D9425B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift in Sources */,
 				33D0026F25A30AB700E97811 /* PlantDetailExplainData.swift in Sources */,
+				54D8D62F27118C7B002BD09C /* UIFont+.swift in Sources */,
 				338CB6D125E528BE0089E182 /* ShowMoreThirdTVCell.swift in Sources */,
 				5478346F25AC72F90021C32B /* LaterService.swift in Sources */,
 				5488923625A5E962003839FC /* CalendarKeywordCVCell.swift in Sources */,
@@ -1565,11 +1604,13 @@
 				338CB6C625E527840089E182 /* NewShowMoreVC.swift in Sources */,
 				336C6D9A25E64B48003865C3 /* ChangeNicknameService.swift in Sources */,
 				5478347525AC77600021C32B /* WateringDayService.swift in Sources */,
+				54D8D63A2711BAE2002BD09C /* BackNaviView.swift in Sources */,
 				3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */,
 				92911FE225DFC72600B4A95F /* GetPlantData.swift in Sources */,
 				548DF16C25A1B4390081FCD1 /* PopUpWateringVC.swift in Sources */,
 				54AE98BB25F3B16500993EA3 /* FindPasswordService.swift in Sources */,
 				92B0F9D925AEB15400AA411A /* AddUserData.swift in Sources */,
+				54D8D64A271283D0002BD09C /* SignUpPhoneVC.swift in Sources */,
 				5478344C25AB65C30021C32B /* ShowMoreTVC.swift in Sources */,
 				332CC7AA25A6F41E00D0047D /* CustomSegmentedControl.swift in Sources */,
 				33D0026925A3093500E97811 /* PlantExplainCVC.swift in Sources */,
@@ -1589,10 +1630,13 @@
 				92824D9C25B16E94003D7678 /* SearchPlantCell.swift in Sources */,
 				548F26AB261339E30055C5E1 /* OnboardingNC.swift in Sources */,
 				33EDFBBA25A1B96D006367A7 /* PlantDetailVC.swift in Sources */,
+				54D8D63E2711C3F2002BD09C /* Adjusted+.swift in Sources */,
 				548F269A261330C90055C5E1 /* OnboardingData.swift in Sources */,
 				33E8750425A04D1E001F84FE /* CustomLabel.swift in Sources */,
 				5491594E25DCD647008104FC /* FPPhoneVC.swift in Sources */,
-				5491593A25DBF78B008104FC /* SignUpNicknameVC.swift in Sources */,
+				54D8D63C2711C095002BD09C /* MakeVibrate+.swift in Sources */,
+				54D8D64C27128B17002BD09C /* SignUpDotStackView.swift in Sources */,
+				54D8D63327118E75002BD09C /* LetterSpacing+.swift in Sources */,
 				33851C99259A5C00005BCFFD /* NetworkResult.swift in Sources */,
 				33201B1525AE419F001A94E4 /* MainSelectedData.swift in Sources */,
 				92B0FA2C25B0F6A900AA411A /* NoPlantVC.swift in Sources */,
@@ -1609,8 +1653,10 @@
 				548F26A7261336640055C5E1 /* OnboardingLastCVCell.swift in Sources */,
 				5491593D25DC13A6008104FC /* SignUpService.swift in Sources */,
 				336C6D9625E63FAB003865C3 /* NicknameChangeVC.swift in Sources */,
+				54D8D6422711DC60002BD09C /* CherishBtn.swift in Sources */,
 				339854CF2635B69E0002E6F0 /* FCMTokenDeleteService.swift in Sources */,
 				3356C2A62631BBAB00B1F416 /* OpenSourceContentVC.swift in Sources */,
+				54D8D635271190C4002BD09C /* SignUpAccountVC.swift in Sources */,
 				3317777825B042C200CC1030 /* UIImage+Extension.swift in Sources */,
 				33E8752025A05CE5001F84FE /* BackdropVC.swift in Sources */,
 				332CC7BD25A707BD00D0047D /* MypagePlantData.swift in Sources */,
@@ -1630,7 +1676,7 @@
 				33E8754925A09440001F84FE /* NotificationName.swift in Sources */,
 				337A5CB925A8545E00578130 /* LoginVC.swift in Sources */,
 				5490352D25E8192200EEEB6C /* PopUpWatering_WithoutLaterVC.swift in Sources */,
-				54D2241325DA3607003A1496 /* SignUpPhoneVC.swift in Sources */,
+				54D8D64E2712ACBB002BD09C /* SignUpNicknameVC.swift in Sources */,
 				5491594A25DCD360008104FC /* FPEmailVC.swift in Sources */,
 				33E8752325A05CFC001F84FE /* DetailContentVC.swift in Sources */,
 				33851C74259A5541005BCFFD /* AppDelegate.swift in Sources */,
@@ -1651,13 +1697,11 @@
 				548DF17E25A1EE730081FCD1 /* ReviewVC.swift in Sources */,
 				92911FCF25DEAC6A00B4A95F /* MyPageSearchVC.swift in Sources */,
 				33EAA2EF25B17D3D00E75F95 /* PlantDetailCardService.swift in Sources */,
-				5491593425DBB1C0008104FC /* SignUpGenderVC.swift in Sources */,
 				5478343625A76EBC0021C32B /* UIDevice+ScreenSize.swift in Sources */,
 				33805F9A25ACE78A005CED0F /* PlantDetailData.swift in Sources */,
 				54AE98BE25F3C02900993EA3 /* WithdrawalService.swift in Sources */,
 				33E8751325A05623001F84FE /* CircularProgressBar.swift in Sources */,
 				332CC7B325A701A400D0047D /* MypageContactTVC.swift in Sources */,
-				54D223FC25DA30EA003A1496 /* SignUpAccountVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1861,6 +1905,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		54D8D628271186BB002BD09C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		54D8D62B271186E7002BD09C /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		54D8D629271186BB002BD09C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54D8D628271186BB002BD09C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		54D8D62C271186E7002BD09C /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54D8D62B271186E7002BD09C /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 33851C68259A5541005BCFFD /* Project object */;
 }
