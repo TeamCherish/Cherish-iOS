@@ -327,10 +327,7 @@ class LoginVC: UIViewController {
     
     // 회원가입
     @IBAction func signUpAction(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "SignUp", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(identifier: "SignUpAccountVC") as? SignUpAccountVC {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        self.navigationController?.pushViewController(SignUpAccountVC(), animated: true)
     }
     
     // 비밀번호 찾기
