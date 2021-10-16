@@ -35,7 +35,7 @@ extension UIButton {
         }
     }
     
-    /// 버튼 기본 셋팅 변경
+    /// 버튼 기본 셋팅 변경, 폰트 사이즈 adjusted 적용되어 있음
     func setButton(bgColor: UIColor, textColor: UIColor, title: String, size: CGFloat, weight: FontWeight) {
         let font: UIFont
         

@@ -37,7 +37,6 @@ final class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
             self.dismiss(animated: true)
         }
     }
-    // TODO: 눈모양 버튼 클릭시 버튼이미지 변경되어야 함
     private lazy var firstEyeBtn = UIButton().then {
         $0.setImageByName(name: "eyeOff", selectedName: nil)
         $0.press {
@@ -51,7 +50,7 @@ final class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     private lazy var nextBtn = CherishBtn().then {
-        $0.setButton(bgColor: .inputGrey, textColor: .textGrey, title: "다음", size: 16, weight: .bold)
+        $0.setButton(bgColor: .inputGrey, textColor: .textGrey, title: "이메일 중복검사", size: 16, weight: .bold)
         $0.press(vibrate: true) {
             self.nextBtnAction()
         }
@@ -143,7 +142,7 @@ extension SignUpAccountVC {
                 $0.left.right.equalTo(self.emailTextField)
                 $0.height.equalTo(44.adjusted)
             }
-
+            
             $0[2].snp.makeConstraints {
                 $0.top.equalTo(self.pwTextField.snp.bottom).offset(13)
                 $0.left.right.equalTo(self.emailTextField)
@@ -182,7 +181,6 @@ extension SignUpAccountVC {
     // MARK: Button Action
     
     private func nextBtnAction() {
-        
         // 이메일 중복확인이 끝났고 비밀번호도 입력이 끝났다면
         if isEmail {
             if isCorrectPw  {
@@ -190,36 +188,41 @@ extension SignUpAccountVC {
                 self.signUpInfo.password = pwReTextField.textfield.text
                 self.navigationController?.pushViewController(SignUpPhoneVC(), animated: true)
             } else {
-                self.basicAlert(title: "비밀번호를 입력해주세요", message: nil)
+                self.basicAlert(title: "비밀번호가 완성되지 않았어요", message: nil)
+                self.pwTextField.textfield.shake()
+                self.pwReTextField.textfield.shake()
             }
-        } else {
-            // 이메일 중복확인을 아직 안했다면
-            if isPossibleEmail {
-                /// 이메일 중복 체크 코드
-                if let email = emailTextField.textfield.text {
-                    CheckEmailService.shared.checkEmail(email: email) { [weak self] (networkResult) -> (Void) in
-                        switch networkResult {
-                        case .success(_):
-                            self?.animatePwArea()
-                            self?.emailTextField.setIndicatorLabel(text: "사용가능한 이메일입니다.", correct: true)
-                            self?.setNextBtnStyle(.incorrect) // 비밀번호 확인 될 때 까지 회색유지
-                            self?.isEmail = true // 중복 검사 완료
+            // 이메일 형식 검사 통과 했다면 중복 체크하자
+        } else if isPossibleEmail {
+            if let email = emailTextField.textfield.text {
+                CheckEmailService.shared.checkEmail(email: email) { [weak self] (networkResult) -> (Void) in
+                    switch networkResult {
+                    case .success(_):
+                        self?.animatePwArea()
+                        self?.emailTextField.setIndicatorLabel(text: "사용가능한 이메일입니다.", correct: true)
+                        self?.nextBtn.setTitle(title: "다음")
+                        self?.setNextBtnStyle(.incorrect) // 비밀번호 통과 될 때 까지 회색버튼유지
+                        self?.isEmail = true // 중복 검사 완료
+                        self?.pwTextField.textfield.becomeFirstResponder() // 비밀번호 입력부 커서 자동 활성화
                         
-                        case .requestErr(let msg):
-                            if let _ = msg as? String {
-                                self?.emailTextField.setIndicatorLabel(text: "이미 등록된 이메일입니다.", correct: false)
-                                self?.isEmail = false /// 중복 검사 불통과
-                            }
-                        case .pathErr:
-                            print("pathErr")
-                        case .serverErr:
-                            print("serverErr")
-                        case .networkFail:
-                            print("networkFail")
+                    case .requestErr(let msg):
+                        if let _ = msg as? String {
+                            self?.emailTextField.setIndicatorLabel(text: "이미 등록된 이메일입니다.", correct: false)
+                            self?.emailTextField.textfield.shake()
+                            self?.isEmail = false /// 중복 검사 불통과
                         }
+                    case .pathErr:
+                        print("pathErr")
+                    case .serverErr:
+                        print("serverErr")
+                    case .networkFail:
+                        print("networkFail")
                     }
                 }
             }
+        } else {
+            self.basicAlert(title: "이메일이 완성되지 않았어요", message: nil)
+            self.emailTextField.textfield.shake()
         }
     }
     
@@ -238,6 +241,9 @@ extension SignUpAccountVC {
         emailTextField.textfield.delegate = self
         pwTextField.textfield.delegate = self
         pwReTextField.textfield.delegate = self
+        emailTextField.textfield.textDelegate = self
+        pwTextField.textfield.textDelegate = self
+        pwReTextField.textfield.textDelegate = self
     }
     
     private func setInvisible(alpha: CGFloat) {
@@ -272,10 +278,11 @@ extension SignUpAccountVC {
 }
 
 // MARK: Protocols
-extension SignUpAccountVC: UITextFieldDelegate{
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == emailTextField.textfield {
+extension SignUpAccountVC: CherishTextFieldDelegate {
+    func checkContentsForm(textField: UITextField) {
+        switch textField {
+        case emailTextField.textfield:
+            // 이메일 형식을 갖췄는지
             let emailRegEx = "^.+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*$"
             let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
             if !emailTest.evaluate(with: textField.text){
@@ -287,9 +294,7 @@ extension SignUpAccountVC: UITextFieldDelegate{
                 setNextBtnStyle(.correct)
                 isPossibleEmail = true
             }
-        }
-        // 1번 텍스트 필드
-        else if textField == pwTextField.textfield {
+        case pwTextField.textfield:
             // 비밀번호가 영문 ,숫자,특수문자 포함 8글자인지
             let passRegEx = "^(?=.*[a-z])(?=.*[0-9])(?=.*[\\[\\]~!@#$%^&*()=+{}:?,<>/._-]).{8,}$"
             let passTest = NSPredicate(format: "SELF MATCHES %@", passRegEx)
@@ -299,21 +304,22 @@ extension SignUpAccountVC: UITextFieldDelegate{
             } else {
                 pwReTextField.setIndicatorLabel(text: "사용가능한 비밀번호입니다.", correct: true)
                 isPossiblePw = true
-                // 1번,2번 다 입력했는데 1번이 의도치 않게 오타나서 1번을 2번과 일치하게 바꾸면
-                // 1번 텍스트 필드에서도 일치 검사를 해야하는 상황이 있음
-                if textField.text == pwReTextField.textfield.text {
-                    pwReTextField.setIndicatorLabel(text: "비밀번호가 일치합니다.", correct: true)
-                    setNextBtnStyle(.correct)
-                    isCorrectPw = true
-                } else {
-                    pwReTextField.setIndicatorLabel(text: "비밀번호가 일치하지 않습니다.", correct: false)
-                    setNextBtnStyle(.incorrect)
-                    isCorrectPw = false
+                
+                if !(pwReTextField.textfield.text?.isEmpty ?? true) {
+                    // 비밀번호 텍스트필드 1번,2번 다 입력했는데 1번이 의도치 않게 오타나서 1번을 2번과 일치하게 바꾸면
+                    // 1번 텍스트 필드에서도 일치 검사를 해야하는 상황이 있음
+                    if textField.text == pwReTextField.textfield.text {
+                        pwReTextField.setIndicatorLabel(text: "비밀번호가 일치합니다.", correct: true)
+                        setNextBtnStyle(.correct)
+                        isCorrectPw = true
+                    } else {
+                        pwReTextField.setIndicatorLabel(text: "비밀번호가 일치하지 않습니다.", correct: false)
+                        setNextBtnStyle(.incorrect)
+                        isCorrectPw = false
+                    }
                 }
             }
-        }
-        // 2번 텍스트 필드
-        else if textField == pwReTextField.textfield {
+        case pwReTextField.textfield:
             // 형식을 통과했으며, 비밀번호가 일치하는지
             if isPossiblePw {
                 if pwTextField.textfield.text == textField.text {
@@ -326,12 +332,23 @@ extension SignUpAccountVC: UITextFieldDelegate{
                     isCorrectPw = false
                 }
             }
+        default:
+            break
         }
     }
+}
+
+extension SignUpAccountVC: UITextFieldDelegate {
     
-    /// Return 눌렀을 때 키보드 내리기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+        switch textField {
+        case pwTextField.textfield:
+            textField.resignFirstResponder()
+            pwReTextField.textfield.becomeFirstResponder()
+            return true
+        default:
+            textField.resignFirstResponder()
+            return true
+        }
     }
 }

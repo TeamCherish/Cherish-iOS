@@ -68,6 +68,7 @@ final class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         self.view.backgroundColor = .systemBackground
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        self.phoneNumTextField.textfield.becomeFirstResponder()
         self.setLayout()
         self.textFeildDelegate()
     }
@@ -175,6 +176,7 @@ extension SignUpPhoneVC {
                     if !isResended {
                         self?.animateAuthArea()
                     }
+                    self?.authTextField.textfield.becomeFirstResponder()
                 case .requestErr(let msg):
                     if let message = msg as? String {
                         print(message)
@@ -193,18 +195,19 @@ extension SignUpPhoneVC {
     private func nextAction() {
         if isSending && isAuth {
             signUpInfo.phone = phoneNumTextField.textfield.text
-            self.navigationController?.pushViewController(SignUpNicknameVC(), animated: true)
+            navigationController?.pushViewController(SignUpNicknameVC(), animated: true)
         } else {
-            self.nextBtn.changeColors(bgColor: .inputGrey, textColor: .textGrey)
-            self.basicAlert(title: "인증을 완료해주세요!", message: nil)
+            basicAlert(title: "인증을 완료해주세요!", message: nil)
+            nextBtn.changeColors(bgColor: .inputGrey, textColor: .textGrey)
+            authTextField.textfield.shake()
         }
     }
     
     // MARK: Etc
     
     private func textFeildDelegate() {
-        phoneNumTextField.textfield.delegate = self
-        authTextField.textfield.delegate = self
+        phoneNumTextField.textfield.textDelegate = self
+        authTextField.textfield.textDelegate = self
     }
     
     private func setInvisible(alpha: CGFloat) {
@@ -216,8 +219,6 @@ extension SignUpPhoneVC {
     // 비밀번호 입력부 등장 애니메이션
     private func animateAuthArea(){
         UIView.animate(withDuration: 0.5, delay: 0, options: .allowUserInteraction, animations: { [weak self] in
-            self?.phoneNumTextField.textfield.textColor = .textGrey
-            self?.phoneNumTextField.textfield.isEnabled = false
             self?.receiveAuthBtn.alpha = 0
         }, completion: { _ in
             UIView.animate(withDuration: 1, delay: 0, options: .allowUserInteraction, animations: { [weak self] in
@@ -232,24 +233,22 @@ extension SignUpPhoneVC {
 
 //MARK: Protocols
 
-extension SignUpPhoneVC: UITextFieldDelegate{
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == authTextField.textfield {
-            if authTextField.textfield.text! == String(authNumber!){
-                self.authTextField.setIndicatorLabel(text: "인증되었습니다.", correct: true)
-                self.nextBtn.changeColors(bgColor: .seaweed, textColor: .white)
+extension SignUpPhoneVC: CherishTextFieldDelegate {
+    func checkContentsForm(textField: UITextField) {
+        switch textField {
+        case authTextField.textfield :
+            if authTextField.textfield.text ?? "0000" == String(authNumber ?? 9999){
+                authTextField.setIndicatorLabel(text: "인증되었습니다.", correct: true)
+                nextBtn.changeColors(bgColor: .seaweed, textColor: .white)
                 isAuth = true
+                textField.resignFirstResponder()
             }else{
-                self.authTextField.setIndicatorLabel(text: "올바르지 않은 인증번호입니다.", correct: false)
-                self.nextBtn.changeColors(bgColor: .inputGrey, textColor: .textGrey)
+                authTextField.setIndicatorLabel(text: "올바르지 않은 인증번호입니다.", correct: false)
+                nextBtn.changeColors(bgColor: .inputGrey, textColor: .textGrey)
                 isAuth = false
             }
+        default:
+            break
         }
-    }
-    
-    // Return 눌렀을 때 키보드 내리기
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 }

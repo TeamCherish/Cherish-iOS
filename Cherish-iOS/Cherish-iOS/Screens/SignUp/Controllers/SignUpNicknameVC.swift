@@ -40,7 +40,6 @@ final class SignUpNicknameVC: UIViewController, SFSafariViewControllerDelegate, 
     }
     private lazy var nicknameTextField = SignUpTextField().then {
         $0.setPlaceholder(placeholder: "최대 8글자")
-        $0.textfield.delegate = self
     }
     private lazy var privacyBtn = CherishBtn().then {
         $0.setButton(bgColor: .clear, textColor: .seaweed, title: "개인정보보호 정책", size: 12, weight: .bold)
@@ -93,12 +92,7 @@ final class SignUpNicknameVC: UIViewController, SFSafariViewControllerDelegate, 
         self.view.backgroundColor = .systemBackground
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         self.setLayout()
-        // 글자 수 검사 노티 가진 함수
-        NotificationCenter.default.addObserver(self, selector: #selector(textfieldDidChange(_:)), name: UITextField.textDidChangeNotification, object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+        self.textFeildDelegate()
     }
 }
 
@@ -160,7 +154,6 @@ extension SignUpNicknameVC {
                 $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(33)
                 $0.height.equalTo(50.adjusted)
             }
-            $0.makeRounded(cornerRadius: 50.adjusted / 2)
         }
     }
     
@@ -178,36 +171,37 @@ extension SignUpNicknameVC {
     
     private func startCherishAction() {
         if let nickName = nicknameTextField.textfield.text {
-            signUpInfo.nickName = nickName
-            if let email = signUpInfo.email, let password = signUpInfo.password, let phone = signUpInfo.phone, let nickName = signUpInfo.nickName {
-                // 성별, 생년원일 수집은 개인정보보호정책에 의해 잠시 중단
-                SignUpService.shared.doSignUp(email: email, password: password, phone: phone, sex: "True", birth: "0000-00-00", nickname: nickName) { [self] (networkResult) -> (Void) in
-                    switch networkResult {
-                    case .success(_):
-                        // 회원가입 성공하면 Login 뷰로 pop
-                        let controllers = self.navigationController?.viewControllers
-                        for vc in controllers! {
-                            if vc is LoginVC {
-                                _ = self.navigationController?.popToViewController(vc as! LoginVC, animated: true)
+            if nickName.isEmpty {
+                self.basicAlert(title: "닉네임을 입력해주세요!", message: nil)
+                self.nicknameTextField.textfield.shake()
+            } else {
+                signUpInfo.nickName = nickName
+                if let email = signUpInfo.email, let password = signUpInfo.password, let phone = signUpInfo.phone, let nickName = signUpInfo.nickName {
+                    // 성별, 생년원일 수집은 개인정보보호정책에 의해 잠시 중단
+                    SignUpService.shared.doSignUp(email: email, password: password, phone: phone, sex: "True", birth: "0000-00-00", nickname: nickName) { [self] (networkResult) -> (Void) in
+                        switch networkResult {
+                        case .success(_):
+                            // 회원가입 성공하면 Login 뷰로 pop
+                            let controllers = self.navigationController?.viewControllers
+                            for vc in controllers! {
+                                if vc is LoginVC {
+                                    _ = self.navigationController?.popToViewController(vc as! LoginVC, animated: true)
+                                }
                             }
+                        case .requestErr(let msg):
+                            if let message = msg as? String {
+                                print(message)
+                            }
+                        case .pathErr:
+                            print("pathErr")
+                        case .serverErr:
+                            print("serverErr")
+                        case .networkFail:
+                            print("networkFail")
                         }
-                    case .requestErr(let msg):
-                        if let message = msg as? String {
-                            print(message)
-                        }
-                    case .pathErr:
-                        print("pathErr")
-                    case .serverErr:
-                        print("serverErr")
-                    case .networkFail:
-                        print("networkFail")
                     }
                 }
-            } else {
-                print("정보 누락")
             }
-        } else {
-            self.basicAlert(title: "닉네임을 입력해주세요!", message: nil)
         }
     }
     
@@ -230,51 +224,41 @@ extension SignUpNicknameVC {
     }
     
     // MARK: Etc
-    
-    // 닉네임 입력 TextField 글자 수 감시(& 복붙 검사)
-    @objc private func textfieldDidChange(_ notification: Notification) {
-        if let textField = notification.object as? UITextField {
-            if let text = textField.text {
-                if text.count > maxLength_nickname {
-                    // 5글자 넘어가면 자동으로 키보드 내려감
-                    textField.resignFirstResponder()
-                }
-                
-                // 초과되는 텍스트 제거
-                if text.count >= maxLength_nickname {
-                    let index = text.index(text.startIndex, offsetBy: maxLength_nickname)
-                    let newString = text[text.startIndex..<index]
-                    textField.text = String(newString)
-                }
+    private func textFeildDelegate() {
+        nicknameTextField.textfield.delegate = self
+        nicknameTextField.textfield.textDelegate = self
+    }
+}
+
+
+//MARK: Protocols
+
+extension SignUpNicknameVC: CherishTextFieldDelegate {
+    func checkContentsForm(textField: UITextField) {
+        if let text = textField.text {
+            if text.count > 0 && text.count <= maxLength_nickname {
+                nicknameTextField.setIndicatorLabel(text: "사용하실 수 있는 닉네임입니다.", correct: true)
+                startBtn.changeColors(bgColor: .seaweed, textColor: .white)
+            } else if text.count > maxLength_nickname {
+                // 8글자 넘어가면 자동으로 키보드 내려감
+                textField.resignFirstResponder()
+            } else {
+                nicknameTextField.setIndicatorLabel(text: "닉네임을 입력해주세요.", correct: false)
+                startBtn.changeColors(bgColor: .inputGrey, textColor: .textGrey)
+            }
+            
+            // 초과되는 텍스트 제거
+            if text.count >= maxLength_nickname {
+                let index = text.index(text.startIndex, offsetBy: maxLength_nickname)
+                let newString = text[text.startIndex..<index]
+                textField.text = String(newString)
             }
         }
     }
 }
 
-//MARK: -Protocols
 extension SignUpNicknameVC: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text else { return false }
-        // 최대 글자 수 8
-        if text.count >= maxLength_nickname && range.length == 0 && range.location < maxLength_nickname {
-            return false
-        }
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.text?.count ?? 0 > 0 {
-            nicknameTextField.setIndicatorLabel(text: "사용하실 수 있는 닉네임입니다.", correct: true)
-            startBtn.changeColors(bgColor: .seaweed, textColor: .white)
-        }else{
-            nicknameTextField.setIndicatorLabel(text: "닉네임을 입력해주세요.", correct: false)
-            startBtn.changeColors(bgColor: .inputGrey, textColor: .textGrey)
-        }
-    }
-    
-    // Return 눌렀을 때 키보드 내리기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        return true
     }
 }
