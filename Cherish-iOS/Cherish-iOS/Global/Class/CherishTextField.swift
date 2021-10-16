@@ -21,12 +21,13 @@ import SnapKit
  글씨 색상 .black
  자간 -0.7
  폰트 NotoSansRegular 16.adjusted
-
+ 
  - setPlaceholder: placeholder 설정
  - setInset: 내부 inset 설정
  */
 class CherishTextField: UITextField {
     private var insets: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    var textDelegate : CherishTextFieldDelegate?
     
     init() {
         super.init(frame: .zero)
@@ -56,10 +57,17 @@ class CherishTextField: UITextField {
         self.font = UIFont.notoRegular(size: 16.adjusted)
         self.textColor = .black
         self.setCharacterSpacing(-0.7)
+        self.addTarget(self, action: #selector(changeTextField), for: .editingChanged)
+    }
+    
+    // MARK: Textfield Actions
+    @objc
+    func changeTextField() {
+        textDelegate?.checkContentsForm(textField: self)
     }
     
     // MARK: Public Methods
-
+    
     func setPlaceholder(placeholder: String) {
         self.placeholder = placeholder
     }
@@ -67,4 +75,8 @@ class CherishTextField: UITextField {
     func setInset(inset: UIEdgeInsets) {
         self.insets = inset
     }
+}
+
+protocol CherishTextFieldDelegate: UITextFieldDelegate {
+    func checkContentsForm(textField: UITextField)
 }

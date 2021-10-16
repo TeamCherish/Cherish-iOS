@@ -40,14 +40,7 @@ final class SignUpTextField: UIView {
     }
     
     func setIndicatorLabel(text: String, correct: Bool) {
-        indicatorLabel.setLabel(text: text,
-                                color: correct ? .seaweed : .pinkSub,
-                                size: 12.adjusted,
-                                weight: .medium)
-        
-        if !correct {
-            textfield.shake()
-        }
+        indicatorLabel.setLabel(text: text, color: correct ? .seaweed : .pinkSub, size: 12.adjusted, weight: .medium)
     }
     
     func changeSecureMode() {
