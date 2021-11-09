@@ -3,17 +3,17 @@
     {
       "scale" : "1x",
       "idiom" : "universal",
-      "filename" : "icPassword.png"
+      "filename" : "icPasswordSelected.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "icPassword@2x.png"
+      "filename" : "icPasswordSelected@2x.png"
     },
     {
-      "filename" : "icPassword@3x.png",
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "icPasswordSelected@3x.png"
     }
   ],
   "info" : {
