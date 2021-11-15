@@ -50,7 +50,7 @@ final class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     private lazy var nextBtn = CherishBtn().then {
-        $0.setButton(bgColor: .inputGrey, textColor: .textGrey, title: "다음", size: 16, weight: .bold)
+        $0.setTitleWithStyle(title: "다음", size: 16, weight: .medium)
         $0.press(vibrate: true) {
             self.nextAction()
         }
@@ -197,8 +197,8 @@ extension SignUpPhoneVC {
             signUpInfo.phone = phoneNumTextField.textfield.text
             navigationController?.pushViewController(SignUpNicknameVC(), animated: true)
         } else {
-            basicAlert(title: "인증을 완료해주세요!", message: nil)
-            nextBtn.changeColors(bgColor: .inputGrey, textColor: .textGrey)
+            makeAlert(title: "인증을 완료해주세요!", message: nil)
+            nextBtn.isActivated = false
             authTextField.textfield.shake()
         }
     }
@@ -239,12 +239,12 @@ extension SignUpPhoneVC: CherishTextFieldDelegate {
         case authTextField.textfield :
             if authTextField.textfield.text ?? "0000" == String(authNumber ?? 9999){
                 authTextField.setIndicatorLabel(text: "인증되었습니다.", correct: true)
-                nextBtn.changeColors(bgColor: .seaweed, textColor: .white)
+                nextBtn.isActivated = true
                 isAuth = true
                 textField.resignFirstResponder()
             }else{
                 authTextField.setIndicatorLabel(text: "올바르지 않은 인증번호입니다.", correct: false)
-                nextBtn.changeColors(bgColor: .inputGrey, textColor: .textGrey)
+                nextBtn.isActivated = false
                 isAuth = false
             }
         default:
