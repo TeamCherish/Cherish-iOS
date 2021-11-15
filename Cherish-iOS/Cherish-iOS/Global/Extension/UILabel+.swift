@@ -10,7 +10,7 @@ import UIKit
 extension UILabel {
     
     /// 글씨의 오토레이아웃, 자간 -0.7이 기본으로 되어있는 메서드
-    func setLabel(text: String, color: UIColor, size: CGFloat, weight: FontWeight) {
+    func setLabel(text: String, color: UIColor = .black, size: CGFloat, weight: FontWeight = .regular) {
         let font: UIFont
         switch weight {
         case .light:

@@ -23,6 +23,7 @@ class BackNaviView: UIView {
     }
     private (set) lazy var backBtn = UIButton().then {
         $0.setImageByName(name: "icnBack", selectedName: nil)
+        $0.contentMode = .scaleAspectFit
     }
     
     init() {
