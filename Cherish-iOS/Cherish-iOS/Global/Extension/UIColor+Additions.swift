@@ -119,4 +119,8 @@ extension UIColor {
     @nonobjc class var diePlantGrey: UIColor {
         return UIColor(red: 137/255, green: 137/255, blue: 143/255, alpha: 1.0)
     }
+    
+    @nonobjc class var separateGrey: UIColor {
+        return UIColor(red: 196/255, green: 196/255, blue: 196/255, alpha: 1.0)
+    }
 }
