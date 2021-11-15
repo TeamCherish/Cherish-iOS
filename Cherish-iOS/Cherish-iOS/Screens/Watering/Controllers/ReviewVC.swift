@@ -99,7 +99,7 @@ class ReviewVC: UIViewController {
                 }
             }
         }else{
-            self.basicAlert(title: nil, message: "키워드 또는 메모를 입력 후 \n 등록을 완료해주세요!")
+            self.makeAlert(title: "키워드 또는 메모를 입력 후 \n 등록을 완료해주세요!", message: nil)
         }
     }
     
@@ -314,7 +314,7 @@ extension ReviewVC: UITextFieldDelegate,UITextViewDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         /// 키워드가 이미 3개인데 사용자가 입력하려한다면 막음
         if keyword.count >= 3 {
-            self.basicAlert(title: nil, message: "키워드는 3개까지 입력할 수 있어요!")
+            self.makeAlert(title: "키워드는 3개까지 입력할 수 있어요!", message: nil)
             self.view.endEditing(true) /// 알림창 후 키보드 내림
         }
     }

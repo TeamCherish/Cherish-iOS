@@ -33,7 +33,7 @@ final class SignUpNicknameVC: UIViewController, SFSafariViewControllerDelegate, 
         }
     }
     private lazy var startBtn = CherishBtn().then {
-        $0.setButton(bgColor: .inputGrey, textColor: .textGrey, title: "시작하기", size: 16, weight: .bold)
+        $0.setTitleWithStyle(title: "시작하기", size: 16, weight: .medium)
         $0.press(vibrate: true) {
             self.startCherishAction()
         }
@@ -172,7 +172,7 @@ extension SignUpNicknameVC {
     private func startCherishAction() {
         if let nickName = nicknameTextField.textfield.text {
             if nickName.isEmpty {
-                self.basicAlert(title: "닉네임을 입력해주세요!", message: nil)
+                self.makeAlert(title: "닉네임을 입력해주세요!", message: nil)
                 self.nicknameTextField.textfield.shake()
             } else {
                 signUpInfo.nickName = nickName
@@ -238,13 +238,13 @@ extension SignUpNicknameVC: CherishTextFieldDelegate {
         if let text = textField.text {
             if text.count > 0 && text.count <= maxLength_nickname {
                 nicknameTextField.setIndicatorLabel(text: "사용하실 수 있는 닉네임입니다.", correct: true)
-                startBtn.changeColors(bgColor: .seaweed, textColor: .white)
+                startBtn.isActivated = true
             } else if text.count > maxLength_nickname {
                 // 8글자 넘어가면 자동으로 키보드 내려감
                 textField.resignFirstResponder()
             } else {
                 nicknameTextField.setIndicatorLabel(text: "닉네임을 입력해주세요.", correct: false)
-                startBtn.changeColors(bgColor: .inputGrey, textColor: .textGrey)
+                startBtn.isActivated = false
             }
             
             // 초과되는 텍스트 제거

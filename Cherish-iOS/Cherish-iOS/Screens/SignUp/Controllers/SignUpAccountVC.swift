@@ -50,7 +50,7 @@ final class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     private lazy var nextBtn = CherishBtn().then {
-        $0.setButton(bgColor: .inputGrey, textColor: .textGrey, title: "이메일 중복검사", size: 16, weight: .bold)
+        $0.setTitleWithStyle(title: "이메일 중복검사", size: 16, weight: .medium)
         $0.press(vibrate: true) {
             self.nextBtnAction()
         }
@@ -188,7 +188,7 @@ extension SignUpAccountVC {
                 self.signUpInfo.password = pwReTextField.textfield.text
                 self.navigationController?.pushViewController(SignUpPhoneVC(), animated: true)
             } else {
-                self.basicAlert(title: "비밀번호가 완성되지 않았어요", message: nil)
+                self.makeAlert(title: "비밀번호가 완성되지 않았어요", message: nil)
                 self.pwTextField.textfield.shake()
                 self.pwReTextField.textfield.shake()
             }
@@ -200,8 +200,8 @@ extension SignUpAccountVC {
                     case .success(_):
                         self?.animatePwArea()
                         self?.emailTextField.setIndicatorLabel(text: "사용가능한 이메일입니다.", correct: true)
-                        self?.nextBtn.setTitle(title: "다음")
-                        self?.setNextBtnStyle(.incorrect) // 비밀번호 통과 될 때 까지 회색버튼유지
+                        self?.nextBtn.setTitle("다음", for: .normal)
+                        self?.nextBtn.isActivated = false // 비밀번호 통과 될 때 까지 회색버튼유지
                         self?.isEmail = true // 중복 검사 완료
                         self?.pwTextField.textfield.becomeFirstResponder() // 비밀번호 입력부 커서 자동 활성화
                         
@@ -221,7 +221,7 @@ extension SignUpAccountVC {
                 }
             }
         } else {
-            self.basicAlert(title: "이메일이 완성되지 않았어요", message: nil)
+            self.makeAlert(title: "이메일이 완성되지 않았어요", message: nil)
             self.emailTextField.textfield.shake()
         }
     }
@@ -266,15 +266,6 @@ extension SignUpAccountVC {
             })
         })
     }
-    
-    private func setNextBtnStyle(_ state: ButtonState) {
-        switch state {
-        case .correct:
-            nextBtn.changeColors(bgColor: .seaweed, textColor: .white)
-        case .incorrect:
-            nextBtn.changeColors(bgColor: .inputGrey, textColor: .textGrey)
-        }
-    }
 }
 
 // MARK: Protocols
@@ -287,11 +278,11 @@ extension SignUpAccountVC: CherishTextFieldDelegate {
             let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
             if !emailTest.evaluate(with: textField.text){
                 emailTextField.setIndicatorLabel(text: "사용할 수 없는 형식입니다.", correct: false)
-                setNextBtnStyle(.incorrect)
+                nextBtn.isActivated = false
                 isPossibleEmail = false
             }else{
                 emailTextField.setIndicatorLabel(text: "사용가능한 이메일 형식입니다.", correct: true)
-                setNextBtnStyle(.correct)
+                nextBtn.isActivated = true
                 isPossibleEmail = true
             }
         case pwTextField.textfield:
@@ -310,11 +301,11 @@ extension SignUpAccountVC: CherishTextFieldDelegate {
                     // 1번 텍스트 필드에서도 일치 검사를 해야하는 상황이 있음
                     if textField.text == pwReTextField.textfield.text {
                         pwReTextField.setIndicatorLabel(text: "비밀번호가 일치합니다.", correct: true)
-                        setNextBtnStyle(.correct)
+                        nextBtn.isActivated = true
                         isCorrectPw = true
                     } else {
                         pwReTextField.setIndicatorLabel(text: "비밀번호가 일치하지 않습니다.", correct: false)
-                        setNextBtnStyle(.incorrect)
+                        nextBtn.isActivated = false
                         isCorrectPw = false
                     }
                 }
@@ -324,11 +315,11 @@ extension SignUpAccountVC: CherishTextFieldDelegate {
             if isPossiblePw {
                 if pwTextField.textfield.text == textField.text {
                     pwReTextField.setIndicatorLabel(text: "비밀번호가 일치합니다.", correct: true)
-                    setNextBtnStyle(.correct)
+                    nextBtn.isActivated = true
                     isCorrectPw = true
                 }else{
                     pwReTextField.setIndicatorLabel(text: "비밀번호가 일치하지 않습니다.", correct: false)
-                    setNextBtnStyle(.incorrect)
+                    nextBtn.isActivated = false
                     isCorrectPw = false
                 }
             }
