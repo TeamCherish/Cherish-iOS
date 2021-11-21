@@ -99,17 +99,19 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
                     cherishPeopleCountLabel.text = "\(cherishPeopleData.count)"
                     self.cherishPeopleCV.reloadData()
                     UserDefaults.standard.set(cherishPeopleData.count, forKey: "cherishPeopleDataCount")
-                    
                     // 남은 식물이 한개도 없을 때 식물 추가뷰를 띄워준다.
                     if cherishPeopleData.count == 0 {
+                        UserDefaults.standard.set(false, forKey: "isPlantExist")
                         let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
-                        if let vc = storyBoard.instantiateViewController(identifier: "NoPlantVC") as? NoPlantVC {
-                            
+                        if let vc = storyBoard.instantiateViewController(identifier: "AddUserVC") as? AddUserVC {
+
                             self.navigationController?.pushViewController(vc, animated: false)
                             
                             // 등록된 식물이 하나도 없을 경우에 탭바를 숨김
                             self.tabBarController?.tabBar.isHidden = true
                         }
+                    } else {
+                        UserDefaults.standard.set(true, forKey: "isPlantExist")
                     }
                 }
             case .requestErr(let msg):
@@ -142,8 +144,9 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
                     
                     // 남은 식물이 한개도 없을 때 식물 추가뷰를 띄워준다.
                     if cherishPeopleData.count == 0 {
+                        UserDefaults.standard.set(false, forKey: "isPlantExist")
                         let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
-                        if let vc = storyBoard.instantiateViewController(identifier: "NoPlantVC") as? NoPlantVC {
+                        if let vc = storyBoard.instantiateViewController(identifier: "AddUserVC") as? AddUserVC {
                             
                             self.navigationController?.pushViewController(vc, animated: false)
                             
@@ -154,8 +157,8 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
                             navigationController?.interactivePopGestureRecognizer?.delegate = self
                             navigationController?.interactivePopGestureRecognizer!.isEnabled = false
                         }
-                    }
-                    else {
+                    } else {
+                        UserDefaults.standard.set(true, forKey: "isPlantExist")
                         navigationController?.interactivePopGestureRecognizer!.isEnabled = true
                     }
                 }

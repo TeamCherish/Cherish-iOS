@@ -243,8 +243,7 @@ class LoginVC: UIViewController {
     
     func goToNoPlantView() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(identifier: "NoPlantVC") as? NoPlantVC {
-            
+        if let vc = storyBoard.instantiateViewController(identifier: "AddUserVC") as? AddUserVC {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -252,7 +251,6 @@ class LoginVC: UIViewController {
     //MARK: - 로그인 버튼 눌렀을 때
     @IBAction func touchUpToLogin(_ sender: UIButton) {
         
-        appDel.isLoginManually = true
         guard let emailText = loginEmailTextField.text,
               let passwordText = loginPwTextField.text else { return }
         
@@ -263,7 +261,6 @@ class LoginVC: UIViewController {
                     UserDefaults.standard.set(emailText, forKey: "loginEmail")
                     UserDefaults.standard.set(passwordText, forKey: "loginPw")
                     UserDefaults.standard.set(loginData.userID, forKey: "userID")
-                    print(UserDefaults.standard.integer(forKey: "userID"))
                     UserDefaults.standard.set(loginData.userNickname, forKey: "UserNickname")
                     UserDefaults.standard.set(loginData.token, forKey: "token")
                     
@@ -362,8 +359,6 @@ extension LoginVC: UITextFieldDelegate {
     }
     
     @objc func keyboardWillShow(_ notification: NSNotification) {
-        //        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue { UIView.animate(withDuration: 0.3, animations: {
-        //                                                                                                                                            self.view.transform = CGAffineTransform(translationX: 0, y: -50) }) }
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
                 self.view.frame.origin.y -= 50
@@ -372,8 +367,7 @@ extension LoginVC: UITextFieldDelegate {
         
     }
     
-    @objc func keyboardWillDisappear(_ notification: NSNotification){ //self.view.transform = .identity
-        //        self.view.transform = CGAffineTransform(translationX: 0, y: 0)
+    @objc func keyboardWillDisappear(_ notification: NSNotification){
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
