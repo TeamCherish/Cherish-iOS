@@ -25,6 +25,15 @@ extension UIView {
         return subviews
     }
     
+    /// 진동 온 것처럼 흔들리게 합니다.
+    func shake() {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        animation.duration = 0.3
+        animation.values = [-5.0, 5.0, -5.0, 5.0 ,-2.0, 2.0, 0.0 ]
+        self.layer.add(animation, forKey: "shake")
+    }
+    
     // UIView 의 모서리가 둥근 정도를 설정
     func makeRounded(cornerRadius : CGFloat?){
         if let cornerRadius_ = cornerRadius {
