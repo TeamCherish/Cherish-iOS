@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OnboardingVC: UIViewController {
+class OnboardingVC: BaseController {
     private var indexOfCellBeforeDragging = 0
     
     @IBOutlet weak var skipBtn: UIButton!
@@ -39,14 +39,18 @@ class OnboardingVC: UIViewController {
     @IBAction func skipToLoginView(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
         if let vc = storyBoard.instantiateViewController(identifier: "LoginVC") as? LoginVC {
+            UserDefaults.standard.set(true, forKey: "OnboardingHaveSeen")
             self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.setViewControllers([vc], animated: true)
         }
     }
     
     @IBAction func moveToLoginView(_ sender: UIButton) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
         if let vc = storyBoard.instantiateViewController(identifier: "LoginVC") as? LoginVC {
+            UserDefaults.standard.set(true, forKey: "OnboardingHaveSeen")
             self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.setViewControllers([vc], animated: true)
         }
     }
 }

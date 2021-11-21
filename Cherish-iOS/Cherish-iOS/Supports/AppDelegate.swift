@@ -21,12 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var isCherishAdded:Bool = false
     var isCherishDeleted:Bool = false
     var isCherishEdited:Bool = false
-    var isLoginManually:Bool = false
     let gcmMessageIDKey = "gcm.message_id"
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        Thread.sleep(forTimeInterval: 1.0) // Launch Screen 1초간 유지
         FirebaseApp.configure()
         
         // [START set_messaging_delegate]
