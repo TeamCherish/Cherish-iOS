@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JWg-P8-SxB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tI6-tj-Hhh">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -201,62 +202,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BcS-YV-g1Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2114" y="-44"/>
-        </scene>
-        <!--LoginNC-->
-        <scene sceneID="egY-hY-RpJ">
-            <objects>
-                <navigationController storyboardIdentifier="LoginNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="JWg-P8-SxB" customClass="LoginNC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Vp-yk-dWq">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="LfI-1t-M6v" kind="relationship" relationship="rootViewController" id="q7Z-Mp-k3j"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rvm-8J-MEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="14" y="-44"/>
-        </scene>
-        <!--SplashVC-->
-        <scene sceneID="Ie5-Hy-53G">
-            <objects>
-                <viewController storyboardIdentifier="SplashVC" id="LfI-1t-M6v" customClass="SplashVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="FTF-cU-r67">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cherishLogoPlant" translatesAutoresizingMaskIntoConstraints="NO" id="Nbz-ep-r83">
-                                <rect key="frame" x="162.66666666666666" y="375" width="50" height="72"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Nbz-ep-r83" secondAttribute="height" multiplier="50:72" id="WVD-5c-um1"/>
-                                    <constraint firstAttribute="height" constant="72" id="iJ7-BF-Z1Z"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="hld-8z-mtY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Nbz-ep-r83" firstAttribute="centerX" secondItem="hld-8z-mtY" secondAttribute="centerX" id="8PU-Im-JO1"/>
-                            <constraint firstItem="Nbz-ep-r83" firstAttribute="centerY" secondItem="hld-8z-mtY" secondAttribute="centerY" id="ALI-Dj-Id3"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="o2H-Xy-Asf"/>
-                    <connections>
-                        <outlet property="logoImageView" destination="Nbz-ep-r83" id="IYl-kv-We5"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Twa-XU-AZi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1098" y="-44"/>
+            <point key="canvasLocation" x="1434" y="-207"/>
         </scene>
     </scenes>
     <resources>
         <image name="btnCancel" width="48" height="48"/>
         <image name="btnLogin" width="343" height="44"/>
-        <image name="cherishLogoPlant" width="50" height="72"/>
         <image name="icEmail" width="19" height="19"/>
         <image name="icPassword" width="19" height="19"/>
         <image name="line1Login" width="1.3333333730697632" height="11"/>

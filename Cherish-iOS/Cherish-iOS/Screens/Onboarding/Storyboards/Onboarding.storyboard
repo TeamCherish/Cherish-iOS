@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d0H-oP-H6B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d0H-oP-H6B">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -27,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Liw-FM-gwa">
-                                <rect key="frame" x="0.0" y="90.666666666666686" width="375" height="556"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="556"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Liw-FM-gwa" secondAttribute="height" multiplier="375:556" id="ElE-Bh-OQ2"/>
@@ -50,7 +51,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nr3-Yi-fmH">
-                                <rect key="frame" x="315" y="64" width="40" height="33"/>
+                                <rect key="frame" x="316" y="64" width="39" height="34"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                 <state key="normal" title="SKIP">
                                     <color key="titleColor" name="seaweed"/>
@@ -60,12 +61,12 @@
                                 </connections>
                             </button>
                             <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="hjD-2L-pLh">
-                                <rect key="frame" x="109" y="711.66666666666663" width="157" height="26.333333333333371"/>
+                                <rect key="frame" x="92.666666666666671" y="713" width="189.66666666666663" height="25"/>
                                 <color key="pageIndicatorTintColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" name="seaweed"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHs-X2-LEz">
-                                <rect key="frame" x="16" y="700" width="343" height="50"/>
+                                <rect key="frame" x="16" y="700.66666666666663" width="343" height="50"/>
                                 <color key="backgroundColor" name="seaweed"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wZA-RQ-O9j"/>
@@ -88,14 +89,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bjj-MM-c1D" firstAttribute="trailing" secondItem="DHs-X2-LEz" secondAttribute="trailing" constant="16" id="3EI-8o-7cH"/>
-                            <constraint firstItem="bjj-MM-c1D" firstAttribute="trailing" secondItem="Nr3-Yi-fmH" secondAttribute="trailing" constant="20" id="41m-V6-rxB"/>
-                            <constraint firstItem="Nr3-Yi-fmH" firstAttribute="top" secondItem="bjj-MM-c1D" secondAttribute="top" constant="20" id="7kw-7o-EiS"/>
                             <constraint firstItem="Liw-FM-gwa" firstAttribute="width" secondItem="uoq-Xy-eOM" secondAttribute="width" id="ChU-Ol-bRH"/>
+                            <constraint firstItem="bjj-MM-c1D" firstAttribute="trailing" secondItem="Nr3-Yi-fmH" secondAttribute="trailing" constant="20" id="Gbb-2k-U4a"/>
                             <constraint firstItem="Liw-FM-gwa" firstAttribute="leading" secondItem="bjj-MM-c1D" secondAttribute="leading" id="SFO-fG-UKm"/>
                             <constraint firstItem="DHs-X2-LEz" firstAttribute="centerY" secondItem="hjD-2L-pLh" secondAttribute="centerY" id="VSg-sh-PW5"/>
                             <constraint firstItem="bjj-MM-c1D" firstAttribute="bottom" secondItem="hjD-2L-pLh" secondAttribute="bottom" constant="40" id="VUT-W3-XSw"/>
                             <constraint firstItem="hjD-2L-pLh" firstAttribute="centerX" secondItem="bjj-MM-c1D" secondAttribute="centerX" id="aEU-H4-eTc"/>
                             <constraint firstItem="Liw-FM-gwa" firstAttribute="trailing" secondItem="bjj-MM-c1D" secondAttribute="trailing" id="f2P-Pa-KN8"/>
+                            <constraint firstItem="Nr3-Yi-fmH" firstAttribute="top" secondItem="bjj-MM-c1D" secondAttribute="top" constant="20" id="hcU-pp-uvi"/>
                             <constraint firstItem="DHs-X2-LEz" firstAttribute="leading" secondItem="bjj-MM-c1D" secondAttribute="leading" constant="16" id="ohz-7Q-LUw"/>
                             <constraint firstItem="hjD-2L-pLh" firstAttribute="top" secondItem="Liw-FM-gwa" secondAttribute="bottom" constant="65" id="vcT-sd-xbN"/>
                         </constraints>
@@ -107,8 +108,6 @@
                         <outlet property="pageControllerBottomAnchor" destination="VUT-W3-XSw" id="9Ky-HC-gAj"/>
                         <outlet property="pageControllerTopAnchor" destination="vcT-sd-xbN" id="LKJ-zO-Jjs"/>
                         <outlet property="skipBtn" destination="Nr3-Yi-fmH" id="6qH-aJ-5Ui"/>
-                        <outlet property="skipBtnTopAnchor" destination="7kw-7o-EiS" id="pWc-Fo-xL5"/>
-                        <outlet property="skipBtnTrailingAnchor" destination="41m-V6-rxB" id="UEO-Zn-8og"/>
                         <outlet property="startBtn" destination="DHs-X2-LEz" id="Exy-A2-tye"/>
                     </connections>
                 </viewController>

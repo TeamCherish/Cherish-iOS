@@ -90,7 +90,7 @@ class PlantResultVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func startToMain(_ sender: UIButton) {
         appDel.isCherishAdded = true
-
+        UserDefaults.standard.set(true, forKey: "isPlantExist")
         UserDefaults.standard.set("", forKey: "selectedNickNameData")
         UserDefaults.standard.set(0, forKey: "selectedGrowthData")
         UserDefaults.standard.set(0, forKey: "selectedGrowthData")
@@ -108,11 +108,11 @@ class PlantResultVC: UIViewController, UIGestureRecognizerDelegate {
         
         print("루트뷰컨", rootviewController!)
         
-        if rootviewController is SplashVC {
+        if rootviewController is LoginVC {
             print("루트 뷰컨이 LoginNC에요")
             goToCherishMainView()
         }
-        else if rootviewController is NoPlantVC {
+        else if rootviewController is AddUserVC {
             goToCherishMainView()
         }
         else {

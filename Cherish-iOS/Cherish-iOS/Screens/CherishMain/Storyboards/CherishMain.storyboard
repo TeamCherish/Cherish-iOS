@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u3d-fy-ITS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -35,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OkC-eR-tQC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-674" y="130"/>
+            <point key="canvasLocation" x="-1434" y="776"/>
         </scene>
         <!--Main ContentVC-->
         <scene sceneID="NJ3-aK-mTL">
@@ -269,7 +270,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 소중한 사람들" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWq-sY-NPK" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="16.000000000000007" y="30" width="104.66666666666669" height="16.333333333333329"/>
+                                        <rect key="frame" x="16" y="27.666666666666671" width="111" height="21"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="14"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -280,7 +281,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhZ-mV-MRR" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="124.66666666666667" y="29.666666666666671" width="0.0" height="17"/>
+                                        <rect key="frame" x="131" y="29.666666666666671" width="0.0" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="9cX-Kq-gGw"/>
                                         </constraints>
@@ -488,58 +489,8 @@
             </objects>
             <point key="canvasLocation" x="774" y="774"/>
         </scene>
-        <!--Cherish MainNC-->
-        <scene sceneID="95L-ci-uJ1">
-            <objects>
-                <navigationController storyboardIdentifier="CherishMainNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="u3d-fy-ITS" customClass="CherishMainNC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rxL-hS-fik">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ACK-zb-WlM" kind="relationship" relationship="rootViewController" id="zNb-1p-c8O"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OBd-ZA-fsQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1769" y="129"/>
-        </scene>
-        <!--Main SplashVC-->
-        <scene sceneID="h2q-OK-FI1">
-            <objects>
-                <viewController storyboardIdentifier="MainSplashVC" id="b2A-NM-GdO" customClass="MainSplashVC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Bpa-Oq-1Y4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cherishLogoPlant" translatesAutoresizingMaskIntoConstraints="NO" id="Tc9-Tb-0Jv">
-                                <rect key="frame" x="162.66666666666666" y="375" width="50" height="72"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Tc9-Tb-0Jv" secondAttribute="height" multiplier="50:72" id="ali-fx-9Ci"/>
-                                    <constraint firstAttribute="height" constant="72" id="dQD-xE-5ua"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="2yZ-EI-T6M"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Tc9-Tb-0Jv" firstAttribute="centerY" secondItem="2yZ-EI-T6M" secondAttribute="centerY" id="NuY-CF-wfs"/>
-                            <constraint firstItem="Tc9-Tb-0Jv" firstAttribute="centerX" secondItem="2yZ-EI-T6M" secondAttribute="centerX" id="Vmb-ah-1iK"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="3gM-VF-MTQ"/>
-                    <connections>
-                        <outlet property="logoImageView" destination="Tc9-Tb-0Jv" id="1ba-Pe-z1g"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H8m-jA-Ade" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-673" y="-522"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="cherishLogoPlant" width="50" height="72"/>
         <image name="icBack" width="28" height="28"/>
         <image name="invalidName" width="48.333332061767578" height="13"/>
         <image name="mainBtnWater" width="90" height="40"/>

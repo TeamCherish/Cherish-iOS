@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NoPlantVC: UIViewController {
+class AddUserVC: BaseController {
 
     @IBOutlet weak var addBtn: UIButton!{
         didSet{
@@ -21,6 +21,7 @@ class NoPlantVC: UIViewController {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
+        UserDefaults.standard.set(false, forKey: "isPlantExist")
         guard let dvc = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else {return}
     }
     
