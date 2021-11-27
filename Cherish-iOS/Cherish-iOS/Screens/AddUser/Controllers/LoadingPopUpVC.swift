@@ -19,7 +19,7 @@ class LoadingPopUpVC: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .blurGrey
         loadingImgView.loadGif(asset: "loadingPopup")
-        print("로딩중중중")
     }
 }
