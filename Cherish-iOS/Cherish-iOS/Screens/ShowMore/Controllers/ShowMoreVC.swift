@@ -178,8 +178,12 @@ extension ShowMoreVC {
             // 자동로그인 해제시 루트 컨트롤러를 로그인으로 설정
             let storyboard = UIStoryboard(name: "Login", bundle: nil)
             guard let loginView = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC else { return }
+            guard let window = UIApplication.shared.windows.first(where: \.isKeyWindow) else { return }
             let rootView = UINavigationController(rootViewController: loginView)
-            UIApplication.shared.windows.first(where: \.isKeyWindow)?.rootViewController = rootView
+            window.rootViewController = rootView
+            let options: UIView.AnimationOptions = .transitionCrossDissolve
+            let duration: TimeInterval = 0.3
+            UIView.transition(with: window, duration: duration, options: options, animations: {}, completion: nil)
         }
     }
     

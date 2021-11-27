@@ -180,7 +180,7 @@
 		54F95799274E30D600D08050 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 54F95798274E30D600D08050 /* FSCalendar */; };
 		54F9579C274E30F300D08050 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 54F9579B274E30F300D08050 /* Kingfisher */; };
 		54F9579F274E311800D08050 /* OverlayContainer in Frameworks */ = {isa = PBXBuildFile; productRef = 54F9579E274E311800D08050 /* OverlayContainer */; };
-		54F957AD275225FD00D08050 /* UINavigation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F957AC275225FD00D08050 /* UINavigation+.swift */; };
+		54F957AD275225FD00D08050 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F957AC275225FD00D08050 /* NavigationController.swift */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
 		9214410225ACE7BD00853E53 /* AddUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9214410125ACE7BD00853E53 /* AddUserService.swift */; };
 		923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */; };
@@ -385,7 +385,7 @@
 		54D8D64B27128B17002BD09C /* SignUpDotStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDotStackView.swift; sourceTree = "<group>"; };
 		54D8D64D2712ACBB002BD09C /* SignUpNicknameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNicknameVC.swift; sourceTree = "<group>"; };
 		54D8D64F2712D161002BD09C /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
-		54F957AC275225FD00D08050 /* UINavigation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigation+.swift"; sourceTree = "<group>"; };
+		54F957AC275225FD00D08050 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		9214410125ACE7BD00853E53 /* AddUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserService.swift; sourceTree = "<group>"; };
 		923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailVC.swift; sourceTree = "<group>"; };
 		9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantResultVC.swift; sourceTree = "<group>"; };
@@ -1312,7 +1312,7 @@
 		54F957AE27522F5E00D08050 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				54F957AC275225FD00D08050 /* UINavigation+.swift */,
+				54F957AC275225FD00D08050 /* NavigationController.swift */,
 				54A4849D2738FA9200FB06E5 /* BaseController.swift */,
 			);
 			path = Base;
@@ -1556,7 +1556,7 @@
 				5488922525A594CF003839FC /* CalendarVC.swift in Sources */,
 				548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */,
 				92911FDF25DFC57900B4A95F /* GetPlantDataService.swift in Sources */,
-				54F957AD275225FD00D08050 /* UINavigation+.swift in Sources */,
+				54F957AD275225FD00D08050 /* NavigationController.swift in Sources */,
 				333B138A26306C8C00DAEB6E /* OpenSourcesVC.swift in Sources */,
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,
 				54D8D6502712D161002BD09C /* UILabel+.swift in Sources */,
