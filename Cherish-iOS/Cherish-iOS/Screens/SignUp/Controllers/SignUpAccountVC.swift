@@ -7,8 +7,9 @@
 
 import UIKit
 import SnapKit
+import Then
 
-final class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
+final class SignUpAccountVC: BaseController {
     
     // MARK: Components
     
@@ -70,8 +71,7 @@ final class SignUpAccountVC: UIViewController, UIGestureRecognizerDelegate {
     // MARK: Life Cycle
     
     override func viewDidLoad() {
-        self.view.backgroundColor = .systemBackground
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        super.viewDidLoad()
         self.setLayout()
         self.textFeildDelegate()
         self.setInvisible(alpha: 0)

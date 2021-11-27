@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FPPhoneVC: UIViewController, UIGestureRecognizerDelegate {
+class FPPhoneVC: BaseController {
     var authNumber : Int? // 인증번호
     var email: String? // 이메일
     var isPassed: Bool = false // 인증번호가 일치하는지
@@ -44,7 +44,6 @@ class FPPhoneVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         checkingLetterCount()
         setVisible(alpha: 0)
     }

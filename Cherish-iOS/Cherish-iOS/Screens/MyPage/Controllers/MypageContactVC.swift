@@ -8,7 +8,7 @@
 import UIKit
 import Contacts
 
-class MypageContactVC: UIViewController {
+class MypageContactVC: BaseController {
 
     @IBOutlet var mypageContactTV: MyOwnTableView!
     @IBOutlet var noContactView: UIView!
@@ -32,6 +32,7 @@ class MypageContactVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         requestAccess(completionHandler: {_ in })
         UserDefaults.standard.removeObject(forKey: "mypagePlantVC")
     }

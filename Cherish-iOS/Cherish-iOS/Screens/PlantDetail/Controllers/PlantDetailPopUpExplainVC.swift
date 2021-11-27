@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class PlantDetailPopUpExplainVC: UIViewController {
+class PlantDetailPopUpExplainVC: BaseController {
     var plantId:Int?
     var scrollItem:Int?
     var plantStepExplainArray:[PlantDetail] = []

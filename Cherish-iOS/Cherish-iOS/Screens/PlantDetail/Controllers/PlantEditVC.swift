@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlantEditVC: UIViewController {
+class PlantEditVC: BaseController {
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var nicknameLabel: CustomLabel!
     @IBOutlet weak var nicknameTextField: UITextField!
@@ -74,13 +74,11 @@ class PlantEditVC: UIViewController {
         setConstraints()
         editBtn.isEnabled = true
         phoneTextField.isEnabled = false
-//        birthTextField.isEnabled = false
         alarmTimeTextField.isEnabled = false
         setTextFieldBackgrouond()
         setTextFieldPadding()
         getPlantDataToEdit()
         createPicker()
-//        setBirthPickerData()
         for i in 0...89 {
             num[i] = String(i+1)
         }

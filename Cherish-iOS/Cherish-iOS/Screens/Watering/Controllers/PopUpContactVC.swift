@@ -10,7 +10,7 @@ import MessageUI
 import CallKit
 import Alamofire
 
-class PopUpContactVC: UIViewController {
+class PopUpContactVC: BaseController {
     let callObserver = CXCallObserver()
     var keyword = [String]()
     var didDetectOutgoingCall = false

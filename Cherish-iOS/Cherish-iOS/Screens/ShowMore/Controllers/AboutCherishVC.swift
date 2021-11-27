@@ -7,15 +7,10 @@
 
 import UIKit
 
-class AboutCherishVC: UIViewController {
+class AboutCherishVC: BaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    //MARK: - add Swipe Guesture that go back to parentVC
-    func addNavigationSwipeGuesture() {
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
 
     @IBAction func icnBackAction(_ sender: Any) {

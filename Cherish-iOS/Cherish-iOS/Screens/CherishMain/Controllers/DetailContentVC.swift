@@ -10,7 +10,7 @@ import Contacts
 import Alamofire
 import OverlayContainer
 
-class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
+class DetailContentVC: BaseController {
     
     @IBOutlet var headerView: UIView!
     @IBOutlet var cherishPeopleCountLabel: CustomLabel!
@@ -154,7 +154,6 @@ class DetailContentVC: UIViewController, UIGestureRecognizerDelegate {
                             self.tabBarController?.tabBar.isHidden = true
                             
                             // 등록된 식물이 하나도 없을 경우에 pop제스처 불가능하도록 만듬
-                            navigationController?.interactivePopGestureRecognizer?.delegate = self
                             navigationController?.interactivePopGestureRecognizer!.isEnabled = false
                         }
                     } else {

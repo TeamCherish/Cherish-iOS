@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6rt-Gh-njX">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -67,7 +68,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="80"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ji-Yl-v4x" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="56" y="20" width="0.0" height="24"/>
+                                                <rect key="frame" x="54.333333333333329" y="20" width="0.0" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="qSS-dn-1IB"/>
                                                 </constraints>
@@ -81,7 +82,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물주기 횟수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0w4-Xm-ddb" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="28.333333333333332" y="44" width="55.333333333333343" height="14"/>
+                                                <rect key="frame" x="24.999999999999996" y="44" width="58.666666666666657" height="18"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                 <color key="textColor" name="black"/>
                                                 <nil key="highlightedColor"/>
@@ -121,7 +122,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미룬 횟수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kn-Aa-ygK" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="33" y="44" width="47.666666666666657" height="14"/>
+                                                <rect key="frame" x="33" y="44" width="47.666666666666657" height="18"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                 <color key="textColor" name="black"/>
                                                 <nil key="highlightedColor"/>
@@ -147,7 +148,7 @@
                                         <rect key="frame" x="241.33333333333329" y="0.0" width="101.66666666666666" height="80"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cva-g1-5TE" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="45.666666666666686" y="20" width="0.0" height="24"/>
+                                                <rect key="frame" x="47" y="20" width="0.0" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="T5G-z9-5ZR"/>
                                                 </constraints>
@@ -161,7 +162,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성장 완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWA-n8-8tQ" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="23" y="44" width="45" height="14"/>
+                                                <rect key="frame" x="22.999999999999996" y="44" width="47.666666666666657" height="18"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                 <color key="textColor" name="black"/>
                                                 <nil key="highlightedColor"/>
@@ -323,7 +324,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5w-6F-Gca" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="16.000000000000004" y="12.666666666666666" width="63.333333333333343" height="18.666666666666671"/>
+                                        <rect key="frame" x="15.999999999999996" y="10" width="62.666666666666657" height="24"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" name="black"/>
                                         <nil key="highlightedColor"/>
@@ -623,7 +624,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MypagePlantTVC" rowHeight="83" id="4Dh-9U-bEe" customClass="MypagePlantTVC" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.333333969116211" width="375" height="83"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="375" height="83"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Dh-9U-bEe" id="i8T-CM-VDJ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="83"/>
@@ -740,7 +741,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MypageContactTVC" rowHeight="83" id="gma-Sz-IJo" customClass="MypageContactTVC" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.333333969116211" width="375" height="83"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="375" height="83"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gma-Sz-IJo" id="I63-c6-9vB">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="83"/>
@@ -814,13 +815,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록된 연락처가 없어요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QD-aW-ZTD">
-                                        <rect key="frame" x="114.00000000000001" y="299.66666666666669" width="147.33333333333337" height="18.666666666666686"/>
+                                        <rect key="frame" x="109.33333333333333" y="306.66666666666669" width="156.33333333333337" height="24"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
                                         <color key="textColor" name="textGrey"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소록에서 연락처를 등록해주세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ien-LD-Gfw" customClass="CustomLabel" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="35.666666666666657" y="272" width="303.66666666666674" height="25.666666666666686"/>
+                                        <rect key="frame" x="25.333333333333343" y="272" width="324.33333333333326" height="32.666666666666686"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -866,23 +867,6 @@
             </objects>
             <point key="canvasLocation" x="2457" y="1006"/>
         </scene>
-        <!--MypageNC-->
-        <scene sceneID="W2v-Dr-spM">
-            <objects>
-                <navigationController storyboardIdentifier="MypageNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="mtU-Uq-od7" customClass="MypageNC" customModule="Cherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="92P-qg-N8p">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="6rt-Gh-njX" kind="relationship" relationship="rootViewController" id="GzU-MQ-ZxI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BXi-jk-Crc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1156" y="162.5615763546798"/>
-        </scene>
         <!--MyPageSearchPlantVC-->
         <scene sceneID="Eo3-PE-Ylq">
             <objects>
@@ -901,7 +885,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MySearchPlantCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MySearchPlantCell" rowHeight="83" id="y6p-Of-mws" customClass="MySearchPlantCell" customModule="Cherish_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="68.333333969116211" width="375" height="83"/>
+                                        <rect key="frame" x="0.0" y="88.666666030883789" width="375" height="83"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y6p-Of-mws" id="TJF-BL-M7E">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="83"/>
@@ -1062,7 +1046,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="28" id="jz9-l6-LkF">
-                                        <rect key="frame" x="0.0" y="68.333333969116211" width="343" height="28"/>
+                                        <rect key="frame" x="0.0" y="88.666666030883789" width="343" height="28"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jz9-l6-LkF" id="V0a-n1-aqD">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="28"/>

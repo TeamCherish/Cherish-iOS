@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class MyPageSearchContactVC: BaseController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet weak var contactTV: UITableView!
     @IBOutlet weak var contactSearchBar: UISearchBar!
@@ -52,7 +52,6 @@ class MyPageSearchContactVC: UIViewController, UITableViewDelegate, UITableViewD
         contactTV.register(UINib(nibName: radioButton, bundle: nil), forCellReuseIdentifier: radioButton)
         resetSelectFriendVC()
         filteredData = friendList
-//        moveToAddBtn.isEnabled = false
         self.moveToAddBtn.setBackgroundImage(UIImage(named: "btnNextUnselected"), for: .normal)
         moveToAddBtn.layer.zPosition = 1
         self.view.bringSubviewToFront(moveToAddBtn)

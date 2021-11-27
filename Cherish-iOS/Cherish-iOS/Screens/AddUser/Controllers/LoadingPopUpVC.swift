@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoadingPopUpVC: UIViewController {
+class LoadingPopUpVC: BaseController {
     
     @IBOutlet weak var popUpView: UIView! {
         didSet {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PopUpWateringVC: UIViewController {
+class PopUpWateringVC: BaseController {
     //MARK: -@IBOutlet
     @IBOutlet weak var popupWaterView: UIView!
     @IBOutlet weak var wateringBtn: UIButton!

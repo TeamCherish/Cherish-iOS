@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 
-class MyPageSearchPlantVC: UIViewController {
+class MyPageSearchPlantVC: BaseController {
 
     @IBOutlet weak var plantTV: UITableView!
     @IBOutlet weak var plantSearchBar: UISearchBar!
@@ -43,7 +43,6 @@ class MyPageSearchPlantVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.view.translatesAutoresizingMaskIntoConstraints = false
         self.tabBarController?.tabBar.isHidden = true
         setSearchBar()
         plantTV.separatorStyle = .none

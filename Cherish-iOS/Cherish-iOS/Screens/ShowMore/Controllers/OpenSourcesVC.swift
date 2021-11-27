@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OpenSourcesVC: UIViewController {
+class OpenSourcesVC: BaseController {
 
     @IBOutlet var openSourceInfoTV: UITableView!
     var openSourceArray:[String] = ["Alamofire", "Kingfisher", "FSCalendar", "OverlayContainer", "Firebase"]
@@ -15,18 +15,12 @@ class OpenSourcesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
-        addNavigationSwipeGuesture()
     }
     
     func setDelegates() {
         openSourceInfoTV.delegate = self
         openSourceInfoTV.dataSource = self
         openSourceInfoTV.separatorStyle = .none
-    }
-    
-    //MARK: - add Swipe Guesture that go back to parentVC
-    func addNavigationSwipeGuesture() {
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
 
     @IBAction func touchUpToBackBtn(_ sender: Any) {

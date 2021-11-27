@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NicknameChangeVC: UIViewController, UINavigationControllerDelegate {
+class NicknameChangeVC: BaseController, UINavigationControllerDelegate {
     
     @IBOutlet var userNicknameTextField: UITextField!
     @IBOutlet var userEmailTextField: UITextField!

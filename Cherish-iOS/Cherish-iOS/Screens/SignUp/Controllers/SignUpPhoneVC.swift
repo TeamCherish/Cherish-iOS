@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
+final class SignUpPhoneVC: BaseController {
     
     // MARK: Components
     
@@ -66,11 +66,10 @@ final class SignUpPhoneVC: UIViewController, UIGestureRecognizerDelegate {
     // MARK: Life Cycle
     
     override func viewDidLoad() {
-        self.view.backgroundColor = .systemBackground
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-        self.phoneNumTextField.textfield.becomeFirstResponder()
+        super.viewDidLoad()
         self.setLayout()
         self.textFeildDelegate()
+        self.phoneNumTextField.textfield.becomeFirstResponder()
     }
 }
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
+class FPNewPasswordVC: BaseController {
     
     var email: String?
     var passwordFormStatus: Bool = false // 비밀번호 형식 검사
@@ -46,7 +46,6 @@ class FPNewPasswordVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         checkingLetterCount()
     }
     
