@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (5.4.1)
   - Firebase/Analytics (7.4.0):
     - Firebase/Core
   - Firebase/Core (7.4.0):
@@ -45,7 +44,6 @@ PODS:
     - GoogleUtilities/Environment (~> 7.0)
     - GoogleUtilities/Reachability (~> 7.0)
     - GoogleUtilities/UserDefaults (~> 7.0)
-  - FSCalendar (2.8.2)
   - GoogleAppMeasurement (7.4.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
     - GoogleUtilities/MethodSwizzler (~> 7.0)
@@ -73,26 +71,19 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.2.0):
     - GoogleUtilities/Logger
-  - Kingfisher (6.0.1)
   - nanopb (2.30907.0):
     - nanopb/decode (= 2.30907.0)
     - nanopb/encode (= 2.30907.0)
   - nanopb/decode (2.30907.0)
   - nanopb/encode (2.30907.0)
-  - OverlayContainer (3.5.1)
   - PromisesObjC (1.2.12)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.4.1)
   - Firebase/Analytics
   - Firebase/Messaging
-  - FSCalendar
-  - Kingfisher
-  - OverlayContainer
 
 SPEC REPOS:
   trunk:
-    - Alamofire
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -100,17 +91,13 @@ SPEC REPOS:
     - FirebaseInstallations
     - FirebaseInstanceID
     - FirebaseMessaging
-    - FSCalendar
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
-    - Kingfisher
     - nanopb
-    - OverlayContainer
     - PromisesObjC
 
 SPEC CHECKSUMS:
-  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   Firebase: 09fb40287b6dfc8ee65f726fa0b788719d3f2a07
   FirebaseAnalytics: adb3c8f02f83d00661cdaac6dbb4d54e9720d1b6
   FirebaseCore: 99c06e5a1e8d6952e75cb1f0a6d0b23c0f5ccdcf
@@ -118,15 +105,12 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 30646fc9a61c6f4ee3cd7a8b7231721842b40c95
   FirebaseInstanceID: 46d93d287108246fabbd85371ca27141d2c21ff9
   FirebaseMessaging: 6112b5cd04e0ff58c4a9920e5e29cf193ea88439
-  FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   GoogleAppMeasurement: 688d7f00e2894d9e13823ed9a028b13b993bc277
   GoogleDataTransport: 1024b1a4dfbd7a0e92cb20d7e0a6f1fb66b449a4
   GoogleUtilities: d866834472f1324d080496bc67ab3ce5d0d46027
-  Kingfisher: adde87a4f74f6a3845395769354efff593581740
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
-  OverlayContainer: a95f0f555fd0dd1addba3fc45370801e5fc16e68
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: 513dbc1440a4580ff05c68603c9b51bd4e9b1ba2
+PODFILE CHECKSUM: ddee8283dd742254211af8f4535591496dd45f08
 
 COCOAPODS: 1.10.0

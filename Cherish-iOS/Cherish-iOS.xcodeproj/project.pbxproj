@@ -176,10 +176,14 @@
 		54D8D64C27128B17002BD09C /* SignUpDotStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D64B27128B17002BD09C /* SignUpDotStackView.swift */; };
 		54D8D64E2712ACBB002BD09C /* SignUpNicknameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D64D2712ACBB002BD09C /* SignUpNicknameVC.swift */; };
 		54D8D6502712D161002BD09C /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D64F2712D161002BD09C /* UILabel+.swift */; };
+		54F95796274E30C800D08050 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 54F95795274E30C800D08050 /* Alamofire */; };
+		54F95799274E30D600D08050 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 54F95798274E30D600D08050 /* FSCalendar */; };
+		54F9579C274E30F300D08050 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 54F9579B274E30F300D08050 /* Kingfisher */; };
+		54F9579F274E311800D08050 /* OverlayContainer in Frameworks */ = {isa = PBXBuildFile; productRef = 54F9579E274E311800D08050 /* OverlayContainer */; };
+		54F957AD275225FD00D08050 /* UINavigation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F957AC275225FD00D08050 /* UINavigation+.swift */; };
 		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
 		9214410225ACE7BD00853E53 /* AddUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9214410125ACE7BD00853E53 /* AddUserService.swift */; };
 		923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */; };
-		923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */; };
 		9244DF0C25AB90F00014FF5D /* PlantResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */; };
 		9244DF1225AB92220014FF5D /* LoadingPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */; };
 		927DE44225F5F6C500B73129 /* CheckPhoneData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927DE44125F5F6C500B73129 /* CheckPhoneData.swift */; };
@@ -187,7 +191,6 @@
 		92824D9425B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824D9325B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift */; };
 		92824D9C25B16E94003D7678 /* SearchPlantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824D9A25B16E94003D7678 /* SearchPlantCell.swift */; };
 		92824D9D25B16E94003D7678 /* SearchPlantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92824D9B25B16E94003D7678 /* SearchPlantCell.xib */; };
-		92824DA225B19A7F003D7678 /* MypageNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824DA125B19A7F003D7678 /* MypageNC.swift */; };
 		92911FC025DCF37800B4A95F /* PlantEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92911FBF25DCF37800B4A95F /* PlantEditVC.swift */; };
 		92911FCF25DEAC6A00B4A95F /* MyPageSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92911FCE25DEAC6A00B4A95F /* MyPageSearchVC.swift */; };
 		92911FD725DFA15800B4A95F /* DeletePlantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92911FD625DFA15800B4A95F /* DeletePlantData.swift */; };
@@ -382,9 +385,9 @@
 		54D8D64B27128B17002BD09C /* SignUpDotStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDotStackView.swift; sourceTree = "<group>"; };
 		54D8D64D2712ACBB002BD09C /* SignUpNicknameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNicknameVC.swift; sourceTree = "<group>"; };
 		54D8D64F2712D161002BD09C /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		54F957AC275225FD00D08050 /* UINavigation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigation+.swift"; sourceTree = "<group>"; };
 		9214410125ACE7BD00853E53 /* AddUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserService.swift; sourceTree = "<group>"; };
 		923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailVC.swift; sourceTree = "<group>"; };
-		923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendVC.swift; sourceTree = "<group>"; };
 		9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantResultVC.swift; sourceTree = "<group>"; };
 		9244DF1125AB92220014FF5D /* LoadingPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPopUpVC.swift; sourceTree = "<group>"; };
 		927DE44125F5F6C500B73129 /* CheckPhoneData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPhoneData.swift; sourceTree = "<group>"; };
@@ -392,7 +395,6 @@
 		92824D9325B16E14003D7678 /* MyPageSearchPlantHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSearchPlantHeaderCell.swift; sourceTree = "<group>"; };
 		92824D9A25B16E94003D7678 /* SearchPlantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlantCell.swift; sourceTree = "<group>"; };
 		92824D9B25B16E94003D7678 /* SearchPlantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPlantCell.xib; sourceTree = "<group>"; };
-		92824DA125B19A7F003D7678 /* MypageNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageNC.swift; sourceTree = "<group>"; };
 		92911FBF25DCF37800B4A95F /* PlantEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantEditVC.swift; sourceTree = "<group>"; };
 		92911FCE25DEAC6A00B4A95F /* MyPageSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSearchVC.swift; sourceTree = "<group>"; };
 		92911FD625DFA15800B4A95F /* DeletePlantData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePlantData.swift; sourceTree = "<group>"; };
@@ -422,8 +424,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54F9579C274E30F300D08050 /* Kingfisher in Frameworks */,
+				54F9579F274E311800D08050 /* OverlayContainer in Frameworks */,
 				6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */,
+				54F95796274E30C800D08050 /* Alamofire in Frameworks */,
 				54D8D62D271186E7002BD09C /* Then in Frameworks */,
+				54F95799274E30D600D08050 /* FSCalendar in Frameworks */,
 				54D8D62A271186BB002BD09C /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -589,7 +595,6 @@
 			isa = PBXGroup;
 			children = (
 				54D8D6392711BAE2002BD09C /* BackNaviView.swift */,
-				54A4849D2738FA9200FB06E5 /* BaseController.swift */,
 				54D8D6412711DC60002BD09C /* CherishBtn.swift */,
 				54D8D626271185C2002BD09C /* CherishTextField.swift */,
 				33E8751225A05623001F84FE /* CircularProgressBar.swift */,
@@ -923,7 +928,6 @@
 				92B0FA2B25B0F6A800AA411A /* AddUserVC.swift */,
 				9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */,
 				92DCC3DE25A8504F00160523 /* SelectFriendSearchBar.swift */,
-				923F8CE225A1C2F700EA04E5 /* SelectFriendVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -994,7 +998,6 @@
 			isa = PBXGroup;
 			children = (
 				332CC7B825A7028A00D0047D /* MypageContactVC.swift */,
-				92824DA125B19A7F003D7678 /* MypageNC.swift */,
 				332CC7B525A7027D00D0047D /* MypagePlantVC.swift */,
 				9291201E25E3971C00B4A95F /* MyPageSearchContactVC.swift */,
 				9291201B25E3970A00B4A95F /* MyPageSearchPlantVC.swift */,
@@ -1114,6 +1117,7 @@
 		5459760C26E890FD008336A9 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				54F957AE27522F5E00D08050 /* Base */,
 				5459760D26E8935E008336A9 /* AppModels */,
 				33851C8C259A5AF6005BCFFD /* Font */,
 				33CAF85825A267500050DE29 /* View */,
@@ -1305,6 +1309,15 @@
 			path = PrivateComponent;
 			sourceTree = "<group>";
 		};
+		54F957AE27522F5E00D08050 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				54F957AC275225FD00D08050 /* UINavigation+.swift */,
+				54A4849D2738FA9200FB06E5 /* BaseController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		9214410025ACE5B000853E53 /* AddUser */ = {
 			isa = PBXGroup;
 			children = (
@@ -1390,6 +1403,10 @@
 			packageProductDependencies = (
 				54D8D629271186BB002BD09C /* SnapKit */,
 				54D8D62C271186E7002BD09C /* Then */,
+				54F95795274E30C800D08050 /* Alamofire */,
+				54F95798274E30D600D08050 /* FSCalendar */,
+				54F9579B274E30F300D08050 /* Kingfisher */,
+				54F9579E274E311800D08050 /* OverlayContainer */,
 			);
 			productName = "Cherish-iOS";
 			productReference = 33851C70259A5541005BCFFD /* Cherish-iOS.app */;
@@ -1421,6 +1438,10 @@
 			packageReferences = (
 				54D8D628271186BB002BD09C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				54D8D62B271186E7002BD09C /* XCRemoteSwiftPackageReference "Then" */,
+				54F95794274E30C800D08050 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				54F95797274E30D600D08050 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				54F9579A274E30F300D08050 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				54F9579D274E311800D08050 /* XCRemoteSwiftPackageReference "OverlayContainer" */,
 			);
 			productRefGroup = 33851C71259A5541005BCFFD /* Products */;
 			projectDirPath = "";
@@ -1535,6 +1556,7 @@
 				5488922525A594CF003839FC /* CalendarVC.swift in Sources */,
 				548DF16325A1B3A80081FCD1 /* UIView+Extension.swift in Sources */,
 				92911FDF25DFC57900B4A95F /* GetPlantDataService.swift in Sources */,
+				54F957AD275225FD00D08050 /* UINavigation+.swift in Sources */,
 				333B138A26306C8C00DAEB6E /* OpenSourcesVC.swift in Sources */,
 				33E874EC25A04892001F84FE /* CherishTabBarController.swift in Sources */,
 				54D8D6502712D161002BD09C /* UILabel+.swift in Sources */,
@@ -1544,7 +1566,6 @@
 				54A484A22739213000FB06E5 /* ShowMoreCell.swift in Sources */,
 				548F26B826138A310055C5E1 /* AboutCherishVC.swift in Sources */,
 				548DF18D25A227A00081FCD1 /* KeywordCVC.swift in Sources */,
-				923F8CE325A1C2F700EA04E5 /* SelectFriendVC.swift in Sources */,
 				33E8750725A04DA2001F84FE /* UIColor+Additions.swift in Sources */,
 				54D8D6402711D7F6002BD09C /* SignUpTextField.swift in Sources */,
 				332CC7A925A6F41E00D0047D /* MyPageUtils.swift in Sources */,
@@ -1634,7 +1655,6 @@
 				54AE98AF25F373B400993EA3 /* UpdatePasswordService.swift in Sources */,
 				548F2695261310790055C5E1 /* OnboardingCVCell.swift in Sources */,
 				5491596325E15059008104FC /* MessageAuthService.swift in Sources */,
-				92824DA225B19A7F003D7678 /* MypageNC.swift in Sources */,
 				548F26A7261336640055C5E1 /* OnboardingLastCVCell.swift in Sources */,
 				5491593D25DC13A6008104FC /* SignUpService.swift in Sources */,
 				336C6D9625E63FAB003865C3 /* NicknameChangeVC.swift in Sources */,
@@ -1826,8 +1846,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Supports/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1838,6 +1859,7 @@
 				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1850,8 +1872,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = "Cherish-iOS/Supports/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1862,6 +1885,7 @@
 				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1907,6 +1931,38 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		54F95794274E30C800D08050 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		54F95797274E30D600D08050 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		54F9579A274E30F300D08050 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		54F9579D274E311800D08050 /* XCRemoteSwiftPackageReference "OverlayContainer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/applidium/OverlayContainer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1919,6 +1975,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 54D8D62B271186E7002BD09C /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		54F95795274E30C800D08050 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54F95794274E30C800D08050 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		54F95798274E30D600D08050 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54F95797274E30D600D08050 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+		54F9579B274E30F300D08050 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54F9579A274E30F300D08050 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		54F9579E274E311800D08050 /* OverlayContainer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54F9579D274E311800D08050 /* XCRemoteSwiftPackageReference "OverlayContainer" */;
+			productName = OverlayContainer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
