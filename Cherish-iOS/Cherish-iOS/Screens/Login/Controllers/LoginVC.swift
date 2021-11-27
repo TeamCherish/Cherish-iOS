@@ -8,7 +8,7 @@
 import UIKit
 import Contacts
 
-class LoginVC: UIViewController {
+class LoginVC: BaseController {
     
     @IBOutlet var loginEmailTextField: UITextField!
     @IBOutlet var loginPwTextField: UITextField!
@@ -37,6 +37,7 @@ class LoginVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         keyboardObserver()
     }
     

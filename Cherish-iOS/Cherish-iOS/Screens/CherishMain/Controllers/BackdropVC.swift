@@ -8,7 +8,7 @@
 import UIKit
 import OverlayContainer
 
-class BackdropVC: UIViewController {
+class BackdropVC: BaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +17,7 @@ class BackdropVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         makeClearView()
         makeNotificationCenter()
     }

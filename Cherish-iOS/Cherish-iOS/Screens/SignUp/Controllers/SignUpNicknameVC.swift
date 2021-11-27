@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import SafariServices
 
-final class SignUpNicknameVC: UIViewController, SFSafariViewControllerDelegate, UIGestureRecognizerDelegate {
+final class SignUpNicknameVC: BaseController, SFSafariViewControllerDelegate {
     
     // MARK: Components
     
@@ -89,8 +89,7 @@ final class SignUpNicknameVC: UIViewController, SFSafariViewControllerDelegate, 
     // MARK: Life Cycle
     
     override func viewDidLoad() {
-        self.view.backgroundColor = .systemBackground
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        super.viewDidLoad()
         self.setLayout()
         self.textFeildDelegate()
     }

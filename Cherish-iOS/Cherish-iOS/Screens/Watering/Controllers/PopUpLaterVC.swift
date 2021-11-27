@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PopUpLaterVC: UIViewController {
+class PopUpLaterVC: BaseController {
     let date = [1,2,3,4,5,6,7] // 미루기 최대 7일
     var selectedDate : Int?
     var reciever: Int = 0

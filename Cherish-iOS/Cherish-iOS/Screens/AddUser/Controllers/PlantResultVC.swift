@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlantResultVC: UIViewController, UIGestureRecognizerDelegate {
+class PlantResultVC: BaseController {
 
     @IBOutlet weak var modifierLabel: UILabel!
     @IBOutlet weak var topView: UIView!
@@ -31,7 +31,6 @@ class PlantResultVC: UIViewController, UIGestureRecognizerDelegate {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        addNavigationSwipeGuesture()
         setConstraints()
         setPlantLabel()
     }
@@ -81,10 +80,6 @@ class PlantResultVC: UIViewController, UIGestureRecognizerDelegate {
             
             self.navigationController?.pushViewController(tabBarVC, animated: true)
         }
-    }
-    
-    func addNavigationSwipeGuesture() {
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
 
     

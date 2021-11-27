@@ -9,7 +9,7 @@ import UIKit
 import FSCalendar
 
 
-class CalendarVC: UIViewController {
+class CalendarVC: BaseController {
     var fetchCalendar : [FetchCalendar] = []
     var keyword : [CalendarKeyword] = []
     var review: [String] = []

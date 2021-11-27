@@ -26,17 +26,12 @@ class CherishMainVC: OverlayContainerViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(scrollNotchDownAction), name: .cherishPeopleCellClicked, object: nil)
         
         navigationBarHidden()
-        addNavigationSwipeGuesture()
         makeOverlayContainerContents()
         
     }
     
     func navigationBarHidden() {
         self.navigationController?.navigationBar.isHidden = true
-    }
-    
-    func addNavigationSwipeGuesture() {
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
     //MARK:- overlayContainer에 VC 구성

@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 
-class MainContentVC: UIViewController {
+class MainContentVC: BaseController {
     
     @IBOutlet var dayCountLabel: UILabel!
     @IBOutlet var plantExplainLabel: CustomLabel!

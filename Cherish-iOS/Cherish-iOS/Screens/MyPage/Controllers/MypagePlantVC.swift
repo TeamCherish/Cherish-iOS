@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MypagePlantVC: UIViewController {
+class MypagePlantVC: BaseController {
     
     
     @IBOutlet var mypageTV: MyOwnTableView!
@@ -27,8 +27,9 @@ class MypagePlantVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setPlantData()
+        super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        setPlantData()
     }
     
     func setPlantData(){

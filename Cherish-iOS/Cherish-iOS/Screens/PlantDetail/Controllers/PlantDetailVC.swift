@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlantDetailVC: UIViewController {
+class PlantDetailVC: BaseController {
     
     @IBOutlet var plantCircularProgressView: CircularProgressView!
     @IBOutlet var backDropImageView: UIImageView!

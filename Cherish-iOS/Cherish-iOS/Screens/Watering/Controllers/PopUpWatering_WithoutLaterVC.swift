@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PopUpWatering_WithoutLaterVC: UIViewController {
+class PopUpWatering_WithoutLaterVC: BaseController {
     //MARK: -@IBOutlet
     @IBOutlet weak var popupWithoutLaterView: UIView!
     @IBOutlet weak var wateringBtn: UIButton!

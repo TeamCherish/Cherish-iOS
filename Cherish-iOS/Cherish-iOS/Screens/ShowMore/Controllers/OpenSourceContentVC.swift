@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OpenSourceContentVC: UIViewController {
+class OpenSourceContentVC: BaseController {
 
     @IBOutlet var openSourceContentTextView: UITextView!
     var openSourceNum: Int = 0

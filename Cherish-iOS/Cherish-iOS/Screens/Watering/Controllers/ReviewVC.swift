@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReviewVC: UIViewController {
+class ReviewVC: BaseController {
     var keyword: [String] = []/// 키워드 배열
     var reciever: Int = 0
     var phoneNumber: String?

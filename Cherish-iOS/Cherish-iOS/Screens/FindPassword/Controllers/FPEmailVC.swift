@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FPEmailVC: UIViewController, UIGestureRecognizerDelegate {
+class FPEmailVC: BaseController {
     
     var isTyped : Bool = false // 이메일 텍스트 필드에 글자 입력이 되었는지
     
@@ -29,7 +29,6 @@ class FPEmailVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         checkingLetterCount()
     }
     

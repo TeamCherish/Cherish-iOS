@@ -8,7 +8,7 @@
 import UIKit
 import Contacts
 
-class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class SelectFriendSearchBar: BaseController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     //MARK: - IBOutlet
     
@@ -35,8 +35,6 @@ class SelectFriendSearchBar: UIViewController, UITableViewDataSource, UITableVie
             print(checkSelected)
             self.nextBtn.isEnabled = true
             self.nextBtn.setBackgroundImage(UIImage(named: "btn_next_selected"), for: .normal)
-//            self.nextBtn.backgroundColor = .seaweed /// 이거 안됨
-//            self.nextBtn.makeRounded(cornerRadius: 25)
             self.nextBtn.setTitleColor(UIColor(red: 255, green: 255, blue: 255, alpha: 1.0), for: .normal)
         }
     }

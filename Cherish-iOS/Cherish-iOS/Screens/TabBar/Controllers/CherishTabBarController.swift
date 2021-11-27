@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import Then
 
 class CherishTabBarController: UITabBarController {
 
     // 뷰 전체 폭 길이
-    let screenWidth = UIScreen.main.bounds.size.width
+    private let screenWidth = UIScreen.main.bounds.size.width
     
     // 뷰 전체 높이 길이
-    let screenHeight = UIScreen.main.bounds.size.height
+    private let screenHeight = UIScreen.main.bounds.size.height
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,33 +46,31 @@ class CherishTabBarController: UITabBarController {
         }
     }
     
-    // MARK: - 탭바 만드는 함수
-    
     func setTabBar() {
-        
         self.tabBar.tintColor = UIColor.black
-        
-        
-        // 메인탭
+    
         let CherishMain = UIStoryboard.init(name: "CherishMain", bundle: nil)
-        let firstTab = UINavigationController(rootViewController: (CherishMain.instantiateViewController(identifier: "CherishMainVC") as? CherishMainVC)!)
-        firstTab.navigationController?.navigationBar.isHidden = true
-        firstTab.tabBarItem.image = UIImage(named: "icnHomeUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
-        firstTab.tabBarItem.selectedImage = UIImage(named: "icnHomeSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+        guard let main = CherishMain.instantiateViewController(identifier: "CherishMainVC") as? CherishMainVC else { return }
+        let mainTab = NavigationController(rootViewController: main).then {
+            $0.tabBarItem.image = UIImage(named: "icnHomeUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+            $0.tabBarItem.selectedImage = UIImage(named: "icnHomeSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+        }
         
-        // 마이페이지탭
         let MyPage = UIStoryboard.init(name: "MyPage", bundle: nil)
-        guard let secondTab = MyPage.instantiateViewController(identifier: "MypageNC") as? MypageNC  else { return }
-        secondTab.tabBarItem.image = UIImage(named: "icnMypageUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
-        secondTab.tabBarItem.selectedImage = UIImage(named: "icnMypageSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+        guard let page = MyPage.instantiateViewController(identifier: "MyPageVC") as? MyPageVC  else { return }
+        let pageTab = NavigationController(rootViewController: page).then {
+            $0.tabBarItem.image = UIImage(named: "icnMypageUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+            $0.tabBarItem.selectedImage = UIImage(named: "icnMypageSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+        }
         
         // 더보기탭
-        let thirdTab = UINavigationController(rootViewController: ShowMoreVC())
-        thirdTab.tabBarItem.image = UIImage(named: "icnMoreUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
-        thirdTab.tabBarItem.selectedImage = UIImage(named: "icnMoreSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+        let showMoreTab = NavigationController(rootViewController: ShowMoreVC()).then {
+            $0.tabBarItem.image = UIImage(named: "icnMoreUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+            $0.tabBarItem.selectedImage = UIImage(named: "icnMoreSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
+            
+        }
         
-        let tabs =  [firstTab, secondTab, thirdTab]
-        
+        let tabs =  [mainTab, pageTab, showMoreTab]
         tabBar.layer.shadowOpacity = 0
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
         tabBar.barTintColor = .white

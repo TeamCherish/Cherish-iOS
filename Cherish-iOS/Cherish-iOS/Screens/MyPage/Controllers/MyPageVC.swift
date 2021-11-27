@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
+class MyPageVC: BaseController {
     
     var changingIndex = false
     var mypagePlantCount: Int = 0
@@ -63,7 +63,6 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
         setConstraints()
         makeCornerRadiusView(segmentView, 30)
         makeCornerRadiusView(stickyHeaderView, 30)
-        addNavigationSwipeGuesture()
         addFloatingBtn.isHidden = true
         setUserImage()
         setAutoLayoutByScreenSize()
@@ -103,11 +102,6 @@ class MyPageVC: UIViewController, UIGestureRecognizerDelegate {
         plantContainerTopConstraint.constant = mypageHeaderView.frame.height
         contactContainerTopConstraint.constant = mypageHeaderView.frame.height
         stickyHeaderView.isExclusiveTouch = true
-    }
-    
-    //MARK: - add Swipe Guesture that go back to parentVC
-    func addNavigationSwipeGuesture() {
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
     //MARK: - 상태바 백그라운드 컬러 변경

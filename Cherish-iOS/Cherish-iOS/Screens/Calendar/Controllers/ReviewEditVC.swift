@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReviewEditVC: UIViewController{
+class ReviewEditVC: BaseController {
     var space: String? // 메모 내용
     var edit_keyword = [String]() // 키워드 배열
     var edit_date : String? // 메모 작성 날짜
