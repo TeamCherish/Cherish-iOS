@@ -28,6 +28,7 @@ class PopUpLaterVC: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .blurGrey
         setStyle()
         setWateringDate()
         setPickerDate()

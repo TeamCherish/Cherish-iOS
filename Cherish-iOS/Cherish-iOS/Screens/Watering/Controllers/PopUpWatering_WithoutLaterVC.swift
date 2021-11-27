@@ -14,6 +14,7 @@ class PopUpWatering_WithoutLaterVC: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .blurGrey
         setStyle()
     }
     
