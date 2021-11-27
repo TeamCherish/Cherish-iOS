@@ -20,17 +20,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         var initialViewController: UIViewController?
         window = UIWindow(windowScene: windowScene)
         
-        // 잠금 설정
-        if let _ = UserDefaults.standard.value(forKey: "AppLockPW") {
-            let lock = SetLockVC().then {
-                $0.modeSelect = .input
-            }
-            window?.rootViewController = UINavigationController(rootViewController: lock)
-            window?.makeKeyAndVisible()
-            UIApplication.shared.registerForRemoteNotifications()
-        } else {
-            // 자동 로그인이 될 때 첫 Scnene을 메인뷰로
-            if let _ = UserDefaults.standard.string(forKey: "loginEmail") {
+        
+        // 자동 로그인이 될 때 첫 Scnene을 메인뷰로
+        if let _ = UserDefaults.standard.string(forKey: "loginEmail") {
+            // 잠금 설정?
+            if let _ = UserDefaults.standard.value(forKey: "AppLockPW") {
+                let lock = SetLockVC().then {
+                    $0.modeSelect = .input
+                }
+                window?.rootViewController = UINavigationController(rootViewController: lock)
+                window?.makeKeyAndVisible()
+                UIApplication.shared.registerForRemoteNotifications()
+            } else {
                 // 등록된 식물이 하나 이상 존재한다면 메인뷰로 이동
                 if UserDefaults.standard.bool(forKey: "isPlantExist") == true {
                     print("첫 로드 : 메인뷰")
@@ -42,26 +43,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     let vc = storyBoard.instantiateViewController(withIdentifier: "AddUserVC")
                     initialViewController = UINavigationController(rootViewController: vc)
                 }
-            } else {
-                if UserDefaults.standard.bool(forKey: "OnboardingHaveSeen") == true {
-                    // 자동 로그인이 아닐 때는 첫 Scnene을 로그인뷰로
-                    print("첫 로드 : 로그인뷰")
-                    let storyboard = UIStoryboard(name: "Login", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC")
-                    initialViewController = UINavigationController(rootViewController: vc)
-                } else {
-                    print("첫 로드 : 온보딩뷰")
-                    let storyBoard = UIStoryboard(name: "Onboarding", bundle: nil)
-                    let vc = storyBoard.instantiateViewController(identifier: "OnboardingVC")
-                    initialViewController = UINavigationController(rootViewController: vc)
-                }
             }
-            
-            guard let initialViewController = initialViewController else { return }
-            self.window?.rootViewController = initialViewController
-            self.window?.makeKeyAndVisible()
-            UIApplication.shared.unregisterForRemoteNotifications()
+        } else {
+            if UserDefaults.standard.bool(forKey: "OnboardingHaveSeen") == true {
+                // 자동 로그인이 아닐 때는 첫 Scnene을 로그인뷰로
+                print("첫 로드 : 로그인뷰")
+                let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+                initialViewController = UINavigationController(rootViewController: vc)
+            } else {
+                print("첫 로드 : 온보딩뷰")
+                let storyBoard = UIStoryboard(name: "Onboarding", bundle: nil)
+                let vc = storyBoard.instantiateViewController(identifier: "OnboardingVC")
+                initialViewController = UINavigationController(rootViewController: vc)
+            }
         }
+        
+        guard let initialViewController = initialViewController else { return }
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+        UIApplication.shared.unregisterForRemoteNotifications()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
