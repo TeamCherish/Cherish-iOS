@@ -425,11 +425,28 @@
                                     <constraint firstAttribute="width" secondItem="KQZ-N8-caW" secondAttribute="height" multiplier="83:206" id="mdV-qB-Mfh"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etg-TA-1Ag">
+                                <rect key="frame" x="30" y="638" width="126" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="y5g-43-N9f"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="btnCherishInstagram"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goToCherishInsta:" destination="tuZ-C6-cwY" eventType="touchUpInside" id="dcI-Gf-TDP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zqT-45-9Ze"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Oxj-Yb-7pr" firstAttribute="top" secondItem="MBA-Yw-YfR" secondAttribute="bottom" constant="38" id="8Df-ex-H9y"/>
+                            <constraint firstItem="etg-TA-1Ag" firstAttribute="top" secondItem="Oxj-Yb-7pr" secondAttribute="bottom" constant="33" id="BWA-x2-hWG"/>
                             <constraint firstItem="Oxj-Yb-7pr" firstAttribute="width" secondItem="EgC-6p-yrb" secondAttribute="width" multiplier="0.567333" id="Cuk-bz-Tal"/>
                             <constraint firstItem="mhm-k0-Rue" firstAttribute="top" secondItem="zqT-45-9Ze" secondAttribute="top" id="LRo-1T-fqw"/>
                             <constraint firstItem="kgF-Ja-cly" firstAttribute="height" secondItem="EgC-6p-yrb" secondAttribute="height" multiplier="0.147783" id="MDB-Vd-OPk"/>
@@ -437,8 +454,10 @@
                             <constraint firstItem="Oxj-Yb-7pr" firstAttribute="height" secondItem="EgC-6p-yrb" secondAttribute="height" multiplier="0.438424" id="NyP-ji-e9C"/>
                             <constraint firstItem="kgF-Ja-cly" firstAttribute="top" secondItem="Oxj-Yb-7pr" secondAttribute="bottom" constant="33" id="QVw-yx-jiM"/>
                             <constraint firstItem="MBA-Yw-YfR" firstAttribute="leading" secondItem="h2Q-QG-ZXu" secondAttribute="leading" id="U7Q-9C-NGH"/>
+                            <constraint firstItem="etg-TA-1Ag" firstAttribute="width" secondItem="Oxj-Yb-7pr" secondAttribute="width" multiplier="0.592476" id="Xyz-9E-rMH"/>
                             <constraint firstItem="zqT-45-9Ze" firstAttribute="trailing" secondItem="mhm-k0-Rue" secondAttribute="trailing" id="ZVT-Nq-Tkt"/>
                             <constraint firstItem="KQZ-N8-caW" firstAttribute="height" secondItem="EgC-6p-yrb" secondAttribute="height" multiplier="0.253695" id="at6-DT-djV"/>
+                            <constraint firstItem="etg-TA-1Ag" firstAttribute="leading" secondItem="Oxj-Yb-7pr" secondAttribute="leading" id="c8a-Zq-fb2"/>
                             <constraint firstItem="h2Q-QG-ZXu" firstAttribute="leading" secondItem="zqT-45-9Ze" secondAttribute="leading" constant="30" id="g0v-Xu-UTz"/>
                             <constraint firstItem="mhm-k0-Rue" firstAttribute="leading" secondItem="EgC-6p-yrb" secondAttribute="leading" id="hle-Rz-cKA"/>
                             <constraint firstItem="zqT-45-9Ze" firstAttribute="trailing" secondItem="KQZ-N8-caW" secondAttribute="trailing" constant="22" id="q5c-oo-awK"/>
@@ -777,6 +796,7 @@
         <image name="aboutCherishImg2" width="83" height="206"/>
         <image name="btnCamera" width="60" height="60"/>
         <image name="btnCancel" width="48" height="48"/>
+        <image name="btnCherishInstagram" width="126" height="32"/>
         <image name="btnNextUnselected" width="343" height="48"/>
         <image name="circleBlue" width="52" height="52"/>
         <image name="circleMin" width="52" height="52"/>
