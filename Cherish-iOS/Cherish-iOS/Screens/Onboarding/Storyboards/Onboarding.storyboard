@@ -108,6 +108,8 @@
                         <outlet property="pageControllerBottomAnchor" destination="VUT-W3-XSw" id="9Ky-HC-gAj"/>
                         <outlet property="pageControllerTopAnchor" destination="vcT-sd-xbN" id="LKJ-zO-Jjs"/>
                         <outlet property="skipBtn" destination="Nr3-Yi-fmH" id="6qH-aJ-5Ui"/>
+                        <outlet property="skipBtnTopAnchor" destination="hcU-pp-uvi" id="GUh-M9-rUH"/>
+                        <outlet property="skipBtnTrailingAnchor" destination="Gbb-2k-U4a" id="nAF-qk-12t"/>
                         <outlet property="startBtn" destination="DHs-X2-LEz" id="Exy-A2-tye"/>
                     </connections>
                 </viewController>
