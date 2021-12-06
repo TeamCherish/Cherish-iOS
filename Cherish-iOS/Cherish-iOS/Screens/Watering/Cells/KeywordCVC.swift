@@ -20,7 +20,7 @@ class KeywordCVC: UICollectionViewCell {
     }
     @IBOutlet weak var keywordLabel: UILabel!{
         didSet{
-            keywordLabel.textColor = .black
+            keywordLabel.textColor = .cherishBlack
         }
     }
 

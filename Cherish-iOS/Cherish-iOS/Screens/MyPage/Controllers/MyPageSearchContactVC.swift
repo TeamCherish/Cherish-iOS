@@ -65,7 +65,7 @@ class MyPageSearchContactVC: BaseController, UITableViewDelegate, UITableViewDat
         contactSearchBar.setSearchFieldBackgroundImage(UIImage(named: "search_box"), for: .normal)
         contactSearchBar.sizeToFit()
         contactSearchBar.searchTextField.sizeToFit()
-        contactSearchBar.searchTextField.textColor = UIColor.black
+        contactSearchBar.searchTextField.textColor = UIColor.cherishBlack
         contactSearchBar.searchTextField.font = UIFont.init(name: "NotoSansCJKKR-Regular", size: 14)
         contactSearchBar.searchTextPositionAdjustment = UIOffset(horizontal: 12.0, vertical: 0.0)
         contactSearchBar.setPositionAdjustment(UIOffset(horizontal: 10.0, vertical: 0.0), for: .search)

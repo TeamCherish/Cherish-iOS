@@ -284,7 +284,7 @@ class SelectFriendSearchBar: BaseController, UITableViewDataSource, UITableViewD
         searchBar.layer.borderWidth = 0
         searchBar.searchTextPositionAdjustment = UIOffset(horizontal: 12.0, vertical: 0.0)
         searchBar.setPositionAdjustment(UIOffset(horizontal: 10.0, vertical: 0.0), for: .search)
-        searchBar.searchTextField.textColor = UIColor.black
+        searchBar.searchTextField.textColor = UIColor.cherishBlack
         searchBar.searchTextField.font = UIFont.init(name: "NotoSansCJKKR-Regular", size: 14)
     }
     

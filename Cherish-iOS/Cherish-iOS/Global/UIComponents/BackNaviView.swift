@@ -19,7 +19,7 @@ import SnapKit
  */
 class BackNaviView: UIView {
     private lazy var titleLabel = UILabel().then {
-        $0.setLabel(text: "제목", color: .black, size: 16, weight: .medium)
+        $0.setLabel(text: "제목", color: .cherishBlack, size: 16, weight: .medium)
     }
     private (set) lazy var backBtn = UIButton().then {
         $0.setImageByName(name: "icnBack", selectedName: nil)

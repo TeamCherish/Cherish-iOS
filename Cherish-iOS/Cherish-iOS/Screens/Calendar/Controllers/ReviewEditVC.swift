@@ -106,13 +106,13 @@ extension ReviewEditVC {
         keywordTextField.backgroundColor = .inputGrey
         keywordTextField.attributedPlaceholder = NSAttributedString(string: "키워드로 표현해주세요!", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderGrey])
         keywordTextField.makeRounded(cornerRadius: 8)
-        keywordCountingLabel.textColor = .black
+        keywordCountingLabel.textColor = .cherishBlack
         keywordLimitLabel.textColor = .placeholderGrey
         memoTextView.makeRounded(cornerRadius: 10.0)
         memoTextView.backgroundColor = .inputGrey
         // TextView 커서 Padding
         memoTextView.textContainerInset = UIEdgeInsets(top: 14, left: 16, bottom: 55, right: 15)
-        memoCountingLabel.textColor = .black
+        memoCountingLabel.textColor = .cherishBlack
         memoLimitLabel.textColor = .placeholderGrey
         completeBtn.makeRounded(cornerRadius: 25.0)
     }
@@ -302,7 +302,7 @@ extension ReviewEditVC: UITextFieldDelegate,UITextViewDelegate{
     func textViewPlaceholder() {
         if memoTextView.text == "메모를 입력해주세요!" {
             memoTextView.text = ""
-            memoTextView.textColor = .black
+            memoTextView.textColor = .cherishBlack
         }
         else if memoTextView.text == "" {
             memoTextView.text = "메모를 입력해주세요!"

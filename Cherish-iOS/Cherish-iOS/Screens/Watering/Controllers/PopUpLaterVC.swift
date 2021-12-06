@@ -45,7 +45,7 @@ class PopUpLaterVC: BaseController {
 
 extension PopUpLaterVC {
     func setStyle() {
-        laterView.dropShadow(color: .black, offSet: CGSize(width: 0, height: 4), opacity: 0.25, radius: 4)
+        laterView.dropShadow(color: .cherishBlack, offSet: CGSize(width: 0, height: 4), opacity: 0.25, radius: 4)
         laterView.makeRounded(cornerRadius: 20.0)
         selectDateLabel.backgroundColor = .inputGrey
         selectDateLabel.makeRounded(cornerRadius: 6)

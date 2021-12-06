@@ -19,8 +19,8 @@ class MyPageSearchVC: BaseController {
         didSet {
             segmentView.setButtonTitles(buttonTitles: ["식물 \(self.mypagePlantCount)", "연락처 \(self.mypageContactCount)"])
             print("식물 \(self.mypagePlantCount)")
-            segmentView.selectorViewColor = .black
-            segmentView.selectorTextColor = .black
+            segmentView.selectorViewColor = .cherishBlack
+            segmentView.selectorTextColor = .cherishBlack
             }
     }
     @IBOutlet weak var mySearchExternalSV: UIScrollView!

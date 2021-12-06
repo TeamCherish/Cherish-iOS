@@ -14,10 +14,10 @@ final class SignUpPhoneVC: BaseController {
     
     private lazy var dotStackView = SignUpDotStackView(dotNum: 3, greenDotIdx: 1)
     private lazy var typePhoneNumLabel = UILabel().then {
-        $0.setLabel(text: "전화번호를 입력해주세요", color: .black, size: 20, weight: .medium)
+        $0.setLabel(text: "전화번호를 입력해주세요", color: .cherishBlack, size: 20, weight: .medium)
     }
     private lazy var typeAuthLabel = UILabel().then {
-        $0.setLabel(text: "인증번호를 입력해주세요", color: .black, size: 20, weight: .medium)
+        $0.setLabel(text: "인증번호를 입력해주세요", color: .cherishBlack, size: 20, weight: .medium)
     }
     private lazy var phoneNumTextField = SignUpTextField().then {
         $0.setPlaceholder(placeholder: "ex)010-1234-5678")
