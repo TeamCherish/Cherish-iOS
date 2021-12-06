@@ -10,12 +10,12 @@ import SnapKit
 import Then
 
 enum Mode {
-    case set, input
+    case lock, unlock
 }
 
 final class SetLockVC: BaseController {
     
-    // MARK: UI
+    // MARK: UI Components
     
     private lazy var naviBar = BackNaviView().then {
         $0.setTitleLabel(title: "비밀번호 설정")
@@ -74,7 +74,7 @@ final class SetLockVC: BaseController {
     private lazy var completeBtn = CherishBtn().then {
         $0.setTitleWithStyle(title: "설정완료", size: 16, weight: .medium)
         $0.press { [weak self] in
-            if self?.password.count == 4 {
+            if self?.password.count == 4 && self?.doubleCheck == true {
                 UserDefaults.standard.set(self?.password, forKey: "AppLockPW")
                 self?.feedback?.notificationOccurred(.success)
                 self?.navigationController?.popViewController(animated: true)
@@ -84,9 +84,14 @@ final class SetLockVC: BaseController {
         }
     }
     
+    // MARK: Variables
+    
     private var password = [Int]()
-    private let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    var modeSelect: Mode = .set
+    private var passwordForCheck = [Int]()
+    private var doubleCheck = false
+    var modeSelect: Mode = .lock
+    
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,20 +111,22 @@ extension SetLockVC {
         }
     }
     
-    private func defineLockModeLayout(mode: Mode) {
-        if mode == .input {
-            self.naviBar.isHidden = true
-            self.cautionLabel.isHidden = true
-            self.completeBtn.isHidden = true
-            self.indicatorLabel.setLabel(text: "비밀번호를 입력해주세요.", size: 16)
-        }
-    }
+    // MARK: Layout
     
     private func setLayout() {
         setNaviLayout()
         setIndicatorArea()
         setKeyPadArea()
         setBottomArea()
+    }
+    
+    private func defineLockModeLayout(mode: Mode) {
+        if mode == .unlock {
+            self.naviBar.isHidden = true
+            self.cautionLabel.isHidden = true
+            self.completeBtn.isHidden = true
+            self.indicatorLabel.text = "비밀번호 입력"
+        }
     }
     
     private func setNaviLayout() {
@@ -179,16 +186,16 @@ extension SetLockVC {
     }
 }
 
+// MARK: Password Logic
+
 extension SetLockVC: NumPadDelegate {
     func receiveAction(number: Int?) {
+        // MARK: Input Logic
         if let number = number {
-            print(number)
             if password.count < 4 {
                 password.append(number)
                 leafImageViews[password.count-1].isActivated = true
             }
-            completeBtn.isActivated = password.count == 4 ? true : false
-            
         } else {
             if password.count > 0 {
                 leafImageViews[password.count-1].isActivated = false
@@ -198,29 +205,15 @@ extension SetLockVC: NumPadDelegate {
         }
         print(password)
         
+        // MARK: Complete Logic
         switch modeSelect {
-        case .input:
-            // 비밀번호 검사
+        case .unlock:
             guard let pw = UserDefaults.standard.value(forKey: "AppLockPW") as? [Int] else { return }
             if password.count == 4 {
                 if password == pw {
                     self.feedback?.notificationOccurred(.success)
-                    var initialViewController: UIViewController?
-                    // 등록된 식물이 하나 이상 존재한다면 메인뷰로 이동
-                    if UserDefaults.standard.bool(forKey: "isPlantExist") == true {
-                        print("첫 로드 : 메인뷰")
-                        let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
-                        initialViewController = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController")
-                    } else {
-                        print("첫 로드 : 등록된 식물이 없어요 뷰")
-                        let storyBoard = UIStoryboard(name: "AddUser", bundle: nil)
-                        initialViewController = storyBoard.instantiateViewController(withIdentifier: "AddUserVC")
-                    }
-                    guard let initialViewController = initialViewController else { return }
-                    
                     DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
-                        self.navigationController?.pushViewController(initialViewController, animated: true)
-                        self.navigationController?.setViewControllers([initialViewController], animated: true)
+                        self.view.removeFromSuperview()
                     }
                 } else {
                     self.makeVibrate(degree: .medium)
@@ -232,7 +225,16 @@ extension SetLockVC: NumPadDelegate {
                 }
             }
         default:
-            break
+            doubleCheck = password == passwordForCheck ? true : false
+            if password.count == 4 && !doubleCheck && passwordForCheck.isEmpty {
+                passwordForCheck = password
+                password = []
+                indicatorLabel.text = "확인을 위해 한 번 더 입력해주세요"
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.15) {
+                    (0..<4).forEach { self.leafImageViews[$0].isActivated = false }
+                }
+            }
+            completeBtn.isActivated = password.count == 4 && doubleCheck ? true : false
         }
     }
 }
