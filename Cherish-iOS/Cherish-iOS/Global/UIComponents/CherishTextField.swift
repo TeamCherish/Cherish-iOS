@@ -55,7 +55,7 @@ class CherishTextField: UITextField {
         self.autocapitalizationType = .none
         self.backgroundColor = .mypageBackgroundGrey
         self.font = UIFont.notoRegular(size: 16.adjusted)
-        self.textColor = .black
+        self.textColor = .cherishBlack
         self.setCharacterSpacing(-0.7)
         self.addTarget(self, action: #selector(changeTextField), for: .editingChanged)
     }
