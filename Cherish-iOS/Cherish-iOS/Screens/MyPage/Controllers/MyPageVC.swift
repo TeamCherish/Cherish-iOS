@@ -43,8 +43,8 @@ class MyPageVC: BaseController {
     @IBOutlet var segmentView: CustomSegmentedControl! {
         didSet {
             segmentView.setButtonTitles(buttonTitles: ["식물 \(mypagePlantCount)", "연락처 \(mypageContactCount)"])
-            segmentView.selectorViewColor = .black
-            segmentView.selectorTextColor = .black
+            segmentView.selectorViewColor = .cherishBlack
+            segmentView.selectorTextColor = .cherishBlack
         }
     }
     @IBOutlet var mypageStackView: UIStackView!

@@ -15,16 +15,16 @@ final class SignUpNicknameVC: BaseController, SFSafariViewControllerDelegate {
     
     private lazy var dotStackView = SignUpDotStackView(dotNum: 3, greenDotIdx: 2)
     private lazy var typeNicknameLabel = UILabel().then {
-        $0.setLabel(text: "사용할 닉네임을 입력해주세요", color: .black, size: 20, weight: .medium)
+        $0.setLabel(text: "사용할 닉네임을 입력해주세요", color: .cherishBlack, size: 20, weight: .medium)
     }
     private lazy var privacyModifierLabel = UILabel().then {
-        $0.setLabel(text: "‘시작하기'버튼을 누르면 cherish의 ", color: .black, size: 12, weight: .regular)
+        $0.setLabel(text: "‘시작하기'버튼을 누르면 cherish의 ", color: .cherishBlack, size: 12, weight: .regular)
     }
     private lazy var andLabel = UILabel().then {
-        $0.setLabel(text: "과", color: .black, size: 12, weight: .regular)
+        $0.setLabel(text: "과", color: .cherishBlack, size: 12, weight: .regular)
     }
     private lazy var termsModifierLabel = UILabel().then {
-        $0.setLabel(text: "을 읽고 동의한 것으로 간주합니다.", color: .black, size: 12, weight: .regular)
+        $0.setLabel(text: "을 읽고 동의한 것으로 간주합니다.", color: .cherishBlack, size: 12, weight: .regular)
     }
     private lazy var naviBar = BackNaviView().then {
         $0.setTitleLabel(title: "회원가입")

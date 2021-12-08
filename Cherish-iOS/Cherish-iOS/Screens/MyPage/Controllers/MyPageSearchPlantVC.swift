@@ -70,7 +70,7 @@ class MyPageSearchPlantVC: BaseController {
         plantSearchBar.searchTextPositionAdjustment = UIOffset(horizontal: 12.0, vertical: 0.0)
         plantSearchBar.setPositionAdjustment(UIOffset(horizontal: 10.0, vertical: 0.0), for: .search)
 //        plantSearchBar.frame = CGRect(x: 16, y: 0, width: 200, height: 44)
-        plantSearchBar.searchTextField.textColor = UIColor.black
+        plantSearchBar.searchTextField.textColor = UIColor.cherishBlack
         plantSearchBar.searchTextField.font = UIFont.init(name: "NotoSansCJKKR-Regular", size: 14)
     }
 

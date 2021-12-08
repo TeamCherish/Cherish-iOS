@@ -15,10 +15,10 @@ final class SignUpAccountVC: BaseController {
     
     private lazy var dotStackView = SignUpDotStackView(dotNum: 3, greenDotIdx: 0)
     private lazy var typeEmailLabel = UILabel().then {
-        $0.setLabel(text: "이메일을 입력해주세요", color: .black, size: 20, weight: .medium)
+        $0.setLabel(text: "이메일을 입력해주세요", color: .cherishBlack, size: 20, weight: .medium)
     }
     private lazy var typePasswordLabel = UILabel().then {
-        $0.setLabel(text: "비밀번호를 입력해주세요", color: .black, size: 20, weight: .medium)
+        $0.setLabel(text: "비밀번호를 입력해주세요", color: .cherishBlack, size: 20, weight: .medium)
     }
     private lazy var emailTextField = SignUpTextField().then {
         $0.setPlaceholder(placeholder: "ex) cherish@naver.com")

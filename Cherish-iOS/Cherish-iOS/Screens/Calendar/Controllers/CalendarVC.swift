@@ -162,11 +162,11 @@ extension CalendarVC {
         calendarOrigin.appearance.titleTodayColor = .seaweed/// Today 날짜에 Default 표시되는 특정색 없음
         calendarOrigin.appearance.todayColor = .clear // Today 날짜에 Default 표시되는 특정 동그라미 색 없음
         calendarOrigin.appearance.todaySelectionColor = .none  // Today 날짜를 선택하면 표시되는 동그라미 색 없음
-        calendarOrigin.appearance.headerTitleColor = .black /// 2021년 1월(헤더) 색
-        calendarOrigin.appearance.weekdayTextColor = .black /// 요일(월,화,수..) 색
+        calendarOrigin.appearance.headerTitleColor = .cherishBlack /// 2021년 1월(헤더) 색
+        calendarOrigin.appearance.weekdayTextColor = .cherishBlack /// 요일(월,화,수..) 색
         calendarOrigin.appearance.selectionColor = .calendarSelectCircleGrey // 선택 된 날의 색
-        calendarOrigin.appearance.titleWeekendColor = .black /// 주말 날짜 색
-        calendarOrigin.appearance.titleDefaultColor = .black /// 기본 날짜 색
+        calendarOrigin.appearance.titleWeekendColor = .cherishBlack /// 주말 날짜 색
+        calendarOrigin.appearance.titleDefaultColor = .cherishBlack /// 기본 날짜 색
         
         // Month 폰트 설정
         calendarOrigin.appearance.headerTitleFont = UIFont(name: "NotoSansCJKKR-Medium", size: 16)

@@ -869,7 +869,7 @@ extension PlantDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
                 keywordCell.layer.borderColor = CGColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
             }
             else {
-                keywordCell.keywordLabel.textColor = .black
+                keywordCell.keywordLabel.textColor = .cherishBlack
                 keywordCell.layer.borderColor = CGColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
             }
             keywordCell.keywordLabel.text = keywordArray[indexPath.row]
