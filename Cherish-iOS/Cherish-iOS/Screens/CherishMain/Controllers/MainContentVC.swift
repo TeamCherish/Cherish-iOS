@@ -11,6 +11,7 @@ import Kingfisher
 
 class MainContentVC: BaseController {
     
+    @IBOutlet var snowSubView: UIView!
     @IBOutlet var dayCountLabel: UILabel!
     @IBOutlet var plantExplainLabel: CustomLabel!
     @IBOutlet var userNickNameLabel: CustomLabel!
@@ -43,7 +44,7 @@ class MainContentVC: BaseController {
     var cherishResultData:[MainPlantConditionData] = []
     var selectedRowIndexPath:Int = 0
     var growthInfo:Int = UserDefaults.standard.integer(forKey: "selectedGrowthData")
-    
+    var isSnowing: Bool = true
     
     //MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -55,6 +56,7 @@ class MainContentVC: BaseController {
         addNotificationObserver()
         setDataWithSelectedData()
         setAutolayout()
+        setSnowingAnimation()
         self.tabBarController?.tabBar.isHidden = false
     }
     
@@ -158,7 +160,7 @@ class MainContentVC: BaseController {
             
             //MARK: - 민들레일 때
             if selectedPlantName == "민들레" {
-    
+                
                 //물주기가 완료되었을 때만 물주기 모션 그래픽
                 allocateWateringDataWhenBackgroundMode()
                 growthInfo = UserDefaults.standard.integer(forKey: "selectedGrowthData")
@@ -875,7 +877,7 @@ class MainContentVC: BaseController {
                     plantImageViewTopConstraint.constant = 255
                 }
                 else if screenHeight == 844 {
-                    //12 pro 
+                    //12 pro
                     plantImageViewTopConstraint.constant = 205
                 }
                 else {
@@ -900,10 +902,10 @@ class MainContentVC: BaseController {
         progressbarView.setBackColor(color: .white)
         
         let greenGradient = CAGradientLayer()
-
+        
         // frame을 잡아주고
         greenGradient.frame = progressbarView.bounds
-
+        
         // 섞어줄 색을 colors에 넣어준 뒤
         greenGradient.colors = [UIColor.seaweed.cgColor,UIColor(red: 0, green: 171/255, blue: 162/255, alpha: 1.0).cgColor]
         
@@ -911,10 +913,10 @@ class MainContentVC: BaseController {
         greenGradient.endPoint = CGPoint(x: 0.5, y: 1)
         
         let redGradient = CAGradientLayer()
-
+        
         // frame을 잡아주고
         redGradient.frame = progressbarView.bounds
-
+        
         // 섞어줄 색을 colors에 넣어준 뒤
         redGradient.colors = [UIColor.pinkSub.cgColor,UIColor(red: 248/255, green: 230/255, blue: 80/255, alpha: 1.0).cgColor]
         
@@ -958,7 +960,7 @@ class MainContentVC: BaseController {
             print("iPhone 12, 12pro")
             progressViewTopConstraint.constant = 127
             progressInnerViewTopConstraint.constant = 129
-   
+            
         }
         else if screenHeight == 736 {
             print("iPhone 8plus")
@@ -1139,5 +1141,37 @@ class LoadingHUD: NSObject {
         let animationArray: UIImage = UIImage.gif(asset: "loading")!
         
         return animationArray
+    }
+}
+//MARK: - snowing effect
+extension MainContentVC {
+    func setSnowingAnimation(){
+        if isSnowing == true {
+            
+            let flakeEmitterCell = CAEmitterCell()
+            
+            flakeEmitterCell.contents = UIImage(named: "snowball")?.cgImage
+            flakeEmitterCell.scale = 0.03
+            flakeEmitterCell.scaleRange = 0.044
+            flakeEmitterCell.emissionRange = .pi
+            flakeEmitterCell.lifetime = 50.0
+            flakeEmitterCell.birthRate = 5
+            flakeEmitterCell.velocity = -30
+            flakeEmitterCell.velocityRange = -20
+            flakeEmitterCell.yAcceleration = 3
+            flakeEmitterCell.xAcceleration = 3
+            flakeEmitterCell.spin = 0.5
+            flakeEmitterCell.spinRange = 6.0
+            
+            let snowEmitterLayer = CAEmitterLayer()
+            snowEmitterLayer.emitterPosition = CGPoint(x: view.bounds.width / 2.0, y: -30)
+            snowEmitterLayer.emitterSize = CGSize(width: view.bounds.width, height: 0)
+            snowEmitterLayer.emitterShape = CAEmitterLayerEmitterShape.line
+            snowEmitterLayer.beginTime = CACurrentMediaTime()
+            snowEmitterLayer.timeOffset = 5
+            snowEmitterLayer.emitterCells = [flakeEmitterCell]
+            self.snowSubView.alpha = 0.65
+            self.snowSubView.layer.addSublayer(snowEmitterLayer)
+        }
     }
 }
