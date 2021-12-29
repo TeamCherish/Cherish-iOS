@@ -47,8 +47,6 @@ class CherishTabBarController: UITabBarController {
     }
     
     func setTabBar() {
-        self.tabBar.tintColor = UIColor.cherishBlack
-    
         let CherishMain = UIStoryboard.init(name: "CherishMain", bundle: nil)
         guard let main = CherishMain.instantiateViewController(identifier: "CherishMainVC") as? CherishMainVC else { return }
         let mainTab = NavigationController(rootViewController: main).then {
@@ -73,6 +71,7 @@ class CherishTabBarController: UITabBarController {
         let tabs =  [mainTab, pageTab, showMoreTab]
         tabBar.layer.shadowOpacity = 0
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+        tabBar.tintColor = UIColor.cherishBlack
         tabBar.barTintColor = .white
         self.setViewControllers(tabs, animated: false)
     }

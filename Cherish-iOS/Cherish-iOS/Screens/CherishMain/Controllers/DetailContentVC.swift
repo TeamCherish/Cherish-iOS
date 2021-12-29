@@ -65,10 +65,8 @@ class DetailContentVC: BaseController {
     
     //MARK: - 헤더 뷰 라운드로 만드는 함수
     func makeHeaderViewCornerRadius() {
-        self.view.layer.cornerRadius = 30
-        headerView.clipsToBounds = true
-        headerView.layer.cornerRadius = 30
-        headerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        self.view.makePartialRounded(cornerRadius: 30, maskedCorners: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
+        self.view.clipsToBounds = true
     }
     
     //MARK: - 메인뷰 데이터 받아오는 함수
