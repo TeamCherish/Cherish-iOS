@@ -18,11 +18,9 @@ class AddUserVC: BaseController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
         UserDefaults.standard.set(false, forKey: "isPlantExist")
-        guard let dvc = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else {return}
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,8 +31,6 @@ class AddUserVC: BaseController {
     
     @IBAction func touchUpToAddNC(_ sender: UIButton) {
         print("hello")
-    //    guard let dvc = self.storyboard?.instantiateViewController(identifier: "PlantResultVC") as? PlantResultVC else {return}
-        
         if let vc = self.storyboard?.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar {
             self.navigationController?.pushViewController(vc, animated: true)
         }

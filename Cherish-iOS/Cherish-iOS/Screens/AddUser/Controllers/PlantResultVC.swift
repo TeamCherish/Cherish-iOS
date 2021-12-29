@@ -31,6 +31,7 @@ class PlantResultVC: BaseController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         setConstraints()
         setPlantLabel()
     }
@@ -73,54 +74,26 @@ class PlantResultVC: BaseController {
         modifierRegular.widthAnchor.constraint(equalToConstant: 269)
         modifierRegular.heightAnchor.constraint(equalToConstant: 40)
     }
-    
-    func goToCherishMainView(){
-        let tabBarStoyboard: UIStoryboard = UIStoryboard(name: "TabBar", bundle: nil)
-        if let tabBarVC = tabBarStoyboard.instantiateViewController(identifier: "CherishTabBarController") as? CherishTabBarController {
-            
-            self.navigationController?.pushViewController(tabBarVC, animated: true)
-        }
-    }
 
     
     @IBAction func startToMain(_ sender: UIButton) {
-        appDel.isCherishAdded = true
-        UserDefaults.standard.set(true, forKey: "isPlantExist")
-        UserDefaults.standard.set("", forKey: "selectedNickNameData")
-        UserDefaults.standard.set(0, forKey: "selectedGrowthData")
-        UserDefaults.standard.set(0, forKey: "selectedGrowthData")
-        UserDefaults.standard.set("", forKey: "selectedModifierData")
-        UserDefaults.standard.set(true, forKey: "addUser")
         NotificationCenter.default.post(name: .addUser, object: nil)
-
-        var userId = UserDefaults.standard.integer(forKey: "userID")
         let storyBoard: UIStoryboard = UIStoryboard(name: "CherishMain", bundle: nil)
-        
-        guard let dvc = storyBoard.instantiateViewController(identifier: "MainContentVC") as? MainContentVC else {return}
-        
-
-        let rootviewController = self.navigationController!.viewControllers.first
-        
-        print("루트뷰컨", rootviewController!)
-        
-        if rootviewController is LoginVC {
-            print("루트 뷰컨이 LoginNC에요")
-            goToCherishMainView()
-        }
-        else if rootviewController is AddUserVC {
-            goToCherishMainView()
-        }
-        else {
-            print("루트 뷰컨이 TabBarController에요")
-            self.navigationController?.popToRootViewController(animated: true)
+        if let vc = storyBoard.instantiateViewController(identifier: "CherishMainVC") as? CherishMainVC {
+            isCherishDataChanged.shared.status = true
+            UserDefaults.standard.set(true, forKey: "isPlantExist")
+            UserDefaults.standard.set("", forKey: "selectedNickNameData")
+            UserDefaults.standard.set(0, forKey: "selectedGrowthData")
+            UserDefaults.standard.set(0, forKey: "selectedGrowthData")
+            UserDefaults.standard.set("", forKey: "selectedModifierData")
+            UserDefaults.standard.set(true, forKey: "addUser")
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+            self.navigationController?.setViewControllers([vc], animated: true)
         }
     }
     
     func setPlantLabel() {
-        let font = UIFont(name: "Noto Sans CJK KR Bold", size: 28)
-        
         /// 이미지 받아오기
-        
         if let url = URL(string: UserDefaults.standard.string(forKey: "resultImgURL") ?? "") {
             if let data = try? Data(contentsOf: url) {
                 self.resultPlantImgView.image = UIImage(data: data)
