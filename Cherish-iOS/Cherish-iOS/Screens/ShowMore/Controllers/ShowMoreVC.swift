@@ -179,7 +179,7 @@ extension ShowMoreVC {
             let storyboard = UIStoryboard(name: "Login", bundle: nil)
             guard let loginView = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC else { return }
             guard let window = UIApplication.shared.windows.first(where: \.isKeyWindow) else { return }
-            let rootView = UINavigationController(rootViewController: loginView)
+            let rootView = NavigationController(rootViewController: loginView)
             window.rootViewController = rootView
             let options: UIView.AnimationOptions = .transitionCrossDissolve
             let duration: TimeInterval = 0.3

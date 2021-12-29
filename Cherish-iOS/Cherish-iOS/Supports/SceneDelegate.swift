@@ -30,12 +30,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 print("첫 로드 : 로그인뷰")
                 let storyboard = UIStoryboard(name: "Login", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC")
-                initialViewController = UINavigationController(rootViewController: vc)
+                initialViewController = NavigationController(rootViewController: vc)
             } else {
                 print("첫 로드 : 온보딩뷰")
                 let storyBoard = UIStoryboard(name: "Onboarding", bundle: nil)
                 let vc = storyBoard.instantiateViewController(identifier: "OnboardingVC")
-                initialViewController = UINavigationController(rootViewController: vc)
+                initialViewController = NavigationController(rootViewController: vc)
             }
         }
         

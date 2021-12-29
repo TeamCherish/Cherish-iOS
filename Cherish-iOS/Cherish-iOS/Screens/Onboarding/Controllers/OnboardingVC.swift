@@ -40,7 +40,6 @@ class OnboardingVC: BaseController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
         if let vc = storyBoard.instantiateViewController(identifier: "LoginVC") as? LoginVC {
             UserDefaults.standard.set(true, forKey: "OnboardingHaveSeen")
-            self.navigationController?.pushViewController(vc, animated: true)
             self.navigationController?.setViewControllers([vc], animated: true)
         }
     }
@@ -49,7 +48,6 @@ class OnboardingVC: BaseController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
         if let vc = storyBoard.instantiateViewController(identifier: "LoginVC") as? LoginVC {
             UserDefaults.standard.set(true, forKey: "OnboardingHaveSeen")
-            self.navigationController?.pushViewController(vc, animated: true)
             self.navigationController?.setViewControllers([vc], animated: true)
         }
     }
