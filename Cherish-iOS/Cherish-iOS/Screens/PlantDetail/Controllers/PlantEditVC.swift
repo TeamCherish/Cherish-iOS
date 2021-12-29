@@ -299,6 +299,7 @@ class PlantEditVC: BaseController {
                         // 메인 뷰로 돌아가기
                         self.navigationController?.popToRootViewController(animated: true)
                         appDel.isCherishDeleted = true
+                        isCherishDataChanged.shared.status = true
                         UserDefaults.standard.set("", forKey: "selectedNickNameData")
                         UserDefaults.standard.set(0, forKey: "selectedGrowthData")
                         UserDefaults.standard.set(0, forKey: "selectedGrowthData")
@@ -363,11 +364,12 @@ class PlantEditVC: BaseController {
             case .success(_):
                 print("통신성공")
                 self.present(alertEdit, animated: true, completion: nil) ///왜 여기는 self 필요한겨..
-                appDel.isCherishEdited = true
+                isCherishDataChanged.shared.status = true
                 UserDefaults.standard.set("", forKey: "selectedNickNameData")
                 UserDefaults.standard.set(0, forKey: "selectedGrowthData")
                 UserDefaults.standard.set(0, forKey: "selectedGrowthData")
                 UserDefaults.standard.set("", forKey: "selectedModifierData")
+
             case .requestErr(_):
                 print("requestErr")
             case .pathErr:
