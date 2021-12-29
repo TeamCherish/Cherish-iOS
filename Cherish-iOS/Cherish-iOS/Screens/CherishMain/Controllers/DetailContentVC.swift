@@ -17,7 +17,6 @@ class DetailContentVC: BaseController {
     @IBOutlet var cherishPeopleCV: UICollectionView!
     @IBOutlet var cherishHeaderViewHeight: NSLayoutConstraint!
     var selectedIndexPath : IndexPath?
-    var sendCount:Int = 0
     let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let userId: Int = UserDefaults.standard.integer(forKey: "userID")
     let fcmToken: String = UserDefaults.standard.string(forKey: "fcmToken")!
@@ -27,15 +26,13 @@ class DetailContentVC: BaseController {
     var wateringLaterCherishId: Int = 0
     var pushCherishPhoneNumber: String = ""
     var mypageSelectedNickname: String = ""
-    
-    
     var cherishPeopleData:[ResultData] = [] {
         didSet {
-            cherishPeopleCV.reloadData()
+            cherishPeopleCV.reloadSections(IndexSet(integer: 0))
             cherishPeopleCV.delegate = self
             cherishPeopleCV.dataSource = self
             
-            if appDel.isCherishAdded == false {
+            if cherishPeopleData.count > 0 {
                 cherishPeopleCV.selectItem(at: IndexPath(item: 1, section: 0), animated: true, scrollPosition: .top)
                 collectionView(self.cherishPeopleCV, didSelectItemAt: IndexPath(item: 1, section: 0))
             }
@@ -44,30 +41,17 @@ class DetailContentVC: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addNotificationObserver()
         setCherishPeopleData()
+        addNotificationObserver()
         makeHeaderViewCornerRadius()
-        cherishPeopleCV.allowsMultipleSelection = false
         fcmTokenUpdate()
+        cherishPeopleCV.allowsMultipleSelection = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        //식물 추가했을 때 reload
-        if appDel.isCherishAdded == true {
-            setCherishPeopleDataWithGesture()
-            appDel.isCherishAdded = false
-        }
-        
-        //식물 삭제했을 때 reload
-        if appDel.isCherishDeleted == true {
-            setCherishPeopleDataWithGesture()
-        }
-        
-        //식물 수정했을 때 reload
-        if appDel.isCherishEdited == true {
-            setCherishPeopleDataWithGesture()
-            appDel.isCherishEdited = false
+        if isCherishDataChanged.shared.status {
+            setCherishPeopleData()
+            isCherishDataChanged.shared.status = false
         }
     }
     
@@ -90,29 +74,25 @@ class DetailContentVC: BaseController {
     //MARK: - 메인뷰 데이터 받아오는 함수
     func setCherishPeopleData() {
         
-        MainService.shared.inquireMainView(idx: userId) { [self]
+        MainService.shared.inquireMainView(idx: userId) { [weak self]
             (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
                 if let mainResultData = data as? MainData {
-                    cherishPeopleData = mainResultData.result
-                    cherishPeopleCountLabel.text = "\(cherishPeopleData.count)"
-                    self.cherishPeopleCV.reloadData()
-                    UserDefaults.standard.set(cherishPeopleData.count, forKey: "cherishPeopleDataCount")
                     // 남은 식물이 한개도 없을 때 식물 추가뷰를 띄워준다.
-                    if cherishPeopleData.count == 0 {
+                    if mainResultData.result.count == 0 {
                         UserDefaults.standard.set(false, forKey: "isPlantExist")
                         let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
                         if let vc = storyBoard.instantiateViewController(identifier: "AddUserVC") as? AddUserVC {
-
-                            self.navigationController?.pushViewController(vc, animated: false)
-                            
-                            // 등록된 식물이 하나도 없을 경우에 탭바를 숨김
-                            self.tabBarController?.tabBar.isHidden = true
+                            vc.hidesBottomBarWhenPushed = true
+                            self?.navigationController?.setViewControllers([vc], animated: true)
                         }
                     } else {
                         UserDefaults.standard.set(true, forKey: "isPlantExist")
                     }
+                    self?.cherishPeopleData = mainResultData.result
+                    self?.cherishPeopleCountLabel.text = "\(self?.cherishPeopleData.count ?? 0)"
+                    UserDefaults.standard.set(self?.cherishPeopleData.count, forKey: "cherishPeopleDataCount")
                 }
             case .requestErr(let msg):
                 if let message = msg as? String {
@@ -127,54 +107,6 @@ class DetailContentVC: BaseController {
             }
         }
     }
-    
-    
-    //MARK: - 메인뷰 데이터 받아오는 함수
-    func setCherishPeopleDataWithGesture() {
-        
-        MainService.shared.inquireMainView(idx: userId) { [self]
-            (networkResult) -> (Void) in
-            switch networkResult {
-            case .success(let data):
-                if let mainResultData = data as? MainData {
-                    cherishPeopleData = mainResultData.result
-                    cherishPeopleCountLabel.text = "\(cherishPeopleData.count)"
-                    self.cherishPeopleCV.reloadData()
-                    UserDefaults.standard.set(cherishPeopleData.count, forKey: "cherishPeopleDataCount")
-                    
-                    // 남은 식물이 한개도 없을 때 식물 추가뷰를 띄워준다.
-                    if cherishPeopleData.count == 0 {
-                        UserDefaults.standard.set(false, forKey: "isPlantExist")
-                        let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
-                        if let vc = storyBoard.instantiateViewController(identifier: "AddUserVC") as? AddUserVC {
-                            
-                            self.navigationController?.pushViewController(vc, animated: false)
-                            
-                            // 등록된 식물이 하나도 없을 경우에 탭바를 숨김
-                            self.tabBarController?.tabBar.isHidden = true
-                            
-                            // 등록된 식물이 하나도 없을 경우에 pop제스처 불가능하도록 만듬
-                            navigationController?.interactivePopGestureRecognizer!.isEnabled = false
-                        }
-                    } else {
-                        UserDefaults.standard.set(true, forKey: "isPlantExist")
-                        navigationController?.interactivePopGestureRecognizer!.isEnabled = true
-                    }
-                }
-            case .requestErr(let msg):
-                if let message = msg as? String {
-                    print(message)
-                }
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
-            }
-        }
-    }
-    
     
     //MARK: - 물주기 후 정보를 reload하는 objc 함수
     @objc func reloadDataWhenFinishWatering() {

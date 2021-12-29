@@ -22,17 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // 자동 로그인이 될 때 첫 Scnene을 메인뷰로
         if let _ = UserDefaults.standard.string(forKey: "loginEmail") {
-            // 등록된 식물이 하나 이상 존재한다면 메인뷰로 이동
-            if UserDefaults.standard.bool(forKey: "isPlantExist") == true {
-                print("첫 로드 : 메인뷰")
-                let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
-                initialViewController = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController")
-            } else {
-                print("첫 로드 : 등록된 식물이 없어요 뷰")
-                let storyBoard = UIStoryboard(name: "AddUser", bundle: nil)
-                let vc = storyBoard.instantiateViewController(withIdentifier: "AddUserVC")
-                initialViewController = UINavigationController(rootViewController: vc)
-            }
+            let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController")
         } else {
             if UserDefaults.standard.bool(forKey: "OnboardingHaveSeen") == true {
                 // 자동 로그인이 아닐 때는 첫 Scnene을 로그인뷰로
