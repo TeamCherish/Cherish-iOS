@@ -46,6 +46,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cC9-zo-pu1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1cl-cl-xvs">
                                 <rect key="frame" x="40.333333333333343" y="148" width="334.66666666666663" height="0.0"/>
                                 <constraints>
@@ -200,11 +203,14 @@
                             <constraint firstItem="x9h-5A-Qga" firstAttribute="bottom" secondItem="1rh-Gn-4tL" secondAttribute="bottom" constant="163" id="HQf-hU-NwH"/>
                             <constraint firstItem="Otg-az-yW5" firstAttribute="top" secondItem="53S-aO-x9T" secondAttribute="top" constant="53" id="JFI-KJ-QGn"/>
                             <constraint firstItem="7lJ-v4-Fdo" firstAttribute="top" secondItem="tC1-OL-vxp" secondAttribute="bottom" constant="6" id="Jh2-Lb-YsX"/>
+                            <constraint firstItem="cC9-zo-pu1" firstAttribute="top" secondItem="53S-aO-x9T" secondAttribute="top" id="LvX-z0-9e7"/>
                             <constraint firstItem="MqD-Yz-UwB" firstAttribute="top" secondItem="Otg-az-yW5" secondAttribute="bottom" constant="3" id="NVe-rU-BRG"/>
                             <constraint firstItem="rb3-up-wUt" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="Oab-yJ-QY5"/>
+                            <constraint firstItem="cC9-zo-pu1" firstAttribute="leading" secondItem="53S-aO-x9T" secondAttribute="leading" id="QQZ-00-fJU"/>
                             <constraint firstItem="tC1-OL-vxp" firstAttribute="top" secondItem="571-Dh-KLL" secondAttribute="bottom" constant="101" id="WYQ-md-i8v"/>
                             <constraint firstItem="MqD-Yz-UwB" firstAttribute="leading" secondItem="Otg-az-yW5" secondAttribute="leading" id="XP7-Wi-NiB"/>
                             <constraint firstItem="rvI-uI-SPM" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" constant="8" symbolic="YES" id="YzY-lm-gp2"/>
+                            <constraint firstAttribute="bottom" secondItem="cC9-zo-pu1" secondAttribute="bottom" id="aad-yb-uj1"/>
                             <constraint firstItem="1LF-25-ssR" firstAttribute="top" secondItem="53S-aO-x9T" secondAttribute="top" id="anz-Zs-3Ru"/>
                             <constraint firstItem="571-Dh-KLL" firstAttribute="top" secondItem="rb3-up-wUt" secondAttribute="bottom" constant="16" id="eNb-JJ-9v9"/>
                             <constraint firstItem="1cl-cl-xvs" firstAttribute="trailing" secondItem="TmQ-US-0yO" secondAttribute="trailing" id="fjq-QB-PKn"/>
@@ -221,6 +227,7 @@
                             <constraint firstItem="rb3-up-wUt" firstAttribute="top" secondItem="MqD-Yz-UwB" secondAttribute="bottom" constant="-4" id="xGF-4Q-8bB"/>
                             <constraint firstItem="1cl-cl-xvs" firstAttribute="leading" secondItem="tC1-OL-vxp" secondAttribute="trailing" id="xZ1-yd-2rf"/>
                             <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="rvI-uI-SPM" secondAttribute="trailing" constant="16" id="yr4-vh-OGo"/>
+                            <constraint firstItem="TmQ-US-0yO" firstAttribute="trailing" secondItem="cC9-zo-pu1" secondAttribute="trailing" id="zjV-qW-SRg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Byv-ah-pKX"/>
@@ -241,6 +248,7 @@
                         <outlet property="progressViewTopConstraint" destination="waq-TO-PMn" id="MDI-Q7-cIX"/>
                         <outlet property="progressbarBackView" destination="Ook-bx-AcP" id="9qk-3n-XYz"/>
                         <outlet property="progressbarView" destination="tC1-OL-vxp" id="EF5-MD-zMm"/>
+                        <outlet property="snowSubView" destination="cC9-zo-pu1" id="E4e-gk-WZ7"/>
                         <outlet property="userNickNameLabel" destination="rb3-up-wUt" id="vAL-T6-ssD"/>
                         <outlet property="userNicknameLabelTopConstraint" destination="xGF-4Q-8bB" id="5gO-7x-VE9"/>
                         <outlet property="wateringBtnTopConstraint" destination="eNb-JJ-9v9" id="DFy-cl-raU"/>
