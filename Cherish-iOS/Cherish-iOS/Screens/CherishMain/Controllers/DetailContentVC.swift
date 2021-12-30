@@ -82,7 +82,7 @@ class DetailContentVC: BaseController {
                         UserDefaults.standard.set(false, forKey: "isPlantExist")
                         let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
                         if let vc = storyBoard.instantiateViewController(identifier: "AddUserVC") as? AddUserVC {
-                            vc.hidesBottomBarWhenPushed = true
+//                            vc.hidesBottomBarWhenPushed = true
                             self?.navigationController?.setViewControllers([vc], animated: true)
                         }
                     } else {
@@ -267,6 +267,7 @@ class DetailContentVC: BaseController {
     @IBAction func moveToSelectFriend(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
         if let vc = storyBoard.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar {
+//            vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

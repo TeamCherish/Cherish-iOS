@@ -121,8 +121,6 @@ class PlantDetailVC: BaseController {
     
     //MARK: - NC,TC 속성 정의함수
     func setControllers() {
-        self.navigationController?.navigationBar.isHidden = true
-        self.tabBarController?.tabBar.isHidden = true
         self.edgesForExtendedLayout = UIRectEdge.bottom
     }
     
