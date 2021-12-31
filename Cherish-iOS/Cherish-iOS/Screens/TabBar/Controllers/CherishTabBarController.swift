@@ -22,8 +22,8 @@ class CherishTabBarController: UITabBarController {
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         if screenWidth >= 414 && screenHeight >= 896 {
-            super.viewWillLayoutSubviews()
             var tabFrame: CGRect = self.tabBar.frame
             self.tabBar.frame.size.height = 55
             tabFrame.size.height = 96.6

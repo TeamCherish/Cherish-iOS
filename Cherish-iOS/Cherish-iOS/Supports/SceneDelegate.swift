@@ -11,6 +11,7 @@ import Then
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
+    private let tagKeys = ["lock":-703, "blur":703]
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -41,6 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let initialViewController = initialViewController else { return }
         self.window?.rootViewController = initialViewController
+        self.window?.backgroundColor = .systemBackground
         self.window?.makeKeyAndVisible()
         UIApplication.shared.unregisterForRemoteNotifications()
     }
@@ -55,23 +57,40 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-        guard let _ = UserDefaults.standard.value(forKey: "AppLockPW") else { return }
+        guard let _ = UserDefaults.standard.value(forKey: "AppLockPW"),
+              let _ = UserDefaults.standard.string(forKey: "loginEmail") else { return }
+        
         self.setBlurryView(false)
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
-        guard let _ = UserDefaults.standard.value(forKey: "AppLockPW") else { return }
-        self.setBlurryView(true)
+        guard let _ = UserDefaults.standard.value(forKey: "AppLockPW"),
+              let _ = UserDefaults.standard.string(forKey: "loginEmail"),
+              let key = tagKeys["lock"] else { return }
+        
+        guard let _ = window?.viewWithTag(key) else {
+            self.setBlurryView(true)
+            return
+        }
     }
     
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
-        if let _ = UserDefaults.standard.value(forKey: "AppLockPW") {
-            let lock = SetLockVC().then { $0.modeSelect = .unlock }
-            window?.rootViewController?.view.window?.addSubview(lock.view)
+        guard let _ = UserDefaults.standard.value(forKey: "AppLockPW"),
+              let _ = UserDefaults.standard.string(forKey: "loginEmail"),
+              let key = tagKeys["lock"]  else { return }
+        
+        self.setBlurryView(false)
+        guard let _ = window?.viewWithTag(key) else {
+            let lock = SetLockVC().then {
+                $0.modeSelect = .unlock
+                $0.view?.tag = key
+            }
+            window?.addSubview(lock.view)
+            return
         }
     }
     
@@ -79,17 +98,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
-        guard let _ = UserDefaults.standard.value(forKey: "AppLockPW") else { return }
-        self.setBlurryView(true)
+        guard let _ = UserDefaults.standard.value(forKey: "AppLockPW"),
+              let _ = UserDefaults.standard.string(forKey: "loginEmail"),
+              let key = tagKeys["lock"] else { return }
+        
+        guard let _ = window?.viewWithTag(key) else {
+            self.setBlurryView(true)
+            return
+        }
     }
     
     
     private func setBlurryView(_ needToShow: Bool) {
-        let viewTag = -703
-        let blurryView = window?.rootViewController?.view.window?.viewWithTag(viewTag)
+        guard let key = tagKeys["blur"] else { return }
+        
+        let blurryView = window?.viewWithTag(key)
         if needToShow {
             if blurryView == nil {
-                window?.rootViewController?.view.window?.addSubview(BlurryView(viewTag: viewTag))
+                window?.addSubview(BlurryView(viewTag: key))
             }
         } else {
             guard let blurryView = blurryView else { return }
