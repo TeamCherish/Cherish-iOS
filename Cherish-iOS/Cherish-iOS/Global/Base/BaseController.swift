@@ -13,6 +13,7 @@ class BaseController: UIViewController {
     override func viewDidLoad() {
         self.view.backgroundColor = .systemBackground
         self.navigationController?.isNavigationBarHidden = true
+        self.hidesBottomBarWhenPushed = true
         self.setFeebBackGenerator()
     }
     

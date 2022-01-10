@@ -43,7 +43,6 @@ class MyPageSearchPlantVC: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.isHidden = true
         setSearchBar()
         plantTV.separatorStyle = .none
         plantTV.delegate = self
@@ -54,9 +53,7 @@ class MyPageSearchPlantVC: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         // 식물 수정한 결과 가져오기 위함!
-        // plantTV.reloadData()
         setPlantData()
-        self.tabBarController?.tabBar.isHidden = true
     }
     
     func setSearchBar() {
@@ -121,6 +118,7 @@ class MyPageSearchPlantVC: BaseController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
         
         guard let dvc = storyBoard.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar else {return}
+//        dvc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(dvc, animated: true)
     }
     }
@@ -179,7 +177,7 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "PlantDetail", bundle: nil)
         guard let dvc = storyBoard.instantiateViewController(identifier: "PlantDetailVC") as? PlantDetailVC else { return }
-
+        
         // 분기 처리
         // searchBar 썼으면 myCherish 배열 다시 만들어서 사용해야할듯 -> filtered에 append할 때 같이 넣어주기
         
@@ -201,7 +199,7 @@ extension MyPageSearchPlantVC: UITableViewDelegate, UITableViewDataSource {
         UserDefaults.standard.set(plantIsSelected, forKey: "calendarPlantIsSelected")
         print(UserDefaults.standard.bool(forKey: "plantIsSelected"))
 //        print(UserDefaults.standard.integer(forKey: "selectedCherish"))
-        
+//        dvc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(dvc, animated: true)
     }
 }

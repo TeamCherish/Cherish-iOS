@@ -46,6 +46,12 @@ extension UIView {
         self.layer.masksToBounds = true
     }
     
+    func makePartialRounded(cornerRadius: CGFloat, maskedCorners: CACornerMask) {
+            clipsToBounds = true
+            self.layer.cornerRadius = cornerRadius
+            self.layer.maskedCorners = CACornerMask(arrayLiteral: maskedCorners)
+        }
+    
     // Set UIView's Shadow
     func dropShadow(color: UIColor, offSet: CGSize, opacity: Float, radius: CGFloat) {
         

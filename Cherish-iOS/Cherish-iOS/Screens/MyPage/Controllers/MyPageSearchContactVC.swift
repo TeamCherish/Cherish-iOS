@@ -50,7 +50,6 @@ class MyPageSearchContactVC: BaseController, UITableViewDelegate, UITableViewDat
         contactTV.reloadData()
         contactTV.tableFooterView = UIView()
         contactTV.register(UINib(nibName: radioButton, bundle: nil), forCellReuseIdentifier: radioButton)
-        resetSelectFriendVC()
         filteredData = friendList
         self.moveToAddBtn.setBackgroundImage(UIImage(named: "btnNextUnselected"), for: .normal)
         moveToAddBtn.layer.zPosition = 1
@@ -86,11 +85,6 @@ class MyPageSearchContactVC: BaseController, UITableViewDelegate, UITableViewDat
             // 문자로 시작하는 문자열 뒤에 숫자로 시작하는 문자열 병합
             friendList.append(contentsOf: startNumberArray)
         }
-    }
-    
-    func resetSelectFriendVC() {
-        self.navigationController?.navigationBar.isHidden = true
-        self.tabBarController?.tabBar.isHidden = true
     }
     
     private func updateSelectedIndex(_ index: Int) {

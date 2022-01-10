@@ -28,7 +28,6 @@ class MypagePlantVC: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = false
         setPlantData()
     }
     
@@ -109,6 +108,7 @@ extension MypagePlantVC: UITableViewDelegate, UITableViewDataSource {
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "PlantDetail", bundle: nil)
         guard let dvc = storyBoard.instantiateViewController(identifier: "PlantDetailVC") as? PlantDetailVC else { return }
+//        dvc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(dvc, animated: true)
     }
 }

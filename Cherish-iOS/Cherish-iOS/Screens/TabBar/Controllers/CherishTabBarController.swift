@@ -9,7 +9,7 @@ import UIKit
 import Then
 
 class CherishTabBarController: UITabBarController {
-
+    
     // 뷰 전체 폭 길이
     private let screenWidth = UIScreen.main.bounds.size.width
     
@@ -22,8 +22,8 @@ class CherishTabBarController: UITabBarController {
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         if screenWidth >= 414 && screenHeight >= 896 {
-            super.viewWillLayoutSubviews()
             var tabFrame: CGRect = self.tabBar.frame
             self.tabBar.frame.size.height = 55
             tabFrame.size.height = 96.6
@@ -47,8 +47,6 @@ class CherishTabBarController: UITabBarController {
     }
     
     func setTabBar() {
-        self.tabBar.tintColor = UIColor.cherishBlack
-    
         let CherishMain = UIStoryboard.init(name: "CherishMain", bundle: nil)
         guard let main = CherishMain.instantiateViewController(identifier: "CherishMainVC") as? CherishMainVC else { return }
         let mainTab = NavigationController(rootViewController: main).then {
@@ -63,17 +61,24 @@ class CherishTabBarController: UITabBarController {
             $0.tabBarItem.selectedImage = UIImage(named: "icnMypageSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
         }
         
-        // 더보기탭
         let showMoreTab = NavigationController(rootViewController: ShowMoreVC()).then {
             $0.tabBarItem.image = UIImage(named: "icnMoreUnselected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
             $0.tabBarItem.selectedImage = UIImage(named: "icnMoreSelected")?.withAlignmentRectInsets(UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0))
-            
         }
         
         let tabs =  [mainTab, pageTab, showMoreTab]
-        tabBar.layer.shadowOpacity = 0
-        tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
-        tabBar.barTintColor = .white
+        let appearance = UITabBarAppearance().then {
+            $0.configureWithOpaqueBackground()
+            $0.shadowColor = .clear
+            $0.backgroundColor = .white
+        }
+        tabBar.standardAppearance = appearance
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance = tabBar.standardAppearance
+        }
+        tabBar.tintColor = UIColor.cherishBlack
+        tabBar.isTranslucent = false
+        tabBar.layer.masksToBounds = false
         self.setViewControllers(tabs, animated: false)
     }
 }

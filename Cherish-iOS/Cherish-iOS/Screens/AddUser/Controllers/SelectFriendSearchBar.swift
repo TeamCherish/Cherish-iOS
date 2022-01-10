@@ -59,14 +59,12 @@ class SelectFriendSearchBar: BaseController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         /// 이렇게 하면 버튼 타이틀이 가운데로 안온다
 //        nextBtn.isEnabled = false
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SelectFriendCell")
         tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
         tableView.tableFooterView = UIView()
         tableView.register(UINib(nibName: radioButton, bundle: nil), forCellReuseIdentifier: radioButton)
-        resetSelectFriendVC()
         setSearchBar()
         noContactsView.isHidden = true
         checkContactArray()
@@ -286,11 +284,6 @@ class SelectFriendSearchBar: BaseController, UITableViewDataSource, UITableViewD
         searchBar.setPositionAdjustment(UIOffset(horizontal: 10.0, vertical: 0.0), for: .search)
         searchBar.searchTextField.textColor = UIColor.cherishBlack
         searchBar.searchTextField.font = UIFont.init(name: "NotoSansCJKKR-Regular", size: 14)
-    }
-    
-    func resetSelectFriendVC() {
-        self.navigationController?.navigationBar.isHidden = true
-        self.tabBarController?.tabBar.isHidden = true
     }
     
     private func updateSelectedIndex(_ index: Int) {

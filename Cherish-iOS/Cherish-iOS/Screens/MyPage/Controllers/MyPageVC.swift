@@ -69,6 +69,8 @@ class MyPageVC: BaseController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.hidesBottomBarWhenPushed = false
         segmentView.buttonAction(sender: UIButton(type: UIButton.ButtonType(rawValue: 0x7fa0b649fc30)!))
         LoadingHUD.show()
         getMypageData()
@@ -243,6 +245,7 @@ class MyPageVC: BaseController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
         
         guard let dvc = storyBoard.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar else {return}
+//        dvc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(dvc, animated: true)
     }
 }

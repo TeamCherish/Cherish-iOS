@@ -237,8 +237,7 @@ class LoginVC: BaseController {
     func goToCherishMainView(){
         let tabBarStoyboard: UIStoryboard = UIStoryboard(name: "TabBar", bundle: nil)
         if let tabBarVC = tabBarStoyboard.instantiateViewController(identifier: "CherishTabBarController") as? CherishTabBarController {
-            tabBarVC.modalPresentationStyle = .fullScreen
-            self.present(tabBarVC, animated: true, completion: nil)
+            self.navigationController?.setViewControllers([tabBarVC], animated: true)
         }
     }
     

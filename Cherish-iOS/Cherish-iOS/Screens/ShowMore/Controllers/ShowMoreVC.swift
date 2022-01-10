@@ -32,6 +32,7 @@ final class ShowMoreVC: BaseController {
         $0.press {
             let storyboard = UIStoryboard(name: "ShowMore", bundle: nil)
             let NicknameChangeVC = storyboard.instantiateViewController(identifier: "NicknameChangeVC") as! NicknameChangeVC
+            NicknameChangeVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(NicknameChangeVC, animated: true)
         }
     }
@@ -65,7 +66,8 @@ final class ShowMoreVC: BaseController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
+        self.hidesBottomBarWhenPushed = false
         self.setUserInfo()
         self.setUserImage()
         self.showmoreTableView.reloadSections(IndexSet(integer: 1), with: .automatic)
@@ -168,7 +170,7 @@ extension ShowMoreVC {
     }
     
     private func logoutAlert() {
-        self.makeAlertWithCancel(title: "로그아웃", message: "정말로 로그아웃 하시겠습니가?") { [weak self] _ in
+        self.makeAlertWithCancel(title: "로그아웃", message: "로그아웃 하시겠습니까?") { [weak self] _ in
             //로그아웃하기 위해 자동로그인을 위해 사용되었던
             //UserDefualts에 저장된 값들을 삭제해준다
             UserDefaults.standard.removeObject(forKey: "loginEmail")
@@ -179,7 +181,7 @@ extension ShowMoreVC {
             let storyboard = UIStoryboard(name: "Login", bundle: nil)
             guard let loginView = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC else { return }
             guard let window = UIApplication.shared.windows.first(where: \.isKeyWindow) else { return }
-            let rootView = UINavigationController(rootViewController: loginView)
+            let rootView = NavigationController(rootViewController: loginView)
             window.rootViewController = rootView
             let options: UIView.AnimationOptions = .transitionCrossDissolve
             let duration: TimeInterval = 0.3
@@ -427,7 +429,7 @@ extension ShowMoreVC: ShowMoreSwitchDelegate {
             // OFF -> ON
             if sender.isOn {
                 let lock = SetLockVC()
-                lock.hidesBottomBarWhenPushed = true
+//                    $0.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(lock, animated: true)
             // ON -> OFF
             } else {

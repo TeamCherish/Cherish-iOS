@@ -78,8 +78,8 @@ class PlantResultVC: BaseController {
     
     @IBAction func startToMain(_ sender: UIButton) {
         NotificationCenter.default.post(name: .addUser, object: nil)
-        let storyBoard: UIStoryboard = UIStoryboard(name: "CherishMain", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(identifier: "CherishMainVC") as? CherishMainVC {
+        let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController") as? CherishTabBarController {
             isCherishDataChanged.shared.status = true
             UserDefaults.standard.set(true, forKey: "isPlantExist")
             UserDefaults.standard.set("", forKey: "selectedNickNameData")
