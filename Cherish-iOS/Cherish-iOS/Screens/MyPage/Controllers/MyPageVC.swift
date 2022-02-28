@@ -170,7 +170,15 @@ class MyPageVC: BaseController {
                     }
                     mypageContactCount = contactArray.count
                     segmentView.setButtonTitles(buttonTitles: ["식물 \(mypagePlantCount)", "연락처 \(mypageContactCount)"])
-                }
+				} else {
+					UserDefaults.standard.set(false, forKey: "isPlantExist")
+					let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
+					if let vc = storyBoard.instantiateViewController(identifier: "AddUserVC") as? AddUserVC {
+						let addVCWithNavigation = NavigationController(rootViewController: vc)
+						addVCWithNavigation.modalPresentationStyle = .fullScreen
+						self.present(addVCWithNavigation, animated: true, completion: nil)
+					}
+				}
             case .requestErr(let msg):
                 print(msg)
             case .pathErr:
