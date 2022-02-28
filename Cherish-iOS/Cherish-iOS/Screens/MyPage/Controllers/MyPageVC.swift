@@ -141,7 +141,8 @@ class MyPageVC: BaseController {
             (networkResult) -> (Void) in
             switch networkResult {
             case .success(let data):
-                if let mypageData = data as? MypageData {
+                if let mypageData = data as? MypageData,
+				   mypageData.result.count > 0 {
                     userNicknameLabel.text = "\(mypageData.userNickname)의 체리쉬가든"
                     userWateringCountLabel.text = "\(mypageData.waterCount)"
                     userWateringPostponeCountLabel.text = "\(mypageData.postponeCount)"
@@ -155,9 +156,6 @@ class MyPageVC: BaseController {
                     }
                     
                     UserDefaults.standard.set(myPlantID, forKey: "myCherishID")
-
-                    print("1: my page main임 ㅎㅇㅎㅇ")
-                    print(myPlantID)
                     UserDefaults.standard.set(myPlantID, forKey: "plantIDArray")
                     UserDefaults.standard.set(mypageData.email, forKey: "userEmail")
                     UserDefaults.standard.set(mypageData.userNickname, forKey: "userNickname")
@@ -235,7 +233,6 @@ class MyPageVC: BaseController {
     @IBAction func moveToSearchPlant(_ sender: Any) {
         print("이동한당")
         guard let dvc = self.storyboard?.instantiateViewController(identifier: "MyPageSearchVC") as? MyPageSearchVC else {return}
-        dvc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(dvc, animated: true)
     }
     

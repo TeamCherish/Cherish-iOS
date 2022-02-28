@@ -243,7 +243,6 @@ class SelectFriendSearchBar: BaseController, UITableViewDataSource, UITableViewD
                 switch networkResult {
                 case .success(_):
                     print("통신성공")
-                    dvc.modalPresentationStyle = .fullScreen
                     self.navigationController?.pushViewController(dvc, animated: true)
                     
                 case .requestErr(_):
