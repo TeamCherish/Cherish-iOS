@@ -161,7 +161,6 @@
 		54AE98BE25F3C02900993EA3 /* WithdrawalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AE98BD25F3C02900993EA3 /* WithdrawalService.swift */; };
 		54D8D627271185C2002BD09C /* CherishTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D626271185C2002BD09C /* CherishTextField.swift */; };
 		54D8D62A271186BB002BD09C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 54D8D629271186BB002BD09C /* SnapKit */; };
-		54D8D62D271186E7002BD09C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 54D8D62C271186E7002BD09C /* Then */; };
 		54D8D62F27118C7B002BD09C /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D62E27118C7B002BD09C /* UIFont+.swift */; };
 		54D8D63327118E75002BD09C /* LetterSpacing+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D63227118E75002BD09C /* LetterSpacing+.swift */; };
 		54D8D635271190C4002BD09C /* SignUpAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8D634271190C4002BD09C /* SignUpAccountVC.swift */; };
@@ -179,7 +178,6 @@
 		54F9579C274E30F300D08050 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 54F9579B274E30F300D08050 /* Kingfisher */; };
 		54F9579F274E311800D08050 /* OverlayContainer in Frameworks */ = {isa = PBXBuildFile; productRef = 54F9579E274E311800D08050 /* OverlayContainer */; };
 		54F957AD275225FD00D08050 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F957AC275225FD00D08050 /* NavigationController.swift */; };
-		6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
 		9214410225ACE7BD00853E53 /* AddUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9214410125ACE7BD00853E53 /* AddUserService.swift */; };
 		923F8CDF25A1C2E400EA04E5 /* InputDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F8CDE25A1C2E400EA04E5 /* InputDetailVC.swift */; };
 		9244DF0C25AB90F00014FF5D /* PlantResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244DF0B25AB90F00014FF5D /* PlantResultVC.swift */; };
@@ -209,6 +207,8 @@
 		92DCC3E525A85D1D00160523 /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8E39625A1B13F001F1FB4 /* AddUser.storyboard */; };
 		92DCC3EA25A85D7100160523 /* SelectFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DCC3E825A85D7100160523 /* SelectFriendCell.swift */; };
 		92DCC3EB25A85D7100160523 /* SelectFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DCC3E925A85D7100160523 /* SelectFriendCell.xib */; };
+		E80B48B527CD01D300704AA9 /* Pods_Cherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */; };
+		E8B5FAC927CD06BF00B5AFCE /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = E8B5FAC827CD06BF00B5AFCE /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -422,9 +422,9 @@
 			files = (
 				54F9579C274E30F300D08050 /* Kingfisher in Frameworks */,
 				54F9579F274E311800D08050 /* OverlayContainer in Frameworks */,
-				6267145A78CCE15A17811AB0 /* Pods_Cherish_iOS.framework in Frameworks */,
 				54F95796274E30C800D08050 /* Alamofire in Frameworks */,
-				54D8D62D271186E7002BD09C /* Then in Frameworks */,
+				E8B5FAC927CD06BF00B5AFCE /* Then in Frameworks */,
+				E80B48B527CD01D300704AA9 /* Pods_Cherish_iOS.framework in Frameworks */,
 				54F95799274E30D600D08050 /* FSCalendar in Frameworks */,
 				54D8D62A271186BB002BD09C /* SnapKit in Frameworks */,
 			);
@@ -1396,11 +1396,11 @@
 			name = "Cherish-iOS";
 			packageProductDependencies = (
 				54D8D629271186BB002BD09C /* SnapKit */,
-				54D8D62C271186E7002BD09C /* Then */,
 				54F95795274E30C800D08050 /* Alamofire */,
 				54F95798274E30D600D08050 /* FSCalendar */,
 				54F9579B274E30F300D08050 /* Kingfisher */,
 				54F9579E274E311800D08050 /* OverlayContainer */,
+				E8B5FAC827CD06BF00B5AFCE /* Then */,
 			);
 			productName = "Cherish-iOS";
 			productReference = 33851C70259A5541005BCFFD /* Cherish-iOS.app */;
@@ -1431,11 +1431,11 @@
 			mainGroup = 33851C67259A5541005BCFFD;
 			packageReferences = (
 				54D8D628271186BB002BD09C /* XCRemoteSwiftPackageReference "SnapKit" */,
-				54D8D62B271186E7002BD09C /* XCRemoteSwiftPackageReference "Then" */,
 				54F95794274E30C800D08050 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				54F95797274E30D600D08050 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				54F9579A274E30F300D08050 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				54F9579D274E311800D08050 /* XCRemoteSwiftPackageReference "OverlayContainer" */,
+				E8B5FAC727CD06BF00B5AFCE /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = 33851C71259A5541005BCFFD /* Products */;
 			projectDirPath = "";
@@ -1752,6 +1752,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1813,6 +1814,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1824,6 +1826,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1842,6 +1845,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
+				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "Cherish-iOS/Supports/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1868,6 +1872,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
+				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "Cherish-iOS/Supports/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1875,6 +1880,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.8;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS.Cherish.Cherish-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1915,14 +1921,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		54D8D62B271186E7002BD09C /* XCRemoteSwiftPackageReference "Then" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/Then";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 		54F95794274E30C800D08050 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1955,6 +1953,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		E8B5FAC727CD06BF00B5AFCE /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1962,11 +1968,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 54D8D628271186BB002BD09C /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		54D8D62C271186E7002BD09C /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 54D8D62B271186E7002BD09C /* XCRemoteSwiftPackageReference "Then" */;
-			productName = Then;
 		};
 		54F95795274E30C800D08050 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1987,6 +1988,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 54F9579D274E311800D08050 /* XCRemoteSwiftPackageReference "OverlayContainer" */;
 			productName = OverlayContainer;
+		};
+		E8B5FAC827CD06BF00B5AFCE /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8B5FAC727CD06BF00B5AFCE /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

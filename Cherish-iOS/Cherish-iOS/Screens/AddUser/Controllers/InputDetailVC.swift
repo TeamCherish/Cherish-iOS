@@ -131,7 +131,6 @@ class InputDetailVC: BaseController {
                                 self.navigationController?.pushViewController(resultVC, animated: true)
                             }
                         }
-                        self.navigationController?.pushViewController(resultVC, animated: true)
                     }
                 case .requestErr(_):
                     print("requesetErr")

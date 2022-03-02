@@ -14,7 +14,8 @@ class SelectFriendSearchBar: BaseController, UITableViewDataSource, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nextBtn: UIButton!
-    @IBOutlet weak var searchBar: UISearchBar!
+	@IBOutlet weak var backBtn: UIButton!
+	@IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet var noContactsView: UIView!
     
     var friendList: [Friend] = []
@@ -57,8 +58,7 @@ class SelectFriendSearchBar: BaseController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /// 이렇게 하면 버튼 타이틀이 가운데로 안온다
-//        nextBtn.isEnabled = false
+		setNaviBarIcon()
         tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
@@ -207,7 +207,12 @@ class SelectFriendSearchBar: BaseController, UITableViewDataSource, UITableViewD
     }
     
     @IBAction func closeToMain(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+		guard let navigationController = self.navigationController else { return }
+		if navigationController.viewControllers.count >= 2 {
+			navigationController.popViewController(animated: true)
+		} else {
+			self.dismiss(animated: true)
+		}
     }
     
     @IBAction func touchUpNextBtn(_ sender: Any) {
@@ -243,7 +248,6 @@ class SelectFriendSearchBar: BaseController, UITableViewDataSource, UITableViewD
                 switch networkResult {
                 case .success(_):
                     print("통신성공")
-                    dvc.modalPresentationStyle = .fullScreen
                     self.navigationController?.pushViewController(dvc, animated: true)
                     
                 case .requestErr(_):
@@ -285,6 +289,15 @@ class SelectFriendSearchBar: BaseController, UITableViewDataSource, UITableViewD
         searchBar.searchTextField.textColor = UIColor.cherishBlack
         searchBar.searchTextField.font = UIFont.init(name: "NotoSansCJKKR-Regular", size: 14)
     }
+	
+	func setNaviBarIcon() {
+		guard let navigationController = self.navigationController else { return }
+		if navigationController.viewControllers.count >= 2 {
+			backBtn.setImageByName(name: "icn_back", selectedName: "icn_back")
+		} else {
+			backBtn.setImageByName(name: "icnCancel", selectedName: "icnCancel")
+		}
+	}
     
     private func updateSelectedIndex(_ index: Int) {
         selectedFriend = index

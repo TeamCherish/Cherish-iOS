@@ -82,8 +82,9 @@ class DetailContentVC: BaseController {
                         UserDefaults.standard.set(false, forKey: "isPlantExist")
                         let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
                         if let vc = storyBoard.instantiateViewController(identifier: "AddUserVC") as? AddUserVC {
-//                            vc.hidesBottomBarWhenPushed = true
-                            self?.navigationController?.setViewControllers([vc], animated: true)
+							let addVCWithNavigation = NavigationController(rootViewController: vc)
+							addVCWithNavigation.modalPresentationStyle = .fullScreen
+							self?.present(addVCWithNavigation, animated: true, completion: nil)
                         }
                     } else {
                         UserDefaults.standard.set(true, forKey: "isPlantExist")
@@ -268,7 +269,9 @@ class DetailContentVC: BaseController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "AddUser", bundle: nil)
         if let vc = storyBoard.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar {
 //            vc.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(vc, animated: true)
+			let addVCWithNavigation = NavigationController(rootViewController: vc)
+			addVCWithNavigation.modalPresentationStyle = .fullScreen
+			self.present(addVCWithNavigation, animated: true, completion: nil)
         }
     }
 }

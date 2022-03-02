@@ -88,7 +88,7 @@ class PlantResultVC: BaseController {
             UserDefaults.standard.set("", forKey: "selectedModifierData")
             UserDefaults.standard.set(true, forKey: "addUser")
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-            self.navigationController?.setViewControllers([vc], animated: true)
+			self.dismiss(animated: true, completion: nil)
         }
     }
     
