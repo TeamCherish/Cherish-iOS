@@ -75,9 +75,9 @@ extension CherishMainVC : OverlayContainerViewControllerDelegate {
             print("iPhone 11pro, 11proMax")
             switch Notches.allCases[index] {
             case .minimum:
-                return availableSpace * 0.17
+                return availableSpace * 0.07
             case .medium:
-                return availableSpace * 0.305
+                return availableSpace * 0.205
             case .maximum:
                 return availableSpace * 3/4
             }
@@ -86,9 +86,9 @@ extension CherishMainVC : OverlayContainerViewControllerDelegate {
             print("iPhone 12proMax")
             switch Notches.allCases[index] {
             case .minimum:
-                return availableSpace * 0.165
+                return availableSpace * 0.08
             case .medium:
-                return availableSpace * 0.295
+                return availableSpace * 0.215
             case .maximum:
                 return availableSpace * 3/4
             }
@@ -97,9 +97,9 @@ extension CherishMainVC : OverlayContainerViewControllerDelegate {
             print("iPhone 12, 12pro")
             switch Notches.allCases[index] {
             case .minimum:
-                return availableSpace * 1/6
+                return availableSpace * 1/13
             case .medium:
-                return availableSpace * 0.285
+                return availableSpace * 0.21
             case .maximum:
                 return availableSpace * 3/4
             }
@@ -108,9 +108,9 @@ extension CherishMainVC : OverlayContainerViewControllerDelegate {
             print("iPhone 8plus")
             switch Notches.allCases[index] {
             case .minimum:
-                return availableSpace * 0.148
+                return availableSpace * 0.08
             case .medium:
-                return availableSpace * 0.275
+                return availableSpace * 0.23
             case .maximum:
                 return availableSpace * 3/4
             }
@@ -119,20 +119,21 @@ extension CherishMainVC : OverlayContainerViewControllerDelegate {
             print("iPhone 8")
             switch Notches.allCases[index] {
             case .minimum:
-                return availableSpace * 0.16
+                return availableSpace * 0.09
             case .medium:
-                return availableSpace * 0.31
+                return availableSpace * 0.25
                 
             case .maximum:
                 return availableSpace * 3/4
             }
         }
         else {
+            print("here")
             switch Notches.allCases[index] {
             case .minimum:
-                return availableSpace * 1/6
+                return availableSpace * 1/13
             case .medium:
-                return availableSpace * 0.3
+                return availableSpace * 0.215
             case .maximum:
                 return availableSpace * 3/4
             }
