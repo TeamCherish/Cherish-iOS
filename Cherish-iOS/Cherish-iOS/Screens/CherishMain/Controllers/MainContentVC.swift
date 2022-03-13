@@ -56,7 +56,6 @@ class MainContentVC: BaseController {
         addNotificationObserver()
         setDataWithSelectedData()
         setAutolayout()
-        setSnowingAnimation()
     }
     
     
@@ -1138,37 +1137,5 @@ class LoadingHUD: NSObject {
         let animationArray: UIImage = UIImage.gif(asset: "loading")!
         
         return animationArray
-    }
-}
-//MARK: - snowing effect
-extension MainContentVC {
-    func setSnowingAnimation(){
-        if isSnowing == true {
-            
-            let flakeEmitterCell = CAEmitterCell()
-            
-            flakeEmitterCell.contents = UIImage(named: "snowball")?.cgImage
-            flakeEmitterCell.scale = 0.03
-            flakeEmitterCell.scaleRange = 0.044
-            flakeEmitterCell.emissionRange = .pi
-            flakeEmitterCell.lifetime = 50.0
-            flakeEmitterCell.birthRate = 5
-            flakeEmitterCell.velocity = -30
-            flakeEmitterCell.velocityRange = -20
-            flakeEmitterCell.yAcceleration = 3
-            flakeEmitterCell.xAcceleration = 3
-            flakeEmitterCell.spin = 0.5
-            flakeEmitterCell.spinRange = 6.0
-            
-            let snowEmitterLayer = CAEmitterLayer()
-            snowEmitterLayer.emitterPosition = CGPoint(x: view.bounds.width / 2.0, y: -30)
-            snowEmitterLayer.emitterSize = CGSize(width: view.bounds.width, height: 0)
-            snowEmitterLayer.emitterShape = CAEmitterLayerEmitterShape.line
-            snowEmitterLayer.beginTime = CACurrentMediaTime()
-            snowEmitterLayer.timeOffset = 5
-            snowEmitterLayer.emitterCells = [flakeEmitterCell]
-            self.snowSubView.alpha = 0.65
-            self.snowSubView.layer.addSublayer(snowEmitterLayer)
-        }
     }
 }
