@@ -7,7 +7,7 @@
 
 import Foundation
 struct APIConstants {
-    static let baseURL = "http://cherishserver.com/"
+    static let baseURL = "http://3.39.63.248:8080/"
     static let wateringReviewURL = baseURL + "water" /// 물주기[연락후기]
     static let wateringDayURL = baseURL + "search/" /// 물주는 날짜 조회
     static let laterURL = baseURL + "postpone" /// 미루기
