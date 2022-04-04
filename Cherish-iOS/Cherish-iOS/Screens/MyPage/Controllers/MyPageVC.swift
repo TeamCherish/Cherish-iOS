@@ -251,7 +251,9 @@ class MyPageVC: BaseController {
         
         guard let dvc = storyBoard.instantiateViewController(identifier: "SelectFriendSearchBar") as? SelectFriendSearchBar else {return}
 //        dvc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(dvc, animated: true)
+        let selectFreindVCWithNavigation = NavigationController(rootViewController: dvc)
+        selectFreindVCWithNavigation.modalPresentationStyle = .fullScreen
+        self.present(selectFreindVCWithNavigation, animated: true, completion: nil)
     }
 }
 
