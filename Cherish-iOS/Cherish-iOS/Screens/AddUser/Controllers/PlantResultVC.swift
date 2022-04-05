@@ -78,17 +78,23 @@ class PlantResultVC: BaseController {
     
     @IBAction func startToMain(_ sender: UIButton) {
         NotificationCenter.default.post(name: .addUser, object: nil)
-        let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController") as? CherishTabBarController {
-            isCherishDataChanged.shared.status = true
-            UserDefaults.standard.set(true, forKey: "isPlantExist")
-            UserDefaults.standard.set("", forKey: "selectedNickNameData")
-            UserDefaults.standard.set(0, forKey: "selectedGrowthData")
-            UserDefaults.standard.set(0, forKey: "selectedGrowthData")
-            UserDefaults.standard.set("", forKey: "selectedModifierData")
-            UserDefaults.standard.set(true, forKey: "addUser")
-            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-			self.dismiss(animated: true, completion: nil)
+        isCherishDataChanged.shared.status = true
+        UserDefaults.standard.set(true, forKey: "isPlantExist")
+        UserDefaults.standard.set("", forKey: "selectedNickNameData")
+        UserDefaults.standard.set(0, forKey: "selectedGrowthData")
+        UserDefaults.standard.set(0, forKey: "selectedGrowthData")
+        UserDefaults.standard.set("", forKey: "selectedModifierData")
+        UserDefaults.standard.set(true, forKey: "addUser")
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        guard self.presentingViewController == nil else {
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        let tabBarStoyboard: UIStoryboard = UIStoryboard(name: "TabBar", bundle: nil)
+        if let tabBarVC = tabBarStoyboard.instantiateViewController(identifier: "CherishTabBarController") as? CherishTabBarController {
+            
+            self.navigationController?.pushViewController(tabBarVC, animated: true)
         }
     }
     

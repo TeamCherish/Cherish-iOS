@@ -49,7 +49,6 @@ class DetailContentVC: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         if isCherishDataChanged.shared.status {
-            setCherishPeopleCVSelectedItem()
             setCherishPeopleData()
             isCherishDataChanged.shared.status = false
         }
