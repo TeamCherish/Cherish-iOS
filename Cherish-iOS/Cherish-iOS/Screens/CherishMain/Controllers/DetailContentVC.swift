@@ -50,6 +50,7 @@ class DetailContentVC: BaseController {
     override func viewWillAppear(_ animated: Bool) {
         if isCherishDataChanged.shared.status {
             setCherishPeopleData()
+            setCherishPeopleCVSelectedItem()
             isCherishDataChanged.shared.status = false
         }
     }
@@ -263,8 +264,10 @@ class DetailContentVC: BaseController {
     }
     
     private func setCherishPeopleCVSelectedItem() {
-        cherishPeopleCV.selectItem(at: IndexPath(item: 1, section: 0), animated: true, scrollPosition: .top)
-        collectionView(self.cherishPeopleCV, didSelectItemAt: IndexPath(item: 1, section: 0))
+        if cherishPeopleData.count > 1 {
+            cherishPeopleCV.selectItem(at: IndexPath(item: 1, section: 0), animated: true, scrollPosition: .top)
+            collectionView(self.cherishPeopleCV, didSelectItemAt: IndexPath(item: 1, section: 0))
+        }
     }
     
     //MARK: - 친구추가 뷰로 이동
