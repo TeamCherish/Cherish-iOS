@@ -266,8 +266,8 @@ class DetailContentVC: BaseController {
     private func setCherishPeopleCVSelectedItem() {
         if cherishPeopleData.count > 1 {
             cherishPeopleCV.selectItem(at: IndexPath(item: 1, section: 0), animated: true, scrollPosition: .top)
-            collectionView(self.cherishPeopleCV, didSelectItemAt: IndexPath(item: 1, section: 0))
         }
+        collectionView(self.cherishPeopleCV, didSelectItemAt: IndexPath(item: 1, section: 0))
     }
     
     //MARK: - 친구추가 뷰로 이동
