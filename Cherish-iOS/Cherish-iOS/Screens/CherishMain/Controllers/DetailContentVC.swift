@@ -49,8 +49,8 @@ class DetailContentVC: BaseController {
     
     override func viewWillAppear(_ animated: Bool) {
         if isCherishDataChanged.shared.status {
-            setCherishPeopleCVSelectedItem()
             setCherishPeopleData()
+            setCherishPeopleCVSelectedItem()
             isCherishDataChanged.shared.status = false
         }
     }
@@ -264,7 +264,9 @@ class DetailContentVC: BaseController {
     }
     
     private func setCherishPeopleCVSelectedItem() {
-        cherishPeopleCV.selectItem(at: IndexPath(item: 1, section: 0), animated: true, scrollPosition: .top)
+        if cherishPeopleData.count > 1 {
+            cherishPeopleCV.selectItem(at: IndexPath(item: 1, section: 0), animated: true, scrollPosition: .top)
+        }
         collectionView(self.cherishPeopleCV, didSelectItemAt: IndexPath(item: 1, section: 0))
     }
     
