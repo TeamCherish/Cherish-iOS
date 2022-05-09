@@ -44,7 +44,7 @@ class PlantDetailPopUpExplainVC: BaseController {
         print("Offset: \(proportionalOffset)")
         let index = Int(round(proportionalOffset))
         print("index: \(index)")
-        let safeIndex = max(0, min(4, index))
+        let safeIndex = max(0, min(3, index))
         print("safteIndex: \(safeIndex)")
         return safeIndex
     }
