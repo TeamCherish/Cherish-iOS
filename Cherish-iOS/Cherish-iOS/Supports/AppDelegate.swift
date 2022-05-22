@@ -25,119 +25,100 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         Thread.sleep(forTimeInterval: 1.0) // Launch Screen 1초간 유지
+        
+        UNUserNotificationCenter.current().delegate = self
+        
+        // MARK: Firebase 초기화
         FirebaseApp.configure()
         
-        // [START set_messaging_delegate]
+        /// 메시지 대리자 설정
         Messaging.messaging().delegate = self
-        // [END set_messaging_delegate]
-        // Register for remote notifications. This shows a permission dialog on first run, to
-        // show the dialog at a more appropriate time move this registration accordingly.
-        // [START register_for_notifications]
-        if #available(iOS 10.0, *) {
-            // For iOS 10 display notification (sent via APNS)
-            UNUserNotificationCenter.current().delegate = self
-            
-            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: {_, _ in })
-            application.registerForRemoteNotifications()
-        } else {
-            let settings: UIUserNotificationSettings =
-            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-            application.registerForRemoteNotifications()
+        
+        /// 자동 초기화 방지
+        Messaging.messaging().isAutoInitEnabled = true
+        
+        
+        /// 현재 등록 토큰 가져오기
+        Messaging.messaging().token { token, error in
+            if let error = error {
+                print("Error fetching FCM registration token: \(error)")
+            } else if let token = token {
+                print("FCM registration token: \(token)")
+            }
         }
-        // [END register_for_notifications]
+        
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        
+        /// 푸시 권한 요청
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: { granted, error in
+                if granted {
+                    /// APN에 토큰 매핑하는 프로세스
+                    DispatchQueue.main.async {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                }
+            }
+        )
+        
         return true
     }
     
     // [START receive_message]
     // 앱이 꺼져있을 때도 pushAlarm 받는 함수
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        // If you are receiving a notification message while your app is in the background,
-        // this callback will not be fired till the user taps on the notification launching the application.
-        // TODO: Handle data of notification
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
-        // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
         
-        // Print full message.
-        print(userInfo)
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
         
         let pushTypeInUserInfo = (userInfo[AnyHashable("pushType")]! as! NSString).intValue
         
-        // 물 줄 시간이에요 푸시
         if pushTypeInUserInfo == 1 {
             let cherishIdinUserInfo = userInfo[AnyHashable("CherishId")]!
-            print("plz",cherishIdinUserInfo)
             let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController")
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
             NotificationCenter.default.post(name: .pushSelected, object: cherishIdinUserInfo)
+        } else {
+            print("물주기 기록 푸시")
         }
-        // 물주기 기록을 완료해주세요 푸시
-        else {
-            print("물주기 기록 푸시 받았다 오바")
-        }
-        
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        // If you are receiving a notification message while your app is in the background,
-        // this callback will not be fired till the user taps on the notification launching the application.
-        // TODO: Handle data of notification
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
-        // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
         
-        // Print full message.
-        print(userInfo)
         let pushTypeInUserInfo = (userInfo[AnyHashable("pushType")]! as! NSString).intValue
         
         // 물 줄 시간이에요 푸시
         if pushTypeInUserInfo == 1 {
             let cherishIdinUserInfo = userInfo[AnyHashable("CherishId")]!
-            print("plz",cherishIdinUserInfo)
             let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController")
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
             NotificationCenter.default.post(name: .pushSelected, object: cherishIdinUserInfo)
-        }
-        // 물주기 기록을 완료해주세요 푸시
-        else {
-            print("물주기 기록 푸시 받았다 오바")
+        } else {
+            print("물주기 기록 푸시")
         }
         
         completionHandler(UIBackgroundFetchResult.newData)
     }
     
-    // [END receive_message]
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Unable to register for remote notifications: \(error.localizedDescription)")
     }
     
-    // This function is added here only for debugging purposes, and can be removed if swizzling is enabled.
-    // If swizzling is disabled then this function must be implemented so that the APNs token can be paired to
-    // the FCM registration token.
-    
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("APNs token retrieved: \(deviceToken)")
-        
-        // With swizzling disabled you must set the APNs token here.
-        // Messaging.messaging().apnsToken = deviceToken
     }
 }
 
@@ -150,22 +131,14 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
         
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
-        // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
-        // Print full message.
-        print(userInfo)
-        
-        // Change this to your preferred presentation option
         completionHandler([[.alert, .sound]])
     }
     
-    //push가 온 경우 처리
-    //앱을 실행한 적이 있을 때 처리되는 곳(foreground)
+    // push가 온 경우 처리
+    // 앱을 실행한 적이 있을 때 처리되는 곳(foreground)
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
@@ -176,30 +149,21 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
             print("Message ID: \(messageID)")
         }
         
-        // Print full message.
-        print("hello",userInfo)
-        
         if response.actionIdentifier == UNNotificationDismissActionIdentifier {
             print ("Message Closed")
-        }
-        else if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
-            print ("푸시 메시지 클릭 했을 때")
-            
+        } else if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
             let pushTypeInUserInfo = (userInfo[AnyHashable("pushType")]! as! NSString).intValue
             
             // 물 줄 시간이에요 푸시
             if pushTypeInUserInfo == 1 {
                 let cherishIdinUserInfo = userInfo[AnyHashable("CherishId")]!
-                print("plz",cherishIdinUserInfo)
                 let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "CherishTabBarController")
                 self.window?.rootViewController = initialViewController
                 self.window?.makeKeyAndVisible()
                 NotificationCenter.default.post(name: .pushSelected, object: cherishIdinUserInfo)
-            }
-            // 물주기 기록을 완료해주세요 푸시
-            else {
-                print("물주기 기록 푸시 받았다 오바")
+            } else {
+                print("물주기 기록 푸시")
             }
         }
         completionHandler()
@@ -220,7 +184,5 @@ extension AppDelegate: MessagingDelegate {
         let dataDict:[String: String] = ["token": fcmToken ?? ""]
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
         UserDefaults.standard.set(fcmToken, forKey: "fcmToken")
-        // TODO: If necessary send token to application server.
-        // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
 }

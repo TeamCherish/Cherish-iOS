@@ -6,6 +6,5 @@ target 'Cherish-iOS' do
   use_frameworks!
 
   # Pods for Cherish-iOS
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Messaging'
+  
 end

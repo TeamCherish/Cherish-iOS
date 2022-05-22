@@ -13,7 +13,6 @@
 		3317778F25B0B7D900CC1030 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3317778D25B0AAC200CC1030 /* Roboto-Medium.ttf */; };
 		33201B1025AE2EBC001A94E4 /* PlantDetailCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33201B0F25AE2EBC001A94E4 /* PlantDetailCardData.swift */; };
 		33201B1525AE419F001A94E4 /* isCherishDataChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33201B1425AE419F001A94E4 /* isCherishDataChanged.swift */; };
-		33201B2225AF3F23001A94E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33201B2125AF3F23001A94E4 /* GoogleService-Info.plist */; };
 		332CC7A925A6F41E00D0047D /* MyPageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7A725A6F41E00D0047D /* MyPageUtils.swift */; };
 		332CC7AA25A6F41E00D0047D /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7A825A6F41E00D0047D /* CustomSegmentedControl.swift */; };
 		332CC7B025A7018400D0047D /* MypagePlantTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332CC7AF25A7018400D0047D /* MypagePlantTVC.swift */; };
@@ -34,6 +33,9 @@
 		3346B34725AB77E300EF5E14 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3346B34625AB77E300EF5E14 /* AlarmVC.swift */; };
 		3356C2A62631BBAB00B1F416 /* OpenSourceContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3356C2A52631BBAB00B1F416 /* OpenSourceContentVC.swift */; };
 		335816322678EAD700FD4E29 /* UpdateWateringPushService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335816312678EAD700FD4E29 /* UpdateWateringPushService.swift */; };
+		3358C561283A766B00A46D61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3358C560283A766B00A46D61 /* GoogleService-Info.plist */; };
+		3358C564283A771400A46D61 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3358C563283A771400A46D61 /* FirebaseAnalytics */; };
+		3358C566283A771400A46D61 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 3358C565283A771400A46D61 /* FirebaseMessaging */; };
 		335B8FE825F797A800A03640 /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B8FE725F797A800A03640 /* ImageFileManager.swift */; };
 		335D8F4025F4CDD600FE4C7F /* MainPlantConditionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335D8F3F25F4CDD600FE4C7F /* MainPlantConditionData.swift */; };
 		336C6D9625E63FAB003865C3 /* NicknameChangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */; };
@@ -219,7 +221,6 @@
 		3317F22D029D112E0B804F84 /* Pods_Cherish_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cherish_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33201B0F25AE2EBC001A94E4 /* PlantDetailCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailCardData.swift; sourceTree = "<group>"; };
 		33201B1425AE419F001A94E4 /* isCherishDataChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isCherishDataChanged.swift; sourceTree = "<group>"; };
-		33201B2125AF3F23001A94E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		332CC7A725A6F41E00D0047D /* MyPageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageUtils.swift; sourceTree = "<group>"; };
 		332CC7A825A6F41E00D0047D /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		332CC7AF25A7018400D0047D /* MypagePlantTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypagePlantTVC.swift; sourceTree = "<group>"; };
@@ -237,10 +238,10 @@
 		334130C42620750700A68ED2 /* min_iOS.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = min_iOS.gif; sourceTree = "<group>"; };
 		334130C52620750700A68ED2 /* stuki_iOS.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = stuki_iOS.gif; sourceTree = "<group>"; };
 		334130C62620750700A68ED2 /* sun_iOS.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sun_iOS.gif; sourceTree = "<group>"; };
-		3346B34325AB653D00EF5E14 /* Cherish-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cherish-iOS.entitlements"; sourceTree = "<group>"; };
 		3346B34625AB77E300EF5E14 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
 		3356C2A52631BBAB00B1F416 /* OpenSourceContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceContentVC.swift; sourceTree = "<group>"; };
 		335816312678EAD700FD4E29 /* UpdateWateringPushService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWateringPushService.swift; sourceTree = "<group>"; };
+		3358C560283A766B00A46D61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		335B8FE725F797A800A03640 /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
 		335D8F3F25F4CDD600FE4C7F /* MainPlantConditionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPlantConditionData.swift; sourceTree = "<group>"; };
 		336C6D9525E63FAB003865C3 /* NicknameChangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameChangeVC.swift; sourceTree = "<group>"; };
@@ -420,8 +421,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3358C566283A771400A46D61 /* FirebaseMessaging in Frameworks */,
 				54F9579C274E30F300D08050 /* Kingfisher in Frameworks */,
 				54F9579F274E311800D08050 /* OverlayContainer in Frameworks */,
+				3358C564283A771400A46D61 /* FirebaseAnalytics in Frameworks */,
 				54F95796274E30C800D08050 /* Alamofire in Frameworks */,
 				E8B5FAC927CD06BF00B5AFCE /* Then in Frameworks */,
 				E80B48B527CD01D300704AA9 /* Pods_Cherish_iOS.framework in Frameworks */,
@@ -547,7 +550,6 @@
 				545975E626E88D53008336A9 /* Network */,
 				545975E726E88D5D008336A9 /* Screens */,
 				545975E526E88D47008336A9 /* Supports */,
-				3346B34325AB653D00EF5E14 /* Cherish-iOS.entitlements */,
 			);
 			path = "Cherish-iOS";
 			sourceTree = "<group>";
@@ -763,8 +765,8 @@
 		545975E526E88D47008336A9 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
+				3358C560283A766B00A46D61 /* GoogleService-Info.plist */,
 				33851C81259A5542005BCFFD /* Info.plist */,
-				33201B2125AF3F23001A94E4 /* GoogleService-Info.plist */,
 				33851C73259A5541005BCFFD /* AppDelegate.swift */,
 				33851C75259A5541005BCFFD /* SceneDelegate.swift */,
 				33851C7C259A5542005BCFFD /* Assets.xcassets */,
@@ -1387,7 +1389,6 @@
 				33851C6C259A5541005BCFFD /* Sources */,
 				33851C6D259A5541005BCFFD /* Frameworks */,
 				33851C6E259A5541005BCFFD /* Resources */,
-				C297473358F1599870225A3D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1401,6 +1402,8 @@
 				54F9579B274E30F300D08050 /* Kingfisher */,
 				54F9579E274E311800D08050 /* OverlayContainer */,
 				E8B5FAC827CD06BF00B5AFCE /* Then */,
+				3358C563283A771400A46D61 /* FirebaseAnalytics */,
+				3358C565283A771400A46D61 /* FirebaseMessaging */,
 			);
 			productName = "Cherish-iOS";
 			productReference = 33851C70259A5541005BCFFD /* Cherish-iOS.app */;
@@ -1430,12 +1433,13 @@
 			);
 			mainGroup = 33851C67259A5541005BCFFD;
 			packageReferences = (
-				54D8D628271186BB002BD09C /* XCRemoteSwiftPackageReference "SnapKit" */,
-				54F95794274E30C800D08050 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				54F95797274E30D600D08050 /* XCRemoteSwiftPackageReference "FSCalendar" */,
-				54F9579A274E30F300D08050 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				54F9579D274E311800D08050 /* XCRemoteSwiftPackageReference "OverlayContainer" */,
+				54D8D628271186BB002BD09C /* XCRemoteSwiftPackageReference "SnapKit.git" */,
+				54F95794274E30C800D08050 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
+				54F95797274E30D600D08050 /* XCRemoteSwiftPackageReference "FSCalendar.git" */,
+				54F9579A274E30F300D08050 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
+				54F9579D274E311800D08050 /* XCRemoteSwiftPackageReference "OverlayContainer.git" */,
 				E8B5FAC727CD06BF00B5AFCE /* XCRemoteSwiftPackageReference "Then" */,
+				3358C562283A771400A46D61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 33851C71259A5541005BCFFD /* Products */;
 			projectDirPath = "";
@@ -1456,7 +1460,6 @@
 				548F26A8261336640055C5E1 /* OnboardingLastCVCell.xib in Resources */,
 				33851C80259A5542005BCFFD /* LaunchScreen.storyboard in Resources */,
 				92DCC3EB25A85D7100160523 /* SelectFriendCell.xib in Resources */,
-				33201B2225AF3F23001A94E4 /* GoogleService-Info.plist in Resources */,
 				334130C92620750700A68ED2 /* min_iOS.gif in Resources */,
 				33E874E825A04832001F84FE /* TabBar.storyboard in Resources */,
 				33E874C825A04332001F84FE /* NotoSansCJKkr-Regular.otf in Resources */,
@@ -1481,6 +1484,7 @@
 				33E874DD25A04569001F84FE /* MyPage.storyboard in Resources */,
 				33E874D425A043B4001F84FE /* NotoSansCJKkr-Light.otf in Resources */,
 				33E874DA25A043F1001F84FE /* Roboto-Black.ttf in Resources */,
+				3358C561283A766B00A46D61 /* GoogleService-Info.plist in Resources */,
 				548DF19625A2E1620081FCD1 /* PopUpLater.storyboard in Resources */,
 				548DF17225A1BB6D0081FCD1 /* PopUpContact.storyboard in Resources */,
 				548F2696261310790055C5E1 /* OnboardingCVCell.xib in Resources */,
@@ -1513,23 +1517,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C297473358F1599870225A3D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cherish-iOS/Pods-Cherish-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1843,7 +1830,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "Cherish-iOS/Supports/Info.plist";
@@ -1870,7 +1857,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cherish-iOS/Cherish-iOS.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "Cherish-iOS/Supports/Info.plist";
@@ -1913,7 +1900,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		54D8D628271186BB002BD09C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		3358C562283A771400A46D61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		54D8D628271186BB002BD09C /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -1921,7 +1916,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		54F95794274E30C800D08050 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		54F95794274E30C800D08050 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1929,7 +1924,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		54F95797274E30D600D08050 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+		54F95797274E30D600D08050 /* XCRemoteSwiftPackageReference "FSCalendar.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
 			requirement = {
@@ -1937,7 +1932,7 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		54F9579A274E30F300D08050 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		54F9579A274E30F300D08050 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -1945,7 +1940,7 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		54F9579D274E311800D08050 /* XCRemoteSwiftPackageReference "OverlayContainer" */ = {
+		54F9579D274E311800D08050 /* XCRemoteSwiftPackageReference "OverlayContainer.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/applidium/OverlayContainer.git";
 			requirement = {
@@ -1964,29 +1959,39 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3358C563283A771400A46D61 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3358C562283A771400A46D61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		3358C565283A771400A46D61 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3358C562283A771400A46D61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
 		54D8D629271186BB002BD09C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 54D8D628271186BB002BD09C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 54D8D628271186BB002BD09C /* XCRemoteSwiftPackageReference "SnapKit.git" */;
 			productName = SnapKit;
 		};
 		54F95795274E30C800D08050 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 54F95794274E30C800D08050 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 54F95794274E30C800D08050 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
 			productName = Alamofire;
 		};
 		54F95798274E30D600D08050 /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 54F95797274E30D600D08050 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			package = 54F95797274E30D600D08050 /* XCRemoteSwiftPackageReference "FSCalendar.git" */;
 			productName = FSCalendar;
 		};
 		54F9579B274E30F300D08050 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 54F9579A274E30F300D08050 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = 54F9579A274E30F300D08050 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
 			productName = Kingfisher;
 		};
 		54F9579E274E311800D08050 /* OverlayContainer */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 54F9579D274E311800D08050 /* XCRemoteSwiftPackageReference "OverlayContainer" */;
+			package = 54F9579D274E311800D08050 /* XCRemoteSwiftPackageReference "OverlayContainer.git" */;
 			productName = OverlayContainer;
 		};
 		E8B5FAC827CD06BF00B5AFCE /* Then */ = {
